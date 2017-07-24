@@ -1,0 +1,66 @@
+﻿@using CSSPWebTools.Views.Infrastructure.Resources;
+@using CSSPWebTools.Controllers;
+@using CSSPWebTools.Models;
+@using CSSPEnumsDLL.Enums;
+@using CSSPModelsDLL.Models;
+
+@{
+    List<TVItemModelInfrastructureTypeTVItemLinkModel> tvItemModelInfrastructureTypeTVItemLinkModelList = ViewBag.TVItemModelInfrastructureTypeTVItemLinkModelList;
+    InfrastructureController infrastructureController = (InfrastructureController)ViewBag.InfrastructureController;
+    URLModel urlModel = (URLModel)ViewBag.URLModel;
+    TVAuthEnum tvAuth = (TVAuthEnum)ViewBag.TVAuth;
+    bool IsShowMoreInfo = (bool)ViewBag.IsShowMoreInfo;
+    bool IsShowMap = (bool)ViewBag.IsShowMap;
+
+}
+<div id="InfrastructureTopDiv">
+    @if (tvItemModelInfrastructureTypeTVItemLinkModelList.Count == 0)
+    {
+        <span>@InfrastructureViewRes.NoData</span>
+        <div class="InfrastructureAdd">
+
+        </div>
+    }
+    else
+    {
+        <ul class="list-inline">
+            <li><label class="text-uppercase">@InfrastructureViewRes.Legend &nbsp; &mdash;</label></li>
+            <li class="BorderWWTP">@InfrastructureViewRes.WWTPs</li>
+            <li class="BorderLiftStation">@InfrastructureViewRes.LiftStations</li>
+            <li class="BorderOutfall">@InfrastructureViewRes.Outfall</li>
+            <li class="BorderLineOverflow">@InfrastructureViewRes.LineOverflow</li>
+            <li class="BorderOtherInfrastructure">@InfrastructureViewRes.Others</li>
+        </ul>
+
+        <div class="InfrastructureAdd">
+
+        </div>
+        foreach (TVItemModelInfrastructureTypeTVItemLinkModel tvItemModelInfrastructureTypeTVItemLinkModel in tvItemModelInfrastructureTypeTVItemLinkModelList.Where(c => c.InfrastructureType != InfrastructureTypeEnum.Other && c.InfrastructureType != InfrastructureTypeEnum.SeeOther && c.TVItemModelLinkList.Count == 0))
+        {
+            @Html.Action("_infrastructureItem", "Infrastructure", new { Q = urlModel.Q, TVItemID = tvItemModelInfrastructureTypeTVItemLinkModel.TVItemModel.TVItemID, TVItemModelInfrastructureTypeTVItemLinkModelList = tvItemModelInfrastructureTypeTVItemLinkModelList })
+        }
+
+        if (tvItemModelInfrastructureTypeTVItemLinkModelList.Where(c => c.InfrastructureType == InfrastructureTypeEnum.Other).ToList().Count > 0)
+        {
+            <div class="blockMargin">
+                <h4>@InfrastructureViewRes.Others</h4>
+                @foreach (TVItemModelInfrastructureTypeTVItemLinkModel tvItemModelInfrastructureTypeTVItemLinkModel in tvItemModelInfrastructureTypeTVItemLinkModelList.Where(c => c.InfrastructureType == InfrastructureTypeEnum.Other))
+                {
+                    @Html.Action("_infrastructureItem", "Infrastructure", new { Q = urlModel.Q, TVItemID = tvItemModelInfrastructureTypeTVItemLinkModel.TVItemModel.TVItemID, TVItemModelInfrastructureTypeTVItemLinkModelList = tvItemModelInfrastructureTypeTVItemLinkModelList })
+                }
+            </div>
+        }
+        if (tvItemModelInfrastructureTypeTVItemLinkModelList.Where(c => c.InfrastructureType == InfrastructureTypeEnum.SeeOther).ToList().Count > 0)
+        {
+            <div class="blockMargin">
+                @foreach (TVItemModelInfrastructureTypeTVItemLinkModel tvItemModelInfrastructureTypeTVItemLinkModel in tvItemModelInfrastructureTypeTVItemLinkModelList.Where(c => c.InfrastructureType == InfrastructureTypeEnum.SeeOther))
+                {
+                    if (tvItemModelInfrastructureTypeTVItemLinkModel.SeeOtherTVItemID != null)
+                    {
+                        @Html.Action("_infrastructureItem", "Infrastructure", new { Q = urlModel.Q, TVItemID = tvItemModelInfrastructureTypeTVItemLinkModel.TVItemModel.TVItemID, TVItemModelInfrastructureTypeTVItemLinkModelList = tvItemModelInfrastructureTypeTVItemLinkModelList })
+                    }
+                }
+            </div>
+        }
+    }
+</div>

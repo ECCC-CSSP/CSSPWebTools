@@ -1,0 +1,13 @@
+﻿@using CSSPWebToolsDB.Models
+
+@{
+    TVAuthEnum tvAuth = (TVAuthEnum)ViewBag.TVAuth;
+    string tvLocationJSON = (string)ViewBag.tvLocationJSON;
+}
+
+@if (tvAuth >= TVAuthEnum.Read)
+{
+    <div class="TVLocationJSON hidden">
+        @tvLocationJSON
+    </div>
+}

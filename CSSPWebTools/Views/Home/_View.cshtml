@@ -1,0 +1,73 @@
+﻿@using CSSPWebTools.Views.Home.Resources;
+@using CSSPWebTools.Models;
+@using CSSPWebTools.Controllers;
+@using CSSPEnumsDLL.Enums;
+@using CSSPEnumsDLL.Services;
+@using CSSPModelsDLL.Models;
+
+@{
+    URLModel urlModel = (URLModel)ViewBag.URLModel;
+    List<TVItemModelAndChildCount> tvItemModelLocationChildrenList = (List<TVItemModelAndChildCount>)ViewBag.TVItemModelLocationChildrenList;
+    List<TVItemModel> tvItemModelLocationParentList = (List<TVItemModel>)ViewBag.TVItemModelLocationParentList;
+    TVItemModel tvItemModelLocationCurrent = (TVItemModel)ViewBag.TVItemModelLocationCurrent;
+    TVAuthEnum tvAuth = (TVAuthEnum)ViewBag.TVAuth;
+    HomeController homeController = (HomeController)ViewBag.HomeController;
+    BaseEnumService _BaseEnumService = new BaseEnumService((LanguageEnum)ViewBag.Language);
+    string TVType = "";
+    List<TVTypeEnum> tvTypeListNoShow = new List<TVTypeEnum>() { TVTypeEnum.Root, TVTypeEnum.Country, TVTypeEnum.Province, TVTypeEnum.Root, TVTypeEnum.Root, TVTypeEnum.Root, TVTypeEnum.Root };
+
+    if (!tvTypeListNoShow.Contains(tvItemModelLocationCurrent.TVType))
+    {
+        TVType = _BaseEnumService.GetEnumText_TVTypeEnum((TVTypeEnum)tvItemModelLocationCurrent.TVType);
+    }
+}
+
+<div id="ViewDiv" data-tvitemid="@tvItemModelLocationCurrent.TVItemID" data-tvtype="@((int)(tvItemModelLocationCurrent.TVType))">
+    @Html.Action("_breadCrumb", "TVItem", new { Q = urlModel.Q })
+    <div class="container-fluid">
+        <div class="panel panel-default">
+            <div class="panel-heading" style="line-height: 2em;">
+                <span class="h4">
+                    <button class="jbTVItemMoveStart btn btn-primary hidden" title="Move @tvItemModelLocationCurrent.TVText"><span class="glyphicon glyphicon-sort-by-attributes"></span></button>
+                    <span>@TVType</span><span>&nbsp;&nbsp;</span><span class="TVText">@tvItemModelLocationCurrent.TVText</span>
+                </span>
+                <span class="pull-right">
+                    <button class="jbSecurity btn btn-default" title="@HomeViewRes.YourPermission" data-tvauth="@((int)tvAuth)">
+                        @for (int i = 1, count = Enum.GetNames(typeof(TVAuthEnum)).Count(); i < count; i++)
+                        {
+                            string classColor = "text-success";
+                            if ((int)tvAuth < i)
+                            {
+                                classColor = "text-danger";
+                            }
+                            <span class="@classColor" title="@(_BaseEnumService.GetEnumText_TVAuthEnum((TVAuthEnum)i))">@(_BaseEnumService.GetEnumText_TVAuthEnum((TVAuthEnum)i).Substring(0, 1)) </span>
+                        }
+                    </button>
+                    <button class="jbGetLastUpdateAndTVText btn btn-default" type="button"><span class="glyphicon glyphicon-user" title="@HomeViewRes.UpdateDetails"></span></button>
+
+                </span>
+            </div>
+            <div id="tabContent" class="panel-body">
+                @Html.Action("_tabContent", "TVItem", new { Q = urlModel.Q })
+            </div>
+        </div>
+    </div>
+</div>
+
+@if (ViewBag.Debug)
+{
+    <div class="clearfix"></div>
+    <div class="testing hidden">
+        <h4>Testing _View.cshtml and cssp.View.ts</h4>
+        <span class="divName" style="display: none">#ViewDiv</span>
+        <span class="appName" style="display: none">cssp.View</span>
+        <a class="jtTestViewContents btn btn-default">Test Contents</a>
+        <a class="jtTestViewFields btn btn-default">Test Fields</a>
+    </div>
+}
+
+<script type="text/javascript">
+    $(function () {
+        cssp.View.Init();
+    });
+</script>

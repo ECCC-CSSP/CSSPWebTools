@@ -1,0 +1,25 @@
+﻿@using CSSPWebTools.Views.Admin.Resources;
+@using CSSPEnumsDLL.Enums;
+@using CSSPModelsDLL.Models;
+
+@{
+    bool IsAdmin = (bool)ViewBag.IsAdmin;
+    string TVPathNext = (string)ViewBag.TVPathNext;
+    List<TVItemModel> tvItemModelList = (List<TVItemModel>)ViewBag.TVItemModelList;
+}
+@if (!IsAdmin)
+{
+    <h2>@_AdminViewRes.Error</h2>
+    <h3>@_AdminViewRes.NeedAdministratorToAccessThisInformation</h3>
+    <a href="#!Home" class="btn btn-default">@_AdminViewRes.ReturnToHomePage</a>
+}
+else
+{
+    <select name="@(((TVTypeEnum)tvItemModelList[0].TVType).ToString())" class="AdminTVItemSelect form-control" data-tvpath="@TVPathNext">
+        <option value="0">@(((TVTypeEnum)tvItemModelList[0].TVType).ToString())</option>
+        @foreach (TVItemModel tvItemModel in tvItemModelList)
+        {
+            <option value="@tvItemModel.TVItemID">@tvItemModel.TVText</option>
+        }
+    </select>
+}

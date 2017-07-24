@@ -1,0 +1,128 @@
+﻿@using CSSPWebTools.Views.Shared.Resources;
+@using CSSPWebTools.Views.VisualPlumes.Resources;
+@using CSSPModelsDLL.Models;
+
+@{
+    VPFullModel vpFullModel = (VPFullModel)ViewBag.VPFullModel;
+}
+
+
+<div class="form-group ">
+    <label class="control-label" for="ScenarioName">@VisualPlumeViewRes.ScenarioName:</label>
+    <div>
+        <input id="VPScenarioName" class="form-control" type="text" name="VPScenarioName" value="@vpFullModel.VPScenarioName" />
+        <span class="help-block"></span>
+    </div>
+    <div>
+        <label for="UseAsBest" class="checkbox-inline">
+            <input id="UseAsBest" class="checkbox" type="checkbox" name="UseAsBest" />
+            <b>@VisualPlumeViewRes.UseAsBest</b>
+        </label>
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h4 class="panel-title">
+            <a href="#DiffuserInformation" data-toggle="collapse" aria-expanded="true" aria-controls="DiffuserInformation">@VisualPlumeViewRes.DiffuserInformation</a>
+        </h4>
+    </div>
+    <div class="panel-body collapse in" id="DiffuserInformation">
+        <div class="form-group">
+            <label for="EffluentConcentration_MPN_100ml" class="control-label">@VisualPlumeViewRes.EffluentConcentration (@UnitViewRes.FCPer100ml)</label>
+            <div>
+                <input id="EffluentConcentration_MPN_100ml" class="isnumber form-control" type="text" name="EffluentConcentration_MPN_100ml" value="@(string.Format("{0:F0}", vpFullModel.EffluentConcentration_MPN_100ml))" />
+                <span class="help-block"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="EffluentFlow_m3_s" class="control-label">@VisualPlumeViewRes.EffluentFlow (@Html.Raw(UnitViewRes.m3PerSecond))</label>
+            <div>
+                <input id="EffluentFlow_m3_s" class="isnumber form-control " type="text" name="EffluentFlow_m3_s" value="@(string.Format("{0:F5}", vpFullModel.EffluentFlow_m3_s))" />
+                <span class="help-block"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="PortDiameter_m" class="control-label"> @VisualPlumeViewRes.PortDiameter (@UnitViewRes.Meters_abbr) </label>
+            <div>
+                <input id="PortDiameter_m" class="isnumber form-control" type="text" name="PortDiameter_m" value="@(string.Format("{0:F3}", vpFullModel.PortDiameter_m))" />
+                <span class="help-block"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="PortElevation_m" class="control-label">@VisualPlumeViewRes.PortElevation (@UnitViewRes.Meters_abbr)</label>
+            <div>
+                <input id="PortElevation_m" class="isnumber form-control" type="text" name="PortElevation_m" value="@(string.Format("{0:F3}", vpFullModel.PortElevation_m))" />
+                <span class="help-block"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="PortDepth_m" class="control-label"> @VisualPlumeViewRes.PortDepth (@UnitViewRes.Meters_abbr)</label>
+            <div>
+                <input id="PortDepth_m" class="isnumber form-control" type="text" name="PortDepth_m" value="@(string.Format("{0:F3}", vpFullModel.PortDepth_m))" />
+                <span class="help-block"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="EffluentSalinity_PSU" class="control-label"> @VisualPlumeViewRes.EffluentSalinity (@UnitViewRes.PSU)</label>
+            <div>
+                <input id="EffluentSalinity_PSU" class="isnumber form-control" type="text" name="EffluentSalinity_PSU" value="@(string.Format("{0:F1}", vpFullModel.EffluentSalinity_PSU))" />
+                <span class="help-block"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="EffluentTemperature_C" class="control-label"> @VisualPlumeViewRes.EffluentTemperature (@UnitViewRes.Celcius_abbr) </label>
+            <div>
+                <input id="EffluentTemperature_C" class="isnumber form-control" type="text" name="EffluentTemperature_C" value="@(string.Format("{0:F1}", vpFullModel.EffluentTemperature_C))" />
+                <span class="help-block"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="VerticalAngle_deg" class="control-label"> @VisualPlumeViewRes.VerticalAngle (@UnitViewRes.Degrees_abbr) </label>
+            <div>
+                <input id="VerticalAngle_deg" class="isnumber form-control" type="text" name="VerticalAngle_deg" value="@(string.Format("{0:F1}", vpFullModel.VerticalAngle_deg))" />
+                <span class="help-block"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="HorizontalAngle_deg" class="control-label">@VisualPlumeViewRes.HorizontalAngle (@UnitViewRes.Degrees_abbr)</label>
+            <div>
+                <input id="HorizontalAngle_deg" class="isnumber form-control" type="text" name="HorizontalAngle_deg" value="@(string.Format("{0:F1}", vpFullModel.HorizontalAngle_deg))" />
+                <span class="help-block"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="NumberOfPorts" class="control-label">@VisualPlumeViewRes.NumberOfPorts  </label>
+            <div>
+                <input id="NumberOfPorts" class="isnumber form-control" type="text" name="NumberOfPorts" value="@(string.Format("{0:F0}", vpFullModel.NumberOfPorts))" />
+                <span class="help-block"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="PortSpacing_m" class="control-label"> @VisualPlumeViewRes.PortSpacing (@UnitViewRes.Meters_abbr) </label>
+            <div>
+                <input id="PortSpacing_m" class="isnumber form-control" type="text" name="PortSpacing_m" value="@(string.Format("{0:F2}", vpFullModel.PortSpacing_m))" />
+                <span class="help-block"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="AcuteMixZone_m" class="control-label"> @VisualPlumeViewRes.AcuteMixZone (@UnitViewRes.Meters_abbr) </label>
+            <div>
+                <input id="AcuteMixZone_m" class="isnumber form-control" type="text" name="AcuteMixZone_m" value="@(string.Format("{0:F0}", vpFullModel.AcuteMixZone_m))" />
+                <span class="help-block"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="ChronicMixZone_m" class="control-label"> @VisualPlumeViewRes.ChronicMixZone (@UnitViewRes.Meters_abbr)</label>
+            <div>
+                <input id="ChronicMixZone_m" class="isnumber form-control" type="text" name="ChronicMixZone_m" value="@(string.Format("{0:F0}", vpFullModel.ChronicMixZone_m))" />
+                <span class="help-block"></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+        <script type="text/javascript">
+            $(function () {
+                cssp.VisualPlumes.Init();
+            });
+        </script>

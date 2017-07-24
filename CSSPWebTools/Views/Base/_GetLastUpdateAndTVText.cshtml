@@ -1,0 +1,28 @@
+﻿@using CSSPWebTools.Views.Base.Resources;
+@using CSSPEnumsDLL.Enums;
+@using CSSPModelsDLL.Models;
+
+@{
+    LastUpdateAndTVText lastUpdateAndTVText = (LastUpdateAndTVText)ViewBag.LastUpdateAndTVText;
+}
+<div class="text-danger">
+    @if (ViewBag.Language == LanguageEnum.fr)
+    {
+        <b>@BaseViewRes.LastUpdate:</b><i class="elementSpacing">
+            @(string.Format("{0:D}", lastUpdateAndTVText.LastUpdateDate_Local)) à
+            @(string.Format("{0:HH}", lastUpdateAndTVText.LastUpdateDate_Local))&nbsp;h&nbsp;
+            @(string.Format("{0:mm}", lastUpdateAndTVText.LastUpdateDate_Local))
+          
+        </i>
+        <b>@BaseViewRes.By:</b><i class="elementSpacing">@lastUpdateAndTVText.TVText</i>
+    }
+    else
+    {
+        <b>@BaseViewRes.LastUpdate:</b><i class="elementSpacing">
+            @(string.Format("{0:D}", lastUpdateAndTVText.LastUpdateDate_Local)) at
+            @(string.Format("{0:HH:mm}", lastUpdateAndTVText.LastUpdateDate_Local))
+        </i>
+        <b>@BaseViewRes.By:</b><i class="elementSpacing">@lastUpdateAndTVText.TVText</i>
+    }
+
+</div>

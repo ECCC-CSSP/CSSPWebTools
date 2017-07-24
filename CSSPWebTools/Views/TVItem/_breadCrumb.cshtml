@@ -1,0 +1,21 @@
+﻿@using CSSPWebTools.Models;
+@using CSSPWebTools.Controllers;
+@using CSSPModelsDLL.Models;
+
+@{
+    URLModel urlModel = (URLModel)ViewBag.URLModel;
+    List<TVItemModel> tvItemModelLocationParentList = (List<TVItemModel>)ViewBag.TVItemModelLocationParentList;
+    TVItemController tvItemController = (TVItemController)ViewBag.TVItemController;
+}
+
+<ol class="breadcrumb">
+    @foreach (TVItemModel tvim in tvItemModelLocationParentList)
+    {
+        <li>
+            <a data-tvitemid="@tvim.TVItemID"
+               data-tvpath="@tvim.TVPath"
+               data-tvtype="@tvim.TVType"
+               href="@tvItemController.CreateHashURL(tvim.TVItemID)">@tvim.TVText</a>
+        </li>
+    }
+</ol>

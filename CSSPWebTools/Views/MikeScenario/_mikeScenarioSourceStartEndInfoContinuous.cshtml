@@ -1,0 +1,60 @@
+﻿@using CSSPWebTools.Views.Shared.Resources;
+@using CSSPWebTools.Views.MikeScenario.Resources;
+@using CSSPModelsDLL.Models;
+
+@{
+    List<MikeSourceStartEndModel> mikeSourceStartEndModelList = (List<MikeSourceStartEndModel>)ViewBag.MikeSourceStartEndModelList;
+    int MikeSourceTVItemID = (int)ViewBag.MikeSourceTVItemID;
+
+    int CountEff = 0;
+}
+
+<div class="MikeSourceStartEndsDiv container-fluid">
+    @foreach (MikeSourceStartEndModel mikeSourceStartEndModel in mikeSourceStartEndModelList)
+    {
+        var SourceFlowStart_m3_s = @mikeSourceStartEndModel.SourceFlowStart_m3_day / 3600 / 24;
+        DateTime TempStartDate = (DateTime)mikeSourceStartEndModel.StartDateAndTime_Local;
+        DateTime TempEndDate = (DateTime)mikeSourceStartEndModel.EndDateAndTime_Local;
+
+        CountEff += 1;
+        <div class="MikeSourceStartEndDiv blockMargin" data-mikesourcestartendid="@mikeSourceStartEndModel.MikeSourceStartEndID">
+            <h4>@MikeScenarioViewRes.Effluent (@CountEff)</h4>
+            <div class="blockMargin">
+                <ul class="list-unstyled">
+                    <li>
+                        <label>@MikeScenarioViewRes.Start:</label>
+                        <span class="elementSpacing">@TempStartDate.ToString("f")</span>
+                    </li>
+                    <li>
+                        <label>@MikeScenarioViewRes.Flow:</label>
+                        <span class="elementSpacing">@string.Format("{0:F2}", mikeSourceStartEndModel.SourceFlowStart_m3_day) @Html.Raw(UnitViewRes.m3PerDay)</span>
+                    </li>
+                    <li>
+                        <label>
+                            @MikeScenarioViewRes.Flow:
+                        </label>
+                        <span class="elementSpacing">@string.Format("{0:F6}", SourceFlowStart_m3_s) @Html.Raw(UnitViewRes.m3PerSecond)</span>
+                    </li>
+                    <li>
+                        <label>
+                            @MikeScenarioViewRes.FecalColiform:
+                        </label>
+                        <span class="elementSpacing">@string.Format("{0:F0}", mikeSourceStartEndModel.SourcePollutionStart_MPN_100ml) @Html.Raw(UnitViewRes.MPN_Per100ml_abr)</span>
+                    </li>
+                    <li>
+                        <label>
+                            @MikeScenarioViewRes.Temperature:
+                        </label>
+                        <span class="elementSpacing">@string.Format("{0:F1}", mikeSourceStartEndModel.SourceTemperatureStart_C) @Html.Raw(UnitViewRes.Celcius_abbr)</span>
+                    </li>
+                    <li>
+                        <label>
+                            @MikeScenarioViewRes.Salinity:
+                        </label>
+                        <span class="elementSpacing">@string.Format("{0:F1}", mikeSourceStartEndModel.SourceSalinityStart_PSU) @Html.Raw(UnitViewRes.PSU)</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    }
+</div>

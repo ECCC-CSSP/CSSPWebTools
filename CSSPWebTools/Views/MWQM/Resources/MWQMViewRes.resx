@@ -1,0 +1,720 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ByDate" xml:space="preserve">
+    <value>By date</value>
+    <comment>MWQMSC</comment>
+  </data>
+  <data name="BySample" xml:space="preserve">
+    <value>By sample</value>
+    <comment>MWQMSC</comment>
+  </data>
+  <data name="Depth" xml:space="preserve">
+    <value>Depth</value>
+    <comment>MWQMS MWQMST</comment>
+  </data>
+  <data name="FecalColiformsChart" xml:space="preserve">
+    <value>Fecal Coliforms Chart</value>
+    <comment>MWQMSC</comment>
+  </data>
+  <data name="ShowFromYear" xml:space="preserve">
+    <value>from year</value>
+    <comment>MWQMSC</comment>
+  </data>
+  <data name="GeometricMean" xml:space="preserve">
+    <value>Geometric Mean</value>
+    <comment>MWQMST</comment>
+  </data>
+  <data name="Log" xml:space="preserve">
+    <value>Log</value>
+    <comment>MWQMSC</comment>
+  </data>
+  <data name="Median" xml:space="preserve">
+    <value>Median</value>
+    <comment>MWQMST</comment>
+  </data>
+  <data name="Normal" xml:space="preserve">
+    <value>Normal</value>
+    <comment>MWQMSC</comment>
+  </data>
+  <data name="Percentile90" xml:space="preserve">
+    <value>Percentile 90</value>
+    <comment>MWQMST</comment>
+  </data>
+  <data name="Refresh" xml:space="preserve">
+    <value>Refresh</value>
+    <comment>MWQMSC</comment>
+  </data>
+  <data name="Salinity" xml:space="preserve">
+    <value>Salinity</value>
+    <comment>MWQMST</comment>
+  </data>
+  <data name="SalinityAndTemperatureChart" xml:space="preserve">
+    <value>Salinity and Temperature Chart</value>
+    <comment>MWQMSC</comment>
+  </data>
+  <data name="StatisticsChart" xml:space="preserve">
+    <value>Statistics Chart</value>
+    <comment>MWQMSC</comment>
+  </data>
+  <data name="Temperature" xml:space="preserve">
+    <value>Temperature</value>
+    <comment>MWQMS MWQMST</comment>
+  </data>
+  <data name="FecalColiforms_abbr" xml:space="preserve">
+    <value>FC</value>
+    <comment>MWQMS</comment>
+  </data>
+  <data name="FCLessOrEqualThan14" xml:space="preserve">
+    <value>FC &lt;= 14</value>
+    <comment>MWQMS</comment>
+  </data>
+  <data name="FCMoreThan14" xml:space="preserve">
+    <value>FC &gt; 14</value>
+    <comment>MWQMS</comment>
+  </data>
+  <data name="GeometricMean_abbr" xml:space="preserve">
+    <value>GM</value>
+    <comment>MWQMS</comment>
+  </data>
+  <data name="Median_abbr" xml:space="preserve">
+    <value>Mdn</value>
+    <comment>MWQMS</comment>
+  </data>
+  <data name="NumberOfSample" xml:space="preserve">
+    <value>Number Of Samples</value>
+    <comment>MWQMS</comment>
+  </data>
+  <data name="pH" xml:space="preserve">
+    <value>pH</value>
+    <comment>MWQMS MWQMST</comment>
+  </data>
+  <data name="SampleDate" xml:space="preserve">
+    <value>Sample Date</value>
+    <comment>MWQMS</comment>
+  </data>
+  <data name="DataTable" xml:space="preserve">
+    <value>Data Table</value>
+    <comment>MWQMST</comment>
+  </data>
+  <data name="Abbreviations" xml:space="preserve">
+    <value>Abbreviations</value>
+    <comment>MWQMST MWQMSC</comment>
+  </data>
+  <data name="Abbreviations_abbr" xml:space="preserve">
+    <value>Abbr.</value>
+    <comment>MWQMST MWQMSC</comment>
+  </data>
+  <data name="ChartHeight" xml:space="preserve">
+    <value>chart height</value>
+    <comment>MWQMSC</comment>
+  </data>
+  <data name="ChartWidth" xml:space="preserve">
+    <value>chart width</value>
+    <comment>MWQMSC</comment>
+  </data>
+  <data name="Decrease" xml:space="preserve">
+    <value>decrease</value>
+    <comment>MWQMSC</comment>
+  </data>
+  <data name="Depth_abbr" xml:space="preserve">
+    <value>D</value>
+    <comment>MWQMST</comment>
+  </data>
+  <data name="FecalColiforms" xml:space="preserve">
+    <value>Fecal Coliforms</value>
+    <comment>MWQMST</comment>
+  </data>
+  <data name="Increase" xml:space="preserve">
+    <value>increase</value>
+    <comment>MWQMSC</comment>
+  </data>
+  <data name="PercentageOfP90gt260" xml:space="preserve">
+    <value>% of P90 &gt; 260 </value>
+    <comment>MWQMST MWQMSC</comment>
+  </data>
+  <data name="PercentageOfP90gt43" xml:space="preserve">
+    <value>% of P90 &gt; 43 </value>
+    <comment>MWQMST MWQMSC</comment>
+  </data>
+  <data name="Percentile90_abbr" xml:space="preserve">
+    <value>P90</value>
+    <comment>MWQMST</comment>
+  </data>
+  <data name="Samples" xml:space="preserve">
+    <value>Samples</value>
+    <comment>MWQMS</comment>
+  </data>
+  <data name="OtherMWQMSites" xml:space="preserve">
+    <value>Other MWQM Sites</value>
+  </data>
+  <data name="LocateOnMap" xml:space="preserve">
+    <value>Locate on map</value>
+  </data>
+  <data name="Add" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Latitude" xml:space="preserve">
+    <value>Latitude</value>
+  </data>
+  <data name="Location" xml:space="preserve">
+    <value>Location</value>
+  </data>
+  <data name="Longitude" xml:space="preserve">
+    <value>Longitude</value>
+  </data>
+  <data name="Modify" xml:space="preserve">
+    <value>Modify</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="MWQMSiteDescription" xml:space="preserve">
+    <value>MWQMSite Description</value>
+  </data>
+  <data name="MWQMSiteNumber" xml:space="preserve">
+    <value>MWQMSite Number</value>
+  </data>
+  <data name="MWQMSite" xml:space="preserve">
+    <value>MWQM Site</value>
+  </data>
+  <data name="IsActive" xml:space="preserve">
+    <value>Is Active</value>
+  </data>
+  <data name="AnalysisMethod" xml:space="preserve">
+    <value>Analysis method</value>
+  </data>
+  <data name="Empty" xml:space="preserve">
+    <value>Empty</value>
+  </data>
+  <data name="Laboratory" xml:space="preserve">
+    <value>Laboratory</value>
+  </data>
+  <data name="MWQMRunSampleData" xml:space="preserve">
+    <value>MWQM Run Sample Data</value>
+  </data>
+  <data name="RunGereralInformation" xml:space="preserve">
+    <value>Run Gereral Information</value>
+  </data>
+  <data name="SampleMatrix" xml:space="preserve">
+    <value>Sample matrix</value>
+  </data>
+  <data name="SampleStatus" xml:space="preserve">
+    <value>SampleStatus</value>
+  </data>
+  <data name="SampleType" xml:space="preserve">
+    <value>Sample Type</value>
+  </data>
+  <data name="SeaState" xml:space="preserve">
+    <value>Sea state</value>
+  </data>
+  <data name="StartDateAndTime" xml:space="preserve">
+    <value>StartDateAndTime</value>
+  </data>
+  <data name="TemperatureControl1" xml:space="preserve">
+    <value>Temperature control #1</value>
+  </data>
+  <data name="ValidateDateAndTime" xml:space="preserve">
+    <value>ValidateDateAndTime</value>
+  </data>
+  <data name="ValidatorContactName" xml:space="preserve">
+    <value>ValidatorContactName</value>
+  </data>
+  <data name="Day" xml:space="preserve">
+    <value>Day</value>
+  </data>
+  <data name="End" xml:space="preserve">
+    <value>End</value>
+  </data>
+  <data name="LabAnalysis" xml:space="preserve">
+    <value>Lab analysis</value>
+  </data>
+  <data name="ModifyMWQMRun" xml:space="preserve">
+    <value>Modify MWQM Run</value>
+  </data>
+  <data name="Month" xml:space="preserve">
+    <value>Month</value>
+  </data>
+  <data name="Last24hours" xml:space="preserve">
+    <value> last 24 hours</value>
+  </data>
+  <data name="Last48hours" xml:space="preserve">
+    <value> last 48 hours</value>
+  </data>
+  <data name="Last72hours" xml:space="preserve">
+    <value> last 72 hours</value>
+  </data>
+  <data name="RunSamplingCrewInitials" xml:space="preserve">
+    <value>Run sampling crew initials</value>
+  </data>
+  <data name="SelectSeaState" xml:space="preserve">
+    <value>Select Sea State</value>
+  </data>
+  <data name="Start" xml:space="preserve">
+    <value>Start</value>
+  </data>
+  <data name="WaterLevelAtBrook" xml:space="preserve">
+    <value>Water level at brook</value>
+  </data>
+  <data name="WaveHeight" xml:space="preserve">
+    <value>Wave height </value>
+  </data>
+  <data name="Year" xml:space="preserve">
+    <value>Year</value>
+  </data>
+  <data name="RunDate" xml:space="preserve">
+    <value>Run date</value>
+  </data>
+  <data name="LabAnalysisBath1Incubation" xml:space="preserve">
+    <value>Laboratory Analysis / Bath 1 Incubation</value>
+  </data>
+  <data name="RunTime" xml:space="preserve">
+    <value>Run time</value>
+  </data>
+  <data name="SelectTheAnalysisMethod" xml:space="preserve">
+    <value>Select the analysis method</value>
+  </data>
+  <data name="SelectTheLaboratory" xml:space="preserve">
+    <value>Select the laboratory</value>
+  </data>
+  <data name="SelectTheSampleMatrix" xml:space="preserve">
+    <value>Select the sample matrix</value>
+  </data>
+  <data name="Action" xml:space="preserve">
+    <value>Action</value>
+  </data>
+  <data name="DeleteSample" xml:space="preserve">
+    <value>Delete sample</value>
+  </data>
+  <data name="AddSample" xml:space="preserve">
+    <value>Add Sample</value>
+  </data>
+  <data name="ChangeSample" xml:space="preserve">
+    <value>Change Sample</value>
+  </data>
+  <data name="Comment" xml:space="preserve">
+    <value>Comment</value>
+  </data>
+  <data name="ProcessedBy" xml:space="preserve">
+    <value>Processed By</value>
+  </data>
+  <data name="Time" xml:space="preserve">
+    <value>Time</value>
+  </data>
+  <data name="BeaufortScale" xml:space="preserve">
+    <value>Beaufort Scale</value>
+  </data>
+  <data name="FieldRelatedInformation" xml:space="preserve">
+    <value>Information - Field work </value>
+  </data>
+  <data name="HistoricalRelatedInformation" xml:space="preserve">
+    <value>Information - Historical </value>
+  </data>
+  <data name="TheNextDay" xml:space="preserve">
+    <value>the next day</value>
+  </data>
+  <data name="LaboratoryRelatedInformation" xml:space="preserve">
+    <value>Information - Laboratory Analysis</value>
+  </data>
+  <data name="LaboratorySampleApprovalDateAndTime" xml:space="preserve">
+    <value>Laboratory sample approval date and time</value>
+  </data>
+  <data name="RunSamplesApprovedBy" xml:space="preserve">
+    <value>Run samples approved by</value>
+  </data>
+  <data name="StartTime" xml:space="preserve">
+    <value>Start time</value>
+  </data>
+  <data name="LaboratoryReceivedSamples" xml:space="preserve">
+    <value>Laboratory receiving samples</value>
+  </data>
+  <data name="MWQMSiteName" xml:space="preserve">
+    <value>MWQM Site Name</value>
+  </data>
+  <data name="Precipitation" xml:space="preserve">
+    <value>Precipitation</value>
+  </data>
+  <data name="Reception" xml:space="preserve">
+    <value>Reception</value>
+  </data>
+  <data name="RunSampleReception" xml:space="preserve">
+    <value>Run Samples Reception</value>
+  </data>
+  <data name="TheSameDay" xml:space="preserve">
+    <value> the next day</value>
+  </data>
+  <data name="RunComment" xml:space="preserve">
+    <value>Run Comment</value>
+  </data>
+  <data name="Charts" xml:space="preserve">
+    <value>Charts</value>
+  </data>
+  <data name="Data" xml:space="preserve">
+    <value>Data</value>
+  </data>
+  <data name="StatisticsData" xml:space="preserve">
+    <value>Statistics Data</value>
+  </data>
+  <data name="RunInformation" xml:space="preserve">
+    <value>Run Information</value>
+  </data>
+  <data name="ShowMWQMSiteOnMap" xml:space="preserve">
+    <value>Show MWQM site on map</value>
+  </data>
+  <data name="TemperatureControl2" xml:space="preserve">
+    <value>Temperature control #2</value>
+  </data>
+  <data name="MWQMSampleNote" xml:space="preserve">
+    <value>Sample note</value>
+  </data>
+  <data name="SampleTypes" xml:space="preserve">
+    <value>Sample Types</value>
+  </data>
+  <data name="RunSampleType" xml:space="preserve">
+    <value>Run sample type</value>
+  </data>
+  <data name="LabAnalysisBath2Incubation" xml:space="preserve">
+    <value>Laboratory Analysis / Bath 2 Incubation</value>
+  </data>
+  <data name="LabAnalysisBath3Incubation" xml:space="preserve">
+    <value>Laboratory Analysis / Bath 3 Incubation</value>
+  </data>
+  <data name="MWQMSiteLatestClassification" xml:space="preserve">
+    <value>Latest Classification</value>
+  </data>
+  <data name="SelectAClassification" xml:space="preserve">
+    <value>Select a classification</value>
+  </data>
+  <data name="EndDate" xml:space="preserve">
+    <value>End Date</value>
+  </data>
+  <data name="InTxt" xml:space="preserve">
+    <value>in</value>
+  </data>
+  <data name="IsRainRunWhen" xml:space="preserve">
+    <value>Is rain run when</value>
+  </data>
+  <data name="Runs" xml:space="preserve">
+    <value>Runs</value>
+  </data>
+  <data name="Or" xml:space="preserve">
+    <value>or</value>
+  </data>
+  <data name="StartDate" xml:space="preserve">
+    <value>Start Date</value>
+  </data>
+  <data name="VisibleDataType" xml:space="preserve">
+    <value>Visible data type</value>
+  </data>
+  <data name="Rain" xml:space="preserve">
+    <value>Rain</value>
+  </data>
+  <data name="Recalculate" xml:space="preserve">
+    <value>Recalculate</value>
+  </data>
+  <data name="Calculation" xml:space="preserve">
+    <value>Calculation</value>
+  </data>
+  <data name="FecalColiformPer100mL" xml:space="preserve">
+    <value>Fecal Coliform / 100 mL</value>
+  </data>
+  <data name="IncludeRain" xml:space="preserve">
+    <value>Include rain</value>
+  </data>
+  <data name="NoRain" xml:space="preserve">
+    <value>No rain</value>
+  </data>
+  <data name="OnlyRain" xml:space="preserve">
+    <value>Only rain</value>
+  </data>
+  <data name="P90" xml:space="preserve">
+    <value>P90</value>
+  </data>
+  <data name="SaveForReport" xml:space="preserve">
+    <value>Save for report</value>
+  </data>
+  <data name="AutoCalculation" xml:space="preserve">
+    <value>Auto Calculation</value>
+  </data>
+  <data name="And" xml:space="preserve">
+    <value>and</value>
+  </data>
+  <data name="Between" xml:space="preserve">
+    <value>Between</value>
+  </data>
+  <data name="NeedRecalculation" xml:space="preserve">
+    <value>Need recalculation</value>
+  </data>
+  <data name="Saving" xml:space="preserve">
+    <value>Saving ...</value>
+  </data>
+  <data name="SelectFullYear" xml:space="preserve">
+    <value>Select full year</value>
+  </data>
+  <data name="SaveOrGetFromDatabase" xml:space="preserve">
+    <value>Save/get from database</value>
+  </data>
+  <data name="Completed" xml:space="preserve">
+    <value>Completed ...</value>
+  </data>
+  <data name="InProgress" xml:space="preserve">
+    <value>In progress ...</value>
+  </data>
+  <data name="Load" xml:space="preserve">
+    <value>Load</value>
+  </data>
+  <data name="Loading" xml:space="preserve">
+    <value>Loading ...</value>
+  </data>
+  <data name="RainDay0" xml:space="preserve">
+    <value>Rain day 0</value>
+  </data>
+  <data name="RainDay1" xml:space="preserve">
+    <value>Rain day 1</value>
+  </data>
+  <data name="RainDay10" xml:space="preserve">
+    <value>Rain day 10</value>
+  </data>
+  <data name="RainDay2" xml:space="preserve">
+    <value>Rain day 2</value>
+  </data>
+  <data name="RainDay3" xml:space="preserve">
+    <value>Rain day 3</value>
+  </data>
+  <data name="RainDay4" xml:space="preserve">
+    <value>Rain day 4</value>
+  </data>
+  <data name="RainDay5" xml:space="preserve">
+    <value>Rain day 5</value>
+  </data>
+  <data name="RainDay6" xml:space="preserve">
+    <value>Rain day 6</value>
+  </data>
+  <data name="RainDay7" xml:space="preserve">
+    <value>Rain day 7</value>
+  </data>
+  <data name="RainDay8" xml:space="preserve">
+    <value>Rain day 8</value>
+  </data>
+  <data name="RainDay9" xml:space="preserve">
+    <value>Rain day 9</value>
+  </data>
+  <data name="ShrinkRainRows" xml:space="preserve">
+    <value>Shrink rain rows</value>
+  </data>
+  <data name="HideRainRows" xml:space="preserve">
+    <value>Hide rain rows</value>
+  </data>
+  <data name="HideTideRows" xml:space="preserve">
+    <value>Hide tide rows</value>
+  </data>
+  <data name="All" xml:space="preserve">
+    <value>All</value>
+  </data>
+  <data name="Dry" xml:space="preserve">
+    <value>Dry</value>
+  </data>
+  <data name="HideQueryTool" xml:space="preserve">
+    <value>Hide query tool</value>
+  </data>
+  <data name="HideRunsNotUsed" xml:space="preserve">
+    <value>Hide runs not used</value>
+  </data>
+  <data name="LongRange" xml:space="preserve">
+    <value>Long range</value>
+  </data>
+  <data name="LowerRainLimitConsideredRain" xml:space="preserve">
+    <value>Lower rain limit considered rain</value>
+  </data>
+  <data name="MidRange" xml:space="preserve">
+    <value>Mid range</value>
+  </data>
+  <data name="ShortRange" xml:space="preserve">
+    <value>Short range</value>
+  </data>
+  <data name="UpperRainLimitStillConsideredDry" xml:space="preserve">
+    <value>Upper rain limit still considered dry</value>
+  </data>
+  <data name="Wet" xml:space="preserve">
+    <value>Wet</value>
+  </data>
+  <data name="NA" xml:space="preserve">
+    <value>N/A</value>
+  </data>
+  <data name="ExportToExcelDocument" xml:space="preserve">
+    <value>Export to Excel document</value>
+  </data>
+  <data name="FC" xml:space="preserve">
+    <value>FC</value>
+  </data>
+  <data name="GM" xml:space="preserve">
+    <value>GM</value>
+  </data>
+  <data name="HighlightSalinityDeviationFromAverage" xml:space="preserve">
+    <value>Highlight salinity deviation from average</value>
+  </data>
+  <data name="Med" xml:space="preserve">
+    <value>Med</value>
+  </data>
+  <data name="P260" xml:space="preserve">
+    <value>P260</value>
+  </data>
+  <data name="P43" xml:space="preserve">
+    <value>P43</value>
+  </data>
+  <data name="Sal" xml:space="preserve">
+    <value>Sal</value>
+  </data>
+  <data name="SaveForFutureReportProduction" xml:space="preserve">
+    <value>Save for future report production</value>
+  </data>
+  <data name="Temp" xml:space="preserve">
+    <value>Temp</value>
+  </data>
+  <data name="RainDay" xml:space="preserve">
+    <value>Rain day</value>
+  </data>
+  <data name="RunNumber" xml:space="preserve">
+    <value>Run number</value>
+  </data>
+  <data name="RunWeatherComment" xml:space="preserve">
+    <value>Run weather comment</value>
+  </data>
+  <data name="ColorAndLetterSchema" xml:space="preserve">
+    <value>Color and letter schema</value>
+  </data>
+  <data name="Hide" xml:space="preserve">
+    <value>Hide</value>
+  </data>
+  <data name="RunDay" xml:space="preserve">
+    <value>Run Day</value>
+  </data>
+  <data name="ShortMidLongRange" xml:space="preserve">
+    <value>Short - Mid - Long range</value>
+  </data>
+  <data name="UpperAndLowerRainLimitConsideredDryOrWet" xml:space="preserve">
+    <value>Upper and lower rain limit considered dry or wet</value>
+  </data>
+  <data name="ViewData" xml:space="preserve">
+    <value>View data</value>
+  </data>
+</root>

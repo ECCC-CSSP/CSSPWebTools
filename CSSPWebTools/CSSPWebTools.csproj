@@ -1,0 +1,1195 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2E4A4DE1-6C58-4C08-B68D-CD2047CC69B8}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CSSPWebTools</RootNamespace>
+    <AssemblyName>CSSPWebTools</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <TypeScriptToolsVersion>2.2</TypeScriptToolsVersion>
+    <UseGlobalApplicationHostFile />
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="CSSPEnumsDLL">
+      <HintPath>..\..\CSSPEnumsDLL\CSSPEnumsDLL\bin\Debug\CSSPEnumsDLL.dll</HintPath>
+    </Reference>
+    <Reference Include="CSSPLabSheetParserDLL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\CSSPLabSheetParserDLL\CSSPLabSheetParserDLL\bin\Debug\CSSPLabSheetParserDLL.dll</HintPath>
+    </Reference>
+    <Reference Include="CSSPModelsDLL">
+      <HintPath>..\..\CSSPModelsDLL\CSSPModelsDLL\bin\Debug\CSSPModelsDLL.dll</HintPath>
+    </Reference>
+    <Reference Include="CSSPWebToolsDBDLL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\CSSPWebToolsDBDLL\CSSPWebToolsDBDLL\bin\Debug\CSSPWebToolsDBDLL.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Core, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Core.2.2.0\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.SystemWeb, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.SystemWeb.2.2.0\lib\net45\Microsoft.AspNet.SignalR.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AddressController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\BoxModelController.cs" />
+    <Compile Include="Controllers\ClimateSiteController.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
+    <Compile Include="Controllers\DialogController.cs" />
+    <Compile Include="Controllers\EmailController.cs" />
+    <Compile Include="Controllers\FileController.cs" />
+    <Compile Include="Controllers\HelpController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\HydrometricSiteController.cs" />
+    <Compile Include="Controllers\InfrastructureController.cs" />
+    <Compile Include="Controllers\EmailDistributionListController.cs" />
+    <Compile Include="Controllers\RainExceedanceController.cs" />
+    <Compile Include="Controllers\SamplingPlanController.cs" />
+    <Compile Include="Controllers\MapController.cs" />
+    <Compile Include="Controllers\MikeScenarioController.cs" />
+    <Compile Include="Controllers\MWQMController.cs" />
+    <Compile Include="Controllers\PolSourceController.cs" />
+    <Compile Include="Controllers\ProfileController.cs" />
+    <Compile Include="Controllers\ReportController.cs" />
+    <Compile Include="Controllers\Resources\ControllerRes.fr.Designer.cs">
+      <DependentUpon>ControllerRes.fr.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Controllers\Resources\ControllerRes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ControllerRes.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\TelController.cs" />
+    <Compile Include="Controllers\TideSiteController.cs" />
+    <Compile Include="Controllers\TVItemController.cs" />
+    <Compile Include="Controllers\VisualPlumesController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BaseControllerModels.cs" />
+    <Compile Include="Models\IdentityModels.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\URLModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Providers\ApplicationOAuthProvider.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Startup.cs" />
+    <Compile Include="Views\Account\Resources\AccountViewRes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AccountViewRes.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Account\Resources\AccountViewRes.fr.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AccountViewRes.fr.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Address\Resources\AddressViewRes.fr.Designer.cs">
+      <DependentUpon>AddressViewRes.fr.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Views\Address\Resources\AddressViewRes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AddressViewRes.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Resources\_AdminViewRes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_AdminViewRes.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Resources\_AdminViewRes.fr.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_AdminViewRes.fr.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Base\Resources\BaseViewRes.fr.Designer.cs">
+      <DependentUpon>BaseViewRes.fr.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Views\Base\Resources\BaseViewRes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BaseViewRes.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BoxModel\Resources\BoxModelViewRes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BoxModelViewRes.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BoxModel\Resources\BoxModelViewRes.fr.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BoxModelViewRes.fr.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ClimateSite\Resources\ClimateSiteViewRes.fr.Designer.cs">
+      <DependentUpon>ClimateSiteViewRes.fr.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Views\ClimateSite\Resources\ClimateSiteViewRes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ClimateSiteViewRes.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Contact\Resources\ContactViewRes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ContactViewRes.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Contact\Resources\ContactViewRes.fr.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ContactViewRes.fr.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dialog\Resources\DialogViewRes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DialogViewRes.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dialog\Resources\DialogViewRes.fr.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DialogViewRes.fr.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EmailDistributionList\Resources\EmailDistributionListViewRes.fr.Designer.cs">
+      <DependentUpon>EmailDistributionListViewRes.fr.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Views\EmailDistributionList\Resources\EmailDistributionListViewRes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EmailDistributionListViewRes.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Email\Resources\EmailViewRes.fr.Designer.cs">
+      <DependentUpon>EmailViewRes.fr.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Views\Email\Resources\EmailViewRes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EmailViewRes.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\File\Resources\FileViewRes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FileViewRes.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\File\Resources\FileViewRes.fr.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FileViewRes.fr.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Help\Resources\HelpViewRes.fr.Designer.cs">
+      <DependentUpon>HelpViewRes.fr.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Views\Help\Resources\HelpViewRes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HelpViewRes.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Home\Resources\HomeViewRes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HomeViewRes.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Home\Resources\HomeViewRes.fr.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HomeViewRes.fr.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HydrometricSite\Resources\HydrometricSiteViewRes.fr.Designer.cs">
+      <DependentUpon>HydrometricSiteViewRes.fr.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Views\HydrometricSite\Resources\HydrometricSiteViewRes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HydrometricSiteViewRes.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Infrastructure\Resources\InfrastructureViewRes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InfrastructureViewRes.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Infrastructure\Resources\InfrastructureViewRes.fr.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InfrastructureViewRes.fr.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Map\Resources\MapViewRes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MapViewRes.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Map\Resources\MapViewRes.fr.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MapViewRes.fr.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MikeScenario\Resources\MikeScenarioViewRes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MikeScenarioViewRes.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MikeScenario\Resources\MikeScenarioViewRes.fr.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MikeScenarioViewRes.fr.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RainExceedance\Resources\RainExceedanceViewRes.fr.Designer.cs">
+      <DependentUpon>RainExceedanceViewRes.fr.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Views\RainExceedance\Resources\RainExceedanceViewRes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RainExceedanceViewRes.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SamplingPlan\Resources\SamplingPlanViewRes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SamplingPlanViewRes.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SamplingPlan\Resources\SamplingPlanViewRes.fr.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SamplingPlanViewRes.fr.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MWQM\Resources\MWQMViewRes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MWQMViewRes.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MWQM\Resources\MWQMViewRes.fr.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MWQMViewRes.fr.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PolSource\Resources\PolSourceViewRes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PolSourceViewRes.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PolSource\Resources\PolSourceViewRes.fr.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PolSourceViewRes.fr.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Profile\Resources\ProfileViewRes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProfileViewRes.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Profile\Resources\ProfileViewRes.fr.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProfileViewRes.fr.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Shared\Resources\UnitViewRes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UnitViewRes.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Shared\Resources\UnitViewRes.fr.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UnitViewRes.fr.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Shared\Resources\_LayoutViewRes.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>_LayoutViewRes.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Shared\Resources\_LayoutViewRes.fr.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_LayoutViewRes.fr.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Tel\Resources\TelViewRes.fr.Designer.cs">
+      <DependentUpon>TelViewRes.fr.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Views\Tel\Resources\TelViewRes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TelViewRes.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TideSite\Resources\TideSiteViewRes.fr.Designer.cs">
+      <DependentUpon>TideSiteViewRes.fr.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Views\TideSite\Resources\TideSiteViewRes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TideSiteViewRes.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TVItem\Resources\TVItemViewRes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TVItemViewRes.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TVItem\Resources\TVItemViewRes.fr.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TVItemViewRes.fr.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\VisualPlumes\Resources\VisualPlumeViewRes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VisualPlumeViewRes.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\VisualPlumes\Resources\VisualPlumeViewRes.fr.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VisualPlumeViewRes.fr.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\qunit-1.14.0.css" />
+    <Content Include="Content\typeahead.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Images\CSSPWebTools_logo32.png" />
+    <Content Include="Images\CSSPWebTools_logo32_name.png" />
+    <Content Include="Images\DataFile_icon16.png" />
+    <Content Include="Images\Engine_icon16.png" />
+    <Content Include="Images\Excel_icon16.png" />
+    <Content Include="Images\GeneralFile_icon16.png" />
+    <Content Include="Images\GoogleEarth_icon16.png" />
+    <Content Include="Images\GoogleMaps_Icon16.png" />
+    <Content Include="Images\Html_icon16.png" />
+    <Content Include="Images\Image_icon16.png" />
+    <Content Include="Images\mapMarker.png" />
+    <Content Include="Images\Notepad_icon16.png" />
+    <Content Include="Images\Pdf_icon16.png" />
+    <Content Include="Images\Tool_icon16.png" />
+    <Content Include="Images\Word_icon16.png" />
+    <Content Include="Scripts\bloodhound.js" />
+    <Content Include="Scripts\bloodhound.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\cultures\ValidateMessage.fr.js" />
+    <Content Include="Scripts\globalize\cultures\globalize.culture.en-CA.js" />
+    <Content Include="Scripts\globalize\cultures\globalize.culture.fr-CA.js" />
+    <Content Include="Scripts\globalize\cultures\globalize.cultures.js" />
+    <Content Include="Scripts\globalize\globalize.js" />
+    <Content Include="Scripts\html5shiv.js" />
+    <Content Include="Scripts\infobox.js" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="Properties\PublishProfiles\CSSPWebTools publish.pubxml" />
+    <None Include="Scripts\jquery-2.1.4.intellisense.js" />
+    <Content Include="Scripts\jquery-2.1.4.js" />
+    <Content Include="Scripts\jquery-2.1.4.min.js" />
+    <Content Include="Scripts\jquery.form.js" />
+    <Content Include="Scripts\jquery.form.min.js" />
+    <Content Include="Scripts\jquery-2.1.4.min.map" />
+    <Content Include="Scripts\jquery.placeholder.js" />
+    <Content Include="Scripts\jquery.signalR-2.2.0.js" />
+    <Content Include="Scripts\jquery.signalR-2.2.0.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.globalize.js" />
+    <Content Include="Scripts\jquery.validate.globalize.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\qunit-1.14.0.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.matchmedia.addListener.js" />
+    <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\respondForIE.min.js" />
+    <Content Include="Scripts\sammy-0.7.5.js" />
+    <Content Include="Scripts\sammy-0.7.5.min.js" />
+    <Content Include="Scripts\StyleMarker.js" />
+    <Content Include="Scripts\typeahead.bundle.js" />
+    <Content Include="Scripts\typeahead.bundle.min.js" />
+    <Content Include="Scripts\typeahead.jquery.js" />
+    <Content Include="Scripts\typeahead.jquery.min.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Views\File\_fileList.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\_View.cshtml" />
+    <Content Include="Views\Home\_Header.cshtml" />
+    <Content Include="Views\Home\_Home.cshtml" />
+    <Content Include="Views\Dialog\_dialogBasic.cshtml" />
+    <Content Include="Views\Profile\_Profile.cshtml" />
+    <Content Include="Views\TVItem\_breadCrumb.cshtml" />
+    <Content Include="Views\TVItem\_tabContent.cshtml" />
+    <Content Include="Views\TVItem\_content.cshtml" />
+    <Content Include="Views\Map\_topCenter.cshtml" />
+    <Content Include="Views\File\_createDocument.cshtml" />
+    <Content Include="Views\Admin\_Admin.cshtml" />
+    <Content Include="Views\Admin\_User.cshtml" />
+    <Content Include="Views\TVItem\_TVItemMoreInfo.cshtml" />
+    <Content Include="Views\Account\_ForgotPassword.cshtml" />
+    <Content Include="Views\Account\_ForgotPasswordEmailSent.cshtml" />
+    <Content Include="Views\Account\_Login.cshtml" />
+    <Content Include="Views\Account\_Register.cshtml" />
+    <Content Include="Views\File\_fileImport.cshtml" />
+    <Content Include="Views\Infrastructure\_infrastructureEditAll.cshtml" />
+    <Content Include="Views\Infrastructure\_infrastructureInfo.cshtml" />
+    <Content Include="Views\Infrastructure\_infrastructureList.cshtml" />
+    <Content Include="Views\VisualPlumes\_visualPlumeAmbient.cshtml" />
+    <Content Include="Views\VisualPlumes\_visualPlumeScenario.cshtml" />
+    <Content Include="Views\VisualPlumes\_visualPlumesList.cshtml" />
+    <Content Include="Views\BoxModel\_boxModelEdit.cshtml" />
+    <Content Include="Views\BoxModel\_boxModelList.cshtml" />
+    <Content Include="Views\BoxModel\_boxModelResults.cshtml" />
+    <Content Include="Views\MikeScenario\_mikeScenario.cshtml" />
+    <Content Include="Views\MikeScenario\_mikeScenarioAdd.cshtml" />
+    <Content Include="Views\Profile\_ProfileEdit.cshtml" />
+    <Content Include="Views\MWQM\_mwqmSite.cshtml" />
+    <Content Include="Views\MikeScenario\_mikeScenarioGeneralParameters.cshtml" />
+    <Content Include="Views\MikeScenario\_mikeScenarioInputSummary.cshtml" />
+    <Content Include="Views\MikeScenario\_mikeScenarioSources.cshtml" />
+    <Content Include="Views\MikeScenario\_SetupWebTideWorking.cshtml" />
+    <Content Include="Views\Admin\_TVItemTVAuth.cshtml" />
+    <Content Include="Views\Contact\_contactList.cshtml" />
+    <Content Include="Views\VisualPlumes\_visualPlumeScenarioChartResults.cshtml" />
+    <Content Include="Views\VisualPlumes\_visualPlumeScenarioEditAmbient.cshtml" />
+    <Content Include="Views\VisualPlumes\_visualPlumeScenarioEditDiffuser.cshtml" />
+    <Content Include="Views\VisualPlumes\_visualPlumeScenarioInput.cshtml" />
+    <Content Include="Views\VisualPlumes\_visualPlumeScenarioRawResults.cshtml" />
+    <Content Include="Views\VisualPlumes\_visualPlumeScenarioResults.cshtml" />
+    <Content Include="Views\MWQM\_mwqmSiteCharts.cshtml" />
+    <Content Include="Views\MWQM\_mwqmSiteTable.cshtml" />
+    <Content Include="Views\PolSource\_polSourceSiteAddOrModify.cshtml" />
+    <Content Include="Views\PolSource\_polSourceSite.cshtml" />
+    <Content Include="Views\File\_fileEdit.cshtml" />
+    <Content Include="Views\File\_fileUpload.cshtml" />
+    <Content Include="Views\Admin\_TVItemTVAuthSelect.cshtml" />
+    <Content Include="Views\TVItem\_TVItemAddOrModify.cshtml" />
+    <Content Include="Views\Dialog\_dialogPermissions.cshtml" />
+    <Content Include="Views\Home\_LoginOrRegisterRequired.cshtml" />
+    <Content Include="Views\Home\_PermissionRequired.cshtml" />
+    <Content Include="Views\Contact\_contactAddOrModify.cshtml" />
+    <Content Include="Views\Address\_addressEditList.cshtml" />
+    <Content Include="Views\Email\_emailEditList.cshtml" />
+    <Content Include="Views\Tel\_telEditList.cshtml" />
+    <Content Include="Views\Contact\_contactMoreInfo.cshtml" />
+    <Content Include="Views\Address\_CountryList.cshtml" />
+    <Content Include="Views\Address\_ProvinceList.cshtml" />
+    <Content Include="Views\Address\_MunicipalityList.cshtml" />
+    <Content Include="Views\Infrastructure\_infrastructureItem.cshtml" />
+    <Content Include="Views\Infrastructure\_infrastructureAddOrModify.cshtml" />
+    <Content Include="Views\Base\_GetLastUpdateAndTVText.cshtml" />
+    <Content Include="Views\TVItem\_MovingTVItem.cshtml" />
+    <Content Include="Views\TVItem\_MovingTVItemSelect.cshtml" />
+    <Content Include="Views\SamplingPlan\_SamplingPlanAddOrModify.cshtml" />
+    <Content Include="Views\SamplingPlan\_SamplingPlanByProvince.cshtml" />
+    <Content Include="Scripts\jquery.validate.globalize.min.js.map" />
+    <Content Include="Views\MWQM\_mwqmSiteAddOrModify.cshtml" />
+    <Content Include="Images\Empty.kmz" />
+    <Content Include="Views\MikeScenario\_mikeScenarioGeneralParametersEdit.cshtml" />
+    <Content Include="Views\MikeScenario\_mikeScenarioBoundaryConditions.cshtml" />
+    <Content Include="Views\MikeScenario\_mikeScenarioGenerateResults.cshtml" />
+    <Content Include="Views\MikeScenario\_mikeScenarioSourceAdd.cshtml" />
+    <Content Include="Views\MikeScenario\_mikeScenarioSourceInfo.cshtml" />
+    <Content Include="Views\MikeScenario\_mikeScenarioSourceEdit.cshtml" />
+    <Content Include="Views\MikeScenario\_mikeScenarioSourceStartEndInfoContinuous.cshtml" />
+    <Content Include="Views\MikeScenario\_mikeScenarioSourceStartEndInfoNotContinuous.cshtml" />
+    <Content Include="Views\MikeScenario\_mikeScenarioSourceStartEndEditContinuous.cshtml" />
+    <Content Include="Views\MikeScenario\_mikeScenarioSourceStartEndEditNotContinuous.cshtml" />
+    <Content Include="Views\Home\_appTask.cshtml" />
+    <Content Include="Views\TideSite\_tideSiteList.cshtml" />
+    <Content Include="Views\ClimateSite\_climateSiteTopPage.cshtml" />
+    <Content Include="Views\HydrometricSite\_hydrometricSiteList.cshtml" />
+    <Content Include="Views\Address\_addressEditPolSourceSite.cshtml" />
+    <Content Include="Views\Address\_addressEditInfrastructure.cshtml" />
+    <Content Include="Views\SamplingPlan\_LabSheetsTranferred.cshtml" />
+    <Content Include="Views\MWQM\_mwqmRunAddOrModify.cshtml" />
+    <Content Include="Views\Map\_mapMarkerClickInfo.cshtml" />
+    <Content Include="Views\Help\TopSearch.cshtml" />
+    <Content Include="Views\Dialog\_dialogHelp.cshtml" />
+    <Content Include="Views\TVItem\_TVItemLinkList.cshtml" />
+    <Content Include="Views\MWQM\_otherMWQMSites.cshtml" />
+    <Content Include="Views\MWQM\_mwqmRun.cshtml" />
+    <Content Include="Views\PolSource\_polSourceIssueModify.cshtml" />
+    <Content Include="Views\PolSource\_polSourceIssueList.cshtml" />
+    <Content Include="Views\PolSource\_polSourceObservationAddOrModify.cshtml" />
+    <Content Include="Views\PolSource\_polSourceObservationList.cshtml" />
+    <Content Include="Views\SamplingPlan\_SamplingPlanMWQMSites.cshtml" />
+    <Content Include="Views\SamplingPlan\_LabSheetsHistory.cshtml" />
+    <Content Include="Views\SamplingPlan\_LabSheetsHistoryDetail.cshtml" />
+    <Content Include="Views\MWQM\_mwqmSubsectorAnalysis.cshtml" />
+    <Content Include="Views\ClimateSite\_selectedRunPrecipitation.cshtml" />
+    <Content Include="Views\ClimateSite\_subsectorClimateSites.cshtml" />
+    <Content Include="Views\ClimateSite\_dialogToShowExOfYearsToEnter.cshtml" />
+    <Content Include="Views\ClimateSite\_climateSitePriorities.cshtml" />
+    <Content Include="Views\ClimateSite\_runsAndClimateSitePrecipitation.cshtml" />
+    <Content Include="Views\RainExceedance\_rainExceedanceAddOrModify.cshtml" />
+    <Content Include="Views\EmailDistributionList\_emailDistributionListAddOrModify.cshtml" />
+    <Content Include="Views\EmailDistributionList\_emailDistributionList.cshtml" />
+    <Content Include="Views\RainExceedance\_rainExceedance.cshtml" />
+    <Content Include="Views\RainExceedance\_rainExceedanceEmailDistributionList.cshtml" />
+    <Content Include="Views\RainExceedance\_rainExceedanceClimateSite.cshtml" />
+    <Content Include="Views\EmailDistributionList\_emailDistributionListContact.cshtml" />
+    <Content Include="Views\EmailDistributionList\_emailDistributionListContactAddOrModify.cshtml" />
+    <Content Include="Views\RainExceedance\_rainExceedanceSubsector.cshtml" />
+    <Content Include="Views\RainExceedance\_rainExceedanceProvince.cshtml" />
+    <Content Include="Views\MikeScenario\_mikeScenarioGenerateResultsGetFileDetail.cshtml" />
+    <Content Include="Views\MikeScenario\_mikeScenarioGenerateResults_New.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Models\Resources\" />
+    <Folder Include="Views\Report\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="Scripts\csspjstest\cssp.Test.Admin.ts" />
+    <TypeScriptCompile Include="Scripts\csspjstest\cssp.Test.Dialog.ts" />
+    <TypeScriptCompile Include="Scripts\csspjstest\cssp.Test.DocumentAEvents.ts" />
+    <TypeScriptCompile Include="Scripts\csspjstest\cssp.Test.DocumentButtonEvents.ts" />
+    <TypeScriptCompile Include="Scripts\csspjstest\cssp.Test.File.ts" />
+    <TypeScriptCompile Include="Scripts\csspjstest\cssp.Test.ForgotPassword.ts" />
+    <TypeScriptCompile Include="Scripts\csspjstest\cssp.Test.ForgotPasswordEmailSent.ts" />
+    <TypeScriptCompile Include="Scripts\csspjstest\cssp.Test.Header.ts" />
+    <TypeScriptCompile Include="Scripts\csspjstest\cssp.Test.Home.ts" />
+    <TypeScriptCompile Include="Scripts\csspjstest\cssp.Test.Login.ts" />
+    <TypeScriptCompile Include="Scripts\csspjstest\cssp.Test.Profile.ts" />
+    <TypeScriptCompile Include="Scripts\csspjstest\cssp.Test.Register.ts" />
+    <TypeScriptCompile Include="Scripts\csspjstest\cssp.Test.Testing.ts" />
+    <TypeScriptCompile Include="Scripts\csspjstest\cssp.Test.ts" />
+    <TypeScriptCompile Include="Scripts\csspjstest\cssp.Test.View.ts" />
+    <TypeScriptCompile Include="Scripts\csspjstest\cssp.TestAccordion.ts" />
+    <TypeScriptCompile Include="Scripts\csspjstest\cssp.TestCreditCard.ts" />
+    <TypeScriptCompile Include="Scripts\csspjstest\cssp.TestDate.ts" />
+    <TypeScriptCompile Include="Scripts\csspjstest\cssp.TestDateISO.ts" />
+    <TypeScriptCompile Include="Scripts\csspjstest\cssp.TestDigits.ts" />
+    <TypeScriptCompile Include="Scripts\csspjstest\cssp.TestDropDownMenu.ts" />
+    <TypeScriptCompile Include="Scripts\csspjstest\cssp.TestEmail.ts" />
+    <TypeScriptCompile Include="Scripts\csspjstest\cssp.TestEqualTo.ts" />
+    <TypeScriptCompile Include="Scripts\csspjstest\cssp.TestForm.ts" />
+    <TypeScriptCompile Include="Scripts\csspjstest\cssp.TestInput.ts" />
+    <TypeScriptCompile Include="Scripts\csspjstest\cssp.TestInputTypeAhead.ts" />
+    <TypeScriptCompile Include="Scripts\csspjstest\cssp.TestMax.ts" />
+    <TypeScriptCompile Include="Scripts\csspjstest\cssp.TestMaxLength.ts" />
+    <TypeScriptCompile Include="Scripts\csspjstest\cssp.TestMin.ts" />
+    <TypeScriptCompile Include="Scripts\csspjstest\cssp.TestMinLength.ts" />
+    <TypeScriptCompile Include="Scripts\csspjstest\cssp.TestModal.ts" />
+    <TypeScriptCompile Include="Scripts\csspjstest\cssp.TestNumber.ts" />
+    <TypeScriptCompile Include="Scripts\csspjstest\cssp.TestRange.ts" />
+    <TypeScriptCompile Include="Scripts\csspjstest\cssp.TestRangeLength.ts" />
+    <TypeScriptCompile Include="Scripts\csspjstest\cssp.TestRemote.ts" />
+    <TypeScriptCompile Include="Scripts\csspjstest\cssp.TestRequired.ts" />
+    <TypeScriptCompile Include="Scripts\csspjstest\cssp.TestURL.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\cssp.ClimateSite.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\cssp.HydrometricSite.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\cssp.EmailDistributionList.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\cssp.RainExceedance.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\cssp.SamplingPlan.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\cssp.MWQMRun.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\cssp.MWQMSite.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\cssp.PolSourceSite.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\cssp.TideSite.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\cssp.VisualPlumes.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\cssp.Address.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\cssp.BoxModel.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\cssp.Contact.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\cssp.Dialog.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\cssp.DocumentButtonEvents.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\cssp.Email.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\cssp.File.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\cssp.ForgotPassword.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\cssp.ForgotPasswordEmailSent.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\cssp.Infrastructure.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\cssp.MikeScenario.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\cssp.Tel.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\cssp.View.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\cssp.Testing.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\bootstrap.d.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\jquery.placeholder.d.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\typeahead.d.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\cssp.Admin.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\cssp.DocumentAEvents.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\cssp.GoogleMap.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\cssp.Helpers.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\cssp.Login.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\cssp.Models.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\cssp.Profile.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\cssp.Register.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\cssp.Sammy.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\cssp.Home.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\cssp.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\cssp.TVItem.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\globalize.d.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\google.maps.Adsense.d.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\google.maps.Base.d.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\google.maps.Bicycling.d.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\google.maps.Circle.d.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\google.maps.Control.d.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\google.maps.d.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\google.maps.Direction.d.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\google.maps.DistanceMatrix.d.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\google.maps.Drawing.d.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\google.maps.Elevation.d.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\google.maps.Event.d.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\google.maps.FusionTables.d.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\google.maps.Geocoder.d.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\google.maps.Geometry.d.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\google.maps.GroundOverlay.d.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\google.maps.InfoWindow.d.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\google.maps.KmlLayer.d.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\google.maps.Map.d.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\google.maps.MapProp.d.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\google.maps.Marker.d.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\google.maps.Panoramio.d.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\google.maps.Places.d.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\google.maps.Polygon.d.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\google.maps.Polyline.d.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\google.maps.Rectangle.d.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\google.maps.StreetView.d.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\google.maps.Traffic.d.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\google.maps.Transit.d.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\google.maps.Visualization.d.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\google.maps.Weather.d.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\google.vis.Animation.d.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\google.vis.AnnotationChart.d.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\google.vis.AreaChart.d.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\google.vis.BarChart.d.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\google.vis.Base.d.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\google.vis.BubbleChart.d.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\google.vis.CalendarChart.d.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\google.vis.CandlestickChart.d.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\google.vis.ChartBase.d.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\google.vis.ChartWrapper.d.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\google.vis.ColumnChart.d.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\google.vis.ComboChart.d.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\google.vis.d.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\google.vis.Data.d.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\google.vis.DataTable.d.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\google.vis.DataView.d.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\google.vis.Formatter.d.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\google.vis.Gauge.d.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\google.vis.GeoChart.d.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\google.vis.hAxis.d.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\google.vis.Histogram.d.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\google.vis.LineChart.d.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\google.vis.Map.d.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\google.vis.OrgChart.d.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\google.vis.PieChart.d.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\google.vis.Query.d.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\google.vis.Sankey.d.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\google.vis.ScatterChart.d.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\google.vis.SteppedAreaChart.d.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\google.vis.Table.d.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\google.vis.Timeline.d.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\google.vis.TreeMap.d.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\google.vis.vAxis.d.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\jquery.d.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\jquery.form.d.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\jquery.validation.d.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\qunit.d.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\sammyjs.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Controllers\Resources\ControllerRes.fr.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ControllerRes.fr.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controllers\Resources\ControllerRes.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ControllerRes.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Account\Resources\AccountViewRes.fr.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>AccountViewRes.fr.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Account\Resources\AccountViewRes.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>AccountViewRes.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Address\Resources\AddressViewRes.fr.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>AddressViewRes.fr.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Address\Resources\AddressViewRes.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>AddressViewRes.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Admin\Resources\_AdminViewRes.fr.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>_AdminViewRes.fr.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Admin\Resources\_AdminViewRes.resx">
+      <LastGenOutput>_AdminViewRes.Designer.cs</LastGenOutput>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Base\Resources\BaseViewRes.fr.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>BaseViewRes.fr.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Base\Resources\BaseViewRes.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>BaseViewRes.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\BoxModel\Resources\BoxModelViewRes.fr.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>BoxModelViewRes.fr.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\BoxModel\Resources\BoxModelViewRes.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>BoxModelViewRes.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ClimateSite\Resources\ClimateSiteViewRes.fr.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ClimateSiteViewRes.fr.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ClimateSite\Resources\ClimateSiteViewRes.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ClimateSiteViewRes.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Contact\Resources\ContactViewRes.fr.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ContactViewRes.fr.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Contact\Resources\ContactViewRes.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ContactViewRes.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Dialog\Resources\DialogViewRes.fr.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>DialogViewRes.fr.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Dialog\Resources\DialogViewRes.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>DialogViewRes.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\EmailDistributionList\Resources\EmailDistributionListViewRes.fr.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>EmailDistributionListViewRes.fr.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\EmailDistributionList\Resources\EmailDistributionListViewRes.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>EmailDistributionListViewRes.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Email\Resources\EmailViewRes.fr.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>EmailViewRes.fr.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Email\Resources\EmailViewRes.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>EmailViewRes.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\File\Resources\FileViewRes.fr.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>FileViewRes.fr.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\File\Resources\FileViewRes.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>FileViewRes.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Help\Resources\HelpViewRes.fr.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>HelpViewRes.fr.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Help\Resources\HelpViewRes.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>HelpViewRes.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Home\Resources\HomeViewRes.fr.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>HomeViewRes.fr.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Home\Resources\HomeViewRes.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>HomeViewRes.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\HydrometricSite\Resources\HydrometricSiteViewRes.fr.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>HydrometricSiteViewRes.fr.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\HydrometricSite\Resources\HydrometricSiteViewRes.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>HydrometricSiteViewRes.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Infrastructure\Resources\InfrastructureViewRes.fr.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>InfrastructureViewRes.fr.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Infrastructure\Resources\InfrastructureViewRes.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>InfrastructureViewRes.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Map\Resources\MapViewRes.fr.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>MapViewRes.fr.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Map\Resources\MapViewRes.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>MapViewRes.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\MikeScenario\Resources\MikeScenarioViewRes.fr.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>MikeScenarioViewRes.fr.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\MikeScenario\Resources\MikeScenarioViewRes.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>MikeScenarioViewRes.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\RainExceedance\Resources\RainExceedanceViewRes.fr.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>RainExceedanceViewRes.fr.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\RainExceedance\Resources\RainExceedanceViewRes.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>RainExceedanceViewRes.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\SamplingPlan\Resources\SamplingPlanViewRes.fr.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>SamplingPlanViewRes.fr.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\SamplingPlan\Resources\SamplingPlanViewRes.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>SamplingPlanViewRes.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\MWQM\Resources\MWQMViewRes.fr.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>MWQMViewRes.fr.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\MWQM\Resources\MWQMViewRes.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>MWQMViewRes.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\PolSource\Resources\PolSourceViewRes.fr.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>PolSourceViewRes.fr.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\PolSource\Resources\PolSourceViewRes.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>PolSourceViewRes.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Profile\Resources\ProfileViewRes.fr.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ProfileViewRes.fr.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Profile\Resources\ProfileViewRes.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ProfileViewRes.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Shared\Resources\UnitViewRes.fr.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>UnitViewRes.fr.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Shared\Resources\UnitViewRes.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>UnitViewRes.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Shared\Resources\_LayoutViewRes.fr.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>_LayoutViewRes.fr.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Shared\Resources\_LayoutViewRes.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>_LayoutViewRes.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Tel\Resources\TelViewRes.fr.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>TelViewRes.fr.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Tel\Resources\TelViewRes.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>TelViewRes.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\TideSite\Resources\TideSiteViewRes.fr.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>TideSiteViewRes.fr.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\TideSite\Resources\TideSiteViewRes.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>TideSiteViewRes.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\TVItem\Resources\TVItemViewRes.fr.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>TVItemViewRes.fr.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\TVItem\Resources\TVItemViewRes.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>TVItemViewRes.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\VisualPlumes\Resources\VisualPlumeViewRes.fr.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>VisualPlumeViewRes.fr.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\VisualPlumes\Resources\VisualPlumeViewRes.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>VisualPlumeViewRes.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>11561</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:11562/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

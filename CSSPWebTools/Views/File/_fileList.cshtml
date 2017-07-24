@@ -1,0 +1,217 @@
+﻿@using CSSPWebTools.Views.File.Resources;
+@using CSSPWebTools.Models;
+@using CSSPEnumsDLL.Enums;
+@using CSSPModelsDLL.Models;
+@using CSSPWebTools.Controllers;
+
+@{
+    URLModel urlModel = (URLModel)ViewBag.URLModel;
+    List<TVFileModel> tvFileModelList = (List<TVFileModel>)ViewBag.TVFileModelList;
+    List<FilePurposeAndText> filePurposeAndTextList = (List<FilePurposeAndText>)ViewBag.FilePurposeAndTextList;
+    TVItemModel tvItemModel = (TVItemModel)ViewBag.TVItemModel;
+    TVAuthEnum tvAuth = (TVAuthEnum)ViewBag.TVAuth;
+    int NumberOfSample = (int)ViewBag.NumberOfSample;
+    bool IsShowMoreInfo = (bool)ViewBag.IsShowMoreInfo;
+   }
+
+<div id="FileDiv">
+    <div id="FileVariables" class="hidden">
+        <span class="var_fileEditReturnedEmpty">@FileViewRes._fileEditReturnedEmpty</span>
+    </div>
+    <div class="AppTaskDiv">
+        @Html.Action("_appTask", "Home", new { TVItemID = urlModel.TVItemIDList[0], Seconds = 5 })
+    </div>
+    <div class="footerNav">
+        <div class="FileImport hidden">
+        </div>
+        <div class="CreateDocument hidden">
+        </div>
+    </div>
+    <div>
+        @if (tvFileModelList.Count == 0)
+        {
+            <blockquote>
+                @FileViewRes.Empty
+            </blockquote>
+        }
+        else
+        {
+            foreach (FilePurposeAndText fpat in filePurposeAndTextList.OrderBy(c => c.FilePurposeText))
+            {
+                if (tvFileModelList.Where(c => c.FilePurpose == fpat.FilePurpose).Count() > 0)
+                {
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">@fpat.FilePurposeText @FileViewRes.Files</h4>
+                        </div>
+
+                        <div class="panel-body">
+                            <ul class="list-unstyled">
+
+                                @foreach (TVFileModel tvFileModel in tvFileModelList.Where(c => c.FilePurpose == fpat.FilePurpose).Where(c => c.FileSize_kb > 0))
+                                {
+
+                                    <li class="TVFileItem list-inline" data-tvfileitemid="@tvFileModel.TVFileTVItemID">
+                                        <ul class="list-inline" style="line-height: 25px;">
+                                            <li class="FileEditButtons hidden">
+                                                @if (tvAuth >= TVAuthEnum.Read)
+                                                {
+                                                    <button class="jbFileDownload btn btn-default" data-tvfiletvitemid="@tvFileModel.TVFileTVItemID" title="@FileViewRes.Download"><span class="glyphicon glyphicon-download"></span></button>
+                                                }
+                                                @if (tvAuth >= TVAuthEnum.Write)
+                                                {
+                                                    if (!fpat.FilePurpose.ToString().StartsWith("Mike"))
+                                                    {
+                                                        <button class="jbFileEditShowHide btn btn-default" data-tvfiletvitemid="@tvFileModel.TVFileTVItemID" title="@FileViewRes.Edit"><span class="glyphicon glyphicon-pencil"></span></button>
+                                                    }
+                                                }
+                                                @if (tvAuth >= TVAuthEnum.Delete)
+                                                {
+                                                    if (!fpat.FilePurpose.ToString().StartsWith("Mike") || fpat.FilePurpose.ToString().Contains("KMZ"))
+                                                    {
+                                                        <button class="jbFileAskToDelete btn btn-default" data-tvfiletvitemid="@tvFileModel.TVFileTVItemID" title="@FileViewRes.Delete"><span class="glyphicon glyphicon-trash"></span></button>
+                                                    }
+                                                }
+                                            </li>
+                                            <li>
+                                                @switch (tvFileModel.FileType)
+                                                {
+                                                    case FileTypeEnum.DFS0:
+                                                        {
+                                                            <img src="~/Images/DataFile_icon16.png" /><span>&nbsp;@tvFileModel.ServerFileName</span>
+                                                        }
+                                                        break;
+                                                    case FileTypeEnum.DFS1:
+                                                        {
+                                                            <img src="~/Images/DataFile_icon16.png" /><span>&nbsp;@tvFileModel.ServerFileName</span>
+                                                        }
+                                                        break;
+                                                    case FileTypeEnum.DFSU:
+                                                        {
+                                                            <img src="~/Images/DataFile_icon16.png" /><span>&nbsp;@tvFileModel.ServerFileName</span>
+                                                        }
+                                                        break;
+                                                    case FileTypeEnum.DOCX:
+                                                        {
+                                                            <img src="~/Images/Word_icon16.png" /><span>&nbsp;@tvFileModel.ServerFileName</span>
+                                                        }
+                                                        break;
+                                                    case FileTypeEnum.GIF:
+                                                        {
+                                                            <img src="~/Images/Image_icon16.png" /><span>&nbsp;@tvFileModel.ServerFileName</span>
+                                                        }
+                                                        break;
+                                                    case FileTypeEnum.HTML:
+                                                        {
+                                                            <img src="~/Images/Html_icon16.png" /><span>&nbsp;@tvFileModel.ServerFileName</span>
+                                                        }
+                                                        break;
+                                                    case FileTypeEnum.JPEG:
+                                                        {
+                                                            <img src="~/Images/Image_icon16.png" /><span>&nbsp;@tvFileModel.ServerFileName</span>
+                                                        }
+                                                        break;
+                                                    case FileTypeEnum.JPG:
+                                                        {
+                                                            <img src="~/Images/Image_icon16.png" /><span>&nbsp;@tvFileModel.ServerFileName</span>
+                                                        }
+                                                        break;
+                                                    case FileTypeEnum.KMZ:
+                                                        {
+                                                            <img src="~/Images/GoogleEarth_icon16.png" /><span>&nbsp;@tvFileModel.ServerFileName</span>
+                                                        }
+                                                        break;
+                                                    case FileTypeEnum.LOG:
+                                                        {
+                                                            <img src="~/Images/GeneralFile_icon16.png" /><span>&nbsp;@tvFileModel.ServerFileName</span>
+                                                        }
+                                                        break;
+                                                    case FileTypeEnum.M21FM:
+                                                        {
+                                                            <img src="~/Images/Engine_icon16.png" /><span>&nbsp;@tvFileModel.ServerFileName</span>
+                                                        }
+                                                        break;
+                                                    case FileTypeEnum.M3FM:
+                                                        {
+                                                            <img src="~/Images/Engine_icon16.png" /><span>&nbsp;@tvFileModel.ServerFileName</span>
+                                                        }
+                                                        break;
+                                                    case FileTypeEnum.MDF:
+                                                        {
+                                                            <img src="~/Images/Tool_icon16.png" /><span>&nbsp;@tvFileModel.ServerFileName</span>
+                                                        }
+                                                        break;
+                                                    case FileTypeEnum.MESH:
+                                                        {
+                                                            <img src="~/Images/DataFile_icon16.png" /><span>&nbsp;@tvFileModel.ServerFileName</span>
+                                                        }
+                                                        break;
+                                                    case FileTypeEnum.PDF:
+                                                        {
+                                                            <img src="~/Images/Pdf_icon16.png" /><span>&nbsp;@tvFileModel.ServerFileName</span>
+                                                        }
+                                                        break;
+                                                    case FileTypeEnum.PNG:
+                                                        {
+                                                            <img src="~/Images/Image_icon16.png" /><span>&nbsp;@tvFileModel.ServerFileName</span>
+                                                        }
+                                                        break;
+                                                    case FileTypeEnum.TXT:
+                                                        {
+                                                            <img src="~/Images/Notepad_icon16.png" /><span>&nbsp;@tvFileModel.ServerFileName</span>
+                                                        }
+                                                        break;
+                                                    case FileTypeEnum.XLSX:
+                                                        {
+                                                            <img src="~/Images/Excel_icon16.png" /><span>&nbsp;@tvFileModel.ServerFileName</span>
+                                                        }
+                                                        break;
+                                                    case FileTypeEnum.XYZ:
+                                                        {
+                                                            <img src="~/Images/Notepad_icon16.png" /><span>&nbsp;@tvFileModel.ServerFileName</span>
+                                                        }
+                                                        break;
+                                                    default:
+                                                        {
+                                                            <img src="~/Images/GeneralFile_icon16.png" /><span>&nbsp;@tvFileModel.ServerFileName</span>
+                                                        }
+                                                        break;
+                                                }
+                                            </li>
+                                            <li>
+                                                &nbsp;|&nbsp;
+                                                @if ((tvFileModel.FileSize_kb / 1024) > 1)
+                                                {
+                                                    <span> @(string.Format("{0:F1}", tvFileModel.FileSize_kb / 1024)) @FileViewRes.MB </span>
+                                                }
+                                                else
+                                                {
+                                                    <span>@(string.Format("{0:F1}", tvFileModel.FileSize_kb)) @FileViewRes.KB</span>
+                                                }
+                                                &nbsp;|&nbsp;
+                                            </li>
+                                            <li> <span>@string.Format("{0:F}", tvFileModel.FileCreatedDate_UTC.ToLocalTime())</span></li>
+                                        </ul>
+                                        <p class="MoreInfo list-group-item-text ">
+                                            @if (IsShowMoreInfo)
+                                            {
+                                                @Html.Action("_TVItemMoreInfo", "TVItem", new { Q = urlModel.Q, TVItemID = tvFileModel.TVFileTVItemID, NumberOfSample = NumberOfSample })
+                                            }
+                                        </p>
+                                        <div class="FileEdit"></div>
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                }
+            }
+        }
+
+    </div>
+    <script type="text/javascript">
+        $(function () {
+            cssp.File.Init();
+        });
+    </script>
+</div>

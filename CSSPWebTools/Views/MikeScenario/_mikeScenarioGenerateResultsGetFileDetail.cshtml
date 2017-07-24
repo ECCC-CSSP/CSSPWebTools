@@ -1,0 +1,45 @@
+﻿@using CSSPWebTools.Views.MikeScenario.Resources;
+@using CSSPWebTools.Models;
+@using CSSPModelsDLL.Models;
+@using CSSPEnumsDLL.Enums;
+
+@{
+    URLModel urlModel = (URLModel)ViewBag.URLModel;
+    MikeScenarioModel mikeScenarioModel = (MikeScenarioModel)ViewBag.MikeScenarioModel;
+    List<TVFileModel> tvFileModelList = (List<TVFileModel>)ViewBag.TVFileModelList;
+}
+
+<div id="MikeScenarioGenerateResultsDiv">
+    <h2>@mikeScenarioModel.MikeScenarioTVText</h2>
+    <h3>@MikeScenarioViewRes.InputFiles</h3>
+    <div>
+        <button class="jbMikeScenarioGenerateResultsShowStudyArea btn btn-default">@MikeScenarioViewRes.ShowStudyArea</button>
+        <div class="MikeScenarioGenerateResultsShowStudyArea h4 hidden text-danger">@MikeScenarioViewRes.Working</div>
+    </div>
+    @foreach (TVFileModel tvFileModel in tvFileModelList.Where(c => c.FilePurpose == FilePurposeEnum.MikeInput && c.FileType.ToString().StartsWith("DFS")))
+    {
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <div class="panel-title">
+                    <h4>@tvFileModel.ServerFileName</h4>
+                </div>
+            </div>
+            <div class="panel-body">
+            </div>
+        </div>
+    }
+    <h3>@MikeScenarioViewRes.InputFiles</h3>
+    @foreach (TVFileModel tvFileModel in tvFileModelList.Where(c => c.FilePurpose == FilePurposeEnum.MikeResultDFSU && c.FileType.ToString().StartsWith("DFS")))
+    {
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <div class="panel-title">
+                    <h4>@tvFileModel.ServerFileName</h4>
+                </div>
+            </div>
+            <div class="panel-body">
+
+            </div>
+        </div>
+    }
+</div>

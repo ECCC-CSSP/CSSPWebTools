@@ -1,0 +1,277 @@
+﻿@using CSSPWebTools.Models;
+@using CSSPWebTools.Views.MikeScenario.Resources;
+@using CSSPEnumsDLL.Enums;
+@using CSSPModelsDLL.Models;
+
+@{
+
+    URLModel urlModel = (URLModel)ViewBag.URLModel;
+    MikeScenarioModel mikeScenarioModel = (MikeScenarioModel)ViewBag.MikeScenarioModel;
+    AppTaskModel appTaskModelMikeScenario = (AppTaskModel)ViewBag.AppTaskModelMikeScenario;
+    List<TVFileModel> tvFileNotLoadedList = (List<TVFileModel>)ViewBag.TVFileNotLoadedList;
+    List<MikeBoundaryConditionModel> mikeBoundaryConditionModelListMesh = (List<MikeBoundaryConditionModel>)ViewBag.MikeBoundaryConditionModelListMesh;
+    List<MikeBoundaryConditionModel> mikeBoundaryConditionModelListWebTide = (List<MikeBoundaryConditionModel>)ViewBag.mikeBoundaryConditionModelListWebTide;
+    List<DataPathOfTide> dataPathOfTideList = ViewBag.DataPathOfTideList;
+    TVItemModel tvItemModelLocationCurrent = (TVItemModel)ViewBag.TVItemModelLocationCurrent;
+    List<TabInfo> tab1ViewTVItemInfoList = (List<TabInfo>)ViewBag.Tab1ViewTVItemInfoList;
+
+    List<AppTaskCommandEnum> NoCancelList = new List<AppTaskCommandEnum>()
+    {
+        AppTaskCommandEnum.GenerateWebTide,
+        AppTaskCommandEnum.SetupWebTide,
+        AppTaskCommandEnum.MikeScenarioImport,
+        AppTaskCommandEnum.MikeScenarioOtherFileImport,
+    };
+    int BCCount = -1;
+    int WebTideNodeCount = 5;
+}
+<div id="MikeScenarioDiv">
+    <div class="AppTaskDiv">
+        @Html.Action("_appTask", "Home", new { TVItemID = urlModel.TVItemIDList[0], Seconds = 5 })
+    </div>
+    <h4 class="MikeScenarioText"></h4>
+    @*<div>
+            @if (mikeScenarioModel.ScenarioStatus == ScenarioStatusEnum.Completed)
+            {
+                <button class="jbMikeScenarioCopy btn btn-default" href="#" title="@MikeScenarioViewRes.Copy @MikeScenarioViewRes.MikeScenario"><span class="glyphicon glyphicon-duplicate"></span>&nbsp;@MikeScenarioViewRes.Copy</button>
+                <button class="jbMikeScenarioDelete btn btn-default" href="#" title="@MikeScenarioViewRes.Delete @MikeScenarioViewRes.MikeScenario"><span class="glyphicon glyphicon-trash"></span>&nbsp;@MikeScenarioViewRes.Delete</button>
+            }
+            @if (mikeScenarioModel.ScenarioStatus < ScenarioStatusEnum.AskToRun && mikeScenarioModel.ScenarioStatus > ScenarioStatusEnum.Copying)
+            {
+                <button class="jbMikeScenarioAskToRun btn btn-default" href="#" title="@MikeScenarioViewRes.AskToRun @MikeScenarioViewRes.MikeScenario"><span class="glyphicon glyphicon-play-circle"></span>&nbsp;@MikeScenarioViewRes.AskToRun</button>
+                <button class="jbMikeScenarioDelete btn btn-default" href="#" title="@MikeScenarioViewRes.Delete @MikeScenarioViewRes.MikeScenario"><span class="glyphicon glyphicon-trash"></span>&nbsp;@MikeScenarioViewRes.Delete</button>
+            }
+        </div>*@
+
+    @if (appTaskModelMikeScenario != null && string.IsNullOrWhiteSpace(appTaskModelMikeScenario.Error))
+    {
+        // nothing
+    }
+    else if (mikeScenarioModel.ScenarioStatus == ScenarioStatusEnum.Copying)
+    {
+        if (tvFileNotLoadedList.Count > 0)
+        {
+            <div>
+                @foreach (TVFileModel tvfm in tvFileNotLoadedList)
+                {
+                    string ClientFullFileName = tvfm.ClientFilePath + tvfm.ServerFileName;
+                    string ServerFullFileName = tvfm.ServerFilePath + tvfm.ServerFileName;
+                    <div class="MikeScenarioOtherFileImportDiv">
+                        <form class="MikeScenarioOtherFileImportForm" action="MikeScenario/_mikeScenarioOtherFileImport" method="post" enctype="multipart/form-data">
+                            <input type="hidden" name="MikeScenarioTVItemID" value="@mikeScenarioModel.MikeScenarioTVItemID" />
+                            <input type="hidden" name="TVFileTVItemID" value="@tvfm.TVFileTVItemID" />
+                            <input type="hidden" name="ClientFullPath" value="@ClientFullFileName" />
+                            <input type="hidden" name="ServerFullPath" value="@ServerFullFileName" />
+                            <div class="panel panel-default">
+                                <div class="panel-heading"><h4 class="panel-title">@MikeScenarioViewRes.OtherFileToUpload</h4></div>
+                                <div class="panel-body">
+                                    <ul class="list-unstyled">
+                                        <li>
+                                            <label class="MikeScenarioClientFullFileName control-label elementSpacing">@ClientFullFileName</label>
+
+                                            <input type="text" class="MikeScenarioClientFullFileNameInput" style="color: transparent; width: 0.1%; border: none;" value="@ClientFullFileName" />
+                                            <button class="jbMikeScenarioSelectPreviousInput btn btn-default"><span class="glyphicon glyphicon-text-background"></span>&nbsp;Select</button>
+                                        </li>
+                                    </ul>
+                                    <div>
+                                        <label class="sr-only control-label" for="UploadFile">@MikeScenarioViewRes.SelectFile:</label>
+                                        <input class="form-control" type="file" name="UploadFile" />
+                                    </div>
+                                    <div class="btn-block paraBlock">
+                                        <button class="jbMikeScenarioOtherFileImport btn btn-default" type="submit" href="#"><span class="glyphicon glyphicon-upload"></span>&nbsp;@MikeScenarioViewRes.Upload</button>
+                                        <button class="jbMikeScenarioOtherFileNotImport btn btn-default" href="#"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;@MikeScenarioViewRes.NotThisFile</button>
+                                    </div>
+                                    <div class="MikeScenarioOtherFileImportProgress hidden">
+                                        <div class="progress">
+                                            <div class="bar"></div>
+                                            <div class="percent">0 %</div>
+                                        </div>
+                                        <div class="status"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                }
+                <div><button class="jbPageRefresh btn btn-default" href="#"><span class="glyphicon glyphicon-refresh"></span>&nbsp;@MikeScenarioViewRes.Refresh</button></div>
+            </div>
+        }
+        else if (mikeBoundaryConditionModelListMesh.Count == 0)
+        {
+            <div class="blockMargin">
+                <h4>@MikeScenarioViewRes.SetupWebTide</h4>
+                <ul class="list-inline">
+                    <li>
+                        <select class="MikeScenarioBoundaryConditionDataPathBC form-control">
+                            @foreach (DataPathOfTide dpot in dataPathOfTideList)
+                            {
+                                <option value="@((int)dpot.WebTideDataSet)">@dpot.Text</option>
+                            }
+                        </select>
+                    </li>
+                    <li>
+                        <button class="jbMikeScenarioSetupWebTide btn btn-default" href="#"><span class="glyphicon glyphicon-wrench"></span>&nbsp;@MikeScenarioViewRes.SetupWebTide</button>
+                    </li>
+                </ul>
+            </div>
+        }
+        else
+        {
+            <div class="MikeScenarioWebTideBoundaryCondition" datatotalbccount="@mikeBoundaryConditionModelListMesh.Count">
+                <div>
+                    <div>
+                        <button class="jbMikeScenarioResetWebTide btn btn-default" href="#"><span class="glyphicon glyphicon-off"></span>&nbsp;@MikeScenarioViewRes.ResetWebTide</button>
+                    </div>
+                    <br />
+
+                    <div>
+                        @foreach (DataPathOfTide dataPathOfTide in dataPathOfTideList)
+                        {
+                            if (dataPathOfTide.WebTideDataSet == mikeBoundaryConditionModelListMesh[0].WebTideDataSet)
+                            {
+                                <h4>@MikeScenarioViewRes.BoundaryConditions: <u>@dataPathOfTide.Text</u></h4>
+                                <p class="paraBlock">
+                                    <label class="h4 text-danger">@MikeScenarioViewRes.AllWebTidesBelowToGenerate</label>
+                                </p>
+                            }
+                        }
+                        <div class="blockMargin">
+                            @foreach (MikeBoundaryConditionModel mikeBoundaryConditionModel in mikeBoundaryConditionModelListMesh)
+                            {
+                                BCCount += 1;
+                                WebTideNodeCount = 5;
+                                if (mikeBoundaryConditionModelListWebTide.Count() > 0)
+                                {
+                                    if (mikeBoundaryConditionModelListWebTide.Where(c => c.MikeBoundaryConditionName == mikeBoundaryConditionModel.MikeBoundaryConditionName).Any())
+                                    {
+                                        if (mikeBoundaryConditionModelListWebTide.Where(c => c.MikeBoundaryConditionName == mikeBoundaryConditionModel.MikeBoundaryConditionName).First().MapInfoPointModelList.Count > 0)
+                                        {
+                                            WebTideNodeCount = mikeBoundaryConditionModelListWebTide.Where(c => c.MikeBoundaryConditionName == mikeBoundaryConditionModel.MikeBoundaryConditionName).First().MapInfoPointModelList.Count;
+                                        }
+                                    }
+                                }
+
+                                <div class="MikeScenarioBoundaryConditionDiv paraBlock">
+                                    <span class="MeshNodeTVItemID hidden">@mikeBoundaryConditionModel.MikeBoundaryConditionTVItemID</span>
+
+                                    <div class="panel panel-default">
+                                        <div class="panel-body">
+                                            <ul class="BCUL list-unstyled">
+                                                <li>
+
+                                                </li>
+                                                <li><h4 class="BoundaryConditionName">@mikeBoundaryConditionModel.MikeBoundaryConditionName</h4></li>
+                                                <li>
+                                                    <div class="form-group">
+                                                        <span>
+                                                            <button class="jbMikeScenarioMeshBCNodeList btn btn-default" href="#" title="@MikeScenarioViewRes.ViewNodeList"><span class="glyphicon glyphicon-list-alt"></span></button>
+                                                        </span>
+                                                        <span>
+                                                            <button class="jbMikeScenarioNodesViewOnMap btn btn-default" data-bccount="@BCCount" href="#" title="@MikeScenarioViewRes.ViewNodesOnMap"><span class="glyphicon glyphicon-map-marker"></span></button>
+                                                        </span>
+                                                        <span>
+                                                            <label class="control-label">@MikeScenarioViewRes.BoundaryConditionNodes</label>
+                                                        </span>
+                                                    </div>
+                                                </li>
+                                                <li class="MeshNodeList hidden">
+                                                    @foreach (MapInfoPointModel mapInfoPointModel in mikeBoundaryConditionModel.MapInfoPointModelList)
+                                                    {
+                                                        <ul class="MeshCoord list-unstyled" data-meshnodeordinal="@mapInfoPointModel.Ordinal" data-meshnodelat="@mapInfoPointModel.Lat.ToString("F5")" data-meshnodelng="@mapInfoPointModel.Lng.ToString("F5")">
+                                                            <li>
+                                                                <button class="jbMikeScenarioBCDeleteNode btn btn-default" data-mapinfopointid="@mapInfoPointModel.MapInfoPointID" data-ordinal="@mapInfoPointModel.Ordinal" href="#" title="Delete Node"><span class="glyphicon glyphicon-trash"></span></button>
+                                                                <span>
+                                                                    (<span class="MeshOrdinal">@mapInfoPointModel.Ordinal</span>)
+                                                                    <span class="MeshNodeLat">@mapInfoPointModel.Lat.ToString("F5"),</span>
+                                                                    <span class="MeshNodeLng">@mapInfoPointModel.Lng.ToString("F5")</span>
+                                                                </span>
+                                                            </li>
+                                                        </ul>
+                                                    }
+                                                </li>
+                                            </ul>
+                                            <ul class="BCUL list-unstyled">
+                                                <li>
+                                                    <div class="form-group">
+                                                        <ul class="list-inline">
+                                                            <li>
+                                                                <button class="jbMikeScenarioWebTideBCNodeList btn btn-default" href="#" title="@MikeScenarioViewRes.ViewNodeList"><span class="glyphicon glyphicon-list-alt"></span></button>
+
+                                                                <button class="jbMikeScenarioNodesViewOnMap btn btn-default" data-bccount="@BCCount" href="#" title="@MikeScenarioViewRes.ViewNodesOnMap"><span class="glyphicon glyphicon-map-marker"></span></button>
+                                                            </li>
+                                                            <li>
+                                                                <input class="form-control isnumber" type="text" name="WebTideNodeNumb" value="@WebTideNodeCount" />
+                                                            </li>
+                                                            <li>
+                                                                <label class="control-label">@MikeScenarioViewRes.WebTideNodes</label>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="paraBlock">
+                                                        <button class="jbMikeScenarioGenerateWebTideNodes btn btn-default" href="#" title="@MikeScenarioViewRes.GenerateWebTideNodes"><span class="glyphicon glyphicon-cog"></span>&nbsp;@MikeScenarioViewRes.Generate</button>
+                                                    </div>
+
+                                                </li>
+                                                <li class="WebTideNodeList hidden">
+                                                    @if (mikeBoundaryConditionModelListWebTide.Where(c => c.MikeBoundaryConditionName == mikeBoundaryConditionModel.MikeBoundaryConditionName).Count() == 0)
+                                                    {
+                                                        <p>
+                                                            <span>@MikeScenarioViewRes.None</span>
+                                                        </p>
+                                                    }
+                                                    else
+                                                    {
+                                                        foreach (MikeBoundaryConditionModel mikeBoundaryConditionModelWebTide in mikeBoundaryConditionModelListWebTide.Where(c => c.MikeBoundaryConditionName == mikeBoundaryConditionModel.MikeBoundaryConditionName))
+                                                        {
+                                                            WebTideNodeCount = mikeBoundaryConditionModelWebTide.MapInfoPointModelList.Count();
+                                                            foreach (MapInfoPointModel mapInfoPointModel in mikeBoundaryConditionModelWebTide.MapInfoPointModelList)
+                                                            {
+                                                                <ul class="WebTideCoord list-unstyled" data-webtidenodeordinal="@mapInfoPointModel.Ordinal" data-webtidenodelat="@mapInfoPointModel.Lat.ToString("F5")" data-webtidenodelng="@mapInfoPointModel.Lng.ToString("F5")">
+                                                                    <li>
+                                                                        (<span class="WebTideOrdinal">@mapInfoPointModel.Ordinal</span>)
+                                                                        <span class="WebTideNodeLat">@mapInfoPointModel.Lat.ToString("F5"),</span>
+                                                                        <span class="WebTideNodeLng">@mapInfoPointModel.Lng.ToString("F5")</span>
+                                                                    </li>
+                                                                </ul>
+                                                            }
+                                                        }
+                                                    }
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+
+                <ul class="list-unstyled">
+                    <li>
+                        @if (mikeBoundaryConditionModelListWebTide.Count == mikeBoundaryConditionModelListMesh.Count)
+                        {
+                            <button class="jbMikeScenarioAcceptWebTide btn btn-default" href="#"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;@MikeScenarioViewRes.AcceptWebTideBoundaryCondition</button>
+                        }
+                    </li>
+                </ul>
+            </div>
+        }
+        <script type="text/javascript">
+            $(function () {
+                cssp.MikeScenario.InitMikeScenarioImport();
+            });
+        </script>
+    }
+    @if (mikeScenarioModel.ScenarioStatus < ScenarioStatusEnum.Copying)
+    {
+        <div id="level2-content">
+            @for (int i = 0, count = tab1ViewTVItemInfoList.Count; i < count; i++)
+            {
+                if (((TabInfo)tab1ViewTVItemInfoList[i]).Active == i.ToString())
+                {
+                    @Html.Action(((TabInfo)tab1ViewTVItemInfoList[i]).Action, ((TabInfo)tab1ViewTVItemInfoList[i]).Controller, new { Q = urlModel.Q })
+                }
+            }
+        </div>
+    }
+</div>

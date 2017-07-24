@@ -1,0 +1,1006 @@
+﻿@using CSSPWebTools.Views.SamplingPlan.Resources;
+@using CSSPWebTools.Controllers;
+@using CSSPEnumsDLL.Enums;
+@using CSSPEnumsDLL.Services;
+@using CSSPModelsDLL.Models;
+
+@{
+    SamplingPlanController SamplingPlanController = (SamplingPlanController)ViewBag.SamplingPlanController;
+    List<ContactModel> AdminContactModelList = (List<ContactModel>)ViewBag.AdminContactModelList;
+    bool IsSamplingPlanner = (bool)ViewBag.IsSamplingPlanner;
+    LabSheetModelAndA1Sheet labSheetModelAndA1Sheet = (LabSheetModelAndA1Sheet)ViewBag.LabSheetModelAndA1Sheet;
+    AnalyzeMethodEnum analyzeMethod = (AnalyzeMethodEnum)ViewBag.AnalyzeMethod;
+    SampleMatrixEnum sampleMatrix = (SampleMatrixEnum)ViewBag.SampleMatrix;
+    LaboratoryEnum laboratory = (LaboratoryEnum)ViewBag.Laboratory;
+    List<string> AllowableTideString = new List<string>() { "HR", "HT", "HF", "MR", "MT", "MF", "LR", "LT", "LF" };
+    BaseEnumService _BaseEnumService = new BaseEnumService(ViewBag.Language);
+    string textColor = "text-default";
+}
+
+@if (!IsSamplingPlanner)
+{
+    <h3>@SamplingPlanViewRes.NoPermissionMessageSamplingPlans</h3>
+    <blockquote>
+        <p>@SamplingPlanViewRes.ToHaveAccess</p>
+        <ul class="list-inline">
+            @foreach (ContactModel contactModel in AdminContactModelList)
+            {
+                <li>
+                    <a href="mailto:@contactModel.LoginEmail" class="btn btn-link">@contactModel.LoginEmail</a>
+                </li>
+            }
+        </ul>
+    </blockquote>
+    <script type="text/javascript">
+        $(function () {
+            cssp.SamplingPlan.InitNoPermission();
+        });
+    </script>
+}
+else
+{
+    <div class="panel-group" id="labSheetAccordion" role="tablist" aria-multiselectable="false">
+        @{
+            DateTime? SalinityReadDate = null;
+            DateTime? ReadDate = null;
+            DateTime? RecordedDate = null;
+            if (labSheetModelAndA1Sheet.LabSheetA1Sheet.IncludeLaboratoryQAQC)
+            {
+                SalinityReadDate = new DateTime(int.Parse(labSheetModelAndA1Sheet.LabSheetA1Sheet.SalinitiesReadYear), int.Parse(labSheetModelAndA1Sheet.LabSheetA1Sheet.SalinitiesReadMonth), int.Parse(labSheetModelAndA1Sheet.LabSheetA1Sheet.SalinitiesReadDay));
+                ReadDate = new DateTime(int.Parse(labSheetModelAndA1Sheet.LabSheetA1Sheet.ResultsReadYear), int.Parse(labSheetModelAndA1Sheet.LabSheetA1Sheet.ResultsReadMonth), int.Parse(labSheetModelAndA1Sheet.LabSheetA1Sheet.ResultsReadDay));
+                RecordedDate = new DateTime(int.Parse(labSheetModelAndA1Sheet.LabSheetA1Sheet.ResultsRecordedYear), int.Parse(labSheetModelAndA1Sheet.LabSheetA1Sheet.ResultsRecordedMonth), int.Parse(labSheetModelAndA1Sheet.LabSheetA1Sheet.ResultsRecordedDay));
+            }
+            DateTime SampleDate = new DateTime(labSheetModelAndA1Sheet.LabSheetModel.Year, labSheetModelAndA1Sheet.LabSheetModel.Month, labSheetModelAndA1Sheet.LabSheetModel.Day);
+            <h2>@labSheetModelAndA1Sheet.LabSheetModel.SubsectorTVText --- @SampleDate.ToString("yyyy MMM dd")</h2>
+            <div class="panel panel-default">
+                <h4>@SamplingPlanViewRes.A1SheetTitle</h4>
+                <ul class="list-inline">
+                    <li style="vertical-align:top">
+                        @{
+                            textColor = "text-default";
+                            if (!labSheetModelAndA1Sheet.LabSheetA1Sheet.LabSheetA1MeasurementList.Where(c => c.Time != null).Any())
+                            {
+                                textColor = "text-danger";
+
+                            }
+                            <table class="table table-bordered">
+                                <tr class="@textColor">
+                                    <td>
+                                        <b>@SamplingPlanViewRes.SampleTime</b> &nbsp;&nbsp;&nbsp;
+                                    </td>
+                                    <td>
+                                        @if (labSheetModelAndA1Sheet.LabSheetA1Sheet.LabSheetA1MeasurementList.Where(c => c.Time != null).Any())
+                                        {
+                                            <span>
+                                                @(((DateTime)labSheetModelAndA1Sheet.LabSheetA1Sheet.LabSheetA1MeasurementList.Where(c => c.Time != null).OrderBy(c => c.Time).FirstOrDefault().Time).ToString("HH:mm"))
+                                                /
+                                                @(((DateTime)labSheetModelAndA1Sheet.LabSheetA1Sheet.LabSheetA1MeasurementList.Where(c => c.Time != null).OrderByDescending(c => c.Time).FirstOrDefault().Time).ToString("HH:mm"))
+                                            </span>
+                                        }
+                                        else
+                                        {
+                                            <span>-- / --</span>
+                                        }
+                                    </td>
+                                </tr>
+                                @{
+                                    textColor = "text-default";
+
+                                    if (string.IsNullOrWhiteSpace(labSheetModelAndA1Sheet.LabSheetA1Sheet.Tides))
+                                    {
+                                        textColor = "text-danger";
+                                    }
+
+                                    if (textColor.EndsWith("default"))
+                                    {
+                                        if (labSheetModelAndA1Sheet.LabSheetA1Sheet.Tides.Length != 7)
+                                        {
+                                            textColor = "text-danger";
+                                        }
+                                        else
+                                        {
+                                            if (!AllowableTideString.Contains(labSheetModelAndA1Sheet.LabSheetA1Sheet.Tides.Substring(0, 2)))
+                                            {
+                                                textColor = "text-danger";
+                                            }
+                                            else
+                                            {
+                                                if (!AllowableTideString.Contains(labSheetModelAndA1Sheet.LabSheetA1Sheet.Tides.Substring(5, 2)))
+                                                {
+                                                    textColor = "text-danger";
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                <tr class="@textColor">
+                                    <td>
+                                        <b>@SamplingPlanViewRes.Tides</b> &nbsp; &nbsp; &nbsp;
+                                    </td>
+                                    <td>
+                                        @labSheetModelAndA1Sheet.LabSheetA1Sheet.Tides
+                                    </td>
+                                </tr>
+                                @if (labSheetModelAndA1Sheet.LabSheetA1Sheet.IncludeLaboratoryQAQC)
+                                {
+                                    textColor = "text-default";
+                                    if (string.IsNullOrWhiteSpace(labSheetModelAndA1Sheet.LabSheetA1Sheet.SampleCrewInitials))
+                                    {
+                                        textColor = "text-danger";
+                                    }
+                                    <tr class="@textColor">
+                                        <td>
+                                            <b>@SamplingPlanViewRes.SampleCrew</b> &nbsp; &nbsp; &nbsp;
+                                        </td>
+                                        <td>
+                                            @labSheetModelAndA1Sheet.LabSheetA1Sheet.SampleCrewInitials
+                                        </td>
+                                    </tr>
+                                }
+                            </table>
+                        }
+                    </li>
+                    @if (labSheetModelAndA1Sheet.LabSheetA1Sheet.IncludeLaboratoryQAQC)
+                    {
+                        <li style="vertical-align:top">
+                            <table class="table table-bordered">
+                                @{
+                                    textColor = "text-default";
+                                    if (string.IsNullOrWhiteSpace(labSheetModelAndA1Sheet.LabSheetA1Sheet.WaterBath1))
+                                    {
+                                        textColor = "text-danger";
+                                    }
+                                }
+                                <tr class="@textColor">
+                                    <td>
+                                        <b>@SamplingPlanViewRes.WaterBath</b> &nbsp; &nbsp; &nbsp;
+                                    </td>
+                                    <td>
+                                        @labSheetModelAndA1Sheet.LabSheetA1Sheet.WaterBath1
+                                    </td>
+                                    @if (labSheetModelAndA1Sheet.LabSheetA1Sheet.WaterBathCount > 1)
+                                    {
+                                        <td>
+                                            @labSheetModelAndA1Sheet.LabSheetA1Sheet.WaterBath2
+                                        </td>
+                                    }
+                                    @if (labSheetModelAndA1Sheet.LabSheetA1Sheet.WaterBathCount > 2)
+                                    {
+                                        <td>
+                                            @labSheetModelAndA1Sheet.LabSheetA1Sheet.WaterBath3
+                                        </td>
+                                    }
+                                </tr>
+                                @{
+                                    textColor = "text-default";
+                                    if (string.IsNullOrWhiteSpace(labSheetModelAndA1Sheet.LabSheetA1Sheet.IncubationBath1StartTime))
+                                    {
+                                        textColor = "text-danger";
+                                    }
+                                }
+                                <tr class="@textColor">
+                                    <td>
+                                        <b>@SamplingPlanViewRes.IncubationStartTime</b> &nbsp; &nbsp; &nbsp;
+                                    </td>
+                                    <td>
+                                        @labSheetModelAndA1Sheet.LabSheetA1Sheet.IncubationBath1StartTime
+                                    </td>
+                                    @if (labSheetModelAndA1Sheet.LabSheetA1Sheet.WaterBathCount > 1)
+                                    {
+                                        <td>
+                                            @labSheetModelAndA1Sheet.LabSheetA1Sheet.IncubationBath2StartTime
+                                        </td>
+                                    }
+                                    @if (labSheetModelAndA1Sheet.LabSheetA1Sheet.WaterBathCount > 2)
+                                    {
+                                        <td>
+                                            @labSheetModelAndA1Sheet.LabSheetA1Sheet.IncubationBath3StartTime
+                                        </td>
+                                    }
+                                </tr>
+                                @{
+                                    textColor = "text-default";
+                                    if (string.IsNullOrWhiteSpace(labSheetModelAndA1Sheet.LabSheetA1Sheet.IncubationBath1EndTime))
+                                    {
+                                        textColor = "text-danger";
+                                    }
+                                }
+                                <tr class="@textColor">
+                                    <td>
+                                        <b>@SamplingPlanViewRes.IncubationFinishTime</b> &nbsp; &nbsp; &nbsp;
+                                    </td>
+                                    <td>
+                                        @labSheetModelAndA1Sheet.LabSheetA1Sheet.IncubationBath1EndTime
+                                    </td>
+                                    @if (labSheetModelAndA1Sheet.LabSheetA1Sheet.WaterBathCount > 1)
+                                    {
+                                        <td>
+                                            @labSheetModelAndA1Sheet.LabSheetA1Sheet.IncubationBath2EndTime
+                                        </td>
+                                    }
+                                    @if (labSheetModelAndA1Sheet.LabSheetA1Sheet.WaterBathCount > 2)
+                                    {
+                                        <td>
+                                            @labSheetModelAndA1Sheet.LabSheetA1Sheet.IncubationBath3EndTime
+                                        </td>
+                                    }
+                                </tr>
+                                @{
+                                    textColor = "text-default";
+                                    if (string.IsNullOrWhiteSpace(labSheetModelAndA1Sheet.LabSheetA1Sheet.IncubationStartSameDay))
+                                    {
+                                        textColor = "text-danger";
+                                    }
+                                    if (labSheetModelAndA1Sheet.LabSheetA1Sheet != null
+                                        && !bool.Parse(labSheetModelAndA1Sheet.LabSheetA1Sheet.IncubationStartSameDay))
+                                    {
+                                        textColor = "text-danger";
+                                    }
+                                }
+                                <tr class="@textColor">
+                                    <td>
+                                        <b>@SamplingPlanViewRes.IncubationStartedTheSameDay</b> &nbsp; &nbsp; &nbsp;
+                                    </td>
+                                    <td>
+                                        @labSheetModelAndA1Sheet.LabSheetA1Sheet.IncubationStartSameDay
+                                    </td>
+                                    @if (labSheetModelAndA1Sheet.LabSheetA1Sheet.WaterBathCount > 1)
+                                    {
+                                        <td>
+                                            @labSheetModelAndA1Sheet.LabSheetA1Sheet.IncubationStartSameDay
+                                        </td>
+                                    }
+                                    @if (labSheetModelAndA1Sheet.LabSheetA1Sheet.WaterBathCount > 2)
+                                    {
+                                        <td>
+                                            @labSheetModelAndA1Sheet.LabSheetA1Sheet.IncubationStartSameDay
+                                        </td>
+                                    }
+                                </tr>
+                                @{
+                                    textColor = "text-default";
+                                    if (int.Parse(labSheetModelAndA1Sheet.LabSheetA1Sheet.IncubationBath1TimeCalculated.Substring(0, 2)) > 25 || int.Parse(labSheetModelAndA1Sheet.LabSheetA1Sheet.IncubationBath1TimeCalculated.Substring(0, 2)) < 22)
+                                    {
+                                        textColor = "text-danger";
+                                    }
+                                }
+                                <tr class="@textColor">
+                                    <td>
+                                        <b>@SamplingPlanViewRes.CalculatedIncubationTime</b> &nbsp; &nbsp; &nbsp;
+                                    </td>
+                                    <td>
+                                        @labSheetModelAndA1Sheet.LabSheetA1Sheet.IncubationBath1TimeCalculated
+                                    </td>
+                                    @if (labSheetModelAndA1Sheet.LabSheetA1Sheet.WaterBathCount > 1)
+                                    {
+                                        <td>
+                                            @labSheetModelAndA1Sheet.LabSheetA1Sheet.IncubationBath2TimeCalculated
+                                        </td>
+                                    }
+                                    @if (labSheetModelAndA1Sheet.LabSheetA1Sheet.WaterBathCount > 2)
+                                    {
+                                        <td>
+                                            @labSheetModelAndA1Sheet.LabSheetA1Sheet.IncubationBath3TimeCalculated
+                                        </td>
+                                    }
+                                </tr>
+                                @{
+                                    textColor = "text-default";
+                                    string HoldingTime1 = "";
+                                    string HoldingTime2 = "";
+                                    string HoldingTime3 = "";
+                                    DateTime SampleStartTime1 = new DateTime();
+                                    DateTime SampleStartTime2 = new DateTime();
+                                    DateTime SampleStartTime3 = new DateTime();
+                                    DateTime IncubationStartTime1 = new DateTime();
+                                    DateTime IncubationStartTime2 = new DateTime();
+                                    DateTime IncubationStartTime3 = new DateTime();
+                                    bool SameDate = true;
+                                    if (labSheetModelAndA1Sheet.LabSheetA1Sheet == null)
+                                    {
+                                        HoldingTime1 = SamplingPlanViewRes.Empty;
+                                        textColor = "text-danger";
+                                    }
+                                    else
+                                    {
+                                        SameDate = bool.Parse(labSheetModelAndA1Sheet.LabSheetA1Sheet.IncubationStartSameDay);
+                                        if (labSheetModelAndA1Sheet.LabSheetA1Sheet.LabSheetA1MeasurementList.Where(c => c.Time != null).Any())
+                                        {
+                                            SampleStartTime1 = (((DateTime)labSheetModelAndA1Sheet.LabSheetA1Sheet.LabSheetA1MeasurementList.Where(c => c.Time != null).OrderBy(c => c.Time).FirstOrDefault().Time));
+                                            if (labSheetModelAndA1Sheet.LabSheetA1Sheet.IncubationBath1StartTime != null)
+                                            {
+                                                IncubationStartTime1 = new DateTime(int.Parse(labSheetModelAndA1Sheet.LabSheetA1Sheet.RunYear), int.Parse(labSheetModelAndA1Sheet.LabSheetA1Sheet.RunMonth), int.Parse(labSheetModelAndA1Sheet.LabSheetA1Sheet.RunDay));
+                                                if (!string.IsNullOrWhiteSpace(labSheetModelAndA1Sheet.LabSheetA1Sheet.IncubationBath1StartTime))
+                                                {
+                                                    if (!string.IsNullOrWhiteSpace(labSheetModelAndA1Sheet.LabSheetA1Sheet.IncubationBath1EndTime))
+                                                    {
+                                                        IncubationStartTime1 = IncubationStartTime1.AddHours(int.Parse(labSheetModelAndA1Sheet.LabSheetA1Sheet.IncubationBath1StartTime.Substring(0, 2)));
+                                                        IncubationStartTime1 = IncubationStartTime1.AddMinutes(int.Parse(labSheetModelAndA1Sheet.LabSheetA1Sheet.IncubationBath1StartTime.Substring(3, 2)));
+                                                    }
+                                                }
+                                                if (!SameDate)
+                                                {
+                                                    IncubationStartTime1 = IncubationStartTime1.AddDays(1);
+                                                }
+
+                                                TimeSpan ts = new TimeSpan(IncubationStartTime1.Ticks - SampleStartTime1.Ticks);
+                                                HoldingTime1 = ((float)ts.TotalHours).ToString("F1");
+                                                if (ts.TotalHours > 8)
+                                                {
+                                                    textColor = "text-danger";
+                                                }
+                                            }
+                                            if (labSheetModelAndA1Sheet.LabSheetA1Sheet.WaterBathCount > 1)
+                                            {
+                                                SampleStartTime2 = (((DateTime)labSheetModelAndA1Sheet.LabSheetA1Sheet.LabSheetA1MeasurementList.Where(c => c.Time != null).OrderBy(c => c.Time).FirstOrDefault().Time));
+                                                if (labSheetModelAndA1Sheet.LabSheetA1Sheet.IncubationBath2StartTime != null)
+                                                {
+                                                    IncubationStartTime2 = new DateTime(int.Parse(labSheetModelAndA1Sheet.LabSheetA1Sheet.RunYear), int.Parse(labSheetModelAndA1Sheet.LabSheetA1Sheet.RunMonth), int.Parse(labSheetModelAndA1Sheet.LabSheetA1Sheet.RunDay));
+                                                    if (!string.IsNullOrWhiteSpace(labSheetModelAndA1Sheet.LabSheetA1Sheet.IncubationBath2StartTime))
+                                                    {
+                                                        if (!string.IsNullOrWhiteSpace(labSheetModelAndA1Sheet.LabSheetA1Sheet.IncubationBath2EndTime))
+                                                        {
+                                                            IncubationStartTime2 = IncubationStartTime2.AddHours(int.Parse(labSheetModelAndA1Sheet.LabSheetA1Sheet.IncubationBath2StartTime.Substring(0, 2)));
+                                                            IncubationStartTime2 = IncubationStartTime2.AddMinutes(int.Parse(labSheetModelAndA1Sheet.LabSheetA1Sheet.IncubationBath2StartTime.Substring(3, 2)));
+                                                        }
+                                                    }
+
+                                                    if (!SameDate)
+                                                    {
+                                                        IncubationStartTime2 = IncubationStartTime2.AddDays(1);
+                                                    }
+
+                                                    TimeSpan ts = new TimeSpan(IncubationStartTime2.Ticks - SampleStartTime2.Ticks);
+                                                    HoldingTime2 = ((float)ts.TotalHours).ToString("F1");
+                                                    if (ts.TotalHours > 8)
+                                                    {
+                                                        textColor = "text-danger";
+                                                    }
+                                                }
+                                            }
+                                            if (labSheetModelAndA1Sheet.LabSheetA1Sheet.WaterBathCount > 2)
+                                            {
+                                                SampleStartTime3 = (((DateTime)labSheetModelAndA1Sheet.LabSheetA1Sheet.LabSheetA1MeasurementList.Where(c => c.Time != null).OrderBy(c => c.Time).FirstOrDefault().Time));
+                                                if (labSheetModelAndA1Sheet.LabSheetA1Sheet.IncubationBath3StartTime != null)
+                                                {
+                                                    IncubationStartTime3 = new DateTime(int.Parse(labSheetModelAndA1Sheet.LabSheetA1Sheet.RunYear), int.Parse(labSheetModelAndA1Sheet.LabSheetA1Sheet.RunMonth), int.Parse(labSheetModelAndA1Sheet.LabSheetA1Sheet.RunDay));
+                                                    if (!string.IsNullOrWhiteSpace(labSheetModelAndA1Sheet.LabSheetA1Sheet.IncubationBath3StartTime))
+                                                    {
+                                                        if (!string.IsNullOrWhiteSpace(labSheetModelAndA1Sheet.LabSheetA1Sheet.IncubationBath3EndTime))
+                                                        {
+                                                            IncubationStartTime3 = IncubationStartTime3.AddHours(int.Parse(labSheetModelAndA1Sheet.LabSheetA1Sheet.IncubationBath3StartTime.Substring(0, 2)));
+                                                            IncubationStartTime3 = IncubationStartTime3.AddMinutes(int.Parse(labSheetModelAndA1Sheet.LabSheetA1Sheet.IncubationBath3StartTime.Substring(3, 2)));
+                                                        }
+                                                    }
+
+                                                    if (!SameDate)
+                                                    {
+                                                        IncubationStartTime3 = IncubationStartTime3.AddDays(1);
+                                                    }
+
+                                                    TimeSpan ts = new TimeSpan(IncubationStartTime3.Ticks - SampleStartTime3.Ticks);
+                                                    HoldingTime3 = ((float)ts.TotalHours).ToString("F1");
+                                                    if (ts.TotalHours > 8)
+                                                    {
+                                                        textColor = "text-danger";
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                <tr class="@textColor">
+                                    <td>
+                                        <b>@SamplingPlanViewRes.CalculatedHoldingTimeInHours</b> &nbsp; &nbsp; &nbsp;
+                                    </td>
+                                    <td>
+                                        @HoldingTime1
+                                    </td>
+                                    @if (labSheetModelAndA1Sheet.LabSheetA1Sheet.WaterBathCount > 1)
+                                    {
+                                        <td>
+                                            @HoldingTime2
+                                        </td>
+                                    }
+                                    @if (labSheetModelAndA1Sheet.LabSheetA1Sheet.WaterBathCount > 2)
+                                    {
+                                        <td>
+                                            @HoldingTime3
+                                        </td>
+                                    }
+                                </tr>
+                            </table>
+                        </li>
+                        <li style="vertical-align:top">
+                            <table class="table table-bordered">
+                                <tr class="@textColor">
+                                    <td rowspan="2">
+                                        <b>@SamplingPlanViewRes.TCCelcius</b> &nbsp; &nbsp; &nbsp;
+                                    </td>
+                                    <td>
+                                        @SamplingPlanViewRes.First
+                                    </td>
+                                    <td>
+                                        @labSheetModelAndA1Sheet.LabSheetA1Sheet.TCFirst
+                                    </td>
+                                </tr>
+                                <tr class="@textColor">
+                                    <td>
+                                        @SamplingPlanViewRes.Average
+                                    </td>
+                                    <td>
+                                        @labSheetModelAndA1Sheet.LabSheetA1Sheet.TCAverage
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        @SamplingPlanViewRes.TCHas2Coolers
+                                    </td>
+                                    <td>
+                                        @labSheetModelAndA1Sheet.LabSheetA1Sheet.TCHas2Coolers
+                                    </td>
+                                </tr>
+                                @{
+                                    textColor = "text-default";
+                                    if (string.IsNullOrWhiteSpace(labSheetModelAndA1Sheet.LabSheetA1Sheet.TCField1))
+                                    {
+                                        textColor = "text-danger";
+                                    }
+                                }
+                                <tr class="@textColor">
+                                    <td>
+                                        <b>@SamplingPlanViewRes.TCField1</b> &nbsp; &nbsp; &nbsp;
+                                    </td>
+                                    <td>
+                                        @labSheetModelAndA1Sheet.LabSheetA1Sheet.TCField1
+                                    </td>
+                                    <td>
+                                        @labSheetModelAndA1Sheet.LabSheetA1Sheet.TCField2
+                                    </td>
+                                </tr>
+                                @{
+                                    textColor = "text-default";
+                                    if (string.IsNullOrWhiteSpace(labSheetModelAndA1Sheet.LabSheetA1Sheet.TCLab1))
+                                    {
+                                        textColor = "text-danger";
+                                    }
+                                    if (labSheetModelAndA1Sheet.LabSheetA1Sheet != null
+                                        && !string.IsNullOrWhiteSpace(labSheetModelAndA1Sheet.LabSheetA1Sheet.TCLab1)
+                                        && float.Parse(labSheetModelAndA1Sheet.LabSheetA1Sheet.TCLab1) > 8.0f)
+                                    {
+                                        textColor = "text-danger";
+                                    }
+                                    if (labSheetModelAndA1Sheet.LabSheetA1Sheet != null
+                                        && !string.IsNullOrWhiteSpace(labSheetModelAndA1Sheet.LabSheetA1Sheet.TCLab2)
+                                        && float.Parse(labSheetModelAndA1Sheet.LabSheetA1Sheet.TCLab2) > 8.0f)
+                                    {
+                                        textColor = "text-danger";
+                                    }
+                                }
+                                <tr class="@textColor">
+                                    <td>
+                                        <b>@SamplingPlanViewRes.TCLab1</b> &nbsp; &nbsp; &nbsp;
+                                    </td>
+                                    <td>
+                                        @labSheetModelAndA1Sheet.LabSheetA1Sheet.TCLab1
+                                    </td>
+                                    <td>
+                                        @labSheetModelAndA1Sheet.LabSheetA1Sheet.TCLab2
+                                    </td>
+                                </tr>
+                            </table>
+                        </li>
+                        <li style="vertical-align:top">
+                            @{
+                                textColor = "text-default";
+                                if (labSheetModelAndA1Sheet.LabSheetA1Sheet.Positive35 != "+")
+                                {
+                                    textColor = "text-danger";
+                                }
+                                if (labSheetModelAndA1Sheet.LabSheetA1Sheet.NonTarget35 != "+" || labSheetModelAndA1Sheet.LabSheetA1Sheet.NonTarget35 == "N")
+                                {
+                                    textColor = "text-danger";
+                                }
+                                if (labSheetModelAndA1Sheet.LabSheetA1Sheet.Negative35 != "-")
+                                {
+                                    textColor = "text-danger";
+                                }
+                                if (labSheetModelAndA1Sheet.LabSheetA1Sheet.Blank35 != "-")
+                                {
+                                    textColor = "text-danger";
+                                }
+                                if (labSheetModelAndA1Sheet.LabSheetA1Sheet.Bath1Positive44_5 != "+")
+                                {
+                                    textColor = "text-danger";
+                                }
+                                if (labSheetModelAndA1Sheet.LabSheetA1Sheet.Bath1NonTarget44_5 != "-" || labSheetModelAndA1Sheet.LabSheetA1Sheet.Bath1NonTarget44_5 == "N")
+                                {
+                                    textColor = "text-danger";
+                                }
+                                if (labSheetModelAndA1Sheet.LabSheetA1Sheet.Bath1Negative44_5 != "-")
+                                {
+                                    textColor = "text-danger";
+                                }
+                                if (labSheetModelAndA1Sheet.LabSheetA1Sheet.WaterBathCount > 1)
+                                {
+                                    if (labSheetModelAndA1Sheet.LabSheetA1Sheet.Bath2Positive44_5 != "+")
+                                    {
+                                        textColor = "text-danger";
+                                    }
+                                    if (labSheetModelAndA1Sheet.LabSheetA1Sheet.Bath2NonTarget44_5 != "-" || labSheetModelAndA1Sheet.LabSheetA1Sheet.Bath2NonTarget44_5 == "N")
+                                    {
+                                        textColor = "text-danger";
+                                    }
+                                    if (labSheetModelAndA1Sheet.LabSheetA1Sheet.Bath2Negative44_5 != "-")
+                                    {
+                                        textColor = "text-danger";
+                                    }
+                                }
+                                if (labSheetModelAndA1Sheet.LabSheetA1Sheet.WaterBathCount > 2)
+                                {
+                                    if (labSheetModelAndA1Sheet.LabSheetA1Sheet.Bath3Positive44_5 != "+")
+                                    {
+                                        textColor = "text-danger";
+                                    }
+                                    if (labSheetModelAndA1Sheet.LabSheetA1Sheet.Bath3NonTarget44_5 != "-" || labSheetModelAndA1Sheet.LabSheetA1Sheet.Bath3NonTarget44_5 == "N")
+                                    {
+                                        textColor = "text-danger";
+                                    }
+                                    if (labSheetModelAndA1Sheet.LabSheetA1Sheet.Bath3Negative44_5 != "-")
+                                    {
+                                        textColor = "text-danger";
+                                    }
+                                }
+                            }
+                            <table class="table table-bordered @textColor">
+                                @{
+                                    textColor = "text-default";
+                                    if (string.IsNullOrWhiteSpace(labSheetModelAndA1Sheet.LabSheetA1Sheet.ControlLot))
+                                    {
+                                        textColor = "text-danger";
+                                    }
+                                }
+                                <tr class="@textColor">
+                                    <td>@SamplingPlanViewRes.LotNumbers</td>
+                                    <td colspan="4">@labSheetModelAndA1Sheet.LabSheetA1Sheet.ControlLot</td>
+                                </tr>
+                                <tr>
+                                    <th>@SamplingPlanViewRes.Control</th>
+                                    <th>@SamplingPlanViewRes.Positive</th>
+                                    <th>@SamplingPlanViewRes.NonTarget</th>
+                                    <th>@SamplingPlanViewRes.Negative</th>
+                                    <th>@SamplingPlanViewRes.Blank</th>
+                                </tr>
+                                <tr>
+                                    <td>@SamplingPlanViewRes._35_0Celcius</td>
+                                    @{
+                                        textColor = "text-default";
+                                        if (labSheetModelAndA1Sheet.LabSheetA1Sheet.Positive35 != "+")
+                                        {
+                                            textColor = "text-danger";
+                                        }
+                                    }
+                                    <td class="@textColor">
+                                        @labSheetModelAndA1Sheet.LabSheetA1Sheet.Positive35
+                                    </td>
+                                    @{
+                                        textColor = "text-default";
+                                        if (labSheetModelAndA1Sheet.LabSheetA1Sheet.NonTarget35 != "+" || labSheetModelAndA1Sheet.LabSheetA1Sheet.NonTarget35 == "N")
+                                        {
+                                            textColor = "text-danger";
+                                        }
+                                    }
+                                    <td class="@textColor">
+                                        @labSheetModelAndA1Sheet.LabSheetA1Sheet.NonTarget35
+                                    </td>
+                                    @{
+                                        textColor = "text-default";
+                                        if (labSheetModelAndA1Sheet.LabSheetA1Sheet.Negative35 != "-")
+                                        {
+                                            textColor = "text-danger";
+                                        }
+                                    }
+                                    <td class="@textColor">
+                                        @labSheetModelAndA1Sheet.LabSheetA1Sheet.Negative35
+                                    </td>
+                                    @{
+                                        textColor = "text-default";
+                                        if (labSheetModelAndA1Sheet.LabSheetA1Sheet.Blank35 != "-")
+                                        {
+                                            textColor = "text-danger";
+                                        }
+                                    }
+                                    <td class="@textColor">
+                                        @labSheetModelAndA1Sheet.LabSheetA1Sheet.Blank35
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>@SamplingPlanViewRes._44_5Celcius (@labSheetModelAndA1Sheet.LabSheetA1Sheet.WaterBath1)</td>
+                                    @{
+                                        textColor = "text-default";
+                                        if (labSheetModelAndA1Sheet.LabSheetA1Sheet.Bath1Positive44_5 != "+")
+                                        {
+                                            textColor = "text-danger";
+                                        }
+                                    }
+                                    <td class="@textColor">
+                                        @labSheetModelAndA1Sheet.LabSheetA1Sheet.Bath1Positive44_5
+                                    </td>
+                                    @{
+                                        textColor = "text-default";
+                                        if (labSheetModelAndA1Sheet.LabSheetA1Sheet.Bath1NonTarget44_5 != "-" || labSheetModelAndA1Sheet.LabSheetA1Sheet.Bath1NonTarget44_5 == "N")
+                                        {
+                                            textColor = "text-danger";
+                                        }
+                                    }
+                                    <td class="@textColor">
+                                        @labSheetModelAndA1Sheet.LabSheetA1Sheet.Bath1NonTarget44_5
+                                    </td>
+                                    @{
+                                        textColor = "text-default";
+                                        if (labSheetModelAndA1Sheet.LabSheetA1Sheet.Bath1Negative44_5 != "-")
+                                        {
+                                            textColor = "text-danger";
+                                        }
+                                    }
+                                    <td class="@textColor">
+                                        @labSheetModelAndA1Sheet.LabSheetA1Sheet.Bath1Negative44_5
+                                    </td>
+                                    <td class="@textColor">
+                                        @labSheetModelAndA1Sheet.LabSheetA1Sheet.Bath1Blank44_5
+                                    </td>
+                                </tr>
+                                @if (labSheetModelAndA1Sheet.LabSheetA1Sheet.WaterBathCount > 1)
+                                {
+                                    <tr>
+                                        <td>@SamplingPlanViewRes._44_5Celcius (@labSheetModelAndA1Sheet.LabSheetA1Sheet.WaterBath2)</td>
+                                        @{
+                                            textColor = "text-default";
+                                            if (labSheetModelAndA1Sheet.LabSheetA1Sheet.Bath2Positive44_5 != "+")
+                                            {
+                                                textColor = "text-danger";
+                                            }
+                                        }
+                                        <td class="@textColor">
+                                            @labSheetModelAndA1Sheet.LabSheetA1Sheet.Bath2Positive44_5
+                                        </td>
+                                        @{
+                                            textColor = "text-default";
+                                            if (labSheetModelAndA1Sheet.LabSheetA1Sheet.Bath2NonTarget44_5 != "-" || labSheetModelAndA1Sheet.LabSheetA1Sheet.Bath2NonTarget44_5 == "N")
+                                            {
+                                                textColor = "text-danger";
+                                            }
+                                        }
+                                        <td class="@textColor">
+                                            @labSheetModelAndA1Sheet.LabSheetA1Sheet.Bath2NonTarget44_5
+                                        </td>
+                                        @{
+                                            textColor = "text-default";
+                                            if (labSheetModelAndA1Sheet.LabSheetA1Sheet.Bath2Negative44_5 != "-")
+                                            {
+                                                textColor = "text-danger";
+                                            }
+                                        }
+                                        <td class="@textColor">
+                                            @labSheetModelAndA1Sheet.LabSheetA1Sheet.Bath2Negative44_5
+                                        </td>
+                                        <td class="@textColor">
+                                            @labSheetModelAndA1Sheet.LabSheetA1Sheet.Bath2Blank44_5
+                                        </td>
+                                    </tr>
+                                            }
+                                @if (labSheetModelAndA1Sheet.LabSheetA1Sheet.WaterBathCount > 2)
+                                {
+                                    <tr>
+                                        <td>@SamplingPlanViewRes._44_5Celcius (@labSheetModelAndA1Sheet.LabSheetA1Sheet.WaterBath3)</td>
+                                        @{
+                                            textColor = "text-default";
+                                            if (labSheetModelAndA1Sheet.LabSheetA1Sheet.Bath3Positive44_5 != "+")
+                                            {
+                                                textColor = "text-danger";
+                                            }
+                                        }
+                                        <td class="@textColor">
+                                            @labSheetModelAndA1Sheet.LabSheetA1Sheet.Bath3Positive44_5
+                                        </td>
+                                        @{
+                                            textColor = "text-default";
+                                            if (labSheetModelAndA1Sheet.LabSheetA1Sheet.Bath3NonTarget44_5 != "-" || labSheetModelAndA1Sheet.LabSheetA1Sheet.Bath3NonTarget44_5 == "N")
+                                            {
+                                                textColor = "text-danger";
+                                            }
+                                        }
+                                        <td class="@textColor">
+                                            @labSheetModelAndA1Sheet.LabSheetA1Sheet.Bath3NonTarget44_5
+                                        </td>
+                                        @{
+                                            textColor = "text-default";
+                                            if (labSheetModelAndA1Sheet.LabSheetA1Sheet.Bath3Negative44_5 != "-")
+                                            {
+                                                textColor = "text-danger";
+                                            }
+                                        }
+                                        <td class="@textColor">
+                                            @labSheetModelAndA1Sheet.LabSheetA1Sheet.Bath3Negative44_5
+                                        </td>
+                                        <td class="@textColor">
+                                            @labSheetModelAndA1Sheet.LabSheetA1Sheet.Bath3Blank44_5
+                                        </td>
+                                    </tr>
+                                            }
+                            </table>
+                        </li>
+                        <li style="vertical-align:top">
+                            <table class="table table-bordered">
+                                <tr>
+                                    <th>
+                                        @SamplingPlanViewRes.A1 @SamplingPlanViewRes.Media
+                                    </th>
+                                    <th>
+                                        @SamplingPlanViewRes.LotNumbers
+                                    </th>
+                                </tr>
+                                @{
+                                    textColor = "text-default";
+                                    if (string.IsNullOrWhiteSpace(labSheetModelAndA1Sheet.LabSheetA1Sheet.Lot35))
+                                    {
+                                        textColor = "text-danger";
+                                    }
+                                }
+                                <tr class="@textColor">
+                                    <td>
+                                        <b>@SamplingPlanViewRes._1X</b> &nbsp; &nbsp; &nbsp;
+                                    </td>
+                                    <td>
+                                        @labSheetModelAndA1Sheet.LabSheetA1Sheet.Lot35
+                                    </td>
+                                </tr>
+                                @{
+                                    textColor = "text-default";
+                                    if (string.IsNullOrWhiteSpace(labSheetModelAndA1Sheet.LabSheetA1Sheet.Lot44_5))
+                                    {
+                                        textColor = "text-danger";
+                                    }
+                                }
+                                <tr class="@textColor">
+                                    <td>
+                                        <b>@SamplingPlanViewRes._2X</b> &nbsp; &nbsp; &nbsp;
+                                    </td>
+                                    <td>
+                                        @labSheetModelAndA1Sheet.LabSheetA1Sheet.Lot44_5
+                                    </td>
+                                </tr>
+                            </table>
+                        </li>
+                                    }
+                </ul>
+                <span>
+                    @SamplingPlanViewRes.RecordFactor
+                </span>
+
+                <h4>@SamplingPlanViewRes.Data (@(_BaseEnumService.GetEnumText_SampleTypeEnum(labSheetModelAndA1Sheet.LabSheetModel.SampleType)))</h4>
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <th>@SamplingPlanViewRes.Site</th>
+                        <th>@SamplingPlanViewRes.Time</th>
+                        <th>@SamplingPlanViewRes.MPN</th>
+                        <th>@SamplingPlanViewRes.T10</th>
+                        <th>@SamplingPlanViewRes.T1_0</th>
+                        <th>@SamplingPlanViewRes.T0_1</th>
+                        <th>@SamplingPlanViewRes.Sal</th>
+                        <th>@SamplingPlanViewRes.Temp &deg;C</th>
+                        @if (labSheetModelAndA1Sheet.LabSheetA1Sheet.IncludeLaboratoryQAQC)
+                        {
+                            <th>@SamplingPlanViewRes.ProcBy</th>
+                        }
+                        <th>@SamplingPlanViewRes.Comment</th>
+                    </tr>
+                    @foreach (LabSheetA1Measurement labSheetA1Measurement in labSheetModelAndA1Sheet.LabSheetA1Sheet.LabSheetA1MeasurementList)
+                    {
+                        textColor = "text-default";
+                        if (labSheetA1Measurement.MPN == -999)
+                        {
+                            textColor = "danger";
+                        }
+                        <tr class="@(textColor + (labSheetA1Measurement.SampleType == SampleTypeEnum.DailyDuplicate ? "success" : ""))">
+                            <td>@labSheetA1Measurement.Site</td>
+                            <td>@(labSheetA1Measurement.Time != null ? ((DateTime)labSheetA1Measurement.Time).ToString("HH:mm") : "")</td>
+                            <td @((labSheetA1Measurement.MPN == null) ? "" : (labSheetA1Measurement.MPN > 42 ? "class=danger" : ""))>
+                                @labSheetA1Measurement.MPN
+                            </td>
+                            <td>@labSheetA1Measurement.Tube10</td>
+                            <td>@labSheetA1Measurement.Tube1_0</td>
+                            <td>@labSheetA1Measurement.Tube0_1</td>
+                            <td>@labSheetA1Measurement.Salinity</td>
+                            <td>@labSheetA1Measurement.Temperature</td>
+                            @if (labSheetModelAndA1Sheet.LabSheetA1Sheet.IncludeLaboratoryQAQC)
+                            {
+                                <td>@labSheetA1Measurement.ProcessedBy</td>
+                            }
+                            <td>@labSheetA1Measurement.SiteComment</td>
+                        </tr>
+                        if (labSheetModelAndA1Sheet.LabSheetA1Sheet.IncludeLaboratoryQAQC)
+                        {
+
+                            if (labSheetA1Measurement.SampleType == SampleTypeEnum.DailyDuplicate)
+                            {
+                                <tr>
+                                    <td colspan="10">
+                                        <h4>@SamplingPlanViewRes.DuplicateInformation</h4>
+                                        <p>
+                                            <b>@SamplingPlanViewRes.SiteNumber</b> &nbsp;&nbsp;&nbsp;
+                                            @labSheetA1Measurement.Site
+                                        </p>
+                                        <p>
+                                            <b>@SamplingPlanViewRes.Analyst</b> &nbsp; &nbsp; &nbsp;
+                                            @labSheetModelAndA1Sheet.LabSheetA1Sheet.ResultsReadBy
+                                            &nbsp;
+                                            @(((DateTime)RecordedDate).ToString("yyyy MMM dd"))
+                                        </p>
+                                        <p>
+                                            <b>@SamplingPlanViewRes.RLogs</b> &nbsp; &nbsp; &nbsp;
+                                            @labSheetModelAndA1Sheet.LabSheetA1Sheet.DailyDuplicateRLog
+                                        </p>
+                                        <p>
+                                            <b>@SamplingPlanViewRes.PrecisionCriteria</b> &nbsp; &nbsp; &nbsp;
+                                            @labSheetModelAndA1Sheet.LabSheetA1Sheet.DailyDuplicatePrecisionCriteria
+                                        </p>
+                                        <p>
+                                            <b class="@(labSheetModelAndA1Sheet.LabSheetA1Sheet.DailyDuplicateAcceptableOrUnacceptable == "Acceptable" ? "text-success" : "text-danger")">
+                                                @labSheetModelAndA1Sheet.LabSheetA1Sheet.DailyDuplicateAcceptableOrUnacceptable
+                                            </b>
+                                        </p>
+                                    </td>
+                                </tr>
+                            }
+                            else if (labSheetA1Measurement.SampleType == SampleTypeEnum.IntertechDuplicate)
+                            {
+                                <tr>
+                                    <td colspan="10">
+                                        <h4>@SamplingPlanViewRes.IntertechDuplicateInformation</h4>
+                                        <p>
+                                            <b>@SamplingPlanViewRes.SiteNumber</b> &nbsp;&nbsp;&nbsp;
+                                            @labSheetA1Measurement.Site
+                                        </p>
+                                        <p>
+                                            <b>@SamplingPlanViewRes.Analyst</b> &nbsp; &nbsp; &nbsp;
+                                            @labSheetModelAndA1Sheet.LabSheetA1Sheet.ResultsReadBy
+                                            &nbsp;
+                                            @(((DateTime)RecordedDate).ToString("yyyy MMM dd"))
+                                        </p>
+                                        <p>
+                                            <b>@SamplingPlanViewRes.RLogs</b> &nbsp; &nbsp; &nbsp;
+                                            @labSheetModelAndA1Sheet.LabSheetA1Sheet.IntertechDuplicateRLog
+                                        </p>
+                                        <p>
+                                            <b>@SamplingPlanViewRes.PrecisionCriteria</b> &nbsp; &nbsp; &nbsp;
+                                            @labSheetModelAndA1Sheet.LabSheetA1Sheet.IntertechDuplicatePrecisionCriteria
+                                        </p>
+                                        <p>
+                                            <b class="@(labSheetModelAndA1Sheet.LabSheetA1Sheet.IntertechDuplicateAcceptableOrUnacceptable == "Acceptable" ? "text-success" : "text-danger")">
+                                                @labSheetModelAndA1Sheet.LabSheetA1Sheet.IntertechDuplicateAcceptableOrUnacceptable
+                                            </b>
+                                        </p>
+                                    </td>
+                                </tr>
+                            }
+                            else if (labSheetA1Measurement.SampleType == SampleTypeEnum.IntertechRead)
+                            {
+                                <tr>
+                                    <td colspan="10">
+                                        <h4>@SamplingPlanViewRes.IntertechReadInformation</h4>
+                                        <p>
+                                            <b>@SamplingPlanViewRes.SiteNumber</b> &nbsp;&nbsp;&nbsp;
+                                            @labSheetA1Measurement.Site
+                                        </p>
+                                        <p>
+                                            <b>@SamplingPlanViewRes.Analyst</b> &nbsp; &nbsp; &nbsp;
+                                            @labSheetModelAndA1Sheet.LabSheetA1Sheet.ResultsReadBy
+                                            &nbsp;
+                                            @(((DateTime)RecordedDate).ToString("yyyy MMM dd"))
+                                        </p>
+                                        <p>
+                                            <b class="@(labSheetModelAndA1Sheet.LabSheetA1Sheet.IntertechReadAcceptableOrUnacceptable == "Acceptable" ? "text-success" : "text-danger")">
+                                                @labSheetModelAndA1Sheet.LabSheetA1Sheet.IntertechReadAcceptableOrUnacceptable
+                                            </b>
+                                        </p>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    }
+                </table>
+                <ul class="list-inline">
+                    <li style="vertical-align:top">
+                        <table class="table table-bordered">
+                            <tr>
+                                <td>
+                                    <b>@SamplingPlanViewRes.RunComment</b>
+                                </td>
+                                <td>
+                                    @labSheetModelAndA1Sheet.LabSheetA1Sheet.RunComment
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <b>@SamplingPlanViewRes.RunWeatherComment</b>
+                                </td>
+                                <td>
+                                    @labSheetModelAndA1Sheet.LabSheetA1Sheet.RunWeatherComment
+                                </td>
+                            </tr>
+                        </table>
+                    </li>
+                </ul>
+                @if (labSheetModelAndA1Sheet.LabSheetA1Sheet.IncludeLaboratoryQAQC)
+                {
+                    <p>
+                        @SamplingPlanViewRes.NotAllRequiredEtc
+                    </p>
+                        <ul class="list-inline">
+                            <li style="vertical-align:top">
+                                <table class="table table-bordered">
+                                    <tr>
+                                        <td>
+                                            <b>@SamplingPlanViewRes.SampleBottleLotNumber</b>
+                                        </td>
+                                        <td>
+                                            @labSheetModelAndA1Sheet.LabSheetA1Sheet.SampleBottleLotNumber
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <b>@SamplingPlanViewRes.SalinityReadBy</b>
+                                        </td>
+                                        <td>
+                                            @labSheetModelAndA1Sheet.LabSheetA1Sheet.SalinitiesReadBy
+                                            &nbsp;
+                                            @(((DateTime)SalinityReadDate).ToString("yyyy MMM dd"))
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <b>@SamplingPlanViewRes.ResultsReadBy</b>
+                                        </td>
+                                        <td>
+                                            @labSheetModelAndA1Sheet.LabSheetA1Sheet.ResultsReadBy
+                                            &nbsp;
+                                            @(((DateTime)ReadDate).ToString("yyyy MMM dd"))
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <b>@SamplingPlanViewRes.ResultsRecordedBy</b>
+                                        </td>
+                                        <td>
+                                            @labSheetModelAndA1Sheet.LabSheetA1Sheet.ResultsRecordedBy
+                                            &nbsp;
+                                            @(((DateTime)RecordedDate).ToString("yyyy MMM dd"))
+                                        </td>
+                                    </tr>
+                                </table>
+                            </li>
+                        </ul>
+                }
+                <div class="panel panel-default">
+                    <p class="control-label">@SamplingPlanViewRes.AnalyzeMethod - @_BaseEnumService.GetEnumText_AnalyzeMethodEnum(analyzeMethod)</p>
+                    <p class="control-label">@SamplingPlanViewRes.SampleMatrix - @_BaseEnumService.GetEnumText_SampleMatrixEnum(sampleMatrix)</p>
+                    <p class="control-label">@SamplingPlanViewRes.Laboratory - @_BaseEnumService.GetEnumText_LaboratoryEnum(laboratory)</p>
+                </div>
+                @if (labSheetModelAndA1Sheet.LabSheetA1Sheet.LabSheetA1MeasurementList.Where(c => c.MPN == -999).Any())
+                {
+                    <div class="panel panel-danger">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                @SamplingPlanViewRes.UnusualTubeCombination
+                            </h4>
+                        </div>
+                        <div class="panel-body">
+                            @SamplingPlanViewRes.UnusualTubeCombinationExistEtc
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+    </div>
+                                    }

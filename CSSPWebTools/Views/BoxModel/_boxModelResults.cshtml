@@ -1,0 +1,76 @@
+﻿@using CSSPWebToolsDBDLL.Services;
+@using CSSPWebTools.Views.BoxModel.Resources;
+@using CSSPEnumsDLL.Enums;
+@using CSSPModelsDLL.Models;
+
+@{
+    List<BoxModelResultModel> boxModelResultModelList = (List<BoxModelResultModel>)ViewBag.BoxModelResultModelList;
+}
+<div class="paraBlock">
+    <h4>@BoxModelViewRes.BoxModelCalculatedResult</h4>
+   
+        @for (int i = 1; i < 6; i++)
+        {
+            string THName = "";
+            switch (i)
+            {
+                case 1:
+                    {
+                        THName = BoxModelViewRes.Dilution;
+                    }
+                    break;
+                case 2:
+                    {
+                        THName = BoxModelViewRes.NoDecayUntreated;
+                    }
+                    break;
+                case 3:
+                    {
+                        THName = BoxModelViewRes.NoDecayPreDisinfection;
+                    }
+                    break;
+                case 4:
+                    {
+                        THName = BoxModelViewRes.DecayUntreated;
+                    }
+                    break;
+                case 5:
+                    {
+                        THName = BoxModelViewRes.DecayPreDisinfection;
+                    }
+                    break;
+                default:
+                    break;
+            }
+            <b class="text-primary">@THName</b>
+            <div class="blockMargin">
+                <ul class="list-inline">
+                    <li>
+                        <b>@BoxModelViewRes.CalculatedVolume (m<sup>3</sup>):</b>&nbsp;&nbsp;
+                        @(string.Format("{0:F0}", boxModelResultModelList[i - 1].Volume_m3))
+                    </li>
+                    <li>
+                        <b>@BoxModelViewRes.CalculatedSurface (m<sup>2</sup>):</b>&nbsp;&nbsp;
+                        @(string.Format("{0:F0}", boxModelResultModelList[i - 1].Surface_m2))
+                    </li>
+                    <li>
+                        <b>@BoxModelViewRes.SemiCircle: @BoxModelViewRes.CalculatedRadius (m):</b>&nbsp;&nbsp;
+                        @(string.Format("{0:F0}", boxModelResultModelList[i - 1].Radius_m))
+                    </li>
+                    <li>
+                        <b>@BoxModelViewRes.Rectangle: @BoxModelViewRes.Length (m):</b>&nbsp;&nbsp;
+                        @(string.Format("{0:F0}", boxModelResultModelList[i - 1].RectLength_m))
+                    </li>
+                    <li>
+                        <b>@BoxModelViewRes.Rectangle: @BoxModelViewRes.Width (m):</b>&nbsp;&nbsp;
+                        @(string.Format("{0:F0}", boxModelResultModelList[i - 1].RectWidth_m))
+                    </li>
+                </ul>
+            </div>
+        }
+    <script type="text/javascript">
+        $(function () {
+            cssp.BoxModel.Init();
+        });
+    </script>
+</div>

@@ -1,0 +1,102 @@
+﻿@using CSSPWebTools.Views.Shared.Resources;
+@using CSSPWebTools.Views.VisualPlumes.Resources;
+@using CSSPModelsDLL.Models;
+
+@{
+    List<VPAmbientModel> vpAmbientModelList = (List<VPAmbientModel>)ViewBag.VPAmbientModelList;
+    var Count = 0;
+}
+
+<div>
+    @foreach (VPAmbientModel vpAmbientModel in vpAmbientModelList)
+    {
+        Count += 1;
+        if (vpAmbientModel.MeasurementDepth_m > -998)
+        {
+            <h4>
+                <span class=" text-capitalize">@(VisualPlumeViewRes.Depth):&nbsp;</span>  @(string.Format("{0:F3}", vpAmbientModel.MeasurementDepth_m))&nbsp;@UnitViewRes.Meters_abbr 
+            </h4>
+        }
+        <div class="blockMargin">
+                <ul class="list-inline">
+                    @if (vpAmbientModel.CurrentSpeed_m_s > -998)
+                    {
+                        <li>
+                            <label>@VisualPlumeViewRes.CurrentSpeed </label>
+                            <span> @(string.Format("{0:F6}", vpAmbientModel.CurrentSpeed_m_s)) @UnitViewRes.MetersPerSecond_abbr</span>
+                            &nbsp;&nbsp;
+                        </li>
+                    }
+                    @if (vpAmbientModel.CurrentDirection_deg > -998)
+                    {
+                        <li>
+                            <label>@VisualPlumeViewRes.CurrentDirection</label>
+                            <span> @(string.Format("{0:F1}", vpAmbientModel.CurrentDirection_deg)) @UnitViewRes.Degrees_abbr</span>
+                            &nbsp;&nbsp;
+                        </li>
+                    }
+                    @if (vpAmbientModel.AmbientSalinity_PSU > -998)
+                    {
+                        <li>
+                            <label>@VisualPlumeViewRes.AmbientSalinity</label>
+                            <span> @(string.Format("{0:F1}", vpAmbientModel.AmbientSalinity_PSU)) @UnitViewRes.PSU</span>
+                            &nbsp;&nbsp;
+                        </li>
+                    }
+                    @if (vpAmbientModel.AmbientTemperature_C > -998)
+                    {
+                        <li>
+                            <label>@VisualPlumeViewRes.AmbientTemperature</label>
+                            <span> @(string.Format("{0:F1}", vpAmbientModel.AmbientTemperature_C)) @UnitViewRes.Celcius_abbr</span>
+                            &nbsp;&nbsp;
+                        </li>
+                    }
+                    @if (vpAmbientModel.BackgroundConcentration_MPN_100ml > -998)
+                    {
+                        <li>
+                            <label>@VisualPlumeViewRes.BackgroundConcentration</label>
+                            <span> @(string.Format("{0:F0}", vpAmbientModel.BackgroundConcentration_MPN_100ml)) @UnitViewRes.FCPer100ml</span>
+                            &nbsp;&nbsp;
+                        </li>
+                    }
+                    @if (vpAmbientModel.PollutantDecayRate_per_day > -998)
+                    {
+                        <li>
+                            <label>@VisualPlumeViewRes.DecayRate</label>
+                            <span> @(string.Format("{0:F6}", vpAmbientModel.PollutantDecayRate_per_day))@UnitViewRes.PerDay</span>
+                            &nbsp;&nbsp;
+                        </li>
+                    }
+                    @if (vpAmbientModel.FarFieldCurrentSpeed_m_s > -998)
+                    {
+                        <li>
+                            <label>@VisualPlumeViewRes.FarFieldCurrentSpeed</label>
+                            <span> @(string.Format("{0:F6}", vpAmbientModel.FarFieldCurrentSpeed_m_s)) @UnitViewRes.MetersPerSecond_abbr</span>
+                            &nbsp;&nbsp;
+                        </li>
+                    }
+                    @if (vpAmbientModel.FarFieldCurrentDirection_deg > -998)
+                    {
+                        <li>
+                            <label>@VisualPlumeViewRes.FarFieldCurrentDirection</label>
+                            <span> @(string.Format("{0:F1}", vpAmbientModel.FarFieldCurrentDirection_deg)) @UnitViewRes.Degrees_abbr</span>
+                            &nbsp;&nbsp;
+                        </li>
+                    }
+                    @if (vpAmbientModel.FarFieldDiffusionCoefficient > -998)
+                    {
+                        <li>
+                            <label>@VisualPlumeViewRes.FarFieldDiffusionCoefficient</label>
+                            <span> @(string.Format("{0:F6}", vpAmbientModel.FarFieldDiffusionCoefficient)) @Html.Raw(UnitViewRes.m067perS2)</span>
+                        </li>
+                    }
+                </ul>
+        </div>
+    }
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        cssp.VisualPlumes.Init();
+    });
+</script>

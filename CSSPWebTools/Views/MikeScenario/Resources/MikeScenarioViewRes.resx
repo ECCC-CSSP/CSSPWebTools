@@ -1,0 +1,829 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AcceptWebTideBoundaryCondition" xml:space="preserve">
+    <value>Accept WebTide Boundary Conditions</value>
+    <comment>MS</comment>
+  </data>
+  <data name="AddEffluent" xml:space="preserve">
+    <value>Add an effluent</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="AddMikeScenario" xml:space="preserve">
+    <value>Add Mike Scenario</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="AddNewMikeScenario" xml:space="preserve">
+    <value>Add New Mike Scenario</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="AddNewSource" xml:space="preserve">
+    <value>Add new source</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="AddSource" xml:space="preserve">
+    <value>Add</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="AmbientSalinity" xml:space="preserve">
+    <value>Ambient salinity</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="AmbientTemperature" xml:space="preserve">
+    <value>Ambient temperature</value>
+    <comment>MSIGP</comment>
+  </data>
+  <data name="April" xml:space="preserve">
+    <value>April</value>
+    <comment>MSIGP</comment>
+  </data>
+  <data name="AskToRun" xml:space="preserve">
+    <value>Ask to run</value>
+    <comment>MS</comment>
+  </data>
+  <data name="August" xml:space="preserve">
+    <value>August</value>
+    <comment>MSIGP</comment>
+  </data>
+  <data name="AuthorizationNeeded" xml:space="preserve">
+    <value>Authorization is needed</value>
+    <comment>MSIGP</comment>
+  </data>
+  <data name="Beginning" xml:space="preserve">
+    <value>Beginning</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="BoundaryCondition" xml:space="preserve">
+    <value>Boundary Conditions</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="BoundaryConditionNodes" xml:space="preserve">
+    <value>Boundary Conditions Nodes</value>
+    <comment>MS</comment>
+  </data>
+  <data name="BoundaryConditions" xml:space="preserve">
+    <value>Boundary Conditions</value>
+    <comment>MS</comment>
+  </data>
+  <data name="Busy" xml:space="preserve">
+    <value>Busy</value>
+    <comment>MS</comment>
+  </data>
+  <data name="Bytes" xml:space="preserve">
+    <value>bytes</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+    <comment>MS MSIGP</comment>
+  </data>
+  <data name="CancelNewSource" xml:space="preserve">
+    <value>Cancel</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="ClearMap" xml:space="preserve">
+    <value>Clear Map</value>
+    <comment>MS</comment>
+  </data>
+  <data name="Copy" xml:space="preserve">
+    <value>Copy</value>
+    <comment>MS</comment>
+  </data>
+  <data name="Created" xml:space="preserve">
+    <value>Created</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>Date</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="DateNameUnit" xml:space="preserve">
+    <value>Date (UTC)</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="DateTime" xml:space="preserve">
+    <value>Date and Time</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="Day" xml:space="preserve">
+    <value>Day</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="DecayConstant" xml:space="preserve">
+    <value>Decay is constant</value>
+    <comment>MSIGP</comment>
+  </data>
+  <data name="DecayFactorAmplitude" xml:space="preserve">
+    <value>Decay factor amplitude</value>
+    <comment>MSIGP</comment>
+  </data>
+  <data name="DecayFactorAverage" xml:space="preserve">
+    <value>Decay factor average</value>
+    <comment>MSIGP</comment>
+  </data>
+  <data name="December" xml:space="preserve">
+    <value>December</value>
+    <comment>MSIGP</comment>
+  </data>
+  <data name="degree" xml:space="preserve">
+    <value>degree</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="degrees" xml:space="preserve">
+    <value>degrees</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete </value>
+    <comment>MS</comment>
+  </data>
+  <data name="DeleteNode" xml:space="preserve">
+    <value>Delete Node</value>
+    <comment>MS</comment>
+  </data>
+  <data name="DeleteSource" xml:space="preserve">
+    <value>Delete this source</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="Doc" xml:space="preserve">
+    <value>Doc</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="DownloadFile" xml:space="preserve">
+    <value>Download file</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="East" xml:space="preserve">
+    <value>East</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="East_abr" xml:space="preserve">
+    <value>E</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="Effluent" xml:space="preserve">
+    <value>Effluent</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="Effluents" xml:space="preserve">
+    <value>Effluents</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="End" xml:space="preserve">
+    <value>End</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="EndDateTime" xml:space="preserve">
+    <value>End Date and Time</value>
+    <comment>MSIGP</comment>
+  </data>
+  <data name="EndFlow" xml:space="preserve">
+    <value>End Flow</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="Ending" xml:space="preserve">
+    <value>Ending</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="EndPollution" xml:space="preserve">
+    <value>End Pollution</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="EndSalinity" xml:space="preserve">
+    <value>End Salinity</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="EndTemperature" xml:space="preserve">
+    <value>End Temperature</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="ErrorMessage" xml:space="preserve">
+    <value>Error Message</value>
+    <comment>MS</comment>
+  </data>
+  <data name="ErrorWhileCreatingPage" xml:space="preserve">
+    <value>Error while creating page</value>
+    <comment>MSIGP</comment>
+  </data>
+  <data name="February" xml:space="preserve">
+    <value>February</value>
+    <comment>MSIGP</comment>
+  </data>
+  <data name="FecalColiform" xml:space="preserve">
+    <value>Faecal Coliform</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="FileFullPath" xml:space="preserve">
+    <value>File full path</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="FileNameLabel" xml:space="preserve">
+    <value>File Name</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="Flow" xml:space="preserve">
+    <value>Flow</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="GeneralParameters" xml:space="preserve">
+    <value>General Parameters</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="Generate" xml:space="preserve">
+    <value>Generate</value>
+    <comment>MS</comment>
+  </data>
+  <data name="GettingOtherFilesToUpload" xml:space="preserve">
+    <value>Getting other files to upload</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="hours" xml:space="preserve">
+    <value>hours</value>
+    <comment>MSIGP</comment>
+  </data>
+  <data name="HourUnit" xml:space="preserve">
+    <value>:</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="Include" xml:space="preserve">
+    <value>Include in scenario</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="IncludedInfrastructure" xml:space="preserve">
+    <value>Included Infrastructure</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="IncludedRiver" xml:space="preserve">
+    <value>Included River</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="InProgress" xml:space="preserve">
+    <value>In progress</value>
+    <comment>ok</comment>
+  </data>
+  <data name="InputFiles" xml:space="preserve">
+    <value>Input files</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="Inputs" xml:space="preserve">
+    <value>Inputs</value>
+    <comment>ok</comment>
+  </data>
+  <data name="InputSummary" xml:space="preserve">
+    <value>Input Summary</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="IsContinuous" xml:space="preserve">
+    <value>Is continuous</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="IsIncluded" xml:space="preserve">
+    <value>Is included</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="IsRiver" xml:space="preserve">
+    <value>Is river</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="January" xml:space="preserve">
+    <value>January</value>
+    <comment>MSIGP</comment>
+  </data>
+  <data name="July" xml:space="preserve">
+    <value>July</value>
+    <comment>MSIGP</comment>
+  </data>
+  <data name="June" xml:space="preserve">
+    <value>June</value>
+    <comment>MSIGP</comment>
+  </data>
+  <data name="KB" xml:space="preserve">
+    <value>KB</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="Latitude" xml:space="preserve">
+    <value>Latitude</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="LatitudeLongitude" xml:space="preserve">
+    <value>Coordinates</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="Longitude" xml:space="preserve">
+    <value>Longitude</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="ManningNumber" xml:space="preserve">
+    <value>Manning number</value>
+    <comment>MSIGP</comment>
+  </data>
+  <data name="March" xml:space="preserve">
+    <value>March</value>
+    <comment>MSIGP</comment>
+  </data>
+  <data name="May" xml:space="preserve">
+    <value>May</value>
+    <comment>MSIGP</comment>
+  </data>
+  <data name="MB" xml:space="preserve">
+    <value>MB</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="MikeScenarioPeriod" xml:space="preserve">
+    <value>Mike Scenario Period</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="MikeSourceInformation" xml:space="preserve">
+    <value> Mike Source Information</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="minutes" xml:space="preserve">
+    <value>minutes</value>
+    <comment>MSIGP</comment>
+  </data>
+  <data name="Month" xml:space="preserve">
+    <value>Month</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="MostProbableNumber_abr" xml:space="preserve">
+    <value>MPN</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Name</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>No</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="None" xml:space="preserve">
+    <value>None</value>
+    <comment>MS</comment>
+  </data>
+  <data name="North" xml:space="preserve">
+    <value>North</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="North_abr" xml:space="preserve">
+    <value>N</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="NotIncluded" xml:space="preserve">
+    <value>Not Included</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="NotThisFile" xml:space="preserve">
+    <value>Not this file</value>
+    <comment>MS</comment>
+  </data>
+  <data name="November" xml:space="preserve">
+    <value>November</value>
+    <comment>MSIGP</comment>
+  </data>
+  <data name="October" xml:space="preserve">
+    <value>October</value>
+    <comment>MSIGP</comment>
+  </data>
+  <data name="OtherFileToUpload" xml:space="preserve">
+    <value>Other file to upload</value>
+    <comment>MS</comment>
+  </data>
+  <data name="OutputParameters" xml:space="preserve">
+    <value>Output Parameters</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="perday" xml:space="preserve">
+    <value>day</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="Period" xml:space="preserve">
+    <value>Period</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="Pollution" xml:space="preserve">
+    <value>Pollution</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="Refresh" xml:space="preserve">
+    <value>Refresh</value>
+    <comment>MS</comment>
+  </data>
+  <data name="ResetWebTide" xml:space="preserve">
+    <value>Reset WebTide</value>
+    <comment>MS</comment>
+  </data>
+  <data name="ResultFrequency" xml:space="preserve">
+    <value>Results frequency</value>
+    <comment>MSIGP</comment>
+  </data>
+  <data name="Results" xml:space="preserve">
+    <value>Results</value>
+    <comment>ok</comment>
+  </data>
+  <data name="Retry" xml:space="preserve">
+    <value>Retry</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="Salinity" xml:space="preserve">
+    <value>Salinity</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
+    <comment>MSIGP</comment>
+  </data>
+  <data name="SaveEffluent" xml:space="preserve">
+    <value>Save</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="SaveFirstPart" xml:space="preserve">
+    <value>Save</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="ScenarioAmbientSalinity" xml:space="preserve">
+    <value>Ambient Salinity</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="ScenarioAmbientTemperature" xml:space="preserve">
+    <value>Ambient Temperature</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="ScenarioDecayFactor" xml:space="preserve">
+    <value>Decay Factor</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="ScenarioIsConstant" xml:space="preserve">
+    <value>Scenario is constant</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="ScenarioLength" xml:space="preserve">
+    <value>Scenario length</value>
+    <comment>MSIGP</comment>
+  </data>
+  <data name="ScenarioManningNumber" xml:space="preserve">
+    <value>Manning Number</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="ScenarioName" xml:space="preserve">
+    <value>Scenario name</value>
+    <comment>MSIGP</comment>
+  </data>
+  <data name="ScenarioResultFrequency" xml:space="preserve">
+    <value>Result Frequency</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="ScenarioStart" xml:space="preserve">
+    <value>Start</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="ScenarioWindDirection" xml:space="preserve">
+    <value>Wind Direction</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="ScenarioWindSpeed" xml:space="preserve">
+    <value>Wind Speed</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="second" xml:space="preserve">
+    <value>second</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="Select" xml:space="preserve">
+    <value>Select</value>
+    <comment>MS</comment>
+  </data>
+  <data name="SelectFile" xml:space="preserve">
+    <value>Select file:</value>
+    <comment>MS</comment>
+  </data>
+  <data name="September" xml:space="preserve">
+    <value>September</value>
+    <comment>MSIGP</comment>
+  </data>
+  <data name="SetupWebTide" xml:space="preserve">
+    <value>Setup WebTide</value>
+    <comment>MS</comment>
+  </data>
+  <data name="ShowHide" xml:space="preserve">
+    <value>Show and Hide </value>
+    <comment>à faire</comment>
+  </data>
+  <data name="Size" xml:space="preserve">
+    <value>Size</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="Source" xml:space="preserve">
+    <value>Source</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="SourceName" xml:space="preserve">
+    <value>Source Name</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="Sources" xml:space="preserve">
+    <value>Sources</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="South" xml:space="preserve">
+    <value>South</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="South_abr" xml:space="preserve">
+    <value>S</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="Start" xml:space="preserve">
+    <value>Start</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="StartDateTime" xml:space="preserve">
+    <value>Start Date and Time</value>
+    <comment>MSIGP</comment>
+  </data>
+  <data name="StartFlow" xml:space="preserve">
+    <value>Start Flow</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="StartPollution" xml:space="preserve">
+    <value>Start Pollution</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="StartSalinity" xml:space="preserve">
+    <value>Start Salinity</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="StartTemperature" xml:space="preserve">
+    <value>Start Temperature</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+    <comment>MS</comment>
+  </data>
+  <data name="Temperature" xml:space="preserve">
+    <value>Temperature</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="Time" xml:space="preserve">
+    <value>Time</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="Tools" xml:space="preserve">
+    <value>Tools</value>
+    <comment>ok</comment>
+  </data>
+  <data name="Upload" xml:space="preserve">
+    <value>Upload</value>
+    <comment>MS</comment>
+  </data>
+  <data name="ViewNodeList" xml:space="preserve">
+    <value>View Node List</value>
+    <comment>MS</comment>
+  </data>
+  <data name="ViewNodes" xml:space="preserve">
+    <value>View Nodes</value>
+    <comment>MS</comment>
+  </data>
+  <data name="ViewNodesOnMap" xml:space="preserve">
+    <value>View Nodes on Map</value>
+    <comment>MS</comment>
+  </data>
+  <data name="WebTideNodes" xml:space="preserve">
+    <value>WebTide Nodes</value>
+    <comment>MS</comment>
+  </data>
+  <data name="WindDirection" xml:space="preserve">
+    <value>Wind direction</value>
+    <comment>MSIGP</comment>
+  </data>
+  <data name="WindSpeed" xml:space="preserve">
+    <value>Wind speed</value>
+    <comment>MSIGP</comment>
+  </data>
+  <data name="Year" xml:space="preserve">
+    <value>Year</value>
+    <comment>MSIGP</comment>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Yes</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="EffluentFinish" xml:space="preserve">
+    <value>Effluent Finish</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="EffluentStart" xml:space="preserve">
+    <value>Effluent Start</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="CancelTask" xml:space="preserve">
+    <value>Cancel Task</value>
+    <comment>SWTW</comment>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Error</value>
+    <comment>MS</comment>
+  </data>
+  <data name="Hydrometric" xml:space="preserve">
+    <value>Hydrometric</value>
+    <comment>T</comment>
+  </data>
+  <data name="MikeScenario" xml:space="preserve">
+    <value>MIKE Scenario</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="NotImplementedYet" xml:space="preserve">
+    <value>Not Implemented Yet</value>
+    <comment>MS</comment>
+  </data>
+  <data name="Precipitation" xml:space="preserve">
+    <value>Precipitation</value>
+    <comment>T</comment>
+  </data>
+  <data name="Reloading" xml:space="preserve">
+    <value>Reloading</value>
+    <comment>SWTW</comment>
+  </data>
+  <data name="Show" xml:space="preserve">
+    <value>Show</value>
+    <comment>MS</comment>
+  </data>
+  <data name="Tides" xml:space="preserve">
+    <value>Tides</value>
+    <comment>T</comment>
+  </data>
+  <data name="Working" xml:space="preserve">
+    <value>Working</value>
+    <comment>SWTW</comment>
+  </data>
+  <data name="days" xml:space="preserve">
+    <value>days</value>
+  </data>
+  <data name="PleaseCompleteSetup" xml:space="preserve">
+    <value>Please complete setup</value>
+  </data>
+  <data name="LocalTime" xml:space="preserve">
+    <value>local time</value>
+  </data>
+  <data name="GenerateWebTideNodes" xml:space="preserve">
+    <value>Generate Web Tide Nodes</value>
+  </data>
+  <data name="AllWebTidesBelowToGenerate" xml:space="preserve">
+    <value>All web tides below need to be generated accordingly</value>
+  </data>
+  <data name="Lat" xml:space="preserve">
+    <value>Lat</value>
+  </data>
+  <data name="Lng" xml:space="preserve">
+    <value>Lng</value>
+  </data>
+  <data name="and" xml:space="preserve">
+    <value>, and</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="IsNotContinuous" xml:space="preserve">
+    <value>Is not continuous</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="IsNotRiver" xml:space="preserve">
+    <value>Is not river</value>
+    <comment>à faire</comment>
+  </data>
+  <data name="Properties" xml:space="preserve">
+    <value>Properties</value>
+  </data>
+  <data name="Duration" xml:space="preserve">
+    <value>Duration</value>
+  </data>
+  <data name="CreateWaterLevelBoundaryConditionForWebTideFirstNode" xml:space="preserve">
+    <value>Create water level boundary condition for WebTide first node</value>
+  </data>
+  <data name="ShowHideWaterLevels" xml:space="preserve">
+    <value>Show or hide water levels</value>
+  </data>
+  <data name="WebTideDataAtFirstNode" xml:space="preserve">
+    <value>Web tide data at first node</value>
+  </data>
+  <data name="ShowStudyArea" xml:space="preserve">
+    <value>Show study area</value>
+  </data>
+</root>

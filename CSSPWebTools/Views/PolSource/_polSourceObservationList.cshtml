@@ -1,0 +1,205 @@
+﻿@using CSSPWebTools.Views.PolSource.Resources;
+@using CSSPWebTools.Controllers;
+@using System.Globalization;
+@using CSSPEnumsDLL.Enums;
+@using CSSPEnumsDLL.Services;
+@using CSSPModelsDLL.Models;
+
+@{
+    int PolSourceSiteTVItemID = (int)ViewBag.PolSourceSiteTVItemID;
+    PolSourceController polSourceController = (PolSourceController)ViewBag.PolSourceController;
+    List<PolSourceObservationModel> polSourceObservationModelList = (List<PolSourceObservationModel>)ViewBag.PolSourceObservationModelList;
+    PolSourceObservationModel polSourceObservationModel = polSourceObservationModelList.FirstOrDefault();
+    BaseEnumService _BaseEnumService = new BaseEnumService(ViewBag.Language);
+}
+
+@if (polSourceObservationModel != null)
+{
+    <div class="PolSourceObservationTopDiv" data-polsourceobservationid="@polSourceObservationModel.PolSourceObservationID">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <div class="panel-title h4">
+                    <button class="jbPolSourceObservationChangeDate btn btn-default" title="@PolSourceViewRes.ChangeDate">
+                        @(((DateTime)polSourceObservationModel.ObservationDate_Local).ToString("yyyy MMMM dd"))
+                    </button>
+                    <button class="jbPolSourceObservationAskToDelete btn btn-default" data-polsourceobservationid="@polSourceObservationModel.PolSourceObservationID" Title="@PolSourceViewRes.DeleteObservation">
+                        <span class="glyphicon glyphicon-trash"></span>
+                    </button>
+                    <button class="jbPolSourceObservationCopy btn btn-default" data-polsourceobservationid="@polSourceObservationModel.PolSourceObservationID" title="@PolSourceViewRes.Copy">
+                        <span class="glyphicon glyphicon-duplicate"></span>
+                    </button>
+                    <form class="hidden" id="PolSourceObservationAddOrModifyForm" action="PolSource/PolSourceObservationAddOrModifyJSON" method="post">
+                        @Html.AntiForgeryToken()
+                        <input type="hidden" name="PolSourceSiteTVItemID" value="@PolSourceSiteTVItemID" />
+                        <input type="hidden" name="PolSourceObservationID" value="@polSourceObservationModel.PolSourceObservationID" />
+
+                        <label class="h4">@PolSourceViewRes.ObservationDate</label>
+                        <a href="" class="jaPopover text-info elementSpacing" type="button" tabindex="1" data-trigger="focus" data-container="body" data-toggle="popover" data-placement="right" data-content="@PolSourceViewRes.ToChangeExistingObsInsertSameDateAsObsDate">
+                            <span class="glyphicon glyphicon-info-sign"></span>
+                        </a>
+                        <div class="form-inline elementSpacing">
+                            <div class="form-group">
+                                <label class="control-label">@PolSourceViewRes.Year</label>
+                                <div>
+                                    <select class="form-control" name="ObsYear">
+                                        @for (int i = 1980; i < DateTime.Now.Year + 1; i++)
+                                        {
+                                            <option @(DateTime.Now.Year == i ? @"selected=""selected""" : "") value="@i.ToString()">@i.ToString()</option>
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">@PolSourceViewRes.Month</label>
+                                <div>
+                                    <select class="form-control" name="ObsMonth">
+                                        @for (int i = 1; i < 13; i++)
+                                        {
+                                            <option @(DateTime.Now.Month == i ? @"selected=""selected""" : "") value="@i.ToString()">@(CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(i))</option>
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">@PolSourceViewRes.Day</label>
+                                <div>
+                                    <select class="form-control" name="ObsDay">
+                                        @{
+                                            int NumberOfDaysInMonth = DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month);
+                                            for (int i = 1; i < NumberOfDaysInMonth + 1; i++)
+                                            {
+                                                <option @(DateTime.Now.Day == i ? @"selected=""selected""" : "") value="@i.ToString()">@i.ToString()</option>
+                                            }
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="btn-block">
+                            <button class="jbPolSourceObservationEditSave btn btn-primary" type="submit">
+                                <span class="glyphicon glyphicon-check"></span>
+                                &nbsp;@PolSourceViewRes.Modify
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="panel-body">
+                <div class="PolSourceObservationTopDiv">
+                    <p class="text-danger">
+                        <b>
+                            <i>@polSourceObservationModel.ObservationDate_Local.ToString("yyyy MMMM dd")</i>
+                            <i class="elementSpacing">@polSourceObservationModel.ContactTVText</i>
+
+                        </b>
+                    </p>
+                    <p>
+                        <label>@PolSourceViewRes.WrittenDescription:</label>
+                        @if (!string.IsNullOrWhiteSpace(polSourceObservationModel.Observation_ToBeDeleted))
+                        {
+                            <span>@polSourceObservationModel.Observation_ToBeDeleted</span>
+                        }
+                        else
+                        {
+                            <i class="text-lowercase elementSpacing">@PolSourceViewRes.NoData</i>
+                        }
+                    </p>
+                    <p>
+                        <label>@PolSourceViewRes.SelectedDescription:</label>
+                        <ul class="list-unstyled">
+                            @for (int i = 0, count = polSourceObservationModel.PolSourceObservationIssueModelList.Count; i < count; i++)
+                            {
+                                <li>
+                                    <div class="PolSourceObservationIssueText h4">
+                                        <button class="jbPolSourceObservationIssueAskToDelete btn btn-default"
+                                                data-polsourceobservationissueid="@polSourceObservationModel.PolSourceObservationIssueModelList[i].PolSourceObservationIssueID" title="@PolSourceViewRes.DeleteIssue">
+                                            <span class="glyphicon glyphicon-trash"></span>
+                                        </button>
+                                        @PolSourceViewRes.Issue (@(i + 1))
+                                    </div>
+                                    @foreach (PolSourceObsInfoEnum polSourceObsInfo in polSourceObservationModel.PolSourceObservationIssueModelList[i].PolSourceObsInfoList)
+                                    {
+                                        <span>@(_BaseEnumService.GetEnumText_PolSourceObsInfoReportEnum(polSourceObsInfo))</span>
+                                    }
+                                </li>
+                            }
+                        </ul>
+                    </p>
+                    <p style="border-top:1px dotted maroon">
+                        <span>&nbsp; </span>
+                    </p>
+                    <h4>@PolSourceViewRes.EditIssues</h4>
+                    <div class="PolSourceIssueListTopDiv">
+                        @Html.Action("_polSourceIssueList", "PolSource", new { PolSourceObservationID = polSourceObservationModel.PolSourceObservationID, IssueOrdinal = polSourceObservationModel.PolSourceObservationIssueModelList[0].Ordinal })
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+                                            }
+
+@foreach (PolSourceObservationModel polSourceObservationModelRest in polSourceObservationModelList.Skip(1))
+{
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <div class="panel-title h4">
+                <button class="jbPolSourceObservationAskToDelete btn btn-default" data-polsourceobservationid="@polSourceObservationModelRest.PolSourceObservationID" title="@PolSourceViewRes.DeleteObservation">
+                    <span class="glyphicon glyphicon-trash"></span>
+                </button>
+                <b>
+                    <span class="PolSourceObservationDateText"><i>@polSourceObservationModelRest.ObservationDate_Local.ToString("yyyy MMMM dd")</i></span>
+                    <i class="elementSpacing">@polSourceObservationModelRest.ContactTVText</i>
+                </b>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="PolSourceObservationTopDiv">
+                <p>
+                    <label>@PolSourceViewRes.WrittenDescription:</label>
+                    @if (!string.IsNullOrWhiteSpace(polSourceObservationModelRest.Observation_ToBeDeleted))
+                    {
+                        <span>@polSourceObservationModelRest.Observation_ToBeDeleted</span>
+                    }
+                    else
+                    {
+                        <i class="text-lowercase elementSpacing">@PolSourceViewRes.NoData</i>
+                    }
+                </p>
+                <p>
+                    <label>@PolSourceViewRes.SelectedDescription:</label>
+                    <ul class="list-unstyled">
+                        @for (int i = 0, count = polSourceObservationModelRest.PolSourceObservationIssueModelList.Count; i < count; i++)
+                        {
+                            <li class="PolSourceObservationIssueTop">
+                                <div class="h4">
+                                    <button class="jbPolSourceObservationIssueAskToDelete btn btn-default"
+                                            data-polsourceobservationissueid="@polSourceObservationModelRest.PolSourceObservationIssueModelList[i].PolSourceObservationIssueID" title="@PolSourceViewRes.DeleteIssue">
+                                        <span class="glyphicon glyphicon-trash"></span>
+                                    </button>
+                                    <span class="PolSourceObservationIssueText">@PolSourceViewRes.Issue (@(i + 1))</span>
+                                </div>
+                                @foreach (PolSourceObsInfoEnum polSourceObsInfo in polSourceObservationModelRest.PolSourceObservationIssueModelList[i].PolSourceObsInfoList)
+                                    {
+                                    <span>@(_BaseEnumService.GetEnumText_PolSourceObsInfoReportEnum(polSourceObsInfo))</span>
+                                    }
+                            </li>
+                        }
+                    </ul>
+                </p>
+                <p style="border-top:1px dotted maroon">
+                    <span>&nbsp; </span>
+                </p>
+            </div>
+        </div>
+    </div>
+}
+
+<script type="text/javascript">
+    $(function () {
+        cssp.PolSourceSite.InitAddOrModify();
+    });
+    $(function () {
+        $(".jaPopover").popover();
+    });
+</script>

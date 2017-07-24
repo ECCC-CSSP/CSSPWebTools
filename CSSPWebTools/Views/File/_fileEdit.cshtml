@@ -1,0 +1,98 @@
+﻿@using CSSPWebTools.Views.File.Resources;
+@using CSSPWebTools.Models;
+@using CSSPEnumsDLL.Enums;
+@using CSSPModelsDLL.Models;
+
+@{
+    TVFileModel tvFileModel = (TVFileModel)ViewBag.TVFileModel;
+    List<FilePurposeAndText> filePurposeAndTextList = (List<FilePurposeAndText>)ViewBag.FilePurposeAndTextList;
+    FileInfo fi = new FileInfo(tvFileModel.ServerFilePath + tvFileModel.ServerFileName);
+    string SaveAsFileName = fi.Name.Replace(fi.Extension, "");
+}
+
+<form id="FileEditForm" role="form" action="File/FileEditSaveJSON" method="post">
+    <span class="PictureEnum hidden">@(((int)FilePurposeEnum.Picture))</span>
+    @Html.AntiForgeryToken()
+    <input type="hidden" name="TVFileTVItemID" value="@tvFileModel.TVFileTVItemID" />
+    <fieldset>
+
+        <div class="blockMargin paraBlock">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">@FileViewRes.EditMode</h4>
+                </div>
+                <div class="panel-body">
+                    <div class="checkbox-inline">
+                        <label class="control-label" for="Language">@FileViewRes.Language:</label>
+                        <div>
+                            <label class="control-label">
+                                <input name="Language" type="radio" @(tvFileModel.Language == LanguageEnum.en ? "checked=checked" : "") value="@(((int)LanguageEnum.en).ToString())" /> @FileViewRes.English &nbsp;&nbsp;&nbsp;
+                            </label>
+                            <label class="control-label">
+
+                                <input name="Language" type="radio" @(tvFileModel.Language == LanguageEnum.fr ? "checked=checked" : "") value="@(((int)LanguageEnum.fr).ToString())" /> @FileViewRes.French &nbsp;&nbsp;&nbsp;
+                            </label>
+                            <label class="control-label">
+                                <input name="Language" type="radio" @(tvFileModel.Language == LanguageEnum.enAndfr ? "checked=checked" : "") value="@(((int)LanguageEnum.enAndfr).ToString())" /> @FileViewRes.Both
+
+                            </label>
+                            <span class="help-block"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="FilePurpose">@FileViewRes.FilePurpose:</label>
+                        <div>
+                            <select class="form-control" name="FilePurpose" id="FilePurpose">
+                                @foreach (FilePurposeAndText fptai in filePurposeAndTextList)
+                                {
+                                    if (!fptai.FilePurposeText.ToLower().StartsWith("mike"))
+                                    {
+                                        if (tvFileModel.FilePurpose == fptai.FilePurpose)
+                                        {
+                                            <option value="@((int)fptai.FilePurpose)" selected="selected">@fptai.FilePurposeText</option>
+                                        }
+                                        else
+                                        {
+                                            <option value="@((int)fptai.FilePurpose)">@fptai.FilePurposeText</option>
+                                        }
+                                    }
+                                }
+                            </select>
+                            <span class="help-block"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="FileDescription">@FileViewRes.FileDescription</label>
+                        <div>
+                            <textarea class="form-control" name="FileDescription" id="FileDescription" rows="2">@tvFileModel.FileDescription</textarea>
+                            <span class="help-block"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="SaveAsFileName">@FileViewRes.SaveAsFileName @FileViewRes.NoExtension</label>
+                        <div>
+                            <input class="form-control" type="text" name="SaveAsFileName" id="SaveAsFileName" value="@SaveAsFileName" />
+                            <span class="help-block"></span>
+                        </div>
+                    </div>
+                    <div class="FromWaterDiv form-group @(tvFileModel.FilePurpose == FilePurposeEnum.Picture ? "" : "hidden")">
+                        <label class="checkbox-inline" for="FromWater">
+                            <input type="checkbox" @(tvFileModel.FromWater != null && tvFileModel.FromWater == true ? "checked=checked" : "") name="FromWater" />
+                            <span>@FileViewRes.FromWater</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <button class="jbFileEditSave btn btn-primary" type="submit"><span class="glyphicon glyphicon-check"></span>&nbsp;@FileViewRes.Save</button>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+
+</form>
+
+<script type="text/javascript">
+    $(function () {
+        cssp.File.InitEdit();
+    });
+</script>

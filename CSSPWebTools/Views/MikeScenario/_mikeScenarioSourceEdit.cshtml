@@ -1,0 +1,170 @@
+﻿@using CSSPWebTools.Models;
+@using CSSPWebTools.Views.MikeScenario.Resources;
+@using CSSPModelsDLL.Models;
+
+@{
+    URLModel urlModel = (URLModel)ViewBag.URLModel;
+    MikeSourceModel mikeSourceModel = (MikeSourceModel)ViewBag.MikeSourceModel;
+    MikeScenarioModel mikeScenarioModel = (MikeScenarioModel)ViewBag.MikeScenarioModel;
+
+    string BorderClass = "BorderLighterSilver";
+    if (mikeSourceModel.Include == true && mikeSourceModel.IsRiver == false)
+    {
+        BorderClass = "BorderLighterGreen";
+    }
+    else if (mikeSourceModel.Include == true && mikeSourceModel.IsRiver == true)
+    {
+        BorderClass = "BorderLighterBlue";
+    }
+}
+<div class="MikeScenarioSource @BorderClass clearfix" data-tvitemid="@mikeSourceModel.MikeSourceTVItemID">
+    <ul class="paraBlock list-inline">
+        <li>
+            <button class="jbMikeScenarioSourceEditShowHide btn btn-default" title="@MikeScenarioViewRes.MikeSourceInformation">
+                <span class="glyphicon glyphicon-pencil"></span>
+            </button>
+        </li>
+        <li>
+            <h4 class="MikeSourceName">@mikeSourceModel.MikeSourceTVText</h4>
+        </li>
+    </ul>
+    @{
+        string panelGroupID = "mikeScenarioSource" + mikeSourceModel.MikeSourceTVItemID;
+        string panelHeadingID = "mikeScenarioSourceHeading" + mikeSourceModel.MikeSourceTVItemID;
+        string panelCollapseID = "mikeScenarioSourceCollapse" + mikeSourceModel.MikeSourceTVItemID;
+    }
+    <div class="MikeScenarioSourceEdit panel-group hidden" id="@panelGroupID" role="tablist" aria-multiselectable="true">
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="@panelHeadingID">
+                <h4 class="panel-title">
+                    <a role="button" class="text-noUnderline" data-toggle="collapse" data-parent="#@panelGroupID" href="#@panelCollapseID" aria-expanded="false" aria-controls="@panelCollapseID" title="@MikeScenarioViewRes.Edit">
+                       <span class="glyphicon glyphicon-pencil"></span>
+                        <span class="elementSpacing">
+                            @MikeScenarioViewRes.Properties
+                            <i>
+                                [
+                                <span class="text-lowercase">
+
+                                    @if (mikeSourceModel.Include)
+                                    {
+                                        <span>@MikeScenarioViewRes.IsIncluded,</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="text-strikeThrough">@MikeScenarioViewRes.IsIncluded,</span>
+                                    }
+
+                                    @if (mikeSourceModel.IsRiver)
+                                    {
+                                        <span>@MikeScenarioViewRes.IsRiver,</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="text-strikeThrough">@MikeScenarioViewRes.IsRiver,</span>
+                                    }
+                                    @if (mikeSourceModel.IsContinuous)
+                                    {
+                                        <span>@MikeScenarioViewRes.IsContinuous,</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="text-strikeThrough">@MikeScenarioViewRes.IsContinuous</span>
+                                    }
+
+                                    @MikeScenarioViewRes.and
+                                    @MikeScenarioViewRes.Lat, @MikeScenarioViewRes.Lng: (@mikeSourceModel.Lat, @mikeSourceModel.Lng)
+                                    ]
+                                </span>
+                            </i>
+                        </span>
+                    </a>
+                </h4>
+            </div>
+            <div id="@panelCollapseID" class="panel-collapse collapse" role="tabpanel" aria-labelledby="@panelHeadingID">
+                <div class="panel-body">
+                    <form class="MikeScenarioSourceAddOrModifyForm" action="MikeScenario/MikeScenarioSourceAddOrModifyJSON" method="post">
+                        <input type="hidden" name="MikeScenarioTVItemID" value="@mikeScenarioModel.MikeScenarioTVItemID" />
+                        <input type="hidden" name="MikeSourceTVItemID" value="@mikeSourceModel.MikeSourceTVItemID" />
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <div class="form-group">
+                                    <label class="SourceName control-label">@MikeScenarioViewRes.SourceName</label>
+                                    <div>
+                                        <input type="text" class="form-control" name="SourceName" value="@mikeSourceModel.MikeSourceTVText" />
+                                        <span class="help-block"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div>
+                                        @if (mikeSourceModel.Include == true)
+                                        {
+                                            <label class="checkbox-inline"> <input type="checkbox" name="Include" checked="checked" />&nbsp;@MikeScenarioViewRes.Include</label>
+                                        }
+                                        else
+                                        {
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" name="Include" />&nbsp;@MikeScenarioViewRes.Include
+                                            </label>
+                                        }
+                                        @if (mikeSourceModel.IsRiver == true)
+                                        {
+                                            <label class="checkbox-inline"><input type="checkbox" name="IsRiver" checked="checked" />@MikeScenarioViewRes.IsRiver</label>
+                                        }
+                                        else
+                                        {
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" name="IsRiver" />@MikeScenarioViewRes.IsRiver
+                                            </label>
+                                        }
+                                        @if (mikeSourceModel.IsContinuous == true)
+                                        {
+                                            <label class="checkbox-inline"><input type="checkbox" name="IsContinuous" checked="checked" />@MikeScenarioViewRes.IsContinuous</label>
+                                        }
+                                        else
+                                        {
+                                            <label class="checkbox-inline"><input type="checkbox" name="IsContinuous" />@MikeScenarioViewRes.IsContinuous</label>
+                                        }
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">@MikeScenarioViewRes.Latitude</label>
+                                    <div>
+                                        <input class="isnumber form-control" type="text" name="Lat" value="@mikeSourceModel.Lat" />
+                                        <span class="help-block"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">@MikeScenarioViewRes.Longitude</label>
+                                    <div>
+                                        <input class="isnumber form-control" type="text" name="Lng" value="@mikeSourceModel.Lng" />
+                                        <span class="help-block"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-footer">
+                                <div class="btn-block">
+                                    <button class="jbMikeScenarioSourceEditSave btn btn-primary" type="submit"><span class="glyphicon glyphicon-check"></span>&nbsp;@MikeScenarioViewRes.SaveFirstPart</button>
+                                    <button class="jbMikeScenarioSourceEditDelete btn btn-primary" title="@MikeScenarioViewRes.DeleteSource"><span class="glyphicon glyphicon-trash"></span>&nbsp;@MikeScenarioViewRes.Delete</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            @if (mikeSourceModel.IsContinuous)
+            {
+                @Html.Action("_mikeScenarioSourceStartEndEditContinuous", "MikeScenario", new { MikeSourceTVItemID = mikeSourceModel.MikeSourceTVItemID })
+            }
+            else
+            {
+                @Html.Action("_mikeScenarioSourceStartEndEditNotContinuous", "MikeScenario", new { MikeSourceTVItemID = mikeSourceModel.MikeSourceTVItemID })
+            }
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(function () {
+            cssp.MikeScenario.InitMikeScenarioSource();
+        });
+    </script>
+</div>

@@ -1,0 +1,78 @@
+﻿@using CSSPWebTools.Views.SamplingPlan.Resources;
+@using CSSPWebTools.Controllers;
+@using CSSPEnumsDLL.Enums;
+@using CSSPEnumsDLL.Services;
+@using CSSPModelsDLL.Models;
+@using System.Linq;
+
+@{
+    SamplingPlanController SamplingPlanController = (SamplingPlanController)ViewBag.SamplingPlanController;
+    List<ContactModel> AdminContactModelList = (List<ContactModel>)ViewBag.AdminContactModelList;
+    bool IsSamplingPlanner = (bool)ViewBag.IsSamplingPlanner;
+    int SamplingPlanID = (int)ViewBag.SamplingPlanID;
+    List<LabSheetModel> labSheetModelList = (List<LabSheetModel>)ViewBag.LabSheetModelList;
+    BaseEnumService _BaseEnumService = new BaseEnumService(ViewBag.Language);
+    List<string> SubsectorTVTextList = labSheetModelList.Select(c => c.SubsectorTVText).Distinct().OrderBy(c => c).ToList();
+}
+
+@if (!IsSamplingPlanner)
+{
+    <h3>@SamplingPlanViewRes.NoPermissionMessageSamplingPlans</h3>
+    <blockquote>
+        <p>@SamplingPlanViewRes.ToHaveAccess</p>
+        <ul class="list-inline">
+            @foreach (ContactModel contactModel in AdminContactModelList)
+            {
+                <li>
+                    <a href="mailto:@contactModel.LoginEmail" class="btn btn-link">@contactModel.LoginEmail</a>
+                </li>
+            }
+        </ul>
+    </blockquote>
+    <script type="text/javascript">
+        $(function () {
+            cssp.SamplingPlan.InitNoPermission();
+        });
+    </script>
+}
+else
+{
+    foreach (string subsectorTVText in SubsectorTVTextList)
+    {
+        int countRun = labSheetModelList.Where(c => c.SubsectorTVText == subsectorTVText).Count();
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <div class="panel-title">@subsectorTVText (@countRun)</div>
+            </div>
+            <div class="panel-body">
+                @foreach (LabSheetModel labSheetModel in labSheetModelList.Where(c => c.SubsectorTVText == subsectorTVText).OrderByDescending(c => c.Year).ThenByDescending(c => c.Month).ThenByDescending(c => c.Day))
+                {
+                    string textColor = "text-success";
+                    if (labSheetModel.LabSheetStatus == LabSheetStatusEnum.Rejected)
+                    {
+                        textColor = "text-danger";
+                    }
+                    else if (labSheetModel.LabSheetStatus == LabSheetStatusEnum.Transferred)
+                    {
+                        textColor = "text-primary";
+                    }
+                    DateTime SampleDate = new DateTime(labSheetModel.Year, labSheetModel.Month, labSheetModel.Day);
+                    <div class="LabSheetListTop">
+                        <span>@SampleDate.ToString("yyyy MMM dd") @(labSheetModel.RunNumber == 1 ? "" : SamplingPlanViewRes.Run + " " + labSheetModel.RunNumber) </span>
+                        <span class="@textColor">&nbsp;&nbsp; 
+                            (@(_BaseEnumService.GetEnumText_LabSheetStatusEnum(labSheetModel.LabSheetStatus)))
+                            &nbsp;&nbsp;
+                        </span>
+                        <button class="jbSamplingPlanShowHistoryLabSheetDetail btn btn-default" data-SamplingPlanid="@SamplingPlanID" data-labsheetid="@labSheetModel.LabSheetID">
+                            <span class="glyphicon glyphicon-arrow-down"></span>
+                        </button>
+                        <div class="LabSheetHistoryDetailDiv">
+
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    }
+}

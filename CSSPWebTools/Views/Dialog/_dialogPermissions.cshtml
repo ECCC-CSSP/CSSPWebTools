@@ -1,0 +1,69 @@
+﻿@using CSSPWebTools.Views.Dialog.Resources;
+@using CSSPWebTools.Controllers;
+@using CSSPEnumsDLL.Enums;
+@using CSSPEnumsDLL.Services;
+@using CSSPModelsDLL.Models;
+
+@{
+    List<ContactModel> adminContactModelList = (List<ContactModel>)ViewBag.AdminContactModelList;
+    TVAuthEnum TVAuth = (TVAuthEnum)ViewBag.TVAuth;
+    List<string> iconList = new List<string>() { "", "", "eye-open", "pencil", "plus-sign", "trash", "certificate" };
+    DialogController dialogController = (DialogController)ViewBag.DialogController;
+    BaseEnumService _BaseEnumService = new BaseEnumService(ViewBag.Language);
+}
+<div>
+
+    <ul class="list-unstyled">
+        <li>
+            <label>
+                @DialogViewRes.YourCurrentPermissions
+            </label>
+            <div>
+                @for (int i = 2, countTVAuth = Enum.GetNames(typeof(TVAuthEnum)).Count(); i < countTVAuth; i++)
+                {
+                    if ((int)TVAuth >= i)
+                    {
+                        <span class="elementSpacing text-nowrap">
+                            <span class="glyphicon glyphicon-@(iconList[i])"></span>
+                            &nbsp;@(_BaseEnumService.GetEnumText_TVAuthEnum((TVAuthEnum)i))
+                        </span>
+
+                    }
+                }
+            </div>
+        </li>
+    </ul>
+    <br />
+    <ul class="list-unstyled">
+        <li>
+            <label>@DialogViewRes.ToExtendYourPermissionsTo</label>
+            <div>
+                @for (int i = 2, countTVAuth = Enum.GetNames(typeof(TVAuthEnum)).Count(); i < countTVAuth; i++)
+                {
+                    if ((int)TVAuth < i)
+                    {
+
+                        <span class="elementSpacing text-nowrap"><span class="glyphicon glyphicon-@(iconList[i])"></span>&nbsp;@(_BaseEnumService.GetEnumText_TVAuthEnum((TVAuthEnum)i))</span>
+
+                    }
+                }
+            </div>
+        </li>
+    </ul>
+    <br />
+    <ul class="list-unstyled">
+        <li>
+            <label>@DialogViewRes.PleaseCommunicateWithAnAdministrator</label>
+            <div>
+                @foreach (ContactModel contactModel in adminContactModelList)
+                {
+
+                    <span class="elementSpacing">
+                        <a href="mailto:@contactModel.LoginEmail"> @contactModel.FirstName @contactModel.LastName</a>
+                    </span>
+
+                }
+            </div>
+        </li>
+    </ul>
+</div>

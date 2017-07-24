@@ -1,0 +1,402 @@
+﻿@using CSSPWebTools.Views.Shared.Resources;
+@using CSSPWebTools.Views.MikeScenario.Resources;
+@using CSSPModelsDLL.Models;
+
+@{
+
+    MikeScenarioModel mikeScenarioModel = (MikeScenarioModel)ViewBag.MikeScenarioModel;
+
+    DateTime StartDate = (DateTime)mikeScenarioModel.MikeScenarioStartDateTime_Local;
+    DateTime EndDate = (DateTime)mikeScenarioModel.MikeScenarioEndDateTime_Local;
+    TimeSpan ts = new TimeSpan(EndDate.Ticks - StartDate.Ticks);
+    int days = ts.Days;
+    int hours = ts.Hours;
+    int minutes = ts.Minutes;
+    int StartDateHour = StartDate.Hour;
+    int StartDateMinute = StartDate.Minute;
+    int EndDateHour = EndDate.Hour;
+    int EndDateMinute = EndDate.Minute;
+
+    int FreqRes = 0;
+    if (mikeScenarioModel.ResultFrequency_min <= 5)
+    {
+        FreqRes = 5;
+    }
+    else if (mikeScenarioModel.ResultFrequency_min <= 10)
+    {
+        FreqRes = 10;
+    }
+    else if (mikeScenarioModel.ResultFrequency_min <= 15)
+    {
+        FreqRes = 15;
+    }
+    else if (mikeScenarioModel.ResultFrequency_min <= 30)
+    {
+        FreqRes = 30;
+    }
+    else
+    {
+        FreqRes = 60;
+    }
+
+    DateTime CurrentDate = DateTime.Now;
+    List<string> MonthList = new List<string>()
+    {
+        "",
+        MikeScenarioViewRes.January,
+        MikeScenarioViewRes.February,
+        MikeScenarioViewRes.March,
+        MikeScenarioViewRes.April,
+        MikeScenarioViewRes.May,
+        MikeScenarioViewRes.June,
+        MikeScenarioViewRes.July,
+        MikeScenarioViewRes.August,
+        MikeScenarioViewRes.September,
+        MikeScenarioViewRes.October,
+        MikeScenarioViewRes.November,
+        MikeScenarioViewRes.December,
+    };
+
+}
+
+@if (!string.IsNullOrWhiteSpace(mikeScenarioModel.Error))
+{
+    <h4>Error while loading page</h4>
+    <blockquote>@mikeScenarioModel.Error</blockquote>
+}
+else
+{
+    <div class="AppTaskDiv">
+        @Html.Action("_appTask", "Home", new { TVItemID = mikeScenarioModel.MikeScenarioTVItemID, Seconds = 5 })
+    </div>
+    <form id="MikeScenarioGeneralParameterForm" action="MikeScenario/MikeScenarioGeneralParameterSaveJSON" method="post">
+        <input type="hidden" name="MikeScenarioTVItemID" value="@mikeScenarioModel.MikeScenarioTVItemID" />
+        <div class="form-group">
+            <label class="control-label">@MikeScenarioViewRes.ScenarioName</label>
+            <div>
+                <input type="text" name="MikeScenarioName" class="form-control" value="@mikeScenarioModel.MikeScenarioTVText" />
+                <p class="help-block"></p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label">@MikeScenarioViewRes.StartDateTime (@MikeScenarioViewRes.LocalTime)</label>
+            <div>
+                <ul class="list-inline">
+                    <li>
+
+                        <span>@MikeScenarioViewRes.Year: </span>
+                        <select name="MikeScenarioStartYear" class="form-control">
+                            @for (int i = 1975; i < CurrentDate.Year + 10; i++)
+                            {
+                                if (i == StartDate.Year)
+                                {
+                                    <option value="@i" selected="selected">@i</option>
+                                }
+                                else
+                                {
+                                    <option value="@i">@i</option>
+                                }
+                            }
+                        </select>
+                    </li>
+                    <li>
+                        <span>@MikeScenarioViewRes.Month: </span>
+                        <select name="MikeScenarioStartMonth" class="form-control">
+                            @for (int i = 1; i < 13; i++)
+                            {
+                                if (i == StartDate.Month)
+                                {
+                                    <option value="@i" selected="selected">@MonthList[i]</option>
+                                }
+                                else
+                                {
+                                    <option value="@i">@MonthList[i]</option>
+                                }
+                            }
+                        </select>
+                    </li>
+                    <li>
+                        <span>@MikeScenarioViewRes.Day: </span>
+                        <select name="MikeScenarioStartDay" class="form-control">
+                            @for (int i = 1; i < 32; i++)
+                            {
+                                if (i == StartDate.Day)
+                                {
+                                    <option value="@i" selected="selected">@i</option>
+                                }
+                                else
+                                {
+                                    <option value="@i">@i</option>
+                                }
+                            }
+                        </select>
+                    </li>
+                    <li>
+                        <span>@MikeScenarioViewRes.Time:</span>
+                        <select name="MikeScenarioStartTime" class="form-control">
+                            @for (int i = 0; i < 24; i++)
+                            {
+                                for (int j = 0; j < 60; j += 30)
+                                {
+                                    if (i == StartDateHour)
+                                    {
+                                        if (StartDateMinute < 30 && j == 0)
+                                        {
+                                            <option value="@string.Format("{0:D2}", i):@string.Format("{0:D2}", j)" selected="selected">@string.Format("{0:D2}", i):@string.Format("{0:D2}", j)</option>
+                                        }
+                                        else if (StartDateMinute >= 30 && j == 30)
+                                        {
+                                            <option value="@string.Format("{0:D2}", i):@string.Format("{0:D2}", j)" selected="selected">@string.Format("{0:D2}", i):@string.Format("{0:D2}", j)</option>
+                                        }
+                                        else
+                                        {
+                                            <option value="@string.Format("{0:D2}", i):@string.Format("{0:D2}", j)">@string.Format("{0:D2}", i):@string.Format("{0:D2}", j)</option>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <option value="@string.Format("{0:D2}", i):@string.Format("{0:D2}", j)">@string.Format("{0:D2}", i):@string.Format("{0:D2}", j)</option>
+                                    }
+                                }
+                            }
+                        </select>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="form-group">
+            <section>
+                <label class="control-label">@MikeScenarioViewRes.EndDateTime (@MikeScenarioViewRes.LocalTime)</label>
+                <div>
+                    <ul class="list-inline">
+                        <li>
+                            <label class="control-label">@MikeScenarioViewRes.Year: </label>
+                            <select name="MikeScenarioEndYear" class="form-control">
+                                @for (int i = 1975; i < CurrentDate.Year + 10; i++)
+                                {
+                                    if (i == EndDate.Year)
+                                    {
+                                        <option value="@i" selected="selected">@i</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="@i">@i</option>
+                                    }
+                                }
+                            </select>
+                        </li>
+                        <li>
+                            <label class="control-label">@MikeScenarioViewRes.Month: </label>
+                            <select name="MikeScenarioEndMonth" class="form-control">
+                                @for (int i = 1; i < 13; i++)
+                                {
+                                    if (i == EndDate.Month)
+                                    {
+                                        <option value="@i" selected="selected">@MonthList[i]</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="@i">@MonthList[i]</option>
+                                    }
+                                }
+                            </select>
+                        </li>
+                        <li>
+                            <label class="control-label">@MikeScenarioViewRes.Day: </label>
+                            <select name="MikeScenarioEndDay" class="form-control">
+                                @for (int i = 1; i < 32; i++)
+                                {
+                                    if (i == EndDate.Day)
+                                    {
+                                        <option value="@i" selected="selected">@i</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="@i">@i</option>
+                                    }
+                                }
+                            </select>
+                        </li>
+                        <li>
+                            <label class="control-label">@MikeScenarioViewRes.Time:</label>
+                            <select name="MikeScenarioEndTime" class="form-control">
+                                @for (int i = 0; i < 24; i++)
+                                {
+                                    for (int j = 0; j < 60; j += 30)
+                                    {
+                                        if (i == EndDateHour)
+                                        {
+                                            if (EndDateMinute < 30 && j == 0)
+                                            {
+                                                <option value="@string.Format("{0:D2}", i):@string.Format("{0:D2}", j)" selected="selected">@string.Format("{0:D2}", i):@string.Format("{0:D2}", j)</option>
+                                            }
+                                            else if (EndDateMinute >= 30 && j == 30)
+                                            {
+                                                <option value="@string.Format("{0:D2}", i):@string.Format("{0:D2}", j)" selected="selected">@string.Format("{0:D2}", i):@string.Format("{0:D2}", j)</option>
+                                            }
+                                            else
+                                            {
+                                                <option value="@string.Format("{0:D2}", i):@string.Format("{0:D2}", j)">@string.Format("{0:D2}", i):@string.Format("{0:D2}", j)</option>
+                                            }
+                                        }
+                                        else
+                                        {
+                                            <option value="@string.Format("{0:D2}", i):@string.Format("{0:D2}", j)">@string.Format("{0:D2}", i):@string.Format("{0:D2}", j)</option>
+                                        }
+                                    }
+                                }
+                            </select>
+                        </li>
+
+                    </ul>
+                </div>
+            </section>
+        </div>
+        <div class="form-group">
+            <label class="control-label">@MikeScenarioViewRes.ScenarioLength</label>
+            <div>
+                <span><b class="ScenarioLengthDays">@days</b><span> @UnitViewRes.Days</span></span>
+                <span class="elementSpacing"><b class="ScenarioLengthHours">@hours</b><span> @UnitViewRes.Hours</span></span>
+                <span class="elementSpacing"><b class="ScenarioLengthMinutes">@minutes</b><span> @UnitViewRes.Minutes</span></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label">@MikeScenarioViewRes.DecayFactorAverage (@UnitViewRes.PerDay)</label>
+            <div>
+                <input class="isnumber form-control" type="text" name="DecayFactor_per_day" value="@string.Format("{0:F5}", mikeScenarioModel.DecayFactor_per_day)" />
+                <span class="help-block"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            @if (mikeScenarioModel.DecayIsConstant == true)
+            {
+                <div>
+                    <label class="checkbox-inline">
+                        <input class="checkbox" type="checkbox" name="DecayIsConstant" checked="checked" value="@mikeScenarioModel.DecayIsConstant" />
+                        @MikeScenarioViewRes.DecayConstant
+                    </label>
+                </div>
+            }
+            else
+            {
+                <div>
+                    <label class="checkbox-inline">
+                        <input class="checkbox" type="checkbox" name="DecayIsConstant" value="@mikeScenarioModel.DecayIsConstant" />
+                        @MikeScenarioViewRes.DecayConstant
+                    </label>
+                </div>
+            }
+        </div>
+        <div class="form-group">
+            <label class="control-label">@MikeScenarioViewRes.DecayFactorAmplitude</label>
+            <div>
+                <input class="isnumber form-control" type="text" name="DecayFactorAmplitude" value="@string.Format("{0:F5}", mikeScenarioModel.DecayFactorAmplitude)" />
+                <span class="help-block"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label">@MikeScenarioViewRes.AmbientTemperature (@UnitViewRes.Celcius_abbr)</label>
+            <div>
+                <input class="isnumber form-control" type="text" name="AmbientTemperature_C" value="@string.Format("{0:F1}", mikeScenarioModel.AmbientTemperature_C)" />
+                <span class="help-block"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label">@MikeScenarioViewRes.AmbientSalinity (@UnitViewRes.PSU)</label>
+            <div>
+                <input class="isnumber  form-control" type="text" name="AmbientSalinity_PSU" value="@string.Format("{0:F1}", mikeScenarioModel.AmbientSalinity_PSU)" />
+                <span class="help-block"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label">@MikeScenarioViewRes.ResultFrequency (@UnitViewRes.Minutes)</label>
+            <div>
+                <select name="ResultFrequency_min" class="form-control">
+                    @if (FreqRes == 5)
+                    {
+                        <option value="5" selected="selected">5 @MikeScenarioViewRes.minutes</option>
+                    }
+                    else
+                    {
+                        <option value="5">5 @UnitViewRes.Minutes</option>
+                    }
+                    @if (FreqRes == 10)
+                    {
+                        <option value="10" selected="selected">10 @UnitViewRes.Minutes</option>
+                    }
+                    else
+                    {
+                        <option value="10">10 @UnitViewRes.Minutes</option>
+                    }
+                    @if (FreqRes == 15)
+                    {
+                        <option value="15" selected="selected">15 @UnitViewRes.Minutes</option>
+                    }
+                    else
+                    {
+                        <option value="15">15 @UnitViewRes.Minutes</option>
+                    }
+                    @if (FreqRes == 30)
+                    {
+                        <option value="30" selected="selected">30 @UnitViewRes.Minutes</option>
+                    }
+                    else
+                    {
+                        <option value="30">30 @UnitViewRes.Minutes</option>
+                    }
+                    @if (FreqRes == 60)
+                    {
+                        <option value="60" selected="selected">60 @UnitViewRes.Minutes</option>
+                    }
+                    else
+                    {
+                        <option value="60">60 @UnitViewRes.Minutes</option>
+                    }
+                </select>
+                <span class="help-block"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label">@MikeScenarioViewRes.ManningNumber (@Html.Raw(UnitViewRes.ManningNumber_unit))</label>
+            <div>
+                <input class="isnumber form-control" type="text" name="ManningNumber" value="@string.Format("{0:F1}", mikeScenarioModel.ManningNumber)" />
+                <span class="help-block"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label">@MikeScenarioViewRes.WindSpeed (@UnitViewRes.KmPerHour)</label>
+            <div>
+                <input class="isnumber form-control" type="text" name="WindSpeed_km_h" value="@string.Format("{0:F1}", mikeScenarioModel.WindSpeed_km_h)" />
+                <span class="help-block"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label">
+                @MikeScenarioViewRes.WindDirection (@UnitViewRes.Degrees)
+            </label>
+            <div>
+                <input class="isnumber form-control" type="text" name="WindDirection_deg" value="@string.Format("{0:F0}", mikeScenarioModel.WindDirection_deg)" /><span class="text-lighter text-nowrap elementSpacing">
+                    &mdash;&nbsp;&nbsp;
+                    <em>
+                        (@MikeScenarioViewRes.North = 0,
+                        @MikeScenarioViewRes.East = 90,
+                        @MikeScenarioViewRes.South = 180 )
+                    </em>
+                </span>
+                <span class="help-block"></span>
+            </div>
+        </div>
+        <div class="btn-block">
+            <button class="jbMikeScenarioGeneralParametersEditSave btn btn-primary" type="submit" href="#">
+                <span class="glyphicon glyphicon-check"></span>
+                @MikeScenarioViewRes.Save
+            </button>
+        </div>
+    </form>
+
+    <script type="text/javascript">
+        $(function () {
+            cssp.MikeScenario.InitMikeScenarioGeneralParametersEdit();
+        });
+    </script>
+}

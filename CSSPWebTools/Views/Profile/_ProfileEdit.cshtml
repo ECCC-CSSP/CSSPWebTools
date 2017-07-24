@@ -1,0 +1,106 @@
+﻿@using CSSPWebTools.Views.Profile.Resources;
+@using CSSPModelsDLL.Models;
+
+@{
+    ContactModel contactModel = (ContactModel)ViewBag.ContactModel;
+}
+
+<div id="ProfileDiv" class="container-fluid ">
+    <div class="paraBlock">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title"><span class="text-primary"><span class="glyphicon glyphicon-user"></span></span> @(contactModel.ContactTVItemID == 0 ? "" : contactModel.FirstName) @(contactModel.ContactTVItemID == 0 ? "" : contactModel.LastName)</h4>
+            </div>
+            <div class="panel-body">
+                <div class="row clearfix">
+                    <div class="col-lg-8 col-md-10 col-sm-12 col-xs-12">
+                        <form id="profileForm" method="post" action="Profile/ProfileSaveJSON">
+                            @Html.AntiForgeryToken()
+                            <input type="hidden" name="ContactTVItemID" value="@contactModel.ContactTVItemID" />
+                            <input type="hidden" name="WebName" value="@contactModel.WebName" />
+                            <input type="hidden" name="LoginEmail" value="@contactModel.LoginEmail" />
+                            <fieldset>
+                                <legend><span>@ProfileViewRes.Profile</span></legend>
+
+                                <div class="form-group">
+                                    <label class="control-label col-sm-3" for="FirstName">@ProfileViewRes.FirstName</label>
+                                    <div class="col-sm-9">
+                                        <input autofocus="autofocus" id="FirstName" class="form-control" name="FirstName" type="text" value="@contactModel.FirstName">
+                                        <span class="help-block"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-3" for="Initial">@ProfileViewRes.Initial</label>
+                                    <div class="col-sm-9">
+                                        <input id="Initial" class="form-control" name="Initial" type="text" value="@contactModel.Initial">
+                                        <span class="help-block"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-3" for="LastName">@ProfileViewRes.LastName</label>
+                                    <div class="col-sm-9">
+                                        <input id="LastName" class="form-control" name="LastName" type="text" value="@contactModel.LastName">
+                                        <span class="help-block"></span>
+                                    </div>
+                                </div>
+                                <div class="btn-block  col-sm-offset-3 col-sm-9">
+                                    <button class="jbProfileSave btn btn-primary" type="submit">
+                                        <span class="glyphicon glyphicon-ok-sign"></span>
+                                        &nbsp;@ProfileViewRes.Save
+                                    </button>
+                                    <a href="#!Profile" class=" btn btn-default" role="button">
+                                        <span class="glyphicon glyphicon-ban-circle"></span>
+                                        &nbsp;@ProfileViewRes.Cancel
+                                </a>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+            <div class="row clearfix">
+                <div class="col-lg-12">
+                    @if (contactModel.ContactTVItemID != 0)
+                    {
+                        <div class="TelEditDiv">
+                            @Html.Action("_telEditList", "Tel", new { ContactTVItemID = contactModel.ContactTVItemID })
+                        </div>
+
+
+                        <div class="EmailEditDiv">
+                            @Html.Action("_emailEditList", "Email", new { ContactTVItemID = contactModel.ContactTVItemID })
+                        </div>
+
+                        <div class="AddressEditDiv">
+                            @Html.Action("_addressEditList", "Address", new { ContactTVItemID = contactModel.ContactTVItemID })
+                        </div>
+
+
+                    }
+                </div>
+            </div>
+
+        </div>
+        <div class="panel-footer">
+            <div class="btn-block  blockMargin">
+
+                <a href="#!Profile" class=" btn btn-default" role="button">
+                    <span class="glyphicon glyphicon-ok"></span>
+                    &nbsp;@ProfileViewRes.Done
+                </a>
+            </div>
+        </div>
+    </div>
+</div>  <div class="clearfix">
+
+    </div>
+    <div class="testing hidden">
+        <h2>Testing _Profile.cshtml and cssp.Profile.ts</h2>
+        <a class="jtTestProfileContents btn btn-default">Test Contents</a>
+    </div>
+    <script type="text/javascript">
+        $(function () {
+            cssp.Contact.InitEdit();
+        })
+    </script>
+
+</div>

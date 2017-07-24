@@ -1,0 +1,26 @@
+﻿@using CSSPWebTools.Views.VisualPlumes.Resources;
+@using CSSPModelsDLL.Models;
+
+@{
+    VPFullModel vpFullModel = (VPFullModel)ViewBag.VPFullModel;
+}
+
+
+@if (vpFullModel.ResultList.Count() == 0)
+{
+    <span title="@VisualPlumeViewRes.ReturnVPScenarioList"><span class="glyphicon glyphicon-share-alt flip-horizontal"></span></span>
+
+    <h3>@VisualPlumeViewRes.NoResultsYet</h3>
+   
+}
+else
+{
+    <h3>@VisualPlumeViewRes.ShowGraphicFuture</h3>
+}
+
+
+<script type="text/javascript">
+    $(function () {
+        cssp.VisualPlumes.Init();
+    });
+</script>

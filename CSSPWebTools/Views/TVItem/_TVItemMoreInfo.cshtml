@@ -1,0 +1,485 @@
+﻿@using CSSPWebTools.Views.Shared.Resources;
+@using CSSPWebTools.Views.TVItem.Resources;
+@using CSSPWebTools.Controllers;
+@using CSSPWebTools.Models;
+@using CSSPEnumsDLL.Enums;
+@using CSSPModelsDLL.Models;
+@using CSSPEnumsDLL.Services;
+
+@{
+    URLModel urlModel = (URLModel)ViewBag.URLModel;
+    TVItemController tvItemController = (TVItemController)ViewBag.TVItemController;
+    List<TVItemStatModel> tvItemStatModelList = (List<TVItemStatModel>)ViewBag.TVItemStatModelList;
+    TVItemMoreInfoInfrastructureModel tvItemMoreInfoInfrastructureModel = (TVItemMoreInfoInfrastructureModel)ViewBag.TVItemMoreInfoInfrastructureModel;
+    TVItemMoreInfoMikeScenarioModel tvItemMoreInfoMikeScenarioModel = (TVItemMoreInfoMikeScenarioModel)ViewBag.TVItemMoreInfoMikeScenarioModel;
+    TVItemMoreInfoPolSourceSiteModel tvItemMoreInfoPolSourceSiteModel = (TVItemMoreInfoPolSourceSiteModel)ViewBag.TVItemMoreInfoPolSourceSiteModel;
+    TVItemMoreInfoMWQMRunModel tvItemMoreInfoMWQMRunModel = (TVItemMoreInfoMWQMRunModel)ViewBag.TVItemMoreInfoMWQMRunModel;
+    TVItemMoreInfoMWQMSiteModel tvItemMoreInfoMWQMSiteModel = (TVItemMoreInfoMWQMSiteModel)ViewBag.TVItemMoreInfoMWQMSiteModel;
+    TVItemModel tvItemModel = (TVItemModel)ViewBag.TVItemModel;
+    TVItemMoreInfoFileModel tvItemMoreInfoFileModel = (TVItemMoreInfoFileModel)ViewBag.TVItemMoreInfoFileModel;
+    BaseEnumService _BaseEnumService = new BaseEnumService(ViewBag.Language);
+
+    int CountryCount = 0;
+    int ProvinceCount = 0;
+    int AreaCount = 0;
+    int MikeScenarioCount = 0;
+    int MunicipalityCount = 0;
+    int InfrastructureCount = 0;
+    int WasteWaterTreatmentPlantCount = 0;
+    int LiftStationCount = 0;
+    int SpillCount = 0;
+    int SectorCount = 0;
+    int SubsectorCount = 0;
+    int MWQMRunCount = 0;
+    int MWQMSampleCount = 0;
+    int MWQMSiteCount = 0;
+    int PolSourceSiteCount = 0;
+    int BoxModelCount = 0;
+    int VisualPlumeScenarioCount = 0;
+
+    if (tvItemStatModelList != null)
+    {
+        foreach (TVItemStatModel tvItemStatModel in tvItemStatModelList)
+        {
+            switch (tvItemStatModel.TVType)
+            {
+                case TVTypeEnum.Area:
+                    {
+                        AreaCount = tvItemStatModel.ChildCount;
+                    }
+                    break;
+                case TVTypeEnum.BoxModel:
+                    {
+                        BoxModelCount = tvItemStatModel.ChildCount;
+                    }
+                    break;
+                case TVTypeEnum.Country:
+                    {
+                        CountryCount = tvItemStatModel.ChildCount;
+                    }
+                    break;
+                case TVTypeEnum.Infrastructure:
+                    {
+                        InfrastructureCount = tvItemStatModel.ChildCount;
+                    }
+                    break;
+                case TVTypeEnum.LiftStation:
+                    {
+                        LiftStationCount = tvItemStatModel.ChildCount;
+                    }
+                    break;
+                case TVTypeEnum.MWQMRun:
+                    {
+                        MWQMRunCount = tvItemStatModel.ChildCount;
+                    }
+                    break;
+                case TVTypeEnum.MWQMSite:
+                    {
+                        MWQMSiteCount = tvItemStatModel.ChildCount;
+                    }
+                    break;
+                case TVTypeEnum.MWQMSiteSample:
+                    {
+                        MWQMSampleCount = tvItemStatModel.ChildCount;
+                    }
+                    break;
+                case TVTypeEnum.MikeScenario:
+                    {
+                        MikeScenarioCount = tvItemStatModel.ChildCount;
+                    }
+                    break;
+                case TVTypeEnum.Municipality:
+                    {
+                        MunicipalityCount = tvItemStatModel.ChildCount;
+                    }
+                    break;
+                case TVTypeEnum.PolSourceSite:
+                    {
+                        PolSourceSiteCount = tvItemStatModel.ChildCount;
+                    }
+                    break;
+                case TVTypeEnum.Province:
+                    {
+                        ProvinceCount = tvItemStatModel.ChildCount;
+                    }
+                    break;
+                case TVTypeEnum.Sector:
+                    {
+                        SectorCount = tvItemStatModel.ChildCount;
+                    }
+                    break;
+                case TVTypeEnum.Spill:
+                    {
+                        SpillCount = tvItemStatModel.ChildCount;
+                    }
+                    break;
+                case TVTypeEnum.Subsector:
+                    {
+                        SubsectorCount = tvItemStatModel.ChildCount;
+                    }
+                    break;
+                case TVTypeEnum.VisualPlumesScenario:
+                    {
+                        VisualPlumeScenarioCount = tvItemStatModel.ChildCount;
+                    }
+                    break;
+                case TVTypeEnum.WasteWaterTreatmentPlant:
+                    {
+                        WasteWaterTreatmentPlantCount = tvItemStatModel.ChildCount;
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+
+}
+
+
+<li>
+    @switch (tvItemModel.TVType)
+    {
+        case TVTypeEnum.Area:
+            {
+                <span class="moreInfo-NamesValues">
+                    <span><b>@TVItemViewRes.Stats:</b></span>
+                    <span>@TVItemViewRes.Municipalities (<b>@MunicipalityCount</b>)</span>
+                    <span>@TVItemViewRes.WWTP (<b>@WasteWaterTreatmentPlantCount</b>)</span>
+                    <span>@TVItemViewRes.LiftStations (<b>@LiftStationCount</b>)</span>
+                    <span>@TVItemViewRes.Sectors (<b>@SectorCount</b>)</span>
+                    <span>@TVItemViewRes.Subsectors (<b>@SubsectorCount</b>)</span>
+                    <span>@TVItemViewRes.Samples (<b>@MWQMSampleCount</b>)</span>
+                    <span>@TVItemViewRes.MWQMSites (<b>@MWQMSiteCount</b>)</span>
+                    <span>@TVItemViewRes.MWQMRuns (<b>@MWQMRunCount</b>)</span>
+                    <span>@TVItemViewRes.PolSourceSites (<b>@PolSourceSiteCount</b>)</span>
+                </span>
+            }
+            break;
+        case TVTypeEnum.Country:
+            {
+                <span class="moreInfo-NamesValues">
+                    <span><b>@TVItemViewRes.Stats:</b></span>
+                    <span>@TVItemViewRes.Provinces (<b>@ProvinceCount</b>)</span>
+                    <span>@TVItemViewRes.Municipalities (<b>@MunicipalityCount</b>)</span>
+                    <span>@TVItemViewRes.LiftStations (<b>@LiftStationCount</b>)</span>
+                    <span>@TVItemViewRes.WWTP (<b>@WasteWaterTreatmentPlantCount</b>)</span>
+                    <span>@TVItemViewRes.Areas (<b>@AreaCount</b>)</span>
+                    <span>@TVItemViewRes.Sectors (<b>@SectorCount</b>)</span>
+                    <span>@TVItemViewRes.Subsectors (<b>@SubsectorCount</b>)</span>
+                    <span>@TVItemViewRes.Samples (<b>@MWQMSampleCount</b>)</span>
+                    <span>@TVItemViewRes.MWQMSites (<b>@MWQMSiteCount</b>)</span>
+                    <span>@TVItemViewRes.MWQMRuns (<b>@MWQMRunCount</b>)</span>
+                    <span>@TVItemViewRes.PolSourceSites (<b>@PolSourceSiteCount</b>)</span>
+                    <span>@TVItemViewRes.MikeScenarios (<b>@MikeScenarioCount</b>)</span>
+                    <span>@TVItemViewRes.BoxModels (<b>@BoxModelCount</b>)</span>
+                    <span>@TVItemViewRes.VPScenarios (<b>@VisualPlumeScenarioCount</b>)</span>
+                </span>
+            }
+            break;
+        case TVTypeEnum.File:
+            {
+                <span class="moreInfo-NamesValues">
+                    <span>@TVItemViewRes.Description - <b>@(string.IsNullOrWhiteSpace(tvItemMoreInfoFileModel.FullDesc) ? TVItemViewRes.Empty : tvItemMoreInfoFileModel.FullDesc)</b></span>
+                </span>
+            }
+            break;
+        case TVTypeEnum.Infrastructure:
+            {
+                <span class="moreInfo-NamesValues">
+                    <span><b>@TVItemViewRes.Info:</b></span>
+                    <span>@TVItemViewRes.PercentageTotalFlow (<b>@tvItemMoreInfoInfrastructureModel.PercOfTotalFlow %</b>)</span>
+                    <span>@TVItemViewRes.AverageFlow (<b>@tvItemMoreInfoInfrastructureModel.AverageFlow_m3_day m<sup>3</sup>/day</b>)</span>
+                    <span>@TVItemViewRes.PeakFlow (<b>@tvItemMoreInfoInfrastructureModel.PeakFlow_m3_day m<sup>3</sup>/day</b>)</span>
+                    <span>@TVItemViewRes.BoxModels (<b>@tvItemMoreInfoInfrastructureModel.BoxModelCount</b>)</span>
+                    <span>@TVItemViewRes.VPScenarios (<b>@tvItemMoreInfoInfrastructureModel.VPScenarioCount</b>)</span>
+                </span>
+            }
+            break;
+        case TVTypeEnum.MikeScenario:
+            {
+                <span class="moreInfo-NamesValues">
+                    <span>@TVItemViewRes.StartDateAndTime (<b>@tvItemMoreInfoMikeScenarioModel.MikeScenarioStartDateTime_Local</b>)</span>
+                    <span>@TVItemViewRes.EndDateAndTime (<b>@tvItemMoreInfoMikeScenarioModel.MikeScenarioEndDateTime_Local</b>)</span>
+                    <span>@TVItemViewRes.WindSpeed_km_h (<b>@tvItemMoreInfoMikeScenarioModel.WindSpeed_km_h</b>)</span>
+                    <span>@TVItemViewRes.WindDirection_deg (<b>@tvItemMoreInfoMikeScenarioModel.WindDirection_deg</b>)</span>
+                    <span>@TVItemViewRes.DecayFactor_per_day (<b>@tvItemMoreInfoMikeScenarioModel.DecayFactor_per_day</b>)</span>
+                    <span>@TVItemViewRes.DecayIsConstant (<b>@tvItemMoreInfoMikeScenarioModel.DecayIsConstant</b>)</span>
+                    <span>@TVItemViewRes.DecayFactorAmplitude (<b>@tvItemMoreInfoMikeScenarioModel.DecayFactorAmplitude</b>)</span>
+                    <span>@TVItemViewRes.ResultFrequency_min (<b>@tvItemMoreInfoMikeScenarioModel.ResultFrequency_min</b>)</span>
+                    <span>@TVItemViewRes.AmbientTemperature_C (<b>@tvItemMoreInfoMikeScenarioModel.AmbientTemperature_C</b>)</span>
+                    <span>@TVItemViewRes.AmbientSalinity_PSU (<b>@tvItemMoreInfoMikeScenarioModel.AmbientSalinity_PSU</b>)</span>
+                    <span>@TVItemViewRes.ManningNumber (<b>@tvItemMoreInfoMikeScenarioModel.ManningNumber</b>)</span>
+                    <span>@TVItemViewRes.HydroFileSize (<b>@tvItemMoreInfoMikeScenarioModel.HydroFileSize</b>)</span>
+                    <span>@TVItemViewRes.TransFileSize (<b>@tvItemMoreInfoMikeScenarioModel.TransFileSize</b>)</span>
+                </span>
+
+                <div class="paraBlock">
+                    <span><b>@TVItemViewRes.PollutionSourceIncluded</b></span><br />
+                    @foreach (TVItemMikeSourceModel tvItemMikeSourceModel in tvItemMoreInfoMikeScenarioModel.TVItemMikeSourceModelList)
+                        {
+                        <ul class="list-unstyled">
+                            <li>
+                                <ul class="list-unstyled blockMargin">
+                                    <li>
+                                        <span class="glyphicon glyphicon-triangle-right"></span><span>@TVItemViewRes.SourceName (<b>@tvItemMikeSourceModel.MikeSourceTVText</b>)</span>
+                                        <span>@TVItemViewRes.IsContinuous (<b>@tvItemMikeSourceModel.IsContinuous</b>)</span>
+                                    </li>
+                                    <li>
+                                        @if (tvItemMikeSourceModel.MikeSourceStartEndModelList != null)
+                                        {
+                                            foreach (MikeSourceStartEndModel mikeSourceStartEndModel in tvItemMikeSourceModel.TVItemMikeSourceStartEndModelList)
+                                            {
+                                                <div class="blockMargin">
+                                                    <label>@TVItemViewRes.PollutionDateAndTime</label>
+                                                    <ul class="list-unstyled blockMargin">
+                                                        <li>
+                                                            @if (!tvItemMikeSourceModel.IsContinuous)
+
+                                                            {
+
+                                                                <span>@TVItemViewRes.Start</span>
+                                                                <span>(<b> @mikeSourceStartEndModel.StartDateAndTime_Local </b>)</span>
+                                                            }
+                                                            <span>@TVItemViewRes.Flow_m3_day (<b>@mikeSourceStartEndModel.SourceFlowStart_m3_day.ToString("F1")</b>)</span>
+                                                            <span>@TVItemViewRes.Flow_m3_s (<b>@((mikeSourceStartEndModel.SourceFlowStart_m3_day / 3600 / 24).ToString("F5"))</b>)</span>
+                                                            <span>@TVItemViewRes.FC_MPN_100ml (<b>@mikeSourceStartEndModel.SourcePollutionStart_MPN_100ml</b>)</span>
+                                                            <span>@TVItemViewRes.Salinity_PSU (<b>@mikeSourceStartEndModel.SourceSalinityStart_PSU.ToString("F1")</b>)</span>
+                                                            <span>@TVItemViewRes.Temperature_C (<b>@mikeSourceStartEndModel.SourceTemperatureStart_C.ToString("F1")</b>)</span>
+                                                        </li>
+
+
+
+                                                        @if (!tvItemMikeSourceModel.IsContinuous)
+                                                        {
+                                                            <li>
+                                                                <div>
+                                                                    <span>@TVItemViewRes.End</span> <span>(<b>@mikeSourceStartEndModel.EndDateAndTime_Local</b>)</span>
+                                                                    <span>@TVItemViewRes.Flow_m3_day (<b>@mikeSourceStartEndModel.SourceFlowEnd_m3_day.ToString("F1")</b>)</span>
+                                                                    <span>@TVItemViewRes.Flow_m3_s (<b>@((mikeSourceStartEndModel.SourceFlowEnd_m3_day / 3600 / 24).ToString("F5"))</b>)</span>
+                                                                    <span>@TVItemViewRes.FC_MPN_100ml (<b>@mikeSourceStartEndModel.SourcePollutionEnd_MPN_100ml</b>)</span>
+                                                                    <span>@TVItemViewRes.Salinity_PSU (<b>@mikeSourceStartEndModel.SourceSalinityEnd_PSU.ToString("F1")</b>)</span>
+                                                                    <span>@TVItemViewRes.Temperature_C (<b>@mikeSourceStartEndModel.SourceTemperatureEnd_C.ToString("F1")</b>)</span>
+                                                                </div>
+                                                            </li>
+                                                        }
+
+                                                    </ul>
+                                                </div>
+                                            }
+                                        }
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    }
+                </div>
+            }
+            break;
+        case TVTypeEnum.Municipality:
+            {
+                <span class="moreInfo-NamesValues">
+                    <span><b>@TVItemViewRes.Stats:</b></span>
+                    <span>@TVItemViewRes.WWTP (<b>@WasteWaterTreatmentPlantCount</b>)</span>
+                    <span>@TVItemViewRes.LiftStations (<b>@LiftStationCount</b>)</span>
+                    <span>@TVItemViewRes.Spill (<b>@SpillCount</b>)</span>
+                    <span>@TVItemViewRes.MikeScenarios (<b>@MikeScenarioCount</b>)</span>
+                    <span>@TVItemViewRes.BoxModels (<b>@BoxModelCount</b>)</span>
+                    <span>@TVItemViewRes.VPScenarios (<b>@VisualPlumeScenarioCount</b>)</span>
+                </span>
+            }
+            break;
+        case TVTypeEnum.PolSourceSite:
+            {
+                <span>
+                    <span><b>@TVItemViewRes.ObservationDate:</b></span>
+                    <span>@Html.Raw(tvItemMoreInfoPolSourceSiteModel.ObsDateTime_Local)</span>
+                </span>
+                <br />
+                <br />
+                if (!string.IsNullOrWhiteSpace(tvItemMoreInfoPolSourceSiteModel.FullDesc))
+                {
+                    <span>
+                        <span><b>@TVItemViewRes.WrittenDescription:</b></span>
+                        <span>@Html.Raw(tvItemMoreInfoPolSourceSiteModel.FullDesc)</span>
+                    </span>
+                    <br />
+                    <br />
+                }
+                <span><b>@TVItemViewRes.NumberOfIssues :</b> @tvItemMoreInfoPolSourceSiteModel.IssuesTVTextList.Count()</span><br /><br />
+                foreach (string IssuesTVText in tvItemMoreInfoPolSourceSiteModel.IssuesTVTextList)
+                {
+                    <span>
+                        <span><b>@TVItemViewRes.SelectedDescription:</b></span>
+                        <span>@Html.Raw(IssuesTVText)</span>
+                    </span>
+                    <br />
+                    <br />
+                }
+            }
+            break;
+        case TVTypeEnum.Province:
+            {
+                <span class="moreInfo-NamesValues">
+                    <span><b>@TVItemViewRes.Stats:</b></span>
+                    <span>@TVItemViewRes.Municipalities (<b>@MunicipalityCount</b>)</span>
+                    <span>@TVItemViewRes.WWTP (<b>@WasteWaterTreatmentPlantCount</b>)</span>
+                    <span>@TVItemViewRes.LiftStations (<b>@LiftStationCount</b>)</span>
+                    <span>@TVItemViewRes.Areas (<b>@AreaCount</b>)</span>
+                    <span>@TVItemViewRes.Sectors (<b>@SectorCount</b>)</span>
+                    <span>@TVItemViewRes.Subsectors (<b>@SubsectorCount</b>)</span>
+                    <span>@TVItemViewRes.Samples (<b>@MWQMSampleCount</b>)</span>
+                    <span>@TVItemViewRes.MWQMSites (<b>@MWQMSiteCount</b>)</span>
+                    <span>@TVItemViewRes.MWQMRuns (<b>@MWQMRunCount</b>)</span>
+                    <span>@TVItemViewRes.PolSourceSites (<b>@PolSourceSiteCount</b>)</span>
+                    <span>@TVItemViewRes.MikeScenarios (<b>@MikeScenarioCount</b>)</span>
+                    <span>@TVItemViewRes.BoxModels (<b>@BoxModelCount</b>)</span>
+                    <span>@TVItemViewRes.VPScenarios (<b>@VisualPlumeScenarioCount</b>)</span>
+                </span>
+            }
+            break;
+        case TVTypeEnum.Sector:
+            {
+                <span class="moreInfo-NamesValues">
+                    <span><b>@TVItemViewRes.Stats:</b></span>
+                    <span>@TVItemViewRes.Municipalities (<b>@MunicipalityCount</b>)</span>
+                    <span>@TVItemViewRes.WWTP (<b>@WasteWaterTreatmentPlantCount</b>)</span>
+                    <span>@TVItemViewRes.LiftStations (<b>@LiftStationCount</b>)</span>
+                    <span>@TVItemViewRes.Subsectors (<b>@SubsectorCount</b>)</span>
+                    <span>@TVItemViewRes.Samples (<b>@MWQMSampleCount</b>)</span>
+                    <span>@TVItemViewRes.MWQMSites (<b>@MWQMSiteCount</b>)</span>
+                    <span>@TVItemViewRes.MWQMRuns (<b>@MWQMRunCount</b>)</span>
+                    <span>@TVItemViewRes.PolSourceSites (<b>@PolSourceSiteCount</b>)</span>
+                    <span>@TVItemViewRes.MikeScenarios (<b>@MikeScenarioCount</b>)</span>
+                    <span>@TVItemViewRes.BoxModels (<b>@BoxModelCount</b>)</span>
+                    <span>@TVItemViewRes.VPScenarios (<b>@VisualPlumeScenarioCount</b>)</span>
+                </span>
+            }
+            break;
+        case TVTypeEnum.Subsector:
+            {
+                <span class="moreInfo-NamesValues">
+                    <span><b>@TVItemViewRes.Stats:</b></span>
+                    <span>@TVItemViewRes.Municipalities (<b>@MunicipalityCount</b>)</span>
+                    <span>@TVItemViewRes.WWTP (<b>@WasteWaterTreatmentPlantCount</b>)</span>
+                    <span>@TVItemViewRes.LiftStations (<b>@LiftStationCount</b>)</span>
+                    <span>@TVItemViewRes.Samples (<b>@MWQMSampleCount</b>)</span>
+                    <span>@TVItemViewRes.MWQMSites (<b>@MWQMSiteCount</b>)</span>
+                    <span>@TVItemViewRes.MWQMRuns (<b>@MWQMRunCount</b>)</span>
+                    <span>@TVItemViewRes.PolSourceSites (<b>@PolSourceSiteCount</b>)</span>
+                    <span>@TVItemViewRes.MikeScenarios (<b>@MikeScenarioCount</b>)</span>
+                    <span>@TVItemViewRes.BoxModels (<b>@BoxModelCount</b>)</span>
+                    <span>@TVItemViewRes.VPScenarios (<b>@VisualPlumeScenarioCount</b>)</span>
+                </span>
+            }
+            break;
+        case TVTypeEnum.MWQMRun:
+            {
+                <div class="moreInfo-NamesValues">
+                    <span><b>@TVItemViewRes.Precipitation</b> <span title="@UnitViewRes.Millimeters">(@UnitViewRes.Millimeters_abr)</span>: </span>
+                    <span>@TVItemViewRes.Day </span>
+                    <span class="text-nowrap">(0) [<b>@((tvItemMoreInfoMWQMRunModel.MWQMRunModel.RainDay0_mm == null ? "" : (((double)tvItemMoreInfoMWQMRunModel.MWQMRunModel.RainDay0_mm) == -999 ? "E" : ((double)tvItemMoreInfoMWQMRunModel.MWQMRunModel.RainDay0_mm).ToString("F0"))))</b>]</span>
+                    <span class="text-nowrap">(-1) [<b>@((tvItemMoreInfoMWQMRunModel.MWQMRunModel.RainDay1_mm == null ? "" : (((double)tvItemMoreInfoMWQMRunModel.MWQMRunModel.RainDay1_mm) == -999 ? "E" : ((double)tvItemMoreInfoMWQMRunModel.MWQMRunModel.RainDay1_mm).ToString("F0"))))</b>]</span>
+                    <span class="text-nowrap">(-2) [<b>@((tvItemMoreInfoMWQMRunModel.MWQMRunModel.RainDay2_mm == null ? "" : (((double)tvItemMoreInfoMWQMRunModel.MWQMRunModel.RainDay2_mm) == -999 ? "E" : ((double)tvItemMoreInfoMWQMRunModel.MWQMRunModel.RainDay2_mm).ToString("F0"))))</b>]</span>
+                    <span class="text-nowrap">(-3) [<b>@((tvItemMoreInfoMWQMRunModel.MWQMRunModel.RainDay3_mm == null ? "" : (((double)tvItemMoreInfoMWQMRunModel.MWQMRunModel.RainDay3_mm) == -999 ? "E" : ((double)tvItemMoreInfoMWQMRunModel.MWQMRunModel.RainDay3_mm).ToString("F0"))))</b>]</span>
+                    <span class="text-nowrap">(-4) [<b>@((tvItemMoreInfoMWQMRunModel.MWQMRunModel.RainDay4_mm == null ? "" : (((double)tvItemMoreInfoMWQMRunModel.MWQMRunModel.RainDay4_mm) == -999 ? "E" : ((double)tvItemMoreInfoMWQMRunModel.MWQMRunModel.RainDay4_mm).ToString("F0"))))</b>]</span>
+                    <span class="text-nowrap">(-5) [<b>@((tvItemMoreInfoMWQMRunModel.MWQMRunModel.RainDay5_mm == null ? "" : (((double)tvItemMoreInfoMWQMRunModel.MWQMRunModel.RainDay5_mm) == -999 ? "E" : ((double)tvItemMoreInfoMWQMRunModel.MWQMRunModel.RainDay5_mm).ToString("F0"))))</b>]</span>
+                    <span class="text-nowrap">(-6) [<b>@((tvItemMoreInfoMWQMRunModel.MWQMRunModel.RainDay6_mm == null ? "" : (((double)tvItemMoreInfoMWQMRunModel.MWQMRunModel.RainDay6_mm) == -999 ? "E" : ((double)tvItemMoreInfoMWQMRunModel.MWQMRunModel.RainDay6_mm).ToString("F0"))))</b>]</span>
+                    <span class="text-nowrap">(-7) [<b>@((tvItemMoreInfoMWQMRunModel.MWQMRunModel.RainDay7_mm == null ? "" : (((double)tvItemMoreInfoMWQMRunModel.MWQMRunModel.RainDay7_mm) == -999 ? "E" : ((double)tvItemMoreInfoMWQMRunModel.MWQMRunModel.RainDay7_mm).ToString("F0"))))</b>]</span>
+                    <span class="text-nowrap">(-8) [<b>@((tvItemMoreInfoMWQMRunModel.MWQMRunModel.RainDay8_mm == null ? "" : (((double)tvItemMoreInfoMWQMRunModel.MWQMRunModel.RainDay8_mm) == -999 ? "E" : ((double)tvItemMoreInfoMWQMRunModel.MWQMRunModel.RainDay8_mm).ToString("F0"))))</b>]</span>
+                    <span class="text-nowrap">(-9) [<b>@((tvItemMoreInfoMWQMRunModel.MWQMRunModel.RainDay9_mm == null ? "" : (((double)tvItemMoreInfoMWQMRunModel.MWQMRunModel.RainDay9_mm) == -999 ? "E" : ((double)tvItemMoreInfoMWQMRunModel.MWQMRunModel.RainDay9_mm).ToString("F0"))))</b>]</span>
+                    <span class="text-nowrap">(-10) [<b>@((tvItemMoreInfoMWQMRunModel.MWQMRunModel.RainDay10_mm == null ? "" : (((double)tvItemMoreInfoMWQMRunModel.MWQMRunModel.RainDay10_mm) == -999 ? "E" : ((double)tvItemMoreInfoMWQMRunModel.MWQMRunModel.RainDay10_mm).ToString("F0"))))</b>]</span>
+                    <br />
+                    <ul class="list-inline moreInfo2">
+                        @foreach (MWQMSampleModel mwqmSampleModel in tvItemMoreInfoMWQMRunModel.MWQMSampleModelList)
+                        {
+                            <li>
+                                <span class="@(mwqmSampleModel.FecCol_MPN_100ml > 42 ? (mwqmSampleModel.FecCol_MPN_100ml > 259 ? "bg-noDepuration" : "bg-failed") : "bg-good")">
+                                    <a class="MWQMRunMoreInfo" data-tvitemid="@mwqmSampleModel.MWQMSiteTVItemID" href="@tvItemController.CreateHashURL(mwqmSampleModel.MWQMSiteTVItemID)">@mwqmSampleModel.MWQMSiteTVText (@mwqmSampleModel.FecCol_MPN_100ml)</a>
+                                </span>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            }
+            break;
+        case TVTypeEnum.MWQMSite:
+            {
+                var classname = "brdr-good";
+                var title = TVItemViewRes.Good;
+                if (tvItemMoreInfoMWQMSiteModel.Coloring == "noDepuration")
+                {
+                    classname = "brdr-noDepuration";
+                    title = TVItemViewRes.NoDepuration;
+                }
+                else if (tvItemMoreInfoMWQMSiteModel.Coloring == "failed")
+                {
+                    classname = "brdr-failed";
+                    title = TVItemViewRes.Failed;
+                }
+                else if (tvItemMoreInfoMWQMSiteModel.Coloring == "passed")
+                {
+                    classname = "brdr-passed";
+                    title = TVItemViewRes.Passed;
+                }
+                else if (tvItemMoreInfoMWQMSiteModel.Coloring == "notEnoughData")
+                {
+                    classname = "brdr-notEnoughData";
+                    title = TVItemViewRes.NotEnoughData;
+                }
+                else if (tvItemMoreInfoMWQMSiteModel.Coloring == "noData")
+                {
+                    classname = "brdr-noData";
+                    title = TVItemViewRes.NoData;
+                }
+                else
+                {
+                    classname = "brdr-noData";
+                    title = TVItemViewRes.NoData;
+                }
+                <p><span class="h4">@TVItemViewRes.LatestClassification:</span> @(_BaseEnumService.GetEnumText_MWQMSiteLatestClassificationEnum(tvItemMoreInfoMWQMSiteModel.MWQMSiteLatestClassification))</p>
+                <p class="@classname  moreInfo-NamesValues" title="@title">
+
+                    <span>
+                        <b>
+                            @tvItemMoreInfoMWQMSiteModel.Letter
+                        </b>
+                    </span>
+
+
+                    <span><b>@TVItemViewRes.Stats:</b></span>
+                    <span>@TVItemViewRes.Samples (<b>@string.Format("{0:F0}", tvItemMoreInfoMWQMSiteModel.MWQMSampleCount)</b>)</span>
+                    <span>
+                        @TVItemViewRes.DataSet (<b>
+                            @string.Format("{0:F0}", tvItemMoreInfoMWQMSiteModel.SampMinYear) -
+                            @string.Format("{0:F0}", tvItemMoreInfoMWQMSiteModel.SampMaxYear)
+                        </b>)
+                    </span>
+                    <span>
+                        @TVItemViewRes.StatsPeriod (<b>
+                            @string.Format("{0:F0}", tvItemMoreInfoMWQMSiteModel.StatMinYear) -
+                            @string.Format("{0:F0}", tvItemMoreInfoMWQMSiteModel.StatMaxYear)
+                        </b>)
+                    </span>
+                    <span>@TVItemViewRes.UNSS (<b>@string.Format("{0:F0}", tvItemMoreInfoMWQMSiteModel.SampCount)</b>)</span>
+                    <span>@TVItemViewRes.MinFC (<b>@string.Format("{0:F0}", tvItemMoreInfoMWQMSiteModel.MinFC)</b>)</span>
+                    <span>@TVItemViewRes.MaxFC (<b>@string.Format("{0:F0}", tvItemMoreInfoMWQMSiteModel.MaxFC)</b>)</span>
+                    <span>@TVItemViewRes.GeometricMean (<b>@string.Format("{0:F1}", tvItemMoreInfoMWQMSiteModel.GeoMean)</b>)</span>
+                    <span>@TVItemViewRes.Median (<b>@string.Format("{0:F1}", tvItemMoreInfoMWQMSiteModel.Median)</b>)</span>
+                    <span>@TVItemViewRes.P90 (<b>@string.Format("{0:F1}", tvItemMoreInfoMWQMSiteModel.P90)</b>)</span>
+                    <span>@TVItemViewRes.PSFCOver43 (<b>@string.Format("{0:F1}%", tvItemMoreInfoMWQMSiteModel.PercOver43)</b>)</span>
+                    <span>@TVItemViewRes.PSFCOver260 (<b>@string.Format("{0:F1}%", tvItemMoreInfoMWQMSiteModel.PercOver260)</b>)</span>
+                </p>
+            }
+            break;
+        default:
+            {
+                <span class="moreInfo-NamesValues">
+                    <span><b>@TVItemViewRes.Stats:</b></span>
+                    <span>@TVItemViewRes.Empty</span>
+                </span>
+            }
+            break;
+    }
+</li>
+

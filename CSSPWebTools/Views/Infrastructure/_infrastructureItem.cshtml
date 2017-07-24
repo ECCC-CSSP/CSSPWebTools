@@ -1,0 +1,120 @@
+﻿@using CSSPWebTools.Views.Infrastructure.Resources;
+@using CSSPWebTools.Controllers;
+@using CSSPWebTools.Models;
+@using CSSPEnumsDLL.Enums;
+@using CSSPModelsDLL.Models;
+
+@{
+    int TVItemID = (int)ViewBag.TVItemID;
+    List<TVItemModelInfrastructureTypeTVItemLinkModel> tvItemModelInfrastructureTypeTVItemLinkModelList = ViewBag.TVItemModelInfrastructureTypeTVItemLinkModelList;
+    TVItemModelInfrastructureTypeTVItemLinkModel tvItemModelInfrastructureTypeTVItemLinkModel = tvItemModelInfrastructureTypeTVItemLinkModelList.Where(c => c.TVItemModel.TVItemID == TVItemID).FirstOrDefault();
+    InfrastructureController infrastructureController = (InfrastructureController)ViewBag.InfrastructureController;
+    URLModel urlModel = (URLModel)ViewBag.URLModel;
+    TVAuthEnum tvAuth = (TVAuthEnum)ViewBag.TVAuth;
+    bool IsShowMoreInfo = (bool)ViewBag.IsShowMoreInfo;
+    bool IsShowMap = (bool)ViewBag.IsShowMap;
+
+    string BorderColor = "";
+    bool HasOtherThanOutfall = false;
+
+    if (tvItemModelInfrastructureTypeTVItemLinkModel.TVItemModelLinkList.Count > 0)
+    {
+        foreach (TVItemLinkModel tvItemLinkModel in tvItemModelInfrastructureTypeTVItemLinkModel.TVItemModelLinkList)
+        {
+            if (tvItemModelInfrastructureTypeTVItemLinkModel.InfrastructureType != InfrastructureTypeEnum.WWTP)
+            {
+                HasOtherThanOutfall = true;
+            }
+        }
+    }
+    switch (tvItemModelInfrastructureTypeTVItemLinkModel.InfrastructureType)
+    {
+        case InfrastructureTypeEnum.LiftStation:
+            BorderColor = "BorderLiftStation";
+            break;
+        case InfrastructureTypeEnum.Other:
+            BorderColor = "BorderOtherInfrastructure";
+            break;
+        case InfrastructureTypeEnum.LineOverflow:
+            BorderColor = "BorderLineOverflow";
+            break;
+        case InfrastructureTypeEnum.WWTP:
+            BorderColor = "BorderWWTP";
+            break;
+        default:
+            break;
+    }
+}
+<ul class="list-unstyled blockMargin">
+    <li class="BorderType">
+        <ul class="InfrastructureItem @BorderColor  list-unstyled" data-infrastructuretvitemid="@tvItemModelInfrastructureTypeTVItemLinkModel.TVItemModel.TVItemID">
+            <li>
+                <ul class="list-inline">
+                    @if (HasOtherThanOutfall)
+                    {
+                        <li class="glyphicon glyphicon-open" title="@InfrastructureViewRes.FlowsOrPumpsInto" style="vertical-align:top;"></li>
+                    }
+                    <li class="InfrastructureEditButtons hidden" style="vertical-align:top;">
+                        <div>
+                            @if (tvAuth >= TVAuthEnum.Write)
+                            {
+                                <button class="jbInfrastructureShowHideModify btn btn-default" title="@InfrastructureViewRes.Edit"><span class="glyphicon glyphicon-pencil"></span></button>
+                                if (tvItemModelInfrastructureTypeTVItemLinkModel.SeeOtherTVItemID == null)
+                                {
+                                    <button class="jbInfrastructureMoveStart  btn btn-default" title="@InfrastructureViewRes.StartMove"><span class="glyphicon glyphicon-move"></span></button>
+                                    <button class="jbInfrastructureMoveTo btn btn-default hidden" title="@InfrastructureViewRes.MoveBelow"><span class="glyphicon glyphicon-hand-right"></span></button>
+                                    <button class="jbInfrastructureMoveCancel btn btn-default hidden" title="@InfrastructureViewRes.CancelMove"><span class="glyphicon glyphicon-stop"></span></button>
+                                    <button class="jbInfrastructureMoveToTop btn btn-default" title="@InfrastructureViewRes.MoveToTop"><span class="glyphicon glyphicon-arrow-up"></span></button>
+                                }
+                            }
+                            @if (tvAuth >= TVAuthEnum.Delete)
+                            {
+                                <button class="jbInfrastructureDelete btn btn-default" title="@InfrastructureViewRes.Delete"><span class="glyphicon glyphicon-trash"></span></button>
+                            }
+                        </div>
+                    </li>
+                    @if (IsShowMap)
+                    {
+                        <li data-tvitemid="@tvItemModelInfrastructureTypeTVItemLinkModel.TVItemModel.TVItemID">
+                            <button class="jbMapShowItem btn btn-default" title="@InfrastructureViewRes.ShowMapItem" data-tvitemid="@tvItemModelInfrastructureTypeTVItemLinkModel.TVItemModel.TVItemID">
+                                <span class="glyphicon glyphicon-map-marker"></span>
+                            </button>
+                        </li>
+                    }
+                    @if (tvItemModelInfrastructureTypeTVItemLinkModel.SeeOtherTVItemID != null)
+                    {
+                        <li>
+                            <a class="btn btn-default" role="button" href="@infrastructureController.CreateHashURL((int)tvItemModelInfrastructureTypeTVItemLinkModel.SeeOtherTVItemID)">
+                                @tvItemModelInfrastructureTypeTVItemLinkModel.TVItemModel.TVText
+                            </a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li>
+                            <div class="LastUpdateAndTVText" data-table="TVItemLanguage" data-id="@tvItemModelInfrastructureTypeTVItemLinkModel.TVItemModel.TVItemID"></div>
+                            <a href="@infrastructureController.CreateHashURL(tvItemModelInfrastructureTypeTVItemLinkModel.TVItemModel.TVItemID)">
+                                <span class="TVTextA">@tvItemModelInfrastructureTypeTVItemLinkModel.TVItemModel.TVText</span>
+                            </a>
+
+                        </li>
+                    }
+                </ul>
+                <ul class="list-unstyled paraBlock">
+                    <li>
+                        @if (IsShowMoreInfo)
+                        {
+                            @Html.Action("_TVItemMoreInfo", "TVItem", new { Q = urlModel.Q, TVItemID = tvItemModelInfrastructureTypeTVItemLinkModel.TVItemModel.TVItemID, NumberOfSample = 0 })
+                        }
+                    </li>
+                </ul>
+
+                <div class="InfrastructureAddOrModify paraBlock blockMargin"></div>
+            </li>
+        </ul>
+        @foreach (TVItemModelInfrastructureTypeTVItemLinkModel tvItemModelInfrastructureTypeTVItemLinkModelNext in tvItemModelInfrastructureTypeTVItemLinkModelList.Where(c => c.FlowTo == tvItemModelInfrastructureTypeTVItemLinkModel).ToList())
+        {
+            @Html.Action("_infrastructureItem", "Infrastructure", new { Q = urlModel.Q, TVItemID = tvItemModelInfrastructureTypeTVItemLinkModelNext.TVItemModel.TVItemID, TVItemModelInfrastructureTypeTVItemLinkModelList = tvItemModelInfrastructureTypeTVItemLinkModelList })
+        }
+    </li>
+</ul>

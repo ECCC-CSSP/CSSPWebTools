@@ -1,0 +1,844 @@
+﻿@using CSSPWebTools.Models;
+@using CSSPWebTools.Views.MWQM.Resources;
+@using CSSPWebTools.Views.Shared.Resources;
+@using CSSPWebTools.Controllers;
+@using System.Globalization;
+@using CSSPEnumsDLL.Enums;
+@using CSSPEnumsDLL.Services;
+@using CSSPModelsDLL.Models;
+
+@{
+    MWQMController mwqmController = (MWQMController)ViewBag.MWQMController;
+    MWQMRunModel mwqmRunModel = (MWQMRunModel)ViewBag.MWQMRunModel;
+    BaseEnumService _BaseEnumService = new BaseEnumService(ViewBag.Language);
+    if (mwqmRunModel.MWQMRunTVItemID == 0)
+    {
+        mwqmRunModel.DateTime_Local = DateTime.Now.AddDays(-1);
+        mwqmRunModel.LabAnalyzeBath1IncubationStartDateTime_Local = mwqmRunModel.DateTime_Local;
+        mwqmRunModel.LabAnalyzeBath2IncubationStartDateTime_Local = mwqmRunModel.DateTime_Local;
+        mwqmRunModel.LabAnalyzeBath3IncubationStartDateTime_Local = mwqmRunModel.DateTime_Local;
+        mwqmRunModel.LabReceivedDateTime_Local = mwqmRunModel.DateTime_Local;
+        mwqmRunModel.LabRunSampleApprovalDateTime_Local = mwqmRunModel.DateTime_Local.AddDays(1);
+        mwqmRunModel.SampleMatrix = SampleMatrixEnum.Water;
+        mwqmRunModel.StartDateTime_Local = mwqmRunModel.DateTime_Local;
+        mwqmRunModel.EndDateTime_Local = mwqmRunModel.DateTime_Local.AddHours(1);
+    }
+    int SubsectorTVItemID = (int)ViewBag.SubsectorTVItemID;
+    List<TVItemModel> tvItemModelMWQMSiteList = (List<TVItemModel>)ViewBag.TVItemModelMWQMSiteList;
+    string SamplingContactTVText = (string)ViewBag.SamplingContactTVText;
+    string ValidatorContactTVText = (string)ViewBag.ValidatorContactTVText;
+    List<MWQMSampleModel> mwqmSampleModelList = (List<MWQMSampleModel>)ViewBag.MWQMSampleModelList;
+    List<TVItemModel> tvItemModelContactLabValidatorOptionList = (List<TVItemModel>)ViewBag.TVItemModelContactLabValidatorOptionList;
+    bool LabReceivedSameDay = true;
+    bool LabAnalyzeSameDay = true;
+    string RunStartTime = "00:00";
+    if (mwqmRunModel.StartDateTime_Local != null)
+    {
+        int hour = mwqmRunModel.StartDateTime_Local.Value.Hour;
+        int minute = mwqmRunModel.StartDateTime_Local.Value.Minute;
+        RunStartTime = (hour > 9 ? hour.ToString() : "0" + hour.ToString()) + ":" + (minute > 9 ? minute.ToString() : "0" + minute.ToString());
+    }
+    string RunEndTime = "00:00";
+    if (mwqmRunModel.EndDateTime_Local != null)
+    {
+        int hour = mwqmRunModel.EndDateTime_Local.Value.Hour;
+        int minute = mwqmRunModel.EndDateTime_Local.Value.Minute;
+        RunEndTime = (hour > 9 ? hour.ToString() : "0" + hour.ToString()) + ":" + (minute > 9 ? minute.ToString() : "0" + minute.ToString());
+    }
+    string LabReceivedTime = "00:00";
+    if (mwqmRunModel.LabReceivedDateTime_Local != null)
+    {
+        if (mwqmRunModel.DateTime_Local.Year == mwqmRunModel.LabReceivedDateTime_Local.Value.Year
+            && mwqmRunModel.DateTime_Local.Month == mwqmRunModel.LabReceivedDateTime_Local.Value.Month
+            && mwqmRunModel.DateTime_Local.Day == mwqmRunModel.LabReceivedDateTime_Local.Value.Day)
+        {
+            LabReceivedSameDay = true;
+        }
+        else
+        {
+            LabReceivedSameDay = false;
+        }
+        int hour = mwqmRunModel.LabReceivedDateTime_Local.Value.Hour;
+        int minute = mwqmRunModel.LabReceivedDateTime_Local.Value.Minute;
+        LabReceivedTime = (hour > 9 ? hour.ToString() : "0" + hour.ToString()) + ":" + (minute > 9 ? minute.ToString() : "0" + minute.ToString());
+    }
+    string LabAnalyzeBath1StartIncubationTime = "00:00";
+    if (mwqmRunModel.LabAnalyzeBath1IncubationStartDateTime_Local != null)
+    {
+        if (mwqmRunModel.DateTime_Local.Year == mwqmRunModel.LabAnalyzeBath1IncubationStartDateTime_Local.Value.Year
+            && mwqmRunModel.DateTime_Local.Month == mwqmRunModel.LabAnalyzeBath1IncubationStartDateTime_Local.Value.Month
+            && mwqmRunModel.DateTime_Local.Day == mwqmRunModel.LabAnalyzeBath1IncubationStartDateTime_Local.Value.Day)
+        {
+            LabAnalyzeSameDay = true;
+        }
+        else
+        {
+            LabAnalyzeSameDay = false;
+        }
+        int hour = mwqmRunModel.LabAnalyzeBath1IncubationStartDateTime_Local.Value.Hour;
+        int minute = mwqmRunModel.LabAnalyzeBath1IncubationStartDateTime_Local.Value.Minute;
+        LabAnalyzeBath1StartIncubationTime = (hour > 9 ? hour.ToString() : "0" + hour.ToString()) + ":" + (minute > 9 ? minute.ToString() : "0" + minute.ToString());
+    }
+    string LabAnalyzeBath2StartIncubationTime = "00:00";
+    if (mwqmRunModel.LabAnalyzeBath2IncubationStartDateTime_Local != null)
+    {
+        if (mwqmRunModel.DateTime_Local.Year == mwqmRunModel.LabAnalyzeBath2IncubationStartDateTime_Local.Value.Year
+            && mwqmRunModel.DateTime_Local.Month == mwqmRunModel.LabAnalyzeBath2IncubationStartDateTime_Local.Value.Month
+            && mwqmRunModel.DateTime_Local.Day == mwqmRunModel.LabAnalyzeBath2IncubationStartDateTime_Local.Value.Day)
+        {
+            LabAnalyzeSameDay = true;
+        }
+        else
+        {
+            LabAnalyzeSameDay = false;
+        }
+        int hour = mwqmRunModel.LabAnalyzeBath2IncubationStartDateTime_Local.Value.Hour;
+        int minute = mwqmRunModel.LabAnalyzeBath2IncubationStartDateTime_Local.Value.Minute;
+        LabAnalyzeBath2StartIncubationTime = (hour > 9 ? hour.ToString() : "0" + hour.ToString()) + ":" + (minute > 9 ? minute.ToString() : "0" + minute.ToString());
+    }
+    string LabAnalyzeBath3StartIncubationTime = "00:00";
+    if (mwqmRunModel.LabAnalyzeBath3IncubationStartDateTime_Local != null)
+    {
+        if (mwqmRunModel.DateTime_Local.Year == mwqmRunModel.LabAnalyzeBath3IncubationStartDateTime_Local.Value.Year
+            && mwqmRunModel.DateTime_Local.Month == mwqmRunModel.LabAnalyzeBath3IncubationStartDateTime_Local.Value.Month
+            && mwqmRunModel.DateTime_Local.Day == mwqmRunModel.LabAnalyzeBath3IncubationStartDateTime_Local.Value.Day)
+        {
+            LabAnalyzeSameDay = true;
+        }
+        else
+        {
+            LabAnalyzeSameDay = false;
+        }
+        int hour = mwqmRunModel.LabAnalyzeBath3IncubationStartDateTime_Local.Value.Hour;
+        int minute = mwqmRunModel.LabAnalyzeBath3IncubationStartDateTime_Local.Value.Minute;
+        LabAnalyzeBath3StartIncubationTime = (hour > 9 ? hour.ToString() : "0" + hour.ToString()) + ":" + (minute > 9 ? minute.ToString() : "0" + minute.ToString());
+    }
+    string LabRunSampleApprovalTime = "00:00";
+    if (mwqmRunModel.LabRunSampleApprovalDateTime_Local != null)
+    {
+        int hour = mwqmRunModel.LabRunSampleApprovalDateTime_Local.Value.Hour;
+        int minute = mwqmRunModel.LabRunSampleApprovalDateTime_Local.Value.Minute;
+        LabRunSampleApprovalTime = (hour > 9 ? hour.ToString() : "0" + hour.ToString()) + ":" + (minute > 9 ? minute.ToString() : "0" + minute.ToString());
+    }
+}
+
+<div class="MWQMRunEditDiv">
+    <div class="panel-group" id="MWQMRunGeneralInformationDiv" role="tablist" aria-multiselectable="true">
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingMWQMRunGeneralInformation">
+                <div class="panel-title">
+                    <a data-toggle="collapse" data-parent="#MWQMRunGeneralInformationDiv" href="#collapseMWQMRunGeneralInformation" aria-expanded="true" aria-controls="collapseMWQMRunGeneralInformation">
+                        @MWQMViewRes.RunGereralInformation
+                    </a>
+                </div>
+            </div>
+            <div id="collapseMWQMRunGeneralInformation" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingMWQMRunGeneralInformation">
+                <div class="panel-body">
+                    <form id="MWQMRunAddOrModifyForm" method="post" role="form" action="MWQM/MWQMRunAddOrModifyJSON">
+                        @Html.AntiForgeryToken()
+                        <input type="hidden" name="MWQMRunTVItemID" value="@mwqmRunModel.MWQMRunTVItemID" />
+                        <input type="hidden" name="SubsectorTVItemID" value="@SubsectorTVItemID" />
+                        <fieldset>
+                            @if (mwqmRunModel.MWQMRunID == 0)
+                            {
+                                <legend><span>@MWQMViewRes.Add</span></legend>
+                            }
+                            else
+                            {
+                                <legend><span>@MWQMViewRes.ModifyMWQMRun (@mwqmRunModel.MWQMRunTVText)</span></legend>
+                            }
+                            <div class="paraBlock">
+                                <h4>@MWQMViewRes.FieldRelatedInformation</h4>
+                                <div class="blockMargin lineSpaceBottom">
+                                    <div class="form-inline">
+                                        <div class="form-group">
+                                            <label>@MWQMViewRes.RunSampleType</label>
+                                            <div>
+                                                <select class="form-control" name="RunSampleType">
+                                                    @foreach (SampleTypeEnumTextOrdered sampleTypeEnumTextOrdered in _BaseEnumService.GetSampleTypeEnumTextOrderedList())
+                                                    {
+                                                        <option value="@((int)sampleTypeEnumTextOrdered.SampleType)" @(mwqmRunModel.RunSampleType != 0 && (sampleTypeEnumTextOrdered.SampleType == mwqmRunModel.RunSampleType) ? "selected=selected" : "")>@(sampleTypeEnumTextOrdered.SampleTypeText)</option>
+                                                    }
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                @* Run Date *@
+                                <label>@MWQMViewRes.RunDate</label>
+                                <div class="blockMargin lineSpaceBottom">
+                                    <div class="form-inline">
+                                        <div class="form-group  blockRightSpace">
+                                            <label class="control-label"> @MWQMViewRes.Year</label>
+                                            <div>
+                                                <select class="form-control" name="RunDateYear">
+                                                    @for (int i = 1980; i < DateTime.Now.Year + 1; i++)
+                                                    {
+                                                        <option @((mwqmRunModel.DateTime_Local != null && mwqmRunModel.DateTime_Local.Year == i) ? "selected=selected" : "") value="@i.ToString()">@i.ToString()</option>
+                                                    }
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group  blockRightSpace">
+                                            <label class="control-label">@MWQMViewRes.Month</label>
+                                            <div>
+                                                <select class="form-control" name="RunDateMonth">
+                                                    @for (int i = 1; i < 13; i++)
+                                                    {
+                                                        <option @((mwqmRunModel.DateTime_Local != null && mwqmRunModel.DateTime_Local.Month == i) ? "selected=selected" : "") value="@i.ToString()">@(CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(i))</option>
+                                                    }
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group  blockRightSpace">
+                                            <label class="control-label">@MWQMViewRes.Day</label>
+                                            <div>
+                                                <select class="form-control" name="RunDateDay">
+                                                    @{
+                                                        int NumberOfDaysInMonth = DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month);
+                                                        if (mwqmRunModel.DateTime_Local != null)
+                                                        {
+                                                            NumberOfDaysInMonth = DateTime.DaysInMonth(mwqmRunModel.DateTime_Local.Year, mwqmRunModel.DateTime_Local.Month);
+                                                        }
+                                                        for (int i = 1; i < NumberOfDaysInMonth + 1; i++)
+                                                        {
+                                                            <option @((mwqmRunModel.DateTime_Local != null && mwqmRunModel.DateTime_Local.Day == i ? "selected=selected" : "")) value="@i.ToString()">@i.ToString()</option>
+                                                        }
+                                                    }
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                @* RunNumber*@
+                                <label>@MWQMViewRes.RunNumber</label>
+                                <div class="blockMargin lineSpaceBottom">
+                                    <div class="form-inline">
+                                        <div class="form-group  blockRightSpace">
+                                            <label class="control-label"> @MWQMViewRes.RunNumber</label>
+                                            <div>
+                                                <select class="form-control" name="RunNumber">
+                                                    @for (int i = 1; i < 21; i++)
+                                                    {
+                                                        <option @((mwqmRunModel.RunNumber != 0 && mwqmRunModel.RunNumber == i) ? "selected=selected" : "") value="@i.ToString()">@i.ToString()</option>
+                                                    }
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                @* SampleCrewInitials*@
+                                <div class="form-group">
+                                    <label for="SampleCrewInitials" class="control-label">@MWQMViewRes.RunSamplingCrewInitials</label>
+                                    <div>
+                                        <input class="form-control" type="text" name="SampleCrewInitials" style="width: auto !important" value="@mwqmRunModel.SampleCrewInitials" />
+                                        <span class="help-block"></span>
+                                    </div>
+                                </div>
+
+                                @* SampleMatrix*@
+                                <div class="form-group">
+                                    <label for="SampleMatrix" class="control-label">@MWQMViewRes.SampleMatrix</label>
+                                    <div>
+                                        <select name="SampleMatrix" class="form-control">
+                                            <option value="0" @(mwqmRunModel.SampleMatrix == null ? "selected=selected" : "")>@MWQMViewRes.SelectTheSampleMatrix</option>
+                                            @foreach (SampleMatrixEnumTextOrdered sampleMatrixEnumTextOrdered in _BaseEnumService.GetSampleMatrixEnumTextOrderedList())
+                                            {
+                                                <option value="@((int)sampleMatrixEnumTextOrdered.SampleMatrix)" @(mwqmRunModel.SampleMatrix != null && (sampleMatrixEnumTextOrdered.SampleMatrix == mwqmRunModel.SampleMatrix) ? "selected=selected" : "")>@(sampleMatrixEnumTextOrdered.SampleMatrixText)</option>
+                                            }
+                                        </select>
+                                        <span class="help-block"></span>
+                                    </div>
+                                </div>
+                                <div class="form-inline">
+                                    <label>@MWQMViewRes.RunTime</label>
+                                    <div class="blockMargin">
+                                        @* Run Start Time *@
+                                        <div class="form-group blockRightSpace">
+                                            <div class="form-group">
+                                                <label class="control-label" for="RunStartTime">@MWQMViewRes.Start</label>
+                                                <div>
+                                                    <input class="form-control" type="text" name="RunStartTime" value="@(mwqmRunModel.MWQMRunID == 0 ? "00:00" : RunStartTime)" />
+                                                    <i class="text-lighter">ex: 08:30</i>
+                                                    <span class="help-block"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        @* Run End Time *@
+                                        <div class="form-group">
+                                            <div class="form-group  blockRightSpace">
+                                                <label class="control-label" for="RunEndTime">@MWQMViewRes.End</label>
+                                                <div>
+                                                    <input class="form-control" type="text" name="RunEndTime" value="@(mwqmRunModel.MWQMRunID == 0 ? "00:00" : RunEndTime)" />
+                                                    <i class="text-lighter">ex: 08:30</i>
+                                                    <span class="help-block"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-inline">
+                                    <label>@MWQMViewRes.SeaState (<a target="_blank" href="https://en.wikipedia.org/wiki/Beaufort_scale">@MWQMViewRes.BeaufortScale</a>)</label>
+                                    <div class="blockMargin">
+                                        @* Sea state at start *@
+                                        <div class="form-group blockRightSpace">
+                                            <label for="SeaStateAtStart_BeaufortScale" class="control-label">@MWQMViewRes.Start</label>
+                                            <div>
+                                                <select name="SeaStateAtStart_BeaufortScale" class="form-control">
+                                                    <option value="-1" @(mwqmRunModel.SeaStateAtStart_BeaufortScale == null ? "selected=selected" : "")>@MWQMViewRes.SelectSeaState</option>
+                                                    @for (int i = 0; i < 13; i++)
+                                                    {
+                                                        <option value="@(i)" @(mwqmRunModel.SeaStateAtStart_BeaufortScale != null && (i == (int)mwqmRunModel.SeaStateAtStart_BeaufortScale) ? "selected=selected" : "")>@("(" + i.ToString() + ") " + _BaseEnumService.GetEnumText_BeaufortScaleEnum((BeaufortScaleEnum)i))</option>
+                                                    }
+                                                </select>
+                                                <span class="help-block"></span>
+                                            </div>
+                                        </div>
+
+                                        @* Sea state at end *@
+                                        <div class="form-group  blockRightSpace">
+                                            <label for="SeaStateAtEnd_BeaufortScale" class="control-label">@MWQMViewRes.End</label>
+                                            <div>
+                                                <select name="SeaStateAtEnd_BeaufortScale" class="form-control">
+                                                    <option value="-1" @(mwqmRunModel.SeaStateAtStart_BeaufortScale == null ? "selected=selected" : "")>@MWQMViewRes.SelectSeaState</option>
+                                                    @for (int i = 0; i < 13; i++)
+                                                    {
+                                                        <option value="@(i)" @(mwqmRunModel.SeaStateAtStart_BeaufortScale != null && (i == (int)mwqmRunModel.SeaStateAtStart_BeaufortScale) ? "selected=selected" : "")>@("(" + i.ToString() + ") " + _BaseEnumService.GetEnumText_BeaufortScaleEnum((BeaufortScaleEnum)i))</option>
+                                                    }
+                                                </select>
+                                                <span class="help-block"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                @* WaterLevelAtBrook_m *@
+                                <div class="form-group blockRightSpace">
+                                    <label for="WaterLevelAtBrook_m" class="control-label">@MWQMViewRes.WaterLevelAtBrook (@UnitViewRes.Meters_abbr)</label>
+                                    <div>
+                                        <input class="isnumber form-control" type="text" name="WaterLevelAtBrook_m" value="@(mwqmRunModel.WaterLevelAtBrook_m != null ? ((double)mwqmRunModel.WaterLevelAtBrook_m).ToString("F1") : "")" />
+                                        <span class="help-block"></span>
+                                    </div>
+                                </div>
+                                <div class="form-inline">
+                                    <label>@MWQMViewRes.WaveHeight</label>
+                                    <div class="blockMargin">
+                                        @* WaveHeightAtStart_m *@
+                                        <div class="form-group blockRightSpace">
+                                            <label for="WaveHightAtStart_m" class="control-label">@MWQMViewRes.Start (@UnitViewRes.Meters_abbr)</label>
+                                            <div>
+                                                <input class="isnumber form-control" type="text" name="WaveHightAtStart_m" value="@(mwqmRunModel.WaveHightAtStart_m != null ? ((double)mwqmRunModel.WaveHightAtStart_m).ToString("F1") : "")" />
+                                                <span class="help-block"></span>
+                                            </div>
+                                        </div>
+
+                                        @* WaveHeightAtEnd_m *@
+                                        <div class="form-group blockRightSpace">
+                                            <label for="WaveHightAtEnd_m" class="control-label">@MWQMViewRes.End (@UnitViewRes.Meters_abbr)</label>
+                                            <div>
+                                                <input class="isnumber form-control" type="text" name="WaveHightAtEnd_m" value="@(mwqmRunModel.WaveHightAtEnd_m != null ? ((double)mwqmRunModel.WaveHightAtStart_m).ToString("F1") : "")" />
+                                                <span class="help-block"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                @* RunComment*@
+                                <div class="form-group">
+                                    <label for="RunComment" class="control-label">@MWQMViewRes.RunComment</label>
+                                    <div>
+                                        <textarea class="form-control" rows="4" name="RunComment">@mwqmRunModel.RunComment</textarea>
+                                        <span class="help-block"></span>
+                                    </div>
+                                </div>
+                                @* RunWeatherComment*@
+                                <div class="form-group">
+                                    <label for="RunWeatherComment" class="control-label">@MWQMViewRes.RunWeatherComment</label>
+                                    <div>
+                                        <textarea class="form-control" rows="4" name="RunWeatherComment">@mwqmRunModel.RunWeatherComment</textarea>
+                                        <span class="help-block"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <h4>@MWQMViewRes.LaboratoryRelatedInformation</h4>
+                            <div class="blockMargin">
+                                @* Laboratory*@
+                                <div class="form-group">
+                                    <label for="Laboratory" class="control-label">@MWQMViewRes.Laboratory</label>
+                                    <div>
+                                        <select name="Laboratory" class="form-control">
+                                            <option value="0" @(mwqmRunModel.Laboratory == null ? "selected=selected" : "")>@MWQMViewRes.SelectTheLaboratory</option>
+                                            @foreach (LaboratoryEnumTextOrdered laboratoryEnumTextOrdered in _BaseEnumService.GetLaboratoryEnumTextOrderedList())
+                                            {
+                                                <option value="@((int)laboratoryEnumTextOrdered.Laboratory)" @(mwqmRunModel.Laboratory != null && (laboratoryEnumTextOrdered.Laboratory == mwqmRunModel.Laboratory) ? "selected=selected" : "")>@(laboratoryEnumTextOrdered.LaboratoryText)</option>
+                                            }
+                                        </select>
+                                        <span class="help-block"></span>
+                                    </div>
+                                </div>
+
+
+                                <label>@MWQMViewRes.RunSampleReception</label>
+                                <div class="blockMargin">
+                                    <div class="form-inline">
+                                        @* Lab Received Day *@
+                                        <div class="form-group blockRightSpace">
+                                            <label class="control-label">@MWQMViewRes.Reception</label>
+                                            <div>
+                                                @foreach (SameDayNextDayEnumTextOrdered sameDayNextDayEnumTextOrdered in _BaseEnumService.GetSameDayNextDayEnumTextOrderedList())
+                                                {
+                                                    <label class="radio-inline" for="LabReceivedRunSample">
+                                                        <input @(((((int)sameDayNextDayEnumTextOrdered.SameDayNextDay) == 1 && LabReceivedSameDay) || ((int)sameDayNextDayEnumTextOrdered.SameDayNextDay) == 2 && !LabReceivedSameDay) ? "checked=checked" : "") type="radio" name="LabReceivedRunSample"
+                                                               value="@((int)sameDayNextDayEnumTextOrdered.SameDayNextDay)" />
+                                                        <span>&nbsp;@(sameDayNextDayEnumTextOrdered.SameDayNextDayText)</span>
+                                                    </label>
+                                                }
+                                                <span class="help-block"></span>
+                                            </div>
+                                        </div>
+                                        @* Lab Received time *@
+                                        <div class="form-group blockRightSpace">
+                                            <label class="control-label" for="LabReceivedTime">@MWQMViewRes.Time</label>
+                                            <div>
+                                                <input class="form-control" type="text" name="LabReceivedTime" value="@(mwqmRunModel.MWQMRunID == 0 ? "00:00" : LabReceivedTime)" />
+                                                <i class="text-lighter">ex: 08:30</i>
+                                                <span class="help-block"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                @* Temperature Control *@
+                                <div class="form-group">
+                                    <label for="TemperatureControl" class="control-label">@MWQMViewRes.TemperatureControl1 (@Html.Raw(UnitViewRes.Celcius_abbr))</label>
+                                    <div>
+                                        <input class="isnumber form-control" type="text" name="TemperatureControl" value="@(mwqmRunModel.TemperatureControl1_C != null ? ((double)mwqmRunModel.TemperatureControl1_C).ToString("F1") : "")" />
+                                        <span class="help-block"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="TemperatureControl" class="control-label">@MWQMViewRes.TemperatureControl2 (@Html.Raw(UnitViewRes.Celcius_abbr))</label>
+                                    <div>
+                                        <input class="isnumber form-control" type="text" name="TemperatureControl" value="@(mwqmRunModel.TemperatureControl2_C != null ? ((double)mwqmRunModel.TemperatureControl2_C).ToString("F1") : "")" />
+                                        <span class="help-block"></span>
+                                    </div>
+                                </div>
+                                @* AnalyzeMethod*@
+                                <div class="form-group">
+                                    <label for="AnalyzeMethod" class="control-label">@MWQMViewRes.AnalysisMethod</label>
+                                    <div>
+                                        <select name="AnalyzeMethod" class="form-control">
+                                            <option value="0" @(mwqmRunModel.AnalyzeMethod == null ? "selected=selected" : "")>@MWQMViewRes.SelectTheAnalysisMethod</option>
+                                            @foreach (AnalyzeMethodEnumTextOrdered analyzeMethodEnumTextOrdered in _BaseEnumService.GetAnalyzeMethodEnumTextOrderedList())
+                                            {
+                                                <option value="@((int)analyzeMethodEnumTextOrdered.AnalyzeMethod)" @(mwqmRunModel.AnalyzeMethod != null && (analyzeMethodEnumTextOrdered.AnalyzeMethod == mwqmRunModel.AnalyzeMethod) ? "selected=selected" : "")>
+                                                    @(analyzeMethodEnumTextOrdered.AnalyzeMethodText)
+                                                </option>
+                                            }
+                                        </select>
+                                        <span class="help-block"></span>
+                                    </div>
+                                </div>
+                                <label>@MWQMViewRes.LabAnalysisBath1Incubation</label>
+                                <div class="blockMargin">
+                                    @* Lab Analyze / Bath 1 Incubation start Date and Time *@
+                                    <div class="form-inline">
+                                        @* Lab Analyze / Bath 1 Incubation Start Day *@
+                                        <div class="form-group blockRightSpace">
+                                            <label class="control-label">@MWQMViewRes.Day</label>
+                                            <div>
+                                                @foreach (SameDayNextDayEnumTextOrdered sameDayNextDayEnumTextOrdered in _BaseEnumService.GetSameDayNextDayEnumTextOrderedList())
+                                                {
+                                                    <label class="radio-inline" for="LabAnalyzeStartIncubationDay">
+                                                        <input @(((((int)sameDayNextDayEnumTextOrdered.SameDayNextDay) == 1 && LabAnalyzeSameDay) || ((int)sameDayNextDayEnumTextOrdered.SameDayNextDay) == 2 && !LabAnalyzeSameDay) ? "checked=checked" : "") type="radio" name="LabAnalyzeBath1StartIncubationDay"
+                                                               value="@((int)sameDayNextDayEnumTextOrdered.SameDayNextDay)" />
+                                                        <span>&nbsp;@(sameDayNextDayEnumTextOrdered.SameDayNextDayText)</span>
+                                                    </label>
+                                                }
+                                                <span class="help-block"></span>
+                                            </div>
+                                        </div>
+                                        @* Lab Analyze / Bath 1 Incubation Start time *@
+                                        <div class="form-group blockRightSpace">
+                                            <label class="control-label" for="LabAnalyzeBath1StartIncubationTime">
+                                                @MWQMViewRes.Time
+                                            </label>
+                                            <div>
+                                                <input class="form-control" type="text" name="LabAnalyzeBath1StartIncubationTime" value="@(mwqmRunModel.MWQMRunID == 0 ? "00:00" : LabAnalyzeBath1StartIncubationTime)" />
+                                                <i class="text-lighter">ex: 08:30</i>
+                                                <span class="help-block"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <label>@MWQMViewRes.LabAnalysisBath2Incubation</label>
+                                <div class="blockMargin">
+                                    @* Lab Analyze / Bath 2 Incubation start Date and Time *@
+                                    <div class="form-inline">
+                                        @* Lab Analyze / Bath 2 Incubation Start Day *@
+                                        <div class="form-group blockRightSpace">
+                                            <label class="control-label">@MWQMViewRes.Day</label>
+                                            <div>
+                                                @foreach (SameDayNextDayEnumTextOrdered sameDayNextDayEnumTextOrdered in _BaseEnumService.GetSameDayNextDayEnumTextOrderedList())
+                                                {
+                                                    <label class="radio-inline" for="LabAnalyzeStartIncubationDay">
+                                                        <input @(((((int)sameDayNextDayEnumTextOrdered.SameDayNextDay) == 1 && LabAnalyzeSameDay) || ((int)sameDayNextDayEnumTextOrdered.SameDayNextDay) == 2 && !LabAnalyzeSameDay) ? "checked=checked" : "") type="radio" name="LabAnalyzeBath2StartIncubationDay"
+                                                               value="@((int)sameDayNextDayEnumTextOrdered.SameDayNextDay)" />
+                                                        <span>&nbsp;@(sameDayNextDayEnumTextOrdered.SameDayNextDayText)</span>
+                                                    </label>
+                                                }
+                                                <span class="help-block"></span>
+                                            </div>
+                                        </div>
+                                        @* Lab Analyze / Bath 2 Incubation Start time *@
+                                        <div class="form-group blockRightSpace">
+                                            <label class="control-label" for="LabAnalyzeBath2StartIncubationTime">
+                                                @MWQMViewRes.Time
+                                            </label>
+                                            <div>
+                                                <input class="form-control" type="text" name="LabAnalyzeBath2StartIncubationTime" value="@(mwqmRunModel.MWQMRunID == 0 ? "00:00" : LabAnalyzeBath2StartIncubationTime)" />
+                                                <i class="text-lighter">ex: 08:30</i>
+                                                <span class="help-block"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <label>@MWQMViewRes.LabAnalysisBath3Incubation</label>
+                                <div class="blockMargin">
+                                    @* Lab Analyze / Bath 3 Incubation start Date and Time *@
+                                    <div class="form-inline">
+                                        @* Lab Analyze / Bath 3 Incubation Start Day *@
+                                        <div class="form-group blockRightSpace">
+                                            <label class="control-label">@MWQMViewRes.Day</label>
+                                            <div>
+                                                @foreach (SameDayNextDayEnumTextOrdered sameDayNextDayEnumTextOrdered in _BaseEnumService.GetSameDayNextDayEnumTextOrderedList())
+                                                {
+                                                    <label class="radio-inline" for="LabAnalyzeStartIncubationDay">
+                                                        <input @(((((int)sameDayNextDayEnumTextOrdered.SameDayNextDay) == 1 && LabAnalyzeSameDay) || ((int)sameDayNextDayEnumTextOrdered.SameDayNextDay) == 2 && !LabAnalyzeSameDay) ? "checked=checked" : "") type="radio" name="LabAnalyzeBath3StartIncubationDay"
+                                                               value="@((int)sameDayNextDayEnumTextOrdered.SameDayNextDay)" />
+                                                        <span>&nbsp;@(sameDayNextDayEnumTextOrdered.SameDayNextDayText)</span>
+                                                    </label>
+                                                }
+                                                <span class="help-block"></span>
+                                            </div>
+                                        </div>
+                                        @* Lab Analyze / Bath 3 Incubation Start time *@
+                                        <div class="form-group blockRightSpace">
+                                            <label class="control-label" for="LabAnalyzeBath3StartIncubationTime">
+                                                @MWQMViewRes.Time
+                                            </label>
+                                            <div>
+                                                <input class="form-control" type="text" name="LabAnalyzeBath3StartIncubationTime" value="@(mwqmRunModel.MWQMRunID == 0 ? "00:00" : LabAnalyzeBath3StartIncubationTime)" />
+                                                <i class="text-lighter">ex: 08:30</i>
+                                                <span class="help-block"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                @* Lab Samples Approved By *@
+                                <div class="form-group">
+                                    <label for="LabSampleApprovalContactTVItemID" class="control-label">@MWQMViewRes.RunSamplesApprovedBy</label>
+                                    <div>
+                                        <select name="LabSampleApprovalContactTVItemID" class="form-control">
+                                            <option value="0" @(mwqmRunModel.LabSampleApprovalContactTVItemID == null ? "selected=selected" : "")>@MWQMViewRes.RunSamplesApprovedBy</option>
+                                            @foreach (TVItemModel tvItemModel in tvItemModelContactLabValidatorOptionList)
+                                            {
+                                                <option value="@tvItemModel.TVItemID" @(mwqmRunModel.LabSampleApprovalContactTVItemID == tvItemModel.TVItemID ? "selected=selected" : "")>@tvItemModel.TVText</option>
+                                            }
+                                        </select>
+                                        <span class="help-block"></span>
+                                    </div>
+                                </div>
+
+                                @* Lab Run Sample Approval Date and Time *@
+                                <div class="form-group">
+                                    <label>@MWQMViewRes.LaboratorySampleApprovalDateAndTime</label>
+                                    <div class="blockMargin">
+                                        <div class="form-inline">
+                                            <div class="form-group blockRightSpace">
+                                                <label class="control-label" for="LabRunSampleApprovalYear">@MWQMViewRes.Year</label>
+                                                <div>
+                                                    <select class="form-control" name="LabRunSampleApprovalYear">
+                                                        @for (int i = 1980; i < DateTime.Now.Year + 1; i++)
+                                                        {
+                                                            <option @((mwqmRunModel.LabRunSampleApprovalDateTime_Local != null && ((DateTime)mwqmRunModel.LabRunSampleApprovalDateTime_Local).Year == i) ? "selected=selected" : "") value="@i.ToString()">@i.ToString()</option>
+                                                        }
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group blockRightSpace">
+                                                <label class="control-label" for="LabRunSampleApprovalMonth">@MWQMViewRes.Month</label>
+                                                <div>
+                                                    <select class="form-control" name="LabRunSampleApprovalMonth">
+                                                        @for (int i = 1; i < 13; i++)
+                                                        {
+                                                            <option @((mwqmRunModel.LabRunSampleApprovalDateTime_Local != null && ((DateTime)mwqmRunModel.LabRunSampleApprovalDateTime_Local).Month == i) ? "selected=selected" : "") value="@i.ToString()">@(CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(i))</option>
+                                                        }
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group blockRightSpace">
+                                                <label class="control-label" for="LabRunSampleApprovalDay">
+                                                    @MWQMViewRes.Day
+                                                </label>
+                                                <div>
+                                                    <select class="form-control" name="LabRunSampleApprovalDay">
+                                                        @{
+                                                            int NumberOfDaysInMonth6 = DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month);
+                                                            if (mwqmRunModel.LabRunSampleApprovalDateTime_Local != null)
+                                                            {
+                                                                NumberOfDaysInMonth6 = DateTime.DaysInMonth(((DateTime)mwqmRunModel.LabRunSampleApprovalDateTime_Local).Year, ((DateTime)mwqmRunModel.LabRunSampleApprovalDateTime_Local).Month);
+                                                            }
+                                                            for (int i = 1; i < NumberOfDaysInMonth6 + 1; i++)
+                                                            {
+                                                                <option @((mwqmRunModel.LabRunSampleApprovalDateTime_Local != null && ((DateTime)mwqmRunModel.LabRunSampleApprovalDateTime_Local).Day == i) ? "selected=selected" : "") value="@i.ToString()">@i.ToString()</option>
+                                                            }
+                                                        }
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group blockRightSpace">
+                                                <div class="form-group lineSpaceTop">
+                                                    <label class="control-label" for="LabRunSampleApprovalTime">@MWQMViewRes.Time</label>
+                                                    <div>
+                                                        <input class="form-control" type="text" name="LabRunSampleApprovalTime" value="@(mwqmRunModel.MWQMRunID == 0 ? "00:00" : LabRunSampleApprovalTime)" />
+                                                        <i class="text-lighter">ex: 08:30</i>
+                                                        <span class="help-block"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <h4>@MWQMViewRes.HistoricalRelatedInformation</h4>
+                            <div class="blockMargin">
+                                <label>@MWQMViewRes.Precipitation</label>
+                                <div class="blockMargin">
+                                    <div class="form-inline">
+                                        @* PrecipitationRainDay1_mm *@
+                                        <div class="form-group blockRightSpace">
+                                            <label for="RainDay1_mm" class="control-label">@MWQMViewRes.RainDay1 (@UnitViewRes.Millimeters_abr)</label>
+                                            <div>
+                                                <input class="isnumber form-control" type="text" name="RainDay1_mm" value="@(mwqmRunModel.RainDay1_mm != null ? ((double)mwqmRunModel.RainDay1_mm).ToString("F0") : "")" />
+                                                <span class="help-block"></span>
+                                            </div>
+                                        </div>
+
+                                        @* PrecipitationRainDay2_mm *@
+                                        <div class="form-group  blockRightSpace">
+                                            <label for="RainDay2_mm" class="control-label">@MWQMViewRes.RainDay2 (@UnitViewRes.Millimeters_abr)</label>
+                                            <div>
+                                                <input class="isnumber form-control" type="text" name="RainDay2_mm" value="@(mwqmRunModel.RainDay2_mm != null ? ((double)mwqmRunModel.RainDay2_mm).ToString("F0") : "")" />
+                                                <span class="help-block"></span>
+                                            </div>
+                                        </div>
+
+                                        @* PrecipitationRainDay3_mm *@
+                                        <div class="form-group blockRightSpace">
+                                            <label for="RainDay3_mm" class="control-label">@MWQMViewRes.RainDay3 (@UnitViewRes.Millimeters_abr)</label>
+                                            <div>
+                                                <input class="isnumber form-control" type="text" name="RainDay3_mm" value="@(mwqmRunModel.RainDay3_mm != null ? ((double)mwqmRunModel.RainDay3_mm).ToString("F0") : "")" />
+                                                <span class="help-block"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <button class="jbMWQMRunAddOrModify btn btn-primary" type="submit">
+                                    <span class="glyphicon glyphicon-check"></span>
+                                    &nbsp;@MWQMViewRes.Save
+                                </button>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    @if (mwqmRunModel.MWQMRunTVItemID != 0)
+    {
+        <div class="panel-group" id="MWQMRunDataTableDiv" role="tablist" aria-multiselectable="true">
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingMWQMRunDataTable">
+                    <div class="panel-title">
+                        <a data-toggle="collapse" data-parent="#MWQMRunDataTableDiv" href="#collapseMWQMRunDataTable" aria-expanded="true" aria-controls="collapseMWQMRunDataTable">
+                            @MWQMViewRes.DataTable
+                        </a>
+                    </div>
+                </div>
+                <div id="collapseMWQMRunDataTable" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingMWQMRunDataTable">
+                    <div class="panel-body">
+                        <div>
+                            <form id="MWQMRunSampleEditForm" method="post" action="">
+                                <fieldset>
+                                    <legend><span>@MWQMViewRes.ModifyMWQMRun</span></legend>
+
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>
+                                                    @MWQMViewRes.Action
+                                                </th>
+                                                <th>
+                                                    @MWQMViewRes.MWQMSite
+                                                </th>
+                                                <th>
+                                                    @MWQMViewRes.Time
+                                                </th>
+                                                <th>
+                                                    @MWQMViewRes.FecalColiforms_abbr
+                                                </th>
+                                                <th>
+                                                    @MWQMViewRes.Salinity
+                                                </th>
+                                                <th>
+                                                    @MWQMViewRes.Temperature
+                                                </th>
+                                                <th>
+                                                    @MWQMViewRes.Depth
+                                                </th>
+                                                <th>
+                                                    @MWQMViewRes.pH
+                                                </th>
+                                                <th>
+                                                    @MWQMViewRes.ProcessedBy
+                                                </th>
+                                                <th>
+                                                    @MWQMViewRes.SampleType
+                                                </th>
+                                                <th>
+                                                    @MWQMViewRes.MWQMSampleNote
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (MWQMSampleModel mwqmSampleModel in mwqmSampleModelList.OrderBy(c => c.MWQMSiteTVText))
+                                            {
+                                            @tableRow(mwqmRunModel, mwqmSampleModel, mwqmController, tvItemModelMWQMSiteList, _BaseEnumService);
+                                            }
+                                            @tableRow(mwqmRunModel, new MWQMSampleModel(), mwqmController, tvItemModelMWQMSiteList, _BaseEnumService)
+                                        </tbody>
+                                    </table>
+                                </fieldset>
+                            </form>
+                            <button class="jbPageRefresh btn btn-default">@MWQMViewRes.ViewData</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        cssp.MWQMRun.InitEdit();
+    });
+</script>
+
+@helper tableRow(MWQMRunModel mwqmRunModel, MWQMSampleModel mwqmSampleModel, MWQMController mwqmController, List<TVItemModel> tvItemModelMWQMSiteList, BaseEnumService _BaseEnumService)
+{
+bool IsFirst = true;
+int hour = mwqmSampleModel.SampleDateTime_Local.Hour;
+int minute = mwqmSampleModel.SampleDateTime_Local.Minute;
+string SampleTime = (hour > 9 ? hour.ToString() : ("0" + hour.ToString())) + ":" + (minute > 9 ? minute.ToString() : ("0" + minute.ToString()));
+    <tr class="MWQMSample">
+        <td>
+            <button class="jbMWQMRunSampleDelete btn btn-primary @(mwqmSampleModel.MWQMSampleID > 0 ? "" : "hidden")" data-mwqmsampleid="@mwqmSampleModel.MWQMSampleID" title="@MWQMViewRes.DeleteSample">
+                <span class="glyphicon glyphicon-trash"></span>
+            </button>
+            <button class="jbMWQMSampleModify btn btn-primary @(mwqmSampleModel.MWQMSampleID > 0 ? "" : "hidden")" data-mwqmsampleid="@mwqmSampleModel.MWQMSampleID" title="@MWQMViewRes.ChangeSample">
+                <span class="glyphicon glyphicon-check"></span>
+            </button>
+            <button class="jbMWQMSampleAdd btn btn-success @(mwqmSampleModel.MWQMSampleID == 0 ? "" : "hidden")" data-mwqmsampleid="@mwqmSampleModel.MWQMSampleID" title="@MWQMViewRes.AddSample">
+                <span class="glyphicon glyphicon-plus"></span>
+            </button>
+            <span>@* will show in progress for Add, Change or Delete *@</span>
+        </td>
+        <td>
+            <select name="MWQMSiteTVItemID" class="form-control">
+                @foreach (TVItemModel tvItemModel in tvItemModelMWQMSiteList)
+                {
+                    <option value="@tvItemModel.TVItemID" @((mwqmSampleModel.MWQMSampleID == 0 && IsFirst) || (mwqmSampleModel.MWQMSiteTVItemID == tvItemModel.TVItemID) ? "selected=selected" : "")>
+                        @(tvItemModel.TVText)
+                    </option>
+                    if (IsFirst)
+                    {
+                        IsFirst = false;
+                    }
+                }
+            </select>
+            @if (true)
+            {
+                IsFirst = true;
+            }
+        </td>
+        <td>
+            <input class="istime form-control" type="text" name="SampleTime" value="@(mwqmSampleModel.MWQMSampleID > 0 ? SampleTime : "")" />
+            <span class="help-block"></span>
+        </td>
+        <td>
+            <input class="isnumber form-control" type="text" name="FecCol_MPN_100ml" value="@(mwqmSampleModel.MWQMSampleID > 0 ? mwqmSampleModel.FecCol_MPN_100ml.ToString("F0") : "")" />
+            <span class="help-block"></span>
+        </td>
+        <td>
+            <input class="isnumber form-control" type="text" name="Salinity_PPT" value="@(mwqmSampleModel.Salinity_PPT != null ? ((double)mwqmSampleModel.Salinity_PPT).ToString("F1") : "")" />
+            <span class="help-block"></span>
+        </td>
+        <td>
+            <input class="isnumber form-control" type="text" name="WaterTemp_C" value="@(mwqmSampleModel.WaterTemp_C != null ? ((double)mwqmSampleModel.WaterTemp_C).ToString("F1") : "")" />
+            <span class="help-block"></span>
+        </td>
+        <td>
+            <input class="isnumber form-control" type="text" name="Depth_m" value="@(mwqmSampleModel.Depth_m != null ? ((double)mwqmSampleModel.Depth_m).ToString("F1") : "")" />
+            <span class="help-block"></span>
+        </td>
+        <td>
+            <input class="isnumber form-control" type="text" name="PH" value="@(mwqmSampleModel.PH != null ? ((double)mwqmSampleModel.PH).ToString("F1") : "")" />
+            <span class="help-block"></span>
+        </td>
+        <td>
+            <input class="form-control" type="text" name="ProcessedBy" value="@(mwqmSampleModel.MWQMSampleID > 0 ? mwqmSampleModel.ProcessedBy : "")" />
+            <span class="help-block"></span>
+        </td>
+        <td>
+            <select multiple name="SampleTypes" class="form-control">
+                @foreach (SampleTypeEnumTextOrdered sampleTypeEnumTextOrdered in _BaseEnumService.GetSampleTypeEnumTextOrderedList())
+                {
+                    bool Selected = false;
+                    if (mwqmSampleModel.SampleTypeList != null)
+                    {
+                        Selected = mwqmSampleModel.SampleTypeList.Contains(sampleTypeEnumTextOrdered.SampleType);
+                    }
+
+                    if (mwqmSampleModel.MWQMSampleID > 0)
+                    {
+                        <option value="@((int)sampleTypeEnumTextOrdered.SampleType)" @(Selected ? "selected=selected" : "")>
+                            @(sampleTypeEnumTextOrdered.SampleTypeText)
+                        </option>
+                    }
+                    else
+                    {
+                        <option value="@((int)sampleTypeEnumTextOrdered.SampleType)" @(((int)sampleTypeEnumTextOrdered.SampleType) == ((int)mwqmRunModel.RunSampleType) ? "selected=selected" : "")>
+                            @(sampleTypeEnumTextOrdered.SampleTypeText)
+                        </option>
+                    }
+                }
+            </select>
+            <span class="help-block"></span>
+        </td>
+        <td>
+            <input class="form-control" type="text" width="400" name="MWQMSampleNote" value="@(mwqmSampleModel.MWQMSampleNote)" />
+            <span class="help-block"></span>
+        </td>
+    </tr>
+}
+<script type="text/javascript">
+    $(function () {
+        cssp.MWQMRun.InitAddOrModify();
+    });
+    $(function () {
+        $(".jaPopover").popover();
+    });
+</script>

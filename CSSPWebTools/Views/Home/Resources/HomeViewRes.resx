@@ -1,0 +1,260 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="List10HAppVarFunc" xml:space="preserve">
+    <value>The Web tools will let you:</value>
+    <comment>home</comment>
+  </data>
+  <data name="List12BoxModel" xml:space="preserve">
+    <value>make calculation using Box Model and Visual Plumes, </value>
+    <comment>home</comment>
+  </data>
+  <data name="List11ContainInfo" xml:space="preserve">
+    <value>view and update the waste water treatment plants and the lift stations information,</value>
+    <comment>home</comment>
+  </data>
+  <data name="CSSP_FULL" xml:space="preserve">
+    <value>Canadian Shellfish Sanitation Program</value>
+    <comment>home, Header</comment>
+  </data>
+  <data name="List13Mike" xml:space="preserve">
+    <value>run various scenarios for existing MIKE 21/3 setup scenarios and store results, and finally</value>
+    <comment>home</comment>
+  </data>
+  <data name="StartUsingCSSPWebTools" xml:space="preserve">
+    <value>Start using CSSP - Web Tools</value>
+    <comment>home</comment>
+  </data>
+  <data name="ToHaveAccess" xml:space="preserve">
+    <value>To have access to Web tools information and applications please contact a site Administrator as listed below.</value>
+    <comment>home</comment>
+  </data>
+  <data name="PermissionRequiredToGetAccess" xml:space="preserve">
+    <value>Permission required to get access</value>
+    <comment>PermissionRequired</comment>
+  </data>
+  <data name="YouCurrentlyDoNotHavePermission" xml:space="preserve">
+    <value>You currently do not have the authorization to browse this information.</value>
+    <comment>PermissionRequired</comment>
+  </data>
+  <data name="CSSPWebTools" xml:space="preserve">
+    <value>CSSP Web Tools</value>
+    <comment>home, Header, PermissionRequired</comment>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>login</value>
+    <comment>LoginOrRegisterRequired, Header</comment>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Register</value>
+    <comment>LoginOrRegisterRequired</comment>
+  </data>
+  <data name="LoginRegister" xml:space="preserve">
+    <value>Login and Register</value>
+    <comment>LoginOrRegisterRequired</comment>
+  </data>
+  <data name="PleaseLoginRegisterAccessMessage" xml:space="preserve">
+    <value>Please login or register in order to access CSSP Web Tools and documentation</value>
+    <comment>LoginOrRegisterRequired</comment>
+  </data>
+  <data name="Admin" xml:space="preserve">
+    <value>Admin</value>
+    <comment>Header</comment>
+  </data>
+  <data name="CSSP" xml:space="preserve">
+    <value>CSSP</value>
+    <comment>Header</comment>
+  </data>
+  <data name="GetPermission" xml:space="preserve">
+    <value>Get permission</value>
+    <comment>PermissionRequired</comment>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Home</value>
+    <comment>Header</comment>
+  </data>
+  <data name="Logoff" xml:space="preserve">
+    <value>logoff</value>
+    <comment>Header</comment>
+  </data>
+  <data name="List14MWQMInformationManagement" xml:space="preserve">
+    <value>manage the information of MWQM.</value>
+    <comment>home</comment>
+  </data>
+  <data name="UpdateDetails" xml:space="preserve">
+    <value>Update details</value>
+    <comment>View</comment>
+  </data>
+  <data name="ToggleNavigation" xml:space="preserve">
+    <value>Toggle navigation</value>
+    <comment>Header</comment>
+  </data>
+  <data name="YourStatus" xml:space="preserve">
+    <value>Your status</value>
+    <comment>PermissionRequired</comment>
+  </data>
+  <data name="MWQM_FULL" xml:space="preserve">
+    <value>Marine Water Quality Monitoring</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Search</value>
+    <comment>Header</comment>
+  </data>
+  <data name="YourPermission" xml:space="preserve">
+    <value>your permission</value>
+    <comment>View</comment>
+  </data>
+  <data name="YourProfile" xml:space="preserve">
+    <value>Your profile</value>
+    <comment>Header</comment>
+  </data>
+  <data name="SamplingPlans" xml:space="preserve">
+    <value>Sampling Plans</value>
+  </data>
+  <data name="Processing" xml:space="preserve">
+    <value>Processing</value>
+  </data>
+  <data name="seconds" xml:space="preserve">
+    <value>seconds</value>
+  </data>
+  <data name="TasksRunning" xml:space="preserve">
+    <value>Tasks running</value>
+  </data>
+  <data name="WillRefreshIn" xml:space="preserve">
+    <value>Will refresh in</value>
+  </data>
+  <data name="Busy" xml:space="preserve">
+    <value>Busy</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="DeleteAppTask" xml:space="preserve">
+    <value>Delete Task</value>
+  </data>
+  <data name="StopAutoRefresh" xml:space="preserve">
+    <value>Stop Auto Refresh</value>
+  </data>
+  <data name="RestartAutoRefresh" xml:space="preserve">
+    <value>Restart Auto Refresh</value>
+  </data>
+</root>

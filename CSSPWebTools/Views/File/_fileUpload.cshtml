@@ -1,0 +1,18 @@
+﻿@using CSSPEnumsDLL.Enums;
+@using CSSPModelsDLL.Models;
+
+@{
+    TVFileModel tvFileModel = (TVFileModel)ViewBag.TVFileModel;
+}
+@if (!string.IsNullOrEmpty(tvFileModel.Error))
+{
+    <span>
+        @tvFileModel.Error
+    </span>
+}
+else
+{
+    // Everything is ok nothing is return
+    // need to refresh the page on the client side
+}
+

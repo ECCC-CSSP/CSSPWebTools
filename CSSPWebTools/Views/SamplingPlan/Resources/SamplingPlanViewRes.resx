@@ -1,0 +1,511 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Add" xml:space="preserve">
+    <value>Add</value>
+    <comment>aom</comment>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+    <comment>aom</comment>
+  </data>
+  <data name="SamplingPlanName" xml:space="preserve">
+    <value>Sampling plan name</value>
+    <comment>aom</comment>
+  </data>
+  <data name="Copy" xml:space="preserve">
+    <value>Copy</value>
+    <comment>pbp</comment>
+  </data>
+  <data name="CreateSamplingPlan" xml:space="preserve">
+    <value>Create sampling plan</value>
+    <comment>pbp</comment>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
+    <comment>pbp</comment>
+  </data>
+  <data name="Download" xml:space="preserve">
+    <value>Download</value>
+    <comment>pbp</comment>
+  </data>
+  <data name="Duplicate" xml:space="preserve">
+    <value>Duplicate</value>
+    <comment>aom</comment>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit</value>
+    <comment>pbp</comment>
+  </data>
+  <data name="Empty" xml:space="preserve">
+    <value>Empty</value>
+    <comment>pbp</comment>
+  </data>
+  <data name="ExistingSamplingPlans" xml:space="preserve">
+    <value>Existing Sampling plans</value>
+    <comment>pbp</comment>
+  </data>
+  <data name="Files" xml:space="preserve">
+    <value>Files</value>
+    <comment>pbp</comment>
+  </data>
+  <data name="ForGroupName" xml:space="preserve">
+    <value>Group Name</value>
+    <comment>aom</comment>
+  </data>
+  <data name="KB" xml:space="preserve">
+    <value>KB</value>
+    <comment>pbp</comment>
+  </data>
+  <data name="MB" xml:space="preserve">
+    <value>MB</value>
+    <comment>pbp</comment>
+  </data>
+  <data name="Modify" xml:space="preserve">
+    <value>Modify</value>
+    <comment>aom</comment>
+  </data>
+  <data name="MWQMSites" xml:space="preserve">
+    <value>MWQM Sites</value>
+    <comment>aom</comment>
+  </data>
+  <data name="ShowOnMap" xml:space="preserve">
+    <value>Show On Map</value>
+    <comment>aom</comment>
+  </data>
+  <data name="Subsectors" xml:space="preserve">
+    <value>Subsectors</value>
+    <comment>aom</comment>
+  </data>
+  <data name="Year" xml:space="preserve">
+    <value>Year</value>
+    <comment>aom</comment>
+  </data>
+  <data name="NoPermissionMessageSamplingPlans" xml:space="preserve">
+    <value>You need permission to setup Sampling plans.</value>
+    <comment>pbp aom</comment>
+  </data>
+  <data name="ToGetPermissionMessage" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ToHaveAccess" xml:space="preserve">
+    <value>To have access to Web tools information and applications please contact a site Administrator as listed below.</value>
+    <comment>home</comment>
+  </data>
+  <data name="LabSheetTransferred" xml:space="preserve">
+    <value>Lab Sheet Transferred</value>
+  </data>
+  <data name="ShowTransferredLabSheets" xml:space="preserve">
+    <value>Show Transferred Lab Sheets</value>
+  </data>
+  <data name="A1Media1X" xml:space="preserve">
+    <value>A1 Media 1X</value>
+  </data>
+  <data name="A1Media2X" xml:space="preserve">
+    <value>A1 Media 2X</value>
+  </data>
+  <data name="A1SheetTitle" xml:space="preserve">
+    <value>A1 Fecal Coliform - Water Analysis Data Sheet</value>
+  </data>
+  <data name="Analyst" xml:space="preserve">
+    <value>Analyst</value>
+  </data>
+  <data name="AcceptLabSheetAndSendInformationToDataBase" xml:space="preserve">
+    <value>Accept Lab Sheet And Send Information To Data Base</value>
+  </data>
+  <data name="Blank" xml:space="preserve">
+    <value>Blank</value>
+  </data>
+  <data name="CalculatedIncubationTime" xml:space="preserve">
+    <value>Calculated Incubation Time</value>
+  </data>
+  <data name="Comment" xml:space="preserve">
+    <value>Comment</value>
+  </data>
+  <data name="ControlLotNumbs" xml:space="preserve">
+    <value>Control Lot #s</value>
+  </data>
+  <data name="Data" xml:space="preserve">
+    <value>Data</value>
+  </data>
+  <data name="RejectLabSheet" xml:space="preserve">
+    <value>Reject Lab Sheet</value>
+  </data>
+  <data name="DuplicateInformation" xml:space="preserve">
+    <value>Duplicate Information</value>
+  </data>
+  <data name="NonTarget35" xml:space="preserve">
+    <value>Non Target 35</value>
+  </data>
+  <data name="NonTarget44_5" xml:space="preserve">
+    <value>Non Target 44.5</value>
+  </data>
+  <data name="Positive35" xml:space="preserve">
+    <value>Positive 35</value>
+  </data>
+  <data name="Positive44_5" xml:space="preserve">
+    <value>Positive 44.5</value>
+  </data>
+  <data name="IncubationFinishTime" xml:space="preserve">
+    <value>Incubation Finish Time</value>
+  </data>
+  <data name="IncubationStartTime" xml:space="preserve">
+    <value>Incubation Start Time</value>
+  </data>
+  <data name="Information" xml:space="preserve">
+    <value>Information</value>
+  </data>
+  <data name="MoreInformation" xml:space="preserve">
+    <value>More Information</value>
+  </data>
+  <data name="MPN" xml:space="preserve">
+    <value>MPN</value>
+  </data>
+  <data name="NotAllRequiredEtc" xml:space="preserve">
+    <value>Note: All required information as per section 5.10.2 of ISO/IEC 17025 is available from the Laboratory Supervisor.</value>
+  </data>
+  <data name="PrecisionCriteria" xml:space="preserve">
+    <value>Precision Criteria</value>
+  </data>
+  <data name="ProcBy" xml:space="preserve">
+    <value>Proc. by</value>
+  </data>
+  <data name="RecordFactor" xml:space="preserve">
+    <value>RECORDED TEMPERATURE IS ACTUAL READING + CORRECTION FACTOR</value>
+  </data>
+  <data name="ResultsRecordedBy" xml:space="preserve">
+    <value>Results Recorded By</value>
+  </data>
+  <data name="RLogs" xml:space="preserve">
+    <value>R-Log's</value>
+  </data>
+  <data name="RunComment" xml:space="preserve">
+    <value>Run Comment</value>
+  </data>
+  <data name="Sal" xml:space="preserve">
+    <value>Sal</value>
+  </data>
+  <data name="SalinityReadBy" xml:space="preserve">
+    <value>Salinity Read By</value>
+  </data>
+  <data name="SampleBottleLotNumber" xml:space="preserve">
+    <value>Sample Bottle Lot #</value>
+  </data>
+  <data name="SampleCrew" xml:space="preserve">
+    <value>Sample Crew</value>
+  </data>
+  <data name="SampleTime" xml:space="preserve">
+    <value>Sample Time</value>
+  </data>
+  <data name="Negative35" xml:space="preserve">
+    <value>Negative 35</value>
+  </data>
+  <data name="Negative44_5" xml:space="preserve">
+    <value>Negative 44.5</value>
+  </data>
+  <data name="Site" xml:space="preserve">
+    <value>Site</value>
+  </data>
+  <data name="SiteNumber" xml:space="preserve">
+    <value>Site #</value>
+  </data>
+  <data name="T0_1" xml:space="preserve">
+    <value>T 0_1</value>
+  </data>
+  <data name="T10" xml:space="preserve">
+    <value>T 10</value>
+  </data>
+  <data name="T1_0" xml:space="preserve">
+    <value>T 1_0</value>
+  </data>
+  <data name="TCField1" xml:space="preserve">
+    <value>TC Field #1</value>
+  </data>
+  <data name="TCLab1" xml:space="preserve">
+    <value>TC Lab #1</value>
+  </data>
+  <data name="Temp" xml:space="preserve">
+    <value>Temp</value>
+  </data>
+  <data name="Tides" xml:space="preserve">
+    <value>Tides</value>
+  </data>
+  <data name="Time" xml:space="preserve">
+    <value>Time</value>
+  </data>
+  <data name="WaterBath" xml:space="preserve">
+    <value>Water Bath</value>
+  </data>
+  <data name="WeatherComment" xml:space="preserve">
+    <value>Weather Comment</value>
+  </data>
+  <data name="AnalyzeMethod" xml:space="preserve">
+    <value>Analyze Method</value>
+  </data>
+  <data name="Laboratory" xml:space="preserve">
+    <value>Laboratory</value>
+  </data>
+  <data name="SampleMatrix" xml:space="preserve">
+    <value>Sample matrix</value>
+  </data>
+  <data name="SelectTheAnalyzeMethod" xml:space="preserve">
+    <value>Select the analyze method</value>
+  </data>
+  <data name="SelectTheLaboratory" xml:space="preserve">
+    <value>Select the laboratory</value>
+  </data>
+  <data name="SelectTheSampleMatrix" xml:space="preserve">
+    <value>Select the sample matrix</value>
+  </data>
+  <data name="TCField2" xml:space="preserve">
+    <value>TC Field #2</value>
+  </data>
+  <data name="TCLab2" xml:space="preserve">
+    <value>TC Lab #2</value>
+  </data>
+  <data name="ResultsReadBy" xml:space="preserve">
+    <value>Results Read By</value>
+  </data>
+  <data name="DailyDuplicatePrecisionCriteria" xml:space="preserve">
+    <value>Daily duplicate precision criteria</value>
+  </data>
+  <data name="SelectAll" xml:space="preserve">
+    <value>Select All</value>
+  </data>
+  <data name="UnSelectAll" xml:space="preserve">
+    <value>Unselect All</value>
+  </data>
+  <data name="ShowMWQMSites" xml:space="preserve">
+    <value>Show MWQM sites</value>
+  </data>
+  <data name="IntertechDuplicatePrecisionCriteria" xml:space="preserve">
+    <value>Intertech duplicate precision criteria</value>
+  </data>
+  <data name="SampleType" xml:space="preserve">
+    <value>Sample type</value>
+  </data>
+  <data name="SamplingPlanType" xml:space="preserve">
+    <value>Sampling plan type</value>
+  </data>
+  <data name="LabSheetType" xml:space="preserve">
+    <value>Lab sheet type</value>
+  </data>
+  <data name="ChangeTheInformationAboveToChangeTheSamplingPlanName" xml:space="preserve">
+    <value>Change the information above to change the sampling plan name</value>
+  </data>
+  <data name="IntertechDuplicateInformation" xml:space="preserve">
+    <value>Intertech Duplicate Information</value>
+  </data>
+  <data name="IntertechReadInformation" xml:space="preserve">
+    <value>Intertech Read Information</value>
+  </data>
+  <data name="IncubationStartedTheSameDay" xml:space="preserve">
+    <value>Incubation started the same day</value>
+  </data>
+  <data name="A1" xml:space="preserve">
+    <value>A1</value>
+  </data>
+  <data name="Average" xml:space="preserve">
+    <value>Average</value>
+  </data>
+  <data name="Control" xml:space="preserve">
+    <value>Control</value>
+  </data>
+  <data name="First" xml:space="preserve">
+    <value>First</value>
+  </data>
+  <data name="LotNumbers" xml:space="preserve">
+    <value>Lot #'s</value>
+  </data>
+  <data name="Media" xml:space="preserve">
+    <value>Media</value>
+  </data>
+  <data name="NA" xml:space="preserve">
+    <value>N / A</value>
+  </data>
+  <data name="Negative" xml:space="preserve">
+    <value>Negative</value>
+  </data>
+  <data name="NonTarget" xml:space="preserve">
+    <value>Non Target</value>
+  </data>
+  <data name="Positive" xml:space="preserve">
+    <value>Positive</value>
+  </data>
+  <data name="TCCelcius" xml:space="preserve">
+    <value>TC (˚C)</value>
+  </data>
+  <data name="TCHas2Coolers" xml:space="preserve">
+    <value>TC has 2 coolers</value>
+  </data>
+  <data name="UnusualTubeCombination" xml:space="preserve">
+    <value>Unusual tube combination</value>
+  </data>
+  <data name="UnusualTubeCombinationExistEtc" xml:space="preserve">
+    <value>Unusual tube combination, indentified by -999, exist in the lab sheet. Approving the lab sheet will NOT insert these (-999) values in the database.</value>
+  </data>
+  <data name="_1X" xml:space="preserve">
+    <value>1X</value>
+  </data>
+  <data name="_2X" xml:space="preserve">
+    <value>2X</value>
+  </data>
+  <data name="_35_0Celcius" xml:space="preserve">
+    <value>35.0 (˚C)</value>
+  </data>
+  <data name="_44_5Celcius" xml:space="preserve">
+    <value>44.5 (˚C)</value>
+  </data>
+  <data name="CalculatedHoldingTimeInHours" xml:space="preserve">
+    <value>Calculated holding time (hours)</value>
+  </data>
+  <data name="LabSheetHistory" xml:space="preserve">
+    <value>Lab sheet history</value>
+  </data>
+  <data name="ShowHistoryLabSheets" xml:space="preserve">
+    <value>Show historical lab sheets</value>
+  </data>
+  <data name="LabSheetWaitingToBeAccepted" xml:space="preserve">
+    <value>Lab Sheet waiting to be accepted</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="IncludeLaboratoryQAQC" xml:space="preserve">
+    <value>Include laboratory QA/QC</value>
+  </data>
+  <data name="Run" xml:space="preserve">
+    <value>Run</value>
+  </data>
+  <data name="AccessCode" xml:space="preserve">
+    <value>Access Code</value>
+  </data>
+  <data name="RunWeatherComment" xml:space="preserve">
+    <value>Run weather comment</value>
+  </data>
+  <data name="ApprovalCode" xml:space="preserve">
+    <value>Approval Code</value>
+  </data>
+  <data name="DuplicateHighestValueWillBeUsedAndOtherValuesAsDuplicates" xml:space="preserve">
+    <value>Where duplicate results differ in value,  the highest value will serve as the daily result and the lower value as duplicate result for QA/QC purposes.</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+</root>

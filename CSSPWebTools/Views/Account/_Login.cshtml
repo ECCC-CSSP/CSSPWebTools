@@ -1,0 +1,78 @@
+﻿@using CSSPWebTools.Views.Account.Resources;
+@using CSSPEnumsDLL.Enums;
+@using CSSPModelsDLL.Models;
+
+@{
+    LoginModel loginModel = (LoginModel)ViewBag.LoginModel;
+}
+
+<div id="LoginDiv" class="container-fluid">
+    <div id="LoginVariables" class="hidden">
+        <span class="varLoginFailed">@AccountViewRes.LoginFailed</span>
+    </div>
+    <div class="row">
+    <form id="LoginForm" method="post" class="form-horizontal col-lg-6 col-md-8 col-sm-10" role="form" action="Account/LoginJSON">
+        @Html.AntiForgeryToken()
+        <fieldset>
+            <legend><span>@AccountViewRes.PleaseLogin</span></legend> 
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="Email">@AccountViewRes.Email</label>
+                <div class="col-sm-10">
+                    <input autofocus="autofocus" class="form-control"
+                           name="Email" autocomplete="off" type="email" id="Email" value="" tabindex="1" />
+                    <span class="help-block"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="Password">@AccountViewRes.Password</label>
+                <div class="col-sm-10">
+                    <input name="Password" class="form-control" id="Password" autocomplete="off" type="password" value="" tabindex="2" />
+                    <span class="help-block"></span>
+                    <input name="ReturnURL" type="hidden" value="@loginModel.ReturnURL" />
+                    <input name="RememberMe" type="hidden" value="true" />
+                </div>
+            </div>
+            <div class="btn-block  col-sm-offset-2 col-sm-10">
+                <button class="jbLogin btn btn-primary" type="submit" tabindex="3">
+                    <span class="glyphicon glyphicon-log-in"></span>
+                    &nbsp; @AccountViewRes.Login
+                </button>
+
+                <a href="#!ForgotPassword" class="btn btn-default" role="button">
+                    <span class="glyphicon glyphicon-question-sign"></span>&nbsp; @AccountViewRes.ForgotPassword
+                </a>
+                <a href="#!Register" class="btn btn-default" role="button">
+                    <span class="glyphicon glyphicon-star-empty"></span>&nbsp; @AccountViewRes.Register
+                </a>
+            </div>
+        </fieldset>
+    </form>
+    <div class="col-lg-6 col-md-4 col-sm-2">&nbsp;</div>
+</div>
+</div>
+
+@if (ViewBag.Debug)
+{
+    <div class="clearfix"></div>
+    <div class="testing hidden">
+        <h4>Testing _Login.cshtml and cssp.Login.ts</h4>
+        <span class="divName" style="display: none">#LoginDiv</span>
+        <span class="appName" style="display: none">cssp.Login</span>
+        <a class="jtTestLoginContents btn btn-default">Test Contents</a>
+        <a class="jtTestLoginFields btn btn-default">Test Fields</a>
+        <a class="jtTestLoginSendForm btn btn-default">Test Send Form</a>
+        <a class="jtTestLoginCharlesLogin btn btn-default">Charles Login</a>
+        <a class="jtTestLoginTestUser1Login btn btn-default">Test User1 Login</a>
+        <a class="jtTestLoginTestUser2Login btn btn-default">Test User2 Login</a>
+    </div>
+}
+
+<script type="text/javascript">
+    $(function () {
+        cssp.Login.Init();
+    });
+</script>
+
+
+

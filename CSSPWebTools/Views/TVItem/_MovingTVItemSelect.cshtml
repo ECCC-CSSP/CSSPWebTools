@@ -1,0 +1,19 @@
+﻿@using CSSPWebTools.Controllers;
+@using CSSPModelsDLL.Models;
+@using CSSPEnumsDLL.Enums;
+@using CSSPEnumsDLL.Services;
+
+@{
+    TVItemController tvItemController = (TVItemController)ViewBag.TVItemController;
+    List<TVItemModel> tvItemModelList = (List<TVItemModel>)ViewBag.TVItemModelList;
+    BaseEnumService _BaseEnumService = new BaseEnumService(ViewBag.Language);
+}
+@if (tvItemModelList.Count > 0)
+{
+    <option selected="selected" value="0">@(_BaseEnumService.GetEnumText_TVTypeEnum(tvItemModelList[0].TVType))</option>
+    foreach (TVItemModel tvItemModel in tvItemModelList)
+    {
+        <option value="@tvItemModel.TVItemID">@tvItemModel.TVText</option>
+    }
+}
+

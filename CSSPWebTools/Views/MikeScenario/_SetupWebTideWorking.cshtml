@@ -1,0 +1,43 @@
+﻿@using CSSPWebTools.Models;
+@using CSSPWebTools.Views.MikeScenario.Resources;
+@using CSSPModelsDLL.Models;
+
+@{
+    URLModel urlModel = (URLModel)ViewBag.URLModel;
+    List<AppTaskModel> appTaskModelList = ViewBag.AppTaskModelList;
+}
+
+@if (appTaskModelList.Count() == 0)
+{
+    <blockquote>
+        <span>@MikeScenarioViewRes.Reloading ...</span>
+    </blockquote>
+}
+else
+{
+    <div class="jsSetupWebTideWorking">
+        <blockquote>
+            <h3>@MikeScenarioViewRes.Working ...</h3>
+            @if (!string.IsNullOrEmpty(appTaskModelList.First().BusyText))
+            {
+                <p><span>Busy: </span><span>@appTaskModelList.First().BusyText</span> [@appTaskModelList.First().PercentCompleted %]</p>
+            }
+            @if (!string.IsNullOrEmpty(appTaskModelList.First().Error))
+            {
+                <div>
+                    <p><span>@MikeScenarioViewRes.Error: </span><span>@appTaskModelList.First().Error</span></p>
+                    <a class="jsSetupWebTideWorkingCancel" href="#"><span class="glyphicon glyphicon-ban-circle"></span>&nbsp;@MikeScenarioViewRes.CancelTask</a>
+                </div>
+            }
+            else
+            {
+                <a class="jsSetupWebTideWorkingRefresh" href="#"><span class="glyphicon glyphicon-refresh"></span>&nbsp;@MikeScenarioViewRes.Refresh</a>
+            }
+        </blockquote>
+    </div>
+}
+<script type="text/javascript">
+    $(function () {
+        cssp.MikeScenarioBoundaryCondition.InitSetupWebTideWorking();
+    });
+</script>

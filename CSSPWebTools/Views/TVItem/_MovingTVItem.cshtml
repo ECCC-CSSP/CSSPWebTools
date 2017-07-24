@@ -1,0 +1,41 @@
+﻿@using CSSPWebTools.Views.TVItem.Resources;
+@using CSSPWebTools.Controllers;
+@using CSSPEnumsDLL.Enums;
+@using CSSPEnumsDLL.Services;
+@using CSSPModelsDLL.Models;
+
+@{
+    TVItemModel tvItemModelCurrent = (TVItemModel)ViewBag.TVItemModelCurrent;
+    TVAuthEnum TVAuth = (TVAuthEnum)ViewBag.TVAuth;
+    TVItemController tvItemController = (TVItemController)ViewBag.TVItemController;
+    List<TVItemModel> parentTVItemModelList = (List<TVItemModel>)ViewBag.ParentTVItemModelList;
+    List<TVTypeNamesAndPath> tvTypeNamesAndPathList = (List<TVTypeNamesAndPath>)ViewBag.TVTypeNamesAndPathList;
+    Dictionary<string, List<TVItemModel>> tvItemModelDictList = (Dictionary<string, List<TVItemModel>>)ViewBag.TVItemModelDictList;
+    BaseEnumService _BaseEnumService = new BaseEnumService(ViewBag.Language);
+}
+
+<div id="TopMovingDiv" class="clearfix lineSpaceTop">
+    <span class="MoveFromTVItemID hidden">@tvItemModelCurrent.TVItemID</span>
+    <div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">@TVItemViewRes.Moving [@tvItemModelCurrent.TVText] @TVItemViewRes.Under:</h4>
+            </div>
+            <div class="panel-body">
+                @for (int i = 0, count = parentTVItemModelList.Count - 1; i < count; i++)
+                {
+                    <select name="@parentTVItemModelList[i + 1].TVType.ToString()" class="MovingTVItemSelect form-control" data-tvtype="@((int)parentTVItemModelList[i + 1].TVType)">
+                        <option selected="selected" value="0">@(_BaseEnumService.GetEnumText_TVTypeEnum(parentTVItemModelList[i + 1].TVType))</option>
+                        @foreach (TVItemModel tvItemModel in tvItemModelDictList[parentTVItemModelList[i + 1].TVType.ToString()])
+                        {
+                            <option value="@tvItemModel.TVItemID">@tvItemModel.TVText</option>
+                        }
+                    </select>
+                }
+            </div>
+        </div>
+    </div>
+    <div>
+        <button class="jbTVItemMove btn btn-primary"><span class="glyphicon glyphicon-ok-sign"></span><span>&nbsp;@TVItemViewRes.Move</span></button>
+    </div>
+</div>

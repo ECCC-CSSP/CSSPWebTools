@@ -1,0 +1,57 @@
+﻿@using CSSPWebTools.Controllers;
+@using CSSPModelsDLL.Models;
+@using CSSPEnumsDLL.Enums;
+@using CSSPEnumsDLL.Services;
+
+@{
+    TVItemController tvItemController = (TVItemController)ViewBag.TVItemController;
+    List<TVItemModel> tvItemModelFromList = (List<TVItemModel>)ViewBag.TVItemModelFromList;
+    List<TVItemModel> tvItemModelToList = (List<TVItemModel>)ViewBag.TVItemModelToList;
+    TVItemModel tvItemModelParent = (TVItemModel)ViewBag.TVItemModelParent;
+    BaseEnumService _BaseEnumService = new BaseEnumService(ViewBag.Language);
+}
+
+<div id="contentTelDiv" class="paraBlock">
+    @if (tvItemModelToList.Count > 0)
+    {
+        <h4>Child Items</h4>
+        <ul class="list-group">
+            @foreach (TVItemModel tvItemModel in tvItemModelToList)
+            {
+                <li class="TVItem list-group-item" data-tvitemid="@tvItemModel.TVItemID">
+                    <span>(@(_BaseEnumService.GetEnumText_TVTypeEnum(tvItemModel.TVType)))</span>
+                    &nbsp;&nbsp;&nbsp;
+                    <a href="@tvItemController.CreateHashURL(tvItemModel.TVItemID)" class="text-noUnderline">
+                        <span class="TVText">@tvItemModel.TVText</span>
+                    </a>
+                </li>
+            }
+        </ul>
+    }
+    @if (tvItemModelFromList.Count > 0 || tvItemModelParent != null)
+    {
+        <h4>Parent Items</h4>
+        <ul class="list-group">
+            @if (tvItemModelParent != null)
+            {
+                <li class="TVItem list-group-item" data-tvitemid="@tvItemModelParent.TVItemID">
+                    <span>(@(_BaseEnumService.GetEnumText_TVTypeEnum(tvItemModelParent.TVType)))</span>
+                    &nbsp;&nbsp;&nbsp;
+                    <a href="@tvItemController.CreateHashURL(tvItemModelParent.TVItemID)" class="text-noUnderline">
+                        <span class="TVText">@tvItemModelParent.TVText</span>
+                    </a>
+                </li>
+            }
+            @foreach (TVItemModel tvItemModel in tvItemModelFromList)
+            {
+                <li class="TVItem list-group-item" data-tvitemid="@tvItemModel.TVItemID">
+                    <span>(@(_BaseEnumService.GetEnumText_TVTypeEnum(tvItemModel.TVType)))</span>
+                    &nbsp;&nbsp;&nbsp;
+                    <a href="@tvItemController.CreateHashURL(tvItemModel.TVItemID)" class="text-noUnderline">
+                        <span class="TVText">@tvItemModel.TVText</span>
+                    </a>
+                </li>
+            }
+        </ul>
+    }
+</div>

@@ -1,0 +1,131 @@
+﻿@using CSSPWebTools.Views.VisualPlumes.Resources;
+@using CSSPModelsDLL.Models;
+
+@{
+    VPFullModel vpFullModel = (VPFullModel)ViewBag.VPFullModel;
+
+    System.Text.StringBuilder sb = new System.Text.StringBuilder();
+
+    string Spaces = "                                 ";
+
+    string TempStr = "Conc.";
+    sb.AppendFormat(Spaces.Substring(0, 8 - TempStr.Length) + TempStr);
+
+    TempStr = "Dil.";
+    sb.AppendFormat(Spaces.Substring(0, 8 - TempStr.Length) + TempStr);
+
+    TempStr = "Dist.";
+    sb.AppendFormat(Spaces.Substring(0, 8 - TempStr.Length) + TempStr);
+
+    TempStr = "Width";
+    sb.AppendFormat(Spaces.Substring(0, 8 - TempStr.Length) + TempStr);
+
+    TempStr = "Time";
+    sb.AppendFormat(Spaces.Substring(0, 8 - TempStr.Length) + TempStr);
+
+    sb.AppendLine();
+
+    foreach (VPResultModel vpr in vpFullModel.ResultList)
+    {
+        if (vpr.Concentration_MPN_100ml > 1000)
+        {
+            TempStr = string.Format("{0:F0}", vpr.Concentration_MPN_100ml);
+            sb.AppendFormat(Spaces.Substring(0, 8 - TempStr.Length) + TempStr);
+        }
+        else if (vpr.Concentration_MPN_100ml > 100)
+        {
+            TempStr = string.Format("{0:F1}", vpr.Concentration_MPN_100ml);
+            sb.AppendFormat(Spaces.Substring(0, 8 - TempStr.Length) + TempStr);
+        }
+        else
+        {
+            TempStr = string.Format("{0:F2}", vpr.Concentration_MPN_100ml);
+            sb.AppendFormat(Spaces.Substring(0, 8 - TempStr.Length) + TempStr);
+        }
+
+        if (vpr.Dilution > 1000)
+        {
+            TempStr = string.Format("{0:F0}", vpr.Dilution);
+            sb.AppendFormat(Spaces.Substring(0, 8 - TempStr.Length) + TempStr);
+        }
+        else if (vpr.Dilution > 100)
+        {
+            TempStr = string.Format("{0:F1}", vpr.Dilution);
+            sb.AppendFormat(Spaces.Substring(0, 8 - TempStr.Length) + TempStr);
+        }
+        else
+        {
+            TempStr = string.Format("{0:F2}", vpr.Dilution);
+            sb.AppendFormat(Spaces.Substring(0, 8 - TempStr.Length) + TempStr);
+        }
+
+        if (vpr.DispersionDistance_m > 50)
+        {
+            TempStr = string.Format("{0:F0}", vpr.DispersionDistance_m);
+            sb.AppendFormat(Spaces.Substring(0, 8 - TempStr.Length) + TempStr);
+        }
+        else
+        {
+            TempStr = string.Format("{0:F2}", vpr.DispersionDistance_m);
+            sb.AppendFormat(Spaces.Substring(0, 8 - TempStr.Length) + TempStr);
+        }
+
+        if (vpr.FarFieldWidth_m > 500)
+        {
+            TempStr = string.Format("{0:F0}", vpr.FarFieldWidth_m);
+            sb.AppendFormat(Spaces.Substring(0, 8 - TempStr.Length) + TempStr);
+        }
+        else if (vpr.FarFieldWidth_m > 50)
+        {
+            TempStr = string.Format("{0:F1}", vpr.FarFieldWidth_m);
+            sb.AppendFormat(Spaces.Substring(0, 8 - TempStr.Length) + TempStr);
+        }
+        else
+        {
+            TempStr = string.Format("{0:F2}", vpr.FarFieldWidth_m);
+            sb.AppendFormat(Spaces.Substring(0, 8 - TempStr.Length) + TempStr);
+        }
+
+        if (vpr.TravelTime_hour > 1)
+        {
+            TempStr = string.Format("{0:F2}", vpr.TravelTime_hour);
+            sb.AppendFormat(Spaces.Substring(0, 8 - TempStr.Length) + TempStr);
+        }
+        else if (vpr.TravelTime_hour > 0.1)
+        {
+            TempStr = string.Format("{0:F3}", vpr.TravelTime_hour);
+            sb.AppendFormat(Spaces.Substring(0, 8 - TempStr.Length) + TempStr);
+        }
+        else
+        {
+            TempStr = string.Format("{0:F4}", vpr.TravelTime_hour);
+            sb.AppendFormat(Spaces.Substring(0, 8 - TempStr.Length) + TempStr);
+        }
+        sb.AppendLine();
+    }
+
+    string ResultText = sb.ToString();
+
+}
+
+@if (vpFullModel.ResultList.Count() == 0)
+{
+   
+    <span title="@VisualPlumeViewRes.ReturnVPScenarioList"><span class="flip-horizontal glyphicon glyphicon-share-alt"></span></span>
+    <h3>@VisualPlumeViewRes.NoResultsYet</h3>
+}
+else
+{
+    <div style="width: 100%">
+        <pre>@ResultText</pre>
+    </div>
+}
+
+
+<script type="text/javascript">
+    $(function () {
+        cssp.VisualPlumes.Init();
+    });
+</script>
+
+

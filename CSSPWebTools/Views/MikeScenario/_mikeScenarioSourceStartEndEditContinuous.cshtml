@@ -1,0 +1,133 @@
+﻿@using CSSPWebTools.Views.Shared.Resources;
+@using CSSPWebTools.Views.MikeScenario.Resources;
+@using CSSPModelsDLL.Models;
+
+@{
+    List<MikeSourceStartEndModel> mikeSourceStartEndModelList = (List<MikeSourceStartEndModel>)ViewBag.MikeSourceStartEndModelList;
+    int MikeSourceTVItemID = (int)ViewBag.MikeSourceTVItemID;
+
+    DateTime CurrentDate = DateTime.Now;
+    List<string> MonthList = new List<string>()
+    {
+        "",
+        MikeScenarioViewRes.January,
+        MikeScenarioViewRes.February,
+        MikeScenarioViewRes.March,
+        MikeScenarioViewRes.April,
+        MikeScenarioViewRes.May,
+        MikeScenarioViewRes.June,
+        MikeScenarioViewRes.July,
+        MikeScenarioViewRes.August,
+        MikeScenarioViewRes.September,
+        MikeScenarioViewRes.October,
+        MikeScenarioViewRes.November,
+        MikeScenarioViewRes.December,
+    };
+
+    int CountEff = 0;
+    string panelGroupID = "mikeScenarioSource" + MikeSourceTVItemID;
+    string panelHeadingID2 = "mikeScenarioSourceHeading2" + MikeSourceTVItemID;
+    string panelCollapseID2 = "mikeScenarioSourceCollapse2" + MikeSourceTVItemID;
+
+}
+<div class="panel-heading" role="tab" id="@panelHeadingID2">
+        <h4 class="panel-title">
+            <a role="button" class="text-noUnderline" data-toggle="collapse" data-parent="#@panelGroupID" href="#@panelCollapseID2" aria-expanded="false" aria-controls="@panelCollapseID2" title="@MikeScenarioViewRes.Edit">
+                <span class="glyphicon glyphicon-pencil"></span> <span class="elementSpacing">@MikeScenarioViewRes.Effluent</span>   @MikeScenarioViewRes.IsContinuous
+                @if (mikeSourceStartEndModelList.Count > 0)
+                {
+                    <span class="elementSpacing">@MikeScenarioViewRes.Properties:
+                        <span>[
+                            @MikeScenarioViewRes.Flow <b>@mikeSourceStartEndModelList[0].SourceFlowStart_m3_day.ToString("F2") @Html.Raw(UnitViewRes.m3PerDay)</b>,
+                            @MikeScenarioViewRes.Pollution <b>@mikeSourceStartEndModelList[0].SourcePollutionStart_MPN_100ml.ToString("F0") @Html.Raw(UnitViewRes.MPN_Per100ml_abr)</b>,
+                            @MikeScenarioViewRes.Temperature <b>@mikeSourceStartEndModelList[0].SourceTemperatureStart_C.ToString("F2") @Html.Raw(UnitViewRes.Celcius_abbr)</b>,
+                            @MikeScenarioViewRes.Salinity <b>@mikeSourceStartEndModelList[0].SourceSalinityStart_PSU.ToString("F2") @Html.Raw(UnitViewRes.PSU)</b> ]
+                        </span>
+                </span>
+                }
+            </a>
+        </h4>
+</div>
+<div id="@panelCollapseID2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="@panelHeadingID2">
+    <div class="panel-body">
+        <div class="MikeScenarioSourceStartEndsDiv">
+            @foreach (MikeSourceStartEndModel mikeSourceStartEndModel in mikeSourceStartEndModelList.Take(1))
+            {
+                var SourceFlowStart_m3_s = mikeSourceStartEndModel.SourceFlowStart_m3_day / 3600 / 24;
+                var SourceFlowEnd_m3_s = mikeSourceStartEndModel.SourceFlowEnd_m3_day / 3600 / 24;
+
+                DateTime StartDate = (DateTime)mikeSourceStartEndModel.StartDateAndTime_Local;
+                DateTime EndDate = (DateTime)mikeSourceStartEndModel.EndDateAndTime_Local;
+                TimeSpan ts = new TimeSpan(EndDate.Ticks - StartDate.Ticks);
+                int days = ts.Days;
+                int hours = ts.Hours;
+                int minutes = ts.Minutes;
+                int StartDateHour = StartDate.Hour;
+                int StartDateMinute = StartDate.Minute;
+                int EndDateHour = EndDate.Hour;
+                int EndDateMinute = EndDate.Minute;
+
+                CountEff += 1;
+                <div class="MikeScenarioSourceStartEndDiv panel-body" data-mikesourcestartendid="@mikeSourceStartEndModel.MikeSourceStartEndID">
+                    <form class="MikeScenarioSourceStartEndForm form-horizontal" action="MikeScenario/MikeScenarioSourceStartEndSaveJSON" method="post">
+                        <input type="hidden" name="MikeSourceStartEndID" value="@mikeSourceStartEndModel.MikeSourceStartEndID" />
+                        <input type="hidden" name="MikeSourceID" value="@mikeSourceStartEndModel.MikeSourceID" />
+                        <input type="hidden" name="MikeSourceTVItemID" value="@MikeSourceTVItemID" />
+                        <div class="form-group">
+                            <label class="control-label ">
+                                @MikeScenarioViewRes.Flow &nbsp;<span class="text-lighter text-nowrap">(@Html.Raw(UnitViewRes.m3PerDay))</span>
+                            </label>
+                            <div>
+                                <input class="isnumber form-control" name="SourceFlowStart_m3_day" type="text" value="@string.Format("{0:F2}", mikeSourceStartEndModel.SourceFlowStart_m3_day)" />
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label ">
+                                @MikeScenarioViewRes.Flow &nbsp;
+                                <span class="text-lighter text-nowrap">(@Html.Raw(UnitViewRes.m3PerSecond))</span>
+                            </label>
+                            <div>
+                                <input class="isnumber form-control" name="SourceFlowStart_m3_s" type="text" value="@string.Format("{0:F6}", SourceFlowStart_m3_s)" />
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label ">
+                                @MikeScenarioViewRes.FecalColiform:
+                                <span class="text-lighter text-nowrap">(@Html.Raw(UnitViewRes.MPN_Per100ml_abr))</span>
+                            </label>
+                            <div>
+                                <input class="isnumber form-control" name="SourcePollutionStart_MPN_100ml" type="text" value="@string.Format("{0:F0}", mikeSourceStartEndModel.SourcePollutionStart_MPN_100ml)" />
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label ">
+                                @MikeScenarioViewRes.Temperature:
+                                <span class="text-lighter text-nowrap">(@Html.Raw(UnitViewRes.Celcius_abbr))</span>
+                            </label>
+                            <div>
+                                <input class="isnumber form-control" name="SourceTemperatureStart_C" type="text" value="@string.Format("{0:F1}", mikeSourceStartEndModel.SourceTemperatureStart_C)" />
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label ">
+                                @MikeScenarioViewRes.Salinity:
+                                <span class="text-lighter text-nowrap">(@Html.Raw(UnitViewRes.PSU))</span>
+                            </label>
+                            <div>
+                                <input class="isnumber form-control" name="SourceSalinityStart_PSU" type="text" value="@string.Format("{0:F1}", mikeSourceStartEndModel.SourceSalinityStart_PSU)" />
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button class="jbMikeScenarioSourceStartEndSave btn btn-primary" type="submit"><span class="glyphicon glyphicon-check"></span>&nbsp;@MikeScenarioViewRes.SaveEffluent</button>
+                        </div>
+                    </form>
+                </div>
+            }
+        </div>
+    </div>
+</div>

@@ -1,0 +1,281 @@
+﻿@using CSSPWebTools.Views.Shared.Resources;
+@using CSSPWebTools.Views.VisualPlumes.Resources;
+@using CSSPModelsDLL.Models;
+
+@{
+    VPFullModel vpFullModel = (VPFullModel)ViewBag.VPFullModel;
+    string[] RowColors = new string[] { "success", "warning", "danger", "default", "success", "warning", "danger", "default", };
+}
+
+<label>@VisualPlumeViewRes.UseAsBest:</label>
+@if (vpFullModel.UseAsBestEstimate == true)
+{
+    <span>@VisualPlumeViewRes.True</span>
+}
+else
+{
+    <span>@VisualPlumeViewRes.False</span>
+}
+
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <h4 class="panel-title">
+            @VisualPlumeViewRes.DiffuserInformation
+        </h4>
+    </div>
+    <div class="panel-body">
+        <div class="container-fluid">
+            <dl class="dl-results">
+                <dt>
+                    <label>@VisualPlumeViewRes.EffluentConcentration:</label>
+                </dt>
+                <dd>
+                    <span>
+                        @(string.Format("{0:F0}", vpFullModel.EffluentConcentration_MPN_100ml)) @UnitViewRes.FCPer100ml
+                    </span>
+                </dd>
+
+                <dt>
+                    <label>@VisualPlumeViewRes.EffluentFlow: </label>
+                </dt>
+                <dd>
+                    <span>
+                        @(string.Format("{0:F5}", vpFullModel.EffluentFlow_m3_s)) @Html.Raw(UnitViewRes.m3PerDay)
+                    </span>
+                </dd>
+
+                <dt>
+                    <label>@VisualPlumeViewRes.PortDiameter: </label>
+                </dt>
+                <dd>
+                    <span>
+                        @(string.Format("{0:F3}", vpFullModel.PortDiameter_m)) @UnitViewRes.Meters_abbr
+                    </span>
+                </dd>
+
+                <dt>
+                    <label>@VisualPlumeViewRes.PortElevation:</label>
+                </dt>
+                <dd>
+                    <span>
+                        @(string.Format("{0:F3}", vpFullModel.PortElevation_m)) @UnitViewRes.Meters_abbr
+                    </span>
+                </dd>
+
+                <dt>
+                    <label>@VisualPlumeViewRes.PortDepth:</label>
+                </dt>
+                <dd>
+                    <span>
+                        @(string.Format("{0:F3}", vpFullModel.PortDepth_m)) @UnitViewRes.Meters_abbr
+                    </span>
+                </dd>
+
+                <dt>
+                    <label>@VisualPlumeViewRes.EffluentSalinity: </label>
+                </dt>
+                <dd>
+                    <span>
+                        @(string.Format("{0:F1}", vpFullModel.EffluentSalinity_PSU)) @UnitViewRes.PSU
+                    </span>
+                </dd>
+
+                <dt>
+                    <label>@VisualPlumeViewRes.EffluentTemperature: </label>
+                </dt>
+                <dd>
+                    <span>
+                        @(string.Format("{0:F1}", vpFullModel.EffluentTemperature_C)) @UnitViewRes.Celcius_abbr
+                    </span>
+                </dd>
+
+                <dt>
+                    <label>@VisualPlumeViewRes.VerticalAngle: </label>
+                </dt>
+                <dd>
+                    <span>
+                        @(string.Format("{0:F1}", vpFullModel.VerticalAngle_deg)) @UnitViewRes.Degrees_abbr
+                    </span>
+                </dd>
+
+                <dt>
+                    <label>@VisualPlumeViewRes.HorizontalAngle:</label>
+                </dt>
+                <dd>
+                    <span>
+                        @(string.Format("{0:F1}", vpFullModel.HorizontalAngle_deg)) @UnitViewRes.Degrees_abbr
+                    </span>
+                </dd>
+
+                <dt>
+                    <label>@VisualPlumeViewRes.NumberOfPorts: </label>
+                </dt>
+                <dd>
+                    <span>
+                        @(string.Format("{0:F0}", vpFullModel.NumberOfPorts))
+                    </span>
+                </dd>
+
+                <dt>
+                    <label>@VisualPlumeViewRes.PortSpacing:</label>
+                </dt>
+                <dd>
+                    <span>
+                        @(string.Format("{0:F2}", vpFullModel.PortSpacing_m)) @UnitViewRes.Meters_abbr
+                    </span>
+                </dd>
+
+                <dt>
+                    <label>@VisualPlumeViewRes.AcuteMixZone: </label>
+                </dt>
+                <dd>
+                    <span>
+                        @(string.Format("{0:F0}", vpFullModel.AcuteMixZone_m)) @UnitViewRes.Meters_abbr
+                    </span>
+                </dd>
+
+                <dt>
+                    <label>@VisualPlumeViewRes.ChronicMixZone: </label>
+                </dt>
+                <dd>
+                    <span>
+                        @(string.Format("{0:F0}", vpFullModel.ChronicMixZone_m)) @UnitViewRes.Meters_abbr
+                    </span>
+                </dd>
+
+            </dl>
+        </div>
+    </div>
+</div>
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <h4 class="panel-title">@VisualPlumeViewRes.AmbientInformation</h4>
+    </div>
+    <div class="panel-body">
+        @for (var i = 1; i < 9; i++)
+        {
+            var MD = "MeasurementDepth" + i;
+            var CS = "CurrentSpeed" + i;
+            var CD = "CurrentDirection" + i;
+            var AS = "AmbientSalinity" + i;
+            var AT = "AmbientTemperature" + i;
+            var BC = "BackgroundConcentration_MPN_100ml" + i;
+            var PD = "PollutantDecayRate" + i;
+            var FFCS = "FarFieldCurrentSpeed" + i;
+            var FFCD = "FarFieldCurrentDirection" + i;
+            var FFDC = "FarFieldDiffusionCoefficient" + i;
+            var VPAmbTabName = "VPAmbRow" + i + "Tab";
+            
+            if (vpFullModel.AmbientList[i - 1].MeasurementDepth_m > -998)
+            {
+                <div class="panel panel-@RowColors[i - 1]">
+                    <div class="panel-heading">
+
+
+                        <label>@VisualPlumeViewRes.AtDepth</label>
+                        <span>@(string.Format("{0:F3}", vpFullModel.AmbientList[i - 1].MeasurementDepth_m)) @UnitViewRes.Meters_abbr</span>
+
+                    </div>
+
+                    <div class="panel-body">
+                        <dl class="dl-results">
+
+                            @if (vpFullModel.AmbientList[i - 1].CurrentSpeed_m_s > -998)
+                            {
+                                <dt>
+                                    <label>@VisualPlumeViewRes.CurrentSpeed: </label>
+                                </dt>
+                                <dd>
+                                    <span>@(string.Format("{0:F6}", vpFullModel.AmbientList[i - 1].CurrentSpeed_m_s)) @UnitViewRes.MetersPerSecond_abbr</span>
+                                </dd>
+                            }
+
+
+                            @if (vpFullModel.AmbientList[i - 1].CurrentDirection_deg > -998)
+                            {
+                                <dt>
+                                    <label>@VisualPlumeViewRes.CurrentDirection: </label>
+                                </dt>
+                                <dd>
+                                    <span>@(string.Format("{0:F1}", vpFullModel.AmbientList[i - 1].CurrentDirection_deg)) @UnitViewRes.Degrees_abbr</span>
+                                </dd>
+                            }
+                            @if (vpFullModel.AmbientList[i - 1].AmbientSalinity_PSU > -998)
+                            {
+                                <dt>
+                                    <label>@VisualPlumeViewRes.AmbientSalinity: </label>
+                                </dt>
+                                <dd>
+                                    <span>@(string.Format("{0:F1}", vpFullModel.AmbientList[i - 1].AmbientSalinity_PSU)) @UnitViewRes.PSU</span>
+                                </dd>
+                            }
+                            @if (vpFullModel.AmbientList[i - 1].AmbientTemperature_C > -998)
+                            {
+                                <dt>
+                                    <label>@VisualPlumeViewRes.AmbientTemperature: </label>
+                                </dt>
+                                <dd>
+                                    <span>@(string.Format("{0:F1}", vpFullModel.AmbientList[i - 1].AmbientTemperature_C)) @UnitViewRes.Celcius_abbr</span>
+                                </dd>
+                            }
+                            @if (vpFullModel.AmbientList[i - 1].BackgroundConcentration_MPN_100ml > -998)
+                            {
+                                <dt>
+                                    <label>@VisualPlumeViewRes.BackgroundConcentration: </label>
+                                </dt>
+                                <dd>
+                                    <span>@(string.Format("{0:F0}", vpFullModel.AmbientList[i - 1].BackgroundConcentration_MPN_100ml)) @UnitViewRes.FCPer100ml</span>
+                                </dd>
+                            }
+                            @if (vpFullModel.AmbientList[i - 1].PollutantDecayRate_per_day > -998)
+                            {
+                                <dt>
+                                    <label>@VisualPlumeViewRes.PollutantDecayRate: </label>
+                                </dt>
+                                <dd>
+                                    <span>@(string.Format("{0:F6}", vpFullModel.AmbientList[i - 1].PollutantDecayRate_per_day)) @UnitViewRes.PerDay</span>
+                                </dd>
+                            }
+
+
+                            @if (vpFullModel.AmbientList[i - 1].FarFieldCurrentSpeed_m_s > -998)
+                            {
+                                <dt>
+                                    <label>@VisualPlumeViewRes.FarFieldCurrentSpeed: </label>
+                                </dt>
+                                <dd>
+                                    <span>@(string.Format("{0:F6}", vpFullModel.AmbientList[i - 1].FarFieldCurrentSpeed_m_s)) @UnitViewRes.MetersPerSecond_abbr</span>
+                                </dd>
+                            }
+                            @if (vpFullModel.AmbientList[i - 1].FarFieldCurrentDirection_deg > -998)
+                            {
+                                <dt>
+                                    <label>@VisualPlumeViewRes.FarFieldCurrentDirection: </label>
+                                </dt>
+                                <dd>
+                                    <span>@(string.Format("{0:F1}", vpFullModel.AmbientList[i - 1].FarFieldCurrentDirection_deg)) @UnitViewRes.Degrees_abbr</span>
+                                </dd>
+                            }
+                            @if (vpFullModel.AmbientList[i - 1].FarFieldDiffusionCoefficient > -998)
+                            {
+                                <dt>
+                                    <label>@VisualPlumeViewRes.FarFieldDiffusionCoefficient: </label>
+                                </dt>
+                                <dd>
+                                    <span>@(string.Format("{0:F6}", vpFullModel.AmbientList[i - 1].FarFieldDiffusionCoefficient)) @Html.Raw(UnitViewRes.m067perS2)</span>
+                                </dd>
+                            }
+
+                        </dl>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        cssp.VisualPlumes.Init();
+    });
+</script>

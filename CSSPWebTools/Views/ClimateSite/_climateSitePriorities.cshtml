@@ -1,0 +1,125 @@
+﻿@using CSSPWebTools.Models;
+@using CSSPWebTools.Views.Shared.Resources;
+@using CSSPWebTools.Views.ClimateSite.Resources;
+@using CSSPWebTools.Controllers;
+@using CSSPEnumsDLL.Enums;
+@using CSSPModelsDLL.Models;
+
+@{
+    int SmallestYearOfSampling = (int)ViewBag.SmallestYearOfSampling;
+    int CurrentYear = DateTime.Now.Year;
+    int SubsectorTVItemID = (int)ViewBag.SubsectorTVItemID;
+    TVAuthEnum tvAuth = (TVAuthEnum)ViewBag.TVAuth;
+    List<ClimateSiteUseOfSiteModel> climateSiteUseOfSiteModelList = (List<ClimateSiteUseOfSiteModel>)ViewBag.ClimateSiteUseOfSiteModelList;
+    MWQMSubsectorClimateSites mwqmSubsectorClimateSites = (MWQMSubsectorClimateSites)ViewBag.MWQMSubsectorClimateSites;
+    List<int> runYears = (List<int>)ViewBag.RunYears;
+    List<bool> runYearsHasClimateSites = new List<bool>();
+
+    for (int year = SmallestYearOfSampling; year <= CurrentYear; year++)
+    {
+        bool runYearsHasClimateSite = false;
+        foreach (ClimateSiteUseOfSiteModel climateSiteUseOfSiteModel in climateSiteUseOfSiteModelList)
+        {
+            bool TempCheck = (from c in climateSiteUseOfSiteModel.UseOfSiteModelList
+                              where c.StartYear <= year
+                              && (c.EndYear >= year
+                              || c.EndYear == null)
+                              select c).Any();
+
+            if (TempCheck)
+            {
+                runYearsHasClimateSite = true;
+            }
+        }
+        runYearsHasClimateSites.Add(runYearsHasClimateSite);
+    }
+}
+
+<div class="ClimateSitePrioritiesTabDiv">
+    <div>
+        <h4>@ClimateSiteViewRes.SettingClimateSitePriorities</h4>
+    </div>
+    <table class="table table-bordered">
+        <tr>
+            <th>Climate Site</th>
+            @for (int i = SmallestYearOfSampling; i <= CurrentYear; i++)
+            {
+                <th>@i</th>
+            }
+        </tr>
+        <tr>
+            <td>Has runs</td>
+            @for (int i = SmallestYearOfSampling; i <= CurrentYear; i++)
+            {
+                <th class="ClimateSiteStatus">
+                    <span class="@(runYears.Contains(i) 
+                    ? (runYearsHasClimateSites[i-SmallestYearOfSampling] == true 
+                    ? "glyphicon glyphicon-ok text-success" 
+                    : "glyphicon glyphicon-ok text-danger") 
+                    : "")"></span>
+            </th>
+            }
+        </tr>
+        @for (int i = 0, count = climateSiteUseOfSiteModelList.Count(); i < count; i++)
+        {
+            int ClimateSiteTVItemID = 0;
+            float Distance_km = -1;
+            if (climateSiteUseOfSiteModelList[i].UseOfSiteModelList.Count() > 0)
+            {
+                ClimateSiteTVItemID = climateSiteUseOfSiteModelList[i].UseOfSiteModelList[0].SiteTVItemID;
+                Distance_km = mwqmSubsectorClimateSites.ClimateSiteModelUsedAndWithinDistanceModelList.Where(c => c.ClimateSiteTVItemID == ClimateSiteTVItemID).FirstOrDefault().Distance_km;
+            }
+
+            <tr class="ClimateSitePriorityRow" data-climatesitetvitemid="@ClimateSiteTVItemID" data-climatesitedistance="@Distance_km.ToString("F0")">
+                <td><span class="text-nowrap">@climateSiteUseOfSiteModelList[i].ClimateSiteText <span>(@Distance_km.ToString("F0") Km)</span></span></td>
+                @{
+                    int YearCount = SmallestYearOfSampling;
+                }
+                @for (int j = 0, countj = climateSiteUseOfSiteModelList[i].UseOfSiteModelList.Count(); j < countj; j++)
+                {
+                    int UseOfSiteID = climateSiteUseOfSiteModelList[i].UseOfSiteModelList[j].UseOfSiteID;
+                    int StartYear = climateSiteUseOfSiteModelList[i].UseOfSiteModelList[j].StartYear;
+                    int? EndYear = climateSiteUseOfSiteModelList[i].UseOfSiteModelList[j].EndYear;
+                    if (EndYear != null && EndYear < SmallestYearOfSampling)
+                    {
+                        continue;
+                    }
+                    else if (StartYear < SmallestYearOfSampling && (EndYear == null || EndYear >= SmallestYearOfSampling))
+                    {
+                        StartYear = SmallestYearOfSampling;
+                    }
+                    while (YearCount <= CurrentYear)
+                    {
+                        if (StartYear > YearCount)
+                        {
+                            <td>&nbsp;</td>
+                            YearCount += 1;
+                        }
+                        else if (StartYear == YearCount)
+                        {
+                            int ColSpan = (int)((1 + (EndYear == null ? CurrentYear : EndYear) - StartYear));
+                            <td style="border: solid green 2px" colspan="@(ColSpan)">
+                                <input data-useofsiteid="@(UseOfSiteID)" name="UseOfSite" type="text" size="1" value="@climateSiteUseOfSiteModelList[i].UseOfSiteModelList[j].Ordinal" />
+                            </td>
+                            YearCount = YearCount + ColSpan;
+                            if (j != countj - 1)
+                            {
+                                break;
+                            }
+                        }
+                        else
+                        {
+                            <td>&nbsp;</td>
+                            YearCount += 1;
+                        }
+                    }
+                }
+            </tr>
+                    }
+    </table>
+    <div>
+        <button class="jbClimateSitePrioritiesSetPriorityByDistance btn btn-button">@ClimateSiteViewRes.SetClimateSitePriorityByDistance</button>
+        <button class="jbClimateSitePrioritiesSave btn btn-button">@ClimateSiteViewRes.SaveClimateSitePriorities</button>
+    </div>
+
+</div>

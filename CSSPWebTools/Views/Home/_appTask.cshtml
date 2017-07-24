@@ -1,0 +1,92 @@
+﻿@using CSSPWebTools.Views.Home.Resources;
+@using CSSPWebTools.Controllers;
+@using CSSPModelsDLL.Models;
+@using CSSPEnumsDLL.Enums;
+@using CSSPEnumsDLL.Services;
+
+
+@{
+    int TVItemID = (int)ViewBag.TVItemID;
+    int Seconds = (int)ViewBag.Seconds;
+    List<AppTaskModel> appTaskModelList = (List<AppTaskModel>)ViewBag.AppTaskModelList;
+    HomeController homeController = (HomeController)ViewBag.HomeController;
+    BaseEnumService _BaseEnumService = new BaseEnumService(ViewBag.Language);
+}
+@if (appTaskModelList.Count > 0)
+{
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">@HomeViewRes.TasksRunning</h4>
+        </div>
+        <div class="panel-body">
+            @foreach (AppTaskModel appTaskModel in appTaskModelList)
+            {
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            @(_BaseEnumService.GetEnumText_AppTaskCommandEnum(appTaskModel.AppTaskCommand))
+                        </h4>
+                    </div>
+                    <div class="panel-body">
+                        @if (!string.IsNullOrWhiteSpace(appTaskModel.StatusText))
+                        {
+                            <div>
+                                @appTaskModel.StatusText
+                            </div>
+                        }
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="@appTaskModel.PercentCompleted" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: @appTaskModel.PercentCompleted%;">
+                                @appTaskModel.PercentCompleted%
+                            </div>
+                        </div>
+                        @if (!string.IsNullOrWhiteSpace(appTaskModel.ErrorText))
+                        {
+                            <div class="panel panel-danger">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">@HomeViewRes.Error</h4>
+                                </div>
+                                <div class="panel-body">
+                                    <h4>@appTaskModel.ErrorText</h4>
+                                </div>
+                            </div>
+                        }
+                        <button class="jbAppTaskDelete btn btn-default" data-apptaskid="@appTaskModel.AppTaskID">
+                            <span class="glyphicon glyphicon-trash"></span>
+                            <span>@HomeViewRes.DeleteAppTask</span>
+                        </button>
+                    </div>
+                </div>
+            }
+            <div class="well well-lg">
+                <button class="jbAppTaskRefresh btn btn-default" data-tvitemid="@TVItemID" data-seconds="@Seconds">
+                    <span class="glyphicon glyphicon-refresh"></span>
+                    <span>
+                        &nbsp;&nbsp;
+                        @HomeViewRes.WillRefreshIn
+                        <span class="secondsToRefresh">@Seconds</span>
+                        @HomeViewRes.seconds
+                    </span>
+                </button>
+                <button class="jbAppTaskRefreshStop btn btn-default" data-tvitemid="@TVItemID" data-seconds="@Seconds">
+                    <span class="glyphicon glyphicon-stop"></span>
+                    <span>
+                        &nbsp;&nbsp;
+                        @HomeViewRes.StopAutoRefresh
+                    </span>
+                </button>
+                <button class="jbAppTaskRefreshStart btn btn-default hidden" data-tvitemid="@TVItemID" data-seconds="@Seconds">
+                    <span class="glyphicon glyphicon-play"></span>
+                    <span>
+                        &nbsp;&nbsp;
+                        @HomeViewRes.RestartAutoRefresh
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(function () {
+            cssp.Home.InitAppTask();
+        });
+    </script>
+}

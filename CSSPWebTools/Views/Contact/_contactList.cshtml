@@ -1,0 +1,53 @@
+﻿@using CSSPWebTools.Views.Contact.Resources;
+@using CSSPWebToolsDBDLL.Services;
+@using CSSPWebTools.Models;
+@using CSSPEnumsDLL.Enums;
+@using CSSPModelsDLL.Models;
+
+@{
+    URLModel urlModel = (URLModel)ViewBag.URLModel;
+    List<ContactModel> contactModelList = (List<ContactModel>)ViewBag.ContactModelList;
+    TVAuthEnum tvAuth = (TVAuthEnum)ViewBag.TVAuth;
+    bool IsShowMoreInfo = (bool)ViewBag.IsShowMoreInfo;
+}
+
+<div id="contentContact" class="paraBlock">
+    <div class="ContactAdd"> </div>
+        <ul class="list-group">
+            @foreach (ContactModel contactModel in contactModelList)
+        {
+                <li class="list-group-item" data-contacttvitemid="@contactModel.ContactTVItemID">
+                    <span class="ContactEditButtons hidden">
+                        @if (contactModel.IsNew)
+                    {
+                        if (tvAuth >= TVAuthEnum.Write)
+                        {
+                            <button class="jbContactShowHideModify btn btn-default" type="button" title="@ContactViewRes.Edit"><span class="glyphicon glyphicon-pencil"></span><span class="sr-only">@ContactViewRes.Edit</span></button>
+                        }
+                    }
+                        @if (tvAuth >= TVAuthEnum.Delete)
+                    {
+                            <button class="jbContactAskToDelete btn btn-default " type="button" title="@ContactViewRes.Delete"><span class="glyphicon glyphicon-trash"></span><span class="@ContactViewRes.Delete"></span></button>
+                    }
+                    </span>
+                    <span>
+                        <span class="LastUpdateAndTVText" data-table="Contact" data-id="@contactModel.ContactID"></span>
+                        <span class="TVText"> @contactModel.LastName, @contactModel.FirstName @contactModel.Initial</span>
+                        <span>
+                            @if (IsShowMoreInfo)
+                        {
+                                @Html.Action("_contactMoreInfo", "Contact", new { ContactTVItemID = contactModel.ContactTVItemID })
+                        }
+                        </span>
+                    </span>
+                    <div class="ContactModify blockMargin"></div>
+                </li>
+        }
+        </ul>
+   
+    <script type="text/javascript">
+        $(function () {
+            cssp.Contact.Init();
+        });
+    </script>
+</div>

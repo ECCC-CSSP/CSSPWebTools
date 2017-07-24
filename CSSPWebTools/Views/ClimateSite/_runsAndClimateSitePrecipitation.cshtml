@@ -1,0 +1,41 @@
+﻿@using CSSPWebTools.Models;
+@using CSSPWebTools.Views.Shared.Resources;
+@using CSSPWebTools.Views.ClimateSite.Resources;
+@using CSSPWebTools.Controllers;
+@using CSSPEnumsDLL.Enums;
+@using CSSPModelsDLL.Models;
+
+@{
+    int SubsectorTVItemID = (int)ViewBag.SubsectorTVItemID;
+    List<MWQMRunModel> mwqmRunModelList = (List<MWQMRunModel>)ViewBag.MWQMRunModelList;
+    TVAuthEnum tvAuth = (TVAuthEnum)ViewBag.TVAuth;
+}
+
+<div class="RunsAndClimateSitePrecipitationDiv">
+    <br />
+    @{
+        int CountRun = 0;
+    }
+    <h3>@ClimateSiteViewRes.SubsectorRuns</h3>
+    <div class="SubsectorRunsDiv">
+        <ul class="list-group">
+            @foreach (MWQMRunModel mwqmRunModel in mwqmRunModelList)
+            {
+                <li class="MWQMRunModel list-group-item"
+                    data-mwqmruntvitemid="@mwqmRunModel.MWQMRunTVItemID"
+                    data-rundate="@(mwqmRunModel.DateTime_Local.ToString("yyyy-MM-dd"))">
+                    <button class="jbLoadClimateSiteSelectRun btn btn-@(CountRun == 0 ? "success" : "default")">@(mwqmRunModel.DateTime_Local.ToString("yyyy MMMM dd"))</button>
+                    <div class="SelectedRunPrecipitationDiv">
+                        @if (CountRun == 0)
+                        {
+                            @Html.Action("_selectedRunPrecipitation", "ClimateSite", new { SubsectorTVItemID = @SubsectorTVItemID, MWQMRunTVItemID = @mwqmRunModel.MWQMRunTVItemID })
+                        }
+                    </div>
+                </li>
+                CountRun += 1;
+            }
+        </ul>
+    </div>
+
+
+</div>

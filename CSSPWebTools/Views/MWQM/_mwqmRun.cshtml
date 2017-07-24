@@ -1,0 +1,344 @@
+﻿@using CSSPWebTools.Models;
+@using CSSPWebTools.Views.MWQM.Resources;
+@using CSSPWebTools.Views.Shared.Resources;
+@using CSSPWebTools.Controllers;
+@using CSSPEnumsDLL.Enums;
+@using CSSPEnumsDLL.Services;
+@using CSSPModelsDLL.Models;
+
+@{
+    URLModel urlModel = (URLModel)ViewBag.URLModel;
+    string BaseURL = (string)ViewBag.BaseURL;
+    MWQMController mwqmController = (MWQMController)ViewBag.MWQMController;
+    MWQMRunModel mwqmRunModel = (MWQMRunModel)ViewBag.MWQMRunModel;
+    List<MWQMSampleModel> mwqmSampleModelList = (List<MWQMSampleModel>)ViewBag.MWQMSampleModelList;
+    BaseEnumService _BaseEnumService = new BaseEnumService(ViewBag.Language);
+    string ValidatorContactTVText = (string)ViewBag.ValidatorContactTVText;
+    bool IsShowMoreInfo = (bool)ViewBag.IsShowMoreInfo;
+    bool IsShowMap = (bool)ViewBag.IsShowMap;
+    bool LabReceivedSampleOnSameDay = false;
+    if (mwqmRunModel.LabReceivedDateTime_Local != null)
+    {
+        if (mwqmRunModel.LabReceivedDateTime_Local.Value.Day == mwqmRunModel.DateTime_Local.Day)
+        {
+            LabReceivedSampleOnSameDay = true;
+        }
+    }
+}
+<div>
+    <div>
+        <button class="jbMWQMRunDataLoad btn btn-success">@MWQMViewRes.Data</button>
+        <button class="jbMWQMRunInfoLoad btn btn-default">@MWQMViewRes.RunInformation</button>
+    </div>
+
+    <div id="MWQMRunDataID" class="hidden">
+        <div>
+            <span><b>@MWQMViewRes.Precipitation</b> <span title="@UnitViewRes.Millimeters">(@UnitViewRes.Millimeters_abr)</span>: </span>
+            <span>@MWQMViewRes.Day </span>
+            <span class="text-nowrap">(0) [<b>@(mwqmRunModel.RainDay0_mm == null ? "" : ((double)mwqmRunModel.RainDay0_mm == -999 ? "E" : ((double)mwqmRunModel.RainDay0_mm).ToString("F0")))</b>]&nbsp;&nbsp;&nbsp;</span>
+            <span class="text-nowrap">(-1) [<b>@(mwqmRunModel.RainDay1_mm == null ? "" : ((double)mwqmRunModel.RainDay1_mm == -999 ? "E" : ((double)mwqmRunModel.RainDay1_mm).ToString("F0")))</b>]&nbsp;&nbsp;&nbsp;</span>
+            <span class="text-nowrap">(-2) [<b>@(mwqmRunModel.RainDay2_mm == null ? "" : ((double)mwqmRunModel.RainDay2_mm == -999 ? "E" : ((double)mwqmRunModel.RainDay2_mm).ToString("F0")))</b>]&nbsp;&nbsp;&nbsp;</span>
+            <span class="text-nowrap">(-3) [<b>@(mwqmRunModel.RainDay3_mm == null ? "" : ((double)mwqmRunModel.RainDay3_mm == -999 ? "E" : ((double)mwqmRunModel.RainDay3_mm).ToString("F0")))</b>]&nbsp;&nbsp;&nbsp;</span>
+            <span class="text-nowrap">(-4) [<b>@(mwqmRunModel.RainDay4_mm == null ? "" : ((double)mwqmRunModel.RainDay4_mm == -999 ? "E" : ((double)mwqmRunModel.RainDay4_mm).ToString("F0")))</b>]&nbsp;&nbsp;&nbsp;</span>
+            <span class="text-nowrap">(-5) [<b>@(mwqmRunModel.RainDay5_mm == null ? "" : ((double)mwqmRunModel.RainDay5_mm == -999 ? "E" : ((double)mwqmRunModel.RainDay5_mm).ToString("F0")))</b>]&nbsp;&nbsp;&nbsp;</span>
+            <span class="text-nowrap">(-6) [<b>@(mwqmRunModel.RainDay6_mm == null ? "" : ((double)mwqmRunModel.RainDay6_mm == -999 ? "E" : ((double)mwqmRunModel.RainDay6_mm).ToString("F0")))</b>]&nbsp;&nbsp;&nbsp;</span>
+            <span class="text-nowrap">(-7) [<b>@(mwqmRunModel.RainDay7_mm == null ? "" : ((double)mwqmRunModel.RainDay7_mm == -999 ? "E" : ((double)mwqmRunModel.RainDay7_mm).ToString("F0")))</b>]&nbsp;&nbsp;&nbsp;</span>
+            <span class="text-nowrap">(-8) [<b>@(mwqmRunModel.RainDay8_mm == null ? "" : ((double)mwqmRunModel.RainDay8_mm == -999 ? "E" : ((double)mwqmRunModel.RainDay8_mm).ToString("F0")))</b>]&nbsp;&nbsp;&nbsp;</span>
+            <span class="text-nowrap">(-9) [<b>@(mwqmRunModel.RainDay9_mm == null ? "" : ((double)mwqmRunModel.RainDay9_mm == -999 ? "E" : ((double)mwqmRunModel.RainDay9_mm).ToString("F0")))</b>]&nbsp;&nbsp;&nbsp;</span>
+            <span class="text-nowrap">(-10) [<b>@(mwqmRunModel.RainDay10_mm == null ? "" : ((double)mwqmRunModel.RainDay10_mm == -999 ? "E" : ((double)mwqmRunModel.RainDay10_mm).ToString("F0")))</b>]</span>
+            <br />
+            <table class="table table-condensed">
+                <thead>
+                    <tr>
+                        <th>
+                            @MWQMViewRes.MWQMSite
+                        </th>
+                        <th>
+                            @MWQMViewRes.Time
+                        </th>
+                        <th>
+                            @MWQMViewRes.FecalColiforms_abbr
+                        </th>
+                        <th>
+                            @MWQMViewRes.Salinity
+                        </th>
+                        <th>
+                            @MWQMViewRes.Temperature
+                        </th>
+                        <th>
+                            @MWQMViewRes.Depth
+                        </th>
+                        <th>
+                            @MWQMViewRes.pH
+                        </th>
+                        <th>
+                            @MWQMViewRes.ProcessedBy
+                        </th>
+                        <th>
+                            @MWQMViewRes.SampleTypes
+                        </th>
+                        <th>
+                            @MWQMViewRes.MWQMSampleNote
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (MWQMSampleModel mwqmSampleModel in mwqmSampleModelList.OrderBy(c => c.MWQMSiteTVText))
+                    {
+                        int hour = mwqmSampleModel.SampleDateTime_Local.Hour;
+                        int minute = mwqmSampleModel.SampleDateTime_Local.Minute;
+                        string SampleTime = (hour > 9 ? hour.ToString() : ("0" + hour.ToString())) + ":" + (minute > 9 ? minute.ToString() : ("0" + minute.ToString()));
+                        string classFCColor = (mwqmSampleModel.FecCol_MPN_100ml > 499 ? "bg-info" : (mwqmSampleModel.FecCol_MPN_100ml > 250 ? "bg-danger" : (mwqmSampleModel.FecCol_MPN_100ml > 43 ? "bg-danger" : "")));
+                        <tr>
+                            <td>
+                                <span class="text-nowrap">
+                                    @if (IsShowMap)
+                                    {
+                                        <button class="jbMapShowItem btn btn-default" href="#" title="@MWQMViewRes.ShowMWQMSiteOnMap" data-tvitemid="@mwqmSampleModel.MWQMSiteTVItemID">
+                                            <span class="glyphicon glyphicon-map-marker"></span>
+                                        </button>
+                                    }
+                                    <a href="@mwqmController.CreateHashURL(mwqmSampleModel.MWQMSiteTVItemID)">@mwqmSampleModel.MWQMSiteTVText</a>
+                                </span>
+                            </td>
+                            <td>
+                                @SampleTime
+                            </td>
+                            <td class="@classFCColor">
+                                @mwqmSampleModel.FecCol_MPN_100ml
+                            </td>
+                            <td>
+                                @(mwqmSampleModel.Salinity_PPT == null ? "" : ((double)mwqmSampleModel.Salinity_PPT).ToString("F1"))
+                            </td>
+                            <td>
+                                @(mwqmSampleModel.WaterTemp_C == null ? "" : ((double)mwqmSampleModel.WaterTemp_C).ToString("F1"))
+                            </td>
+                            <td>
+                                @(mwqmSampleModel.Depth_m == null ? "" : ((double)mwqmSampleModel.Depth_m).ToString("F1"))
+                            </td>
+                            <td>
+                                @(mwqmSampleModel.PH == null ? "" : ((double)mwqmSampleModel.PH).ToString("F1"))
+                            </td>
+                            <td>
+                                @(mwqmSampleModel.ProcessedBy == null ? "" : mwqmSampleModel.ProcessedBy)
+                            </td>
+                            <td>
+                                @foreach (SampleTypeEnum sampleType in mwqmSampleModel.SampleTypeList)
+                                {
+                                    <span>@_BaseEnumService.GetEnumText_SampleTypeEnum(sampleType), </span>
+                                }
+                            </td>
+                            <td>
+                                @(mwqmSampleModel.MWQMSampleNote == null ? "" : mwqmSampleModel.MWQMSampleNote)
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div id="MWQMRunInfoID" class="hidden">
+        <div>
+            <label>@MWQMViewRes.RunDate:</label>
+            @mwqmRunModel.DateTime_Local.ToString("yyyy MMMM dd")
+            <h4>
+                @MWQMViewRes.FieldRelatedInformation
+            </h4>
+            <ul class="list-unstyled ul-results">
+                <li>
+                    <label>@MWQMViewRes.RunSampleType</label>
+                    <span>
+                        @(_BaseEnumService.GetEnumText_SampleTypeEnum(mwqmRunModel.RunSampleType))
+                    </span>
+                </li>
+                <li>
+                    <label>@MWQMViewRes.RunSamplingCrewInitials</label>
+                    <span>
+                        @(string.IsNullOrWhiteSpace(mwqmRunModel.SampleCrewInitials) ? MWQMViewRes.Empty : mwqmRunModel.SampleCrewInitials)
+                    </span>
+                </li>
+                <li>
+                    <label>@MWQMViewRes.SampleMatrix</label>
+                    <span>
+                        @(mwqmRunModel.SampleMatrix == null ? MWQMViewRes.Empty : _BaseEnumService.GetEnumText_SampleMatrixEnum(mwqmRunModel.SampleMatrix))
+                    </span>
+                </li>
+                <li>
+                    <label class="group-title">@MWQMViewRes.Time</label>
+                    <div class="group-inline">
+                        <label>@MWQMViewRes.Start</label>
+                        <span>
+                            @(mwqmRunModel.StartDateTime_Local == null ? MWQMViewRes.Empty : ((DateTime)mwqmRunModel.StartDateTime_Local).ToString("HH:mm"))
+                        </span>
+                    </div>
+                    <div class="group-inline">
+                        <label>@MWQMViewRes.End</label>
+
+                        <span>
+                            @(mwqmRunModel.EndDateTime_Local == null ? MWQMViewRes.Empty : ((DateTime)mwqmRunModel.EndDateTime_Local).ToString("HH:mm"))
+                        </span>
+                    </div>
+                </li>
+                <li>
+                    <label class="group-title">@MWQMViewRes.SeaState  (<a target="_blank" href="https://en.wikipedia.org/wiki/Beaufort_scale">@MWQMViewRes.BeaufortScale</a>)</label>
+                    <div class="group-inline">
+                        <label>@MWQMViewRes.Start</label>
+                        <span>
+                            @(mwqmRunModel.SeaStateAtStart_BeaufortScale == null ? MWQMViewRes.Empty : ((int)mwqmRunModel.SeaStateAtStart_BeaufortScale).ToString())
+                        </span>
+                    </div>
+                    <div class="group-inline">
+                        <label>@MWQMViewRes.End </label>
+                        <span>
+                            @(mwqmRunModel.SeaStateAtEnd_BeaufortScale == null ? MWQMViewRes.Empty : ((int)mwqmRunModel.SeaStateAtEnd_BeaufortScale).ToString())
+                        </span>
+                    </div>
+                </li>
+                <li>
+                    <label>@MWQMViewRes.WaterLevelAtBrook (@UnitViewRes.Meters_abbr)</label>
+                    <span>
+                        @(mwqmRunModel.WaterLevelAtBrook_m == null ? MWQMViewRes.Empty : ((double)mwqmRunModel.WaterLevelAtBrook_m).ToString("F2"))
+                    </span>
+                </li>
+                <li>
+                    <label>@MWQMViewRes.WaveHeight (@UnitViewRes.Meters_abbr)</label>
+                    <div class="group-inline">
+                        <label>@MWQMViewRes.Start</label>
+                        <span>
+                            @(mwqmRunModel.WaveHightAtStart_m == null ? MWQMViewRes.Empty : ((double)mwqmRunModel.WaveHightAtStart_m).ToString("F2"))
+                        </span>
+                    </div>
+                    <div class="group-inline">
+                        <label>@MWQMViewRes.End</label>
+                        <span>
+                            @(mwqmRunModel.WaveHightAtEnd_m == null ? MWQMViewRes.Empty : ((double)mwqmRunModel.WaveHightAtEnd_m).ToString("F2"))
+                        </span>
+                    </div>
+                </li>
+                <li>
+                    <label>@MWQMViewRes.RunComment</label>
+                    <pre>@(mwqmRunModel.RunComment == null ? MWQMViewRes.Empty : mwqmRunModel.RunComment)</pre>
+                </li>
+                <li>
+                    <label>@MWQMViewRes.RunWeatherComment</label>
+                    <pre>@(mwqmRunModel.RunWeatherComment == null ? MWQMViewRes.Empty : mwqmRunModel.RunWeatherComment)</pre>
+                </li>
+            </ul>
+            <h4>
+                @MWQMViewRes.LaboratoryRelatedInformation
+            </h4>
+            <ul class="list-unstyled ul-results">
+                <li>
+                    <label>@MWQMViewRes.Laboratory</label>
+
+                    <span>
+                        @(mwqmRunModel.Laboratory == null ? MWQMViewRes.Empty : _BaseEnumService.GetEnumText_LaboratoryEnum(mwqmRunModel.Laboratory))
+                    </span>
+                </li>
+                <li>
+                    <label> @MWQMViewRes.LaboratoryReceivedSamples</label>
+
+                    <span>
+                        @(LabReceivedSampleOnSameDay ? MWQMViewRes.TheSameDay : MWQMViewRes.TheNextDay)
+                    </span>
+                </li>
+
+                <li>
+                    <label>@MWQMViewRes.TemperatureControl1 (@UnitViewRes.Celcius_abbr)</label>
+
+                    <span>
+                        @(mwqmRunModel.TemperatureControl1_C == null ? MWQMViewRes.Empty : ((double)mwqmRunModel.TemperatureControl1_C).ToString("F1"))
+                    </span>
+                </li>
+
+                <li>
+                    <label>@MWQMViewRes.TemperatureControl2 (@UnitViewRes.Celcius_abbr)</label>
+
+                    <span>
+                        @(mwqmRunModel.TemperatureControl2_C == null ? MWQMViewRes.Empty : ((double)mwqmRunModel.TemperatureControl2_C).ToString("F1"))
+                    </span>
+                </li>
+
+
+                <li>
+                    <label>@MWQMViewRes.AnalysisMethod</label>
+
+                    <span>
+                        @(mwqmRunModel.AnalyzeMethod == null ? MWQMViewRes.Empty : _BaseEnumService.GetEnumText_AnalyzeMethodEnum(mwqmRunModel.AnalyzeMethod))
+                    </span>
+                </li>
+                <li>
+                    <label>@MWQMViewRes.LabAnalysisBath1Incubation @MWQMViewRes.StartTime</label>
+
+                    <span>
+                        @(mwqmRunModel.LabAnalyzeBath1IncubationStartDateTime_Local == null ? MWQMViewRes.Empty : ((DateTime)mwqmRunModel.LabAnalyzeBath1IncubationStartDateTime_Local).ToString("HH:mm"))
+                    </span>
+                </li>
+                <li>
+                    <label>@MWQMViewRes.LabAnalysisBath2Incubation @MWQMViewRes.StartTime</label>
+
+                    <span>
+                        @(mwqmRunModel.LabAnalyzeBath2IncubationStartDateTime_Local == null ? MWQMViewRes.Empty : ((DateTime)mwqmRunModel.LabAnalyzeBath2IncubationStartDateTime_Local).ToString("HH:mm"))
+                    </span>
+                </li>
+                <li>
+                    <label>@MWQMViewRes.LabAnalysisBath3Incubation @MWQMViewRes.StartTime</label>
+
+                    <span>
+                        @(mwqmRunModel.LabAnalyzeBath3IncubationStartDateTime_Local == null ? MWQMViewRes.Empty : ((DateTime)mwqmRunModel.LabAnalyzeBath3IncubationStartDateTime_Local).ToString("HH:mm"))
+                    </span>
+                </li>
+                <li>
+                    <label>@MWQMViewRes.RunSamplesApprovedBy</label>
+
+                    <span>
+                        @(ValidatorContactTVText == null ? MWQMViewRes.Empty : ValidatorContactTVText)
+                    </span>
+                </li>
+
+                <li>
+                    <label>@MWQMViewRes.LaboratorySampleApprovalDateAndTime</label>
+
+                    <span>
+                        @(mwqmRunModel.LabRunSampleApprovalDateTime_Local == null ? MWQMViewRes.Empty : ((DateTime)mwqmRunModel.LabRunSampleApprovalDateTime_Local).ToString("yyyy MMMM dd HH:mm"))
+                    </span>
+                </li>
+            </ul>
+        </div>
+        <h4>
+            @MWQMViewRes.HistoricalRelatedInformation
+        </h4>
+        <ul class="list-unstyled ul-results">
+            <li>
+                <label class="group-title">@MWQMViewRes.Precipitation <span title="@UnitViewRes.Millimeters">(@UnitViewRes.Millimeters_abr)</span></label>
+                <div class="group-inline">
+                    <label>@MWQMViewRes.RainDay1</label>
+
+                    <span>
+                        @(mwqmRunModel.RainDay1_mm == null ? MWQMViewRes.Empty : ((double)mwqmRunModel.RainDay1_mm).ToString("F0"))
+                    </span>
+                </div>
+                <div class="group-inline">
+                    <label>@MWQMViewRes.RainDay2</label>
+
+                    <span>
+                        @(mwqmRunModel.RainDay2_mm == null ? MWQMViewRes.Empty : ((double)mwqmRunModel.RainDay2_mm).ToString("F0"))
+                    </span>
+                </div>
+                <div class="group-inline">
+                    <label>@MWQMViewRes.RainDay3</label>
+
+                    <span>
+                        @(mwqmRunModel.RainDay3_mm == null ? MWQMViewRes.Empty : ((double)mwqmRunModel.RainDay3_mm).ToString("F0"))
+                    </span>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <script type="text/javascript">
+        $(function () {
+            cssp.MWQMRun.ShowPart("MWQMRunData");
+            cssp.MWQMRun.Init();
+        });
+    </script>
+</div>

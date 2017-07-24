@@ -1,0 +1,25 @@
+﻿@using CSSPWebTools.Views.RainExceedance.Resources;
+@using CSSPWebTools.Models;
+@using CSSPEnumsDLL.Enums;
+@using CSSPEnumsDLL.Services;
+@using CSSPModelsDLL.Models;
+@using CSSPWebTools.Controllers;
+
+@{
+    List<TVItemModel> TVItemModelSubsectorList = (List<TVItemModel>)ViewBag.TVItemModelSubsectorList;
+}
+
+<h4>@RainExceedanceViewRes.ApplyToSubsector</h4>
+<ul class="list-unstyled">
+    @if (TVItemModelSubsectorList.Count == 0)
+            {
+        <li>@RainExceedanceViewRes.Empty</li>
+    }
+    else
+    {
+        foreach (TVItemModel TVItemModel in TVItemModelSubsectorList)
+        {
+            <li>@TVItemModel.TVText</li>
+        }
+    }
+</ul>

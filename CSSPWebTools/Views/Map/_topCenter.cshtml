@@ -1,0 +1,97 @@
+﻿@using CSSPWebTools.Views.Map.Resources;
+
+@*Top Center Menu *@
+<div id="MapTopCenterID" class="text-center hidden" style="width: 400px;">
+    <ul class="list-inline ">
+        <li>
+            <button class="jbMapTopCenterShowHide btn btn-default">
+                <span class="glyphicon glyphicon-list"></span>
+            </button>
+        </li>
+        <li>
+            <input id="CurrentLatLng" type="text" class="form-control input-sm" />
+        </li>
+    </ul>
+    <div id="MapTopCenterPanelDiv" class="hidden panel panel-default">
+        <div class="panel-heading">
+            <div class="panel-title">
+                Map helper
+            </div>
+        </div>
+        <div class="panel-body">
+            <ul class="list-inline">
+                <li>
+                    <input class="MapTopCenterItemVisibility" type="checkbox" data-tag="Setup" />&nbsp;&nbsp;@MapViewRes.Setup
+                </li>
+                <li>
+                    <input class="MapTopCenterItemVisibility" type="checkbox" data-tag="Edit" />&nbsp;&nbsp;@MapViewRes.Edit
+                </li>
+                <li>
+                    <input class="MapTopCenterItemVisibility" type="checkbox" data-tag="Legend" />&nbsp;&nbsp;@MapViewRes.Legend
+                </li>
+                <li>
+                    <input class="MapTopCenterItemVisibility" type="checkbox" data-tag="Browse" />&nbsp;&nbsp;@MapViewRes.Browse
+                </li>
+                @*<li>
+                    <input class="MapTopCenterItemVisibility" type="checkbox" data-tag="Distance" />&nbsp;&nbsp;@MapViewRes.Distance
+                </li>*@
+            </ul>
+            <ul class="MapTopCenterSetup hidden list-inline">
+                <li>
+                    <button class="jbMapSizeBigger btn btn-default" title="@MapViewRes.IncreaseMapSize" href="#"><span class="glyphicon glyphicon-arrow-left"></span></button>&nbsp;
+                </li>
+                <li>
+                    <button class="jbMapSizeSmaller btn btn-default" title="@MapViewRes.DecreaseMapSize" href="#"><span class="glyphicon glyphicon-arrow-right"></span></button>&nbsp;
+                </li>
+                <li>
+                    <button class="jbMapHide btn btn-default" title="@MapViewRes.HideMap"><span class="glyphicon glyphicon-eye-close"></span></button>
+                </li>
+                <li><input type="number" name="MarkerTextLength" min="1" max="50" value="1" style="width: 70px" /></li>
+                <li>@MapViewRes.MarkerSize</li>
+            </ul>
+            <ul class="MapTopCenterEdit hidden list-inline">
+                <li>
+                    <button class="jbMapEdit btn btn-default" role="menuitem" href="#" tabindex="-1" title="@MapViewRes.Edit"><span class="glyphicon glyphicon-pencil"></span></button>&nbsp;
+                </li>
+                <li>
+                    <button class="jbMapEditSave disabled  btn btn-default small" role="menuitem" href="#" tabindex="-1" title="@MapViewRes.Save"><span class="glyphicon glyphicon-check"></span></button>&nbsp;
+                </li>
+                <li>
+                    <button class="jbMapEditCancel disabled btn btn-default small" role="menuitem" href="#" tabindex="-1" title="@MapViewRes.Cancel"><span class="glyphicon glyphicon-ban-circle"></span></button>&nbsp;
+                </li>
+            </ul>
+            <div class="MapTopCenterLegend hidden">
+                <ul class="list-inline LegendPinObj"></ul>
+            </div>
+            <div class="MapTopCenterBrowse hidden">
+                <ul class="breadcrumb" id="MapBreadCrumb"></ul>
+                <ul class="list-inline">
+                    <li id="MapCurrentTab"></li>
+                    <li id="MapOtherTabs"></li>
+                </ul>
+            </div>
+            <div class="MapTopCenterDistance hidden">
+                <p>Click on point #1 then double click on map then repeat for point #2</p>
+                <ul class="list-inline">
+                    <li class="DistancePoint1">@MapViewRes.Point #1:</li>
+                    <li>@MapViewRes.Lat</li>
+                    <li><input type="number" name="DistanceLat1" style="width: 50px" /></li>
+                    <li>@MapViewRes.Lng</li>
+                    <li><input type="number" name="DistanceLng1" style="width: 50px" /></li>
+                </ul>
+                <ul class="list-inline bg-success">
+                    <li class="DistancePoint1">@MapViewRes.Point #2:</li>
+                    <li>@MapViewRes.Lat</li>
+                    <li><input type="number" name="DistanceLat2" style="width: 50px" /></li>
+                    <li>@MapViewRes.Lng</li>
+                    <li><input type="number" name="DistanceLng2" style="width: 50px" /></li>
+                </ul>
+                <ul class="list-inline">
+                    <li>@MapViewRes.Distance:</li>
+                    <li><input type="number" name="DistanceLat" style="width: 50px" value="" /></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+

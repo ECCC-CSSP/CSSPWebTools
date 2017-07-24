@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSSPWebTools", "CSSPWebTools\CSSPWebTools.csproj", "{2E4A4DE1-6C58-4C08-B68D-CD2047CC69B8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSSPWebTools.Tests", "CSSPWebTools.Tests\CSSPWebTools.Tests.csproj", "{8A22FBBC-0DE2-4227-BD73-708CE0549030}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2E4A4DE1-6C58-4C08-B68D-CD2047CC69B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E4A4DE1-6C58-4C08-B68D-CD2047CC69B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E4A4DE1-6C58-4C08-B68D-CD2047CC69B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E4A4DE1-6C58-4C08-B68D-CD2047CC69B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A22FBBC-0DE2-4227-BD73-708CE0549030}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A22FBBC-0DE2-4227-BD73-708CE0549030}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A22FBBC-0DE2-4227-BD73-708CE0549030}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A22FBBC-0DE2-4227-BD73-708CE0549030}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

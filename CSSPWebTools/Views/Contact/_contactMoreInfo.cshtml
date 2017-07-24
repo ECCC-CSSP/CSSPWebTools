@@ -1,0 +1,97 @@
+﻿@using CSSPWebTools.Views.Contact.Resources;
+@using CSSPWebToolsDBDLL.Services;
+@using CSSPWebTools.Models;
+@using CSSPWebTools.Controllers;
+@using CSSPEnumsDLL.Enums;
+@using CSSPEnumsDLL.Services;
+@using CSSPModelsDLL.Models;
+
+@{
+    ContactModel contactModel = (ContactModel)ViewBag.ContactModel;
+    ContactController contactController = (ContactController)ViewBag.ContactController;
+    BaseEnumService _BaseEnumService = new BaseEnumService(ViewBag.Language);
+}
+
+<div class="blockMargin paraBlock">
+    <ul class="list-unstyled">
+        <li>
+            <div>
+
+                @if (contactModel.TelList.Count > 0)
+                {
+                    <label class="text-lighter pushRight">@ContactViewRes.PhoneNumbers:</label>
+                    foreach (TelModel telModel in contactModel.TelList)
+                    {
+                        <span class="elementSpacing text-nowrap">
+                            <span class="text-lowercase ">
+                                (@(_BaseEnumService.GetEnumText_TelTypeEnum(telModel.TelType)))
+                            </span>&nbsp; <a href="tel:@telModel.TelNumber">@telModel.TelNumber</a>
+                        </span>
+                    }
+                }
+            </div>
+
+        </li>
+
+
+        <li>
+            <div>
+
+                @if (contactModel.EmailList.Count > 0)
+                {
+                    <label class="text-lighter pushRight">@ContactViewRes.Emails:</label>
+                    foreach (EmailModel emailModel in contactModel.EmailList)
+                    {
+                        <span class="elementSpacing text-nowrap">
+
+                            <span class="text-lowercase">
+                                (@(_BaseEnumService.GetEnumText_EmailTypeEnum(emailModel.EmailType)))
+                            </span>&nbsp;
+                            <a href="mailto:@emailModel.EmailAddress">@emailModel.EmailAddress</a>
+                        </span>
+                    }
+                }
+            </div>
+        </li>
+        <li>
+            @if (contactModel.AddressList.Count > 0)
+            {
+                foreach (AddressModel addressModel in contactModel.AddressList)
+                {
+                    <div class="text-nowrap">
+
+                        <label class="text-lighter pushRight">@ContactViewRes.Addresses</label>
+                        @if (string.IsNullOrWhiteSpace(addressModel.GoogleAddressText))
+                        {
+                            <span class=" elementSpacing text-lowercase">(@(_BaseEnumService.GetEnumText_AddressTypeEnum(addressModel.AddressType)))&nbsp;</span>
+                            <span>
+                                @addressModel.StreetNumber
+                                @addressModel.StreetName
+                                @addressModel.StreetTypeText,
+                                @addressModel.MunicipalityTVText,
+                                @addressModel.ProvinceTVText,
+                                @addressModel.PostalCode,
+                                @addressModel.CountryTVText
+                            </span>
+                        }
+                        else
+                        {
+                            <span class=" elementSpacing text-lowercase">(Google)&nbsp;</span>
+                            <span>
+                                @addressModel.LatLngText &nbsp;&nbsp;&nbsp;
+                                @addressModel.GoogleAddressText
+                            </span>
+                        }
+
+                    </div>
+                }
+            }
+        </li>
+    </ul>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        cssp.Contact.Init();
+    });
+</script>

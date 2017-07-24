@@ -1,0 +1,126 @@
+﻿@using CSSPWebTools.Views.Infrastructure.Resources;
+@using CSSPWebTools.Controllers;
+@using CSSPModelsDLL.Models;
+@using CSSPEnumsDLL.Enums;
+@using CSSPEnumsDLL.Services;
+
+@{
+    int TVItemIDMunicipality = (int)ViewBag.TVItemIDMunicipality;
+    List<TVItemModel> tvItemModelMunicipalityList = (List<TVItemModel>)ViewBag.TVItemModelMunicipalityList;
+    int InfrastructureTVItemID = (int)ViewBag.InfrastructureTVItemID;
+    InfrastructureModel infrastructureModel = (InfrastructureModel)ViewBag.InfrastructureModel;
+    string TVText = (string)ViewBag.TVText;
+    MapInfoPointModel mapInfoPointModelInfrastructure = (MapInfoPointModel)ViewBag.MapInfoPointModelInfrastructure;
+    MapInfoPointModel mapInfoPointModelInfrastructureOutfall = (MapInfoPointModel)ViewBag.MapInfoPointModelInfrastructureOutfall;
+    InfrastructureController infrastructureController = (InfrastructureController)ViewBag.InfrastructureController;
+    BaseEnumService _BaseEnumService = new BaseEnumService(ViewBag.Language);
+}
+<form class="InfrastructureAddOrModify" method="post" role="form" action="Infrastructure/InfrastructureAddOrModifyJSON">
+    <div class="LastUpdateAndTVText" data-table="Infrastructure" data-id="@infrastructureModel.InfrastructureID"></div>
+    @Html.AntiForgeryToken()
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title"><span>@(InfrastructureTVItemID == 0 ? ("" + InfrastructureViewRes.Add + " " + InfrastructureViewRes.Under + " " + TVText) : ("" + InfrastructureViewRes.Modify + " " + TVText))</span></h4>
+        </div>
+        <div class="panel-body">
+            <fieldset>
+                <input type="hidden" name="TVItemIDMunicipality" value="@TVItemIDMunicipality" />
+                <input type="hidden" name="InfrastructureTVItemID" value="@InfrastructureTVItemID" />
+                <div class="form-group">
+                    <label class="control-label" for="InfrastructureTVText">@InfrastructureViewRes.InfrastructureName</label>
+                    <div>
+                        <input autofocus="autofocus" class="form-control"
+                               name="InfrastructureTVText" type="text" id="InfrastructureTVText" value="@(InfrastructureTVItemID == 0 ? "" : infrastructureModel.InfrastructureTVText)" />
+                        <span class="help-block"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="InfrastructureType" class="control-label">@InfrastructureViewRes.InfrastructureType</label>
+                    <div>
+                        <span>
+                            <select class="InfrastructureTypeSelect form-control" name="InfrastructureType">
+                                <option value="0" @(InfrastructureTVItemID == 0 ? "selected=selected" : "")>@InfrastructureViewRes.Select @InfrastructureViewRes.InfrastructureType</option>
+                                @foreach (InfrastructureTypeEnumTextOrdered infrastructureTypeEnumTextOrdered in _BaseEnumService.GetInfrastructureTypeEnumTextOrderedList())
+                                {
+                                    <option value="@((int)infrastructureTypeEnumTextOrdered.InfrastructureType)" @(InfrastructureTVItemID == 0 ? "" : (infrastructureTypeEnumTextOrdered.InfrastructureType == infrastructureModel.InfrastructureType) ? "selected=selected" : ""))>
+                                        @(infrastructureTypeEnumTextOrdered.InfrastructureTypeText)
+                                    </option>
+                                }
+                            </select>
+                            <span class="help-block"></span>
+                        </span>
+                    </div>
+                </div>
+                <div class="SeeOtherTVItemID form-group hidden">
+                    <label for="SeeOtherTVItemID" class="control-label">@InfrastructureViewRes.SeeOtherMunicipality</label>
+                    <div>
+                        <span>
+                            <select name="SeeOtherTVItemID" class="form-control">
+                                @foreach (TVItemModel tvItemModelMunicipality in tvItemModelMunicipalityList)
+                                {
+                                    <option value="@tvItemModelMunicipality.TVItemID">
+                                        @tvItemModelMunicipality.TVText
+                                    </option>
+                                }
+                            </select>
+                            <span class="help-block"></span>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-inline">
+                    <div>
+                        <label>@InfrastructureViewRes.InfrastructureCoordinates</label>
+                    </div>
+                    <div class="form-group blockRightSpace">
+                        <label for="Lat" class="control-label">@InfrastructureViewRes.Latitude</label>
+                        <div>
+                            <input class="isnumber form-control" type="text" name="Lat"
+                                    value="@(InfrastructureTVItemID == 0 ? "" : (mapInfoPointModelInfrastructure == null ? "" : mapInfoPointModelInfrastructure.Lat.ToString("F5")))" />
+                            <span class="help-block"></span>
+                        </div>
+                    </div>
+                    <div class="form-group  blockRightSpace">
+                        <label for="Lng" class="control-label">@InfrastructureViewRes.Longitude</label>
+                        <div>
+                            <input class="isnumber form-control" type="text" name="Lng" 
+                                   value="@(InfrastructureTVItemID == 0 ? "" : (mapInfoPointModelInfrastructure == null ? " " : mapInfoPointModelInfrastructure.Lng.ToString("F5")))" />
+                            <span class="help-block"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-inline">
+                    <div>
+                        <label>@InfrastructureViewRes.InfrastructureOutfallCoordinates</label>
+                    </div>
+                    <div class="form-group blockRightSpace">
+                        <label for="LatOutfall" class="control-label">@InfrastructureViewRes.OutfallLatitude</label>
+                        <div>
+                            <input class="isnumber form-control" type="text" name="LatOutfall"
+                                    value="@(InfrastructureTVItemID == 0 ? "" : (mapInfoPointModelInfrastructureOutfall == null ? "" : mapInfoPointModelInfrastructureOutfall.Lat.ToString("F5")))" />
+                            <span class="help-block"></span>
+                        </div>
+                    </div>
+                    <div class="form-group  blockRightSpace">
+                        <label for="LngOutfall" class="control-label">@InfrastructureViewRes.OutfallLongitude</label>
+                        <div>
+                            <input class="isnumber form-control" type="text" name="LngOutfall" 
+                                   value="@(InfrastructureTVItemID == 0 ? "" : (mapInfoPointModelInfrastructureOutfall == null ? " " : mapInfoPointModelInfrastructureOutfall.Lng.ToString("F5")))" />
+                            <span class="help-block"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="btn-block">
+                    <button class="jbInfrastructureNameAndMapAdd btn btn-primary" type="submit">
+                        <span class="glyphicon glyphicon-check"></span>
+                        &nbsp; @(InfrastructureTVItemID == 0 ? InfrastructureViewRes.Add : InfrastructureViewRes.Modify)
+                    </button>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+</form>
+<script type="text/javascript">
+    $(function () {
+        cssp.Infrastructure.InitAddOrModify();
+    });
+</script>

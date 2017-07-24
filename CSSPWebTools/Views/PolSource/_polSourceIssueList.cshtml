@@ -1,0 +1,37 @@
+﻿@using CSSPWebTools.Views.PolSource.Resources;
+@using CSSPModelsDLL.Models;
+
+@{
+    int PolSourceObservationID = (int)ViewBag.PolSourceObservationID;
+    int IssueOrdinal = (int)ViewBag.IssueOrdinal;
+    int NextIssueOrdinal = (int)ViewBag.NextIssueOrdinal;
+    List<PolSourceObservationIssueModel> polSourceObservationIssueModelList = (List<PolSourceObservationIssueModel>)ViewBag.PolSourceObservationIssueModelList;
+    PolSourceObservationIssueModel polSourceObservationIssueModel = polSourceObservationIssueModelList.Where(c => c.Ordinal == IssueOrdinal).FirstOrDefault();
+    if (polSourceObservationIssueModel == null)
+    {
+        polSourceObservationIssueModel = new PolSourceObservationIssueModel();
+        polSourceObservationIssueModel.PolSourceObservationIssueID = 0;
+        polSourceObservationIssueModel.Ordinal = 0;
+    }
+    int count = 0;
+}
+
+@foreach (PolSourceObservationIssueModel PolSourceObservationIssueModel in polSourceObservationIssueModelList)
+{
+    count += 1;
+    <button class="jbPolSourceEditIssue btn btn-@(PolSourceObservationIssueModel.Ordinal == IssueOrdinal ? "success" : "default")" 
+            data-polsourceobservationid="@PolSourceObservationID"  
+            data-issueordinal="@PolSourceObservationIssueModel.Ordinal">@PolSourceViewRes.Issue #@count</button>
+}
+<button class="jbPolSourceAddIssue btn btn-default" data-polsourceobservationid="@PolSourceObservationID" data-issueordinal="@NextIssueOrdinal">@PolSourceViewRes.Add @PolSourceViewRes.Issue</button>
+<div class="IssueEdit">
+    @Html.Action("_polSourceIssueModify", "PolSource", new { PolSourceObservationIssueID = polSourceObservationIssueModel.PolSourceObservationIssueID, IssueOrdinal = polSourceObservationIssueModel.Ordinal })
+</div>
+<script type="text/javascript">
+    $(function () {
+        cssp.PolSourceSite.InitIssueList();
+    });
+    $(function () {
+        $(".jaPopover").popover();
+    });
+</script>

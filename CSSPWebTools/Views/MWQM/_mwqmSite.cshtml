@@ -1,0 +1,85 @@
+﻿@using CSSPWebTools.Models;
+@using CSSPWebTools.Views.Shared.Resources;
+@using CSSPWebTools.Views.MWQM.Resources;
+@using CSSPWebTools.Controllers;
+@using CSSPModelsDLL.Models;
+
+@{
+    URLModel urlModel = (URLModel)ViewBag.URLModel;
+    MWQMSiteModel mwqmSiteModelCurrent = (MWQMSiteModel)ViewBag.MWQMSiteModelCurrent;
+    int NumberOfSample = (int)ViewBag.NumberOfSample;
+    List<int> OptionList = new List<int>() { 10, 15, 20, 25, 30, 35, 40 };
+    TVItemModel tvItemModelCurrent = (TVItemModel)ViewBag.TVItemModelCurrent;
+    List<TVItemModel> tvItemModelOtherList = (List<TVItemModel>)ViewBag.TVItemModelOtherList;
+    MWQMController mwqmController = (MWQMController)ViewBag.MWQMController;
+    string BaseURL = (string)ViewBag.BaseURL;
+    bool IsMoreInfo = (bool)ViewBag.IsMoreInfo;
+    MapInfoPointModel mapInfoPointModel = (MapInfoPointModel)ViewBag.MapInfoPointModel;
+
+}
+
+<div id="MWQMSiteDiv" data-subsectortvitemid="@tvItemModelCurrent.ParentID" data-mwqmsitetvitemid="@tvItemModelCurrent.TVItemID">
+    <div id="MWQMSiteVariables" class="hidden">
+        <span class="varDepth">@MWQMViewRes.Depth_abbr</span>
+        <span class="varFecalColiformsLessOrEqualThan14">@MWQMViewRes.FCLessOrEqualThan14</span>
+        <span class="varFecalColiformsMoreThan14">@MWQMViewRes.FCMoreThan14</span>
+        <span class="varFC">@MWQMViewRes.FecalColiforms_abbr</span>
+        <span class="varGeometricMean">@MWQMViewRes.GeometricMean</span>
+        <span class="varGM">@MWQMViewRes.GeometricMean_abbr</span>
+        <span class="varMed">@MWQMViewRes.Median_abbr</span>
+        <span class="varNumberOfSample">@MWQMViewRes.NumberOfSample</span>
+        <span class="varpH">@MWQMViewRes.pH</span>
+        <span class="varSalinityPPT">@MWQMViewRes.Salinity (@UnitViewRes.PPT)</span>
+        <span class="varSal">@UnitViewRes.PPT</span>
+        <span class="varSampleDate">@MWQMViewRes.SampleDate</span>
+        <span class="varTemperatureC">@MWQMViewRes.Temperature (@UnitViewRes.Celcius_abbr)</span>
+        <span class="varTemp">@UnitViewRes.Celcius_abbr</span>
+    </div>
+    @if (IsMoreInfo)
+    {
+        <ul class="list-unstyled">
+            <li>
+                <h4>
+                    <span><b>@MWQMViewRes.MWQMSiteDescription:</b></span> &nbsp;
+                    <span>
+                        @mwqmSiteModelCurrent.MWQMSiteDescription
+                    </span>
+
+                </h4>
+            </li>
+            <li>
+                <span><b>@MWQMViewRes.Location:</b></span> &nbsp;
+                <span>
+                    @mapInfoPointModel.Lat.ToString("F5"),
+                </span>
+                <span>
+                    @mapInfoPointModel.Lng.ToString("F5")
+                </span>
+            </li>
+        </ul>
+    }
+    <div id="MWQMSiteAddOrModifyDiv">
+
+    </div>
+    <div>
+        <button class="jbMWQMSiteDataLoad btn btn-success">@MWQMViewRes.Data</button>
+        <button class="jbMWQMSiteChartsLoad btn btn-default">@MWQMViewRes.Charts</button>
+        <button class="jbMWQMSiteOtherMWQMSitesLoad btn btn-default">@MWQMViewRes.OtherMWQMSites</button>
+
+    </div>
+
+    <div id="MWQMSiteDataID" class="hidden">
+
+    </div>
+    <div id="MWQMSiteChartsID" class="hidden">
+
+    </div>
+    <div id="MWQMSiteOtherMWQMSitesID" class="hidden">
+
+    </div>
+    <script type="text/javascript">
+            $(function () {
+                cssp.MWQMSite.LoadData();
+            });
+    </script>
+</div>

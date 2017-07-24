@@ -1,0 +1,125 @@
+﻿@using CSSPWebTools.Views.SamplingPlan.Resources;
+@using CSSPModelsDLL.Models;
+
+@{
+    int SamplingPlanID = (int)ViewBag.SamplingPlanID;
+    int ProvinceTVItemID = (int)ViewBag.ProvinceTVItemID;
+    int SubsectorTVItemID = (int)ViewBag.SubsectorTVItemID;
+    bool IsSamplingPlanner = (bool)ViewBag.IsSamplingPlanner;
+    List<ContactModel> AdminContactModelList = (List<ContactModel>)ViewBag.AdminContactModelList;
+    ContactModel contactModel = (ContactModel)ViewBag.ContactModel;
+    List<SamplingPlanSubsectorSiteModel> SamplingPlanSubsectorSiteModelList = (List<SamplingPlanSubsectorSiteModel>)ViewBag.SamplingPlanSubsectorSiteModelList;
+    TVItemModel tvItemModelDuplicate = new TVItemModel();
+    List<TVItemModel> tvItemModelMWQMSiteList = (List<TVItemModel>)ViewBag.TVItemModelMWQMSiteList;
+    List<TVItemModel> tvItemModelSelectedList = new List<TVItemModel>();
+    string DuplicateOption = "";
+    string MWQMDuplicateID = "";
+}
+@if (!IsSamplingPlanner)
+{
+    <h3>@SamplingPlanViewRes.NoPermissionMessageSamplingPlans</h3>
+    <blockquote>
+        <p>@SamplingPlanViewRes.ToHaveAccess</p>
+        <ul class="list-inline">
+            @foreach (ContactModel acm in AdminContactModelList)
+            {
+                <li>
+                    <a href="mailto:@acm.LoginEmail" class="btn btn-link">@acm.LoginEmail</a>
+                </li>
+            }
+        </ul>
+    </blockquote>
+    <script type="text/javascript">
+        $(function () {
+            cssp.SamplingPlan.InitNoPermission();
+        });
+    </script>
+}
+else
+{
+    <div class="SamplingPlanSubsectorTop">
+        <form class="SamplingPlanSubsectorEditForm" method="post" role="form" action="SamplingPlan/SamplingPlanSubsectorSaveJSON">
+            @Html.AntiForgeryToken()
+            <fieldset>
+                <input type="hidden" name="SamplingPlanID" value="@SamplingPlanID" />
+                <input type="hidden" name="ProvinceTVItemID" value="@ProvinceTVItemID" />
+                <input type="hidden" name="SubsectorTVItemID" value="@SubsectorTVItemID" />
+                <ul class="list-unstyled blockMargin">
+                    <li>
+                        <label class="text-primary h4">@SamplingPlanViewRes.MWQMSites</label>
+                        <button class="jbSamplingPlanSubsectorSelectAll btn btn-default">@SamplingPlanViewRes.SelectAll</button>
+                        <button class="jbSamplingPlanSubsectorUnSelectAll btn btn-default">@SamplingPlanViewRes.UnSelectAll</button>
+                    </li>
+                    <li>
+                        <ul class="list-inline">
+                            <li>
+                                @foreach (TVItemModel tvItemModelMWQMSite in tvItemModelMWQMSiteList)
+                            {
+                                bool IsCheckedMWQMSite = false;
+                                bool IsDuplicate = false;
+                                if (SamplingPlanSubsectorSiteModelList != null)
+                                {
+
+                                    IsCheckedMWQMSite = (from c in SamplingPlanSubsectorSiteModelList
+                                                         where c.MWQMSiteTVItemID == tvItemModelMWQMSite.TVItemID
+                                                         select c).Any();
+
+                                    if (IsCheckedMWQMSite)
+                                    {
+                                        tvItemModelSelectedList.Add(tvItemModelMWQMSite);
+                                    }
+
+                                    IsDuplicate = (from c in SamplingPlanSubsectorSiteModelList
+                                                   where c.MWQMSiteTVItemID == tvItemModelMWQMSite.TVItemID
+                                                   && c.IsDuplicate == true
+                                                   select c).Any();
+
+                                    if (IsDuplicate)
+                                    {
+                                        tvItemModelDuplicate = tvItemModelMWQMSite;
+                                    }
+
+                                    if (IsCheckedMWQMSite)
+                                    {
+                                        DuplicateOption += @"<option value=""" + tvItemModelMWQMSite.TVItemID + @"""" +
+                                            (tvItemModelMWQMSite.TVItemID == tvItemModelDuplicate.TVItemID ? "selected='selected'" : "") + ">" +
+                                        tvItemModelMWQMSite.TVText + "</option>";
+                                    }
+                                }
+                                string MWQMNameID = "SS" + SubsectorTVItemID + "_S" + tvItemModelMWQMSite.TVItemID;
+
+
+                            <div class="checkbox-inline">
+
+                                <label class="control-label  @(IsCheckedMWQMSite ? "ElementSelected" : "")">
+                                    <input class="mwqmsite checkbox invisible" name="@MWQMNameID" type="checkbox"
+                                           @(IsCheckedMWQMSite ? "checked='checked'" : "") value="@(tvItemModelMWQMSite.TVItemID)"
+                                           data-isduplicate="@(IsDuplicate == true ? "T" : "F")" />
+                                    <span>@tvItemModelMWQMSite.TVText</span>
+                                </label>
+                            </div>
+
+                                MWQMDuplicateID = "SS" + tvItemModelMWQMSite.ParentID + "_D";
+
+                            }
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <div class="form-inline">
+                            <label class="control-label text-primary">@SamplingPlanViewRes.Duplicate:</label>
+                            <select class="mwqmsiteduplicate form-control" name="@MWQMDuplicateID">
+                                @DuplicateOption
+                            </select>
+                            <button class="jbSamplingPlanSubsectorEditSave btn btn-primary" type="submit">
+                                <span class="glyphicon glyphicon-check"></span>
+                                &nbsp;
+                                <span class="SamplingPlanMWQMSiteSave">@SamplingPlanViewRes.Save</span> 
+                            </button>
+                        </div>
+                    </li>
+                </ul>
+            </fieldset>
+        </form>
+    </div>
+}

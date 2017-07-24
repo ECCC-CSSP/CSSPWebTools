@@ -1,0 +1,445 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="CouldNotPost_" xml:space="preserve">
+    <value>L'envoi au serveur de [{0}] a été interrompu.</value>
+    <comment>15</comment>
+  </data>
+  <data name="CSSPWebTools" xml:space="preserve">
+    <value>PCCSM - Outils Web</value>
+    <comment>15</comment>
+  </data>
+  <data name="DraggingPoint" xml:space="preserve">
+    <value>Faire glisser le point</value>
+    <comment>15</comment>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Éditer</value>
+    <comment>15</comment>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Erreur</value>
+    <comment>15</comment>
+  </data>
+  <data name="HrefShouldNotBeEmpty" xml:space="preserve">
+    <value>href should not be empty</value>
+    <comment>15</comment>
+  </data>
+  <data name="Infrastructures" xml:space="preserve">
+    <value>Infrastructures</value>
+    <comment>15</comment>
+  </data>
+  <data name="Loading" xml:space="preserve">
+    <value>Téléchargement . . .</value>
+    <comment>15</comment>
+  </data>
+  <data name="MapChangesWereNotSaved" xml:space="preserve">
+    <value>Des changements sur la carte n'ont pas été sauvegardés.</value>
+    <comment>15</comment>
+  </data>
+  <data name="MeshNode" xml:space="preserve">
+    <value>Noeud démarcatif</value>
+    <comment>15</comment>
+  </data>
+  <data name="Municipalities" xml:space="preserve">
+    <value>Municipalités</value>
+    <comment>15</comment>
+  </data>
+  <data name="MWQMMeetStandard" xml:space="preserve">
+    <value>Postes SQEM rencontre les normes</value>
+    <comment>15</comment>
+  </data>
+  <data name="MWQMNotEnoughData" xml:space="preserve">
+    <value>Données insuffisantes du poste de SQEM</value>
+    <comment>15</comment>
+  </data>
+  <data name="MWQMSamplesPerDate" xml:space="preserve">
+    <value>Échantillons du site SQEM triés par date</value>
+    <comment>15</comment>
+  </data>
+  <data name="MWQMSites" xml:space="preserve">
+    <value>Postes de SQEM</value>
+    <comment>15</comment>
+  </data>
+  <data name="MWQMStandardAtLimit" xml:space="preserve">
+    <value>Postes de SQEM à la limite des normes</value>
+    <comment>15</comment>
+  </data>
+  <data name="MWQMStandardViolation" xml:space="preserve">
+    <value>Postes de SQEM contrevient aux normes</value>
+    <comment>15</comment>
+  </data>
+  <data name="MWQMStandardViolationDepuration" xml:space="preserve">
+    <value>Postes de SQEM contrevient aux normes pour épuration</value>
+    <comment>15</comment>
+  </data>
+  <data name="NoData" xml:space="preserve">
+    <value>Aucune donnée</value>
+    <comment>15</comment>
+  </data>
+  <data name="Outfall" xml:space="preserve">
+    <value>émissaire</value>
+    <comment>15</comment>
+  </data>
+  <data name="PollutionSourceSites" xml:space="preserve">
+    <value>Sites des sources de pollution</value>
+    <comment>15</comment>
+  </data>
+  <data name="PreviousCoordinates" xml:space="preserve">
+    <value>Coordonnées précédentes</value>
+    <comment>15</comment>
+  </data>
+  <data name="Provinces" xml:space="preserve">
+    <value>Provinces</value>
+    <comment>15</comment>
+  </data>
+  <data name="Remove" xml:space="preserve">
+    <value>Retirer</value>
+    <comment>15</comment>
+  </data>
+  <data name="ReplaceIDShouldNotBeEmpty" xml:space="preserve">
+    <value>ReplaceID should not be empty</value>
+    <comment>15</comment>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Sauvegarder</value>
+    <comment>15</comment>
+  </data>
+  <data name="Sectors" xml:space="preserve">
+    <value>Secteurs</value>
+    <comment>15</comment>
+  </data>
+  <data name="Subsectors" xml:space="preserve">
+    <value>Sous-secteurs</value>
+    <comment>15</comment>
+  </data>
+  <data name="PleaseEnterValidTelNumber" xml:space="preserve">
+    <value>Veuillez entrer un numéro de téléphone valide.</value>
+    <comment>15</comment>
+  </data>
+  <data name="Unknown" xml:space="preserve">
+    <value>Inconnu</value>
+    <comment>15</comment>
+  </data>
+  <data name="WebTideNode" xml:space="preserve">
+    <value>Noeud des WebTide</value>
+    <comment>15</comment>
+  </data>
+  <data name="WWTP_FULL" xml:space="preserve">
+    <value>Usines d'épuration des eaux usées</value>
+    <comment>15</comment>
+  </data>
+  <data name="AreYouSure" xml:space="preserve">
+    <value>Voulez-vous poursuivre?</value>
+    <comment>15</comment>
+  </data>
+  <data name="Deleting" xml:space="preserve">
+    <value>Suppression</value>
+    <comment>15</comment>
+  </data>
+  <data name="FormFail" xml:space="preserve">
+    <value>Formulaire introuvable</value>
+    <comment>15</comment>
+  </data>
+  <data name="Permissions" xml:space="preserve">
+    <value>Permissions</value>
+    <comment>15</comment>
+  </data>
+  <data name="Success" xml:space="preserve">
+    <value>Avec succès</value>
+    <comment>15</comment>
+  </data>
+  <data name="InProgress" xml:space="preserve">
+    <value>Traitement en cours</value>
+    <comment>15</comment>
+  </data>
+  <data name="PleaseEnterValidNumber" xml:space="preserve">
+    <value>Veuillez entrer un numéro valide.</value>
+    <comment>15</comment>
+  </data>
+  <data name="PleaseUseCommaForDecimal" xml:space="preserve">
+    <value>Veuillez utiliser la virgule avant les décimales.</value>
+    <comment>15</comment>
+  </data>
+  <data name="PleaseUseDotForDecimal" xml:space="preserve">
+    <value>Veuillez utiliser le point avant les décimales.</value>
+    <comment>15</comment>
+  </data>
+  <data name="NoObjectFound" xml:space="preserve">
+    <value>Objet introuvable</value>
+    <comment>15</comment>
+  </data>
+  <data name="RemovedSuccessfully" xml:space="preserve">
+    <value>Retirer avec succès</value>
+    <comment>15</comment>
+  </data>
+  <data name="Fail" xml:space="preserve">
+    <value>Échec</value>
+    <comment>15</comment>
+  </data>
+  <data name="Message" xml:space="preserve">
+    <value>Message</value>
+    <comment>15</comment>
+  </data>
+  <data name="PleaseSelectAnItem" xml:space="preserve">
+    <value>Veuillez choisir un élément.</value>
+    <comment>15</comment>
+  </data>
+  <data name="ActualCoordinates" xml:space="preserve">
+    <value>Coordonnées géographique actuelles</value>
+    <comment>15</comment>
+  </data>
+  <data name="AllLocations" xml:space="preserve">
+    <value>Tous les endroits</value>
+    <comment>15</comment>
+  </data>
+  <data name="Areas" xml:space="preserve">
+    <value>Régions</value>
+    <comment>15</comment>
+  </data>
+  <data name="BrowseTo" xml:space="preserve">
+    <value>Naviguer à:</value>
+    <comment>15</comment>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Annuler</value>
+    <comment>15</comment>
+  </data>
+  <data name="CouldNotFind_" xml:space="preserve">
+    <value>Dans l'impossibilité de trouver  [{0}].</value>
+    <comment>15</comment>
+  </data>
+  <data name="CouldNotFind_Within_" xml:space="preserve">
+    <value>Dans l'impossibilité de trouver  [{0}] dans [{1}].</value>
+    <comment>15</comment>
+  </data>
+  <data name="CouldNotLoad_" xml:space="preserve">
+    <value>Dans l'impossibilité de télécharger le fichier [{0}].</value>
+    <comment>15</comment>
+  </data>
+  <data name="LiftStations" xml:space="preserve">
+    <value>Postes de pompage</value>
+    <comment>15</comment>
+  </data>
+  <data name="NotImplemented" xml:space="preserve">
+    <value>A mettre en oeuvre plus tard</value>
+    <comment>15</comment>
+  </data>
+  <data name="UnknownError" xml:space="preserve">
+    <value>Erreur inconnue</value>
+    <comment>15</comment>
+  </data>
+  <data name="CSSP_FULL" xml:space="preserve">
+    <value>Programme canadien de contrôle de la salubrité des mollusques</value>
+    <comment>15</comment>
+  </data>
+  <data name="MWQM_FULL" xml:space="preserve">
+    <value>Surveillance de la qualité des eaux marines </value>
+    <comment>15</comment>
+  </data>
+  <data name="WWTP" xml:space="preserve">
+    <value>UÉEU</value>
+    <comment>15</comment>
+  </data>
+  <data name="Moving" xml:space="preserve">
+    <value>Déplacer</value>
+  </data>
+  <data name="SamePage" xml:space="preserve">
+    <value>Même page</value>
+  </data>
+  <data name="ClimateSite" xml:space="preserve">
+    <value>Site climatique</value>
+  </data>
+  <data name="HydrometricSite" xml:space="preserve">
+    <value>Site hydrométrique</value>
+  </data>
+  <data name="TideSite" xml:space="preserve">
+    <value>Site de marées</value>
+    <comment>TideSite</comment>
+  </data>
+  <data name="UploadedCompleted" xml:space="preserve">
+    <value>Téléchargement complété</value>
+  </data>
+  <data name="MapShouldBeOpened" xml:space="preserve">
+    <value>La carte devrait être ouverte</value>
+  </data>
+  <data name="StartDateIsBiggerThanEndDate" xml:space="preserve">
+    <value>La date de début est plus grande que la date de fin</value>
+  </data>
+  <data name="EffluentEndDateIsBiggerThanMikeScenarioEndDate" xml:space="preserve">
+    <value>La date de fin d'effluent est plus grande que Mike Scénario Date de fin</value>
+  </data>
+  <data name="EffluentStartDateIsSmallerThanMikeScenarioStartDate" xml:space="preserve">
+    <value>La date de début des effluents est inférieure à la date de début du scénario de Mike</value>
+  </data>
+  <data name="Country" xml:space="preserve">
+    <value>Pays</value>
+  </data>
+  <data name="Help" xml:space="preserve">
+    <value>Aide</value>
+  </data>
+  <data name="Completed" xml:space="preserve">
+    <value>Complété</value>
+  </data>
+  <data name="LineOverflow" xml:space="preserve">
+    <value>Débordement de ligne</value>
+  </data>
+  <data name="Copied" xml:space="preserve">
+    <value>Copier</value>
+  </data>
+  <data name="Saving" xml:space="preserve">
+    <value>Saugarder</value>
+  </data>
+  <data name="ClimateSitePrioritiesMightNeedResetting" xml:space="preserve">
+    <value>Les priorités du site climatique pourraient nécessiter une réinitialisation</value>
+  </data>
+  <data name="CheckUnderClimateSitePrioritiesTab" xml:space="preserve">
+    <value>Vérifiez sous l'onglet Priorités du site climatique</value>
+  </data>
+  <data name="AllPriorityNumbersNeedToBeUnique" xml:space="preserve">
+    <value>Tous les numéros de priorité doivent être uniques</value>
+  </data>
+  <data name="WeightNeedsToBeEmptyOrContainANumber" xml:space="preserve">
+    <value>Le poids doit être vide ou contenir un nombre</value>
+  </data>
+  <data name="ContinueSaving" xml:space="preserve">
+    <value>Continuer à sauvegarder</value>
+  </data>
+  <data name="CopyingCurrentMIKEScenario" xml:space="preserve">
+    <value>Copie le scénario actuel de MIKE</value>
+  </data>
+  <data name="MikeSourceIncluded" xml:space="preserve">
+    <value>Source de pollution MIKE inclus</value>
+  </data>
+  <data name="MikeSourceIsRiver" xml:space="preserve">
+    <value>Source de pollution MIKE est une rivière</value>
+  </data>
+  <data name="MikeSourceNotIncluded" xml:space="preserve">
+    <value>Source de pollution MIKE non inclus</value>
+  </data>
+  <data name="Modified" xml:space="preserve">
+    <value>Modifié</value>
+  </data>
+  <data name="FCShouldNotHaveCommaOrDecimal" xml:space="preserve">
+    <value>CF ne devrait pas contenir de décimal ou virgule</value>
+  </data>
+  <data name="EmailDistributionListsExportedToSharedDrive" xml:space="preserve">
+    <value>Listes de distribution de courrier électronique exportées vers un lecteur partagé</value>
+  </data>
+</root>

@@ -1,0 +1,34 @@
+﻿@using CSSPWebTools.Models;
+@using CSSPWebTools.Views.MWQM.Resources;
+@using CSSPWebTools.Controllers;
+@using CSSPModelsDLL.Models;
+
+@{
+    URLModel urlModel = (URLModel)ViewBag.URLModel;
+    MWQMController mwqmController = (MWQMController)ViewBag.MWQMController;
+    List<TVItemModel> tvItemModelOtherList = (List<TVItemModel>)ViewBag.TVItemModelOtherList;
+}
+<div>
+    <h4>@MWQMViewRes.OtherMWQMSites</h4>
+    <ul class="list-inline">
+        @foreach (TVItemModel tvItemModel in tvItemModelOtherList)
+        {
+            string href = mwqmController.CreateHashURL(tvItemModel.TVItemID);
+            <li data-tvitemid="@tvItemModel.TVItemID">
+                <button class="jbMapShowItem btn btn-default hidden" href="#" title="@MWQMViewRes.LocateOnMap" data-tvitemid="@tvItemModel.TVItemID">
+                    <span class="glyphicon glyphicon-map-marker"></span>
+                </button>
+                <a href="@href" class="text-noUnderline">
+                    <span class="TVText">@tvItemModel.TVText</span>
+                </a>
+            </li>
+        }
+    </ul>
+
+
+    <script type="text/javascript">
+        $(function () {
+            cssp.MWQMSite.InitOtherMWQMSites();
+        });
+    </script>
+</div>

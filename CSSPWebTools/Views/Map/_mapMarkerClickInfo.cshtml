@@ -1,0 +1,32 @@
+﻿@using CSSPWebTools.Views.Map.Resources;
+@using CSSPWebTools.Models;
+@using CSSPWebTools.Controllers;
+@using CSSPModelsDLL.Models;
+
+@{
+    MapController mapController = (MapController)ViewBag.MapController;
+    URLModel urlModel = (URLModel)ViewBag.URLModel;
+    TVItemModel tvItemModel = (TVItemModel)ViewBag.TVItemModel;
+}
+
+<div class="MapMarkerDiv">
+    <div class="ui-corner-all app-commentBox">
+        <h4 class="BrowseTo">@MapViewRes.BrowseTo</h4>
+        <div class="MapBreadCrumb breadcrumb">
+            
+        </div>
+        <br />
+        <div class="MapMarkerItem">
+            <a href="@mapController.CreateHashURL(tvItemModel.TVItemID)" class="text-noUnderline">
+                <span class="TVText">@tvItemModel.TVText</span>
+            </a>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        $(function () {
+            $(".MapBreadCrumb").html($("#ViewDiv").find(".breadcrumb").html());
+        });
+    </script>
+</div>
+

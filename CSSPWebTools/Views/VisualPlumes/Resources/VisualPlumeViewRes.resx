@@ -1,0 +1,332 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AmbientSalinity" xml:space="preserve">
+    <value>Ambient Salinity</value>
+    <comment>VPA VPSI VPSEA</comment>
+  </data>
+  <data name="AmbientTemperature" xml:space="preserve">
+    <value>Ambient Temperature</value>
+    <comment>VPA VPSI VPSEA</comment>
+  </data>
+  <data name="BackgroundConcentration" xml:space="preserve">
+    <value>Background Concentration</value>
+    <comment>VPA VPSI VPSEA</comment>
+  </data>
+  <data name="Concentration" xml:space="preserve">
+    <value>Concentration</value>
+    <comment>VPL</comment>
+  </data>
+  <data name="Copy" xml:space="preserve">
+    <value>Copy</value>
+    <comment>VPL</comment>
+  </data>
+  <data name="CurrentDirection" xml:space="preserve">
+    <value>Current Direction</value>
+    <comment>VPA VPSI VPSEA</comment>
+  </data>
+  <data name="CurrentSpeed" xml:space="preserve">
+    <value>Current Speed </value>
+    <comment>VPA VPSI VPSEA</comment>
+  </data>
+  <data name="DecayRate" xml:space="preserve">
+    <value>Decay Rate</value>
+    <comment>VPA</comment>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
+    <comment>VPL</comment>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit </value>
+    <comment>VPL</comment>
+  </data>
+  <data name="EffluentFlow" xml:space="preserve">
+    <value>Effluent Flow</value>
+    <comment>VPL VPSI VPSR</comment>
+  </data>
+  <data name="EffluentSalinity" xml:space="preserve">
+    <value>Effluent Salinity</value>
+    <comment>VPL VPSI VPSR</comment>
+  </data>
+  <data name="EffluentTemperature" xml:space="preserve">
+    <value>EffluentTemperature</value>
+    <comment>VPL VPSI VPSR</comment>
+  </data>
+  <data name="FarFieldCurrentDirection" xml:space="preserve">
+    <value>Far Field Current Direction</value>
+    <comment>VPA VPSI VPSEA</comment>
+  </data>
+  <data name="FarFieldCurrentSpeed" xml:space="preserve">
+    <value>Far Field Current Speed</value>
+    <comment>VPA VPSI VPSEA</comment>
+  </data>
+  <data name="FarFieldDiffusionCoefficient" xml:space="preserve">
+    <value>Far Field Diffusion Coefficient</value>
+    <comment>VPA VPSI VPSEA</comment>
+  </data>
+  <data name="HideAmbient" xml:space="preserve">
+    <value>Hide Ambient</value>
+    <comment>VPL</comment>
+  </data>
+  <data name="HorizontalAngle" xml:space="preserve">
+    <value>Horizontal Angle</value>
+    <comment>VPL VPSI VPSR</comment>
+  </data>
+  <data name="NoItem" xml:space="preserve">
+    <value>No item</value>
+    <comment>VPL</comment>
+  </data>
+  <data name="NumberOfPorts" xml:space="preserve">
+    <value>Number of Ports</value>
+    <comment>VPL VPSI VPSR</comment>
+  </data>
+  <data name="PortDepth" xml:space="preserve">
+    <value>Port Depth</value>
+    <comment>VPL VPSI VPSR</comment>
+  </data>
+  <data name="PortDiameter" xml:space="preserve">
+    <value>Port Diameter</value>
+    <comment>VPL VPSI VPSR</comment>
+  </data>
+  <data name="PortElevation" xml:space="preserve">
+    <value>Port Elevation</value>
+    <comment>VPL VPSI VPSR</comment>
+  </data>
+  <data name="PortSpacing" xml:space="preserve">
+    <value>Port Spacing</value>
+    <comment>VPL VPSI VPSR</comment>
+  </data>
+  <data name="ShowAmbient" xml:space="preserve">
+    <value>Show Ambient</value>
+    <comment>VPL</comment>
+  </data>
+  <data name="VerticalAngle" xml:space="preserve">
+    <value>Vertical Angle</value>
+    <comment>VPL VPSI VPSR</comment>
+  </data>
+  <data name="view" xml:space="preserve">
+    <value>View</value>
+    <comment>VPL</comment>
+  </data>
+  <data name="AtDepth" xml:space="preserve">
+    <value>at depth</value>
+    <comment>VPA VPSI VPSEA</comment>
+  </data>
+  <data name="AcuteMixZone" xml:space="preserve">
+    <value>Acute MixZone</value>
+    <comment>VPSI VPSR</comment>
+  </data>
+  <data name="Ambient" xml:space="preserve">
+    <value>Ambient</value>
+    <comment>VPA</comment>
+  </data>
+  <data name="Charts" xml:space="preserve">
+    <value>Charts</value>
+    <comment>VPS</comment>
+  </data>
+  <data name="ChronicMixZone" xml:space="preserve">
+    <value>Chronic MixZone</value>
+    <comment>VPSI VPSR</comment>
+  </data>
+  <data name="DiffuserInformation" xml:space="preserve">
+    <value>Diffuser Information</value>
+    <comment>VPL VPSI VPSR</comment>
+  </data>
+  <data name="EffluentConcentration" xml:space="preserve">
+    <value>Effluent Concentration</value>
+    <comment>VPSI VPSR</comment>
+  </data>
+  <data name="False" xml:space="preserve">
+    <value>False</value>
+    <comment>VPSI</comment>
+  </data>
+  <data name="Input" xml:space="preserve">
+    <value>Input</value>
+    <comment>VPS</comment>
+  </data>
+  <data name="NoResultsYet" xml:space="preserve">
+    <value>No results yet</value>
+    <comment>VPSR VPSRR VPSCR</comment>
+  </data>
+  <data name="PollutantDecayRate" xml:space="preserve">
+    <value>Pollutant Decay Rate</value>
+    <comment>VPSI VPSEA</comment>
+  </data>
+  <data name="RawResults" xml:space="preserve">
+    <value>Raw Results</value>
+    <comment>VPS</comment>
+  </data>
+  <data name="Results" xml:space="preserve">
+    <value>Results</value>
+    <comment>VPS</comment>
+  </data>
+  <data name="ReturnToVPList" xml:space="preserve">
+    <value>Back to Visual Plume List Scenario</value>
+    <comment>VPS</comment>
+  </data>
+  <data name="ReturnVPScenarioList" xml:space="preserve">
+    <value>Please create a new scenario with Visual Plume and come back to this page to view the results.</value>
+    <comment>VPSR VPSRR VPSCR</comment>
+  </data>
+  <data name="ScenarioName" xml:space="preserve">
+    <value>Scenario Name</value>
+    <comment>VPSR</comment>
+  </data>
+  <data name="ShowGraphicFuture" xml:space="preserve">
+    <value>Graphic ... in a near future.</value>
+    <comment>VPSCR</comment>
+  </data>
+  <data name="Submit" xml:space="preserve">
+    <value>Submit</value>
+    <comment>VPS</comment>
+  </data>
+  <data name="True" xml:space="preserve">
+    <value>True</value>
+    <comment>VPSI</comment>
+  </data>
+  <data name="UseAsBest" xml:space="preserve">
+    <value>Use as best</value>
+    <comment>VPSI VPSR</comment>
+  </data>
+  <data name="Refresh" xml:space="preserve">
+    <value>Refresh</value>
+    <comment>VPL</comment>
+  </data>
+  <data name="Working" xml:space="preserve">
+    <value>Working ...</value>
+    <comment>VPL</comment>
+  </data>
+  <data name="AmbientInformation" xml:space="preserve">
+    <value>Ambient Information</value>
+    <comment>VPSEA</comment>
+  </data>
+  <data name="Depth" xml:space="preserve">
+    <value>depth</value>
+    <comment>VPA  VPSEA</comment>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Details</value>
+    <comment>VPL</comment>
+  </data>
+  <data name="NotUsed" xml:space="preserve">
+    <value>not used</value>
+    <comment>VPSEA</comment>
+  </data>
+</root>

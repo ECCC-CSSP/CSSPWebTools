@@ -1,0 +1,108 @@
+﻿@using CSSPWebTools.Views.File.Resources;
+@using CSSPEnumsDLL.Enums;
+@using CSSPModelsDLL.Models;
+
+@{
+    int ParentTVItemID = (int)ViewBag.ParentTVItemID;
+    List<FilePurposeAndText> filePurposeAndTextList = (List<FilePurposeAndText>)ViewBag.FilePurposeAndTextList;
+    bool IsFirst = true;
+}
+
+<form id="FileUploadForm" role="form" action="File/_fileUpload" method="post" enctype="multipart/form-data">
+    <span class="PictureEnum hidden">@(((int)FilePurposeEnum.Picture))</span>
+    @Html.AntiForgeryToken()
+    <input type="hidden" name="ParentTVItemID" value="@ParentTVItemID" />
+    <fieldset>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">@FileViewRes.UploadFile</h4>
+            </div>
+            <div class="panel-body">
+                <div class="form-group">
+                    <label class="control-label" for="Language">@FileViewRes.Language:</label>
+                    <div>
+                        <label class="control-label">
+                            <input name="Language" type="radio" @((LanguageEnum)ViewBag.Language == LanguageEnum.en ? "checked=checked" : "") value="@(((int)LanguageEnum.en).ToString())" /> @FileViewRes.English &nbsp;&nbsp;&nbsp;
+                        </label>
+                        <label class="control-label">
+                            <input name="Language" type="radio" @((LanguageEnum)ViewBag.Language == LanguageEnum.fr ? "checked=checked" : "") value="@(((int)LanguageEnum.fr).ToString())" /> @FileViewRes.French &nbsp;&nbsp;&nbsp;
+                        </label>
+                        <label class="control-label">
+                            <input name="Language" type="radio" @((LanguageEnum)ViewBag.Language == LanguageEnum.enAndfr ? "checked=checked" : "") value="@(((int)LanguageEnum.enAndfr).ToString())" /> @FileViewRes.Both
+                        </label>
+                        <span class="help-block"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="FilePurposeID">@FileViewRes.FilePurpose:</label>
+                    <div>
+                        <select class="form-control" name="FilePurpose" id="FilePurpose">
+                            @foreach (FilePurposeAndText filePurposeAndText in filePurposeAndTextList)
+                            {
+                                if (filePurposeAndText.FilePurpose != FilePurposeEnum.Error && filePurposeAndText.FilePurpose != FilePurposeEnum.Generated && !filePurposeAndText.FilePurposeText.ToLower().StartsWith("mike"))
+                                {
+                                    if (IsFirst)
+                                    {
+                                        IsFirst = false;
+                                        <option value="@((int)filePurposeAndText.FilePurpose)" selected="selected">@filePurposeAndText.FilePurposeText</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="@((int)filePurposeAndText.FilePurpose)">@filePurposeAndText.FilePurposeText</option>
+                                    }
+                                }
+                            }
+                        </select>
+                        <span class="help-block"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="FileDescription">@FileViewRes.FileDescription</label>
+                    <div>
+                        <textarea class="form-control" name="FileDescription" id="FileDescription" rows="2"></textarea>
+                        <span class="help-block"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="UploadFileName">@FileViewRes.FileName</label>
+                    <div>
+                        <input class="form-control" type="file" name="UploadFileName" id="UploadFileName" />
+                        <span class="help-block"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="checkbox-inline" for="KeepFileName">
+                        <input type="checkbox" checked="checked" name="KeepFileName" />
+                        <span>@FileViewRes.KeepFileName</span>
+                    </label>
+                </div>
+                <div class="FromWaterDiv form-group hidden">
+                    <label class="checkbox-inline" for="FromWater">
+                        <input type="checkbox" name="FromWater" />
+                        <span>@FileViewRes.FromWater</span>
+                    </label>
+                </div>
+            </div>
+            <div class="SaveAsFileNameDiv form-group hidden">
+                <label class="control-label" for="SaveAsFileName">@FileViewRes.SaveAsFileName @FileViewRes.NoExtension</label>
+                <div>
+                    <input class="form-control" type="text" name="SaveAsFileName" id="SaveAsFileName" />
+                    <span class="help-block"></span>
+                </div>
+            </div>
+            <div class="panel-footer">
+                <button class="jbFileUpload btn btn-primary" type="submit"><span class="glyphicon glyphicon-upload"></span>&nbsp;@FileViewRes.Upload</button>
+            </div>
+        </div>
+    </fieldset>
+    <div class="FileImportRes hidden">
+
+    </div>
+</form>
+
+
+<script type="text/javascript">
+    $(function () {
+        cssp.File.InitUpload();
+    });
+</script>

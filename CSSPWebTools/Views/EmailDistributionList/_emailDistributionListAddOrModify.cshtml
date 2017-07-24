@@ -1,0 +1,48 @@
+﻿@using CSSPWebTools.Views.EmailDistributionList.Resources;
+@using CSSPModelsDLL.Models;
+@using CSSPEnumsDLL.Enums;
+@using CSSPEnumsDLL.Services;
+@using CSSPWebTools.Controllers;
+
+@{
+    int CountryTVItemID = (int)ViewBag.CountryTVItemID;
+    EmailDistributionListModel emailDistributionListModel = (EmailDistributionListModel)ViewBag.EmailDistributionListModel;
+}
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h4 class="panel-title">@(emailDistributionListModel.EmailDistributionListID == 0 ? EmailDistributionListViewRes.Add : EmailDistributionListViewRes.Modify)</h4>
+    </div>
+    <div class="panel-body">
+        <form class="EmailDistributionListEditForm" method="post" role="form" action="EmailDistributionList/EmailDistributionListSaveJSON">
+            @Html.AntiForgeryToken()
+            <fieldset>
+                <input type="hidden" name="EmailDistributionListID" value="@emailDistributionListModel.EmailDistributionListID" />
+                <input type="hidden" name="CountryTVItemID" value="@CountryTVItemID" />
+                <div class="form-group">
+                    <label class="control-label" for="RegionName">@EmailDistributionListViewRes.RegionName</label>
+                    <div class="form-inline elementSpacing">
+                        <span class="form-control-static"></span>
+                        <input autofocus="autofocus" class="form-control" name="RegionName" type="text" id="RegionName" value="@(emailDistributionListModel.RegionName == null ? "" : emailDistributionListModel.RegionName)" />
+                        <span class="help-block"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button class="jbEmailDistributionListEditSave btn btn-primary" type="submit">
+                        <span class="glyphicon glyphicon-check"></span>
+                        &nbsp;
+                        @(emailDistributionListModel.EmailDistributionListID == 0 ? EmailDistributionListViewRes.Add : EmailDistributionListViewRes.Modify)
+                    </button>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        cssp.EmailDistributionList.InitEdit();
+    });
+</script>
+

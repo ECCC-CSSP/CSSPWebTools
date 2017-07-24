@@ -1,0 +1,312 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ADashBetweenTwoYearsRepresentFromYearToYearInclusively" xml:space="preserve">
+    <value>A dash [-] between two years represent: from year to year inclusively</value>
+  </data>
+  <data name="AnySpaceWillBeOmitted" xml:space="preserve">
+    <value>Any space will be omitted</value>
+  </data>
+  <data name="AnythingUnrecognizedTheUserWillReceiveAnErrorMessage" xml:space="preserve">
+    <value>Anything unrecognized - the user will receive an error message</value>
+  </data>
+  <data name="AYearBetweenTwoCommasRepresentThatYear" xml:space="preserve">
+    <value>A year between two commas represent that year</value>
+  </data>
+  <data name="ClickOnGlobeIconToViewOnMap" xml:space="preserve">
+    <value>Click on globe icon to view on map</value>
+  </data>
+  <data name="ClimateSiteName" xml:space="preserve">
+    <value>Climate Site Name</value>
+  </data>
+  <data name="ClimateSitesAndYearsOfUse" xml:space="preserve">
+    <value>Climate sites and years of use</value>
+  </data>
+  <data name="ClimateSitesDataForEachRun" xml:space="preserve">
+    <value>Climate sites data for each run</value>
+  </data>
+  <data name="ClimateSitesPriorities" xml:space="preserve">
+    <value>Climate sites priorities</value>
+  </data>
+  <data name="ClimateSitesToUseForSubsector" xml:space="preserve">
+    <value>Climate sites to use for subsector</value>
+  </data>
+  <data name="ClimateSitesToUseForSubsectorVerifyAndSave" xml:space="preserve">
+    <value>Climate sites to use for subsector verify and save</value>
+  </data>
+  <data name="ClimateSitesUsedAndWithinDistance" xml:space="preserve">
+    <value>Climate sites used and within distance</value>
+  </data>
+  <data name="Down" xml:space="preserve">
+    <value>Down</value>
+  </data>
+  <data name="Empty" xml:space="preserve">
+    <value>Empty</value>
+  </data>
+  <data name="EndingWithADashRepresentUpToCurrentYear" xml:space="preserve">
+    <value>Ending with a dash [-] represent up to current year</value>
+  </data>
+  <data name="Entered" xml:space="preserve">
+    <value>Entered</value>
+  </data>
+  <data name="Find" xml:space="preserve">
+    <value>Find</value>
+  </data>
+  <data name="FindClimateSitesWithinDistanceOfSubsector" xml:space="preserve">
+    <value>Find climate sites within distance of subsector</value>
+  </data>
+  <data name="IdentifyOnMap" xml:space="preserve">
+    <value>Identify on map</value>
+  </data>
+  <data name="MaxTemp_C" xml:space="preserve">
+    <value>Maximum Temperature (˚C)</value>
+  </data>
+  <data name="Meters" xml:space="preserve">
+    <value>Meters</value>
+  </data>
+  <data name="MinTemp_C" xml:space="preserve">
+    <value>Minimum Temperature (˚C)</value>
+  </data>
+  <data name="MoreInfo" xml:space="preserve">
+    <value>More info</value>
+  </data>
+  <data name="Now" xml:space="preserve">
+    <value>Now</value>
+  </data>
+  <data name="PeriodWithDailyData" xml:space="preserve">
+    <value>Period with daily data</value>
+  </data>
+  <data name="RainfallEntered_mm" xml:space="preserve">
+    <value>Rainfall Manually Entered (mm)</value>
+  </data>
+  <data name="Rainfall_mm" xml:space="preserve">
+    <value>Rainfall (mm)</value>
+  </data>
+  <data name="Remove" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="Run" xml:space="preserve">
+    <value>Run</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="SaveButtonAtBottomOfPage" xml:space="preserve">
+    <value>Save button at bottom of page</value>
+  </data>
+  <data name="Saving" xml:space="preserve">
+    <value>Saving ...</value>
+  </data>
+  <data name="SelectARunAboveToSeePrecipitation" xml:space="preserve">
+    <value>Select a run above to see precipitation</value>
+  </data>
+  <data name="ShowClimateSitesOnMap" xml:space="preserve">
+    <value>Show climate sites on map</value>
+  </data>
+  <data name="SnowOnGround_cm" xml:space="preserve">
+    <value>Snow On Ground (cm)</value>
+  </data>
+  <data name="Snow_cm" xml:space="preserve">
+    <value>Snow (cm)</value>
+  </data>
+  <data name="SubsectorRuns" xml:space="preserve">
+    <value>Subsector runs</value>
+  </data>
+  <data name="TotalPrecip_mm_cm" xml:space="preserve">
+    <value>Total Precipitation (rain[mm] and/or snow[cm])</value>
+  </data>
+  <data name="Up" xml:space="preserve">
+    <value>Up</value>
+  </data>
+  <data name="Use" xml:space="preserve">
+    <value>Use</value>
+  </data>
+  <data name="ViewDataType" xml:space="preserve">
+    <value>View Data Type</value>
+  </data>
+  <data name="YearsOfUse" xml:space="preserve">
+    <value>Years of use</value>
+  </data>
+  <data name="GetClimateDataForRunsOfYear_" xml:space="preserve">
+    <value>Get climate data for runs of year {0}</value>
+  </data>
+  <data name="SaveClimateSitePriorities" xml:space="preserve">
+    <value>Save climate site priorities</value>
+  </data>
+  <data name="SettingClimateSitePriorities" xml:space="preserve">
+    <value>Setting climate site priorities</value>
+  </data>
+  <data name="Day" xml:space="preserve">
+    <value>Day</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="Fill" xml:space="preserve">
+    <value>Fill</value>
+  </data>
+  <data name="NoDataOnMSCHistoricalSite" xml:space="preserve">
+    <value>No data on MSC historical site</value>
+  </data>
+  <data name="Note" xml:space="preserve">
+    <value>Note</value>
+  </data>
+  <data name="SaveEnteredPrecipitation" xml:space="preserve">
+    <value>Save entered precipitation</value>
+  </data>
+  <data name="Average" xml:space="preserve">
+    <value>Average</value>
+  </data>
+  <data name="Selected" xml:space="preserve">
+    <value>Selected</value>
+  </data>
+  <data name="Weighted" xml:space="preserve">
+    <value>Weighted</value>
+  </data>
+  <data name="Priority" xml:space="preserve">
+    <value>Priority</value>
+  </data>
+  <data name="Weight" xml:space="preserve">
+    <value>Weight</value>
+  </data>
+  <data name="FillUsing" xml:space="preserve">
+    <value>Fill using</value>
+  </data>
+  <data name="Radar" xml:space="preserve">
+    <value>Radar</value>
+  </data>
+  <data name="SetDataToUseByAverageForYear_" xml:space="preserve">
+    <value>Set data to use by average for year {0}</value>
+  </data>
+  <data name="SetDataToUseByPriorityForYear_" xml:space="preserve">
+    <value>Set data to use by priority for year {0}</value>
+  </data>
+  <data name="SelectAnAdjacentSubsector" xml:space="preserve">
+    <value>Select an adjacent subsector</value>
+  </data>
+  <data name="UseSameClimateSitesAndPrioritiesAsSelectedSubsector" xml:space="preserve">
+    <value>Use same climate sites and priorities as selected subsector</value>
+  </data>
+  <data name="ValuesToBeUsed" xml:space="preserve">
+    <value>Values to be used</value>
+  </data>
+  <data name="SetClimateSitePriorityByDistance" xml:space="preserve">
+    <value>Set climate site priority by distance</value>
+  </data>
+</root>

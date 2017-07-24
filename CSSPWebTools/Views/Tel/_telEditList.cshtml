@@ -1,0 +1,128 @@
+﻿@using CSSPWebTools.Views.Tel.Resources;
+@using CSSPWebTools.Controllers;
+@using CSSPModelsDLL.Models;
+@using CSSPEnumsDLL.Enums;
+@using CSSPEnumsDLL.Services;
+
+@{
+    ContactModel contactModel = (ContactModel)ViewBag.ContactModel;
+    List<TelModel> telModelList = (List<TelModel>)ViewBag.TelModelList;
+    TelController telController = (TelController)ViewBag.TelController;
+    BaseEnumService _BaseEnumService = new BaseEnumService(ViewBag.Language);
+}
+
+<div id="contentTel" class="paraBlock">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a href="#TelNumberGroup" data-toggle="collapse" aria-expanded="false" aria-controls="TelNumberGroup">
+                    <span class="glyphicon glyphicon-phone"></span> &nbsp;&nbsp;@TelViewRes.Telephones
+                </a>
+            </h4>
+        </div>
+        <div class="panel-body collapse" id="TelNumberGroup">
+            @foreach (TelModel telModel in telModelList)
+            {
+                <div class="TelItemTop" data-contacttvitemid="@contactModel.ContactTVItemID" data-teltvitemid="@telModel.TelTVItemID">
+                    <form method="post" class="TelEditForm" role="form" action="Tel/TelSaveJSON">
+                        @Html.AntiForgeryToken()
+                        <fieldset>
+                            <input type="hidden" name="ContactTVItemID" value="@contactModel.ContactTVItemID" />
+                            <input type="hidden" name="TelTVItemID" value="@telModel.TelTVItemID" />
+                            <ul class="list-inline">
+                                <li>
+                                    <div class="form-group">
+                                        <label class="sr-only" for="TelType">@TelViewRes.TelType</label>
+                                        <div>
+                                            <select class="form-control btn btn-default" name="TelType" title="@TelViewRes.TelType">
+                                                @foreach (TelTypeEnumTextOrdered telTypeEnumTextOrdered in _BaseEnumService.GetTelTypeEnumTextOrderedList())
+                                                {
+                                                    <option value="@((int)telTypeEnumTextOrdered.TelType)" @(telTypeEnumTextOrdered.TelType == telModel.TelType ? @"selected=""selected""" : "")>@(telTypeEnumTextOrdered.TelTypeText)</option>
+                                                }
+                                            </select>
+                                            <span class="help-block"></span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="form-group">
+                                        <label class="sr-only" for="TelNumber">@TelViewRes.TelNumber</label>
+                                        <div>
+                                            <input class="form-control" name="TelNumber" placeholder="ex: 1 (555) 123-4567" title="@TelViewRes.TelNumber" autocomplete="off" type="text" value="@telModel.TelNumber" />
+                                            <span class="help-block"></span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <button class="jbTelUpdate btn btn-primary" type="submit" title="@TelViewRes.Save">
+                                        <span class="glyphicon glyphicon-check"></span><span class="sr-only">@TelViewRes.Save</span>
+                                    </button>
+
+                                    <button href="#" class="jbTelDelete btn btn-default" title="@TelViewRes.Delete">
+                                        <span class="glyphicon glyphicon-trash"></span><span class="sr-only">@TelViewRes.Delete</span>
+                                    </button>
+
+                                    <button href="#" class="jbTelAdd hidden btn btn-default" type="submit" title="@TelViewRes.Add">
+                                        <span class="glyphicon glyphicon-plus-sign"></span><span class="sr-only">@TelViewRes.Add</span>
+                                    </button>
+                                </li>
+                            </ul>
+
+
+
+                        </fieldset>
+                    </form>
+                </div>
+
+            }
+            <div class="TelItemTop" data-contacttvitemid="@contactModel.ContactTVItemID" data-teltvitemid="0">
+                <form method="post" class="TelEditForm form-horizontal" role="form" action="Tel/TelSaveJSON">
+                    @Html.AntiForgeryToken()
+                    <fieldset>
+                        <input type="hidden" name="ContactTVItemID" value="@contactModel.ContactTVItemID" />
+                        <input type="hidden" name="TelTVItemID" value="0" />
+                        <ul class="list-inline">
+                            <li>
+                                <div class="form-group">
+                                    <label class="sr-only" for="TelType">@TelViewRes.TelType</label>
+                                    <div>
+                                        <select class="form-control btn btn-default" name="TelType" title="@TelViewRes.TelType">
+                                            @foreach (TelTypeEnumTextOrdered telTypeEnumTextOrdered in _BaseEnumService.GetTelTypeEnumTextOrderedList())
+                                            {
+                                                <option value="@((int)telTypeEnumTextOrdered.TelType)" @((int)telTypeEnumTextOrdered.TelType == 1 ? @"selected=""selected""" : "")>@(telTypeEnumTextOrdered.TelTypeText)</option>
+                                            }
+                                        </select>
+                                        <span class="help-block"></span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="form-group">
+                                    <label class="sr-only" for="TelNumber">@TelViewRes.TelNumber</label>
+                                    <div>
+                                        <input class="form-control"
+                                               name="TelNumber" placeholder="ex: 1 (555) 123-4567" title="@TelViewRes.TelNumber" autocomplete="off" type="text" value="" />
+                                        <span class="help-block"></span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <button class="jbTelUpdate hidden btn btn-primary" type="submit" title="@TelViewRes.Save">
+                                    <span class="glyphicon glyphicon-check"></span><span class="sr-only">@TelViewRes.Save</span>
+                                </button>
+
+                                <button class="jbTelDelete hidden btn btn-default" title="@TelViewRes.Delete">
+                                    <span class="glyphicon glyphicon-trash"></span><span class="sr-only">@TelViewRes.Delete</span>
+                                </button>
+
+                                <button class="jbTelAdd btn btn-success" type="submit" title="@TelViewRes.Add">
+                                    <span class="glyphicon glyphicon-plus-sign"></span><span class="sr-only">>@TelViewRes.Add</span>
+                                </button>
+                            </li>
+                        </ul>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

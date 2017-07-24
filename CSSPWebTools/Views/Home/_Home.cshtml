@@ -1,0 +1,60 @@
+﻿@using CSSPWebTools.Views.Home.Resources;
+@using CSSPWebTools.Models;
+@using CSSPWebTools.Controllers;
+@using CSSPModelsDLL.Models;
+
+@{
+    URLModel urlModel = (URLModel)ViewBag.URLModel;
+    TVItemModel tvItemModelRoot = (TVItemModel)ViewBag.TVItemModelRoot;
+    List<ContactModel> AdminContactModelList = (List<ContactModel>)ViewBag.AdminContactModelList;
+    HomeController homeController = (HomeController)ViewBag.HomeController;
+}
+
+<div id="StartDiv" class="container-fluid">
+    <h3 title="@HomeViewRes.CSSP_FULL">@HomeViewRes.CSSPWebTools</h3>
+    <div class="panel panel-default">
+        <div class="panel-heading"><h4 class="panel-title">@HomeViewRes.List10HAppVarFunc:</h4></div>
+        <div class="panel-body">
+            <ol>
+                <li>@HomeViewRes.List11ContainInfo</li>
+                <li>@HomeViewRes.List12BoxModel</li>
+                <li>@HomeViewRes.List13Mike</li>
+                <li><span title="@HomeViewRes.MWQM_FULL">@HomeViewRes.List14MWQMInformationManagement</span></li>
+            </ol>
+            <p>@HomeViewRes.ToHaveAccess</p>
+            <ul class="list-inline">
+                @foreach (ContactModel acm in AdminContactModelList)
+                {
+                    <li>
+                        <a href="mailto:@acm.LoginEmail" class="btn btn-link">@acm.LoginEmail</a>
+                    </li>
+                }
+            </ul>
+        </div>
+
+        <div class="panel-footer">
+            <a href="@homeController.CreateHashURL(tvItemModelRoot.TVItemID).Replace("#!Home", "#!View")" class="btn btn-info">
+                <span title="@HomeViewRes.CSSP_FULL">@HomeViewRes.StartUsingCSSPWebTools</span> &nbsp; <span class="glyphicon glyphicon-play"></span>
+            </a>
+        </div>
+    </div>
+</div>
+
+@if (ViewBag.Debug)
+{
+    <div class="clearfix"></div>
+    <div class="testing hidden">
+        <h4>Testing _Home.cshtml and cssp.Home.ts</h4>
+        <span class="divName" style="display: none">#HomeDiv</span>
+        <span class="appName" style="display: none">cssp.Home</span>
+        <a class="jtTestHomeContents btn btn-default">Test Contents</a>
+        <a class="jtTestHomeFields btn btn-default">Test Fields</a>
+    </div>
+}
+
+<script type="text/javascript">
+    $(function () {
+        cssp.Home.Init();
+    });
+</script>
+

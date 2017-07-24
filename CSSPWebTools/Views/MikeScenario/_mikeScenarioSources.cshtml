@@ -1,0 +1,53 @@
+﻿@using CSSPWebTools.Models;
+@using CSSPWebTools.Views.MikeScenario.Resources;
+@using CSSPEnumsDLL.Enums;
+@using CSSPModelsDLL.Models;
+
+@{
+    URLModel urlModel = (URLModel)ViewBag.URLModel;
+    MikeScenarioModel mikeScenarioModel = (MikeScenarioModel)ViewBag.MikeScenarioModel;
+    List<MikeSourceModel> mikeSourceModelList = (List<MikeSourceModel>)ViewBag.MikeSourceModelList;
+}
+<div id="MikeScenarioSourcesDiv">
+    <div class="AppTaskDiv">
+        @Html.Action("_appTask", "Home", new { TVItemID = urlModel.TVItemIDList[0], Seconds = 5 })
+    </div>
+    @if (mikeScenarioModel.ScenarioStatus <= ScenarioStatusEnum.Copied)
+    {
+        <h4>@MikeScenarioViewRes.PleaseCompleteSetup</h4>
+    }
+    else
+    {
+        <div class="MikeScenarioSourceAdd">
+        </div>
+        <ul class="list-inline">
+            <li class="BorderLighterGreen">
+                <div>
+                </div>
+                <label>@MikeScenarioViewRes.IncludedInfrastructure</label>
+            </li>
+            <li class="BorderLighterBlue">
+                <div></div>
+                <label>@MikeScenarioViewRes.IncludedRiver</label>
+            </li>
+            <li class="BorderLighterSilver">
+                <div></div>
+                <label>@MikeScenarioViewRes.NotIncluded</label>
+            </li>
+        </ul>
+        foreach (MikeSourceModel mikeSourceModel in mikeSourceModelList)
+        {
+            <div class="MikeScenarioSourceTop" data-tvitemid="@mikeSourceModel.MikeSourceTVItemID" data-sourcefilename="@(mikeScenarioModel.ScenarioStatus > ScenarioStatusEnum.Changed ? "_mikeScenarioSourceInfo" : "_mikeScenarioSourceEdit")">
+                <div class="ForReloadMikeSource hidden"></div>
+                @if (mikeScenarioModel.ScenarioStatus > ScenarioStatusEnum.Changed) // Completed
+                {
+                    @Html.Action("_mikeScenarioSourceInfo", "MikeScenario", new { MikeSourceTVItemID = mikeSourceModel.MikeSourceTVItemID })
+                }
+                else
+                {
+                    @Html.Action("_mikeScenarioSourceEdit", "MikeScenario", new { MikeSourceTVItemID = mikeSourceModel.MikeSourceTVItemID })
+                }
+            </div>
+        }
+    }
+</div>

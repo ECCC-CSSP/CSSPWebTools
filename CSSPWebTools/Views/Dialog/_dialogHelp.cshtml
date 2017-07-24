@@ -1,0 +1,12 @@
+﻿@using CSSPWebTools.Views.Dialog.Resources;
+@using CSSPWebTools.Controllers;
+@using CSSPEnumsDLL.Enums;
+@using CSSPModelsDLL.Models;
+
+@{
+    DialogController dialogController = (DialogController)ViewBag.DialogController;
+    string HelpCode = (string)ViewBag.HelpCode;
+}
+<div>
+    @Html.Action(HelpCode, "Help")
+</div>

@@ -1,0 +1,107 @@
+﻿@using CSSPWebTools.Views.Admin.Resources;
+@using CSSPEnumsDLL.Enums;
+@using CSSPModelsDLL.Models;
+
+@{
+    bool IsAdmin = (bool)ViewBag.IsAdmin;
+}
+
+@if (!IsAdmin)
+{
+    <h2>@_AdminViewRes.Error</h2>
+    <h3>@_AdminViewRes.NeedAdministratorToAccessThisInformation</h3>
+    <a href="#!Home" class="btn btn-default">@_AdminViewRes.ReturnToHomePage</a>
+}
+else
+{
+    <div id="AdminVariables" class="hidden">
+        <span class="varDisabled">@_AdminViewRes.Disabled</span>
+        <span class="varEnabled">@_AdminViewRes.Enabled</span>
+    </div>
+    <div class="hidden">
+        <div id="AdminAuthTVTypeTemp">
+            <blockquote class="adminBlock" data-tvtypename="empty" data-index="0" data-tvpath="empty">
+                <span class="h4">@_AdminViewRes.Empty</span>&nbsp;&nbsp;
+                <div class="btn-group btn-group-sm">
+                    <button class="jbTVTypeAuthRemove btn btn-warning " type="button">@_AdminViewRes.Remove</button>
+                </div>
+                <div class="btn-group btn-group-sm">
+                    <button class="jbTVTypeAuthNoAccess btn btn-default" title="@_AdminViewRes.AuthorizationNeeded" type="button">
+                        <span class="glyphicon glyphicon-ban-circle"></span>
+                    </button>
+                    <button class="jbTVTypeAuthRead btn btn-default" title="@_AdminViewRes.Read" type="button"><span class="glyphicon glyphicon-eye-open"></span></button>
+                    <button class="jbTVTypeAuthEdit btn btn-default" title="@_AdminViewRes.Edit" type="button"><span class="glyphicon glyphicon-edit"></span></button>
+                    <button class="jbTVTypeAuthCreate btn btn-default" title="@_AdminViewRes.Create" type="button"><span class="glyphicon glyphicon-plus"></span></button>
+                    <button class="jbTVTypeAuthDelete btn btn-default" title="@_AdminViewRes.Delete" type="button"><span class="glyphicon glyphicon-remove"></span></button>
+                    <button class="jbTVTypeAuthAdmin btn btn-default" title="@_AdminViewRes.Admin" type="button"><span class="glyphicon glyphicon-briefcase"></span></button>
+                </div>
+                <div class="btn-group btn-group-sm">
+                    <button class="jbTVItemAuthShowAdd btn btn-warning" type="button">@_AdminViewRes.AddTVItemSpecific</button>
+                    <button class="jbTVItemAuthHideAdd btn btn-warning hidden" type="button">@_AdminViewRes.HideTVItemSpecific</button>
+                </div>
+                <div class="adminTVItems">
+                    <div class="adminTVItemsSelected">
+
+                    </div>
+                    <div class="adminTVItemList">
+
+                    </div>
+                </div>
+            </blockquote>
+        </div>
+        <div id="AdminAuthTVItemTemp">
+            <blockquote class="adminTVItemsSelectedTemp  adminblock" data-tvitemid="0" data-tvitemuserauthid="0">
+                <span class="h4">@_AdminViewRes.Empty</span>&nbsp;&nbsp;
+                <div class="btn-group btn-group-sm">
+                    <button class="jbTVItemAuthRemove btn btn-warning " type="button">@_AdminViewRes.Remove</button>
+                </div>
+                <div class="btn-group btn-group-sm">
+                    <button class="jbTVItemAuthNoAccess btn btn-default" title="@_AdminViewRes.AuthorizationNeeded" type="button">
+                        <span class="glyphicon glyphicon-ban-circle"></span>
+                    </button>
+                    <button class="jbTVItemAuthRead btn btn-default" title="@_AdminViewRes.Read" type="button"><span class="glyphicon glyphicon-eye-open"></span></button>
+                    <button class="jbTVItemAuthEdit btn btn-default" title="@_AdminViewRes.Edit" type="button"><span class="glyphicon glyphicon-edit"></span></button>
+                    <button class="jbTVItemAuthCreate btn btn-default" title="@_AdminViewRes.Create" type="button"><span class="glyphicon glyphicon-plus"></span></button>
+                    <button class="jbTVItemAuthDelete btn btn-default" title="@_AdminViewRes.Delete" type="button"><span class="glyphicon glyphicon-remove"></span></button>
+                    <button class="jbTVItemAuthAdmin btn btn-default" title="@_AdminViewRes.Admin" type="button"><span class="glyphicon glyphicon-briefcase"></span></button>
+                </div>
+            </blockquote>
+        </div>
+        <div id="AdminAuthAddTemp">
+            <ul class="TVItemList"></ul>
+        </div>
+    </div>
+    <div id="AdminWorking" class="hidden">
+        <blockquote>
+            <h4>@_AdminViewRes.Working</h4>
+        </blockquote>
+    </div>
+    <div class="container-fluid">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <form id="AdminContactSearchForm" class="form-inline" method="post" role="search">
+                    @Html.AntiForgeryToken()
+                    <div class="form-group">
+                        <label class="sr-only">@_AdminViewRes.SearchUser:</label>
+                        <div class="btn-block">
+                            <input id="AdminContactSearch" class="typeahead form-control" style="margin-top: 10px; padding: 2px 6px !important; border-radius: 6px;" name="AdminContactSearch" type="text" placeholder="@_AdminViewRes.SearchUser" title="@_AdminViewRes.SearchUser" autocomplete="off" spellcheck="false" dir="auto">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="panel-body">
+                <div id="CurrentUser">
+
+                </div>
+                <div id="TVTypeNamesAndPath">
+
+                </div>
+            </div>
+        </div>
+    </div>
+}
+<script type="text/javascript">
+    $(function () {
+        cssp.Admin.Init();
+    });
+</script>

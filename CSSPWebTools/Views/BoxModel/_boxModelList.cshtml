@@ -1,0 +1,116 @@
+﻿@using CSSPWebTools.Controllers;
+@using CSSPWebTools.Views.BoxModel.Resources;
+@using CSSPWebTools.Models;
+@using CSSPEnumsDLL.Enums;
+@using CSSPModelsDLL.Models;
+
+@{
+    URLModel urlModel = (URLModel)ViewBag.URLModel;
+    List<BoxModelModel> BoxModelModelList = (List<BoxModelModel>)ViewBag.BoxModelModelList;
+    BoxModelController _BoxModelController = (BoxModelController)ViewBag.BoxModelController;
+    TVAuthEnum tvAuth = (TVAuthEnum)ViewBag.TVAuth;
+}
+
+<div id="BoxModelDiv">
+    <div id="BoxModelVariables" class="hidden">
+        <span class="varFixLengthAndFixWidthAreSelected">@BoxModelViewRes.FixLengthAndFixWidthAreSelected</span>
+        <span class="varPleaseSelectOnlyOne">@BoxModelViewRes.PleaseSelectOnlyOne</span>
+        <span class="varLengthRequiredWhenFixLengthSelected">@BoxModelViewRes.LengthRequiredWhenFixLengthSelected</span>
+        <span class="varWidthRequiredWhenFixWidthSelected">@BoxModelViewRes.WidthRequiredWhenFixWidthSelected</span>
+    </div>
+    @if (BoxModelModelList.Count() == 0)
+    {
+        <div>@BoxModelViewRes.NoItem</div>
+    }
+
+    @foreach (BoxModelModel boxModelModel in BoxModelModelList)
+    {
+        <div class="BoxModelTop" data-boxmodelid="@boxModelModel.BoxModelID">
+            <div class="LastUpdateAndTVText" data-table="BoxModel" data-id="@boxModelModel.BoxModelID"></div>
+
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h4 class="BoxModelScenaroName panel-title">@boxModelModel.ScenarioName</h4>
+                </div>
+                <div class="panel-body">
+                    <button class="jbBoxModelShowHideForm btn btn-default" title="@BoxModelViewRes.Edit"><span class="glyphicon glyphicon-edit"></span></button>
+                    <button class="jbBoxModelShowHideResult btn btn-default" title="@BoxModelViewRes.Information"><span class="glyphicon glyphicon-info-sign"></span></button>
+                    @if (tvAuth >= TVAuthEnum.Create)
+                    {
+                        <button class="jbBoxModelScenarioCopy btn btn-default" title="@BoxModelViewRes.Copy"><span class="glyphicon glyphicon-duplicate"></span></button>
+                    }
+                    @if (tvAuth >= TVAuthEnum.Delete)
+                    {
+                        <button class="jbBoxModelScenarioDelete btn btn-default" title="@BoxModelViewRes.Delete"><span class="glyphicon glyphicon-trash"></span></button>
+                    }
+                    <div class="BoxModelInfo">
+                        <h4 class="text-capitalize">@BoxModelViewRes.InputInformation</h4>
+                        <ul class="list-inline">
+                            <li>
+                                <label>@BoxModelViewRes.T90:</label>
+                                @(string.Format("{0:F1}", boxModelModel.T90_hour)) @BoxModelViewRes.hours
+                            </li>
+                            <li>
+                                <label>@BoxModelViewRes.Temperature:</label>
+                                @(string.Format("{0:F1}", boxModelModel.Temperature_C)) ºC
+                            </li>
+                            <li>
+                                <label>@BoxModelViewRes.DecayRate:</label>
+                                @(string.Format("{0:F5}", boxModelModel.DecayRate_per_day))  @BoxModelViewRes.unitPerDay
+                            </li>
+                            <li>
+                                <label>
+                                    @BoxModelViewRes.Flow:
+                                </label>
+                                @(string.Format("{0:F2}", boxModelModel.Flow_m3_day)) m<sup>3</sup>@BoxModelViewRes.unitPerDay
+                            </li>
+                            <li>
+                                <label>
+                                    @BoxModelViewRes.FlowDuration:
+                                </label>
+                                @(string.Format("{0:F1}", boxModelModel.FlowDuration_hour)) @BoxModelViewRes.hours
+                            </li>
+                            <li>
+                                <label>
+                                    @BoxModelViewRes.Dilution:
+                                </label>
+                                @(string.Format("{0:F0}", boxModelModel.Dilution))
+                            </li>
+                            <li>
+                                <label>
+                                    @BoxModelViewRes.Depth:
+                                </label>
+                                @(string.Format("{0:F3}", boxModelModel.Depth_m)) @BoxModelViewRes.Meters
+                            </li>
+                            <li>
+                                <label title="@BoxModelViewRes.FC: @BoxModelViewRes.FC_Full">
+                                    @BoxModelViewRes.Untreated (@BoxModelViewRes.FC):
+                                </label>
+                                @(string.Format("{0:F0}", boxModelModel.FCUntreated_MPN_100ml)) @BoxModelViewRes.FC/100 ml
+                            </li>
+                            <li>
+                                <label title="@BoxModelViewRes.FC: @BoxModelViewRes.FC_Full">
+                                    @BoxModelViewRes.PreDisinfection (@BoxModelViewRes.FC):
+                                </label>
+                                @(string.Format("{0:F0}", boxModelModel.FCPreDisinfection_MPN_100ml)) @BoxModelViewRes.FC/100 ml
+                            </li>
+                            <li>
+                                <label title="@BoxModelViewRes.FC: @BoxModelViewRes.FC_Full">
+                                    @BoxModelViewRes.ConcentrationObjective (@BoxModelViewRes.FC):
+                                </label>
+                                @(string.Format("{0:F0}", boxModelModel.Concentration_MPN_100ml)) @BoxModelViewRes.FC/100 ml
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="BoxModelEdit"></div>
+                    <div class="BoxModelResults"></div>
+                </div>
+            </div>
+        </div>
+    }
+    <script type="text/javascript">
+        $(function () {
+            cssp.BoxModel.Init();
+        });
+    </script>
+</div>

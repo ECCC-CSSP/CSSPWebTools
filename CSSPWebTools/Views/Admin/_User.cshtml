@@ -1,0 +1,64 @@
+﻿@using CSSPWebTools.Views.Admin.Resources;
+@using CSSPEnumsDLL.Enums;
+@using CSSPModelsDLL.Models;
+
+<div class="container-fluid">
+    @{
+        bool IsAdmin = (bool)ViewBag.IsAdmin;
+        ContactModel contactModel = (ContactModel)ViewBag.ContactModel;
+        List<TVItemModel> tvItemModelProvinceList = (List<TVItemModel>)ViewBag.TVItemModelProvinceList;
+        List<TVItemModel> tvItemModelSelectedProvinceList = (List<TVItemModel>)ViewBag.TVItemModelSelectedProvinceList;
+    }
+
+    @if (!IsAdmin)
+    {
+        <h2>@_AdminViewRes.Error</h2>
+        <h3>@_AdminViewRes.NeedAdministratorToAccessThisInformation</h3>
+        <a href="#!Home" class="btn btn-default">@_AdminViewRes.ReturnToHomePage</a>
+    }
+    else
+    {
+        <div class="bg-info">
+            <ul class="list-inline">
+                <li>
+                    <span class="h3">
+                        &nbsp; &nbsp;
+                        @(contactModel.LastName + ", " + contactModel.FirstName + " " + contactModel.Initial)
+                    </span>&nbsp; &nbsp;
+                </li>
+                <li>
+                    @((contactModel.Disabled == true ? _AdminViewRes.IsDisabled : _AdminViewRes.IsEnabled))
+                </li>
+                <li>
+                    <a href="#" class="jaContactDisabledToggle btn btn-primary">@((contactModel.Disabled == false ? _AdminViewRes.Disable : _AdminViewRes.Enable))</a>&nbsp; &nbsp;
+                </li>
+                <li>
+                    <label class="sr-only">@_AdminViewRes.DeleteThisSelectedUser @(contactModel.LastName + ", " + contactModel.FirstName + " " + contactModel.Initial)</label>
+                    <a href="#" class="jaContactDelete btn btn-default" role="button" title="@_AdminViewRes.DeleteThisSelectedUser @(contactModel.LastName + ", " + contactModel.FirstName + " " + contactModel.Initial)"><span class="glyphicon glyphicon-trash"></span></a>
+                </li>
+            </ul>
+        </div>
+        <div class="ProvinceDiv bg-info">
+            <h4>Sampling Planner for province(s)</h4>
+            <ul class="list-inline">
+                @foreach (TVItemModel tvItemModel in tvItemModelProvinceList)
+                {
+                    <li>
+                        <div class="checkbox-inline">
+                            <label class="control-label form-inline">
+                                <input class="province checkbox" @(tvItemModelSelectedProvinceList.Select(c => c.TVItemID).Contains(tvItemModel.TVItemID) ? "checked='checked'" : "") type="checkbox" value="@tvItemModel.TVItemID" />
+                                <span>@tvItemModel.TVText</span>
+                            </label>
+                        </div>
+                    </li>
+                }
+            </ul>
+        </div>
+
+    }
+</div>
+<script type="text/javascript">
+    $(function () {
+        cssp.Admin.InitUser(@(contactModel.ContactTVItemID), @(contactModel.Disabled.ToString().ToLower()), "@(contactModel.LoginEmail)");
+    });
+</script>

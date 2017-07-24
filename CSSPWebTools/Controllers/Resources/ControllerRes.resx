@@ -1,0 +1,391 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Areas" xml:space="preserve">
+    <value>Areas</value>
+  </data>
+  <data name="ShowBasicInformation" xml:space="preserve">
+    <value>Show basic information</value>
+  </data>
+  <data name="Contacts" xml:space="preserve">
+    <value>Contacts</value>
+  </data>
+  <data name="CouldNotCreateNewUserError_" xml:space="preserve">
+    <value>Could not create new user.\r\nError Message: {0}.</value>
+    <comment>24-Oct-12</comment>
+  </data>
+  <data name="Countries" xml:space="preserve">
+    <value>Countries</value>
+  </data>
+  <data name="CurrentPasswordIncorrectOrNewPasswordInvalid" xml:space="preserve">
+    <value>The current password is incorrect or the new password is invalid.</value>
+  </data>
+  <data name="DetailInformation" xml:space="preserve">
+    <value>Detailed Information</value>
+  </data>
+  <data name="DuplicateEmail" xml:space="preserve">
+    <value>A user is already using that email address. Please enter a different email address.</value>
+    <comment>24-Oct-12</comment>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="EmailNotUniqueAlreadyRegistered" xml:space="preserve">
+    <value>Email is not unique. This individual is probably already registered.</value>
+    <comment>24-Oct-12</comment>
+  </data>
+  <data name="EmailOrPasswordIncorrect" xml:space="preserve">
+    <value>The email or password provided is incorrect.</value>
+  </data>
+  <data name="ExternalLoginRemoved" xml:space="preserve">
+    <value>The external login was removed.</value>
+  </data>
+  <data name="Files" xml:space="preserve">
+    <value>Files</value>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>First name</value>
+  </data>
+  <data name="Infrastructures" xml:space="preserve">
+    <value>Infrastructures</value>
+  </data>
+  <data name="InvalidAnswer" xml:space="preserve">
+    <value>The password retrieval answer provided is invalid. Please make corrections and try again.</value>
+    <comment>24-Oct-12</comment>
+  </data>
+  <data name="InvalidEmail" xml:space="preserve">
+    <value>The email address provided is invalid. Please make corrections and try again.</value>
+    <comment>24-Oct-12</comment>
+  </data>
+  <data name="InvalidPassword" xml:space="preserve">
+    <value>The password provided is invalid. Please enter a valid password value.</value>
+    <comment>24-Oct-12</comment>
+  </data>
+  <data name="InvalidQuestion" xml:space="preserve">
+    <value>The password retrieval question provided is invalid. Please check the value and try again.</value>
+    <comment>24-Oct-12</comment>
+  </data>
+  <data name="IsUnique" xml:space="preserve">
+    <value>is unique</value>
+    <comment>24-Oct-12</comment>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>Last name</value>
+  </data>
+  <data name="LoginRequired" xml:space="preserve">
+    <value>Login required</value>
+  </data>
+  <data name="MikeScenarios" xml:space="preserve">
+    <value>MIKE Scenarios</value>
+  </data>
+  <data name="Municipalities" xml:space="preserve">
+    <value>Municipalities</value>
+  </data>
+  <data name="MWQMRuns" xml:space="preserve">
+    <value>MWQM Runs</value>
+  </data>
+  <data name="MWQMSites" xml:space="preserve">
+    <value>MWQM Sites</value>
+  </data>
+  <data name="NeedToBeAnAdministrator" xml:space="preserve">
+    <value>Need to be an administrator</value>
+  </data>
+  <data name="NeedToBeLoggedin" xml:space="preserve">
+    <value>Need to be logged in</value>
+  </data>
+  <data name="NeedToLoginToAddNewMember" xml:space="preserve">
+    <value>You need to be logged in before being able to add an individual to the web site. Please log in.</value>
+    <comment>24-Oct-12</comment>
+  </data>
+  <data name="NotUnique" xml:space="preserve">
+    <value>is not unique</value>
+    <comment>24-Oct-12</comment>
+  </data>
+  <data name="PasswordChanged" xml:space="preserve">
+    <value>Your password has been changed.</value>
+  </data>
+  <data name="PasswordSet" xml:space="preserve">
+    <value>Your password has been reset.</value>
+  </data>
+  <data name="PolSourceSites" xml:space="preserve">
+    <value>Pollution Source Sites</value>
+  </data>
+  <data name="PrecHydroTideSites" xml:space="preserve">
+    <value>Precipitation, Hydrometric and Tide Sites</value>
+  </data>
+  <data name="ProviderError" xml:space="preserve">
+    <value>The authentication provider returned an error. Please verify your entry and try again. If the problem persists, please contact the webmaster.</value>
+    <comment>24-Oct-12</comment>
+  </data>
+  <data name="Provinces" xml:space="preserve">
+    <value>Provinces</value>
+  </data>
+  <data name="Sectors" xml:space="preserve">
+    <value>Sectors</value>
+  </data>
+  <data name="Subsectors" xml:space="preserve">
+    <value>Subsectors</value>
+  </data>
+  <data name="TypeNot_" xml:space="preserve">
+    <value>Type not [{0}]</value>
+  </data>
+  <data name="UnknownError" xml:space="preserve">
+    <value>An unknown error occurred. Please verify your entry and try again. If the problem persists, please contact the webmaster.</value>
+    <comment>24-Oct-12</comment>
+  </data>
+  <data name="UserNotFound" xml:space="preserve">
+    <value>UserNotFound</value>
+  </data>
+  <data name="UserRejected" xml:space="preserve">
+    <value>The user creation request has been canceled. Please verify your entry and try again. If the problem persists, please contact the webmaster.</value>
+    <comment>24-Oct-12</comment>
+  </data>
+  <data name="_IsRequired" xml:space="preserve">
+    <value>{0} is required</value>
+  </data>
+  <data name="BoxModels" xml:space="preserve">
+    <value>Box Models</value>
+  </data>
+  <data name="Information" xml:space="preserve">
+    <value>Information</value>
+  </data>
+  <data name="VisualPlumes" xml:space="preserve">
+    <value>Visual Plumes</value>
+  </data>
+  <data name="Add" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="ShowGenerateReport" xml:space="preserve">
+    <value>Show generate report</value>
+  </data>
+  <data name="Hydrometric" xml:space="preserve">
+    <value>Hydrometric</value>
+  </data>
+  <data name="MikeScenarioInput" xml:space="preserve">
+    <value>Input</value>
+  </data>
+  <data name="Precipitation" xml:space="preserve">
+    <value>Precipitation</value>
+  </data>
+  <data name="Tides" xml:space="preserve">
+    <value>Tides</value>
+  </data>
+  <data name="Tools" xml:space="preserve">
+    <value>Tools</value>
+  </data>
+  <data name="Charts" xml:space="preserve">
+    <value>Charts</value>
+  </data>
+  <data name="Table" xml:space="preserve">
+    <value>Table</value>
+  </data>
+  <data name="CancelEdit" xml:space="preserve">
+    <value>Cancel Edit</value>
+  </data>
+  <data name="HideMap" xml:space="preserve">
+    <value>Hide Map</value>
+  </data>
+  <data name="ShowMap" xml:space="preserve">
+    <value>Show Map</value>
+  </data>
+  <data name="GeneralParameters" xml:space="preserve">
+    <value>General Parameters</value>
+  </data>
+  <data name="InputSummary" xml:space="preserve">
+    <value>Input Summary</value>
+  </data>
+  <data name="Sources" xml:space="preserve">
+    <value>Sources</value>
+  </data>
+  <data name="AddNewBoxModelScenario" xml:space="preserve">
+    <value>Add new box model scenario</value>
+  </data>
+  <data name="ShowBiggerMap" xml:space="preserve">
+    <value>Show bigger map</value>
+  </data>
+  <data name="ShowMoreInformation" xml:space="preserve">
+    <value>Show more information</value>
+  </data>
+  <data name="ShowSmallerMap" xml:space="preserve">
+    <value>Show smaller map</value>
+  </data>
+  <data name="MWQMSite" xml:space="preserve">
+    <value>MWQM Site</value>
+  </data>
+  <data name="MWQMSiteShowOnMap" xml:space="preserve">
+    <value>MWQM Site Show On Map</value>
+  </data>
+  <data name="PolSourceSiteShowOnMap" xml:space="preserve">
+    <value>Pollution Source Site Show On Map</value>
+  </data>
+  <data name="SamplingPlans" xml:space="preserve">
+    <value>Sampling Plans</value>
+  </data>
+  <data name="Setup" xml:space="preserve">
+    <value>Setup</value>
+  </data>
+  <data name="Import" xml:space="preserve">
+    <value>Import</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="Copy" xml:space="preserve">
+    <value>Copy</value>
+  </data>
+  <data name="MikeScenario" xml:space="preserve">
+    <value>MIKE Scenario</value>
+  </data>
+  <data name="MikeSource" xml:space="preserve">
+    <value>MIKE Source</value>
+  </data>
+  <data name="AskToRun" xml:space="preserve">
+    <value>Ask To Run</value>
+  </data>
+  <data name="ClimateSites" xml:space="preserve">
+    <value>Climate Sites</value>
+  </data>
+  <data name="HydrometricSites" xml:space="preserve">
+    <value>Hydrometric Sites</value>
+  </data>
+  <data name="TideSites" xml:space="preserve">
+    <value>Tide Sites</value>
+  </data>
+  <data name="MWQMRunShowOnMap" xml:space="preserve">
+    <value>MWQM Run Show On Map</value>
+  </data>
+  <data name="AllMWQMSamplesNeedsToBeDeletedBeforeDeletingTheRun" xml:space="preserve">
+    <value>All MWQM Samples needs to be deleted before deleting the run</value>
+  </data>
+  <data name="SamplingPlan" xml:space="preserve">
+    <value>Sampling plan</value>
+  </data>
+  <data name="Empty" xml:space="preserve">
+    <value>Empty</value>
+  </data>
+  <data name="GenerateResults" xml:space="preserve">
+    <value>Generate results</value>
+  </data>
+  <data name="RainExceedance" xml:space="preserve">
+    <value>Rain exceedance</value>
+  </data>
+  <data name="EmailDistributionList" xml:space="preserve">
+    <value>Email distribution list</value>
+  </data>
+</root>

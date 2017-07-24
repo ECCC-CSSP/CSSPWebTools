@@ -1,0 +1,91 @@
+﻿@using CSSPWebTools.Views.Home.Resources;
+@using CSSPEnumsDLL.Enums;
+
+<header id="HeaderDiv">
+    <nav role="navigation" class="navbar navbar-inverse headerNav">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle pull-right" data-toggle="collapse" data-target="#navbarCollapseID">
+                    <span class="sr-only">@HomeViewRes.ToggleNavigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <a href="#!Home" class="navbar-brand visible-lg visible-md" title="@HomeViewRes.CSSP_FULL"><span class="text-primary"><span class="glyphicon glyphicon-home"></span>&nbsp;&nbsp;@HomeViewRes.CSSPWebTools</span></a>
+                <a href="#!Home" class="navbar-brand visible-xs visible-sm" title="@HomeViewRes.CSSP_FULL"><span class="text-primary"><span class="glyphicon glyphicon-home"></span>&nbsp;&nbsp;@HomeViewRes.CSSP</span></a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbarCollapseID">
+                <ul class="nav navbar-nav navbar-left" role="menu">
+                    <li class="dropdown" id="dropdownTestingID">
+                        @if (ViewBag.Debug)
+                        {
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tests<span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li>
+                                    <a href="#" class="jtTestShow ">View Test</a>
+                                </li>
+                                <li><a href="#" class="jtTestHide">Hide Test</a></li>
+                                <li class="divider"></li>
+                                <li>
+                                    <a href="#" class="jtShowGenerateHTMLTestCodeDialog  ">Generate HTML Test Code</a>
+                                </li>
+                                <li class="divider"></li>
+                                <li>
+                                    <a href="#!Testing" class="jtTesting"><span class="glyphicon glyphicon-time"></span>&nbsp; Testing</a>
+                                </li>
+                            </ul>
+
+                        }
+                    </li>
+                    <li>
+                        <span>
+                            <input id="TopSearch" class="typeahead form-control" style="width: 200px; margin-top: 10px; padding: 2px 6px !important; border-radius: 6px;" name="TopSearch" type="text" placeholder="@HomeViewRes.Search" title="@HomeViewRes.Search" autocomplete="off" spellcheck="false" dir="auto">
+                        </span>
+                    </li>
+                    <li>
+                        <a href="#" class="jaHelp" data-helpcode="TopSearch"><span class="glyphicon glyphicon-question-sign"></span></a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right" role="menu">
+                    <li>
+                        <a href="#!Administrator"><span class="glyphicon glyphicon-wrench"></span>&nbsp; @HomeViewRes.Admin</a>
+                    </li>
+                    <li>
+                        <a href="#!Profile" title="@HomeViewRes.YourProfile"><span class="glyphicon glyphicon-user"></span>&nbsp; <span id="UserEmail" class="hidden">@User.Identity.Name</span></a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        @if ((LanguageEnum)ViewBag.Language == LanguageEnum.en)
+                        {
+                            <a class="jaLanguage" href="#!Language/fr-CA"><span class="glyphicon glyphicon-flag"></span>&nbsp; @ViewBag.CultureRequestStr</a>
+                        }
+                        else
+                        {
+                            <a class="jaLanguage" href="#!Language/en-CA"><span class="glyphicon glyphicon-flag"></span>&nbsp; @ViewBag.CultureRequestStr</a>
+                        }
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a href="#!Login"><span class="glyphicon glyphicon-log-in"></span>&nbsp; @HomeViewRes.Login</a>
+                    </li>
+                    <li>
+                        <a class="jaLogOff" href="#"><span class="glyphicon glyphicon-log-out"></span>&nbsp; @HomeViewRes.Logoff</a>
+                    </li>
+                    <li class="divider"></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+@if (ViewBag.Debug)
+{
+    @*Testing section*@
+    <div class="testing hidden">
+        <span class="divName" style="display: none">#HeaderDiv</span>
+        <span class="appName" style="display: none">cssp.Header</span>
+        <a class="jtTestHeaderContents btn btn-default" role="button">Test Header Contents</a>
+    </div>
+
+    @*Testing section*@
+}

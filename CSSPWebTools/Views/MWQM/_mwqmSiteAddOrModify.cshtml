@@ -1,0 +1,113 @@
+﻿@using CSSPWebTools.Views.MWQM.Resources;
+@using CSSPWebTools.Controllers;
+@using CSSPModelsDLL.Models;
+@using CSSPEnumsDLL.Services;
+@using CSSPEnumsDLL.Enums;
+
+@{
+    MWQMSiteModel mwqmSiteModel = (MWQMSiteModel)ViewBag.MWQMSiteModel;
+    TVItemModel tvItemModel = (TVItemModel)ViewBag.TVItemModel;
+    MapInfoPointModel mapInfoPointModel = (MapInfoPointModel)ViewBag.MapInfoPointModel;
+    MWQMController mwqmController = (MWQMController)ViewBag.MWQMController;
+    int SubsectorTVItemID = (int)ViewBag.SubsectorTVItemID;
+    int MWQMSiteTVItemID = (int)ViewBag.MWQMSiteTVItemID;
+    BaseEnumService _BaseEnumService = new BaseEnumService(ViewBag.Language);
+}
+
+<div class="MWQMSiteTopEditDiv blockMargin">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                @(MWQMSiteTVItemID == 0 ? MWQMViewRes.Add : MWQMViewRes.Modify) @mwqmSiteModel.MWQMSiteTVText
+            </h4>
+        </div>
+        <div class="panel-body">
+            <form id="MWQMSiteAddOrModifyForm" action="MWQM/MWQMSiteSaveAllJSON" method="post">
+                @Html.AntiForgeryToken()
+                <input type="hidden" name="SubsectorTVItemID" value="@SubsectorTVItemID" />
+                <input type="hidden" name="MWQMSiteTVItemID" value="@MWQMSiteTVItemID" />
+
+                <div class="form-group">
+                    <label class="control-label" for="MWQMSiteTVText">@MWQMViewRes.MWQMSiteName</label>
+                    <div>
+                        <input type="checkbox" class="checkbox" name="IsActive" @((tvItemModel == null || tvItemModel.IsActive) == false ? "" : "checked=\"checked\"") />
+                        @MWQMViewRes.IsActive
+                        <span class="help-block"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label" for="MWQMSiteTVText">@MWQMViewRes.MWQMSiteName</label>
+                    <div>
+                        <input class="form-control" type="text" name="MWQMSiteTVText" value="@mwqmSiteModel.MWQMSiteTVText" />
+                        <span class="help-block"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label" for="MWQMSiteNumber">@MWQMViewRes.MWQMSiteNumber</label>
+                    <div>
+                        <input class="form-control" type="text" name="MWQMSiteNumber" value="@mwqmSiteModel.MWQMSiteNumber" />
+                        <span class="help-block"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label" for="MWQMSiteDescription">@MWQMViewRes.MWQMSiteDescription</label>
+                    <div>
+                        <input class="form-control" type="text" name="MWQMSiteDescription" value="@mwqmSiteModel.MWQMSiteDescription" />
+                        <span class="help-block"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="sr-only" for="MWQMSiteLatestClassification">@MWQMViewRes.MWQMSiteLatestClassification</label>
+                    <div>
+                        <select name="MWQMSiteLatestClassification" class="form-control">
+                            <option value="0" @(mwqmSiteModel.MWQMSiteLatestClassification == MWQMSiteLatestClassificationEnum.Error ? "selected=selected" : "")>@(MWQMViewRes.SelectAClassification)</option>
+                            @foreach (MWQMSiteLatestClassificationEnumTextOrdered mwqmSiteLatestClassificationEnumTextOrdered in _BaseEnumService.GetMWQMSiteLatestClassificationEnumTextOrderedList())
+                            {
+                                if (mwqmSiteLatestClassificationEnumTextOrdered.MWQMSiteLatestClassification != MWQMSiteLatestClassificationEnum.Error)
+                                {
+                                    <option value="@((int)mwqmSiteLatestClassificationEnumTextOrdered.MWQMSiteLatestClassification)" @(mwqmSiteLatestClassificationEnumTextOrdered.MWQMSiteLatestClassification == mwqmSiteModel.MWQMSiteLatestClassification ? "selected=selected" : "")>@(mwqmSiteLatestClassificationEnumTextOrdered.MWQMSiteLatestClassificationText)</option>
+                                }
+                            }
+                        </select>
+                        <span class="help-block"></span>
+                    </div>
+                </div>
+                
+                <label class="h4">@MWQMViewRes.Location</label>
+                <div class="form-inline elementSpacing">
+                    <div class="form-group">
+                        <label class="control-label" for="Lat">@MWQMViewRes.Latitude :</label>
+                        <div>
+                            <input class="isnumber form-control" type="text" name="Lat" value="@(mapInfoPointModel == null ? "" : mapInfoPointModel.Lat.ToString("F5"))" />
+                            <span class="help-block"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="Lng">@MWQMViewRes.Longitude :</label>
+                        <div>
+                            <input class="isnumber form-control" type="text" name="Lng" value="@(mapInfoPointModel == null ? "" : mapInfoPointModel.Lng.ToString("F5"))" />
+                            <span class="help-block"></span>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                
+                <div class="btn-block">
+                    <button class="jbMWQMSiteEditSave btn btn-primary" type="submit">
+                        <span class="glyphicon glyphicon-check"></span>
+                        &nbsp;@(MWQMSiteTVItemID == 0 ? MWQMViewRes.Add : MWQMViewRes.Modify)
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function () {
+        cssp.MWQMSite.InitEdit();
+    });
+</script>

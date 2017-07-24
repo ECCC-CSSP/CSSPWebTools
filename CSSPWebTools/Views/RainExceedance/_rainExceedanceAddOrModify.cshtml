@@ -1,0 +1,165 @@
+﻿@using CSSPWebTools.Models;
+@using CSSPWebTools.Views.RainExceedance.Resources;
+@using CSSPWebTools.Views.Shared.Resources;
+@using CSSPWebTools.Controllers;
+@using System.Globalization;
+@using CSSPEnumsDLL.Enums;
+@using CSSPEnumsDLL.Services;
+@using CSSPModelsDLL.Models;
+
+@{
+    RainExceedanceController rainExceedanceController = (RainExceedanceController)ViewBag.RainExceedanceController;
+    RainExceedanceModel rainExceedanceModel = (RainExceedanceModel)ViewBag.RainExceedanceModel;
+}
+
+<div class="RainExceedanceEditDiv">
+    <div id="collapseMWQMRunGeneralInformation" class="panel panel-default" aria-labelledby="headingRainExceedance">
+        <div class="panel-heading">
+            <div class="panel-title">
+                @if (rainExceedanceModel.RainExceedanceID == 0)
+                {
+                    <h4>@(DateTime.Now.ToString("yyyy MMMM dd") + " - " + DateTime.Now.AddYears(1).ToString("yyyy MMMM dd"))</h4>
+                }
+                else
+                {
+                    <h4>@((DateTime)rainExceedanceModel.StartDate).ToString("yyyy MMMM dd") - @((DateTime)rainExceedanceModel.StartDate).ToString("yyyy MMMM dd")</h4>
+                }
+            </div>
+        </div>
+        <div class="panel-body">
+            <form class="RainExceedanceAddOrModifyForm" method="post" role="form" action="RainExceedance/RainExceedanceSaveJSON">
+                @Html.AntiForgeryToken()
+                <input type="hidden" name="RainExceedanceID" value="@rainExceedanceModel.RainExceedanceID" />
+                <fieldset>
+                    @if (rainExceedanceModel.RainExceedanceID == 0)
+                    {
+                        <legend><span>@RainExceedanceViewRes.Add</span></legend>
+                    }
+                    else
+                    {
+                        <legend><span>@RainExceedanceViewRes.Modify</span></legend>
+                    }
+                    <div class="paraBlock">
+                        @* Start Date *@
+                        <label>@RainExceedanceViewRes.StartDate</label>
+                        <div class="blockMargin lineSpaceBottom">
+                            <div class="form-inline">
+                                <div class="form-group  blockRightSpace">
+                                    <label class="control-label"> @RainExceedanceViewRes.Year</label>
+                                    <div>
+                                        <select class="form-control" name="StartDateYear">
+                                            @for (int i = DateTime.Now.Year - 5; i < DateTime.Now.Year + 5; i++)
+                                            {
+                                                <option @((rainExceedanceModel.StartDate != null && ((DateTime)rainExceedanceModel.StartDate).Year == i) ? "selected=selected" : "") value="@i.ToString()">@i.ToString()</option>
+                                            }
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group  blockRightSpace">
+                                    <label class="control-label">@RainExceedanceViewRes.Month</label>
+                                    <div>
+                                        <select class="form-control" name="StartDateMonth">
+                                            @for (int i = 1; i < 13; i++)
+                                            {
+                                                <option @((rainExceedanceModel.StartDate != null && ((DateTime)rainExceedanceModel.StartDate).Month == i) ? "selected=selected" : "") value="@i.ToString()">@(CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(i))</option>
+                                            }
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group  blockRightSpace">
+                                    <label class="control-label">@RainExceedanceViewRes.Day</label>
+                                    <div>
+                                        <select class="form-control" name="StartDateDay">
+                                            @{
+                                                int NumberOfDaysInMonth = DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month);
+                                                for (int i = 1; i < NumberOfDaysInMonth + 1; i++)
+                                                {
+                                                    <option @((rainExceedanceModel.StartDate != null && ((DateTime)rainExceedanceModel.StartDate).Day == i ? "selected=selected" : "")) value="@i.ToString()">@i.ToString()</option>
+                                                }
+                                            }
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        @* End Date *@
+                        <label>@RainExceedanceViewRes.EndDate</label>
+                        <div class="blockMargin lineSpaceBottom">
+                            <div class="form-inline">
+                                <div class="form-group  blockRightSpace">
+                                    <label class="control-label"> @RainExceedanceViewRes.Year</label>
+                                    <div>
+                                        <select class="form-control" name="EndDateYear">
+                                            @for (int i = DateTime.Now.Year - 5; i < DateTime.Now.Year + 5; i++)
+                                            {
+                                                <option @((rainExceedanceModel.EndDate != null && ((DateTime)rainExceedanceModel.EndDate).Year == i) ? "selected=selected" : "") value="@i.ToString()">@i.ToString()</option>
+                                            }
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group  blockRightSpace">
+                                    <label class="control-label">@RainExceedanceViewRes.Month</label>
+                                    <div>
+                                        <select class="form-control" name="EndDateMonth">
+                                            @for (int i = 1; i < 13; i++)
+                                            {
+                                                <option @((rainExceedanceModel.EndDate != null && ((DateTime)rainExceedanceModel.EndDate).Month == i) ? "selected=selected" : "") value="@i.ToString()">@(CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(i))</option>
+                                            }
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group  blockRightSpace">
+                                    <label class="control-label">@RainExceedanceViewRes.Day</label>
+                                    <div>
+                                        <select class="form-control" name="EndDateDay">
+                                            @{
+                                                int NumberOfDaysInMonth2 = DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month);
+                                                for (int i = 1; i < NumberOfDaysInMonth2 + 1; i++)
+                                                {
+                                                    <option @((rainExceedanceModel.EndDate != null && ((DateTime)rainExceedanceModel.EndDate).Day == i ? "selected=selected" : "")) value="@i.ToString()">@i.ToString()</option>
+                                                }
+                                            }
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        @* Rain Maximum *@
+                        <div class="form-group blockRightSpace">
+                            <label for="RainMaximum" class="control-label">@RainExceedanceViewRes.RainMaximum (@UnitViewRes.Milliliters)</label>
+                            <div>
+                                <input class="isnumber form-control" type="text" name="RainMaximum" value="@(rainExceedanceModel.RainMaximum != null
+                                                        ? ((double)rainExceedanceModel.RainMaximum).ToString("F1") : "")" />
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        @* Rain Extreme *@
+                        <div class="form-group blockRightSpace">
+                            <label for="RainExtreme" class="control-label">@RainExceedanceViewRes.RainExtreme (@UnitViewRes.Milliliters)</label>
+                            <div>
+                                <input class="isnumber form-control" type="text" name="RainExtreme" value="@(rainExceedanceModel.RainExtreme != null
+                                                        ? ((double)rainExceedanceModel.RainExtreme).ToString("F1") : "")" />
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        @* Days prior to start *@
+                        <div class="form-group blockRightSpace">
+                            <label for="DaysPriorToStart" class="control-label">@RainExceedanceViewRes.DaysPriorToStart</label>
+                            <div>
+                                <input class="isnumber form-control" type="text" name="DaysPriorToStart" value="@(rainExceedanceModel.DaysPriorToStart)" />
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        cssp.RainExceedance.InitEdit();
+    });
+</script>
+

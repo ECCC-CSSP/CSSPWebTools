@@ -1,0 +1,114 @@
+﻿@using CSSPWebTools.Views.VisualPlumes.Resources;
+@using CSSPEnumsDLL.Enums;
+@using CSSPModelsDLL.Models;
+
+@{
+    VPFullModel vpFullModel = (VPFullModel)ViewBag.VPFullModel;
+}
+
+<div class="VPTop" data-vpscenarioid="@vpFullModel.VPScenarioID">
+
+    <div class="LastUpdateAndTVText" data-table="VPScenario" data-id="@vpFullModel.VPScenarioID"></div>
+    <div class="panel panel-success">
+        <div class="panel-heading">
+            <h4 class="VPScenarioName panel-title">
+                <button class="jbVPShowList btn btn-default" title="@VisualPlumeViewRes.ReturnToVPList">
+                    <span class="flip-horizontal glyphicon glyphicon-share-alt"></span>
+                </button>&nbsp; &nbsp;
+                @vpFullModel.VPScenarioName
+            </h4>
+        </div>
+        <div class="panel-body">
+            @if (vpFullModel.VPScenarioStatus == ScenarioStatusEnum.Completed)
+            {
+                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="ScenarioInput">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#Input" aria-expanded="false"
+                                   aria-controls="Input">@VisualPlumeViewRes.Input</a>
+
+                            </h4>
+                        </div>
+                        <div id="Input" class="panel-collapse collapse" role="tabpanel" aria-labelledby="InputScenario">
+                            <div class="VPScenarioInputDiv panel-body">
+                                @Html.Action("_visualPlumeScenarioInput", "VisualPlumes")
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="ChartScenario">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#Chart" aria-expanded="false"
+                                   aria-controls="Chart">@VisualPlumeViewRes.Charts</a>
+                            </h4>
+                        </div>
+                        <div id="Chart" class="panel-collapse collapse" role="tabpanel" aria-labelledby="ChartScenario">
+                            <div class="VPScenarioChartResultDiv panel-body ">
+                                @Html.Action("_visualPlumeScenarioChartResults", "VisualPlumes")
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="ScenarioResults">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#Results" aria-expanded="true"
+                                   aria-controls="Results">@VisualPlumeViewRes.Results</a>
+                            </h4>
+                        </div>
+                        <div id="Results" class="panel-collapse collapse" role="tabpanel" aria-labelledby="ScenarioResults">
+                            <div class="VPScenarioResultDiv panel-body ">
+                                @Html.Action("_visualPlumeScenarioResults", "VisualPlumes")
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="ScenarioRawResults">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#RawResults" aria-expanded="false"
+                                   aria-controls="RawResults">@VisualPlumeViewRes.RawResults</a>
+                            </h4>
+                        </div>
+                        <div id="RawResults" class="panel-collapse collapse" role="tabpanel" aria-labelledby="ScenarioRawResults">
+                            <div class="VPScenarioRawResultDiv panel-body ">
+                                @Html.Action("_visualPlumeScenarioRawResults", "VisualPlumes")
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+            }
+            else
+            {
+                <div class="container-fluid">
+                    <div class="row">
+
+                        <form role="form" id="VPForm" action="/VisualPlumes/SaveVPScenarioJSON" method="post">
+                            <input type="hidden" name="InfrastructureTVItemID" value="@vpFullModel.InfrastructureTVItemID" />
+                            <input type="hidden" name="VPScenarioID" value="@vpFullModel.VPScenarioID" />
+                            <div class="blockMargin">
+                                @Html.Action("_visualPlumeScenarioEditDiffuser", "VisualPlumes")
+                            </div>
+                            <div class="blockMargin">
+                                @Html.Action("_visualPlumeScenarioEditAmbient", "VisualPlumes")
+                            </div>
+                            <div class="btn-block">
+                                <button class="jbVPScenarioSave btn btn-default" type="submit">
+                                    <span class="glyphicon glyphicon-check"></span>&nbsp;@VisualPlumeViewRes.Submit
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-md-4">&nbsp;</div>
+                </div>
+            }
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(function () {
+            cssp.VisualPlumes.Init();
+        });
+    </script>
+</div>

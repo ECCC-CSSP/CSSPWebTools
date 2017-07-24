@@ -1,0 +1,941 @@
+﻿@using CSSPWebTools.Views.Shared.Resources;
+@using CSSPWebTools.Views.Infrastructure.Resources;
+@using CSSPWebTools.Controllers;
+@using CSSPEnumsDLL.Enums;
+@using CSSPEnumsDLL.Services;
+@using CSSPModelsDLL.Models;
+
+@{
+    InfrastructureModel infrastructureModel = (InfrastructureModel)ViewBag.InfrastructureModel;
+    AddressModel addressModel = (AddressModel)ViewBag.AddressModel;
+    MapInfoPointModel mapInfoPointModelInfrastructure = (MapInfoPointModel)ViewBag.MapInfoPointModelInfrastructure;
+    MapInfoPointModel mapInfoPointModelOutfall = (MapInfoPointModel)ViewBag.MapInfoPointModelOutfall;
+    InfrastructureController infrastructureController = (InfrastructureController)ViewBag.InfrastructureController;
+    BaseEnumService _BaseEnumService = new BaseEnumService(ViewBag.Language);
+    float Lat = 0.0f;
+    float Lng = 0.0f;
+    if (addressModel != null && !string.IsNullOrWhiteSpace(addressModel.LatLngText))
+    {
+        Lat = float.Parse(addressModel.LatLngText.Substring(0, addressModel.LatLngText.IndexOfAny(", ".ToCharArray())));
+        Lng = float.Parse(addressModel.LatLngText.Substring(addressModel.LatLngText.LastIndexOfAny(", ".ToCharArray())));
+    }
+
+    bool IsShowMoreInfo = (bool)ViewBag.IsShowMoreInfo;
+    bool IsShowMap = (bool)ViewBag.IsShowMap;
+
+}
+@if (!string.IsNullOrWhiteSpace(infrastructureModel.Error))
+{
+    <h3>Could not load infrastructure info</h3>
+    <span>Error: @infrastructureModel.Error</span>
+}
+else
+{
+    <div class="container-fluid">
+        <div class="LastUpdateAndTVText" data-table="Infrastructure" data-id="@infrastructureModel.InfrastructureID"></div>
+        @if (addressModel != null)
+        {
+            <div class="text-nowrap">
+
+                <label class="text-lighter pushRight">@InfrastructureViewRes.Address</label>
+                @if (string.IsNullOrWhiteSpace(addressModel.GoogleAddressText))
+                {
+                    <span class=" elementSpacing text-lowercase">(@(_BaseEnumService.GetEnumText_AddressTypeEnum(addressModel.AddressType)))&nbsp;</span>
+                    <span>
+                        @addressModel.StreetNumber
+                        @addressModel.StreetName
+                        @addressModel.StreetTypeText,
+                        @addressModel.MunicipalityTVText,
+                        @addressModel.ProvinceTVText,
+                        @addressModel.PostalCode,
+                        @addressModel.CountryTVText
+                    </span>
+                }
+                else
+                {
+                    <span class=" elementSpacing text-lowercase">(Google)&nbsp;</span>
+                    <span>
+                        @if (Lat != 0.0f)
+                        {
+                            if (IsShowMap)
+                            {
+                                <button class="jbAddressLocationCrossOnMap btn btn-default" data-lat="@Lat" data-lng="@Lng"><span class="glyphicon glyphicon-map-marker"></span></button>
+                            }
+                            <span>@addressModel.LatLngText &nbsp; &nbsp; &nbsp;</span>
+                        }
+                        @addressModel.GoogleAddressText
+                    </span>
+                }
+            </div>
+        }
+        @if (infrastructureModel.InfrastructureType == InfrastructureTypeEnum.WWTP)
+        {
+            // WWTP
+            <div class="row spaceLeft2">
+                <dl class="dl-results">
+                    @*InfrastructureType*@
+                    <dt>
+                        <label>@InfrastructureViewRes.InfrastructureType</label>
+                    </dt>
+                    <dd>
+                        @((infrastructureModel.InfrastructureType == null || (int)infrastructureModel.InfrastructureType < 1)
+                            ? InfrastructureViewRes.NoData
+                            : _BaseEnumService.GetEnumText_InfrastructureTypeEnum(infrastructureModel.InfrastructureType))
+                    </dd>
+
+                    @*FacilityType*@
+                    <dt>
+                        <label>@InfrastructureViewRes.FacilityType</label>
+                    </dt>
+                    <dd>
+                        @((infrastructureModel.FacilityType == null || (int)infrastructureModel.FacilityType < 1)
+                            ? InfrastructureViewRes.NoData
+                            : _BaseEnumService.GetEnumText_FacilityTypeEnum(infrastructureModel.FacilityType))
+                    </dd>
+
+                    @if (!(infrastructureModel.FacilityType == null || (int)infrastructureModel.FacilityType < 1))
+                    {
+                        if (infrastructureModel.FacilityType == FacilityTypeEnum.Lagoon)
+                        {
+                            @*Lagoon*@
+                            <dt>
+                                <label>@InfrastructureViewRes.IsMechanicallyAerated</label>
+                            </dt>
+                            <dd>
+                                @((infrastructureModel.IsMechanicallyAerated == null)
+                            ? InfrastructureViewRes.NoData
+                            : infrastructureModel.IsMechanicallyAerated.ToString())
+                            </dd>
+
+                            <dt>
+                                <label>@InfrastructureViewRes.NumberOfCells</label>
+                            </dt>
+                            <dd>
+                                @((infrastructureModel.NumberOfCells == null)
+                            ? InfrastructureViewRes.NoData
+                            : infrastructureModel.NumberOfCells.ToString())
+                            </dd>
+
+                            <dt>
+                                <label>@InfrastructureViewRes.NumberOfAeratedCells</label>
+                            </dt>
+                            <dd>
+                                @((infrastructureModel.NumberOfAeratedCells == null)
+                            ? InfrastructureViewRes.NoData
+                            : infrastructureModel.NumberOfAeratedCells.ToString())
+                            </dd>
+
+                            <dt>
+                                <label>@InfrastructureViewRes.AerationType</label>
+                            </dt>
+                            <dd>
+                                @((infrastructureModel.AerationType == null || (int)infrastructureModel.AerationType < 1)
+                            ? InfrastructureViewRes.NoData
+                            : _BaseEnumService.GetEnumText_AerationTypeEnum(infrastructureModel.AerationType))
+                            </dd>
+                        }
+                        else if (infrastructureModel.FacilityType == FacilityTypeEnum.Plant)
+                        {
+                            @*Plant*@
+                            <dt>
+                                <label>@InfrastructureViewRes.PreliminaryTreatmentType</label>
+                            </dt>
+                            <dd>
+                                @((infrastructureModel.PreliminaryTreatmentType == null || (int)infrastructureModel.PreliminaryTreatmentType < 1)
+                            ? InfrastructureViewRes.NoData
+                            : _BaseEnumService.GetEnumText_PreliminaryTreatmentTypeEnum(infrastructureModel.PreliminaryTreatmentType))
+                            </dd>
+
+                            <dt>
+                                <label>@InfrastructureViewRes.PrimaryTreatmentType</label>
+                            </dt>
+                            <dd>
+                                @((infrastructureModel.PrimaryTreatmentType == null || (int)infrastructureModel.PrimaryTreatmentType < 1)
+                            ? InfrastructureViewRes.NoData
+                            : _BaseEnumService.GetEnumText_PrimaryTreatmentTypeEnum(infrastructureModel.PrimaryTreatmentType))
+                            </dd>
+
+                            <dt>
+                                <label>@InfrastructureViewRes.SecondaryTreatmentType</label>
+                            </dt>
+                            <dd>
+                                @((infrastructureModel.SecondaryTreatmentType == null || (int)infrastructureModel.SecondaryTreatmentType < 1)
+                            ? InfrastructureViewRes.NoData
+                            : _BaseEnumService.GetEnumText_SecondaryTreatmentTypeEnum(infrastructureModel.SecondaryTreatmentType))
+                            </dd>
+
+                            <dt>
+                                <label>@InfrastructureViewRes.TertiaryTreatmentType</label>
+                            </dt>
+                            <dd>
+                                @((infrastructureModel.TertiaryTreatmentType == null || (int)infrastructureModel.TertiaryTreatmentType < 1)
+                            ? InfrastructureViewRes.NoData
+                            : _BaseEnumService.GetEnumText_TertiaryTreatmentTypeEnum(infrastructureModel.TertiaryTreatmentType))
+                            </dd>
+
+                        }
+                        else
+                        {
+                            <dt>
+                                <label>@InfrastructureViewRes.FacilityTypeNotLagoonOrPlant</label>
+                            </dt>
+                            <dd>
+                                @InfrastructureViewRes.Error
+                            </dd>
+                        }
+                    }
+
+                    @*DisinfectionType*@
+                    <dt>
+                        <label>@InfrastructureViewRes.DisinfectionType</label>
+                    </dt>
+                    <dd>
+                        @((infrastructureModel.DisinfectionType == null || (int)infrastructureModel.DisinfectionType < 1)
+                            ? InfrastructureViewRes.NoData
+                            : _BaseEnumService.GetEnumText_DisinfectionTypeEnum(infrastructureModel.DisinfectionType))
+                    </dd>
+
+                    @*CollectionSystemType*@
+                    <dt>
+                        <label>@InfrastructureViewRes.CollectionSystemType</label>
+                    </dt>
+                    <dd>
+                        @((infrastructureModel.CollectionSystemType == null || (int)infrastructureModel.CollectionSystemType < 1)
+                            ? InfrastructureViewRes.NoData
+                            : _BaseEnumService.GetEnumText_CollectionSystemTypeEnum(infrastructureModel.CollectionSystemType))
+                    </dd>
+
+                    @*DesignFlow*@
+                    <dt>
+                        <label>@InfrastructureViewRes.DesignFlow (m<sup>3</sup>/day)</label>
+                    </dt>
+                    <dd>
+                        @if (infrastructureModel.DesignFlow_m3_day == null)
+                        {
+                            <text>@InfrastructureViewRes.NoData</text>
+                        }
+                        else
+                        {
+                            @infrastructureModel.DesignFlow_m3_day
+                        }
+                    </dd>
+
+                    @*AverageFlow*@
+                    <dt>
+                        <label>@InfrastructureViewRes.AverageFlow (m<sup>3</sup>/day)</label>
+                    </dt>
+
+                    <dd>
+                        @if (infrastructureModel.AverageFlow_m3_day == null)
+                        {
+                            <text>@InfrastructureViewRes.NoData</text>
+                        }
+                        else
+                        {
+                            @infrastructureModel.AverageFlow_m3_day
+                        }
+                    </dd>
+
+                    @*PeakFlow*@
+                    <dt>
+                        <label>@InfrastructureViewRes.PeakFlow (m<sup>3</sup>/day)</label>
+                    </dt>
+                    <dd>
+                        @if (infrastructureModel.PeakFlow_m3_day == null)
+                        {
+                            <text>@InfrastructureViewRes.NoData</text>
+                        }
+                        else
+                        {
+                            @infrastructureModel.PeakFlow_m3_day
+                        }
+                    </dd>
+
+                    @*PercentFlowTotal*@
+                    <dt>
+                        <label>@InfrastructureViewRes.PercentFlowTotal (%)</label>
+                    </dt>
+                    <dd>
+                        @if (infrastructureModel.PercFlowOfTotal == null)
+                        {
+                            <text>@InfrastructureViewRes.NoData</text>
+                        }
+                        else
+                        {
+                            @infrastructureModel.PercFlowOfTotal <text>%</text>
+                        }
+                    </dd>
+
+                    @*PopulationServed*@
+                    <dt>
+                        <label>@InfrastructureViewRes.PopulationServed</label>
+                    </dt>
+                    <dd>
+                        @if (infrastructureModel.PopServed == null)
+                        {
+                            <text>@InfrastructureViewRes.NoData</text>
+                        }
+                        else
+                        {
+                            @infrastructureModel.PopServed
+                        }
+                    </dd>
+
+                    @*AlarmSystemType*@
+                    <dt>
+                        <label>@InfrastructureViewRes.AlarmSystemType</label>
+                    </dt>
+                    <dd>
+                        @((infrastructureModel.AlarmSystemType == null || (int)infrastructureModel.AlarmSystemType < 1)
+                            ? InfrastructureViewRes.NoData
+                            : _BaseEnumService.GetEnumText_AlarmSystemTypeEnum(infrastructureModel.AlarmSystemType))
+                    </dd>
+
+                    @*CanOverflow*@
+                    <dt>
+                        <label>@InfrastructureViewRes.CanOverflow</label>
+                    </dt>
+                    <dd>
+                        @if (infrastructureModel.CanOverflow == null)
+                        {
+                            <text>@InfrastructureViewRes.NoData</text>
+                        }
+                        else if (infrastructureModel.CanOverflow == true)
+                        {
+                            <text>@InfrastructureViewRes.True</text>
+                        }
+                        else
+                        {
+                            <text>@InfrastructureViewRes.False</text>
+                        }
+                    </dd>
+
+                    @*Infrastructure coordinates*@
+                    <dt>
+                        <label>@InfrastructureViewRes.Latitude, @InfrastructureViewRes.Longitude</label>
+                    </dt>
+                    <dd>
+                        @if (mapInfoPointModelInfrastructure == null || mapInfoPointModelInfrastructure.Lat == 0.0f)
+                        {
+                            <text>@InfrastructureViewRes.NoData</text>
+                        }
+                        else
+                        {
+                            @mapInfoPointModelInfrastructure.Lat.ToString("F5")
+                        }
+
+                        @if (mapInfoPointModelInfrastructure == null || mapInfoPointModelInfrastructure.Lng == 0.0f)
+                        {
+                            <text>@InfrastructureViewRes.NoData</text>
+                        }
+                        else
+                        {
+                            @mapInfoPointModelInfrastructure.Lng.ToString("F5")
+                        }
+                    </dd>
+
+                    @*Infrastructure outfall coordinates*@
+                    <dt>
+                        <label>@InfrastructureViewRes.Outfall: @InfrastructureViewRes.Latitude, @InfrastructureViewRes.Longitude</label>
+                    </dt>
+                    <dd>
+                        @if (mapInfoPointModelOutfall == null || mapInfoPointModelOutfall.Lat == 0.0f)
+                        {
+                            <text>@InfrastructureViewRes.NoData</text>
+                        }
+                        else
+                        {
+                            @mapInfoPointModelOutfall.Lat.ToString("F5")
+                        }
+
+                        @if (mapInfoPointModelOutfall == null || mapInfoPointModelOutfall.Lng == 0.0f)
+                        {
+                            <text>@InfrastructureViewRes.NoData</text>
+                        }
+                        else
+                        {
+                            @mapInfoPointModelOutfall.Lng.ToString("F5")
+                        }
+                    </dd>
+
+                    @*Comments*@
+                    <dt>
+                        <label>@InfrastructureViewRes.Comments</label>
+                    </dt>
+                    <dd>
+                        @Html.Raw(string.IsNullOrEmpty(infrastructureModel.Comment)
+                            ? InfrastructureViewRes.NoData
+                            : infrastructureModel.Comment.Replace("\n", "<br />"))
+                    </dd>
+
+                    @*WillBeRemoved*@
+                    <dt>
+                        <br />
+                        <br />
+                        <br />
+                        <h1>@InfrastructureViewRes.InformationBelowWillBeRemovedInTheFuture</h1>
+                    </dt>
+                    <dd>
+                       <hr />
+                    </dd>
+                    
+                    @*TimeZone*@
+                    <dt>
+                        <label>@InfrastructureViewRes.TimeZone (@InfrastructureViewRes.WillBeRemoved)</label>
+                    </dt>
+                    <dd>
+                        @if (infrastructureModel.TimeOffset_hour == null)
+                        {
+                            <text>@InfrastructureViewRes.NoData</text>
+                        }
+                        else
+                        {
+                            @infrastructureModel.TimeOffset_hour
+                        }
+                    </dd>
+
+                    @*TreatmentType*@
+                    <dt>
+                        <label>@InfrastructureViewRes.TreatmentType (@InfrastructureViewRes.WillBeRemoved)</label>
+                    </dt>
+                    <dd>
+                        @((infrastructureModel.TreatmentType == null || (int)infrastructureModel.TreatmentType < 1)
+                            ? InfrastructureViewRes.NoData
+                            : _BaseEnumService.GetEnumText_TreatmentTypeEnum(infrastructureModel.TreatmentType))
+
+                        <p>
+                            @InfrastructureViewRes.ShouldUseFacilityTypeEtcToReplaceThisInformation
+                        </p>
+                    </dd>
+
+                    @*Category*@
+                    <dt>
+                        <label>@InfrastructureViewRes.CategoryText (@InfrastructureViewRes.WillBeRemoved)</label>
+                    </dt>
+                    <dd>
+                        @(string.IsNullOrEmpty(infrastructureModel.InfrastructureCategory)
+                            ? InfrastructureViewRes.NoData
+                            : infrastructureModel.InfrastructureCategory)
+                    </dd>
+
+                    @*PrismID*@
+                    <dt>
+                        <label>@InfrastructureViewRes.PrismID (@InfrastructureViewRes.WillBeRemoved)</label>
+                    </dt>
+                    <dd>
+                        @(infrastructureModel.PrismID == null
+                            ? InfrastructureViewRes.NoData
+                            : infrastructureModel.PrismID.ToString())
+                    </dd>
+
+                    @*TPID*@
+                    <dt>
+                        <label>@InfrastructureViewRes.TPID (@InfrastructureViewRes.WillBeRemoved)</label>
+                    </dt>
+                    <dd>
+                        @(infrastructureModel.TPID == null
+                        ? InfrastructureViewRes.NoData
+                        : infrastructureModel.TPID.ToString())
+                    </dd>
+
+                    @*LSID*@
+                    <dt>
+                        <label>@InfrastructureViewRes.LSID (@InfrastructureViewRes.WillBeRemoved)</label>
+                    </dt>
+                    <dd>
+                        @(infrastructureModel.LSID == null
+                        ? InfrastructureViewRes.NoData
+                        : infrastructureModel.LSID.ToString())
+                    </dd>
+
+                    @*SiteID*@
+                    <dt>
+                        <label>@InfrastructureViewRes.SiteID (@InfrastructureViewRes.WillBeRemoved)</label>
+                    </dt>
+                    <dd>
+                        @(infrastructureModel.SiteID == null
+                        ? InfrastructureViewRes.NoData
+                        : infrastructureModel.SiteID.ToString())
+                    </dd>
+
+                    @*Site*@
+                    <dt>
+                        <label>@InfrastructureViewRes.Site (@InfrastructureViewRes.WillBeRemoved)</label>
+                    </dt>
+                    <dd>
+                        @(infrastructureModel.Site == null
+                        ? InfrastructureViewRes.NoData
+                        : infrastructureModel.Site.ToString())
+                    </dd>
+
+                </dl>
+
+            </div>
+        }
+        else if (infrastructureModel.InfrastructureType == InfrastructureTypeEnum.LiftStation || infrastructureModel.InfrastructureType == InfrastructureTypeEnum.LineOverflow)
+        {
+            // LiftStation or LineOverflow
+            <div class="row spaceLeft2">
+                <dl class="dl-results">
+                    @*InfrastructureType*@
+                    <dt>
+                        <label>@InfrastructureViewRes.InfrastructureType</label>
+                    </dt>
+                    <dd>
+                        @((infrastructureModel.InfrastructureType == null || (int)infrastructureModel.InfrastructureType < 1)
+                            ? InfrastructureViewRes.NoData
+                            : _BaseEnumService.GetEnumText_InfrastructureTypeEnum(infrastructureModel.InfrastructureType))
+                    </dd>
+
+                   @*PercentFlowTotal*@
+                    <dt>
+                        <label>@InfrastructureViewRes.PercentFlowTotal (%)</label>
+                    </dt>
+                    <dd>
+                        @if (infrastructureModel.PercFlowOfTotal == null)
+                        {
+                            <text>@InfrastructureViewRes.NoData</text>
+                        }
+                        else
+                        {
+                            @infrastructureModel.PercFlowOfTotal <text>%</text>
+                        }
+                    </dd>
+                    <dt>
+                        <label>@InfrastructureViewRes.Latitude, @InfrastructureViewRes.Longitude</label>
+                    </dt>
+
+                    @*Infrastructure coordinates*@
+                    <dd>
+                        @if (mapInfoPointModelInfrastructure == null || mapInfoPointModelInfrastructure.Lat == 0.0f)
+                        {
+                            <text>@InfrastructureViewRes.NoData</text>
+                        }
+                        else
+                        {
+                            @mapInfoPointModelInfrastructure.Lat.ToString("F5")
+                        }
+                        @if (mapInfoPointModelInfrastructure == null || mapInfoPointModelInfrastructure.Lng == 0.0f)
+                        {
+                            <text>@InfrastructureViewRes.NoData</text>
+                        }
+                        else
+                        {
+                            @mapInfoPointModelInfrastructure.Lng.ToString("F5")
+                        }
+                    </dd>
+                    <dt>
+                        <label>@InfrastructureViewRes.Outfall: @InfrastructureViewRes.Latitude, @InfrastructureViewRes.Longitude</label>
+                    </dt>
+
+                    @*Infrastructure outfall coordinates*@
+                    <dd>
+                        @if (mapInfoPointModelOutfall == null || mapInfoPointModelOutfall.Lat == 0.0f)
+                        {
+                            <text>@InfrastructureViewRes.NoData</text>
+                        }
+                        else
+                        {
+                            @mapInfoPointModelOutfall.Lat.ToString("F5")
+                        }
+
+                        @if (mapInfoPointModelOutfall == null || mapInfoPointModelOutfall.Lng == 0.0f)
+                        {
+                            <text>@InfrastructureViewRes.NoData</text>
+                        }
+                        else
+                        {
+                            @mapInfoPointModelOutfall.Lng.ToString("F5")
+                        }
+                    </dd>
+
+                    @*AlarmSystemType*@
+                    <dt>
+                        <label>@InfrastructureViewRes.AlarmSystemType</label>
+                    </dt>
+                    <dd>
+                        @((infrastructureModel.AlarmSystemType == null || (int)infrastructureModel.AlarmSystemType < 1)
+                            ? InfrastructureViewRes.NoData
+                            : _BaseEnumService.GetEnumText_AlarmSystemTypeEnum(infrastructureModel.AlarmSystemType))
+                    </dd>
+
+                    @*CanOverflow*@
+                    <dt>
+                        <label>@InfrastructureViewRes.CanOverflow</label>
+                    </dt>
+                    <dd>
+                        @if (infrastructureModel.CanOverflow == null)
+                        {
+                            <text>@InfrastructureViewRes.NoData</text>
+                        }
+                        else if (infrastructureModel.CanOverflow == true)
+                        {
+                            <text>@InfrastructureViewRes.True</text>
+                        }
+                        else
+                        {
+                            <text>@InfrastructureViewRes.False</text>
+                        }
+                    </dd>
+
+                    @*Comments*@
+                    <dt>
+                        <label>@InfrastructureViewRes.Comments</label>
+                    </dt>
+                    <dd>
+                        @Html.Raw(string.IsNullOrEmpty(infrastructureModel.Comment)
+                            ? InfrastructureViewRes.NoData
+                            : infrastructureModel.Comment.Replace("\n", "<br />"))
+
+                    </dd>
+
+                    @*WillBeRemoved*@
+                    <dt>
+                        <br />
+                        <br />
+                        <br />
+                        <h1>@InfrastructureViewRes.InformationBelowWillBeRemovedInTheFuture</h1>
+                    </dt>
+                    <dd>
+                        <hr />
+                    </dd>
+
+                    @*PrismID*@
+                    <dt>
+                        <label>@InfrastructureViewRes.PrismID (@InfrastructureViewRes.WillBeRemoved)</label>
+                    </dt>
+                    <dd>
+                        @(infrastructureModel.PrismID == null
+                        ? InfrastructureViewRes.NoData
+                        : infrastructureModel.PrismID.ToString())
+                    </dd>
+
+                    @*TPID*@
+                    <dt>
+                        <label>@InfrastructureViewRes.TPID (@InfrastructureViewRes.WillBeRemoved)</label>
+                    </dt>
+                    <dd>
+                        @(infrastructureModel.TPID == null
+                        ? InfrastructureViewRes.NoData
+                        : infrastructureModel.TPID.ToString())
+                    </dd>
+
+                    @*LSID*@
+                    <dt>
+                        <label>@InfrastructureViewRes.LSID (@InfrastructureViewRes.WillBeRemoved)</label>
+                    </dt>
+                    <dd>
+                        @(infrastructureModel.LSID == null
+                        ? InfrastructureViewRes.NoData
+                        : infrastructureModel.LSID.ToString())
+                    </dd>
+
+                    @*SiteID*@
+                    <dt>
+                        <label>@InfrastructureViewRes.SiteID (@InfrastructureViewRes.WillBeRemoved)</label>
+                    </dt>
+                    <dd>
+                        @(infrastructureModel.SiteID == null
+                        ? InfrastructureViewRes.NoData
+                        : infrastructureModel.SiteID.ToString())
+                    </dd>
+
+                    @*Site*@
+                    <dt>
+                        <label>@InfrastructureViewRes.Site (@InfrastructureViewRes.WillBeRemoved)</label>
+                    </dt>
+                    <dd>
+                        @(infrastructureModel.Site == null
+                        ? InfrastructureViewRes.NoData
+                        : infrastructureModel.Site.ToString())
+                    </dd>
+
+                </dl>
+            </div>
+        }
+        @if (infrastructureModel.InfrastructureType == InfrastructureTypeEnum.WWTP || infrastructureModel.InfrastructureType == InfrastructureTypeEnum.LiftStation || infrastructureModel.InfrastructureType == InfrastructureTypeEnum.LineOverflow)
+        {
+            // Outfall
+            <p></p>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="panel-title">
+                        <a href="#Outfall" data-toggle="collapse" aria-expanded="false" aria-controls="Outfall">@InfrastructureViewRes.Outfall</a>
+                    </div>
+                </div>
+                <div class="panel-body collapse" id="Outfall">
+                    <div>
+                        <dl class="dl-results">
+                            @*AverageDepth*@
+                            <dt>
+                                <label>@InfrastructureViewRes.AverageDepth (m)</label>
+                            </dt>
+                            <dd>
+
+                                @if (infrastructureModel.AverageDepth_m == null)
+                                {
+                                    <text>@InfrastructureViewRes.NoData</text>
+                                }
+                                else
+                                {
+                                    @infrastructureModel.AverageDepth_m
+                                }
+
+                            </dd>
+
+                            @*DecayRate*@
+                            <dt>
+                                <label>@InfrastructureViewRes.DecayRate (@UnitViewRes.PerDay)</label>
+                            </dt>
+                            <dd>
+                                @if (infrastructureModel.DecayRate_per_day == null)
+                                {
+                                    <text>@InfrastructureViewRes.NoData</text>
+                                }
+                                else
+                                {
+                                    @infrastructureModel.DecayRate_per_day
+                                }
+                            </dd>
+
+                            @*DistanceFromShore*@
+                            <dt>
+                                <label>@InfrastructureViewRes.DistanceFromShore (m)</label>
+                            </dt>
+                            <dd>
+                                @if (infrastructureModel.DistanceFromShore_m == null)
+                                {
+                                    <text>@InfrastructureViewRes.NoData</text>
+                                }
+                                else
+                                {
+                                    @infrastructureModel.DistanceFromShore_m
+                                }
+                            </dd>
+
+                            @*FarFieldVelocity*@
+                            <dt>
+                                <label>@InfrastructureViewRes.FarFieldVelocity (m/s)</label>
+                            </dt>
+                            <dd>
+                                @if (infrastructureModel.FarFieldVelocity_m_s == null)
+                                {
+                                    <text>@InfrastructureViewRes.NoData</text>
+                                }
+                                else
+                                {
+                                    @infrastructureModel.FarFieldVelocity_m_s
+                                }
+                            </dd>
+
+                            @*HorizontalAngle*@
+                            <dt>
+                                <label>@InfrastructureViewRes.HorizontalAngle (deg)</label>
+                            </dt>
+                            <dd>
+                                @if (infrastructureModel.HorizontalAngle_deg == null)
+                                {
+                                    <text>@InfrastructureViewRes.NoData</text>
+                                }
+                                else
+                                {
+                                    @infrastructureModel.HorizontalAngle_deg
+                                }
+                            </dd>
+
+                            @*NearFieldVelocity*@
+                            <dt>
+                                <label>@InfrastructureViewRes.NearFieldVelocity (m/s)</label>
+                            </dt>
+                            <dd>
+                                @if (infrastructureModel.NearFieldVelocity_m_s == null)
+                                {
+                                    <text>@InfrastructureViewRes.NoData</text>
+                                }
+                                else
+                                {
+                                    @infrastructureModel.NearFieldVelocity_m_s
+                                }
+                            </dd>
+
+                            @*NumberOfPorts*@
+                            <dt>
+                                <label>@InfrastructureViewRes.NumberOfPorts</label>
+                            </dt>
+                            <dd>
+                                @if (infrastructureModel.NumberOfPorts == null)
+                                {
+                                    <text>@InfrastructureViewRes.NoData</text>
+                                }
+                                else
+                                {
+                                    @infrastructureModel.NumberOfPorts
+                                }
+                            </dd>
+
+                            @*PortDiameter*@
+                            <dt>
+                                <label>@InfrastructureViewRes.PortDiameter (m)</label>
+                            </dt>
+                            <dd>
+                                @if (infrastructureModel.PortDiameter_m == null)
+                                {
+                                    <text>@InfrastructureViewRes.NoData</text>
+                                }
+                                else
+                                {
+                                    @infrastructureModel.PortDiameter_m
+                                }
+                            </dd>
+
+                            @*PortElevation*@
+                            <dt>
+                                <label>@InfrastructureViewRes.PortElevation (m)</label>
+                            </dt>
+                            <dd>
+                                @if (infrastructureModel.PortElevation_m == null)
+                                {
+                                    <text>@InfrastructureViewRes.NoData</text>
+                                }
+                                else
+                                {
+                                    @infrastructureModel.PortElevation_m
+                                }
+                            </dd>
+
+                            @*PortSpacing*@
+                            <dt>
+                                <label>@InfrastructureViewRes.PortSpacing (m)</label>
+                            </dt>
+                            <dd>
+
+                                @if (infrastructureModel.PortSpacing_m == null)
+                                {
+                                    <text>@InfrastructureViewRes.NoData</text>
+                                }
+                                else
+                                {
+                                    @infrastructureModel.PortSpacing_m
+                                }
+                            </dd>
+
+                            @*ReceivingWaterConc*@
+                            <dt>
+                                <label>@InfrastructureViewRes.ReceivingWaterConc (FC /100 ml)</label>
+                            </dt>
+                            <dd>
+                                @if (infrastructureModel.ReceivingWater_MPN_per_100ml == null)
+                                {
+                                    <text>@InfrastructureViewRes.NoData</text>
+                                }
+                                else
+                                {
+                                    @infrastructureModel.ReceivingWater_MPN_per_100ml
+                                }
+                            </dd>
+
+                            @*ReceivingWaterSalinity*@
+                            <dt>
+                                <label>@InfrastructureViewRes.ReceivingWaterSalinity (PSU)</label>
+                            </dt>
+                            <dd>
+                                @if (infrastructureModel.ReceivingWaterSalinity_PSU == null)
+                                {
+                                    <text>@InfrastructureViewRes.NoData</text>
+                                }
+                                else
+                                {
+                                    @infrastructureModel.ReceivingWaterSalinity_PSU
+                                }
+                            </dd>
+
+                            @*ReceivingWaterTemperature*@
+                            <dt>
+                                <label>@InfrastructureViewRes.ReceivingWaterTemperature  (ºC)</label>
+                            </dt>
+                            <dd>
+
+                                @if (infrastructureModel.ReceivingWaterTemperature_C == null)
+                                {
+                                    <text>@InfrastructureViewRes.NoData</text>
+                                }
+                                else
+                                {
+                                    @infrastructureModel.ReceivingWaterTemperature_C
+                                }
+                            </dd>
+
+                            @*VerticalAngle*@
+                            <dt>
+                                <label>@InfrastructureViewRes.VerticalAngle  (deg)</label>
+                            </dt>
+                            <dd>
+                                @if (infrastructureModel.VerticalAngle_deg == null)
+                                {
+                                    <text>@InfrastructureViewRes.NoData</text>
+                                }
+                                else
+                                {
+                                    @infrastructureModel.VerticalAngle_deg
+                                }
+                            </dd>
+
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        }
+        else if (infrastructureModel.InfrastructureType == InfrastructureTypeEnum.Other)
+        {
+            // Other
+            <div class="row spaceLeft2">
+                <div class="col-sm-8">
+                    <dl class="dl-results">
+                        @*InfrastructureType*@
+                        <dt>
+                            <label>@InfrastructureViewRes.InfrastructureType</label>
+                        </dt>
+                        <dd>
+                            @((infrastructureModel.InfrastructureType == null || (int)infrastructureModel.InfrastructureType < 1)
+                            ? InfrastructureViewRes.NoData
+                            : _BaseEnumService.GetEnumText_InfrastructureTypeEnum(infrastructureModel.InfrastructureType))
+                        </dd>
+
+                        @*Infrastructure Coordinates*@
+                        <dt>
+                            <label>@InfrastructureViewRes.Latitude, @InfrastructureViewRes.Longitude</label>
+                        </dt>
+                        <dd>
+                            @if (mapInfoPointModelInfrastructure.Lat == 0.0f)
+                            {
+                                <text>@InfrastructureViewRes.NoData</text>
+                            }
+                            else
+                            {
+                                @mapInfoPointModelInfrastructure.Lat.ToString("F5")
+                            }
+
+                            @if (mapInfoPointModelInfrastructure.Lng == 0.0f)
+                            {
+                                <text>@InfrastructureViewRes.NoData</text>
+                            }
+                            else
+                            {
+                                @mapInfoPointModelInfrastructure.Lng.ToString("F5")
+                            }
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+        }
+        else
+        {
+            <ul class="list-unstyled">
+                <li>
+                    @InfrastructureViewRes.CheckBoxModelandVisualPlumes.
+                </li>
+
+            </ul>
+        }
+    </div>
+}

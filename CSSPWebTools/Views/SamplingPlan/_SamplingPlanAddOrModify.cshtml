@@ -1,0 +1,269 @@
+﻿@using CSSPWebTools.Views.SamplingPlan.Resources;
+@using CSSPModelsDLL.Models;
+@using CSSPEnumsDLL.Enums;
+@using CSSPEnumsDLL.Services;
+@using CSSPWebTools.Controllers;
+
+@{
+    SamplingPlanController SamplingPlanController = (SamplingPlanController)ViewBag.SamplingPlanController;
+    int ProvinceTVItemID = (int)ViewBag.ProvinceTVItemID;
+    int SamplingPlanID = (int)ViewBag.SamplingPlanID;
+    SamplingPlanModel SamplingPlanModel = (SamplingPlanModel)ViewBag.SamplingPlanModel;
+    List<SamplingPlanSubsectorModel> SamplingPlanSubsectorModelList = (List<SamplingPlanSubsectorModel>)ViewBag.SamplingPlanSubsectorModelList;
+    List<ContactModel> AdminContactModelList = (List<ContactModel>)ViewBag.AdminContactModelList;
+    ContactModel contactModel = (ContactModel)ViewBag.ContactModel;
+    List<TVItemModel> tvItemModelSubsectorList = (List<TVItemModel>)ViewBag.TVItemModelSubsectorList;
+    BaseEnumService baseEnumService = new BaseEnumService(SamplingPlanController.LanguageRequest);
+    List<SampleTypeEnumTextOrdered> sampleTypeEnumTextOrderedList = (List<SampleTypeEnumTextOrdered>)ViewBag.SampleTypeEnumTextOrderedList;
+    SampleTypeEnumTextOrdered sampleTypeEnumTextOrderedFirst = (SampleTypeEnumTextOrdered)ViewBag.SampleTypeEnumTextOrderedFirst;
+    List<SamplingPlanTypeEnumTextOrdered> samplingPlanTypeEnumTextOrderedList = (List<SamplingPlanTypeEnumTextOrdered>)ViewBag.SamplingPlanTypeEnumTextOrderedList;
+    List<LabSheetTypeEnumTextOrdered> labSheetTypeEnumTextOrderedList = (List<LabSheetTypeEnumTextOrdered>)ViewBag.LabSheetTypeEnumTextOrderedList;
+    bool IsSamplingPlanner = (bool)ViewBag.IsSamplingPlanner;
+}
+@if (!IsSamplingPlanner)
+{
+    <h3>@SamplingPlanViewRes.NoPermissionMessageSamplingPlans</h3>
+    <blockquote>
+        <p>@SamplingPlanViewRes.ToHaveAccess</p>
+        <ul class="list-inline">
+            @foreach (ContactModel acm in AdminContactModelList)
+            {
+                <li>
+                    <a href="mailto:@acm.LoginEmail" class="btn btn-link">@acm.LoginEmail</a>
+                </li>
+            }
+        </ul>
+    </blockquote>
+    <script type="text/javascript">
+        $(function () {
+            cssp.SamplingPlan.InitNoPermission();
+        });
+    </script>
+
+}
+else
+{
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">@(SamplingPlanID == 0 ? SamplingPlanViewRes.Add : SamplingPlanViewRes.Modify)</h4>
+        </div>
+        <div class="panel-body">
+            <form id="SamplingPlanEditForm" method="post" role="form" action="SamplingPlan/SamplingPlanSaveTopJSON">
+                @Html.AntiForgeryToken()
+                <fieldset>
+                    <input type="hidden" name="ProvinceTVItemID" value="@ProvinceTVItemID" />
+                    <input type="hidden" name="SamplingPlanID" value="@SamplingPlanID" />
+                    <div class="form-group">
+                        <label class="control-label" for="ForGroupName">@SamplingPlanViewRes.ForGroupName</label>
+                        <i class="text-lighter elementSpacing">ex: ECCC_NB</i>
+                        <div class="form-inline elementSpacing">
+                            <span class="form-control-static"></span>
+                            <input autofocus="autofocus" class="form-control" name="ForGroupName" type="text" id="ForGroupName" value="@(SamplingPlanModel == null ? "" : SamplingPlanModel.ForGroupName)" />
+                            <span class="help-block"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="SamplingPlanType">@SamplingPlanViewRes.SamplingPlanType</label>
+                        <div class="form-inline elementSpacing">
+                            <span class="form-control-static"></span>
+                            <select class="form-control" name="SamplingPlanType">
+                                @if (true)
+                                {
+                                    int count = 0;
+                                    foreach (SamplingPlanTypeEnumTextOrdered samplingPlanTypeEnumTextOrdered in samplingPlanTypeEnumTextOrderedList)
+                                    {
+                                        <option @(((SamplingPlanModel != null && SamplingPlanModel.SamplingPlanType == samplingPlanTypeEnumTextOrdered.SamplingPlanType)) || (SamplingPlanID == 0 && count == 1) ? "selected=selected" : "")
+                                                value="@((int)samplingPlanTypeEnumTextOrdered.SamplingPlanType)">
+                                            @samplingPlanTypeEnumTextOrdered.SamplingPlanTypeText
+                                        </option>
+                                        count += 1;
+                                    }
+                                }
+                            </select>
+                            <span class="help-block"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="SampleType">@SamplingPlanViewRes.SampleType</label>
+                        <div class="form-inline elementSpacing">
+                            <span class="form-control-static"></span>
+                            <select class="form-control" name="SampleType">
+                                <option @(((SamplingPlanModel != null && SamplingPlanModel.SampleType == sampleTypeEnumTextOrderedFirst.SampleType)) || (SamplingPlanID == 0) ? "selected=selected" : "")
+                                        value="@((int)sampleTypeEnumTextOrderedFirst.SampleType)">
+                                    @sampleTypeEnumTextOrderedFirst.SampleTypeText
+                                </option>
+                                @foreach (SampleTypeEnumTextOrdered sampleTypeEnumTextOrdered in sampleTypeEnumTextOrderedList)
+                                {
+                                    if (!(sampleTypeEnumTextOrdered.SampleType == SampleTypeEnum.DailyDuplicate
+                                        || sampleTypeEnumTextOrdered.SampleType == SampleTypeEnum.IntertechDuplicate
+                                        || sampleTypeEnumTextOrdered.SampleType == SampleTypeEnum.IntertechRead
+                                        || sampleTypeEnumTextOrdered.SampleType == SampleTypeEnum.Routine))
+                                    {
+                                        <option @(SamplingPlanModel != null && SamplingPlanModel.SampleType == sampleTypeEnumTextOrdered.SampleType ? "selected=selected" : "")
+                                                value="@((int)sampleTypeEnumTextOrdered.SampleType)">
+                                            @sampleTypeEnumTextOrdered.SampleTypeText
+                                        </option>
+                                    }
+                                }
+                            </select>
+                            <span class="help-block"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="LabSheetType">@SamplingPlanViewRes.LabSheetType</label>
+                        <div class="form-inline elementSpacing">
+                            <span class="form-control-static"></span>
+                            <select class="form-control" name="LabSheetType">
+                                @if (true)
+                                {
+                                    int count = 0;
+                                    foreach (LabSheetTypeEnumTextOrdered labSheetTypeEnumTextOrdered in labSheetTypeEnumTextOrderedList)
+                                    {
+                                        <option @(((SamplingPlanModel != null && SamplingPlanModel.LabSheetType == labSheetTypeEnumTextOrdered.LabSheetType)) || (SamplingPlanID == 0 && count == 0) ? "selected=selected" : "")
+                                                value="@((int)labSheetTypeEnumTextOrdered.LabSheetType)">
+                                            @labSheetTypeEnumTextOrdered.LabSheetTypeText
+                                        </option>
+
+                                        count += 1;
+                                    }
+                                }
+                            </select>
+                            <span class="help-block"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="Year">@SamplingPlanViewRes.Year</label>
+                        <i class="text-lighter elementSpacing">ex: 2016</i>
+                        <div class="form-inline elementSpacing">
+                            <span class="form-control-static"></span>
+                            <input class="form-control" name="Year" type="text" id="Year" value="@(SamplingPlanModel == null ? "" : SamplingPlanModel.Year.ToString())" />
+                            <span class="help-block"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="SamplingPlanName">@SamplingPlanViewRes.SamplingPlanName</label>
+                        <i class="text-lighter elementSpacing">ex: IRZC2015</i>
+                        <div class="form-inline elementSpacing">
+                            <img src="~/Images/Notepad_icon16.png" />&nbsp;
+                            <span id="GeneratedSamplingPlanName">@(SamplingPlanModel != null && SamplingPlanModel.SamplingPlanName.Length > 0 ? SamplingPlanModel.SamplingPlanName : "SamplingPlan_nnnnnnnnn.txt")</span>
+                            <input class="form-control"
+                                   name="SamplingPlanName" type="hidden" id="SamplingPlanName"
+                                   value="@(SamplingPlanModel == null ? "" : SamplingPlanModel.SamplingPlanName)" />
+                            <span class="help-block"></span>
+                            <br />
+                            <span>@SamplingPlanViewRes.ChangeTheInformationAboveToChangeTheSamplingPlanName</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="AccessCode">@SamplingPlanViewRes.AccessCode</label>
+                        <i class="text-lighter elementSpacing">ex: GPT3Fois</i>
+                        <div class="form-inline elementSpacing">
+                            <span class="form-control-static"></span>
+                            <input class="form-control" name="AccessCode" type="text" id="AccessCode" value="@(SamplingPlanModel == null ? "" : SamplingPlanModel.AccessCode)" />
+                            <span class="help-block"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="IncludeLaboratoryQAQC">
+                            <input name="IncludeLaboratoryQAQC" type="checkbox"
+                                   id="IncludeLaboratoryQAQC" @(SamplingPlanModel == null ? "" : (SamplingPlanModel.IncludeLaboratoryQAQC ? "checked=checked" : "")) />
+                            <span>&nbsp;&nbsp;@SamplingPlanViewRes.IncludeLaboratoryQAQC</span>
+                        </label>
+                    </div>
+                    <div class="IncludeLaboratoryQAQCInfoDiv @(SamplingPlanModel == null ? "hidden" : (SamplingPlanModel.IncludeLaboratoryQAQC ? "" : "hidden"))">
+                        <div class="form-group">
+                            <label class="control-label" for="ApprovalCode">
+                                @SamplingPlanViewRes.ApprovalCode
+                            </label>
+                            <i class="text-lighter elementSpacing">ex: GPT3Fois</i>
+                            <div class="form-inline elementSpacing">
+                                <span class="form-control-static"></span>
+                                <input class="form-control" name="ApprovalCode" type="text" id="ApprovalCode" value="@(SamplingPlanModel == null ? "" : SamplingPlanModel.ApprovalCode)" />
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="DuplicatePrecisionCriteria">@SamplingPlanViewRes.DailyDuplicatePrecisionCriteria</label>
+                            <i class="text-lighter elementSpacing">ex: 0.6872</i>
+                            <div class="form-inline elementSpacing">
+                                <span class="form-control-static"></span>
+                                <input class="form-control isnumber" name="DailyDuplicatePrecisionCriteria" type="text" id="DailyDuplicatePrecisionCriteria" value="@(SamplingPlanModel == null ? "" : SamplingPlanModel.DailyDuplicatePrecisionCriteria.ToString())" />
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="IntertechDuplicatePrecisionCriteria">@SamplingPlanViewRes.IntertechDuplicatePrecisionCriteria</label>
+                            <i class="text-lighter elementSpacing">ex: 0.093</i>
+                            <div class="form-inline elementSpacing">
+                                <span class="form-control-static"></span>
+                                <input class="form-control isnumber" name="IntertechDuplicatePrecisionCriteria" type="text" id="IntertechDuplicatePrecisionCriteria" value="@(SamplingPlanModel == null ? "" : SamplingPlanModel.IntertechDuplicatePrecisionCriteria.ToString())" />
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button class="jbSamplingPlanEditSave btn btn-primary" type="submit">
+                            <span class="glyphicon glyphicon-check"></span>
+                            &nbsp;
+                            @(SamplingPlanID == 0 ? SamplingPlanViewRes.Add : SamplingPlanViewRes.Modify)
+                        </button>
+                    </div>
+                </fieldset>
+            </form>
+            @if (SamplingPlanID != 0)
+                {
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">@SamplingPlanViewRes.Subsectors</h4>
+                    </div>
+                    <div class="panel-body">
+                        @foreach (TVItemModel tvItemModelSubsector in tvItemModelSubsectorList)
+                        {
+                            SamplingPlanSubsectorModel SamplingPlanSubsectorModel = (from c in SamplingPlanSubsectorModelList
+                                                                                     where c.SubsectorTVItemID == tvItemModelSubsector.TVItemID
+                                                                                     select c).FirstOrDefault();
+
+                            string SubsectorNameID = "SS" + tvItemModelSubsector.TVItemID;
+                            string MWQMDuplicateID = "SS" + tvItemModelSubsector.TVItemID + "_D";
+                            <ul class="subsectortop list-unstyled">
+                                <li>
+                                    <button class="jbSamplingPlanShowOnMap btn btn-default"
+                                            data-subsectortvitemid="@(tvItemModelSubsector.TVItemID)"
+                                            title="@SamplingPlanViewRes.ShowOnMap">
+                                        <span class="glyphicon glyphicon-map-marker"></span>
+                                    </button>
+                                    <button class="jbSamplingPlanShowMWQMSites btn btn-default @(SamplingPlanSubsectorModel != null && SamplingPlanSubsectorModel.SiteCount > 0 ? "ElementSelected" : "")"
+                                            data-SamplingPlanid="@(SamplingPlanID)"
+                                            data-provincetvitemid="@(ProvinceTVItemID)"
+                                            data-subsectortvitemid="@(tvItemModelSubsector.TVItemID)"
+                                            title="@SamplingPlanViewRes.ShowMWQMSites">
+                                        <span class="glyphicon glyphicon-arrow-down"></span>&nbsp;&nbsp;
+                                        <span class="mwqmsitecount">@(SamplingPlanSubsectorModel != null && SamplingPlanSubsectorModel.SiteCount > 0 ? SamplingPlanSubsectorModel.SiteCount : 0)</span>
+                                    </button>
+                                    <label for="@SubsectorNameID">
+                                        <input type="hidden" name="@SubsectorNameID" value="@(tvItemModelSubsector.TVItemID)" />
+                                        @tvItemModelSubsector.TVText
+                                    </label>
+                                </li>
+                                <li>
+                                    <div class="mwqmsiteall paraBlock blockMargin2X">
+
+                                    </div>
+                                </li>
+                            </ul>
+                        }
+                    </div>
+
+                </div>
+            }
+        </div>
+
+    </div>
+
+    <script type="text/javascript">
+        $(function () {
+            cssp.SamplingPlan.Init();
+        });
+    </script>
+
+}

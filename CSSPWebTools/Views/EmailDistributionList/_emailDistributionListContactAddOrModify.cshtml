@@ -1,0 +1,98 @@
+﻿@using CSSPWebTools.Views.EmailDistributionList.Resources;
+@using CSSPModelsDLL.Models;
+@using CSSPEnumsDLL.Enums;
+@using CSSPEnumsDLL.Services;
+@using CSSPWebTools.Controllers;
+
+@{
+    int EmailDistributionListID = (int)ViewBag.EmailDistributionListID;
+    EmailDistributionListContactModel emailDistributionListContactModel = (EmailDistributionListContactModel)ViewBag.EmailDistributionListContactModel;
+}
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h4 class="panel-title">@(emailDistributionListContactModel.EmailDistributionListContactID == 0 ? EmailDistributionListViewRes.Add : EmailDistributionListViewRes.Modify)</h4>
+    </div>
+    <div class="panel-body">
+        <form class="EmailDistributionListContactEditForm" method="post" role="form" action="EmailDistributionList/EmailDistributionListContactSaveJSON">
+            @Html.AntiForgeryToken()
+            <fieldset>
+                <input type="hidden" name="EmailDistributionListContactID" value="@emailDistributionListContactModel.EmailDistributionListContactID" />
+                <input type="hidden" name="EmailDistributionListID" value="@EmailDistributionListID" />
+                <div class="form-group">
+                    <div class="control-label">
+                        <label class="checkbox-inline" for="IsCC">
+                            <span class="text-nowrap">
+                                <input name="IsCC" type="checkbox" id="IsCC" @(emailDistributionListContactModel.IsCC == true ? "checked=checked" : "") />
+                                <span>@EmailDistributionListViewRes.IsCC</span>
+                            </span>
+                        </label>
+                    </div>
+                    <label class="control-label" for="Agency">@EmailDistributionListViewRes.Agency</label>
+                    <div class="form-inline">
+                        <input class="form-control" name="Agency" type="text" id="Agency" value="@(emailDistributionListContactModel.Agency == null ? "" : emailDistributionListContactModel.Agency)" />
+                        <span class="help-block"></span>
+                    </div>
+                    <label class="control-label" for="Name">@EmailDistributionListViewRes.Name</label>
+                    <div class="form-inline">
+                        <input class="form-control" name="Name" type="text" id="Name" value="@(emailDistributionListContactModel.Name == null ? "" : emailDistributionListContactModel.Name)" />
+                        <span class="help-block"></span>
+                    </div>
+                    <label class="control-label" for="Email">@EmailDistributionListViewRes.Email</label>
+                    <div class="form-inline">
+                        <input class="form-control" name="Email" type="text" id="Email" value="@(emailDistributionListContactModel.Email == null ? "" : emailDistributionListContactModel.Email)" />
+                        <span class="help-block"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <h4>@EmailDistributionListViewRes.InformIndividualOn</h4>
+                    <label class="checkbox-inline" for="CMPRainfallSeasonal">
+                        <span class="text-nowrap">
+                            <input name="CMPRainfallSeasonal" type="checkbox" id="CMPRainfallSeasonal" @(emailDistributionListContactModel.CMPRainfallSeasonal == true ? "checked=checked" : "") />
+                            <span>@EmailDistributionListViewRes.CMPRainfallSeasonal</span>
+                        </span>
+                    </label>
+                    <label class="checkbox-inline" for="CMPWastewater">
+                        <span class="text-nowrap">
+                            <input name="CMPWastewater" type="checkbox" id="CMPWastewater" @(emailDistributionListContactModel.CMPWastewater == true ? "checked=checked" : "") />
+                            <span>@EmailDistributionListViewRes.CMPWastewater</span>
+                        </span>
+                    </label>
+                    <label class="checkbox-inline" for="EmergencyWeather">
+                        <span class="text-nowrap">
+                            <input name="EmergencyWeather" type="checkbox" id="EmergencyWeather" @(emailDistributionListContactModel.EmergencyWeather == true ? "checked=checked" : "") />
+                            <span>@EmailDistributionListViewRes.EmergencyWeather</span>
+                        </span>
+                    </label>
+                    <label class="checkbox-inline" for="EmergencyWastewater">
+                        <span class="text-nowrap">
+                            <input name="EmergencyWastewater" type="checkbox" id="EmergencyWastewater" @(emailDistributionListContactModel.EmergencyWastewater == true ? "checked=checked" : "") />
+                            <span>@EmailDistributionListViewRes.EmergencyWastewater</span>
+                        </span>
+                    </label>
+                    <label class="checkbox-inline" for="ReopeningAllTypes">
+                        <span class="text-nowrap">
+                            <input name="ReopeningAllTypes" type="checkbox" id="ReopeningAllTypes" @(emailDistributionListContactModel.ReopeningAllTypes == true ? "checked=checked" : "") />
+                            <span>@EmailDistributionListViewRes.ReopeningAllTypes</span>
+                        </span>
+                    </label>
+                </div>
+                <div class="form-group">
+                    <button class="jbEmailDistributionListContactEditSave btn btn-primary" type="submit">
+                        <span class="glyphicon glyphicon-check"></span>
+                        &nbsp;
+                        @(emailDistributionListContactModel.EmailDistributionListContactID == 0 ? EmailDistributionListViewRes.Add : EmailDistributionListViewRes.Modify)
+                    </button>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        cssp.EmailDistributionList.InitEdit();
+    });
+</script>
+

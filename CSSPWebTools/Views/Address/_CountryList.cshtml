@@ -1,0 +1,21 @@
+﻿@using CSSPWebTools.Views.Address.Resources;
+@using CSSPWebTools.Controllers;
+@using CSSPEnumsDLL.Enums;
+@using CSSPEnumsDLL.Services;
+@using CSSPModelsDLL.Models;
+
+@{
+    List<TVItemModel> tvItemModelListCountry = (List<TVItemModel>)ViewBag.TVItemModelListCountry;
+    int countryTVItemID = (int)ViewBag.CountryTVItemID;
+    AddressController addressController = (AddressController)ViewBag.AddressController;
+    BaseEnumService _BaseEnumService = new BaseEnumService(ViewBag.Language);
+}
+<select name="CountryTVItemID" class="CountryTVItemSelect form-control">
+    <option value="0">@(_BaseEnumService.GetEnumText_TVTypeEnum(TVTypeEnum.Country))</option>
+    @foreach (TVItemModel tvItemModel in tvItemModelListCountry)
+    {
+        <option @(tvItemModel.TVItemID == countryTVItemID ? @"selected=""selected""" : "") value="@tvItemModel.TVItemID">@tvItemModel.TVText</option>
+    }
+    <option value="-2">-----------------------------</option>
+    <option value="-1">@AddressViewRes.Add @AddressViewRes.Country</option>
+</select>

@@ -1,0 +1,61 @@
+﻿@using CSSPWebTools.Views.MikeScenario.Resources;
+
+@{
+    int MikeScenarioTVItemID = (int)ViewBag.MikeScenarioTVItemID;
+}
+<div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+                <h4 class="panel-title">Add new mike scenario</h4>
+        </div>
+        <div class="panel-body">
+            <form class="MikeScenarioSourceAddOrModifyForm" action="MikeScenario/MikeScenarioSourceAddOrModifyJSON" method="post">
+                <input type="hidden" name="MikeScenarioTVItemID" value="@MikeScenarioTVItemID" />
+                <input type="hidden" name="MikeSourceTVItemID" value="0" />
+                <div class="form-group">
+                    <label class="control-label">@MikeScenarioViewRes.SourceName</label>
+                    <div>
+                        <input class="form-control" type="text" name="SourceName" value="" />
+                        <span class="help-block"></span>
+                    </div>
+                </div>
+                <div>
+                    <div class="form-group">
+                        <label for="Include" class="checkbox-inline">
+                            <input type="checkbox" name="Include" id="Include" />@MikeScenarioViewRes.Include
+                        </label>
+                        <label for="IsRiver" class="checkbox-inline">
+                            <input type="checkbox" name="IsRiver" id="IsRiver" />@MikeScenarioViewRes.IsRiver
+                        </label>
+
+                        <label for="IsContinuous" class="checkbox-inline">
+                            <input type="checkbox" name="IsContinuous" id="IsContinuous" />@MikeScenarioViewRes.IsContinuous
+                        </label>
+                    </div>
+
+                    <div class="form-group">
+                        <label>@MikeScenarioViewRes.Latitude</label>
+                        <input class="isnumber form-control" type="text" name="Lat" value="" />
+                        <span class="help-block"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">@MikeScenarioViewRes.Longitude</label>
+                        <input class="isnumber form-control" type="text" name="Lng" value="" />
+                        <span class="help-block"></span>
+                    </div>
+                </div>
+                <div>
+                    <button class="jbMikeScenarioSourceEditAdd btn btn-primary" type="submit" href="#">
+                        <span class="glyphicon glyphicon-check"></span>
+                        &nbsp;&nbsp;@MikeScenarioViewRes.AddSource
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(function () {
+            cssp.MikeScenario.InitMikeScenarioSource();
+        });
+    </script>
+</div>

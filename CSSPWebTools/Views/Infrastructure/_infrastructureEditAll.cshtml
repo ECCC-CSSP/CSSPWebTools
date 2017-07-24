@@ -1,0 +1,777 @@
+﻿@using CSSPWebTools.Views.Shared.Resources;
+@using CSSPWebTools.Views.Infrastructure.Resources;
+@using CSSPWebTools.Controllers;
+@using CSSPEnumsDLL.Enums;
+@using CSSPEnumsDLL.Services;
+@using CSSPModelsDLL.Models;
+
+@{
+    InfrastructureModel infrastructureModel = (InfrastructureModel)ViewBag.InfrastructureModel;
+    MapInfoPointModel mapInfoPointModelInfrastructure = (MapInfoPointModel)ViewBag.MapInfoPointModelInfrastructure;
+    MapInfoPointModel mapInfoPointModelOutfall = (MapInfoPointModel)ViewBag.MapInfoPointModelOutfall;
+    InfrastructureController infrastructureController = (InfrastructureController)ViewBag.InfrastructureController;
+    BaseEnumService _BaseEnumService = new BaseEnumService(ViewBag.Language);
+}
+
+@if (!string.IsNullOrWhiteSpace(infrastructureModel.Error))
+{
+    <p>@InfrastructureViewRes.CouldNotLoadInfrastructureInfo</p>
+    <span>@InfrastructureViewRes.Error: @infrastructureModel.Error</span>
+}
+else
+{
+    <div class="container-fluid">
+        <div class="LastUpdateAndTVText" data-table="Infrastructure" data-id="@infrastructureModel.InfrastructureID"></div>
+
+        <div class="AddressDiv">
+            @Html.Action("_addressEditInfrastructure", "Address", new { InfrastructureTVItemID = infrastructureModel.InfrastructureTVItemID })
+        </div>
+
+        <form class="InfrastructureEditAllForm " action="Infrastructure/InfrastructureSaveAllJSON" method="post" role="form">
+            <input type="hidden" name="InfrastructureTVText" value="@infrastructureModel.InfrastructureTVText" />
+            <input type="hidden" name="InfrastructureTVItemID" value="@infrastructureModel.InfrastructureTVItemID" />
+            @if (infrastructureModel.InfrastructureType == InfrastructureTypeEnum.WWTP)
+            {
+                /*WWTP*/
+                <div class="blockMargin">
+                    <ul class="list-unstyled">
+                        @*InfrastructureType*@
+                        <li>
+                            <div class="form-group">
+                                <label for="InfrastructureType" class="control-label">@InfrastructureViewRes.InfrastructureType</label>
+                                <div>
+                                    <span>
+                                        <select name="InfrastructureType" class="form-control">
+                                            <option value="0" @(infrastructureModel.InfrastructureType == null ? "selected=selected" : "")>@InfrastructureViewRes.Select @InfrastructureViewRes.InfrastructureType</option>
+                                            @foreach (InfrastructureTypeEnumTextOrdered infrastructureTypeEnumTextOrdered in _BaseEnumService.GetInfrastructureTypeEnumTextOrderedList())
+                                            {
+                                                <option value="@((int)infrastructureTypeEnumTextOrdered.InfrastructureType)" @(infrastructureModel.InfrastructureType == infrastructureTypeEnumTextOrdered.InfrastructureType ? "selected=selected" : "")>
+                                                    @(infrastructureTypeEnumTextOrdered.InfrastructureTypeText)
+                                                </option>
+                                            }
+                                        </select>
+                                        <span class="help-block"></span>
+                                    </span>
+                                </div>
+                            </div>
+                        </li>
+                        @*FacilityType*@
+                        <li>
+                            <div class="form-group">
+                                <label for="FacilityType" class="control-label">@InfrastructureViewRes.FacilityType</label>
+                                <div>
+                                    <span>
+                                        <select name="FacilityType" class="form-control">
+                                            <option value="0" @(infrastructureModel.FacilityType == null ? "selected=selected" : "")>@InfrastructureViewRes.Select @InfrastructureViewRes.FacilityType</option>
+                                            @foreach (FacilityTypeEnumTextOrdered facilityTypeEnumTextOrdered in _BaseEnumService.GetFacilityTypeEnumTextOrderedList())
+                                            {
+                                                <option value="@((int)facilityTypeEnumTextOrdered.FacilityType)" @(infrastructureModel.FacilityType == facilityTypeEnumTextOrdered.FacilityType ? "selected=selected" : "")>
+                                                    @(facilityTypeEnumTextOrdered.FacilityTypeText)
+                                                </option>
+                                            }
+                                        </select>
+                                        <span class="help-block"></span>
+                                    </span>
+                                </div>
+                            </div>
+                        </li>
+                        @*Lagoon related information*@
+                        <li class="lagoon @(infrastructureModel.FacilityType == FacilityTypeEnum.Lagoon ? "" : "hidden")">
+                            <ul class="list-unstyled">
+                                @*IsMechanicallyAerated*@
+                                <li>
+                                    <div class="form-group">
+                                        <label for="IsMechanicallyAerated" class="control-label">@InfrastructureViewRes.IsMechanicallyAerated</label>
+                                        <div>
+                                            <span>
+                                                <input name="IsMechanicallyAerated" type="checkbox" @((infrastructureModel.IsMechanicallyAerated != null && infrastructureModel.IsMechanicallyAerated == true) ? "checked=checked" : "") />
+                                                @InfrastructureViewRes.IsMechanicallyAerated
+                                                <span class="help-block"></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </li>
+                                @*NumberOfCells*@
+                                <li>
+                                    <div class="form-group">
+                                        <label for="NumberOfCells" class="control-label">@InfrastructureViewRes.NumberOfCells</label>
+                                        <div>
+                                            <span>
+                                                @for (int i = 1; i < 8; i++)
+                                                {
+                                                    <input type="radio" name="NumberOfCells" value="@i" @(infrastructureModel.NumberOfCells != null && infrastructureModel.NumberOfCells == i ? "checked=checked" : "") /><span>@i</span>
+                                                }
+                                                <span class="help-block"></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </li>
+                                @*NumberOfAeratedCells*@
+                                <li>
+                                    <div class="form-group">
+                                        <label for="NumberOfAeratedCells" class="control-label">@InfrastructureViewRes.NumberOfAeratedCells</label>
+                                        <div>
+                                            <span>
+                                                @for (int i = 1; i < 8; i++)
+                                                {
+                                                    <input type="radio" name="NumberOfAeratedCells" value="@i" @(infrastructureModel.NumberOfAeratedCells != null && infrastructureModel.NumberOfAeratedCells == i ? "checked=checked" : "") /><span>@i</span>
+                                                }
+                                                <span class="help-block"></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </li>
+                                @*AerationType*@
+                                <li>
+                                    <div class="form-group">
+                                        <label for="AerationType" class="control-label">@InfrastructureViewRes.AerationType</label>
+                                        <div>
+                                            <span>
+                                                <select name="AerationType" class="form-control">
+                                                    <option value="0" @(infrastructureModel.AerationType == null ? "selected=selected" : "")>@InfrastructureViewRes.Select @InfrastructureViewRes.AerationType</option>
+                                                    @foreach (AerationTypeEnumTextOrdered aerationTypeEnumTextOrdered in _BaseEnumService.GetAerationTypeEnumTextOrderedList())
+                                                    {
+                                                        <option value="@((int)aerationTypeEnumTextOrdered.AerationType)" @(infrastructureModel.AerationType == aerationTypeEnumTextOrdered.AerationType ? "selected=selected" : "")>
+                                                            @(aerationTypeEnumTextOrdered.AerationTypeText)
+                                                        </option>
+                                                    }
+                                                </select>
+                                                <span class="help-block"></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="plant @(infrastructureModel.FacilityType == FacilityTypeEnum.Plant ? "" : "hidden")">
+                            <ul class="list-unstyled">
+                                @*PreliminaryTreatmentType*@
+                                <li>
+                                    <div class="form-group">
+                                        <label for="PreliminaryTreatmentType" class="control-label">@InfrastructureViewRes.PreliminaryTreatmentType</label>
+                                        <div>
+                                            <span>
+                                                <select name="PreliminaryTreatmentType" class="form-control">
+                                                    <option value="0" @(infrastructureModel.PreliminaryTreatmentType == null ? "selected=selected" : "")>@InfrastructureViewRes.Select @InfrastructureViewRes.PreliminaryTreatmentType</option>
+                                                    @foreach (PreliminaryTreatmentTypeEnumTextOrdered preliminaryTreatmentTypeEnumTextOrdered in _BaseEnumService.GetPreliminaryTreatmentTypeEnumTextOrderedList())
+                                                    {
+                                                        <option value="@((int)preliminaryTreatmentTypeEnumTextOrdered.PreliminaryTreatmentType)" @(infrastructureModel.PreliminaryTreatmentType == preliminaryTreatmentTypeEnumTextOrdered.PreliminaryTreatmentType ? "selected=selected" : "")>
+                                                            @(preliminaryTreatmentTypeEnumTextOrdered.PreliminaryTreatmentTypeText)
+                                                        </option>
+                                                    }
+                                                </select>
+                                                <span class="help-block"></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </li>
+                                @*PrimaryTreatmentType*@
+                                <li>
+                                    <div class="form-group">
+                                        <label for="PrimaryTreatmentType" class="control-label">@InfrastructureViewRes.PrimaryTreatmentType</label>
+                                        <div>
+                                            <span>
+                                                <select name="PrimaryTreatmentType" class="form-control">
+                                                    <option value="0" @(infrastructureModel.PrimaryTreatmentType == null ? "selected=selected" : "")>@InfrastructureViewRes.Select @InfrastructureViewRes.PrimaryTreatmentType</option>
+                                                    @foreach (PrimaryTreatmentTypeEnumTextOrdered primaryTreatmentTypeEnumTextOrdered in _BaseEnumService.GetPrimaryTreatmentTypeEnumTextOrderedList())
+                                                    {
+                                                        <option value="@((int)primaryTreatmentTypeEnumTextOrdered.PrimaryTreatmentType)" @(infrastructureModel.PrimaryTreatmentType == primaryTreatmentTypeEnumTextOrdered.PrimaryTreatmentType ? "selected=selected" : "")>
+                                                            @(primaryTreatmentTypeEnumTextOrdered.PrimaryTreatmentTypeText)
+                                                        </option>
+                                                    }
+                                                </select>
+                                                <span class="help-block"></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </li>
+                                @*SecondaryTreatmentType*@
+                                <li>
+                                    <div class="form-group">
+                                        <label for="SecondaryTreatmentType" class="control-label">@InfrastructureViewRes.SecondaryTreatmentType</label>
+                                        <div>
+                                            <span>
+                                                <select name="SecondaryTreatmentType" class="form-control">
+                                                    <option value="0" @(infrastructureModel.SecondaryTreatmentType == null ? "selected=selected" : "")>@InfrastructureViewRes.Select @InfrastructureViewRes.SecondaryTreatmentType</option>
+                                                    @foreach (SecondaryTreatmentTypeEnumTextOrdered secondaryTreatmentTypeEnumTextOrdered in _BaseEnumService.GetSecondaryTreatmentTypeEnumTextOrderedList())
+                                                    {
+                                                        <option value="@((int)secondaryTreatmentTypeEnumTextOrdered.SecondaryTreatmentType)" @(infrastructureModel.SecondaryTreatmentType == secondaryTreatmentTypeEnumTextOrdered.SecondaryTreatmentType ? "selected=selected" : "")>
+                                                            @(secondaryTreatmentTypeEnumTextOrdered.SecondaryTreatmentTypeText)
+                                                        </option>
+                                                    }
+                                                </select>
+                                                <span class="help-block"></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </li>
+                                @*TertiaryTreatmentType*@
+                                <li>
+                                    <div class="form-group">
+                                        <label for="TertiaryTreatmentType" class="control-label">@InfrastructureViewRes.TertiaryTreatmentType</label>
+                                        <div>
+                                            <span>
+                                                <select name="TertiaryTreatmentType" class="form-control">
+                                                    <option value="0" @(infrastructureModel.TertiaryTreatmentType == null ? "selected=selected" : "")>@InfrastructureViewRes.Select @InfrastructureViewRes.TertiaryTreatmentType</option>
+                                                    @foreach (TertiaryTreatmentTypeEnumTextOrdered tertiaryTreatmentTypeEnumTextOrdered in _BaseEnumService.GetTertiaryTreatmentTypeEnumTextOrderedList())
+                                                    {
+                                                        <option value="@((int)tertiaryTreatmentTypeEnumTextOrdered.TertiaryTreatmentType)" @(infrastructureModel.TertiaryTreatmentType == tertiaryTreatmentTypeEnumTextOrdered.TertiaryTreatmentType ? "selected=selected" : "")>
+                                                            @tertiaryTreatmentTypeEnumTextOrdered.TertiaryTreatmentTypeText)
+                                                        </option>
+                                                    }
+                                                </select>
+                                                <span class="help-block"></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="notlagoonorplant @(!(infrastructureModel.FacilityType == FacilityTypeEnum.Lagoon || infrastructureModel.FacilityType == FacilityTypeEnum.Plant) ? "" : "hidden")">
+                            <div>
+                                <p>@InfrastructureViewRes.FacilityTypeNotLagoonOrPlant</p>
+                                <p>@InfrastructureViewRes.Error</p>
+                            </div>
+                        </li>
+                        @*DisinfectionType*@
+                        <li>
+                            <div class="form-group">
+                                <label for="DisinfectionType" class="control-label">@InfrastructureViewRes.DisinfectionType</label>
+                                <div>
+                                    <span>
+                                        <select name="DisinfectionType" class="form-control">
+                                            <option value="0" @(infrastructureModel.DisinfectionType == null ? "selected=selected" : "")>@InfrastructureViewRes.Select @InfrastructureViewRes.DisinfectionType</option>
+                                            @foreach (DisinfectionTypeEnumTextOrdered disinfectionTypeEnumTextOrdered in _BaseEnumService.GetDisinfectionTypeEnumTextOrderedList())
+                                            {
+                                                <option value="@((int)disinfectionTypeEnumTextOrdered.DisinfectionType)" @(infrastructureModel.DisinfectionType == disinfectionTypeEnumTextOrdered.DisinfectionType ? "selected=selected" : "")>
+                                                    @(disinfectionTypeEnumTextOrdered.DisinfectionTypeText)
+                                                </option>
+                                            }
+                                        </select>
+                                        <span class="help-block"></span>
+                                    </span>
+                                </div>
+                            </div>
+                        </li>
+                        @*CollectionSystemType*@
+                        <li>
+                            <div class="form-group">
+                                <label for="CollectionSystemType" class="control-label">@InfrastructureViewRes.CollectionSystemType</label>
+                                <div>
+                                    <div>
+                                        <select name="CollectionSystemType" class="form-control">
+                                            <option value="0" @(infrastructureModel.CollectionSystemType == null ? "selected=selected" : "")>@InfrastructureViewRes.Select @InfrastructureViewRes.CollectionSystemType</option>
+                                            @foreach (CollectionSystemTypeEnumTextOrdered collectionSystemTypeEnumTextOrdered in _BaseEnumService.GetCollectionSystemTypeEnumTextOrderedList())
+                                            {
+                                                <option value="@((int)collectionSystemTypeEnumTextOrdered.CollectionSystemType)" @(infrastructureModel.CollectionSystemType == collectionSystemTypeEnumTextOrdered.CollectionSystemType ? "selected=selected" : "")>
+                                                    @(collectionSystemTypeEnumTextOrdered.CollectionSystemTypeText)
+                                                </option>
+                                            }
+                                        </select>
+                                        <span class="help-block"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        @*DesignFlow*@
+                        <li>
+                            <div class="form-group">
+                                <label for="DesignFlow_m3_day" class="control-label">@InfrastructureViewRes.DesignFlow (@Html.Raw(UnitViewRes.m3PerDay))</label>
+                                <div>
+                                    <input id="DesignFlow_m3_day" class="isnumber form-control" type="text" name="DesignFlow_m3_day" value="@infrastructureModel.DesignFlow_m3_day" />
+                                    <span class="help-block"></span>
+                                </div>
+                            </div>
+                        </li>
+                        @*AverageFlow*@
+                        <li>
+                            <div class="form-group">
+                                <label for="AverageFlow_m3_day" class="control-label">@InfrastructureViewRes.AverageFlow (@Html.Raw(UnitViewRes.m3PerDay))</label>
+                                <div>
+                                    <input id="AverageFlow_m3_day" class="isnumber form-control" type="text" name="AverageFlow_m3_day" value="@infrastructureModel.AverageFlow_m3_day" />
+                                    <span class="help-block"></span>
+                                </div>
+                            </div>
+                        </li>
+                        @*PeakFlow*@
+                        <li>
+                            <div class="form-group">
+                                <label for="PeakFlow_m3_day" class="control-label">@InfrastructureViewRes.PeakFlow (@Html.Raw(UnitViewRes.m3PerDay))</label>
+                                <div>
+                                    <input id="PeakFlow_m3_day" class="isnumber form-control" type="text" name="PeakFlow_m3_day" value="@infrastructureModel.PeakFlow_m3_day" />
+                                    <span class="help-block"></span>
+                                </div>
+                            </div>
+                        </li>
+                        @*PercentFlowTotal*@
+                        <li>
+                            <div class="form-group">
+                                <label for="PercFlowOfTotal" class="control-label">@InfrastructureViewRes.PercentFlowTotal (%)</label>
+                                <div>
+                                    <input id="PercFlowOfTotal" class="isnumber form-control" type="text" name="PercFlowOfTotal" value="@infrastructureModel.PercFlowOfTotal" />
+                                    <span class="help-block"></span>
+                                </div>
+                            </div>
+                        </li>
+                        @*PopulationServed*@
+                        <li>
+                            <div class="form-group">
+                                <label for="PopServed" class="control-label">@InfrastructureViewRes.PopulationServed</label>
+                                <div>
+                                    <input id="PopServed" class="isnumber form-control" type="text" name="PopServed" value="@infrastructureModel.PopServed" />
+                                    <span class="help-block"></span>
+                                </div>
+                            </div>
+                        </li>
+                        @*AlarmSystemType*@
+                        <li>
+                            <div class="form-group">
+                                <label for="AlarmSystemType" class="control-label">@InfrastructureViewRes.AlarmSystemType</label>
+                                <div>
+                                    <span>
+                                        <select name="AlarmSystemType" class="form-control">
+                                            <option value="0" @(infrastructureModel.AlarmSystemType == null ? "selected=selected" : "")>Select Alarm System Type</option>
+                                            @foreach (AlarmSystemTypeEnumTextOrdered alarmSystemTypeEnumTextOrdered in _BaseEnumService.GetAlarmSystemTypeEnumTextOrderedList())
+                                            {
+                                                <option value="@((int)alarmSystemTypeEnumTextOrdered.AlarmSystemType)" @(infrastructureModel.AlarmSystemType == alarmSystemTypeEnumTextOrdered.AlarmSystemType ? "selected=selected" : "")>
+                                                    @(alarmSystemTypeEnumTextOrdered.AlarmSystemTypeText)
+                                                </option>
+                                            }
+                                        </select>
+                                    </span>
+                                    <span class="help-block"></span>
+                                </div>
+                            </div>
+                        </li>
+                        @*CanOverflow*@
+                        <li>
+                            <div class="form-group">
+                                <label for="Overflow" class="control-label">@InfrastructureViewRes.CanOverflow</label>
+                                <div class="checkbox-inline">
+                                    <input type="radio" name="Overflow" @(infrastructureModel.CanOverflow == true ? "checked=checked" : "") value="1" /><span>&nbsp;@InfrastructureViewRes.Yes</span>
+                                    <input type="radio" name="Overflow" @(infrastructureModel.CanOverflow == false ? "checked=checked" : "") value="0" /><span>&nbsp;@InfrastructureViewRes.No</span>
+                                </div>
+                            </div>
+                        </li>
+                        @*Infrastructure Coordinates*@
+                        @*Latitude*@
+                        <li>
+                            <div class="form-group">
+                                <label for="Lat" class="control-label">@InfrastructureViewRes.Latitude</label>
+                                <div>
+                                    <input id="Lat" class="isnumber form-control" type="text" name="Lat" value="@mapInfoPointModelInfrastructure.Lat.ToString("F5")" />
+                                    <span class="help-block"></span>
+                                </div>
+                            </div>
+                        </li>
+                        @*Longitude*@
+                        <li>
+                            <div class="form-group">
+                                <label for="Lng" class="control-label">@InfrastructureViewRes.Longitude</label>
+                                <div>
+                                    <input id="Lng" class="isnumber form-control" type="text" name="Lng" value="@mapInfoPointModelInfrastructure.Lng.ToString("F5")" />
+                                    <span class="help-block"></span>
+                                </div>
+                            </div>
+                        </li>
+                        @*Infrastructure Outfall Coordinates*@
+                        @*Outfall Latitude*@
+                        <li>
+                            <div class="form-group">
+                                <label for="LatOutfall" class="control-label">@InfrastructureViewRes.Outfall @InfrastructureViewRes.Latitude</label>
+                                <div>
+                                    <input id="LatOutfall" class="isnumber form-control" type="text" name="LatOutfall" value="@(mapInfoPointModelOutfall == null ? "" : mapInfoPointModelOutfall.Lat.ToString("F5"))" />
+                                    <span class="help-block"></span>
+                                </div>
+                            </div>
+                        </li>
+                        @*Outfall Longitude*@
+                        <li>
+                            <div class="form-group">
+                                <label for="LngOutfall" class="control-label">@InfrastructureViewRes.Outfall @InfrastructureViewRes.Longitude</label>
+                                <div>
+                                    <input id="LngOutfall" class="isnumber form-control" type="text" name="LngOutfall" value="@(mapInfoPointModelOutfall == null ? "" : mapInfoPointModelOutfall.Lng.ToString("F5"))" />
+                                    <span class="help-block"></span>
+                                </div>
+                            </div>
+                        </li>
+                        @*Comments*@
+                        <li>
+                            <div class="form-group">
+                                <label for="Comments" class="control-label">@InfrastructureViewRes.Comments</label>
+                                <div>
+                                    <textarea id="Comments" class="form-control" rows="6" name="Comments">@infrastructureModel.Comment</textarea>
+                                    <span class="help-block"></span>
+                                </div>
+                            </div>
+                        </li>
+                        @*Will be removed in the future*@
+                        <li>
+                            <div>
+                                <p></p>
+                                <h1>@InfrastructureViewRes.InformationBelowWillBeRemovedInTheFuture</h1>
+                                <p></p>
+                                <label class="control-label">@InfrastructureViewRes.TempCatchRemoveLater</label>
+                                <pre>@infrastructureModel.TempCatchAllRemoveLater
+                                </pre>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            }
+            else if (infrastructureModel.InfrastructureType == InfrastructureTypeEnum.LiftStation || infrastructureModel.InfrastructureType == InfrastructureTypeEnum.LineOverflow)
+            {
+                /*Lift Station and Line Overflow*/
+                <div class="blockMargin">
+                    <ul class="list-unstyled">
+                        @*InfrastructureType*@
+                        <li>
+                            <div class="form-group">
+                                <label for="InfrastructureType" class="control-label">@InfrastructureViewRes.InfrastructureType</label>
+                                <div>
+                                    <span>
+                                        <select name="InfrastructureType" class="form-control">
+                                            <option value="0" @(infrastructureModel.InfrastructureType == null ? "selected=selected" : "")>@InfrastructureViewRes.Select @InfrastructureViewRes.InfrastructureType</option>
+                                            @foreach (InfrastructureTypeEnumTextOrdered infrastructureTypeEnumTextOrdered in _BaseEnumService.GetInfrastructureTypeEnumTextOrderedList())
+                                            {
+                                                <option value="@((int)infrastructureTypeEnumTextOrdered.InfrastructureType)" @(infrastructureModel.InfrastructureType == infrastructureTypeEnumTextOrdered.InfrastructureType ? "selected=selected" : "")>
+                                                    @(infrastructureTypeEnumTextOrdered.InfrastructureTypeText)
+                                                </option>
+                                            }
+                                        </select>
+                                        <span class="help-block"></span>
+                                    </span>
+                                </div>
+                            </div>
+                        </li>
+                        @*PercentageFlowTotal*@
+                        <li>
+                            <div class="form-group">
+                                <label for="PercFlowOfTotal" class="control-label">@InfrastructureViewRes.PercentFlowTotal (%)</label>
+                                <div>
+                                    <input id="PercFlowOfTotal" class="isnumber form-control" type="text" name="PercFlowOfTotal" value="@infrastructureModel.PercFlowOfTotal" />
+                                    <span class="help-block"></span>
+                                </div>
+                            </div>
+                        </li>
+                        @*Infrastructure Coordinates*@
+                        @*Latitude*@
+                        <li>
+                            <div class="form-group">
+                                <label for="Lat" class="control-label">@InfrastructureViewRes.Latitude</label>
+                                <div>
+                                    <input id="Lat" class="isnumber form-control" type="text" name="Lat" value="@mapInfoPointModelInfrastructure.Lat.ToString("F5")" />
+                                    <span class="help-block"></span>
+                                </div>
+                            </div>
+                        </li>
+                        @*Longitude*@
+                        <li>
+                            <div class="form-group">
+                                <label for="Lng" class="control-label">@InfrastructureViewRes.Longitude</label>
+                                <div>
+                                    <input id="Lng" class="isnumber form-control" type="text" name="Lng" value="@mapInfoPointModelInfrastructure.Lng.ToString("F5")" />
+                                    <span class="help-block"></span>
+                                </div>
+                            </div>
+                        </li>
+                        @*Infrastructure Outfall Coordinates*@
+                        @*Outfall Latitude*@
+                        <li>
+                            <div class="form-group">
+                                <label for="LatOutfall" class="control-label">@InfrastructureViewRes.Outfall @InfrastructureViewRes.Latitude</label>
+                                <div>
+                                    <input id="LatOutfall" class="isnumber form-control" type="text" name="LatOutfall" value="@(mapInfoPointModelOutfall == null ? "" : mapInfoPointModelOutfall.Lat.ToString("F5"))" />
+                                    <span class="help-block"></span>
+                                </div>
+                            </div>
+                        </li>
+                        @*Outfall Longitude*@
+                        <li>
+                            <div class="form-group">
+                                <label for="LngOutfall" class="control-label">@InfrastructureViewRes.Outfall @InfrastructureViewRes.Longitude</label>
+                                <div>
+                                    <input id="LngOutfall" class="isnumber form-control" type="text" name="LngOutfall" value="@(mapInfoPointModelOutfall == null ? "" : mapInfoPointModelOutfall.Lng.ToString("F5"))" />
+                                    <span class="help-block"></span>
+                                </div>
+                            </div>
+                        </li>
+                        @*AlarmSystemType*@
+                        <li>
+                            <div class="form-group">
+                                <label for="AlarmSystemType" class="control-label">@InfrastructureViewRes.AlarmSystemType</label>
+                                <div>
+                                    <span>
+                                        <select name="AlarmSystemType" class="form-control">
+                                            <option value="0" @(infrastructureModel.AlarmSystemType == null ? "selected=selected" : "")>@InfrastructureViewRes.Select @InfrastructureViewRes.AlarmSystemType</option>
+                                            @foreach (AlarmSystemTypeEnumTextOrdered alarmSystemTypeEnumTextOrdered in _BaseEnumService.GetAlarmSystemTypeEnumTextOrderedList())
+                                            {
+                                                <option value="@((int)alarmSystemTypeEnumTextOrdered.AlarmSystemType)" @(infrastructureModel.AlarmSystemType == alarmSystemTypeEnumTextOrdered.AlarmSystemType ? "selected=selected" : "")>
+                                                    @(alarmSystemTypeEnumTextOrdered.AlarmSystemTypeText)
+                                                </option>
+                                            }
+                                        </select>
+                                        <span class="help-block"></span>
+                                    </span>
+                                </div>
+                            </div>
+                        </li>
+                        @*CanOverFlow*@
+                        <li>
+                            <div class="form-group">
+                                <label for="Overflow" class="control-label">@InfrastructureViewRes.CanOverflow</label>
+                                <div class="checkbox-inline">
+                                    <input type="radio" name="Overflow" @(infrastructureModel.CanOverflow == true ? "checked=checked" : "") value="1" /><span>&nbsp;@InfrastructureViewRes.Yes</span>
+                                    <input type="radio" name="Overflow" @(infrastructureModel.CanOverflow == false ? "checked=checked" : "") value="0" /><span>&nbsp;@InfrastructureViewRes.No</span>
+                                </div>
+                            </div>
+                        </li>
+                        @*Comments*@
+                        <li>
+                            <div class="form-group">
+                                <label for="Comments" class="control-label">@InfrastructureViewRes.Comments</label>
+                                <div>
+                                    <textarea id="Comments" class="form-control" rows="6" name="Comments">@infrastructureModel.Comment</textarea>
+                                    <span class="help-block"></span>
+                                </div>
+                            </div>
+                        </li>
+                        @*Will be removed in the future*@
+                        <li>
+                            <div>
+                                <p></p>
+                                <h1>@InfrastructureViewRes.InformationBelowWillBeRemovedInTheFuture</h1>
+                                <p></p>
+                                <label class="control-label">@InfrastructureViewRes.TempCatchRemoveLater</label>
+                                <pre>@infrastructureModel.TempCatchAllRemoveLater
+                               
+                                </pre>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            }
+            @if (infrastructureModel.InfrastructureType == InfrastructureTypeEnum.WWTP || infrastructureModel.InfrastructureType == InfrastructureTypeEnum.LiftStation || infrastructureModel.InfrastructureType == InfrastructureTypeEnum.LineOverflow)
+            {
+                // Outfall
+                <div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a href="#Outfall" data-toggle="collapse" aria-expanded="false" aria-controls="Outfall">@InfrastructureViewRes.Outfall</a>
+                            </h4>
+                        </div>
+                        <div class="panel-body collapse" id="Outfall">
+                            <div class="blockMargin">
+                                <ul class="list-unstyled">
+                                    @*AverageDepth*@
+                                    <li>
+                                        <div class="form-group">
+                                            <label for="AverageDepth_m" class="control-label">@InfrastructureViewRes.AverageDepth (@UnitViewRes.Meters_abbr)</label>
+                                            <div>
+                                                <input id="AverageDepth_m" class="isnumber form-control" type="text" name="AverageDepth_m" value="@infrastructureModel.AverageDepth_m" />
+                                                <span class="help-block"></span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    @*DecayRate*@
+                                    <li>
+                                        <div class="form-group">
+                                            <label for="DecayRate_per_day" class="control-label">@InfrastructureViewRes.DecayRate (@UnitViewRes.PerDay)</label>
+                                            <div>
+                                                <input id="DecayRate_per_day" class="isnumber form-control" type="text" name="DecayRate_per_day" value="@infrastructureModel.DecayRate_per_day" />
+                                                <span class="help-block"></span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    @*DistanceFromShore*@
+                                    <li>
+                                        <div class="form-group">
+                                            <label for="DistanceFromShore_m" class="control-label">@InfrastructureViewRes.DistanceFromShore (@UnitViewRes.Meters_abbr)</label>
+                                            <div>
+                                                <input id="DistanceFromShore_m" class="isnumber form-control" type="text" name="DistanceFromShore_m" value="@infrastructureModel.DistanceFromShore_m" />
+                                                <span class="help-block"></span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    @*FarFieldVelocity*@
+                                    <li>
+                                        <div class="form-group">
+                                            <label for="FarFieldVelocity_m_s" class="control-label">@InfrastructureViewRes.FarFieldVelocity (@UnitViewRes.MetersPerSecond_abbr)</label>
+                                            <div>
+                                                <input id="FarFieldVelocity_m_s" class="isnumber form-control" type="text" name="FarFieldVelocity_m_s" value="@infrastructureModel.FarFieldVelocity_m_s" />
+                                                <span class="help-block"></span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    @*HorizontalAngle*@
+                                    <li>
+                                        <div class="form-group">
+                                            <label for="HorizontalAngle_deg" class="control-label">@InfrastructureViewRes.HorizontalAngle (@UnitViewRes.Degrees_abbr)</label>
+                                            <div>
+                                                <input id="HorizontalAngle_deg" class="isnumber form-control" type="text" name="HorizontalAngle_deg" value="@infrastructureModel.HorizontalAngle_deg" />
+                                                <span class="help-block"></span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    @*NearFieldVelocity*@
+                                    <li>
+                                        <div class="form-group">
+                                            <label for="NearFieldVelocity_m_s" class="control-label">@InfrastructureViewRes.NearFieldVelocity (@UnitViewRes.MetersPerSecond_abbr)</label>
+                                            <div>
+                                                <input id="NearFieldVelocity_m_s" class="isnumber form-control" type="text" name="NearFieldVelocity_m_s" value="@infrastructureModel.NearFieldVelocity_m_s" />
+                                                <span class="help-block"></span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    @*NumberOfPorts>*@
+                                    <li>
+                                        <div class="form-group">
+                                            <label for="NumberOfPorts" class="control-label">@InfrastructureViewRes.NumberOfPorts</label>
+                                            <div>
+                                                <input id="NumberOfPorts" class="isnumber form-control" type="text" name="NumberOfPorts" value="@infrastructureModel.NumberOfPorts" />
+                                                <span class="help-block"></span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    @*PortDiameter*@
+                                    <li>
+                                        <div class="form-group">
+                                            <label for="PortDiameter_m" class="control-label">@InfrastructureViewRes.PortDiameter (@UnitViewRes.Meters_abbr)</label>
+                                            <div>
+                                                <input id="PortDiameter_m" class="isnumber form-control" type="text" name="PortDiameter_m" value="@infrastructureModel.PortDiameter_m" />
+                                                <span class="help-block"></span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    @*PortElevation*@
+                                    <li>
+                                        <div class="form-group">
+                                            <label for="PortElevation_m" class="control-label">@InfrastructureViewRes.PortElevation (@UnitViewRes.Meters_abbr)</label>
+                                            <div>
+                                                <input id="PortElevation_m" class="isnumber form-control" type="text" name="PortElevation_m" value="@infrastructureModel.PortElevation_m" />
+                                                <span class="help-block"></span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    @*PortSpacing*@
+                                    <li>
+                                        <div class="form-group">
+                                            <label for="PortSpacing_m" class="control-label">@InfrastructureViewRes.PortSpacing (@UnitViewRes.Meters_abbr)</label>
+                                            <div>
+                                                <input id="PortSpacing_m" class="isnumber form-control" type="text" name="PortSpacing_m" value="@infrastructureModel.PortSpacing_m" />
+                                                <span class="help-block"></span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    @*ReceivingWaterConc*@
+                                    <li>
+                                        <div class="form-group">
+                                            <label for="ReceivingWater_MPN_per_100ml" class="control-label">@InfrastructureViewRes.ReceivingWaterConc (@UnitViewRes.FCPer100ml)</label>
+                                            <div>
+                                                <input id="ReceivingWater_MPN_per_100ml" class="isnumber form-control" type="text" name="ReceivingWater_MPN_per_100ml" value="@infrastructureModel.ReceivingWater_MPN_per_100ml" />
+                                                <span class="help-block"></span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    @*ReceivingWaterSalinity*@
+                                    <li>
+                                        <div class="form-group">
+                                            <label for="ReceivingWaterSalinity_PSU" class="control-label">@InfrastructureViewRes.ReceivingWaterSalinity (@UnitViewRes.PSU)</label>
+                                            <div>
+                                                <input id="ReceivingWaterSalinity_PSU" class="isnumber form-control" type="text" name="ReceivingWaterSalinity_PSU" value="@infrastructureModel.ReceivingWaterSalinity_PSU" />
+                                                <span class="help-block"></span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    @*ReceivingWaterTemperature*@
+                                    <li>
+                                        <div class="form-group">
+                                            <label for="ReceivingWaterTemperature_C" class="control-label">@InfrastructureViewRes.ReceivingWaterTemperature (@UnitViewRes.Celcius_abbr)</label>
+                                            <div>
+                                                <input id="ReceivingWaterTemperature_C" class="isnumber form-control" type="text" name="ReceivingWaterTemperature_C" value="@infrastructureModel.ReceivingWaterTemperature_C" />
+                                                <span class="help-block"></span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    @*VerticalAngle*@
+                                    <li>
+                                        <div class="form-group">
+                                            <label for="VerticalAngle_deg" class="control-label">@InfrastructureViewRes.VerticalAngle (@UnitViewRes.Degrees_abbr)</label>
+                                            <div>
+                                                <input id="VerticalAngle_deg" class="isnumber form-control" type="text" name="VerticalAngle_deg" value="@infrastructureModel.VerticalAngle_deg" />
+                                                <span class="help-block"></span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            }
+            else if (infrastructureModel.InfrastructureType == InfrastructureTypeEnum.Other)
+            {
+                /*Other*/
+                <div class="blockMargin">
+                    @*InfrastructureType*@
+                    <div class="form-group">
+                        <label for="InfrastructureType" class="control-label">@InfrastructureViewRes.InfrastructureType</label>
+                        <div>
+                            <span>
+                                <select name="InfrastructureType">
+                                    <option value="0" @(infrastructureModel.InfrastructureType == null ? "selected=selected" : "")>Select Infrastructure Type</option>
+                                    @foreach (InfrastructureTypeEnumTextOrdered infrastructureTypeEnumTextOrdered in _BaseEnumService.GetInfrastructureTypeEnumTextOrderedList())
+                                    {
+                                        <option value="@((int)infrastructureTypeEnumTextOrdered.InfrastructureType)" @(infrastructureModel.InfrastructureType == infrastructureTypeEnumTextOrdered.InfrastructureType ? "selected=selected" : "")>
+                                            @(infrastructureTypeEnumTextOrdered.InfrastructureTypeText)
+                                        </option>
+                                    }
+                                </select>
+                                <span class="help-block"></span>
+                            </span>
+                        </div>
+                    </div>
+                    @*Infrastructure Latitude*@
+                    <div class="form-group">
+                        <label for="Lat" class="control-label">@InfrastructureViewRes.Latitude</label>
+                        <div>
+                            <input id="Lat" class="isnumber form-control" type="text" name="Lat" value="@mapInfoPointModelInfrastructure.Lat.ToString("F5")" />
+                            <span class="help-block"></span>
+                        </div>
+                    </div>
+                    @*Infrastructure Longitude*@
+                    <div class="form-group">
+                        <label for="Lng" class="control-label">@InfrastructureViewRes.Longitude</label>
+                        <div>
+                            <input id="Lng" class="isnumber form-control" type="text" name="Lng" value="@mapInfoPointModelInfrastructure.Lng.ToString("F5")" />
+                            <span class="help-block"></span>
+                        </div>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div>
+                    <div class="form-group">
+                        <h4 class="col-sm-offset-1"> @InfrastructureViewRes.InfrastructureTVTypeNotFound [@infrastructureModel.InfrastructureType]</h4>
+                    </div>
+                </div>
+            }
+            <div class="btn-block  col-sm-offset-1 ">
+                <button class="jbInfrastructureEditSave btn btn-primary" type="submit">
+                    <span class="glyphicon glyphicon-check"></span>
+                    @InfrastructureViewRes.Modify
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <script type="text/javascript">
+        $(function () {
+            cssp.Infrastructure.InitEdit();
+        });
+    </script>
+
+}

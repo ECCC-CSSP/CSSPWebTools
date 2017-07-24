@@ -1,0 +1,142 @@
+﻿@using CSSPWebTools.Views.TVItem.Resources;
+@using System.Text;
+@using CSSPEnumsDLL.Enums;
+@using CSSPModelsDLL.Models;
+
+@{
+    TVItemModel tvItemModel = (TVItemModel)ViewBag.TVItemModel;
+    MapInfoPointModel mapInfoPointModel = (MapInfoPointModel)ViewBag.MapInfoPointModel;
+    List<MapInfoPointModel> mapInfoPointModelListPolyline = (List<MapInfoPointModel>)ViewBag.MapInfoPointModelListPolyline;
+    List<MapInfoPointModel> mapInfoPointModelListPolygon = (List<MapInfoPointModel>)ViewBag.MapInfoPointModelListPolygon;
+    int ParentTVItemID = (int)ViewBag.ParentTVItemID;
+    int TVItemID = (int)ViewBag.TVItemID;
+    TVTypeEnum TVType = (TVTypeEnum)ViewBag.TVType;
+
+    StringBuilder sbMapInfoPoint = new StringBuilder();
+    StringBuilder sbMapInfoPolyline = new StringBuilder();
+    StringBuilder sbMapInfoPolygon = new StringBuilder();
+
+    if (mapInfoPointModel != null)
+    {
+        sbMapInfoPoint.AppendLine(mapInfoPointModel.Lat.ToString("F5") + " " + mapInfoPointModel.Lng.ToString("F5"));
+    }
+    if (mapInfoPointModelListPolyline != null)
+    {
+        foreach (MapInfoPointModel mapInfoPointModelPolyline in mapInfoPointModelListPolyline)
+        {
+            sbMapInfoPolyline.AppendLine(mapInfoPointModelPolyline.Lat.ToString("F5") + " " + mapInfoPointModelPolyline.Lng.ToString("F5"));
+        }
+    }
+    if (mapInfoPointModelListPolygon != null)
+    {
+        foreach (MapInfoPointModel mapInfoPointModelPolygon in mapInfoPointModelListPolygon)
+        {
+            sbMapInfoPolygon.AppendLine(mapInfoPointModelPolygon.Lat.ToString("F5") + " " + mapInfoPointModelPolygon.Lng.ToString("F5"));
+        }
+    }
+
+}
+
+
+<form id="TVItemEditForm" method="post" role="form" action="TVItem/TVItemEditJSON">
+    @Html.AntiForgeryToken()
+    <fieldset>
+        <input type="hidden" name="ParentTVItemID" value="@ParentTVItemID" />
+        <input type="hidden" name="TVItemID" value="@TVItemID" />
+        <input type="hidden" name="TVType" value="@((int)TVType)" />
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">@(TVItemID == 0 ? TVItemViewRes.Add : TVItemViewRes.Modify)</h4>
+            </div>
+            <div class="panel-body">
+                <div class="form-group">
+                    <label class="control-label" for="TVText">@TVType - @TVItemViewRes.Name</label>
+                    <a href="" class="jaPopover text-info elementSpacing" type="button" tabindex="1" data-trigger="focus" data-container="body" data-toggle="popover" data-placement="right" data-content="@TVItemViewRes.NameDescriptionPopOver">
+                        <span class="glyphicon glyphicon-info-sign"></span>
+                    </a>
+                    <div>
+                        <input autofocus="autofocus" class="form-control"
+                               name="TVText" autocomplete="off" type="text" id="TVText" value="@(TVItemID == 0 ? "" : tvItemModel.TVText)" />
+                        <span class="help-block"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="checkbox-inline" for="IsActive">
+                       <input name="IsActive" id="IsActive" type="checkbox" @(tvItemModel != null && tvItemModel.IsActive == true ? "checked=checked" : "") />
+                        <span>@TVType - @TVItemViewRes.IsActive</span>
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="MapInfoPoint">@TVItemViewRes.GeographicCoordinates</label>
+                    <a href="" class="jaPopover text-info elementSpacing" type="button" tabindex="1" data-trigger="focus" data-container="body" data-toggle="popover" data-placement="right" data-content="@TVItemViewRes.GeographicCoordinatesDescriptionPopOver">
+                        <span class="glyphicon glyphicon-info-sign"></span>
+                    </a>
+                    <div>
+                        <textarea class="form-control" name="MapInfoPoint" type="text" id="MapInfoPoint">@sbMapInfoPoint.ToString()</textarea>
+                        <span class="help-block"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <ul class="list-inline">
+                        <li><label class="control-label" for="MapInfoPolyline">@TVItemViewRes.Path</label></li>
+                        <li>
+                            <a href="" class="jaPopover text-info elementSpacing" type="button" tabindex="1" data-trigger="focus" data-container="body" data-toggle="popover" data-placement="right" data-content="@TVItemViewRes.PathDescriptionPopOver">
+                                <span class="glyphicon glyphicon-info-sign"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#pastePathGE" class="jaOpenGoogleEarth collapse in text-info elementSpacing" data-toggle="collapse" aria-expanded="false" aria-controls="pastePathGE">
+                                <span class="glyphicon glyphicon-import"></span>
+                            </a>
+                        </li>
+                    </ul>
+                    <div id="pastePathGE" class="collapse panel panel-info">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">Import Path from Google Earth</h4>
+                        </div>
+                        <div class="panel-body">
+                            <textarea class="form-control" name="GEPath" id="MapInfoPath"></textarea>
+                        </div>
+                        <div class="panel-footer">
+                            <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-check">&nbsp;</span>save</button>
+                            <button class="btn btn-default" type="reset"><span class="glyphicon glyphicon-ban-circle">&nbsp;</span>cancel</button>
+                        </div>
+                    </div>
+                    <div>
+                        <textarea class="form-control" name="MapInfoPolyline" id="MapInfoPolyline">@sbMapInfoPolyline.ToString()</textarea>
+                        <span class="help-block"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="MapInfoPolygon">@TVItemViewRes.Polygon</label>
+                    <a href="" class="jaPopover text-info elementSpacing" type="button" tabindex="1" data-trigger="focus" data-container="body" data-toggle="popover" data-placement="right" data-content="@TVItemViewRes.PolygonDescriptionPopOver">
+                        <span class="glyphicon glyphicon-info-sign"></span>
+                    </a>
+                    <div>
+                        <textarea class="form-control" name="MapInfoPolygon" id="MapInfoPolygon">@sbMapInfoPolygon.ToString()</textarea>
+                        <span class="help-block"></span>
+                    </div>
+                </div>
+
+            </div>
+            <div class="panel-footer">
+                <button class="jbTVItemAddOrModify btn btn-primary" type="submit">
+                    <span class="glyphicon glyphicon-check"></span>
+                    &nbsp;
+                    @(TVItemID == 0 ? TVItemViewRes.Add : TVItemViewRes.Modify)
+                </button>
+            </div>
+        </div>
+    </fieldset>
+</form>
+
+<script type="text/javascript">
+    $(function () {
+        cssp.TVItem.Init();
+    });
+    $(function () {
+        $(".jaPopover").popover();
+    });
+</script>
+
+

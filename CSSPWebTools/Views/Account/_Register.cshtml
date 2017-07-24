@@ -1,0 +1,106 @@
+﻿@using CSSPWebTools.Views.Account.Resources;
+@using CSSPEnumsDLL.Enums;
+@using CSSPModelsDLL.Models;
+
+@{
+    RegisterModel registerModel = new RegisterModel();
+}
+
+<div id="RegisterDiv" class="container-fluid">
+    <div id="RegisterVariables" class="hidden">
+        <span class="varError">@AccountViewRes.Error</span>
+        <span class="varFormFail">@AccountViewRes.FormFail</span>
+        <span class="varCouldNotFind_Within_">@AccountViewRes.CouldNotFind_Within_</span>
+    </div>
+    <div class="row">
+    <form id="RegisterForm" method="post" class="form-horizontal col-lg-6 col-md-8 col-sm-10" role="form" action="Account/RegisterJSON">
+        @Html.AntiForgeryToken()
+        <fieldset>
+            <legend><span>@AccountViewRes.RegisterForm</span></legend>
+
+            <div class="form-group">
+                <label class="control-label col-sm-3" for="FirstName">@AccountViewRes.FirstName</label>
+                <div class="col-sm-9">
+                    <input autofocus="autofocus" id="FirstName" class="form-control" name="FirstName" type="text" value="">
+                    <span class="help-block"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-3" for="LastName">@AccountViewRes.LastName</label>
+                <div class="col-sm-9">
+                    <input name="LastName" id="LastName" class="form-control" type="text" value="">
+                    <span class="help-block"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-3" for="Initial">@AccountViewRes.Initial</label>
+                <div class="col-sm-9">
+                    <input name="Initial" id="Initial" class="form-control" type="text" value="">
+                    <span class="help-block"></span>
+                </div>
+            </div>
+            <div class="form-group hidden">
+                <label class="control-label col-sm-3" for="WebName">@AccountViewRes.WebName</label>
+                <div class="col-sm-9">
+                    <input name="WebName" id="WebName" class="form-control" type="text" value="SomeWebName">
+                    <span class="help-block"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-3" for="LoginEmail">@AccountViewRes.LoginEmail</label>
+                <div class="col-sm-9">
+                    <input name="LoginEmail" id="LoginEmail" class="form-control" type="email" value="">
+                    <span class="help-block"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-3" for="Password">@AccountViewRes.Password</label>
+                <div class="col-sm-9">
+                    <input id="Password" name="Password"  class="form-control" type="password" value="">
+                    <span class="help-block"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-3" for="ConfirmPassword">@AccountViewRes.PasswordConfirmation</label>
+                <div class="col-sm-9">
+                    <input name="ConfirmPassword" id="ConfirmPassword" class="form-control" type="password" value="">
+                    <span class="help-block"></span>
+                </div>
+            </div>
+
+            <div class="btn-block  col-sm-offset-3 col-sm-9">
+                <button class="jbRegister btn btn-primary" type="submit">
+                    <span class="glyphicon glyphicon-check"></span>
+                    &nbsp;@AccountViewRes.Register
+                </button>
+                <a href="#!Login" class="btn btn-default appJSLogin" role="button">
+                    <span class="glyphicon glyphicon-remove-circle"></span>
+                    @AccountViewRes.Cancel
+                </a>
+            </div>
+        </fieldset>
+    </form>
+    <div class="col-lg-6 col-md-4 col-sm-2">&nbsp;</div>
+</div>
+</div>
+
+@if (ViewBag.Debug)
+{
+    <div class="clearfix"></div>
+    <div class="testing hidden">
+        <h2>Testing _Register.cshtml and cssp.Register.ts</h2>
+        <span class="divName" style="display: none">#RegisterDiv</span>
+        <span class="appName" style="display: none">cssp.Register</span>
+        <a class="jtTestRegisterContents btn btn-default">Test Contents</a>
+        <a class="jtTestRegisterFields btn btn-default">Test Fields</a>
+        <a class="jtTestRegisterSendForm btn btn-default">Test Send Form</a>
+        <a class="jtTestRegisterRandomUser btn btn-default">Add Random Use</a>
+    </div>
+}
+
+<script type="text/javascript">
+    $(function () {
+        cssp.Register.Init();
+    });
+</script>
+

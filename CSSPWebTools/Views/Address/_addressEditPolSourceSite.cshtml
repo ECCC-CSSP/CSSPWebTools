@@ -1,0 +1,163 @@
+﻿@using CSSPWebTools.Views.Address.Resources;
+@using CSSPWebToolsDBDLL.Services;
+@using System.Text;
+@using CSSPWebTools.Controllers;
+@using CSSPEnumsDLL.Enums;
+@using CSSPEnumsDLL.Services;
+@using CSSPModelsDLL.Models;
+
+@{
+    PolSourceSiteModel PolSourceSiteModel = (PolSourceSiteModel)ViewBag.PolSourceSiteModel;
+    AddressModel addressModel = (AddressModel)ViewBag.AddressModel;
+    AddressController addressController = (AddressController)ViewBag.AddressController;
+    AddressService addressService = (AddressService)ViewBag.AddressService;
+    BaseEnumService _BaseEnumService = new BaseEnumService(ViewBag.Language);
+    float? Lat = (float?)ViewBag.Lat;
+    float? Lng = (float?)ViewBag.Lng;
+    if (addressModel != null && !string.IsNullOrWhiteSpace(addressModel.LatLngText))
+    {
+        Lat = float.Parse(addressModel.LatLngText.Substring(0, addressModel.LatLngText.IndexOfAny(", ".ToCharArray())));
+        Lng = float.Parse(addressModel.LatLngText.Substring(addressModel.LatLngText.LastIndexOfAny(", ".ToCharArray())));
+    }
+}
+
+<div id="contentAddress" class="paraBlock">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a href="#AddressGroup" data-toggle="collapse" aria-expanded="false" aria-controls="AddressGroup">
+                    <span class="glyphicon glyphicon-home"></span>&nbsp;&nbsp;@AddressViewRes.Address
+                </a>
+            </h4>
+        </div>
+        <div class="panel-body collapse" id="AddressGroup">
+            <div class="AddressItemTop" data-polsourcesitetvitemid="@PolSourceSiteModel.PolSourceSiteTVItemID" data-addresstvitemid="@(addressModel == null ? 0 : addressModel.AddressTVItemID)">
+                <button class="jbAddressLocationCrossOnMap btn btn-default @(addressModel != null && !string.IsNullOrWhiteSpace(addressModel.LatLngText) ? "" : "hidden")" data-lat="@Lat" data-lng="@Lng"><span class="glyphicon glyphicon-map-marker"></span></button>
+                <input type="text" class="CivicAddressLatLng" value="@(addressModel != null && !string.IsNullOrWhiteSpace(addressModel.LatLngText) ? addressModel.LatLngText : Lat + " " + Lng)" />
+                <button class="jbGetCivicAddress btn btn-default">@AddressViewRes.GetCivicAddressFromGoogle</button>
+                <form method="post" class="AddressEditForm " role="form" action="Address/AddressSavePolSourceSiteJSON">
+                    @Html.AntiForgeryToken()
+                    <fieldset>
+                        <input type="hidden" name="PolSourceSiteTVItemID" value="@PolSourceSiteModel.PolSourceSiteTVItemID" />
+                        <input type="hidden" name="AddressTVItemID" value="@(addressModel == null ? 0 : addressModel.AddressTVItemID)" />
+                        <input type="hidden" name="GoogleAddressText" value="@(addressModel == null ? "" : (addressModel.GoogleAddressText == null ? "" : addressModel.GoogleAddressText))" />
+                        <input type="hidden" name="LatLngText" value="@(addressModel == null ? "" : (addressModel.LatLngText == null ? "" : addressModel.LatLngText))" />
+                        <span class="GoogleAddressText">@(addressModel == null ? "" : (addressModel.GoogleAddressText == null ? "" : addressModel.GoogleAddressText))</span>
+                        <ul class="list-inline">
+                            <li>
+                                <div class="form-group">
+                                    <label class="sr-only" for="CountryTVItemID">@AddressViewRes.Country</label>
+                                    <div>
+                                        <span class="hidden">@(string.Format(AddressViewRes.CanOnlyAddNew_ViaBrowsing, AddressViewRes.Country))</span>
+                                        @Html.Action("_CountryList", "Address", new { CountryTVItemID = (addressModel == null ? 0 : addressModel.CountryTVItemID) })
+                                        <span class="help-block"></span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="form-group">
+                                    <label class="sr-only" for="ProvinceTVItemID">@AddressViewRes.Province</label>
+                                    <div>
+                                        <span class="hidden">@(string.Format(AddressViewRes.CanOnlyAddNew_ViaBrowsing, AddressViewRes.Province))</span>
+                                        @Html.Action("_ProvinceList", "Address", new { CountryTVItemID = (addressModel == null ? 0 : addressModel.CountryTVItemID), ProvinceTVItemID = (addressModel == null ? 0 : addressModel.ProvinceTVItemID) })
+                                        <span class="help-block"></span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="form-group">
+                                    <label class="sr-only" for="MunicipalityTVItemID">@AddressViewRes.Municipality</label>
+                                    <div>
+                                        <span class="hidden">@(string.Format(AddressViewRes.CanOnlyAddNew_ViaBrowsing, AddressViewRes.Municipality))</span>
+                                        @Html.Action("_MunicipalityList", "Address", new { ProvinceTVItemID = (addressModel == null ? 0 : addressModel.ProvinceTVItemID), MunicipalityTVItemID = (addressModel == null ? 0 : addressModel.MunicipalityTVItemID) })
+                                        <span class="help-block"></span>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        <ul class="list-inline">
+                            <li>
+                                <div class="form-group">
+                                    <label class="sr-only" for="AddressType">@AddressViewRes.AddressType</label>
+                                    <div>
+                                        <select name="AddressType" class="form-control ">
+                                            @foreach (AddressTypeEnumTextOrdered addressTypeEnumTextOrdered in _BaseEnumService.GetAddressTypeEnumTextOrderedList())
+                                            {
+                                                if (addressTypeEnumTextOrdered.AddressType == AddressTypeEnum.Civic)
+                                                {
+                                                    <option value="@((int)addressTypeEnumTextOrdered.AddressType)" @(addressModel != null && addressTypeEnumTextOrdered.AddressType == addressModel.AddressType ? "selected=selected" : "")>@(addressTypeEnumTextOrdered.AddressTypeText)</option>
+                                                }
+                                            }
+                                        </select>
+                                        <span class="help-block"></span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="form-group">
+                                    <label class="sr-only" for="StreetNumber">@AddressViewRes.StreetNumber</label>
+                                    <div>
+                                        <input class="form-control" name="StreetNumber" placeholder="ex: 34" autocomplete="off" type="text" value="@(addressModel == null ? "" : addressModel.StreetNumber)" />
+                                        <span class="help-block"></span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="form-group">
+                                    <label class="sr-only" for="StreetName">@AddressViewRes.StreetName</label>
+                                    <div>
+                                        <input class="form-control" name="StreetName" placeholder="ex: Main" autocomplete="off" type="text" value="@(addressModel == null ? "" : addressModel.StreetName)" />
+                                        <span class="help-block"></span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="form-group">
+                                    <label class="sr-only" for="StreetType">@AddressViewRes.StreetType</label>
+                                    <div>
+                                        <select name="StreetType" class="form-control">
+                                            @foreach (StreetTypeEnumTextOrdered streetTypeEnumTextOrdered in _BaseEnumService.GetStreetTypeEnumTextOrderedList())
+                                            {
+                                                <option value="@((int)streetTypeEnumTextOrdered.StreetType)" @(addressModel != null && streetTypeEnumTextOrdered.StreetType == addressModel.StreetType ? "selected=selected" : "")>@(streetTypeEnumTextOrdered.StreetTypeText)</option>
+                                            }
+                                        </select>
+                                        <span class="help-block"></span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="form-group">
+                                    <label class="sr-only" for="PostalCode">@AddressViewRes.PostalCode</label>
+                                    <div>
+                                        <input class="form-control" name="PostalCode" placeholder="ex: A1A 1A1" autocomplete="off" type="text" value="@(addressModel == null ? "" : addressModel.PostalCode)" />
+                                        <span class="help-block"></span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <button class="jbAddressPolSourceSiteAddOrUpdate btn btn-primary" type="submit" title="@AddressViewRes.Save">
+                                    <span class="glyphicon glyphicon-check"></span><span class="sr-only">@AddressViewRes.Save</span>
+                                </button>
+
+                                @if (addressModel != null)
+                                {
+                                    <button class="jbAddressPolSourceSiteDelete btn btn-default" title="@AddressViewRes.Delete">
+                                        <span class="glyphicon glyphicon-trash"></span><span class="sr-only">@AddressViewRes.Delete</span>
+                                    </button>
+                                }
+                            </li>
+                        </ul>
+                        <hr class="alert-info" />
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        $(function () {
+            cssp.Address.InitEdit();
+        })
+    </script>
+
+</div>

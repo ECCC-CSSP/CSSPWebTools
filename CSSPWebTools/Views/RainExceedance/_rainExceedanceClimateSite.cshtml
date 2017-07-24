@@ -1,0 +1,25 @@
+﻿@using CSSPWebTools.Views.RainExceedance.Resources;
+@using CSSPWebTools.Models;
+@using CSSPEnumsDLL.Enums;
+@using CSSPEnumsDLL.Services;
+@using CSSPModelsDLL.Models;
+@using CSSPWebTools.Controllers;
+
+@{
+    List<TVItemModel> TVItemModelClimateSiteList = (List<TVItemModel>)ViewBag.TVItemModelClimateSiteList;
+}
+
+<h4>@RainExceedanceViewRes.ClimateSitesToUse</h4>
+<ul class="list-unstyled">
+    @if (TVItemModelClimateSiteList.Count == 0)
+            {
+        <li>@RainExceedanceViewRes.Empty</li>
+    }
+    else
+    {
+        foreach (TVItemModel TVItemModel in TVItemModelClimateSiteList)
+        {
+            <li>@TVItemModel.TVText</li>
+        }
+    }
+</ul>

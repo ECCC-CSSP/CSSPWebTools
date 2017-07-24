@@ -1,0 +1,66 @@
+﻿@using CSSPWebTools.Views.MikeScenario.Resources;
+
+@{
+    int MunicipalityTVItemID = (int)ViewBag.MunicipalityTVItemID;
+}
+<div class="ImportNewMikeScenarioDiv">
+    <form class="MikeScenarioImportForm" action="MikeScenario/_mikeScenarioImport" method="post" enctype="multipart/form-data">
+        @Html.AntiForgeryToken()
+        <fieldset>
+            <div class="panel panel-default">
+               
+                    <input type="hidden" name="MunicipalityTVItemID" value="@MunicipalityTVItemID" />
+                <div class="panel-heading">
+                    <h4 class="panel-title">@MikeScenarioViewRes.AddNewMikeScenario</h4>
+                </div>
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label class="control-label" for="UplandFile">
+                            @MikeScenarioViewRes.FileNameLabel:
+                        <span class="app-labelDefinition">(fileName.m21fm or filename.m3fm)</span>
+                    </label>
+                    <div>
+                        <input class="form-control" name="UplandFile" type="file" />
+                        <span class="help-block"></span>
+                        <span class="app-inputDefinition">(ex: Blacks Harbour.m21fm or Blacks Harbour.m3fm)</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="UploadClientPath">@MikeScenarioViewRes.FileFullPath:</label>
+                    <div>
+                        <input class="form-control" name="UploadClientPath" type="text" value="" />
+                        <span class="help-block"></span>
+                        <span>(ex: C:\CSSP\Modelling\Mike21\New Brunswick\Blacks Harbour\Model\Model Inputs)</span>
+                    </div>
+                </div>
+            </div>
+                <div class="panel-footer">
+                    <button class="jbMikeScenarioImport btn btn-primary" type="submit">
+                        <span class="glyphicon glyphicon-check"></span>
+                        &nbsp;
+                        @MikeScenarioViewRes.AddMikeScenario
+                    </button>
+
+                    <button href="#" class="jbMikeScenarioImportCancel btn btn-default">
+                        <span class="glyphicon glyphicon-ban-circle"></span>&nbsp; @MikeScenarioViewRes.Cancel
+                    </button>
+                </div>
+            </div>
+        </fieldset>
+        <div class="MikeScenarioImportProgress clear-fix hidden">
+            <div>
+                <div class="bar"></div>
+                <div class="percent">0 %</div>
+            </div>
+            <div class="status"></div>
+        </div>
+    </form>
+
+
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        cssp.MikeScenario.InitMikeScenarioImport();
+    });
+</script>

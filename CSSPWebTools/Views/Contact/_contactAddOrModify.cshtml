@@ -1,0 +1,120 @@
+﻿@using CSSPWebTools.Views.Contact.Resources;
+@using CSSPWebTools.Controllers;
+@using System.Text;
+@using CSSPEnumsDLL.Enums;
+@using CSSPEnumsDLL.Services;
+@using CSSPModelsDLL.Models;
+
+@{
+    ContactController contactController = (ContactController)ViewBag.ContactController;
+    ContactModel contactModel = (ContactModel)ViewBag.ContactModel;
+    int ParentTVItemID = (int)ViewBag.ParentTVItemID;
+    int ContactTVItemID = (int)ViewBag.ContactTVItemID;
+    BaseEnumService _BaseEnumService = new BaseEnumService(ViewBag.Language);
+}
+<div class="paraBlock">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h4 class="panel-title"><b>@(ContactTVItemID == 0 ? ContactViewRes.Add : ContactViewRes.Modify) :</b> <span class="glyphicon glyphicon-user"></span> @(ContactTVItemID == 0 ? "" : contactModel.FirstName) @(ContactTVItemID == 0 ? "" : contactModel.LastName)</h4>
+        </div>
+        <div class="panel-body">
+            @if (ContactTVItemID == 0)
+            {
+                <div class="form-group">
+                    <label class="sr-only">@ContactViewRes.FindUser:</label>
+                    <div class="btn-block">
+                        <input id="ContactSearch" data-parenttvitemid="@ParentTVItemID" class="typeahead form-control" style="margin-top: 10px; padding: 2px 6px !important; border-radius: 6px;" name="ContactSearch" type="text" placeholder="@ContactViewRes.FindUser" title="@ContactViewRes.FindUser" autocomplete="off" spellcheck="false" dir="auto">
+                    </div>
+                </div>
+            }
+        
+                <div>
+                    <form id="ContactEditForm" method="post"  role="form" action="Contact/ContactEditJSON">
+                        @Html.AntiForgeryToken()
+                        <fieldset>
+                            <input type="hidden" name="ParentTVItemID" value="@ParentTVItemID" />
+                            <input type="hidden" name="ContactTVItemID" value="@ContactTVItemID" />
+                            <div class="form-group">
+                                <label class="control-label" for="TVText">@ContactViewRes.FirstName</label>
+                                <div>
+                                    <input class="form-control" autofocus="autofocus" name="FirstName" autocomplete="off" type="text" id="FirstName" value="@(ContactTVItemID == 0 ? "" : contactModel.FirstName)"/>
+                                    <span class="help-block"></span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label" for="TVText">@ContactViewRes.Initial</label>
+                                <div>
+                                    <input class="form-control" name="Initial" autocomplete="off" type="text" id="Initial" value="@(ContactTVItemID == 0 ? "" : contactModel.Initial)" />
+                                    <span class="help-block"></span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label" for="TVText">@ContactViewRes.LastName</label>
+                                <div>
+                                    <input class="form-control" name="LastName" autocomplete="off" type="text" id="LastName" value="@(ContactTVItemID == 0 ? "" : contactModel.LastName)" />
+                                    <span class="help-block"></span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label" for="TVText">@ContactViewRes.LoginEmail</label>
+                                <div>
+                                    <input class="form-control" name="LoginEmail" autocomplete="off" type="email" id="LoginEmail" value="@(ContactTVItemID == 0 ? "" : contactModel.LoginEmail)" />
+                                    <span class="help-block"></span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="sr-only" for="ContactTitle">@ContactViewRes.ContactTitle</label>
+                                <div>
+                                    <select class="form-control btn btn-default" name="ContactTitle" title="@ContactViewRes.ContactTitle">
+                                        <option value="0" @(contactModel == null || contactModel.ContactTitle == null ? "selected=selected" : "")>@ContactViewRes.Select @ContactViewRes.ContactTitle</option>
+                                        @foreach (ContactTitleEnumTextOrdered contactTitleEnumTextOrdered in _BaseEnumService.GetContactTitleEnumTextOrderedList())
+                                        {
+                                            <option value="@((int)contactTitleEnumTextOrdered.ContactTitle)" @((contactModel != null && contactTitleEnumTextOrdered.ContactTitle == contactModel.ContactTitle) ? @"selected=""selected""" : "")>@(contactTitleEnumTextOrdered.ContactTitleText)</option>
+                                        }
+                                    </select>
+                                    <span class="help-block"></span>
+                                </div>
+                            </div>
+
+
+                            <div class="btn-block">
+                                <button class="jbContactAddOrModify btn btn-primary" type="submit">
+                                    <span class="glyphicon glyphicon-check"></span>
+                                    &nbsp;
+                                    @(ContactTVItemID == 0 ? ContactViewRes.Add : ContactViewRes.Save)
+                                </button>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            
+            @if (ContactTVItemID != 0)
+            {
+               
+                    <div>
+                        <div class="TelEditDiv">
+                            @Html.Action("_telEditList", "Tel", new { ContactTVItemID = ContactTVItemID })
+                        </div>
+                        <div class="EmailEditDiv">
+                            @Html.Action("_emailEditList", "Email", new { ContactTVItemID = ContactTVItemID })
+                        </div>
+                        <div class="AddressEditDiv">
+                            @Html.Action("_addressEditList", "Address", new { ContactTVItemID = ContactTVItemID })
+                        </div>
+                    </div>
+                
+            }
+
+        </div>
+
+    </div>
+    <script type="text/javascript">
+    $(function () {
+        cssp.Contact.InitEdit();
+    })
+    </script>
+
+</div>
+
+
+

@@ -1,0 +1,183 @@
+﻿@using CSSPWebTools.Views.Shared.Resources;
+@using CSSPWebTools.Views.VisualPlumes.Resources;
+@using CSSPEnumsDLL.Enums;
+@using CSSPModelsDLL.Models;
+
+@{
+    List<VPScenarioModel> vpScenarioModelList = (List<VPScenarioModel>)ViewBag.VPScenarioModelList;
+    TVAuthEnum tvAuth = (TVAuthEnum)ViewBag.TVAuth;
+}
+
+<div id="VPDiv" class="clear-fix">
+    @if (vpScenarioModelList.Count() == 0)
+    {
+        <div>@VisualPlumeViewRes.NoItem</div>
+    }
+    else
+    {
+        foreach (VPScenarioModel vpScenarioModel in vpScenarioModelList)
+        {
+            <div class="VPTop" data-vpscenarioid="@vpScenarioModel.VPScenarioID">
+                <div class="panel panel-info">
+
+                    <div class="LastUpdateAndTVText" data-table="VPScenario" data-id="@vpScenarioModel.VPScenarioID"></div>
+                    <div class="panel-heading">
+                        <h4 class="VPScenarioName panel-title">@vpScenarioModel.VPScenarioName&nbsp;&nbsp;</h4>
+                    </div>
+                    <div class="panel-body">
+                        <div class="btn-toolbar" role="toolbar">
+                            <div>
+                                @if (vpScenarioModel.VPScenarioStatus == ScenarioStatusEnum.Completed)
+                                {
+                                    <button class="jbVPScenarioView btn btn-default" title="@VisualPlumeViewRes.Details">
+                                        <span class="glyphicon glyphicon-info-sign"></span>
+                                    </button>
+                                }
+                                else
+                                {
+                                    if (tvAuth >= TVAuthEnum.Write)
+                                    {
+                                        <button class="jbVPScenarioView btn btn-default" title="@VisualPlumeViewRes.Edit">
+                                            <span class="glyphicon glyphicon-edit"></span>
+                                        </button>
+                                    }
+                                }
+                                @if (tvAuth >= TVAuthEnum.Create)
+                                {
+                                    <button class="jbVPScenarioCopy btn btn-default" title="@VisualPlumeViewRes.Copy">
+                                        <span class="glyphicon glyphicon-duplicate"></span>
+                                    </button>
+                                }
+                                
+                                @if (tvAuth >= TVAuthEnum.Delete)
+                                {
+                                    <button class="jbVPScenarioDelete btn btn-default" title="@VisualPlumeViewRes.Delete">
+                                        <span class="glyphicon glyphicon-trash"></span>
+                                    </button>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="blockMargin">
+                            @if (vpScenarioModel.VPScenarioStatus == ScenarioStatusEnum.Changed)
+                            {
+                                <div>
+                                    <label>@VisualPlumeViewRes.Working</label>
+                                    <button class="jbVPScenarioRefresh btn btn-default" title="@VisualPlumeViewRes.Refresh">
+                                        <span class="glyphicon glyphicon-refresh"></span>
+                                    </button>
+                                </div>
+                            }
+                            <h4>@VisualPlumeViewRes.DiffuserInformation</h4>
+                            <div class="blockMargin">
+                                <ul class="list-inline">
+                                    <li>
+                                        <label>@VisualPlumeViewRes.Concentration:</label>
+                                        <span>
+                                            @(string.Format("{0:F0}", vpScenarioModel.EffluentConcentration_MPN_100ml)) @UnitViewRes.FCPer100ml
+                                        </span>
+                                        &nbsp;&nbsp;
+                                    </li>
+                                    <li>
+                                        <label>@VisualPlumeViewRes.EffluentFlow:</label>
+                                        <span>
+                                            @(string.Format("{0:F4}", vpScenarioModel.EffluentFlow_m3_s)) @Html.Raw(UnitViewRes.m3PerSecond)
+                                        </span>
+                                        &nbsp;&nbsp;
+                                    </li>
+                                    <li>
+                                        <label>@VisualPlumeViewRes.PortDiameter:</label>
+                                        <span>
+                                            @(string.Format("{0:F3}", vpScenarioModel.PortDiameter_m)) @UnitViewRes.Meters_abbr
+                                        </span>
+                                        &nbsp;&nbsp;
+                                    </li>
+                                    <li>
+                                        <label>@VisualPlumeViewRes.PortElevation:</label>
+                                        <span>
+                                            @(string.Format("{0:F3}", vpScenarioModel.PortElevation_m)) @UnitViewRes.Meters_abbr
+                                        </span>
+                                        &nbsp;&nbsp;
+                                    </li>
+                                    <li>
+                                        <label>@VisualPlumeViewRes.PortDepth:</label>
+                                        <span>
+                                            @(string.Format("{0:F3}", vpScenarioModel.PortDepth_m)) @UnitViewRes.Meters_abbr
+                                        </span>
+                                        &nbsp;&nbsp;
+                                    </li>
+                                    <li>
+                                        <label>@VisualPlumeViewRes.EffluentSalinity:</label>
+                                        <span>
+                                            @(string.Format("{0:F1}", vpScenarioModel.EffluentSalinity_PSU)) @UnitViewRes.PSU
+                                        </span>
+                                        &nbsp;&nbsp;
+                                    </li>
+                                    <li>
+                                        <label>@VisualPlumeViewRes.EffluentTemperature:</label>
+                                        <span>
+                                            @(string.Format("{0:F1}", vpScenarioModel.EffluentTemperature_C)) @UnitViewRes.Celcius_abbr
+                                        </span>
+                                        &nbsp;&nbsp;
+                                    </li>
+                                    <li>
+                                        <label>@VisualPlumeViewRes.VerticalAngle:</label>
+                                        <span>
+                                            @(string.Format("{0:F1}", vpScenarioModel.VerticalAngle_deg)) @UnitViewRes.Degrees_abbr
+                                        </span>
+                                        &nbsp;&nbsp;
+                                    </li>
+                                    <li>
+                                        <label>@VisualPlumeViewRes.HorizontalAngle:</label>
+                                        <span>
+                                            @(string.Format("{0:F1}", vpScenarioModel.HorizontalAngle_deg)) @UnitViewRes.Degrees_abbr
+                                        </span>
+                                        &nbsp;&nbsp;
+                                    </li>
+                                    <li>
+                                        <label>@VisualPlumeViewRes.NumberOfPorts:</label>
+                                        <span>
+                                            @(string.Format("{0:F0}", vpScenarioModel.NumberOfPorts))
+                                        </span>
+                                        &nbsp;&nbsp;
+                                    </li>
+                                    <li>
+                                        <label>@VisualPlumeViewRes.PortSpacing:</label>
+                                        <span>
+                                            @(string.Format("{0:F2}", vpScenarioModel.PortSpacing_m)) @UnitViewRes.Meters_abbr
+                                        </span>
+                                        &nbsp;&nbsp;
+                                    </li>
+                                </ul>
+                            </div>
+                         </div>
+                    </div>
+                    <div class="container-fluid">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a href="#Ambient" data-toggle="collapse" aria-expanded="false" aria-controls="Ambient">@VisualPlumeViewRes.Ambient</a>
+
+                                </h4>
+                            </div>
+
+                            <div class="jbVPShowAmbient panel-body collapse" id="Ambient">
+                                @Html.Action("_visualPlumeAmbient", "VisualPlumes", new { VPScenarioID = vpScenarioModel.VPScenarioID })
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        }
+    }
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        cssp.VisualPlumes.Init();
+    });
+</script>

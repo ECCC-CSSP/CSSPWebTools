@@ -1,0 +1,72 @@
+﻿@using CSSPWebTools.Views.RainExceedance.Resources;
+@using CSSPWebTools.Models;
+@using CSSPEnumsDLL.Enums;
+@using CSSPEnumsDLL.Services;
+@using CSSPModelsDLL.Models;
+@using CSSPWebTools.Controllers;
+
+@{
+    URLModel urlModel = (URLModel)ViewBag.URLModel;
+    bool IsShowMap = (bool)ViewBag.IsShowMap;
+    TVAuthEnum tvAuth = (TVAuthEnum)ViewBag.TVAuth;
+    int CountryTVItemID = (int)ViewBag.CountryTVItemID;
+    List<RainExceedanceModel> rainExceedanceModelList = (List<RainExceedanceModel>)ViewBag.RainExceedanceModelList;
+}
+
+<div class="temp">
+    <h4>To do... It's coming...</h4>
+</div>
+<div class="RainExceedanceTopDiv hidden">
+    <div class="AppTaskDiv">
+        @Html.Action("_appTask", "Home", new { TVItemID = urlModel.TVItemIDList[0], Seconds = 5 })
+    </div>
+    <div class="h5">
+        @RainExceedanceViewRes.Note : @RainExceedanceViewRes.ClickTheEditButtonToCreateOrModifyRainExceedances
+        <br /><br />
+    </div>
+    <button class="jbRainExceedanceShowHideAdd RainExceedanceEditButons btn btn-default hidden">@RainExceedanceViewRes.AddANewRainExceedance</button>
+  <div class="RainExceedanceAdd hidden">
+    </div>
+    <div class="RainExceedanceExisting">
+        <h4>@RainExceedanceViewRes.RainExceedance</h4>
+        @if (rainExceedanceModelList.Count == 0)
+            {
+            <p>@RainExceedanceViewRes.Empty</p>
+        }
+        else
+        {
+            foreach (RainExceedanceModel RainExceedanceModel in rainExceedanceModelList)
+            {
+                <div class="RainExceedanceItem panel panel-info" data-RainExceedanceid="@RainExceedanceModel.RainExceedanceID">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <button class="jbRainExceedanceEdit RainExceedanceEditButons btn btn-default hidden" title="@RainExceedanceViewRes.Edit"><span class="glyphicon glyphicon-pencil"></span></button>
+                            <button class="jbRainExceedanceAskToDelete RainExceedanceEditButons btn btn-default hidden" title="@RainExceedanceViewRes.Delete"><span class="glyphicon glyphicon-trash"></span></button>
+                            <button class="jbRainExceedanceCopy RainExceedanceEditButons btn btn-default hidden" title="@RainExceedanceViewRes.Copy"><span class="glyphicon glyphicon-duplicate"></span></button>
+                            <span class="RainExceedanceName">
+                                @((RainExceedanceModel.StartDate != null ? ((DateTime)RainExceedanceModel.StartDate).ToString("yyyy MMMM dd") : "") + " - " + RainExceedanceViewRes.LastModified + ": " + RainExceedanceModel.LastUpdateDate_UTC.ToString("yyyy MMMM dd"))
+                            </span>
+                        </h4>
+                    </div>
+                    <div class="panel-body">
+                        <div class="RainExceedanceEdit"></div>
+                        <div class="RainExceedanceProvinceDiv">
+                            @Html.Action("_rainExceedanceProvince", "RainExceedance", new { ProvinceTVItemIDs = RainExceedanceModel.ProvinceTVItemIDs })
+                        </div>
+                        <div class="RainExceedanceSubsectorDiv">
+                            @Html.Action("_rainExceedanceSubsector", "RainExceedance", new { SubsectorTVItemIDs = RainExceedanceModel.SubsectorTVItemIDs })
+                        </div>
+                        <div class="RainExceedanceEmailDistributionListDiv">
+                            @Html.Action("_rainExceedanceEmailDistributionList", "RainExceedance", new { EmailDistributionListIDs = RainExceedanceModel.EmailDistributionListIDs })
+                        </div>
+                        <div class="RainExceedanceClimateSiteDiv">
+                            @Html.Action("_rainExceedanceClimateSite", "RainExceedance", new { ClimateSiteIDs = RainExceedanceModel.ClimateSiteTVItemIDs })
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+
+
+</div>

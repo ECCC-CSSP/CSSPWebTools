@@ -1,0 +1,99 @@
+﻿@using CSSPWebTools.Views.EmailDistributionList.Resources;
+@using CSSPWebTools.Models;
+@using CSSPEnumsDLL.Enums;
+@using CSSPEnumsDLL.Services;
+@using CSSPModelsDLL.Models;
+@using CSSPWebTools.Controllers;
+@using System.Text;
+
+@{
+    int EmailDistributionListID = (int)ViewBag.EmailDistributionListID;
+    List<EmailDistributionListContactModel> emailDistributionListContactModelList = (List<EmailDistributionListContactModel>)ViewBag.EmailDistributionListContactModelList;
+    StringBuilder sbTo = new StringBuilder();
+    StringBuilder sbCC = new StringBuilder();
+    bool AddClass = true;
+}
+
+@if (emailDistributionListContactModelList.Count == 0)
+{
+    <blockquote>@EmailDistributionListViewRes.Empty</blockquote>
+}
+else
+{
+    <table class="table">
+        <tr>
+            <th class="EmailDistributionListEditButons hidden">&nbsp;</th>
+            <th><br /><br />@EmailDistributionListViewRes.Type</th>
+            <th><br /><br />@EmailDistributionListViewRes.Agency</th>
+            <th><br /><br />@EmailDistributionListViewRes.Name</th>
+            <th><br /><br />@EmailDistributionListViewRes.Email</th>
+            <th>@EmailDistributionListViewRes.CMP<br />@EmailDistributionListViewRes.Rainfall<br />@EmailDistributionListViewRes.Seasonal</th>
+            <th><br />@EmailDistributionListViewRes.CMP<br />@EmailDistributionListViewRes.Wastewater</th>
+            <th><br />@EmailDistributionListViewRes.Emergency<br />@EmailDistributionListViewRes.Weather</th>
+            <th><br />@EmailDistributionListViewRes.Emergency<br />@EmailDistributionListViewRes.Wastewater</th>
+            <th>@EmailDistributionListViewRes.Reopening<br />@EmailDistributionListViewRes.All<br />@EmailDistributionListViewRes.Types</th>
+        </tr>
+        @foreach (EmailDistributionListContactModel emailDistributionListContactModel in emailDistributionListContactModelList)
+        {
+            AddClass = !AddClass;
+
+            string RowEditWithID = "RowEdit" + emailDistributionListContactModel.EmailDistributionListContactID;
+            if (emailDistributionListContactModel.IsCC)
+            {
+                sbCC.Append(emailDistributionListContactModel.Email + ";");
+            }
+            else
+            {
+                sbTo.Append(emailDistributionListContactModel.Email + ";");
+            }
+            <tr class="EmailDistributionListContactItem @(AddClass ? "bg-warning" : "")" data-emaildistributionlistcontactid="@emailDistributionListContactModel.EmailDistributionListContactID">
+                <td class="EmailDistributionListEditButons hidden">
+                    <button class="jbEmailDistributionListContactEdit EmailDistributionListEditButons btn btn-default hidden" title="@EmailDistributionListViewRes.Edit"><span class="glyphicon glyphicon-pencil"></span></button>
+                    <button class="jbEmailDistributionListContactAskToDelete EmailDistributionListEditButons btn btn-default hidden" title="@EmailDistributionListViewRes.Delete"><span class="glyphicon glyphicon-trash"></span></button>
+                </td>
+                <td>
+                    @((emailDistributionListContactModel.IsCC == true ? "CC" : EmailDistributionListViewRes.To))
+                </td>
+                <td>
+                        @emailDistributionListContactModel.Agency
+                </td>
+                <td class="h5">
+                        @emailDistributionListContactModel.Name
+                </td>
+                <td>
+                        @emailDistributionListContactModel.Email
+                </td>
+                <td>
+                        @(emailDistributionListContactModel.CMPRainfallSeasonal == true ? "Y" : "")
+                </td>
+                <td>
+                        @(emailDistributionListContactModel.CMPWastewater == true ? "Y" : "")
+                </td>
+                <td>
+                        @(emailDistributionListContactModel.EmergencyWeather == true ? "Y" : "")
+                </td>
+                <td>
+                        @(emailDistributionListContactModel.EmergencyWastewater == true ? "Y" : "")
+                </td>
+                <td>
+                        @(emailDistributionListContactModel.ReopeningAllTypes == true ? "Y" : "")
+                </td>
+            </tr>
+            <tr class="@RowEditWithID hidden">
+                <td colspan="10">
+                    <div class="EmailDistributionListContactEdit"></div>
+                </td>
+            </tr>
+        }
+    </table>
+}
+<div class="EmailDistributionListContactItem EmailDistributionListEditButons hidden"
+    data-emaildistributionlistcontactid="0"
+    data-emaildistributionlistid="@EmailDistributionListID">
+    <button class="jbEmailDistributionListContactAddNewContact btn btn-default">@EmailDistributionListViewRes.AddNewContact</button>
+    <div class="EmailDistributionListContactEdit hidden"></div>
+</div>
+
+<div>
+    <a href="mailto:@(sbTo.ToString())?cc=@(sbCC.ToString())">Send Email</a>
+</div>

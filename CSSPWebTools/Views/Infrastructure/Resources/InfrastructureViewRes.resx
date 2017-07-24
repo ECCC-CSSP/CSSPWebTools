@@ -1,0 +1,432 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Add" xml:space="preserve">
+    <value>Add</value>
+    <comment>IIt IAOMNAM</comment>
+  </data>
+  <data name="AlarmSystemType" xml:space="preserve">
+    <value>Alarm System Type</value>
+    <comment>IIn IEA</comment>
+  </data>
+  <data name="AverageDepth" xml:space="preserve">
+    <value>Average Depth</value>
+    <comment>IIn IEA</comment>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+    <comment>IAOMNAM</comment>
+  </data>
+  <data name="CanOverflow" xml:space="preserve">
+    <value>Can Overflow</value>
+    <comment>IIn, IEA</comment>
+  </data>
+  <data name="CategoryText" xml:space="preserve">
+    <value>Category</value>
+    <comment>IIn IEA</comment>
+  </data>
+  <data name="CollectionSystemType" xml:space="preserve">
+    <value>Collection System Type</value>
+    <comment>IIn IEA</comment>
+  </data>
+  <data name="Comments" xml:space="preserve">
+    <value>Comments</value>
+    <comment>IIn IEA</comment>
+  </data>
+  <data name="DecayRate" xml:space="preserve">
+    <value>Decay Rate</value>
+    <comment>IIn IEA</comment>
+  </data>
+  <data name="DesignFlow" xml:space="preserve">
+    <value>DesignFlow </value>
+    <comment>IIn IEA</comment>
+  </data>
+  <data name="DisinfectionType" xml:space="preserve">
+    <value>Disinfection Type</value>
+    <comment>IIn IEA</comment>
+  </data>
+  <data name="DistanceFromShore" xml:space="preserve">
+    <value>Distance From Shore</value>
+    <comment>IIn</comment>
+  </data>
+  <data name="False" xml:space="preserve">
+    <value>False</value>
+    <comment>IIn</comment>
+  </data>
+  <data name="FarFieldVelocity" xml:space="preserve">
+    <value>Far Field Velocity</value>
+    <comment>IIn</comment>
+  </data>
+  <data name="HorizontalAngle" xml:space="preserve">
+    <value>Horizontal Angle</value>
+    <comment>IIn</comment>
+  </data>
+  <data name="InfrastructureType" xml:space="preserve">
+    <value>Infrastructure Type</value>
+    <comment>IIn IEA IAOMNAM</comment>
+  </data>
+  <data name="InputDataComments" xml:space="preserve">
+    <value>Input Data Comments</value>
+    <comment>IIn IEA</comment>
+  </data>
+  <data name="LiftStations" xml:space="preserve">
+    <value>Lift Stations</value>
+    <comment>IL</comment>
+  </data>
+  <data name="NearFieldVelocity" xml:space="preserve">
+    <value>Near Field Velocity</value>
+    <comment>IIn</comment>
+  </data>
+  <data name="NoData" xml:space="preserve">
+    <value>No Data</value>
+    <comment>IIn</comment>
+  </data>
+  <data name="NumberOfPorts" xml:space="preserve">
+    <value>Number Of Ports</value>
+    <comment>IIn</comment>
+  </data>
+  <data name="Others" xml:space="preserve">
+    <value>Others</value>
+    <comment>IL</comment>
+  </data>
+  <data name="PeakFlow" xml:space="preserve">
+    <value>Peak Flow</value>
+    <comment>IIn IEA</comment>
+  </data>
+  <data name="PercentFlowTotal" xml:space="preserve">
+    <value>Percent Flow Of Total</value>
+    <comment>IIn IEA</comment>
+  </data>
+  <data name="PopulationServed" xml:space="preserve">
+    <value>Population Served</value>
+    <comment>IIn IEA</comment>
+  </data>
+  <data name="PortDiameter" xml:space="preserve">
+    <value>Port Diameter</value>
+    <comment>IIn</comment>
+  </data>
+  <data name="PortElevation" xml:space="preserve">
+    <value>Port Elevation</value>
+    <comment>IIn</comment>
+  </data>
+  <data name="PortSpacing" xml:space="preserve">
+    <value>Port Spacing </value>
+    <comment>IIn</comment>
+  </data>
+  <data name="ReceivingWaterConc" xml:space="preserve">
+    <value>Receiving Water Concentration</value>
+    <comment>IIn</comment>
+  </data>
+  <data name="ReceivingWaterSalinity" xml:space="preserve">
+    <value>Receiving Water Salinity </value>
+    <comment>IIn</comment>
+  </data>
+  <data name="ReceivingWaterTemperature" xml:space="preserve">
+    <value>Receiving Water Temperature</value>
+    <comment>IIn</comment>
+  </data>
+  <data name="TempCatchRemoveLater" xml:space="preserve">
+    <value>Temp Catch All Remove Later</value>
+    <comment>IEA</comment>
+  </data>
+  <data name="TimeZone" xml:space="preserve">
+    <value>Time Zone</value>
+    <comment>IIn IEA</comment>
+  </data>
+  <data name="TreatmentType" xml:space="preserve">
+    <value>Treatment Type</value>
+    <comment>IIn IEA</comment>
+  </data>
+  <data name="True" xml:space="preserve">
+    <value>True</value>
+    <comment>IIn</comment>
+  </data>
+  <data name="VerticalAngle" xml:space="preserve">
+    <value>Vertical Angle</value>
+    <comment>IIn</comment>
+  </data>
+  <data name="WWTPs" xml:space="preserve">
+    <value>WWTP</value>
+    <comment>IL</comment>
+  </data>
+  <data name="AverageFlow" xml:space="preserve">
+    <value>Average Flow</value>
+    <comment>IIn IEA</comment>
+  </data>
+  <data name="Latitude" xml:space="preserve">
+    <value>Latitude</value>
+    <comment>IIn IEA</comment>
+  </data>
+  <data name="Longitude" xml:space="preserve">
+    <value>Longitude</value>
+    <comment>IIn IEA</comment>
+  </data>
+  <data name="InfrastructureName" xml:space="preserve">
+    <value>Infrastructure Name</value>
+    <comment>IAOMNAM</comment>
+  </data>
+  <data name="Outfall" xml:space="preserve">
+    <value>Outfall</value>
+    <comment>IIn IEA</comment>
+  </data>
+  <data name="Modify" xml:space="preserve">
+    <value>Modify</value>
+    <comment>IAOMNAM</comment>
+  </data>
+  <data name="Under" xml:space="preserve">
+    <value>under</value>
+    <comment>IAOMNAM</comment>
+  </data>
+  <data name="CancelMove" xml:space="preserve">
+    <value>Cancel move</value>
+    <comment>IIt</comment>
+  </data>
+  <data name="CouldNotLoadInfrastructureInfo" xml:space="preserve">
+    <value>Could not load infrastructure info</value>
+    <comment>IEA</comment>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
+    <comment>IIt</comment>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit</value>
+    <comment>IIt</comment>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Error</value>
+    <comment>IEA</comment>
+  </data>
+  <data name="Legend" xml:space="preserve">
+    <value>Legend</value>
+    <comment>IL</comment>
+  </data>
+  <data name="MoveBelow" xml:space="preserve">
+    <value>Move below</value>
+    <comment>IIt</comment>
+  </data>
+  <data name="MoveToTop" xml:space="preserve">
+    <value>Move to top</value>
+    <comment>IIt</comment>
+  </data>
+  <data name="Select" xml:space="preserve">
+    <value>Select</value>
+    <comment>IEA IAOMNAM</comment>
+  </data>
+  <data name="StartMove" xml:space="preserve">
+    <value>Start to move</value>
+    <comment>IIt</comment>
+  </data>
+  <data name="CheckBoxModelandVisualPlumes" xml:space="preserve">
+    <value>Check Box Model and Visual Plumes</value>
+  </data>
+  <data name="InfrastructureTVTypeNotFound" xml:space="preserve">
+    <value>Infrastructure TVType Not Found</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="ShowMapItem" xml:space="preserve">
+    <value>Show Map Item</value>
+  </data>
+  <data name="SeeOther" xml:space="preserve">
+    <value>See Other</value>
+  </data>
+  <data name="SeeOtherMunicipality" xml:space="preserve">
+    <value>See other municipality</value>
+  </data>
+  <data name="FlowsOrPumpsInto" xml:space="preserve">
+    <value>Flows or pumps into</value>
+  </data>
+  <data name="LineOverflow" xml:space="preserve">
+    <value>Line Overflow</value>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="FacilityType" xml:space="preserve">
+    <value>Facility Type</value>
+  </data>
+  <data name="AerationType" xml:space="preserve">
+    <value>Aeration Type</value>
+  </data>
+  <data name="FacilityTypeNotLagoonOrPlant" xml:space="preserve">
+    <value>Facility Type Not Lagoon Or Plant</value>
+  </data>
+  <data name="InformationBelowWillBeRemovedInTheFuture" xml:space="preserve">
+    <value>Information below will be removed in the future</value>
+  </data>
+  <data name="InfrastructureCoordinates" xml:space="preserve">
+    <value>Infrastructure Coordinates</value>
+  </data>
+  <data name="InfrastructureOutfallCoordinates" xml:space="preserve">
+    <value>Infrastructure Outfall Coordinates</value>
+  </data>
+  <data name="IsMechanicallyAerated" xml:space="preserve">
+    <value>Is Mechanically Aerated</value>
+  </data>
+  <data name="LSID" xml:space="preserve">
+    <value>LSID</value>
+  </data>
+  <data name="NumberOfAeratedCells" xml:space="preserve">
+    <value>Number Of Aerated Cells</value>
+  </data>
+  <data name="NumberOfCells" xml:space="preserve">
+    <value>Number Of Cells</value>
+  </data>
+  <data name="OutfallLatitude" xml:space="preserve">
+    <value>Outfall Latitude</value>
+  </data>
+  <data name="OutfallLongitude" xml:space="preserve">
+    <value>Outfall Longitude</value>
+  </data>
+  <data name="PreliminaryTreatmentType" xml:space="preserve">
+    <value>Preliminary Treatment Type</value>
+  </data>
+  <data name="PrimaryTreatmentType" xml:space="preserve">
+    <value>Primary Treatment Type</value>
+  </data>
+  <data name="PrismID" xml:space="preserve">
+    <value>PrismID</value>
+  </data>
+  <data name="SecondaryTreatmentType" xml:space="preserve">
+    <value>Secondary Treatment Type</value>
+  </data>
+  <data name="ShouldUseFacilityTypeEtcToReplaceThisInformation" xml:space="preserve">
+    <value>Should use Facility Type etc... to replace this information</value>
+  </data>
+  <data name="Site" xml:space="preserve">
+    <value>Site</value>
+  </data>
+  <data name="SiteID" xml:space="preserve">
+    <value>SiteID</value>
+  </data>
+  <data name="TertiaryTreatmentType" xml:space="preserve">
+    <value>Tertiary Treatment Type</value>
+  </data>
+  <data name="TPID" xml:space="preserve">
+    <value>TPID</value>
+  </data>
+  <data name="WillBeRemoved" xml:space="preserve">
+    <value>Will be removed</value>
+  </data>
+</root>

@@ -1,0 +1,138 @@
+﻿@using CSSPWebTools.Views.Profile.Resources;
+@using CSSPModelsDLL.Models;
+
+@{
+    ContactModel contactModel = (ContactModel)ViewBag.ContactModel;
+}
+
+<div id="ProfileDiv" class="container-fluid">
+
+    <div>
+        <span class="ContactID hidden">@contactModel.ContactID</span>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <div>
+                    <span class="panel-title">
+                        <span class="glyphicon glyphicon-user"></span> &nbsp;
+                        @contactModel.LastName, @contactModel.FirstName @(string.IsNullOrEmpty(contactModel.Initial) ? " " : " " + contactModel.Initial + ".")
+                    </span>
+                    <span class="pull-right">
+                        <a href="#!ProfileEdit" class="text-primary" title="@ProfileViewRes.Edit"><span class="glyphicon glyphicon-edit"></span></a>&nbsp; &nbsp;
+                        <a href="#home" class="text-black" title="@ProfileViewRes.Cancel"><span class="glyphicon glyphicon-remove"></span></a>
+                    </span>
+                </div>
+            </div>
+            <div class="panel-body">
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                    <label><span class="glyphicon glyphicon-envelope"></span> &nbsp; @ProfileViewRes.Emails</label>
+                    <div class="blockMargin">
+                        @if (contactModel.EmailList.Count() == 0)
+                        {
+                            <span class="clearfix">
+                                <span>@ProfileViewRes.NoData</span>
+                            </span>
+                        }
+                        else
+                        {
+                            foreach (EmailModel em in contactModel.EmailList.OrderBy(c => c.EmailTypeText))
+                            {
+                                string str2 = "";
+                                int pos = em.EmailTypeText.IndexOf("-");
+                                if (pos != -1)
+                                {
+                                    str2 = @em.EmailTypeText.Substring(pos + 1, 1);
+                                }
+
+                                <div class="clearfix">
+                                        <span  title="@em.EmailTypeText">@em.EmailTypeText.Substring(0, 1)@str2:&nbsp;&nbsp;</span>
+                                        <span><a href="mailto:@em.EmailAddress">@em.EmailAddress</a></span>
+                                </div>
+                            }
+                        }
+                        <br />
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 ">
+                    <label><span class="glyphicon glyphicon-phone"></span> &nbsp; @ProfileViewRes.Telephones</label>
+                    <div class="blockMargin">
+                        @if (contactModel.TelList.Count() == 0)
+                        {
+                            <span class="clearfix">
+                                <span>@ProfileViewRes.NoData</span>
+                            </span>
+                        }
+                        else
+                        {
+                            foreach (TelModel tm in contactModel.TelList.OrderBy(c => c.TelTypeText))
+                            {
+                                string str2 = "";
+                                int pos = tm.TelTypeText.IndexOf("-");
+                                if (pos != -1)
+                                {
+                                    str2 = @tm.TelTypeText.Substring(pos + 1, 1);
+                                }
+
+                                <span class="clearfix">
+                                    <span title="@tm.TelTypeText">@tm.TelTypeText.Substring(0, 1)@str2:&nbsp;&nbsp;</span>
+                                    <span>@tm.TelNumber</span>
+                                </span>
+                           
+                            }
+
+                        }
+                        <br />
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                    <label><span class="glyphicon glyphicon-home"></span> &nbsp; @ProfileViewRes.Addresses</label>
+                    <div class="blockMargin">
+                        @if (contactModel.AddressList.Count() == 0)
+                        {
+                            <span class="clearfix">
+                                <span>@ProfileViewRes.NoData</span>
+                            </span>
+                        }
+                        else
+                        {
+                            foreach (AddressModel am in contactModel.AddressList.OrderBy(c => c.AddressTypeText))
+                            {
+                                string str2 = "";
+                                int pos = am.AddressTypeText.IndexOf("-");
+                                if (pos != -1)
+                                {
+                                    str2 = @am.AddressTypeText.Substring(pos + 1, 1);
+                                }
+
+                                <ul class="list-inline">
+                                    <li style="vertical-align:top;"><span title="@am.AddressTypeText">@am.AddressTypeText.Substring(0, 1)@str2:</span></li>
+
+                                    <li>
+                                        <span>@am.StreetNumber</span>
+                                        <span>@am.StreetName</span>
+                                        <span>@am.StreetTypeText</span>
+                                        <br />
+                                        <span>@am.MunicipalityTVText,</span>
+                                        <span>@am.ProvinceTVText,</span>
+                                        <span>@am.PostalCode</span>
+                                        <br />
+                                        <span>@am.CountryTVText</span>
+                                    </li>
+                                </ul>
+
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="clearfix">
+
+</div>
+<div class="testing hidden">
+    <h2>Testing _Profile.cshtml and cssp.Profile.ts</h2>
+    <a class="jtTestProfileContents btn btn-default">Test Contents</a>
+</div>

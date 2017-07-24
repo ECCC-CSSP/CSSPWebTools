@@ -1,0 +1,44 @@
+﻿@using CSSPWebTools.Views.File.Resources;
+@using CSSPWebTools.Controllers;
+@using CSSPEnumsDLL.Enums;
+@using CSSPEnumsDLL.Services;
+@using CSSPModelsDLL.Models;
+
+@{
+    FileController fileController = (FileController)ViewBag.FileController;
+    TVItemModel tvItemModel = (TVItemModel)ViewBag.TVItemModel;
+    List<DocTemplateModel> docTemplateModelList = (List<DocTemplateModel>)ViewBag.DocTemplateModelList;
+    BaseEnumService _BaseEnumService = new BaseEnumService(ViewBag.Language);
+}
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h4 class="panel-title">@FileViewRes.CreateDocumentFromTemplates</h4>
+    </div>
+    <div class="panel-body">
+        <div>
+            @if (docTemplateModelList.Count == 0)
+            {
+                @FileViewRes.Empty
+            }
+            else
+            {
+                <ul class="list-unstyled">
+                    @foreach (DocTemplateModel docTemplateModel in docTemplateModelList)
+                    {
+                        <li>
+                            <span>@docTemplateModel.FileName &nbsp;&nbsp;</span>
+                            <button class="jbCreateDocumentFromTemplate btn btn-primary" 
+                                    data-tvitemid="@tvItemModel.TVItemID"
+                                    data-doctemplateid="@docTemplateModel.DocTemplateID">
+                            <span class="glyphicon glyphicon-cog"></span>&nbsp;&nbsp;@FileViewRes.Generate
+                            </button>
+                        </li>
+                        <li>&nbsp;</li>
+                    }
+                </ul>
+            }
+        </div>
+    </div>
+</div>
+

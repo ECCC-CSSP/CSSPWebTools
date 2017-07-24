@@ -1,0 +1,46 @@
+﻿@using CSSPWebTools.Views.Dialog.Resources;
+
+<div class="modal fade" id="DialogBasic" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div id="DialogBasicVariables">
+        <span class="varUnknownError">@DialogViewRes.UnknownError</span>
+    </div>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header DialogHeaderBGColor">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span><span class="sr-only">@DialogViewRes.Close</span>
+                </button>
+                <h4 class="DialogBasicTitle DialogBasicTitleColor modal-title">[Dialog Title will be replaced]</h4>
+            </div>
+            <div class="modal-body">
+                <p class=" row">
+                    <span class="DialogBasicIcon DialogIconColor glyphicon col-sm-offset-1 col-sm-1 " style="font-size: 1.6em;"></span>
+                    <span class="DialogBasicMessage  col-sm-10" style="font-size: 1.2em;">[Dialog Message will be replaced]</span>
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button id="DialogBasicYes" type="button" class="btn btn-default hidden " data-dismiss="modal">@DialogViewRes.Yes</button>
+                <button id="DialogBasicNo" type="button" class="btn btn-default hidden" data-dismiss="modal">@DialogViewRes.No</button>
+                <button id="DialogBasicOK" type="button" class="btn btn-default hidden" data-dismiss="modal">@DialogViewRes.OK</button>
+                <button id="DialogBasicSave" type="button" class="btn btn-default hidden" data-dismiss="modal">@DialogViewRes.Save</button>
+                <button id="DialogBasicCancel" type="button" class="btn btn-default hidden" data-dismiss="modal">@DialogViewRes.Cancel</button>
+                <button id="DialogBasicClose" type="button" class="btn btn-default hidden" data-dismiss="modal">@DialogViewRes.Close</button>
+                <div class="clearfix"></div>
+                <div class="testing hidden">
+                    <h4>Testing _DialogBasic.cshtml and cssp.Dialog.ts</h4>
+                    <span class="divName" style="display: none">#Dialog</span>
+                    <span class="appName" style="display: none">cssp.Dialog</span>
+                    <a class="jtTestDialogContents btn btn-default">Test Contents</a>
+                    <a class="jtTestDialogFields btn btn-default">Test Fields</a>
+                    @*<a class="jtTestDialogSendForm btn btn-default">Test Send Form</a>*@
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        cssp.Dialog.InitDialogBasic();
+    });
+</script>

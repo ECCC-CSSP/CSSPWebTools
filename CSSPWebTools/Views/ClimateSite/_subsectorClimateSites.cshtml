@@ -1,0 +1,138 @@
+﻿@using CSSPWebTools.Models;
+@using CSSPWebTools.Views.Shared.Resources;
+@using CSSPWebTools.Views.ClimateSite.Resources;
+@using CSSPWebTools.Controllers;
+@using CSSPEnumsDLL.Enums;
+@using CSSPModelsDLL.Models;
+
+@{
+    MWQMSubsectorClimateSites mwqmSubsectorClimateSites = (MWQMSubsectorClimateSites)ViewBag.MWQMSubsectorClimateSites;
+    List<TVItemModel> tvItemModelList = (List<TVItemModel>)ViewBag.TVItemModelList;
+    bool hasSiteAlreadySelected = (bool)ViewBag.HasSiteAlreadySelected;
+    int Radius_km = (int)ViewBag.Radius_km;
+    int SubsectorTVItemID = (int)ViewBag.SubsectorTVItemID;
+    TVAuthEnum tvAuth = (TVAuthEnum)ViewBag.TVAuth;
+
+}
+
+<div class="ClimateSiteSetupDiv">
+    <div>
+        <ul class="nav nav-tabs">
+            <li role="presentation" class="active"><a href="#ClimateSitesYearsOfUse" role="tab" data-toggle="tab">@ClimateSiteViewRes.ClimateSitesAndYearsOfUse</a></li>
+            <li role="presentation"><a href="#ClimateSitesPriorities" class="ClimateSitePrioritiesLink" role="tab" data-toggle="tab">@ClimateSiteViewRes.ClimateSitesPriorities</a></li>
+            <li role="presentation"><a href="#ClimateSitesRuns" class="ClimateSiteRunsLink" role="tab" data-toggle="tab">@ClimateSiteViewRes.ClimateSitesDataForEachRun</a></li>
+        </ul>
+
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="ClimateSitesYearsOfUse" aria-expanded="true">
+                <br />
+                @if (!hasSiteAlreadySelected)
+                {
+                    <ul class="list-inline">
+                        <li>
+                            <select class="form-control" name="AdjacentSubsectors">
+                                <option value="0" selected="selected">@ClimateSiteViewRes.SelectAnAdjacentSubsector</option>
+                                @foreach (TVItemModel tvItemModel in tvItemModelList)
+                                {
+                                    <option value="@tvItemModel.TVItemID">@tvItemModel.TVText</option>
+                                }
+                            </select>
+                        </li>
+                        <li>
+                            <button class="jbClimateSitesUseSameAsSelectedSubsector btn btn-default">@ClimateSiteViewRes.UseSameClimateSitesAndPrioritiesAsSelectedSubsector</button>
+                        </li>
+                    </ul>
+                }
+                <ul class="list-inline">
+                    <li>
+                        @ClimateSiteViewRes.FindClimateSitesWithinDistanceOfSubsector:
+                    </li>
+                    <li>
+                        <input class="form-control isnumber" type="text" name="Radius_km" value="@Radius_km" />
+                    </li>
+                    <li>
+                        Km
+                    </li>
+                    <li>
+                        <button class="jbClimateSitesFindWithinDistance btn btn-default">@ClimateSiteViewRes.Find</button>
+                    </li>
+                </ul>
+                <ul class="ClickGlobeToViewOnMap list-inline hidden">
+                    <li>
+                        @ClimateSiteViewRes.ClickOnGlobeIconToViewOnMap
+                    </li>
+                </ul>
+                <h3>@ClimateSiteViewRes.ClimateSitesUsedAndWithinDistance <button class="jbClimateSitesShowOnMap btn btn-default hidden">@ClimateSiteViewRes.ShowClimateSitesOnMap</button></h3>
+                <div class="ClimateSitesUsedAndWithinDistanceDiv">
+                    @{
+                        int ClimateSiteCount = 99;
+                    }
+                    <span class="h5">@ClimateSiteViewRes.SaveButtonAtBottomOfPage</span>
+                    @foreach (ClimateSiteWithLatLngAndOrdinalModel climateSiteWithLatLngAndOrdinalModel in mwqmSubsectorClimateSites.ClimateSiteModelUsedAndWithinDistanceModelList)
+                    {
+                        ClimateSiteCount += 1;
+                        bool IsInUse = climateSiteWithLatLngAndOrdinalModel.YearsOfUseText.Length > 0 ? true : false;
+
+                        <div class="ClimateSiteUsedAndWithinDistance"
+                             data-climatesitetvitemid="@climateSiteWithLatLngAndOrdinalModel.ClimateSiteTVItemID"
+                             data-mapinfoid="@climateSiteWithLatLngAndOrdinalModel.MapInfoID"
+                             data-lat="@climateSiteWithLatLngAndOrdinalModel.Lat"
+                             data-lng="@climateSiteWithLatLngAndOrdinalModel.Lng"
+                             data-ordinal="@climateSiteWithLatLngAndOrdinalModel.Ordinal">
+                            <span class="ClimateSiteCount">@(ClimateSiteCount) - </span>
+                            <button class="jbMapShowItem btn btn-default hidden"
+                                    data-tvitemid="@climateSiteWithLatLngAndOrdinalModel.ClimateSiteTVItemID"
+                                    title="@ClimateSiteViewRes.IdentifyOnMap">
+                                <span class="glyphicon glyphicon-map-marker"></span>
+                            </button>
+                            <button class="jbClimateSiteAddToUse btn btn-@(IsInUse ? "success" : "default")"
+                                    data-startyear="@(climateSiteWithLatLngAndOrdinalModel.DailyStartDate_Local.HasValue ? climateSiteWithLatLngAndOrdinalModel.DailyStartDate_Local.Value.Year.ToString() : "")"
+                                    data-endyear="@(climateSiteWithLatLngAndOrdinalModel.DailyEndDate_Local.HasValue ? ((climateSiteWithLatLngAndOrdinalModel.DailyNow != null && (bool)climateSiteWithLatLngAndOrdinalModel.DailyNow) ? "" : climateSiteWithLatLngAndOrdinalModel.DailyEndDate_Local.Value.Year.ToString()) : "")">
+                                @climateSiteWithLatLngAndOrdinalModel.ClimateSiteTVText
+                                </button>
+                                <span class="ClimateSiteMoreInfo">
+                                    @if (climateSiteWithLatLngAndOrdinalModel.DailyStartDate_Local != null && climateSiteWithLatLngAndOrdinalModel.DailyEndDate_Local != null)
+                                    {
+                                        <span>@(((DateTime)climateSiteWithLatLngAndOrdinalModel.DailyStartDate_Local).ToString("yyyy MMM dd")) - </span>
+                                        if (climateSiteWithLatLngAndOrdinalModel.DailyNow != null && climateSiteWithLatLngAndOrdinalModel.DailyNow == true)
+                                        {
+                                            <span class="h2">@ClimateSiteViewRes.Now</span>
+                                        }
+                                        else
+                                        {
+                                            <span>@(((DateTime)climateSiteWithLatLngAndOrdinalModel.DailyEndDate_Local).ToString("yyyy MMM dd"))</span>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        @ClimateSiteViewRes.Empty
+                                    }
+                                    <span>(@climateSiteWithLatLngAndOrdinalModel.Distance_km.ToString("F0") Km)</span>
+                                </span>
+                                <div class="ShowYearsOfUse form-inline @(IsInUse ? "" : "hidden")">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@ClimateSiteViewRes.YearsOfUse :
+                                    <input type="text" class="form-control" size="50" name="UseForYears" value="@climateSiteWithLatLngAndOrdinalModel.YearsOfUseText" />
+                                    <button class="jbClimateSiteOpenDialogToShowExOfYearsToEnter btn btn-link"><span class="glyphicon glyphicon-info-sign"></span></button>
+                                </div>
+                            </div>
+                    }
+                </div>
+                <div>
+                    <br />
+                    <button class="jbClimateSitesToUseForSubsectorVerifyAndSave btn btn-default">@ClimateSiteViewRes.ClimateSitesToUseForSubsectorVerifyAndSave</button>
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="ClimateSitesPriorities">
+            </div>
+            <div role="tabpanel" class="tab-pane" id="ClimateSitesRuns">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    $(function () {
+        cssp.ClimateSite.Init();
+    });
+</script>

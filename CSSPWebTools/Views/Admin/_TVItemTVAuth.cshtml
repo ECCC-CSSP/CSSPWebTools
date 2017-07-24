@@ -1,0 +1,58 @@
+﻿@using CSSPWebTools.Views.Admin.Resources;
+@using CSSPEnumsDLL.Enums;
+@using CSSPModelsDLL.Models;
+
+@{
+    bool IsAdmin = (bool)ViewBag.IsAdmin;
+    List<TVTypeNamesAndPath> tvTypeNamesAndPathList = (List<TVTypeNamesAndPath>)ViewBag.TVTypeNamesAndPathList;
+    List<TVItemModel> tvItemModelCountryList = (List<TVItemModel>)ViewBag.TVItemModelCountryList;
+
+    if (tvTypeNamesAndPathList.Count >= 7)
+    {
+        if (tvTypeNamesAndPathList[6].TVTypeName == "Municipality")
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                tvTypeNamesAndPathList.Remove(tvTypeNamesAndPathList[3]);
+            }
+        }
+    }
+    int Count = tvTypeNamesAndPathList.Count;
+}
+
+@if (!IsAdmin)
+{
+    <h2>@_AdminViewRes.Error</h2>
+    <h3>@_AdminViewRes.NeedAdministratorToAccessThisInformation</h3>
+    <a href="#!Home" class="btn btn-default">@_AdminViewRes.ReturnToHomePage</a>
+}
+else
+{
+    <div class="clearfix lineSpaceTop">
+        <div class=" col-sm-3">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h4 class="panel-title">Select a @tvTypeNamesAndPathList[Count - 1].TVTypeName</h4>
+                </div>
+                <div class="panel-body">
+                    @foreach (TVTypeNamesAndPath tvTypeNamesAndPath in tvTypeNamesAndPathList)
+                    {
+                        if (tvTypeNamesAndPath.TVTypeName != "Root")
+                        {
+                            <select name="@tvTypeNamesAndPath.TVTypeName" class="AdminTVItemSelect form-control" data-tvpath="@tvTypeNamesAndPath.TVPath">
+                                <option value="0">@tvTypeNamesAndPath.TVTypeName</option>
+                                @if (tvTypeNamesAndPath.TVTypeName == "Country")
+                                {
+                                    foreach (TVItemModel tvItemModel in tvItemModelCountryList)
+                                    {
+                                        <option value="@tvItemModel.TVItemID">@tvItemModel.TVText</option>
+                                    }
+                                }
+                            </select>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+}

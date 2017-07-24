@@ -1,0 +1,53 @@
+﻿@using CSSPWebTools.Models;
+@using CSSPWebTools.Views.MikeScenario.Resources;
+@using CSSPModelsDLL.Models;
+
+@{
+    URLModel urlModel = (URLModel)ViewBag.URLModel;
+    MikeSourceModel mikeSourceModel = (MikeSourceModel)ViewBag.MikeSourceModel;
+
+    string BorderClass = "BorderLighterSilver";
+    if (mikeSourceModel.Include == true && mikeSourceModel.IsRiver == false)
+    {
+        BorderClass = "BorderLighterGreen";
+    }
+    else if (mikeSourceModel.Include == true && mikeSourceModel.IsRiver == true)
+    {
+        BorderClass = "BorderLighterBlue";
+    }
+}
+<div class="MikeScenarioSource @BorderClass clearfix" data-tvitemid="@mikeSourceModel.MikeSourceTVItemID">
+    <ul class="list-inline">
+        <li>
+            <button class="jbMikeScenarioSourceInfoShowHide btn btn-default" title="@MikeScenarioViewRes.MikeSourceInformation">
+                <span class="glyphicon glyphicon-info-sign"></span>
+            </button>
+        </li>
+        <li>
+            <span class="MikeSourceName h4">@mikeSourceModel.MikeSourceTVText</span>
+        </li>
+    </ul>
+    <div class="MikeScenarioSourceInfo hidden">
+        <div class="blockMargin">
+            <ul class="list-unstyled">
+                <li>
+                    <label>@MikeScenarioViewRes.LatitudeLongitude: </label>
+                    <span class="elementSpacing">@mikeSourceModel.Lat</span>&nbsp;
+                    <span>@mikeSourceModel.Lng</span>
+                </li>
+                <li>
+                    <label>@MikeScenarioViewRes.IsContinuous </label>
+                    <span class="elementSpacing">@mikeSourceModel.IsContinuous</span>
+                </li>
+            </ul>
+        </div>
+        @if (mikeSourceModel.IsContinuous)
+        {
+           @Html.Action("_mikeScenarioSourceStartEndInfoContinuous", "MikeScenario", new { MikeSourceTVItemID = mikeSourceModel.MikeSourceTVItemID })
+        }
+        else
+        {
+            @Html.Action("_mikeScenarioSourceStartEndInfoNotContinuous", "MikeScenario", new { MikeSourceTVItemID = mikeSourceModel.MikeSourceTVItemID })
+        }
+    </div>
+</div>

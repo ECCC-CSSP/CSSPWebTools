@@ -1,0 +1,111 @@
+﻿@using CSSPWebTools.Views.MWQM.Resources;
+
+<div>
+    <div id="MWQMSiteChartProp">
+        <ul class="list-inline">
+            <li>
+                <button class="jbMWQMSiteRefresh btn btn-default" title="@MWQMViewRes.Refresh"><span class="glyphicon glyphicon-refresh"></span></button>
+            </li>
+            <li>
+                <button class="jbMWQMSiteChartSmallerHeight btn btn-default" title="@MWQMViewRes.Decrease @MWQMViewRes.ChartHeight"><span class="glyphicon glyphicon-resize-small flip-315"></span></button>
+            </li>
+            <li>
+                <button class="jbMWQMSiteChartBiggerHeight btn btn-default" title="@MWQMViewRes.Increase @MWQMViewRes.ChartHeight"><span class="glyphicon glyphicon-resize-full flip-315"></span></button>
+
+            </li>
+            <li>
+                <button class="jbMWQMSiteChartSmallerWidth btn btn-default" title="@MWQMViewRes.Decrease @MWQMViewRes.ChartWidth"><span class="glyphicon glyphicon-resize-small flip-45"></span></button>
+            </li>
+            <li>
+                <button class="jbMWQMSiteChartBiggerWidth btn btn-default" title="@MWQMViewRes.Increase @MWQMViewRes.ChartWidth"><span class="glyphicon glyphicon-resize-full flip-45"></span></button>
+            </li>
+        </ul>
+        <ul class="list-inline paraBlock">
+            <li>
+                <input name="MWQMSiteByDate" checked="checked" type="radio" value="1">&nbsp;@MWQMViewRes.ByDate
+            </li>
+            <li>
+                <input name="MWQMSiteByDate" type="radio" value="0">&nbsp;@MWQMViewRes.BySample
+            </li>
+            <li>
+                <input name="MWQMSiteLog" type="radio" value="1">&nbsp;@MWQMViewRes.Log
+            </li>
+            <li>
+                <input name="MWQMSiteLog" checked="checked" type="radio" value="0">&nbsp;@MWQMViewRes.Normal
+            </li>
+
+            <li>
+                <label class="control-label">@MWQMViewRes.ShowFromYear: </label>
+            </li>
+            <li>
+                <select name="MWQMSiteStartYear">
+                    @for (int i = 1980, count = DateTime.Now.Year; i < count; i++)
+                {
+                    <option @(i == 1980 ? "selected=\"selected\"" : "") value="@i">@i</option>
+                }
+                </select>
+
+            </li>
+        </ul>
+    </div>
+
+    <ul class="list-inline">
+        <li><div class="h4">@MWQMViewRes.StatisticsChart</div></li>
+        <li>
+            <div class="blockMargin dropdown">
+                <a class="dropdown-toggle" id="MenuLegendChartFC" data-toggle="dropdown" aria-expanded="true">
+                    <span class="glyphicon glyphicon-list-alt"></span>&nbsp; <span title="@MWQMViewRes.Abbreviations">@MWQMViewRes.Abbreviations_abbr</span>
+                </a>
+                <ul class="dropdown-menu small" role="menu" aria-labelledby="MenuLegendChartFC">
+
+                    <li role="presentation">
+                        <a class="" role="menuitem" tabindex="-1" href="#">@MWQMViewRes.GeometricMean_abbr: @MWQMViewRes.GeometricMean</a>
+                    </li>
+
+                    <li role="presentation">
+                        <a class="" role="menuitem" tabindex="-1" href="#"> @MWQMViewRes.Median_abbr: @MWQMViewRes.Median</a>
+                    </li>
+                    <li role="presentation">
+                        <a class="" role="menuitem" tabindex="-1" href="#"> @MWQMViewRes.Percentile90_abbr: @MWQMViewRes.Percentile90</a>
+                    </li>
+                    <li role="presentation">
+                        <a class="" role="menuitem" tabindex="-1" href="#"> &gt;43 (%): @MWQMViewRes.Percentile90_abbr &gt;43 in %</a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+    </ul>
+
+    <div id="MWQMSiteChartStatID">
+    </div>
+
+    <ul class="list-inline">
+        <li><div class="h4">@MWQMViewRes.FecalColiformsChart</div></li>
+        <li>
+            <div class="blockMargin dropdown">
+                <a class="dropdown-toggle" id="MenuLegendChartFC" data-toggle="dropdown" aria-expanded="false">
+                    <span class="glyphicon glyphicon-list-alt"></span>&nbsp; <span title="@MWQMViewRes.Abbreviations">@MWQMViewRes.Abbreviations_abbr</span>
+                </a>
+                <ul class="dropdown-menu small" role="menu" aria-labelledby="MenuLegendChartFC">
+                    <li role="presentation">
+                        <a class="" role="menuitem" tabindex="-1" href="#">@MWQMViewRes.FecalColiforms_abbr: @MWQMViewRes.FecalColiforms</a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+    </ul>
+    <div id="MWQMSiteChartFCID">
+    </div>
+
+    <h4>@MWQMViewRes.SalinityAndTemperatureChart</h4>
+
+    <div id="MWQMSiteChartSalTempID">
+    </div>
+
+    <script type="text/javascript">
+        $(function () {
+            cssp.MWQMSite.DrawCharts();
+            cssp.MWQMSite.RefreshChartsAfterOneSecond();
+        });
+    </script>
+</div>

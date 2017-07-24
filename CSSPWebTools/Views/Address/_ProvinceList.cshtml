@@ -1,0 +1,24 @@
+﻿@using CSSPWebTools.Views.Address.Resources;
+@using CSSPWebTools.Controllers;
+@using CSSPEnumsDLL.Enums;
+@using CSSPEnumsDLL.Services;
+@using CSSPModelsDLL.Models;
+
+@{
+    List<TVItemModel> tvItemModelListProvince = (List<TVItemModel>)ViewBag.TVItemModelListProvince;
+    int provinceTVItemID = (int)ViewBag.provinceTVItemID;
+    AddressController addressController = (AddressController)ViewBag.AddressController;
+    BaseEnumService _BaseEnumService = new BaseEnumService(ViewBag.Language);
+}
+<select name="ProvinceTVItemID" class="ProvinceTVItemSelect form-control">
+    <option value="0">@(_BaseEnumService.GetEnumText_TVTypeEnum(TVTypeEnum.Province))</option>
+    @if (tvItemModelListProvince.Count > 0)
+    {
+        foreach (TVItemModel tvItemModel in tvItemModelListProvince)
+        {
+            <option @(tvItemModel.TVItemID == provinceTVItemID ? @"selected=""selected""" : "") value="@tvItemModel.TVItemID">@tvItemModel.TVText</option>
+        }
+        <option value="-2">-----------------------------</option>
+        <option value="-1">@AddressViewRes.Add @AddressViewRes.Province</option>
+    }
+</select>

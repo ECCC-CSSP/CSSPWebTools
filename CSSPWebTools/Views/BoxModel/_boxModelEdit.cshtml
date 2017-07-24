@@ -1,0 +1,182 @@
+﻿@using CSSPWebToolsDBDLL.Services;
+@using CSSPWebTools.Views.BoxModel.Resources;
+@using CSSPEnumsDLL.Enums;
+@using CSSPModelsDLL.Models;
+
+@{
+    BoxModelModel boxModelModel = (BoxModelModel)ViewBag.BoxModelModel;
+}
+<div class="container-fluid">
+    <div class="LastUpdateAndTVText" data-table="BoxModel" data-id="@boxModelModel.BoxModelID"></div>
+    <form id="BoxModelForm" class="form-horizontal" role="form" action="/BoxModel/SaveBoxModelScenarioJSON" method="post">
+        <input type="hidden" name="BoxModelID" value="@boxModelModel.BoxModelID" />
+        <input class="isnumber form-control" type="hidden" name="DecayRate_per_day" id="DecayRate_per_day" value="@(string.Format("{0:f5}", boxModelModel.DecayRate_per_day))" />
+        <fieldset>
+            <legend>
+                @BoxModelViewRes.InputInformation
+            </legend>
+        </fieldset>
+
+        <div class="form-group ">
+            <label class="control-label col-sm-4 lead" for="ScenarioName">
+                @BoxModelViewRes.ScenarioName:
+            </label>
+            <div class="col-sm-8">
+                <input class="form-control h4" type="text" name="ScenarioName" id="ScenarioName" placeholder="@BoxModelViewRes.ScenarioName" value="@boxModelModel.ScenarioName" />
+                <span class="help-block"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4" for="T90_hour">
+                @BoxModelViewRes.T90 &nbsp;&nbsp;<span class="text-info">(@BoxModelViewRes.hours_abbr)</span>
+            </label>
+            <div class="col-sm-8">
+                <input class="isnumber form-control" type="text" name="T90_hour" id="T90_hour"
+                       value="@(string.Format("{0:f1}", boxModelModel.T90_hour))" />
+                <span class="help-block"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4" for="Temperature_C">
+                @BoxModelViewRes.Temperature &nbsp;&nbsp;<span class="text-info">(ºC)</span>
+            </label>
+            <div class="col-sm-8">
+                <input class="isnumber form-control" type="text" name="Temperature_C" id="Temperature_C" value="@(string.Format("{0:f1}", boxModelModel.Temperature_C))" />
+                <span class="help-block"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4" for="DecayRate_per_day">
+                @BoxModelViewRes.DecayRate &nbsp;&nbsp;<span class="text-info">(@BoxModelViewRes.unitPerDay)</span>
+            </label>
+            <div class="col-sm-8">
+                <span class="decaycalculated">@(string.Format("{0:f5}", boxModelModel.DecayRate_per_day))</span>
+                <span class="help-block"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4" for="Flow_m3_day">
+                @BoxModelViewRes.Flow &nbsp;&nbsp;<span class="text-info">(m<sup>3</sup>@BoxModelViewRes.unitPerDay)</span>
+            </label>
+            <div class="col-sm-8">
+                <input class="isnumber form-control" type="text" name="Flow_m3_day" id="Flow_m3_day" value="@(string.Format("{0:f3}", boxModelModel.Flow_m3_day))" />
+                <span class="help-block"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4" for="FlowDuration_hour">
+                @BoxModelViewRes.FlowDuration &nbsp;&nbsp;<span class="text-info">(@BoxModelViewRes.hours_abbr)</span>
+            </label>
+            <div class="col-sm-8">
+                <input class="isnumber form-control" type="text" name="FlowDuration_hour" id="FlowDuration_hour" value="@(string.Format("{0:f0}", boxModelModel.FlowDuration_hour))" />
+                <span class="help-block"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4" for="Dilution">
+                @BoxModelViewRes.Dilution
+            </label>
+            <div class="col-sm-8">
+                <input class="isnumber form-control" type="text" name="Dilution" id="Dilution" value="@(string.Format("{0:f0}", boxModelModel.Dilution))" />
+                <span class="help-block"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4" for="Depth_m">
+                @BoxModelViewRes.Depth &nbsp;&nbsp;<span class="text-info">(m)</span>
+            </label>
+            <div class="col-sm-8">
+                <input class="isnumber form-control" type="text" name="Depth_m" id="Depth_m" value="@(string.Format("{0:f1}", boxModelModel.Depth_m))" />
+                <span class="help-block"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4" for="FCUntreated_MPN_100ml" title="@BoxModelViewRes.FC: @BoxModelViewRes.FC_Full">
+                @BoxModelViewRes.Untreated (@BoxModelViewRes.FC)&nbsp;&nbsp;<span class="text-info">(FC/100ml)</span>
+            </label>
+            <div class="col-sm-8">
+                <input class="isnumber form-control" type="text" name="FCUntreated_MPN_100ml" id="FCUntreated_MPN_100ml" value="@(string.Format("{0:f0}", boxModelModel.FCUntreated_MPN_100ml))" />
+                <span class="help-block"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4" for="FCPreDisinfection_MPN_100ml" title="@BoxModelViewRes.FC: @BoxModelViewRes.FC_Full">
+                @BoxModelViewRes.PreDisinfection  (@BoxModelViewRes.FC)&nbsp;&nbsp;<span class="text-info">(FC/100ml)</span>
+            </label>
+            <div class="col-sm-8">
+                <input class="isnumber form-control" type="text" name="FCPreDisinfection_MPN_100ml" id="FCPreDisinfection_MPN_100ml" value="@(string.Format("{0:f0}", boxModelModel.FCPreDisinfection_MPN_100ml))" />
+                <span class="help-block"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4" for="Concentration_MPN_100ml" title="@BoxModelViewRes.FC: @BoxModelViewRes.FC_Full">
+                @BoxModelViewRes.ConcentrationObjective  (@BoxModelViewRes.FC)&nbsp;&nbsp;<span class="text-info">(FC/100ml)</span>
+            </label>
+            <div class="col-sm-8">
+                <input class="isnumber form-control" type="text" name="Concentration_MPN_100ml" id="Concentration_MPN_100ml" value="@(string.Format("{0:f0}", boxModelModel.Concentration_MPN_100ml))" />
+                <span class="help-block"></span>
+            </div>
+        </div>
+        <div class="form-group ">
+            <label class="control-label col-sm-4 text-info h4" for="nulle">@BoxModelViewRes.Rectangle</label>
+            <div class="col-sm-8">
+                &nbsp;
+            </div>
+        </div>
+
+        @*@{
+            string FixLengthChecked = "";
+            if (boxModelModel.FixLength)
+            {
+                FixLengthChecked = "checked='checked'";
+            }
+
+            string FixWidthChecked = "";
+            if (boxModelModel.FixWidth)
+            {
+                FixWidthChecked = "checked='checked'";
+            }
+        }
+        <div class="form-group">
+            <div class="col-sm-8 col-sm-offset-4">
+                <label class="  checkbox-inline">
+                    <input class="checkbox" type="checkbox" name="FixLength" id="FixLength" @FixLengthChecked />&nbsp; <b>@BoxModelViewRes.FixedLength</b>
+                </label>
+                <label class="checkbox-inline ">
+                    <input class="checkbox" type="checkbox" name="FixWidth" id="FixWidth" @FixWidthChecked />&nbsp; <b>@BoxModelViewRes.FixedWidth</b>
+                </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4" for="Length">
+                @BoxModelViewRes.Length
+            </label>
+            <div class="col-sm-8">
+                <input class="isnumber form-control" type="text" name="Length_m" id="Length_m" value="@(string.Format("{0:f0}", boxModelModel.Length_m))" />
+                <span class="help-block"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-4" for="Width">
+                @BoxModelViewRes.Width
+            </label>
+            <div class="col-sm-8">
+                <input class="isnumber form-control" type="text" name="Width_m" id="Width_m" value="@(string.Format("{0:f0}", boxModelModel.Width_m))" />
+                <span class="help-block"></span>
+            </div>
+        </div>*@
+        <div class="col-sm-8 col-sm-offset-4">
+            <div class="btn-block">
+                <button class="jbBoxModelScenarioSave btn btn-primary" type="submit"><span class="glyphicon glyphicon-check"></span>&nbsp;@BoxModelViewRes.Save</button>
+                <button class="jbBoxModelScenarioCancel btn btn-default"><span class="glyphicon glyphicon-ban-circle"></span>&nbsp;@BoxModelViewRes.Cancel</button>
+            </div>
+        </div>
+    </form>
+
+    <script type="text/javascript">
+        $(function () {
+            cssp.BoxModel.Init();
+        });
+    </script>
+</div>

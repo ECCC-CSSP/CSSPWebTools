@@ -1,0 +1,198 @@
+﻿@using CSSPWebTools.Models;
+@using CSSPWebTools.Views.Shared.Resources;
+@using CSSPWebTools.Views.MikeScenario.Resources;
+@using CSSPEnumsDLL.Enums;
+@using CSSPModelsDLL.Models;
+
+@{
+
+    MikeScenarioModel mikeScenarioModel = (MikeScenarioModel)ViewBag.MikeScenarioModel;
+    MikeBoundaryConditionModel mikeBoundaryConditionModel = (MikeBoundaryConditionModel)ViewBag.MikeBoundaryConditionModelWL;
+
+    URLModel urlModel = (URLModel)ViewBag.URLModel;
+
+    ViewBag.Title = "_mikeScenarioGeneralParameters";
+
+    DateTime StartDate = (DateTime)mikeScenarioModel.MikeScenarioStartDateTime_Local;
+    DateTime EndDate = (DateTime)mikeScenarioModel.MikeScenarioEndDateTime_Local;
+    TimeSpan ts = new TimeSpan(EndDate.Ticks - StartDate.Ticks);
+    int days = ts.Days;
+    int hours = ts.Hours;
+    int minutes = ts.Minutes;
+    int StartDateHour = StartDate.Hour;
+    int StartDateMinute = StartDate.Minute;
+    int EndDateHour = EndDate.Hour;
+    int EndDateMinute = EndDate.Minute;
+
+}
+@if (!string.IsNullOrEmpty(mikeScenarioModel.Error))
+{
+    <label>@MikeScenarioViewRes.ErrorWhileCreatingPage: Mike Scenario Inputs General Parameters </label>
+    <label>@mikeScenarioModel.Error</label>
+}
+else
+{
+    <div id="MikeScenarioGeneralParametersDiv" class="container-fluid lineSpaceTop">
+        <div class="AppTaskDiv">
+            @Html.Action("_appTask", "Home", new { TVItemID = urlModel.TVItemIDList[0], Seconds = 5 })
+        </div>
+        @if (mikeScenarioModel.ScenarioStatus <= ScenarioStatusEnum.Copied)
+        {
+            <h4>@MikeScenarioViewRes.PleaseCompleteSetup</h4>
+        }
+        else
+        {
+            if (ViewBag.TVAuth == 0)
+            {
+                <div>@MikeScenarioViewRes.AuthorizationNeeded</div>
+            }
+            else
+            {
+                DateTime StartDateTime = (DateTime)mikeScenarioModel.MikeScenarioStartDateTime_Local;
+                DateTime EndDateTime = (DateTime)mikeScenarioModel.MikeScenarioEndDateTime_Local;
+
+                <div>
+                    <div>
+                        <div>
+                            <label>@MikeScenarioViewRes.ScenarioName</label>
+                        </div>
+                        <div>
+                            <span class="elementSpacing text-nowrap">@mikeScenarioModel.MikeScenarioTVText</span>
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <label>@MikeScenarioViewRes.StartDateTime (@MikeScenarioViewRes.LocalTime)</label>
+                        </div>
+                        <div>
+                            <span class="elementSpacing text-nowrap">@StartDateTime.ToString("f")</span>
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <label>@MikeScenarioViewRes.EndDateTime (@MikeScenarioViewRes.LocalTime)</label>
+                        </div>
+                        <div>
+                            <span class="elementSpacing text-nowrap">@EndDateTime.ToString("f")</span>
+                        </div>
+                    </div>
+                    <div>
+                        @if (string.IsNullOrWhiteSpace(mikeBoundaryConditionModel.WebTideDataFromStartToEndDate))
+                        {
+                            <div>
+                                <label><button class="jbMikeScenarioCreateWebTideDataWLFromStartToEndDate btn btn-default">@MikeScenarioViewRes.CreateWaterLevelBoundaryConditionForWebTideFirstNode</button></label>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="MikeScenarioWaterLevelsTop">
+                                <div>
+                                    <button class="jbMikeScenarioShowHideWaterLevels btn btn-default">@MikeScenarioViewRes.ShowHideWaterLevels</button>
+                                </div>
+                                <pre class="MikeScenarioWaterLevels hidden">@mikeBoundaryConditionModel.WebTideDataFromStartToEndDate</pre>
+                            </div>
+                        }
+                    </div>
+                    <div>
+                        <div>
+                            <label>@MikeScenarioViewRes.ScenarioLength</label>
+                        </div>
+                        <div>
+                            <span class="elementSpacing text-nowrap">
+                                <span class="elementSpacing"><b>@days</b><span> @UnitViewRes.Days</span></span>
+                                <span class="elementSpacing"><b>@hours</b><span> @UnitViewRes.Hours</span></span>
+                                <span class="elementSpacing"><b>@minutes</b><span> @UnitViewRes.Minutes</span></span>
+                            </span>
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <label>@MikeScenarioViewRes.DecayFactorAverage</label>
+                        </div>
+                        <div>
+                            <span class="elementSpacing  text-nowrap">@string.Format("{0:F5}", @mikeScenarioModel.DecayFactor_per_day) @UnitViewRes.PerDay</span>
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <label>@MikeScenarioViewRes.DecayConstant</label>
+                        </div>
+                        <div>
+                            <span class="elementSpacing">@(mikeScenarioModel.DecayIsConstant == true ? MikeScenarioViewRes.Yes : MikeScenarioViewRes.No)</span>
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <label>@MikeScenarioViewRes.DecayFactorAmplitude</label>
+                        </div>
+                        <div>
+                            <span class="elementSpacing">@string.Format("{0:F5}", @mikeScenarioModel.DecayFactorAmplitude)</span>
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <label>@MikeScenarioViewRes.AmbientTemperature </label>
+                        </div>
+                        <div>
+                            <span class="elementSpacing  text-nowrap">@string.Format("{0:F1}", @mikeScenarioModel.AmbientTemperature_C) @UnitViewRes.Celcius_abbr</span>
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <label>@MikeScenarioViewRes.AmbientSalinity </label>
+                        </div>
+                        <div>
+                            <span class="elementSpacing  text-nowrap">@string.Format("{0:F1}", @mikeScenarioModel.AmbientSalinity_PSU) @UnitViewRes.PSU</span>
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <label>@MikeScenarioViewRes.ResultFrequency </label>
+                        </div>
+                        <div>
+                            <span class="elementSpacing  text-nowrap">@string.Format("{0:F0}", @mikeScenarioModel.ResultFrequency_min) @UnitViewRes.Minutes</span>
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <label>@MikeScenarioViewRes.ManningNumber </label>
+                        </div>
+                        <div>
+                            <span class="elementSpacing  text-nowrap">@string.Format("{0:F1}", @mikeScenarioModel.ManningNumber) (@Html.Raw(UnitViewRes.ManningNumber_unit))</span>
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <label>@MikeScenarioViewRes.WindSpeed </label>
+                        </div>
+                        <div>
+                            <span class="elementSpacing  text-nowrap">@string.Format("{0:F1}", @mikeScenarioModel.WindSpeed_km_h) @UnitViewRes.KmPerHour</span>
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <label>@MikeScenarioViewRes.WindDirection </label>
+                        </div>
+                        <div>
+                            <span class="elementSpacing  text-nowrap">
+                                @string.Format("{0:F0}", @mikeScenarioModel.WindDirection_deg) &nbsp;@UnitViewRes.Degrees
+                                <span class="text-lighter">&mdash; &nbsp; &nbsp;(@MikeScenarioViewRes.North_abr = 0º, @MikeScenarioViewRes.East_abr = 90º, @MikeScenarioViewRes.South_abr = 180º)</span>
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+
+                if (mikeScenarioModel.ScenarioStatus > ScenarioStatusEnum.Changed)
+                {
+                    <script type="text/javascript">
+                        $(function () {
+                            cssp.MikeScenario.RemoveGeneralParameterEditButton();
+                        });
+                    </script>
+                }
+            }
+        }
+
+    </div>
+}

@@ -1,0 +1,195 @@
+﻿@using CSSPWebTools.Models;
+@using CSSPWebTools.Controllers;
+@using CSSPEnumsDLL.Enums;
+@using CSSPModelsDLL.Models;
+
+@{
+    URLModel urlModel = (URLModel)ViewBag.URLModel;
+    TVItemModel TVItemModelLocationCurrent = (TVItemModel)ViewBag.TVItemModelLocationCurrent;
+    List<TabInfo> tabInfoList = (List<TabInfo>)ViewBag.TabInfoList;
+    TVItemController tvItemController = (TVItemController)ViewBag.TVItemController;
+    List<TVTypeEnum> tvTypeShowBasic = new List<TVTypeEnum>()
+    {
+        TVTypeEnum.Address, TVTypeEnum.ClimateSite, TVTypeEnum.Contact, TVTypeEnum.Email, TVTypeEnum.File,
+        TVTypeEnum.HydrometricSite, TVTypeEnum.Tel, TVTypeEnum.TideSite,
+    };
+}
+<div class="AlsoUsedInGoogleTopCenterCurrentTab hidden">
+    <ul class="list-inline">
+        @for (int i = 0, count = tabInfoList.Count; i < count; i++)
+        {
+            if (((TabInfo)tabInfoList[i]).Active == i.ToString())
+            {
+                <li>
+                    @(((TabInfo)tabInfoList[i]).Text)
+                    @if (((TabInfo)tabInfoList[i]).ShowTVType != TVTypeEnum.File)
+                    {
+                        if (((TabInfo)tabInfoList[i]).Stat != -1)
+                        {
+                            <span class="badge">
+                                &nbsp;@(((TabInfo)tabInfoList[i]).Stat.ToString())&nbsp;
+                            </span>
+                        }
+                    }
+                    else
+                    {
+                        <span class="badge">
+                            &nbsp;@(((TabInfo)tabInfoList[i]).Stat.ToString())&nbsp;/&nbsp;@(((TabInfo)tabInfoList[i]).Stat2.ToString())&nbsp;
+                        </span>
+                    }
+                </li>
+            }
+        }
+    </ul>
+</div>
+<div class="AlsoUsedInGoogleTopCenterOtherTabs hidden">
+    <ul class="list-inline">
+        @for (int i = 0, count = tabInfoList.Count; i < count; i++)
+        {
+            if (((TabInfo)tabInfoList[i]).Active == i.ToString())
+            {
+            }
+            else
+            {
+                <li>
+                    <a href="@(((TabInfo)tabInfoList[i]).URL)" role="menuitem" tabindex="-1">
+                        @(((TabInfo)tabInfoList[i]).Text)
+                        @if (((TabInfo)tabInfoList[i]).Icon.Length > 0)
+                        {
+                            <span class="@(((TabInfo)tabInfoList[i]).Icon)"></span>
+                        }
+                        @if (((TabInfo)tabInfoList[i]).ShowTVType != TVTypeEnum.File)
+                        {
+                            if (((TabInfo)tabInfoList[i]).Stat != -1)
+                            {
+                                <span class="badge">
+                                    &nbsp;@(((TabInfo)tabInfoList[i]).Stat.ToString())&nbsp;
+                                </span>
+                            }
+                        }
+                        else
+                        {
+                            <span class="badge">
+                                &nbsp;@(((TabInfo)tabInfoList[i]).Stat.ToString())&nbsp;/&nbsp;@(((TabInfo)tabInfoList[i]).Stat2.ToString())&nbsp;
+                            </span>
+                        }
+                    </a>
+                </li>
+            }
+        }
+    </ul>
+</div>
+<div class="dropdown-toggle hidden-lg hidden-md" data-toggle="collapse" data-target="#tablistCollapseID">
+    <div class="dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" id="tablistDropdown" data-toggle="dropdown" aria-expanded="true">
+            @for (int i = 0, count = tabInfoList.Count; i < count; i++)
+            {
+                if (((TabInfo)tabInfoList[i]).Active == i.ToString())
+                {
+                    <span>
+                        @(((TabInfo)tabInfoList[i]).Text)
+                        @if (((TabInfo)tabInfoList[i]).ShowTVType != TVTypeEnum.File)
+                        {
+                            if (((TabInfo)tabInfoList[i]).Stat != -1)
+                            {
+                                <span class="badge">
+                                    &nbsp;@(((TabInfo)tabInfoList[i]).Stat.ToString())&nbsp;
+                                </span>
+                            }
+                        }
+                        else
+                        {
+                            <span class="badge">
+                                &nbsp;@(((TabInfo)tabInfoList[i]).Stat.ToString())&nbsp;/&nbsp;@(((TabInfo)tabInfoList[i]).Stat2.ToString())&nbsp;
+                            </span>
+                        }
+                    </span>
+                }
+            }
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="tablistDropdown">
+            @for (int i = 0, count = tabInfoList.Count; i < count; i++)
+            {
+                <li role="presentation" class="@(((TabInfo)tabInfoList[i]).Active == i.ToString() ? "active" : "")">
+                    <a href="@(((TabInfo)tabInfoList[i]).URL)" role="menuitem" tabindex="-1">
+                        @(((TabInfo)tabInfoList[i]).Text)
+                        @if (((TabInfo)tabInfoList[i]).Icon.Length > 0)
+                        {
+                            <span class="@(((TabInfo)tabInfoList[i]).Icon)"></span>
+                        }
+                        @if (((TabInfo)tabInfoList[i]).ShowTVType != TVTypeEnum.File)
+                        {
+                            if (((TabInfo)tabInfoList[i]).Stat != -1)
+                            {
+                                <span class="badge">
+                                    &nbsp;@(((TabInfo)tabInfoList[i]).Stat.ToString())&nbsp;
+                                </span>
+                            }
+                        }
+                        else
+                        {
+                            <span class="badge">
+                                &nbsp;@(((TabInfo)tabInfoList[i]).Stat.ToString())&nbsp;/&nbsp;@(((TabInfo)tabInfoList[i]).Stat2.ToString())&nbsp;
+                            </span>
+                        }
+                    </a>
+                </li>
+            }
+        </ul>
+    </div>
+</div>
+<div class="visible-lg visible-md" role="tabpanel">
+    <ul class="nav nav-tabs" role="tablist">
+        @for (int i = 0, count = tabInfoList.Count; i < count; i++)
+        {
+            <li class="@(((TabInfo)tabInfoList[i]).Active == i.ToString() ? "active" : "")" role="presentation">
+                <a href="@(((TabInfo)tabInfoList[i]).URL)" role="tab">
+                    @(((TabInfo)tabInfoList[i]).Text)
+                    @if (((TabInfo)tabInfoList[i]).Icon.Length > 0)
+                    {
+                        <span class="@(((TabInfo)tabInfoList[i]).Icon)"></span>
+                    }
+                    @if (((TabInfo)tabInfoList[i]).ShowTVType != TVTypeEnum.File)
+                    {
+                        if (((TabInfo)tabInfoList[i]).Stat != -1)
+                        {
+                            <span class="badge">
+                                &nbsp;@(((TabInfo)tabInfoList[i]).Stat.ToString())&nbsp;
+                            </span>
+                        }
+                    }
+                    else
+                    {
+                        <span class="badge">
+                            &nbsp;@(((TabInfo)tabInfoList[i]).Stat.ToString())&nbsp;/&nbsp;@(((TabInfo)tabInfoList[i]).Stat2.ToString())&nbsp;
+                        </span>
+                    }
+                </a>
+            </li>
+        }
+    </ul>
+</div>
+<div class="spaceLeft5">
+    @if (tvTypeShowBasic.Contains(TVItemModelLocationCurrent.TVType))
+    {
+        @Html.Action("_TVItemLinkList", "TVItem", new { Q = urlModel.Q })
+    }
+    else
+    {
+        for (int i = 0, count = tabInfoList.Count; i < count; i++)
+        {
+            if (((TabInfo)tabInfoList[i]).Active == i.ToString())
+            {
+                @Html.Action("_content", "TVItem", new { Q = urlModel.Q })
+            }
+        }
+    }
+</div>
+
+
+<script type="text/javascript">
+    $(function () {
+        cssp.TVItem.InitGoogleTopCenter();
+    });
+</script>
