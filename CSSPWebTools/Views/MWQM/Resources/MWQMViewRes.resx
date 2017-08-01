@@ -460,7 +460,7 @@
     <value>Run Samples Reception</value>
   </data>
   <data name="TheSameDay" xml:space="preserve">
-    <value> the next day</value>
+    <value>the same day</value>
   </data>
   <data name="RunComment" xml:space="preserve">
     <value>Run Comment</value>

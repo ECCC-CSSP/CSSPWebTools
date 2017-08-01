@@ -1645,7 +1645,7 @@ namespace CSSPWebTools.Views.MWQM.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to  the next day.
+        ///   Looks up a localized string similar to the same day.
         /// </summary>
         public static string TheSameDay {
             get {

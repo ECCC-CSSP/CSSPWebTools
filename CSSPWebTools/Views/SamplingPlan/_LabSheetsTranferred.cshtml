@@ -487,17 +487,27 @@ else
                                             {
                                                 textColor = "text-danger";
                                             }
-                                            if (labSheetModelAndA1Sheet.LabSheetA1Sheet != null
-                                                && !string.IsNullOrWhiteSpace(labSheetModelAndA1Sheet.LabSheetA1Sheet.TCLab1)
-                                                && float.Parse(labSheetModelAndA1Sheet.LabSheetA1Sheet.TCLab1) > 8.50f)
+                                            if (labSheetModelAndA1Sheet.LabSheetA1Sheet != null && !string.IsNullOrWhiteSpace(labSheetModelAndA1Sheet.LabSheetA1Sheet.TCLab1))
                                             {
-                                                textColor = "text-danger";
+                                                if (labSheetModelAndA1Sheet.LabSheetA1Sheet.TCLab1 == "NA")
+                                                {
+                                                    textColor = "text-danger";
+                                                }
+                                                else if (float.Parse(labSheetModelAndA1Sheet.LabSheetA1Sheet.TCLab1) > 8.0f)
+                                                {
+                                                    textColor = "text-danger";
+                                                }
                                             }
-                                            if (labSheetModelAndA1Sheet.LabSheetA1Sheet != null
-                                                && !string.IsNullOrWhiteSpace(labSheetModelAndA1Sheet.LabSheetA1Sheet.TCLab2)
-                                                && float.Parse(labSheetModelAndA1Sheet.LabSheetA1Sheet.TCLab2) > 8.50f)
+                                            if (labSheetModelAndA1Sheet.LabSheetA1Sheet != null && !string.IsNullOrWhiteSpace(labSheetModelAndA1Sheet.LabSheetA1Sheet.TCLab2))
                                             {
-                                                textColor = "text-danger";
+                                                if (labSheetModelAndA1Sheet.LabSheetA1Sheet.TCLab2 == "NA")
+                                                {
+                                                    textColor = "text-danger";
+                                                }
+                                                else if (float.Parse(labSheetModelAndA1Sheet.LabSheetA1Sheet.TCLab2) > 8.0f)
+                                                {
+                                                    textColor = "text-danger";
+                                                }
                                             }
                                         }
                                         <tr class="@textColor">
