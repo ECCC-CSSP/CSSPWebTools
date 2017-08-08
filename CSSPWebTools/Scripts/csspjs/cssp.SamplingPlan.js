@@ -523,7 +523,9 @@ var CSSP;
                         cssp.Dialog.ShowDialogErrorWithError(ret);
                     }
                     else {
-                        cssp.Helper.PageRefresh();
+                        //cssp.Helper.PageRefresh();
+                        cssp.Dialog.ShowDialogSuccess(cssp.GetHTMLVariable("#LayoutVariables", "varSuccess"));
+                        $(".LabSheetsTransferredDiv").find(".LabSheetItem[data-labsheetid='" + LabSheetID.toString() + "']").remove();
                     }
                     $bjs.text(OriginalText);
                 }).fail(function () {
@@ -539,7 +541,9 @@ var CSSP;
                         cssp.Dialog.ShowDialogErrorWithError(ret);
                     }
                     else {
-                        cssp.Helper.PageRefresh();
+                        //cssp.Helper.PageRefresh();
+                        cssp.Dialog.ShowDialogSuccess(cssp.GetHTMLVariable("#LayoutVariables", "varSuccess"));
+                        $(".LabSheetsTransferredDiv").find(".LabSheetItem[data-labsheetid='" + LabSheetID.toString() + "']").remove();
                     }
                 }).fail(function () {
                     cssp.Dialog.ShowDialogErrorWithFail(command);
