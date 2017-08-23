@@ -237,4 +237,7 @@
   <data name="Weather" xml:space="preserve">
     <value>Weather</value>
   </data>
+  <data name="SendEmail" xml:space="preserve">
+    <value>Send Email</value>
+  </data>
 </root>

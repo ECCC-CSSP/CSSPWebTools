@@ -1,4 +1,5 @@
 ﻿using CSSPEnumsDLL.Enums;
+using CSSPEnumsDLL.Services;
 using CSSPModelsDLL.Models;
 using CSSPWebTools.Models;
 using CSSPWebToolsDBDLL.Models;
@@ -20,6 +21,7 @@ namespace CSSPWebTools.Controllers
         #region Properties
         public TVItemController _TVItemController { get; private set; }
         public MapInfoService _MapInfoService { get; private set; }
+        public BaseEnumService _EnumService { get; private set; }
         #endregion Properties
 
         #region Constructors
@@ -34,6 +36,7 @@ namespace CSSPWebTools.Controllers
         {
             base.Initialize(requestContext);
             _MapInfoService = new MapInfoService(LanguageRequest, User);
+            _EnumService = new BaseEnumService(LanguageRequest);
         }
         #endregion Overrides
 
@@ -532,6 +535,8 @@ namespace CSSPWebTools.Controllers
             ViewBag.ParentTVItemID = ParentTVItemID;
             ViewBag.TVItemID = TVItemID;
             ViewBag.TVType = TVType;
+            ViewBag.TVTypeText = _EnumService.GetEnumText_TVTypeEnum(TVType); ;
+
             if (TVItemID > 0)
             {
                 ViewBag.IsModify = true;

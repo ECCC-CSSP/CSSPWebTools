@@ -261,6 +261,18 @@ module CSSP {
                 cssp.TVItem.EditCancel($bjs);
             }
         };
+        public ShowHideEmailDistributionListContactAdd: Function = ($bjs: JQuery): void => {
+            var EmailDistributionListID: number = parseInt($bjs.closest(".EmailDistributionListContactItem").data("emaildistributionlistid"));
+
+            if ($bjs.hasClass("btn-default")) {
+                $bjs.removeClass("btn-default").addClass("btn-success");
+                $bjs.closest(".EmailDistributionListContactItem").find(".EmailDistributionListContactEdit").removeClass("hidden");
+            }
+            else {
+                $bjs.removeClass("btn-success").addClass("btn-default");
+                $bjs.closest(".EmailDistributionListContactItem").find(".EmailDistributionListContactEdit").removeClass("hidden").addClass("hidden");
+            }
+        };
         public SetDialogEvents: Function = ($bjs) => {
             $("#DialogBasicYes").one("click", (evt) => {
                 $("#DialogBasic").one('hidden.bs.modal', () => {

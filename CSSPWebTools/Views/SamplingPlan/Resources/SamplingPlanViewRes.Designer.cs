@@ -19,7 +19,7 @@ namespace CSSPWebTools.Views.SamplingPlan.Resources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class SamplingPlanViewRes {
@@ -493,20 +493,29 @@ namespace CSSPWebTools.Views.SamplingPlan.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Lab sheet history.
+        ///   Looks up a localized string similar to Lab sheets history.
         /// </summary>
-        public static string LabSheetHistory {
+        public static string LabSheetsHistory {
             get {
-                return ResourceManager.GetString("LabSheetHistory", resourceCulture);
+                return ResourceManager.GetString("LabSheetsHistory", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Lab Sheet Transferred.
+        ///   Looks up a localized string similar to Lab sheets transferred.
         /// </summary>
-        public static string LabSheetTransferred {
+        public static string LabSheetsTransferred {
             get {
-                return ResourceManager.GetString("LabSheetTransferred", resourceCulture);
+                return ResourceManager.GetString("LabSheetsTransferred", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lab sheets waiting to be accepted.
+        /// </summary>
+        public static string LabSheetsWaitingToBeAccepted {
+            get {
+                return ResourceManager.GetString("LabSheetsWaitingToBeAccepted", resourceCulture);
             }
         }
         
@@ -516,15 +525,6 @@ namespace CSSPWebTools.Views.SamplingPlan.Resources {
         public static string LabSheetType {
             get {
                 return ResourceManager.GetString("LabSheetType", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Lab Sheet waiting to be accepted.
-        /// </summary>
-        public static string LabSheetWaitingToBeAccepted {
-            get {
-                return ResourceManager.GetString("LabSheetWaitingToBeAccepted", resourceCulture);
             }
         }
         

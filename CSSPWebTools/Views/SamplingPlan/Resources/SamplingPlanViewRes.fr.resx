@@ -201,8 +201,8 @@
     <value>Vous devez obtenir la permission pour l'installation des plans de SQEM.</value>
     <comment>pbp aom</comment>
   </data>
-  <data name="LabSheetTransferred" xml:space="preserve">
-    <value>Feuillet de laboratoire transféré</value>
+  <data name="LabSheetsTransferred" xml:space="preserve">
+    <value>Feuilles de laboratoire transféré</value>
   </data>
   <data name="ShowTransferredLabSheets" xml:space="preserve">
     <value>Afficher les feuilles de laboratoire transférées</value>
@@ -444,14 +444,14 @@
   <data name="CalculatedHoldingTimeInHours" xml:space="preserve">
     <value>Temps de maintien calculé (heures)</value>
   </data>
-  <data name="LabSheetHistory" xml:space="preserve">
-    <value>Historique des feuillee de laboratoire</value>
+  <data name="LabSheetsHistory" xml:space="preserve">
+    <value>Historique des feuilles de laboratoire</value>
   </data>
   <data name="ShowHistoryLabSheets" xml:space="preserve">
     <value>Montrer les feuilles de laboratoire historiques</value>
   </data>
-  <data name="LabSheetWaitingToBeAccepted" xml:space="preserve">
-    <value>Feuille de laboratoire en attente d'acceptation</value>
+  <data name="LabSheetsWaitingToBeAccepted" xml:space="preserve">
+    <value>Feuilles de laboratoire en attente d'acceptation</value>
   </data>
   <data name="Save" xml:space="preserve">
     <value>Sauvegarder</value>

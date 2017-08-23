@@ -241,6 +241,17 @@ var CSSP;
                     cssp.TVItem.EditCancel($bjs);
                 }
             };
+            this.ShowHideEmailDistributionListContactAdd = function ($bjs) {
+                var EmailDistributionListID = parseInt($bjs.closest(".EmailDistributionListContactItem").data("emaildistributionlistid"));
+                if ($bjs.hasClass("btn-default")) {
+                    $bjs.removeClass("btn-default").addClass("btn-success");
+                    $bjs.closest(".EmailDistributionListContactItem").find(".EmailDistributionListContactEdit").removeClass("hidden");
+                }
+                else {
+                    $bjs.removeClass("btn-success").addClass("btn-default");
+                    $bjs.closest(".EmailDistributionListContactItem").find(".EmailDistributionListContactEdit").removeClass("hidden").addClass("hidden");
+                }
+            };
             this.SetDialogEvents = function ($bjs) {
                 $("#DialogBasicYes").one("click", function (evt) {
                     $("#DialogBasic").one('hidden.bs.modal', function () {

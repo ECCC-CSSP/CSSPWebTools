@@ -44,7 +44,7 @@
                             <button class="jbRainExceedanceAskToDelete RainExceedanceEditButons btn btn-default hidden" title="@RainExceedanceViewRes.Delete"><span class="glyphicon glyphicon-trash"></span></button>
                             <button class="jbRainExceedanceCopy RainExceedanceEditButons btn btn-default hidden" title="@RainExceedanceViewRes.Copy"><span class="glyphicon glyphicon-duplicate"></span></button>
                             <span class="RainExceedanceName">
-                                @((RainExceedanceModel.StartDate != null ? ((DateTime)RainExceedanceModel.StartDate).ToString("yyyy MMMM dd") : "") + " - " + RainExceedanceViewRes.LastModified + ": " + RainExceedanceModel.LastUpdateDate_UTC.ToString("yyyy MMMM dd"))
+                                @((RainExceedanceModel.StartDate_Local != null ? ((DateTime)RainExceedanceModel.StartDate_Local).ToString("yyyy MMMM dd") : "") + " - " + RainExceedanceViewRes.LastModified + ": " + RainExceedanceModel.LastUpdateDate_UTC.ToString("yyyy MMMM dd"))
                             </span>
                         </h4>
                     </div>

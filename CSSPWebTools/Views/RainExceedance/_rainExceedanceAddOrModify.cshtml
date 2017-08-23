@@ -22,7 +22,7 @@
                 }
                 else
                 {
-                    <h4>@((DateTime)rainExceedanceModel.StartDate).ToString("yyyy MMMM dd") - @((DateTime)rainExceedanceModel.StartDate).ToString("yyyy MMMM dd")</h4>
+                    <h4>@((DateTime)rainExceedanceModel.StartDate_Local).ToString("yyyy MMMM dd") - @((DateTime)rainExceedanceModel.StartDate_Local).ToString("yyyy MMMM dd")</h4>
                 }
             </div>
         </div>
@@ -50,7 +50,7 @@
                                         <select class="form-control" name="StartDateYear">
                                             @for (int i = DateTime.Now.Year - 5; i < DateTime.Now.Year + 5; i++)
                                             {
-                                                <option @((rainExceedanceModel.StartDate != null && ((DateTime)rainExceedanceModel.StartDate).Year == i) ? "selected=selected" : "") value="@i.ToString()">@i.ToString()</option>
+                                                <option @((rainExceedanceModel.StartDate_Local != null && ((DateTime)rainExceedanceModel.StartDate_Local).Year == i) ? "selected=selected" : "") value="@i.ToString()">@i.ToString()</option>
                                             }
                                         </select>
                                     </div>
@@ -61,7 +61,7 @@
                                         <select class="form-control" name="StartDateMonth">
                                             @for (int i = 1; i < 13; i++)
                                             {
-                                                <option @((rainExceedanceModel.StartDate != null && ((DateTime)rainExceedanceModel.StartDate).Month == i) ? "selected=selected" : "") value="@i.ToString()">@(CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(i))</option>
+                                                <option @((rainExceedanceModel.StartDate_Local != null && ((DateTime)rainExceedanceModel.StartDate_Local).Month == i) ? "selected=selected" : "") value="@i.ToString()">@(CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(i))</option>
                                             }
                                         </select>
                                     </div>
@@ -74,7 +74,7 @@
                                                 int NumberOfDaysInMonth = DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month);
                                                 for (int i = 1; i < NumberOfDaysInMonth + 1; i++)
                                                 {
-                                                    <option @((rainExceedanceModel.StartDate != null && ((DateTime)rainExceedanceModel.StartDate).Day == i ? "selected=selected" : "")) value="@i.ToString()">@i.ToString()</option>
+                                                    <option @((rainExceedanceModel.StartDate_Local != null && ((DateTime)rainExceedanceModel.StartDate_Local).Day == i ? "selected=selected" : "")) value="@i.ToString()">@i.ToString()</option>
                                                 }
                                             }
                                         </select>
@@ -92,7 +92,7 @@
                                         <select class="form-control" name="EndDateYear">
                                             @for (int i = DateTime.Now.Year - 5; i < DateTime.Now.Year + 5; i++)
                                             {
-                                                <option @((rainExceedanceModel.EndDate != null && ((DateTime)rainExceedanceModel.EndDate).Year == i) ? "selected=selected" : "") value="@i.ToString()">@i.ToString()</option>
+                                                <option @((rainExceedanceModel.EndDate_Local != null && ((DateTime)rainExceedanceModel.EndDate_Local).Year == i) ? "selected=selected" : "") value="@i.ToString()">@i.ToString()</option>
                                             }
                                         </select>
                                     </div>
@@ -103,7 +103,7 @@
                                         <select class="form-control" name="EndDateMonth">
                                             @for (int i = 1; i < 13; i++)
                                             {
-                                                <option @((rainExceedanceModel.EndDate != null && ((DateTime)rainExceedanceModel.EndDate).Month == i) ? "selected=selected" : "") value="@i.ToString()">@(CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(i))</option>
+                                                <option @((rainExceedanceModel.EndDate_Local != null && ((DateTime)rainExceedanceModel.EndDate_Local).Month == i) ? "selected=selected" : "") value="@i.ToString()">@(CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(i))</option>
                                             }
                                         </select>
                                     </div>
@@ -116,7 +116,7 @@
                                                 int NumberOfDaysInMonth2 = DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month);
                                                 for (int i = 1; i < NumberOfDaysInMonth2 + 1; i++)
                                                 {
-                                                    <option @((rainExceedanceModel.EndDate != null && ((DateTime)rainExceedanceModel.EndDate).Day == i ? "selected=selected" : "")) value="@i.ToString()">@i.ToString()</option>
+                                                    <option @((rainExceedanceModel.EndDate_Local != null && ((DateTime)rainExceedanceModel.EndDate_Local).Day == i ? "selected=selected" : "")) value="@i.ToString()">@i.ToString()</option>
                                                 }
                                             }
                                         </select>
@@ -128,8 +128,8 @@
                         <div class="form-group blockRightSpace">
                             <label for="RainMaximum" class="control-label">@RainExceedanceViewRes.RainMaximum (@UnitViewRes.Milliliters)</label>
                             <div>
-                                <input class="isnumber form-control" type="text" name="RainMaximum" value="@(rainExceedanceModel.RainMaximum != null
-                                                        ? ((double)rainExceedanceModel.RainMaximum).ToString("F1") : "")" />
+                                <input class="isnumber form-control" type="text" name="RainMaximum" value="@(rainExceedanceModel.RainMaximum_mm != null
+                                                        ? ((double)rainExceedanceModel.RainMaximum_mm).ToString("F1") : "")" />
                                 <span class="help-block"></span>
                             </div>
                         </div>
@@ -137,8 +137,8 @@
                         <div class="form-group blockRightSpace">
                             <label for="RainExtreme" class="control-label">@RainExceedanceViewRes.RainExtreme (@UnitViewRes.Milliliters)</label>
                             <div>
-                                <input class="isnumber form-control" type="text" name="RainExtreme" value="@(rainExceedanceModel.RainExtreme != null
-                                                        ? ((double)rainExceedanceModel.RainExtreme).ToString("F1") : "")" />
+                                <input class="isnumber form-control" type="text" name="RainExtreme" value="@(rainExceedanceModel.RainExtreme_mm != null
+                                                        ? ((double)rainExceedanceModel.RainExtreme_mm).ToString("F1") : "")" />
                                 <span class="help-block"></span>
                             </div>
                         </div>

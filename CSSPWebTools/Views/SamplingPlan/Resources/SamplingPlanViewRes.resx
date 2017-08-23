@@ -208,8 +208,8 @@
     <value>To have access to Web tools information and applications please contact a site Administrator as listed below.</value>
     <comment>home</comment>
   </data>
-  <data name="LabSheetTransferred" xml:space="preserve">
-    <value>Lab Sheet Transferred</value>
+  <data name="LabSheetsTransferred" xml:space="preserve">
+    <value>Lab sheets transferred</value>
   </data>
   <data name="ShowTransferredLabSheets" xml:space="preserve">
     <value>Show Transferred Lab Sheets</value>
@@ -475,14 +475,14 @@
   <data name="CalculatedHoldingTimeInHours" xml:space="preserve">
     <value>Calculated holding time (hours)</value>
   </data>
-  <data name="LabSheetHistory" xml:space="preserve">
-    <value>Lab sheet history</value>
+  <data name="LabSheetsHistory" xml:space="preserve">
+    <value>Lab sheets history</value>
   </data>
   <data name="ShowHistoryLabSheets" xml:space="preserve">
     <value>Show historical lab sheets</value>
   </data>
-  <data name="LabSheetWaitingToBeAccepted" xml:space="preserve">
-    <value>Lab Sheet waiting to be accepted</value>
+  <data name="LabSheetsWaitingToBeAccepted" xml:space="preserve">
+    <value>Lab sheets waiting to be accepted</value>
   </data>
   <data name="Save" xml:space="preserve">
     <value>Save</value>

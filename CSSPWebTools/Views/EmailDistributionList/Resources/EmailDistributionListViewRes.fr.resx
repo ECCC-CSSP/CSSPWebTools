@@ -121,7 +121,7 @@
     <value>Ajouter</value>
   </data>
   <data name="AddANewEmailDistributionList" xml:space="preserve">
-    <value>Add a new email distribution list (fr)</value>
+    <value>Ajouter une nouvelle liste de distribution de courriel</value>
   </data>
   <data name="AddNewContact" xml:space="preserve">
     <value>Ajouter un nouveau contact</value>
@@ -130,10 +130,10 @@
     <value>Agence</value>
   </data>
   <data name="CMPRainfallSeasonal" xml:space="preserve">
-    <value>CMP rainfall seasonal (fr)</value>
+    <value>PGC de pluie saisonier</value>
   </data>
   <data name="CMPWastewater" xml:space="preserve">
-    <value>CMP wastewater (fr)</value>
+    <value>PGC eaux usées</value>
   </data>
   <data name="Contacts" xml:space="preserve">
     <value>Contacts</value>
@@ -154,10 +154,10 @@
     <value>Liste de distribution de courriel</value>
   </data>
   <data name="EmergencyWastewater" xml:space="preserve">
-    <value>Emergency wastewater (fr)</value>
+    <value>Urgence eaux usées</value>
   </data>
   <data name="EmergencyWeather" xml:space="preserve">
-    <value>Emergency weather (fr)</value>
+    <value>Urgence météo</value>
   </data>
   <data name="Empty" xml:space="preserve">
     <value>Vide</value>
@@ -181,10 +181,10 @@
     <value>Nom de la région</value>
   </data>
   <data name="ReopeningAllTypes" xml:space="preserve">
-    <value>Reopening all types (fr)</value>
+    <value>Réouverture tous type</value>
   </data>
   <data name="ShowHideAdd" xml:space="preserve">
-    <value>Show or hide add (fr)</value>
+    <value>Montrer ou cacher ajouter</value>
   </data>
   <data name="To" xml:space="preserve">
     <value>à propos</value>
@@ -236,5 +236,8 @@
   </data>
   <data name="Weather" xml:space="preserve">
     <value>Météo</value>
+  </data>
+  <data name="SendEmail" xml:space="preserve">
+    <value>Envoyer un courriel</value>
   </data>
 </root>

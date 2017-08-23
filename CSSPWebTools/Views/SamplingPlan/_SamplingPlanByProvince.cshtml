@@ -66,7 +66,7 @@ else
                             </h4>
                         </div>
                         <div class="panel-body">
-                            @SamplingPlanViewRes.LabSheetWaitingToBeAccepted (@SamplingPlanAndFilesAndLabSheetIDListModel.LabSheetTransferredCount)
+                            @SamplingPlanViewRes.LabSheetsWaitingToBeAccepted (@SamplingPlanAndFilesAndLabSheetIDListModel.LabSheetTransferredCount)
                             @if (SamplingPlanAndFilesAndLabSheetIDListModel.LabSheetTransferredCount > 0)
                             {
                                 <button class="jbSamplingPlanShowTransferredLabSheets SamplingPlanEditButons btn btn-default" title="@SamplingPlanViewRes.ShowTransferredLabSheets"><span class="glyphicon glyphicon-arrow-down"></span></button>
@@ -74,7 +74,7 @@ else
                             <div class="LabSheetsTransferredDiv">
 
                             </div>
-                            @SamplingPlanViewRes.LabSheetHistory (@SamplingPlanAndFilesAndLabSheetIDListModel.LabSheetHistoryCount)
+                            @SamplingPlanViewRes.LabSheetsHistory (@SamplingPlanAndFilesAndLabSheetIDListModel.LabSheetHistoryCount)
                             @if (SamplingPlanAndFilesAndLabSheetIDListModel.LabSheetHistoryCount > 0)
                             {
                                 <button class="jbSamplingPlanShowHistoryLabSheets SamplingPlanEditButons btn btn-default" title="@SamplingPlanViewRes.ShowHistoryLabSheets"><span class="glyphicon glyphicon-hourglass"></span></button>

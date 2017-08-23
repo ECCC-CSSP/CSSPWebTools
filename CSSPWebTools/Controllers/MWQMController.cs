@@ -319,24 +319,6 @@ namespace CSSPWebTools.Controllers
             return Json(mwqmSiteSampleStatModelList, JsonRequestBehavior.AllowGet); 
         }
 
-        [HttpPost]
-        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
-        public JsonResult MWQMSubsectorAnalysisSaveRainAndRunsToRemoveFromStatForReportJSON(FormCollection fc)
-        {
-            MWQMSubsectorModel mwqmSubsectorModel = _MWQMSubsectorService.MWQMSubsectorAnalysisSaveRainAndRunsToRemoveFromStatForReport(fc);
-
-            return Json(mwqmSubsectorModel.Error, JsonRequestBehavior.AllowGet);
-        }
-
-        [HttpPost]
-        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
-        public JsonResult MWQMSubsectorAnalysisSaveDatesAndRunsCountAndSelectFullYearForReport(FormCollection fc)
-        {
-            MWQMSubsectorModel mwqmSubsectorModel = _MWQMSubsectorService.MWQMSubsectorAnalysisSaveDatesAndRunsCountAndSelectFullYearForReport(fc);
-
-            return Json(mwqmSubsectorModel.Error, JsonRequestBehavior.AllowGet);
-        }
-
         #endregion Functions public
 
 

@@ -91,9 +91,11 @@ else
     data-emaildistributionlistcontactid="0"
     data-emaildistributionlistid="@EmailDistributionListID">
     <button class="jbEmailDistributionListContactAddNewContact btn btn-default">@EmailDistributionListViewRes.AddNewContact</button>
-    <div class="EmailDistributionListContactEdit hidden"></div>
+    <div class="EmailDistributionListContactEdit hidden">
+        @Html.Action("_emailDistributionListContactAddOrModify", "EmailDistributionList", new { EmailDistributionListID = EmailDistributionListID, EmailDistributionListContactID = 0 })
+    </div>
 </div>
 
 <div>
-    <a href="mailto:@(sbTo.ToString())?cc=@(sbCC.ToString())">Send Email</a>
+    <a href="mailto:@(sbTo.ToString())?cc=@(sbCC.ToString())">@EmailDistributionListViewRes.SendEmail</a>
 </div>

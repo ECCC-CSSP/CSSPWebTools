@@ -289,7 +289,7 @@ var CSSP;
                             break;
                         case "jbEmailDistributionListContactAddNewContact":
                             {
-                                cssp.EmailDistributionList.LoadEmailDistributionListContactAddOrModify($bjs);
+                                cssp.EmailDistributionList.ShowHideEmailDistributionListContactAdd($bjs);
                             }
                             break;
                         case "jbEmailDistributionListGenerateExcelFile":

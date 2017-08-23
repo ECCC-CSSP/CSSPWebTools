@@ -11,6 +11,7 @@
     int ParentTVItemID = (int)ViewBag.ParentTVItemID;
     int TVItemID = (int)ViewBag.TVItemID;
     TVTypeEnum TVType = (TVTypeEnum)ViewBag.TVType;
+    string TVTypeText = (string)ViewBag.TVTypeText;
 
     StringBuilder sbMapInfoPoint = new StringBuilder();
     StringBuilder sbMapInfoPolyline = new StringBuilder();
@@ -50,7 +51,7 @@
             </div>
             <div class="panel-body">
                 <div class="form-group">
-                    <label class="control-label" for="TVText">@TVType - @TVItemViewRes.Name</label>
+                    <label class="control-label" for="TVText">@TVTypeText - @TVItemViewRes.Name</label>
                     <a href="" class="jaPopover text-info elementSpacing" type="button" tabindex="1" data-trigger="focus" data-container="body" data-toggle="popover" data-placement="right" data-content="@TVItemViewRes.NameDescriptionPopOver">
                         <span class="glyphicon glyphicon-info-sign"></span>
                     </a>
@@ -63,7 +64,7 @@
                 <div class="form-group">
                     <label class="checkbox-inline" for="IsActive">
                        <input name="IsActive" id="IsActive" type="checkbox" @(tvItemModel != null && tvItemModel.IsActive == true ? "checked=checked" : "") />
-                        <span>@TVType - @TVItemViewRes.IsActive</span>
+                        <span>@TVTypeText - @TVItemViewRes.IsActive</span>
                     </label>
                 </div>
                 <div class="form-group">
