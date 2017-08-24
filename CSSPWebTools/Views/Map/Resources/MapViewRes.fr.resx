@@ -357,4 +357,7 @@
   <data name="Point" xml:space="preserve">
     <value>Point</value>
   </data>
+  <data name="MapHelper" xml:space="preserve">
+    <value>Aide carte</value>
+  </data>
 </root>

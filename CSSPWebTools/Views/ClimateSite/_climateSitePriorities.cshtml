@@ -41,14 +41,14 @@
     </div>
     <table class="table table-bordered">
         <tr>
-            <th>Climate Site</th>
+            <th>@ClimateSiteViewRes.ClimateSite</th>
             @for (int i = SmallestYearOfSampling; i <= CurrentYear; i++)
             {
                 <th>@i</th>
             }
         </tr>
         <tr>
-            <td>Has runs</td>
+            <td>@ClimateSiteViewRes.HasRuns</td>
             @for (int i = SmallestYearOfSampling; i <= CurrentYear; i++)
             {
                 <th class="ClimateSiteStatus">

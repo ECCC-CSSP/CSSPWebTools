@@ -174,7 +174,7 @@
     <comment>TIMI</comment>
   </data>
   <data name="MWQMSites" xml:space="preserve">
-    <value>Postes de SQE</value>
+    <value>Sites de SQE</value>
     <comment>TIMI</comment>
   </data>
   <data name="P90" xml:space="preserve">
@@ -190,7 +190,7 @@
     <comment>TIMI</comment>
   </data>
   <data name="PolSourceSites" xml:space="preserve">
-    <value>Lieux des sources de pollution</value>
+    <value>Sites des sources de pollution</value>
     <comment>TIMI</comment>
   </data>
   <data name="PSFCOver260" xml:space="preserve">

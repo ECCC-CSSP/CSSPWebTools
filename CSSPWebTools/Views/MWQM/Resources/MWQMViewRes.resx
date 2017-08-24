@@ -312,8 +312,8 @@
   <data name="MWQMRunSampleData" xml:space="preserve">
     <value>MWQM Run Sample Data</value>
   </data>
-  <data name="RunGereralInformation" xml:space="preserve">
-    <value>Run Gereral Information</value>
+  <data name="RunGeneralInformation" xml:space="preserve">
+    <value>Run General Information</value>
   </data>
   <data name="SampleMatrix" xml:space="preserve">
     <value>Sample matrix</value>

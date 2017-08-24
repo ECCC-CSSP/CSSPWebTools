@@ -118,13 +118,13 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ADashBetweenTwoYearsRepresentFromYearToYearInclusively" xml:space="preserve">
-    <value>Un tableau [-] entre deux ans représente: d'une année à l'autre inclusivement</value>
+    <value>Un tiret [-] entre deux ans représente: d'une année à l'autre inclusivement</value>
   </data>
   <data name="AnySpaceWillBeOmitted" xml:space="preserve">
     <value>Tout espace sera omis</value>
   </data>
   <data name="AnythingUnrecognizedTheUserWillReceiveAnErrorMessage" xml:space="preserve">
-    <value>Tout n'est pas reconnu - l'utilisateur recevra un message d'erreur</value>
+    <value>N’importe quoi qui n'est pas reconnu - l'utilisateur recevra un message d'erreur</value>
   </data>
   <data name="AYearBetweenTwoCommasRepresentThatYear" xml:space="preserve">
     <value>Une année entre deux virgules représente cette année</value>
@@ -139,7 +139,7 @@
     <value>Sites climatiques et années d'utilisation</value>
   </data>
   <data name="ClimateSitesDataForEachRun" xml:space="preserve">
-    <value>Données sur les sites climatiques pour chaque course</value>
+    <value>Données sur les sites climatiques pour chaque tournée</value>
   </data>
   <data name="ClimateSitesPriorities" xml:space="preserve">
     <value>Priorités des sites climatiques</value>
@@ -148,7 +148,7 @@
     <value>Sites climatiques à utiliser pour le sous-secteur</value>
   </data>
   <data name="ClimateSitesToUseForSubsectorVerifyAndSave" xml:space="preserve">
-    <value>Les sites climatiques à utiliser pour le sous-secteur vérifient et enregistrent</value>
+    <value>Les sites climatiques à utiliser pour le sous-secteur - (vérifier et enregistrer)</value>
   </data>
   <data name="ClimateSitesUsedAndWithinDistance" xml:space="preserve">
     <value>Sites climatiques utilisés et à distance</value>
@@ -241,7 +241,7 @@
     <value>Années d'utilisation</value>
   </data>
   <data name="GetClimateDataForRunsOfYear_" xml:space="preserve">
-    <value>Obtenir des données climatiques pour les années de l'année {0}</value>
+    <value>Obtenir des données climatiques pour l'année {0}</value>
   </data>
   <data name="SaveButtonAtBottomOfPage" xml:space="preserve">
     <value>Bouton Enregistrer au bas de la page</value>
@@ -308,5 +308,11 @@
   </data>
   <data name="SetClimateSitePriorityByDistance" xml:space="preserve">
     <value>Définir la priorité du site climatique par distance</value>
+  </data>
+  <data name="ClimateSite" xml:space="preserve">
+    <value>Site climatique</value>
+  </data>
+  <data name="HasRuns" xml:space="preserve">
+    <value>Has runs</value>
   </data>
 </root>

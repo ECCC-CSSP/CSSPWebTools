@@ -177,11 +177,11 @@
     <value>CF</value>
     <comment>MWQMS</comment>
   </data>
-  <data name="FecalColiformsLessOrEqualThan14" xml:space="preserve">
+  <data name="FCLessOrEqualThan14" xml:space="preserve">
     <value>CF  &lt;= 14</value>
     <comment>MWQMS</comment>
   </data>
-  <data name="FecalColiformsMoreThan14" xml:space="preserve">
+  <data name="FCMoreThan14" xml:space="preserve">
     <value>CF  &gt; 14</value>
     <comment>MWQMS</comment>
   </data>
@@ -232,10 +232,6 @@
   <data name="Increase" xml:space="preserve">
     <value>augmenter</value>
     <comment>MWQMSC</comment>
-  </data>
-  <data name="Abbreviation" xml:space="preserve">
-    <value>Abréviation</value>
-    <comment>MWQMST MWQMSC</comment>
   </data>
   <data name="Abbreviations" xml:space="preserve">
     <value>Abréviations</value>
@@ -329,7 +325,7 @@
     <value>dernières 72 heures</value>
   </data>
   <data name="RunSamplingCrewInitials" xml:space="preserve">
-    <value>Initiales de l'équipe de la collecte d'échantillons de la tournée</value>
+    <value>Initiales de l’équipe d’échantillonnage</value>
   </data>
   <data name="SelectSeaState" xml:space="preserve">
     <value>Choisir l'état de la mer</value>
@@ -350,7 +346,7 @@
     <value>Analyse de laboratoire /  Bain 1 Incubation</value>
   </data>
   <data name="RunTime" xml:space="preserve">
-    <value>Temps de la tournée</value>
+    <value>Durée de la tournée</value>
   </data>
   <data name="SelectTheAnalysisMethod" xml:space="preserve">
     <value>Choisir la méthode analytique</value>
@@ -398,13 +394,13 @@
     <value>Information - Analyse en laboratoire</value>
   </data>
   <data name="LaboratorySampleApprovalDateAndTime" xml:space="preserve">
-    <value>Date et heure d'approbation de l'échantillon de laboratoire</value>
+    <value>Date et heure d'approbation des échantillons</value>
   </data>
   <data name="RunSamplesApprovedBy" xml:space="preserve">
     <value>Échantillons de la tournée approuvés par</value>
   </data>
   <data name="SampleMatrix" xml:space="preserve">
-    <value>Milieu de l'échantillonnage</value>
+    <value>Matrice de l’échantillon</value>
   </data>
   <data name="SeaState" xml:space="preserve">
     <value>État de la mer</value>
@@ -440,7 +436,7 @@
     <value>Commentaire de la tournée</value>
   </data>
   <data name="Charts" xml:space="preserve">
-    <value>Graphique</value>
+    <value>Graphiques</value>
   </data>
   <data name="Data" xml:space="preserve">
     <value>Données</value>
@@ -690,5 +686,17 @@
   </data>
   <data name="ViewData" xml:space="preserve">
     <value>Montrer les données</value>
+  </data>
+  <data name="Laboratory" xml:space="preserve">
+    <value>Laboratoire</value>
+  </data>
+  <data name="MWQMRunSampleData" xml:space="preserve">
+    <value>Données d'échantillonnage de tournée SQEM</value>
+  </data>
+  <data name="MWQMSite" xml:space="preserve">
+    <value>Site SQEM</value>
+  </data>
+  <data name="RunGeneralInformation" xml:space="preserve">
+    <value>Information générale de la tournée</value>
   </data>
 </root>
