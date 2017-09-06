@@ -428,6 +428,7 @@ namespace CSSPWebTools.Controllers
                                 SubsectorTVItemID = labSheetModelAndA1SheetList[0].LabSheetA1Sheet.SubsectorTVItemID,
                                 DateTime_Local = new DateTime(Year, Month, Day),
                                 RunSampleType = labSheetModelAndA1SheetList[0].LabSheetA1Sheet.SampleType,
+                                RunNumber = labSheetModelList[0].RunNumber,
                             };
 
                             MWQMRunModel mwqmRunModel = mwqmRunService.GetMWQMRunModelExistDB(mwqmRunModelNew);

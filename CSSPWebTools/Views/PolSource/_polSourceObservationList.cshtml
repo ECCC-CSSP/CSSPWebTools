@@ -30,6 +30,7 @@
                     </button>
                     <form class="hidden" id="PolSourceObservationAddOrModifyForm" action="PolSource/PolSourceObservationAddOrModifyJSON" method="post">
                         @Html.AntiForgeryToken()
+                        <input type="hidden" name="PolSourceSiteID" value="@polSourceObservationModel.PolSourceSiteID" />
                         <input type="hidden" name="PolSourceSiteTVItemID" value="@PolSourceSiteTVItemID" />
                         <input type="hidden" name="PolSourceObservationID" value="@polSourceObservationModel.PolSourceObservationID" />
 
