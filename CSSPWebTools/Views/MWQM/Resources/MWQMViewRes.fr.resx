@@ -699,4 +699,10 @@
   <data name="RunGeneralInformation" xml:space="preserve">
     <value>Information générale de la tournée</value>
   </data>
+  <data name="SubsectorDescription" xml:space="preserve">
+    <value>Description du sous-secteur</value>
+  </data>
+  <data name="SubsectorLogBook" xml:space="preserve">
+    <value>Journal de bord du sous-secteur</value>
+  </data>
 </root>

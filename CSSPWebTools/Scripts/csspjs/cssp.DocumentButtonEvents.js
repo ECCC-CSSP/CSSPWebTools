@@ -446,6 +446,11 @@ var CSSP;
                                 cssp.Infrastructure.ShowHideEditButtons($bjs);
                             }
                             break;
+                        case "jbMWQMSubsectorShowEdit":
+                            {
+                                cssp.MWQMRun.MWQMSubsectorShowEdit($bjs);
+                            }
+                            break;
                         case "jbLogin":
                             {
                                 cssp.Login.FormSubmit();
@@ -694,6 +699,11 @@ var CSSP;
                         case "jbMWQMRunAddOrModify":
                             {
                                 cssp.MWQMRun.MWQMRunAddOrModify($bjs);
+                            }
+                            break;
+                        case "jbMWQMSubsectorAddOrModify":
+                            {
+                                cssp.MWQMRun.MWQMSubsectorAddOrModify($bjs);
                             }
                             break;
                         case "jbMWQMRunDelete":

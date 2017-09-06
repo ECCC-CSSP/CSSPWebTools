@@ -388,4 +388,7 @@
   <data name="EmailDistributionList" xml:space="preserve">
     <value>Email distribution list</value>
   </data>
+  <data name="LogBook" xml:space="preserve">
+    <value>Log Book</value>
+  </data>
 </root>

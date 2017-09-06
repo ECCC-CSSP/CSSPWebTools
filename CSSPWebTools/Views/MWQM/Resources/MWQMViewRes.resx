@@ -717,4 +717,10 @@
   <data name="ViewData" xml:space="preserve">
     <value>View data</value>
   </data>
+  <data name="SubsectorDescription" xml:space="preserve">
+    <value>Subsector description</value>
+  </data>
+  <data name="SubsectorLogBook" xml:space="preserve">
+    <value>Subsector log book</value>
+  </data>
 </root>

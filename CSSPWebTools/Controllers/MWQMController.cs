@@ -48,6 +48,34 @@ namespace CSSPWebTools.Controllers
         #endregion Overrides
 
         #region Functions public
+        [HttpGet]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public PartialViewResult _mwqmSubsector(string Q)
+        {
+            SetArgs(Q);
+            ViewBag.URLModel = urlModel;
+            ViewBag.MWQMController = _MWQMController;
+            ViewBag.MWQMSubsectorModel = null;
+            ViewBag.MWQMSubsectorLanguageModel = null;
+
+            MWQMSubsectorModel mwqmSubsectorModel = _MWQMSubsectorService.GetMWQMSubsectorModelWithMWQMSubsectorTVItemIDDB(urlModel.TVItemIDList[0]);
+            if (string.IsNullOrWhiteSpace(mwqmSubsectorModel.Error))
+            {
+                ViewBag.MWQMSubsectorModel = mwqmSubsectorModel;
+
+                MWQMSubsectorLanguageModel mwqmSubsectorLanguageModel = _MWQMSubsectorService._MWQMSubsectorLanguageService.GetMWQMSubsectorLanguageModelWithMWQMSubsectorIDAndLanguageDB(mwqmSubsectorModel.MWQMSubsectorID, LanguageRequest);
+                if (string.IsNullOrWhiteSpace(mwqmSubsectorLanguageModel.Error))
+                {
+                    ViewBag.MWQMSubsectorLanguageModel = mwqmSubsectorLanguageModel;
+                }
+            }
+
+            ViewBag.IsShowMoreInfo = (GetURLVarShowEnumStr(URLVarShowEnum.ShowMoreInfo) == "0" ? false : true);
+            ViewBag.IsShowMap = (GetURLVarShowEnumStr(URLVarShowEnum.ShowMap) == "0" ? false : true);
+
+            return PartialView();
+        }
+
 
         [HttpGet]
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
@@ -92,18 +120,18 @@ namespace CSSPWebTools.Controllers
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
         public JsonResult MWQMRunDeleteJSON(int MWQMRunTVItemID)
         {
-           int count = _MWQMSampleService.GetMWQMSampleModelListWithMWQMRunTVItemIDDB(MWQMRunTVItemID).Count();
+            int count = _MWQMSampleService.GetMWQMSampleModelListWithMWQMRunTVItemIDDB(MWQMRunTVItemID).Count();
 
-           string retStr = "";
-           if (count > 0)
-           {
-               retStr = ControllerRes.AllMWQMSamplesNeedsToBeDeletedBeforeDeletingTheRun;
-           }
-           else
-           {
-               MWQMRunModel mwqmRunModel = _MWQMRunService.PostDeleteMWQMRunTVItemIDDB(MWQMRunTVItemID);
-               retStr = mwqmRunModel.Error;
-           }
+            string retStr = "";
+            if (count > 0)
+            {
+                retStr = ControllerRes.AllMWQMSamplesNeedsToBeDeletedBeforeDeletingTheRun;
+            }
+            else
+            {
+                MWQMRunModel mwqmRunModel = _MWQMRunService.PostDeleteMWQMRunTVItemIDDB(MWQMRunTVItemID);
+                retStr = mwqmRunModel.Error;
+            }
 
             return Json(retStr, JsonRequestBehavior.AllowGet);
         }
@@ -123,9 +151,20 @@ namespace CSSPWebTools.Controllers
         public JsonResult MWQMRunAddOrModifyJSON(FormCollection fc)
         {
             MWQMRunModel mwqmRunModel = _MWQMRunService.MWQMRunAddOrModifyDB(fc);
-            
+
             return Json(mwqmRunModel, JsonRequestBehavior.AllowGet);
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public JsonResult MWQMSubsectorAddOrModifyJSON(FormCollection fc)
+        {
+            MWQMSubsectorModel mwqmSubsectorModel = _MWQMSubsectorService.MWQMSubsectorAddOrModifyDB(fc);
+
+            return Json(mwqmSubsectorModel, JsonRequestBehavior.AllowGet);
+        }
+
 
         [HttpPost]
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
@@ -315,8 +354,8 @@ namespace CSSPWebTools.Controllers
             ViewBag.MWQMController = _MWQMController;
 
             List<MWQMSiteSampleFCModel> mwqmSiteSampleStatModelList = _MWQMSiteService.GetMWQMSiteSamplesWithMovingAverageDB(MWQMSiteTVItemID, MovingAverage, 10);
-           
-            return Json(mwqmSiteSampleStatModelList, JsonRequestBehavior.AllowGet); 
+
+            return Json(mwqmSiteSampleStatModelList, JsonRequestBehavior.AllowGet);
         }
 
         #endregion Functions public

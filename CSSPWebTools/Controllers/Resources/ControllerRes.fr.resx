@@ -380,4 +380,7 @@
   <data name="EmailDistributionList" xml:space="preserve">
     <value>Liste de distribution des courriels</value>
   </data>
+  <data name="LogBook" xml:space="preserve">
+    <value>Journal de bord</value>
+  </data>
 </root>

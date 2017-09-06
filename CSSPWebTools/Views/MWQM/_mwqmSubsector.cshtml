@@ -1,0 +1,65 @@
+﻿@using CSSPWebTools.Models;
+@using CSSPWebTools.Views.MWQM.Resources;
+@using CSSPWebTools.Views.Shared.Resources;
+@using CSSPWebTools.Controllers;
+@using CSSPEnumsDLL.Enums;
+@using CSSPEnumsDLL.Services;
+@using CSSPModelsDLL.Models;
+
+@{
+    URLModel urlModel = (URLModel)ViewBag.URLModel;
+    string BaseURL = (string)ViewBag.BaseURL;
+    MWQMController mwqmController = (MWQMController)ViewBag.MWQMController;
+    MWQMSubsectorModel mwqmSubsectorModel = (MWQMSubsectorModel)ViewBag.MWQMSubsectorModel;
+    MWQMSubsectorLanguageModel mwqmSubsectorLanguageModel = (MWQMSubsectorLanguageModel)ViewBag.MWQMSubsectorLanguageModel;
+}
+<div>
+    <div class="MWQMSubsectorDiv">
+        <div class="MWQMSubsectorInfoDiv">
+            <div class="h3">@MWQMViewRes.SubsectorDescription</div>
+            <blockquote>
+                @mwqmSubsectorLanguageModel.SubsectorDesc
+            </blockquote>
+            <div class="h3">@MWQMViewRes.SubsectorLogBook</div>
+            <blockquote>
+                @Html.Raw(string.IsNullOrWhiteSpace(mwqmSubsectorLanguageModel.LogBook) ? MWQMViewRes.Empty : mwqmSubsectorLanguageModel.LogBook.Replace("\r\n", @"<br />"))
+            </blockquote>
+        </div>
+        <div class="MWQMSubsectorEditDiv hidden">
+            <form id="MWQMSubsectorAddOrModifyForm" method="post" role="form" action="MWQM/MWQMSubsectorAddOrModifyJSON">
+                @Html.AntiForgeryToken()
+                <input type="hidden" name="SubsectorTVItemID" value="@urlModel.TVItemIDList[0]" />
+                <fieldset>
+                    <legend><span>@MWQMViewRes.Modify</span></legend>
+                    <div class="blockMargin">
+                        <div class="form-group">
+                            <label for="SubsectorDesc" class="control-label">@MWQMViewRes.SubsectorDescription</label>
+                            <div>
+                                <textarea type="text" name="SubsectorDesc" cols="100" rows="1">@mwqmSubsectorLanguageModel.SubsectorDesc</textarea>
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="LogBook" class="control-label">@MWQMViewRes.SubsectorLogBook</label>
+                            <div>
+                                <textarea type="text" name="LogBook" cols="100" rows="10">@mwqmSubsectorLanguageModel.LogBook</textarea>
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button class="jbMWQMSubsectorAddOrModify btn btn-primary" type="submit">
+                            <span class="glyphicon glyphicon-check"></span>
+                            &nbsp;@MWQMViewRes.Save
+                        </button>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(function () {
+            cssp.MWQMRun.Init();
+        });
+    </script>
+</div>

@@ -1600,6 +1600,24 @@ namespace CSSPWebTools.Views.MWQM.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Subsector description.
+        /// </summary>
+        public static string SubsectorDescription {
+            get {
+                return ResourceManager.GetString("SubsectorDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Subsector log book.
+        /// </summary>
+        public static string SubsectorLogBook {
+            get {
+                return ResourceManager.GetString("SubsectorLogBook", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Temp.
         /// </summary>
         public static string Temp {

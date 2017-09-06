@@ -1085,6 +1085,41 @@ namespace CSSPWebTools.Controllers
             return viewTVItemIconListList;
         }
         [NonAction]
+        public List<List<IconInfo>> FillLogBookIcons(TVAuthEnum TVAuth)
+        {
+            List<List<IconInfo>> viewTVItemIconListList = new List<List<IconInfo>>();
+
+            viewTVItemIconListList.Add(FillTVItemMoreInfoIcons(TVAuth));
+
+            if (TVAuth >= TVAuthEnum.Write)
+            {
+                viewTVItemIconListList.Add(FillLogBookEditIcons(TVAuth));
+            }
+
+            viewTVItemIconListList.Add(FillTVItemMapIcons(TVAuth));
+
+            return viewTVItemIconListList;
+        }
+        [NonAction]
+        public List<IconInfo> FillLogBookEditIcons(TVAuthEnum TVAuth)
+        {
+            List<IconInfo> viewTVItemIconList = new List<IconInfo>();
+
+            if (TVAuth >= TVAuthEnum.Write)
+            {
+                viewTVItemIconList.Add(new IconInfo()
+                {
+                    URL = "",
+                    IsVisible = true,
+                    jbClassName = "jbMWQMSubsectorShowEdit btn btn-default",
+                    Icon = "glyphicon glyphicon-edit",
+                    ToolTip = ControllerRes.Edit,
+                });
+            }
+
+            return viewTVItemIconList;
+        }
+        [NonAction]
         public List<IconInfo> FillTideSiteEditIcons(TVAuthEnum TVAuth)
         {
             List<IconInfo> viewTVItemIconList = new List<IconInfo>();
@@ -1874,6 +1909,10 @@ namespace CSSPWebTools.Controllers
                                 {
                                     return new ContentActionAndController() { Action = "_tideSiteList", Controller = "TideSite" };
                                 }
+                            case "8": // Subsector LogBook
+                                {
+                                    return new ContentActionAndController() { Action = "_mwqmSubsector", Controller = "MWQM" };
+                                }
                             default:
                                 {
                                     return new ContentActionAndController() { Action = "_content", Controller = "TVItem" };
@@ -2563,6 +2602,19 @@ namespace CSSPWebTools.Controllers
                             ShowTVType = TVTypeEnum.TideSite,
                             Stat = _TVItemStatService.GetTVItemStatModelWithTVItemIDAndTVTypeDB(tvItemModelLocationCurrent.TVItemID, TVTypeEnum.TideSite).ChildCount,
                             viewTVItemIconListList = FillTideSiteIcons(TVAuth),
+                        });
+                        ViewTVItemInfoList.Add(new TabInfo()
+                        {
+                            URL = CreateVariableShowHashURL(URLVarShowEnum.ShowSubsectorTab, "8"),
+                            Text = ControllerRes.LogBook,
+                            Icon = "",
+                            Active = tabActive,
+                            ToolTip = "",
+                            Action = "_content",
+                            Controller = "TVItem",
+                            ShowTVType = TVTypeEnum.MWQMSite,
+                            Stat = 0,
+                            viewTVItemIconListList = FillLogBookIcons(TVAuth),
                         });
                     }
                     break;

@@ -274,7 +274,7 @@ module CSSP {
                 $("select[name='LabRunSampleApprovalDay']").html(optHTMLArr.join(""));
             });
         };
-            public MWQMRunAddOrModify: Function = (): void => {
+        public MWQMRunAddOrModify: Function = (): void => {
             var $form: JQuery = $("#MWQMRunAddOrModifyForm");
             if ($form.length == 0) {
                 cssp.Dialog.ShowDialogErrorWithCouldNotFind_Within_("#MWQMRunAddOrModifyForm", "MWQMRunEditDiv");
@@ -298,6 +298,42 @@ module CSSP {
                     });
             }
 
+        };
+        public MWQMSubsectorAddOrModify: Function = (): void => {
+            var $form: JQuery = $("#MWQMSubsectorAddOrModifyForm");
+            if ($form.length == 0) {
+                cssp.Dialog.ShowDialogErrorWithCouldNotFind_Within_("#MWQMSubsectorAddOrModifyForm", "MWQMSubsectorEditDiv");
+                return;
+            }
+
+            if (!$form.valid || $form.valid()) {
+                var command: string = $form.attr("action");
+                $.post(cssp.BaseURL + command, $form.serializeArray())
+                    .done((ret) => {
+                        if (ret.Error) {
+                            cssp.Dialog.ShowDialogErrorWithError(ret.Error);
+                        }
+                        else {
+                            cssp.Helper.PageRefresh();
+                        }
+                    })
+                    .fail(() => {
+                        cssp.Dialog.ShowDialogErrorWithFail(command);
+                    });
+            }
+
+        };
+        public MWQMSubsectorShowEdit: Function = ($bjs: JQuery): void => {
+            if ($bjs.hasClass("btn-default")) {
+                $bjs.removeClass("btn-default").addClass("btn-success");
+                $bjs.closest("#ViewDiv").find(".MWQMSubsectorInfoDiv").removeClass("hidden").addClass("hidden");
+                $bjs.closest("#ViewDiv").find(".MWQMSubsectorEditDiv").removeClass("hidden");
+            }
+            else {
+                $bjs.removeClass("btn-success").addClass("btn-default");
+                $bjs.closest("#ViewDiv").find(".MWQMSubsectorInfoDiv").removeClass("hidden");
+                $bjs.closest("#ViewDiv").find(".MWQMSubsectorEditDiv").removeClass("hidden").addClass("hidden");
+            }
         };
         public MWQMRunDelete: Function = ($bjs: JQuery): void => {
             var command: string = "MWQM/MWQMRunDeleteJSON";

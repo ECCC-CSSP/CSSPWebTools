@@ -24,6 +24,7 @@
     <TypeScriptToolsVersion>2.2</TypeScriptToolsVersion>
     <UseGlobalApplicationHostFile />
     <TargetFrameworkProfile />
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -742,6 +743,7 @@
     <Content Include="Views\RainExceedance\_rainExceedanceProvince.cshtml" />
     <Content Include="Views\MikeScenario\_mikeScenarioGenerateResultsGetFileDetail.cshtml" />
     <Content Include="Views\MikeScenario\_mikeScenarioGenerateResults_New.cshtml" />
+    <Content Include="Views\MWQM\_mwqmSubsector.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

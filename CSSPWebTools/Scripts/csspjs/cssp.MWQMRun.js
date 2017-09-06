@@ -263,6 +263,40 @@ var CSSP;
                     });
                 }
             };
+            this.MWQMSubsectorAddOrModify = function () {
+                var $form = $("#MWQMSubsectorAddOrModifyForm");
+                if ($form.length == 0) {
+                    cssp.Dialog.ShowDialogErrorWithCouldNotFind_Within_("#MWQMSubsectorAddOrModifyForm", "MWQMSubsectorEditDiv");
+                    return;
+                }
+                if (!$form.valid || $form.valid()) {
+                    var command = $form.attr("action");
+                    $.post(cssp.BaseURL + command, $form.serializeArray())
+                        .done(function (ret) {
+                        if (ret.Error) {
+                            cssp.Dialog.ShowDialogErrorWithError(ret.Error);
+                        }
+                        else {
+                            cssp.Helper.PageRefresh();
+                        }
+                    })
+                        .fail(function () {
+                        cssp.Dialog.ShowDialogErrorWithFail(command);
+                    });
+                }
+            };
+            this.MWQMSubsectorShowEdit = function ($bjs) {
+                if ($bjs.hasClass("btn-default")) {
+                    $bjs.removeClass("btn-default").addClass("btn-success");
+                    $bjs.closest("#ViewDiv").find(".MWQMSubsectorInfoDiv").removeClass("hidden").addClass("hidden");
+                    $bjs.closest("#ViewDiv").find(".MWQMSubsectorEditDiv").removeClass("hidden");
+                }
+                else {
+                    $bjs.removeClass("btn-success").addClass("btn-default");
+                    $bjs.closest("#ViewDiv").find(".MWQMSubsectorInfoDiv").removeClass("hidden");
+                    $bjs.closest("#ViewDiv").find(".MWQMSubsectorEditDiv").removeClass("hidden").addClass("hidden");
+                }
+            };
             this.MWQMRunDelete = function ($bjs) {
                 var command = "MWQM/MWQMRunDeleteJSON";
                 var MWQMRunTVItemID = parseInt($bjs.closest("#ViewDiv").data("tvitemid"));
