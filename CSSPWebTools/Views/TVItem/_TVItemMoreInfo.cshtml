@@ -462,10 +462,10 @@
                         </b>)
                     </span>
                     <span>@TVItemViewRes.UNSS (<b>@string.Format("{0:F0}", tvItemMoreInfoMWQMSiteModel.SampCount)</b>)</span>
-                    <span>@TVItemViewRes.MinFC (<b>@string.Format("{0:F0}", tvItemMoreInfoMWQMSiteModel.MinFC)</b>)</span>
-                    <span>@TVItemViewRes.MaxFC (<b>@string.Format("{0:F0}", tvItemMoreInfoMWQMSiteModel.MaxFC)</b>)</span>
-                    <span>@TVItemViewRes.GeometricMean (<b>@string.Format("{0:F1}", tvItemMoreInfoMWQMSiteModel.GeoMean)</b>)</span>
-                    <span>@TVItemViewRes.Median (<b>@string.Format("{0:F1}", tvItemMoreInfoMWQMSiteModel.Median)</b>)</span>
+                    <span>@TVItemViewRes.MinFC (<b>@(tvItemMoreInfoMWQMSiteModel.MinFC < 2.0f ? "<2" : string.Format("{0:F0}", tvItemMoreInfoMWQMSiteModel.MinFC))</b>)</span>
+                    <span>@TVItemViewRes.MaxFC (<b>@(tvItemMoreInfoMWQMSiteModel.MaxFC < 2.0f ? "<2" : string.Format("{0:F0}", tvItemMoreInfoMWQMSiteModel.MaxFC))</b>)</span>
+                    <span>@TVItemViewRes.GeometricMean (<b>@(tvItemMoreInfoMWQMSiteModel.GeoMean < 2.0f ? "<2" : string.Format("{0:F1}", tvItemMoreInfoMWQMSiteModel.GeoMean))</b>)</span>
+                    <span>@TVItemViewRes.Median (<b>@(tvItemMoreInfoMWQMSiteModel.Median < 2.0f ? "<2" : string.Format("{0:F1}", tvItemMoreInfoMWQMSiteModel.Median))</b>)</span>
                     <span>@TVItemViewRes.P90 (<b>@string.Format("{0:F1}", tvItemMoreInfoMWQMSiteModel.P90)</b>)</span>
                     <span>@TVItemViewRes.PSFCOver43 (<b>@string.Format("{0:F1}%", tvItemMoreInfoMWQMSiteModel.PercOver43)</b>)</span>
                     <span>@TVItemViewRes.PSFCOver260 (<b>@string.Format("{0:F1}%", tvItemMoreInfoMWQMSiteModel.PercOver260)</b>)</span>

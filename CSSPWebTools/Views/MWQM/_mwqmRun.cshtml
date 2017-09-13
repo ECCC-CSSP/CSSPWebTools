@@ -105,7 +105,14 @@
                                 @SampleTime
                             </td>
                             <td class="@classFCColor">
-                                @mwqmSampleModel.FecCol_MPN_100ml
+                                @if (mwqmSampleModel.FecCol_MPN_100ml < 2)
+                                {
+                                    <span>&lt;2</span>
+                                }
+                                else
+                                {
+                                    @mwqmSampleModel.FecCol_MPN_100ml
+                                }
                             </td>
                             <td>
                                 @(mwqmSampleModel.Salinity_PPT == null ? "" : ((double)mwqmSampleModel.Salinity_PPT).ToString("F1"))
