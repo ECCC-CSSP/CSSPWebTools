@@ -866,14 +866,9 @@ var CSSP;
                                 cssp.MWQMSite.MWQMSubsectorAnalysisRemoveFromStat($bjs);
                             }
                             break;
-                        case "jbMWQMSubsectorAnalysisSaveForFutureReportProduction":
+                        case "jbMWQMSubsectorAnalysisSaveCreateOrExportToExcel":
                             {
-                                cssp.MWQMSite.MWQMSubsectorAnalysisSaveForFutureReportProduction($bjs);
-                            }
-                            break;
-                        case "jbMWQMSubsectorAnalysisExportToExcelDocument":
-                            {
-                                cssp.MWQMSite.MWQMSubsectorAnalysisExportToExcelDocument($bjs);
+                                cssp.MWQMSite.MWQMSubsectorAnalysisSaveCreateOrExportToExcel($bjs);
                             }
                             break;
                         case "jbMWQMSubsectorAnalysisLoadForReport":

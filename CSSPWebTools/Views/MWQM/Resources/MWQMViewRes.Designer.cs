@@ -115,11 +115,38 @@ namespace CSSPWebTools.Views.MWQM.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Analysis calculation type.
+        /// </summary>
+        public static string AnalysisCalculationType {
+            get {
+                return ResourceManager.GetString("AnalysisCalculationType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Analysis method.
         /// </summary>
         public static string AnalysisMethod {
             get {
                 return ResourceManager.GetString("AnalysisMethod", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Analysis name.
+        /// </summary>
+        public static string AnalysisName {
+            get {
+                return ResourceManager.GetString("AnalysisName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Analysis report year.
+        /// </summary>
+        public static string AnalysisReportYear {
+            get {
+                return ResourceManager.GetString("AnalysisReportYear", resourceCulture);
             }
         }
         
@@ -331,6 +358,42 @@ namespace CSSPWebTools.Views.MWQM.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Dry limit 24h.
+        /// </summary>
+        public static string DryLimit24h {
+            get {
+                return ResourceManager.GetString("DryLimit24h", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dry limit 48h.
+        /// </summary>
+        public static string DryLimit48h {
+            get {
+                return ResourceManager.GetString("DryLimit48h", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dry limit 72h.
+        /// </summary>
+        public static string DryLimit72h {
+            get {
+                return ResourceManager.GetString("DryLimit72h", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dry limit 96h.
+        /// </summary>
+        public static string DryLimit96h {
+            get {
+                return ResourceManager.GetString("DryLimit96h", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Empty.
         /// </summary>
         public static string Empty {
@@ -435,6 +498,15 @@ namespace CSSPWebTools.Views.MWQM.Resources {
         public static string FieldRelatedInformation {
             get {
                 return ResourceManager.GetString("FieldRelatedInformation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Full year.
+        /// </summary>
+        public static string FullYear {
+            get {
+                return ResourceManager.GetString("FullYear", resourceCulture);
             }
         }
         
@@ -799,6 +871,15 @@ namespace CSSPWebTools.Views.MWQM.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Mid range number of days.
+        /// </summary>
+        public static string MidRangeNumberOfDays {
+            get {
+                return ResourceManager.GetString("MidRangeNumberOfDays", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Modify.
         /// </summary>
         public static string Modify {
@@ -907,6 +988,15 @@ namespace CSSPWebTools.Views.MWQM.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to New analysis name.
+        /// </summary>
+        public static string NewAnalysisName {
+            get {
+                return ResourceManager.GetString("NewAnalysisName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No rain.
         /// </summary>
         public static string NoRain {
@@ -921,6 +1011,15 @@ namespace CSSPWebTools.Views.MWQM.Resources {
         public static string Normal {
             get {
                 return ResourceManager.GetString("Normal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Number of runs.
+        /// </summary>
+        public static string NumberOfRuns {
+            get {
+                return ResourceManager.GetString("NumberOfRuns", resourceCulture);
             }
         }
         
@@ -1294,6 +1393,15 @@ namespace CSSPWebTools.Views.MWQM.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Runs to omit.
+        /// </summary>
+        public static string RunsToOmit {
+            get {
+                return ResourceManager.GetString("RunsToOmit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Run time.
         /// </summary>
         public static string RunTime {
@@ -1335,6 +1443,15 @@ namespace CSSPWebTools.Views.MWQM.Resources {
         public static string SalinityAndTemperatureChart {
             get {
                 return ResourceManager.GetString("SalinityAndTemperatureChart", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Salinity highlight deviation from average.
+        /// </summary>
+        public static string SalinityHighlightDeviationFromAverage {
+            get {
+                return ResourceManager.GetString("SalinityHighlightDeviationFromAverage", resourceCulture);
             }
         }
         
@@ -1515,6 +1632,15 @@ namespace CSSPWebTools.Views.MWQM.Resources {
         public static string ShortRange {
             get {
                 return ResourceManager.GetString("ShortRange", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Short range number of days.
+        /// </summary>
+        public static string ShortRangeNumberOfDays {
+            get {
+                return ResourceManager.GetString("ShortRangeNumberOfDays", resourceCulture);
             }
         }
         
@@ -1758,6 +1884,42 @@ namespace CSSPWebTools.Views.MWQM.Resources {
         public static string Wet {
             get {
                 return ResourceManager.GetString("Wet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wet limit 24h.
+        /// </summary>
+        public static string WetLimit24h {
+            get {
+                return ResourceManager.GetString("WetLimit24h", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wet limit 48h.
+        /// </summary>
+        public static string WetLimit48h {
+            get {
+                return ResourceManager.GetString("WetLimit48h", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wet limit 72h.
+        /// </summary>
+        public static string WetLimit72h {
+            get {
+                return ResourceManager.GetString("WetLimit72h", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wet limit 96h.
+        /// </summary>
+        public static string WetLimit96h {
+            get {
+                return ResourceManager.GetString("WetLimit96h", resourceCulture);
             }
         }
         

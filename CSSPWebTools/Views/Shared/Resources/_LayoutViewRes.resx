@@ -444,4 +444,13 @@
   <data name="EmailDistributionListsExportedToSharedDrive" xml:space="preserve">
     <value>Email distribution lists exported to shared drive</value>
   </data>
+  <data name="ExportToExcel" xml:space="preserve">
+    <value>Export to Excel</value>
+  </data>
+  <data name="Parameter_NotImplemented" xml:space="preserve">
+    <value>Parameter {0} not implemented</value>
+  </data>
+  <data name="View" xml:space="preserve">
+    <value>View</value>
+  </data>
 </root>

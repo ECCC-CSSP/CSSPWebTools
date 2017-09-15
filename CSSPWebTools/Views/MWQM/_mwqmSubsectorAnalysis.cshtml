@@ -246,10 +246,7 @@
                         </ul>
                         <ul class="form-inline list-inline">
                             <li>
-                                <button class="jbMWQMSubsectorAnalysisSaveForFutureReportProduction btn btn-default">@MWQMViewRes.SaveForFutureReportProduction</button>
-                            </li>
-                            <li>
-                                <button class="jbMWQMSubsectorAnalysisExportToExcelDocument btn btn-default">@MWQMViewRes.ExportToExcelDocument</button>
+                                @Html.Action("_mwqmAnalysisReportParameter", "MWQM", new { SubsectorTVItemID = SubsectorTVItemID })
                             </li>
                         </ul>
                         <ul class="list-unstyled">
@@ -346,7 +343,7 @@
                     {
                         DoVert = true;
                     }
-                }
+                                }
                 <td class="MWQMRun @(DoVert ? "verticalLeft" : "")"
                     data-runcount="@RunCount"
                     data-runid="@mwqmRunAnalysisModel.MWQMRunTVItemID"

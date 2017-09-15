@@ -744,6 +744,7 @@
     <Content Include="Views\MikeScenario\_mikeScenarioGenerateResultsGetFileDetail.cshtml" />
     <Content Include="Views\MikeScenario\_mikeScenarioGenerateResults_New.cshtml" />
     <Content Include="Views\MWQM\_mwqmSubsector.cshtml" />
+    <Content Include="Views\MWQM\_mwqmAnalysisReportParameter.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

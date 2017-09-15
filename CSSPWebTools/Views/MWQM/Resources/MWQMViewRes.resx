@@ -723,4 +723,58 @@
   <data name="SubsectorLogBook" xml:space="preserve">
     <value>Subsector log book</value>
   </data>
+  <data name="AnalysisCalculationType" xml:space="preserve">
+    <value>Analysis calculation type</value>
+  </data>
+  <data name="AnalysisName" xml:space="preserve">
+    <value>Analysis name</value>
+  </data>
+  <data name="AnalysisReportYear" xml:space="preserve">
+    <value>Analysis report year</value>
+  </data>
+  <data name="DryLimit24h" xml:space="preserve">
+    <value>Dry limit 24h</value>
+  </data>
+  <data name="DryLimit48h" xml:space="preserve">
+    <value>Dry limit 48h</value>
+  </data>
+  <data name="DryLimit72h" xml:space="preserve">
+    <value>Dry limit 72h</value>
+  </data>
+  <data name="DryLimit96h" xml:space="preserve">
+    <value>Dry limit 96h</value>
+  </data>
+  <data name="FullYear" xml:space="preserve">
+    <value>Full year</value>
+  </data>
+  <data name="MidRangeNumberOfDays" xml:space="preserve">
+    <value>Mid range number of days</value>
+  </data>
+  <data name="NewAnalysisName" xml:space="preserve">
+    <value>New analysis name</value>
+  </data>
+  <data name="NumberOfRuns" xml:space="preserve">
+    <value>Number of runs</value>
+  </data>
+  <data name="RunsToOmit" xml:space="preserve">
+    <value>Runs to omit</value>
+  </data>
+  <data name="SalinityHighlightDeviationFromAverage" xml:space="preserve">
+    <value>Salinity highlight deviation from average</value>
+  </data>
+  <data name="ShortRangeNumberOfDays" xml:space="preserve">
+    <value>Short range number of days</value>
+  </data>
+  <data name="WetLimit24h" xml:space="preserve">
+    <value>Wet limit 24h</value>
+  </data>
+  <data name="WetLimit48h" xml:space="preserve">
+    <value>Wet limit 48h</value>
+  </data>
+  <data name="WetLimit72h" xml:space="preserve">
+    <value>Wet limit 72h</value>
+  </data>
+  <data name="WetLimit96h" xml:space="preserve">
+    <value>Wet limit 96h</value>
+  </data>
 </root>

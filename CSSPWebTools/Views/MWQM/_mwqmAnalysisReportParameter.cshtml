@@ -1,0 +1,59 @@
+﻿@using CSSPWebTools.Models;
+@using CSSPWebTools.Views.MWQM.Resources;
+@using CSSPWebTools.Views.Shared.Resources;
+@using CSSPWebTools.Controllers;
+@using CSSPEnumsDLL.Enums;
+@using CSSPEnumsDLL.Services;
+@using CSSPModelsDLL.Models;
+
+@{
+    int SubsectorTVItemID = (int)ViewBag.SubsectorTVItemID;
+    List<MWQMAnalysisReportParameterModel> mwqmAnalysisReportParameterModelList = (List<MWQMAnalysisReportParameterModel>)ViewBag.MWQMAnalysisReportParameterModelList;
+    BaseEnumService _BaseEnumService = new BaseEnumService(ViewBag.Language);
+}
+<div class="MWQMAnalysisReportParameterTopDiv">
+    <label>Existing an export to Excel</label>
+    <select class="form-control" name="MWQMAnalysisReportParameterSaveCreateOrExportToExcel">
+        <option value="0" data-type="Create" selected="selected">Save</option>
+        <option value="0" data-type="Export">Export to Excel</option>
+        @foreach (MWQMAnalysisReportParameterModel mwqmAnalysisReportParameterModel in mwqmAnalysisReportParameterModelList)
+        {
+            <option value="@mwqmAnalysisReportParameterModel.MWQMAnalysisReportParameterID" data-type="View">@(mwqmAnalysisReportParameterModel.AnalysisName + " (" + mwqmAnalysisReportParameterModel.AnalysisReportYear + ")")</option>
+        }
+    </select>
+    <div class="InputAnalysisNameDiv hidden">
+        <label for="InputAnalysisName">@MWQMViewRes.NewAnalysisName</label><input class="InputAnalysisName" type="text" value="" name="InputAnalysisName" />
+    </div>
+    <button class="jbMWQMSubsectorAnalysisSaveCreateOrExportToExcel btn btn-default">@MWQMViewRes.Save</button>
+    @foreach (MWQMAnalysisReportParameterModel mwqmAnalysisReportParameterModel in mwqmAnalysisReportParameterModelList)
+    {
+        <div class="MWQMAnalysisReportParameter" data-parameterid="@mwqmAnalysisReportParameterModel.MWQMAnalysisReportParameterID">
+            <ul>
+                <li>@MWQMViewRes.AnalysisName - [<span class="AnalysisName">@mwqmAnalysisReportParameterModel.AnalysisName]</span></li>
+                <li>@MWQMViewRes.AnalysisReportYear - [<span class="AnalysisReportYear">@mwqmAnalysisReportParameterModel.AnalysisReportYear]</span></li>
+                <li>@MWQMViewRes.StartDate - [<span class="StartDate">@mwqmAnalysisReportParameterModel.StartDate.ToString("yyyy-MM-dd")]</span></li>
+                <li>@MWQMViewRes.EndDate - [<span class="EndDate">@mwqmAnalysisReportParameterModel.EndDate.ToString("yyyy-MM-dd")]</span></li>
+                <li>@MWQMViewRes.AnalysisCalculationType - [<span class="AnalysisCalculationType">@(_BaseEnumService.GetEnumText_AnalysisCalculationTypeEnum(mwqmAnalysisReportParameterModel.AnalysisCalculationType))]</span></li>
+                <li>@MWQMViewRes.NumberOfRuns - [<span class="NumberOfRuns">@mwqmAnalysisReportParameterModel.NumberOfRuns]</span></li>
+                <li>@MWQMViewRes.FullYear - [<span class="FullYear">@mwqmAnalysisReportParameterModel.FullYear]</span></li>
+                <li>@MWQMViewRes.SalinityHighlightDeviationFromAverage - [<span class="SalinityHighlightDeviationFromAverage">@mwqmAnalysisReportParameterModel.SalinityHighlightDeviationFromAverage]</span></li>
+                <li>@MWQMViewRes.ShortRangeNumberOfDays - [<span class="ShortRangeNumberOfDays">@mwqmAnalysisReportParameterModel.ShortRangeNumberOfDays]</span></li>
+                <li>@MWQMViewRes.MidRangeNumberOfDays - [<span class="MidRangeNumberOfDays">@mwqmAnalysisReportParameterModel.MidRangeNumberOfDays]</span></li>
+                <li>@MWQMViewRes.DryLimit24h - [<span class="DryLimit24h">@mwqmAnalysisReportParameterModel.DryLimit24h]</span></li>
+                <li>@MWQMViewRes.DryLimit48h - [<span class="DryLimit48h">@mwqmAnalysisReportParameterModel.DryLimit48h]</span></li>
+                <li>@MWQMViewRes.DryLimit72h - [<span class="DryLimit72h">@mwqmAnalysisReportParameterModel.DryLimit72h]</span></li>
+                <li>@MWQMViewRes.DryLimit96h - [<span class="DryLimit96h">@mwqmAnalysisReportParameterModel.DryLimit96h]</span></li>
+                <li>@MWQMViewRes.WetLimit24h - [<span class="WetLimit24h">@mwqmAnalysisReportParameterModel.WetLimit24h]</span></li>
+                <li>@MWQMViewRes.WetLimit48h - [<span class="WetLimit48h">@mwqmAnalysisReportParameterModel.WetLimit48h]</span></li>
+                <li>@MWQMViewRes.WetLimit72h - [<span class="WetLimit72h">@mwqmAnalysisReportParameterModel.WetLimit72h]</span></li>
+                <li>@MWQMViewRes.WetLimit96h - [<span class="WetLimit96h">@mwqmAnalysisReportParameterModel.WetLimit96h]</span></li>
+                <li>@MWQMViewRes.RunsToOmit - [<span class="RunsToOmit">@mwqmAnalysisReportParameterModel.RunsToOmit]</span></li>
+            </ul>
+        </div>
+    }
+    <script type="text/javascript">
+            $(function () {
+                cssp.MWQM.AfterLoadParameter();
+            });
+    </script>
+</div>
