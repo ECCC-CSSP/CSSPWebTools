@@ -25,6 +25,7 @@ namespace CSSPWebTools.Controllers
         public MWQMController _MWQMController { get; private set; }
         public MapInfoPointService _MapInfoPointService { get; private set; }
         public MWQMSubsectorService _MWQMSubsectorService { get; private set; }
+        public MWQMAnalysisReportParameterService _MWQMAnalysisReportParameterService { get; private set; }
         #endregion Properties
 
         #region Constructors
@@ -44,10 +45,26 @@ namespace CSSPWebTools.Controllers
             _MWQMSampleService = new MWQMSampleService(LanguageRequest, User);
             _MapInfoPointService = new MapInfoPointService(LanguageRequest, User);
             _MWQMSubsectorService = new MWQMSubsectorService(LanguageRequest, User);
+            _MWQMAnalysisReportParameterService = new MWQMAnalysisReportParameterService(LanguageRequest, User);
         }
         #endregion Overrides
 
         #region Functions public
+        [HttpGet]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public PartialViewResult _mwqmAnalysisReportParameter(int SubsectorTVItemID)
+        {
+            ViewBag.SubsectorTVItemID = SubsectorTVItemID;
+            ViewBag.MWQMAnalysisReportParameterModelList = null;
+
+            List<MWQMAnalysisReportParameterModel> mwqmAnalysisReportParameterModelList = _MWQMAnalysisReportParameterService.GetMWQMAnalysisReportParameterModelListWithSubsectorTVItemIDDB(SubsectorTVItemID);
+            ViewBag.MWQMAnalysisReportParameterModelList = mwqmAnalysisReportParameterModelList;
+
+            ViewBag.IsShowMoreInfo = (GetURLVarShowEnumStr(URLVarShowEnum.ShowMoreInfo) == "0" ? false : true);
+            ViewBag.IsShowMap = (GetURLVarShowEnumStr(URLVarShowEnum.ShowMap) == "0" ? false : true);
+
+            return PartialView();
+        }
         [HttpGet]
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
         public PartialViewResult _mwqmSubsector(string Q)
@@ -358,8 +375,24 @@ namespace CSSPWebTools.Controllers
             return Json(mwqmSiteSampleStatModelList, JsonRequestBehavior.AllowGet);
         }
 
+        [HttpPost]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public JsonResult PostAddFormMWQMAnalysisReportParameterJSON(FormCollection fc)
+        {
+            MWQMAnalysisReportParameterModel mwqmAnalysisReportParameterModel = _MWQMAnalysisReportParameterService.PostAddFormMWQMAnalysisReportParameterDB(fc);
+
+            return Json(mwqmAnalysisReportParameterModel.Error, JsonRequestBehavior.AllowGet);
+        }
+        [HttpPost]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public JsonResult PostDeleteMWQMAnalysisReportParameterJSON(int MWQMAnalysisReportParameterID)
+        {
+            MWQMAnalysisReportParameterModel mwqmAnalysisReportParameterModel = _MWQMAnalysisReportParameterService.PostDeleteMWQMAnalysisReportParameterDB(MWQMAnalysisReportParameterID);
+
+            return Json(mwqmAnalysisReportParameterModel.Error, JsonRequestBehavior.AllowGet);
+        }
         #endregion Functions public
 
-
+        
     }
 }

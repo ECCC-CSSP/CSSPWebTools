@@ -871,6 +871,11 @@ var CSSP;
                                 cssp.MWQMSite.MWQMSubsectorAnalysisSaveCreateOrExportToExcel($bjs);
                             }
                             break;
+                        case "jbMWQMSubsectorAnalysisReportParameterOrExcelDelete":
+                            {
+                                cssp.MWQMSite.MWQMSubsectorAnalysisReportParameterOrExcelDelete($bjs);
+                            }
+                            break;
                         case "jbMWQMSubsectorAnalysisLoadForReport":
                             {
                                 cssp.MWQMSite.MWQMSubsectorAnalysisLoadForReport($bjs);

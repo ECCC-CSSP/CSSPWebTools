@@ -759,4 +759,19 @@
   <data name="WetLimit96h" xml:space="preserve">
     <value>Wet limit 96h (fr)</value>
   </data>
+  <data name="DeleteAnalysis" xml:space="preserve">
+    <value>Effacer l'analyse</value>
+  </data>
+  <data name="ExcelFileName" xml:space="preserve">
+    <value>Nom de la filière Excel</value>
+  </data>
+  <data name="ExcelTVFileTVItemID" xml:space="preserve">
+    <value>ExcelTVFileTVItemID</value>
+  </data>
+  <data name="ExcelTVFileTVText" xml:space="preserve">
+    <value>ExcelTVFileTVText</value>
+  </data>
+  <data name="UseFullYear" xml:space="preserve">
+    <value>année complète</value>
+  </data>
 </root>

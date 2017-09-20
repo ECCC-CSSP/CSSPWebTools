@@ -88,6 +88,24 @@ namespace CSSPWebTools.Views.Shared.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Analysis name required.
+        /// </summary>
+        public static string AnalysisNameRequired {
+            get {
+                return ResourceManager.GetString("AnalysisNameRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Analysis report year required.
+        /// </summary>
+        public static string AnalysisReportYearRequired {
+            get {
+                return ResourceManager.GetString("AnalysisReportYearRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Areas.
         /// </summary>
         public static string Areas {
@@ -246,6 +264,24 @@ namespace CSSPWebTools.Views.Shared.Resources {
         public static string CSSPWebTools {
             get {
                 return ResourceManager.GetString("CSSPWebTools", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete analysis.
+        /// </summary>
+        public static string DeleteAnalysis {
+            get {
+                return ResourceManager.GetString("DeleteAnalysis", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete Excel document.
+        /// </summary>
+        public static string DeleteExcelDocument {
+            get {
+                return ResourceManager.GetString("DeleteExcelDocument", resourceCulture);
             }
         }
         

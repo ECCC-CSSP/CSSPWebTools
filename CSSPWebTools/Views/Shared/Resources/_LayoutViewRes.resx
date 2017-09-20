@@ -453,4 +453,16 @@
   <data name="View" xml:space="preserve">
     <value>View</value>
   </data>
+  <data name="AnalysisNameRequired" xml:space="preserve">
+    <value>Analysis name required</value>
+  </data>
+  <data name="AnalysisReportYearRequired" xml:space="preserve">
+    <value>Analysis report year required</value>
+  </data>
+  <data name="DeleteAnalysis" xml:space="preserve">
+    <value>Delete analysis</value>
+  </data>
+  <data name="DeleteExcelDocument" xml:space="preserve">
+    <value>Delete Excel document</value>
+  </data>
 </root>

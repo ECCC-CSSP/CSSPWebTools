@@ -41,31 +41,165 @@ module CSSP {
         }
 
         // Functions
-        public AfterLoadParameter: Function = (objName: string): void => {
-            $("select[name='MWQMSubsectorAnalysisSaveCreateOrExportToExcel']").off("change");
-            $("select[name='MWQMSubsectorAnalysisSaveCreateOrExportToExcel']").on("change", () => {
-                let value = parseInt($("select[name='MWQMSubsectorAnalysisSaveCreateOrExportToExcel']").val());
-                let type = $("select[name='MWQMSubsectorAnalysisSaveCreateOrExportToExcel']").data("type");
-                if (type == "Create") {
+        public AfterLoadParameter: Function = (): void => {
+            $("select[name='MWQMAnalysisReportParameterSaveCreateOrExportToExcel']").off("change");
+            $("select[name='MWQMAnalysisReportParameterSaveCreateOrExportToExcel']").on("change", () => {
+                let value: string = $("select[name='MWQMAnalysisReportParameterSaveCreateOrExportToExcel']").val();
+                if (value == "Save") {
                     $(".jbMWQMSubsectorAnalysisSaveCreateOrExportToExcel").html(cssp.GetHTMLVariable("#LayoutVariables", "varSave"));
                     $(".InputAnalysisNameDiv").removeClass("hidden");
                 }
-                else if (type == "Export") {
+                else if (value == "Export") {
                     $(".jbMWQMSubsectorAnalysisSaveCreateOrExportToExcel").html(cssp.GetHTMLVariable("#LayoutVariables", "varExportToExcel"));
                     $(".InputAnalysisNameDiv").removeClass("hidden").addClass("hidden");
                 }
-                else if (type == "View") {
+                else if (value.substring(0, 4) == "View") {
+                    let MWQMAnalysisReportParameterID = parseInt(value.replace("Excel_", ""));
+                    let TextShown: string = $("select[name='MWQMAnalysisReportParameterSaveCreateOrExportToExcel']").text();
+                    if (TextShown.substring(TextShown.length - 7) == "[Excel]") {
+                        $(".jbMWQMSubsectorAnalysisReportParameterOrExcelDelete").html(cssp.GetHTMLVariable("#LayoutVariables", "varDeleteExcelDocument"));
+                    }
+                    else {
+                        $(".jbMWQMSubsectorAnalysisReportParameterOrExcelDelete").html(cssp.GetHTMLVariable("#LayoutVariables", "varDeleteAnalysis"));
+                    }
                     $(".jbMWQMSubsectorAnalysisSaveCreateOrExportToExcel").html(cssp.GetHTMLVariable("#LayoutVariables", "varView"));
                     $(".InputAnalysisNameDiv").removeClass("hidden").addClass("hidden");
+                    cssp.MWQMSite.ShowOnlyTheSelectedMWQMAnalysisReportParameter(MWQMAnalysisReportParameterID);
                 }
                 else {
-                    cssp.Dialog.ShowDialogError($.validator.format(cssp.GetHTMLVariable("#LayoutVariables", "varParameter_NotImplemented"), type));
+                    cssp.Dialog.ShowDialogError("value should be one of Save, Export or start with View. It is [" + value + "]");
                 }
             });
         };
-        public MWQMSubsectorAnalysisSaveCreateOrExportToExcel: Function = ($bjs): void => {
-            let type = $bjs.closest(".MWQMAnalysisReportParameterTopDiv").find("select[name='MWQMSubsectorAnalysisSaveCreateOrExportToExcel']").data("type");
-            cssp.Dialog.ShowDialogMessage("Type selected = " + type);
+        public ShowOnlyTheSelectedMWQMAnalysisReportParameter: Function = (MWQMAnalysisReportParameterID: number): void => {
+            $(".MWQMAnalysisReportParameter").each((ind: number, elem: Element) => {
+                let id: number = parseInt($(elem).data("parameterid"));
+                if (id == MWQMAnalysisReportParameterID) {
+                    $(elem).removeClass("hidden");
+                }
+                else {
+                    if (!$(elem).hasClass("hidden")) {
+                        $(elem).addClass("hidden");
+                    }
+                }
+            });
+        };
+        public MWQMSubsectorAnalysisReportParameterOrExcelDelete: Function = ($bjs: JQuery): void => {
+            let SubsectorTVItemID: number = parseInt($("#ViewDiv").data("tvitemid"));
+            let MWQMAnalysisReportParameterID: number = parseInt($bjs.closest(".MWQMAnalysisReportParameter").data("parameterid"));
+            let command: string = "MWQM/PostDeleteMWQMAnalysisReportParameterJSON";
+            $.post(cssp.BaseURL + command,
+                {
+                    MWQMAnalysisReportParameterID: MWQMAnalysisReportParameterID
+                }).done((ret) => {
+                    if (ret) {
+                        cssp.Dialog.ShowDialogErrorWithError(ret);
+                    }
+                    else {
+                        cssp.MWQMSite.ReloadAnalysisReportParameter();
+                    }
+                }).fail(() => {
+                    cssp.Dialog.ShowDialogErrorWithFail(command);
+                });
+        };
+        public MWQMSubsectorAnalysisSaveCreateOrExportToExcel: Function = ($bjs: JQuery): void => {
+            let value = $bjs.closest(".MWQMAnalysisReportParameterTopDiv").find("select[name='MWQMAnalysisReportParameterSaveCreateOrExportToExcel']").val();
+            let MWQMAnalysisReportParameterID = parseInt(value);
+
+            if (value == "Export" || value == "Save") {
+                // need to collect all information to send to 
+                let SubsectorTVItemID: number = parseInt($("#ViewDiv").data("tvitemid"));
+                let AnalysisName: string = $("input[name='InputAnalysisName']").val();
+                if (!AnalysisName) {
+                    cssp.Dialog.ShowDialogError(cssp.GetHTMLVariable("#LayoutVariables", "varAnalysisNameRequired"));
+                }
+                let AnalysisReportYearText: string = $("input[name='AnalysisReportYear']").val();
+                if (!AnalysisReportYearText) {
+                    cssp.Dialog.ShowDialogError(cssp.GetHTMLVariable("#LayoutVariables", "varAnalysisReportYearRequired"));
+                }
+                let AnalysisReportYear: number = parseInt(AnalysisReportYearText);
+                if (AnalysisReportYear === NaN) {
+                    cssp.Dialog.ShowDialogError(cssp.GetHTMLVariable("#LayoutVariables", "varAnalysisReportYearRequired"));
+                }
+                let StartDate = $("select.MWQMSubsectorAnalysisStartDate").val();
+                let EndDate = $("select.MWQMSubsectorAnalysisEndDate").val();
+                let AnalysisCalculationType = $("select.MWQMSubsectorAnalysisCalculateType").val();
+                let NumberOfRuns = $("select.MWQMSubsectorAnalysisRuns").val();
+                let FullYear = $("input.SelectFullYear").val();
+                let SalinityHighlightDeviationFromAverage = $("select.MWQMSubsectorAnalysisHighlightSalinityDeviationFromAverage").val();
+                let ShortRangeNumberOfDays = $("input[name='ShortRange']:checked").val();
+                let MidRangeNumberOfDays = $("input[name='MidRange']:checked").val();
+                let DryLimit24h = $("select[name='UpperRainLimitStillConsideredDry1']").val();
+                let DryLimit48h = $("select[name='UpperRainLimitStillConsideredDry2']").val();
+                let DryLimit72h = $("select[name='UpperRainLimitStillConsideredDry3']").val();
+                let DryLimit96h = $("select[name='UpperRainLimitStillConsideredDry4']").val();
+                let WetLimit24h = $("select[name='LowerRainLimitConsideredRain1']").val();
+                let WetLimit48h = $("select[name='LowerRainLimitConsideredRain2']").val();
+                let WetLimit72h = $("select[name='LowerRainLimitConsideredRain3']").val();
+                let WetLimit96h = $("select[name='LowerRainLimitConsideredRain4']").val();
+                let RunsToOmit = ",";
+                let Command = (value == "Save" ? 1 /* Report */ : 2 /* Excel */);
+                $(".jbMWQMSubsectorAnalysisRemoveFromStat").each((ind: number, elem: Element) => {
+                    if ($(elem).hasClass("btn-danger")) {
+                        RunsToOmit = RunsToOmit + $(elem).closest("td.MWQMRun").data("runid") + ",";
+                    }
+                });
+                let command: string = "MWQM/PostAddFormMWQMAnalysisReportParameterJSON";
+                $.post(cssp.BaseURL + command,
+                    {
+                        SubsectorTVItemID: SubsectorTVItemID,
+                        AnalysisName: AnalysisName,
+                        AnalysisReportYear: AnalysisReportYear,
+                        StartDate: StartDate,
+                        EndDate: EndDate,
+                        AnalysisCalculationType: AnalysisCalculationType,
+                        NumberOfRuns: NumberOfRuns,
+                        FullYear: FullYear,
+                        SalinityHighlightDeviationFromAverage: SalinityHighlightDeviationFromAverage,
+                        ShortRangeNumberOfDays: ShortRangeNumberOfDays,
+                        MidRangeNumberOfDays: MidRangeNumberOfDays,
+                        DryLimit24h: DryLimit24h,
+                        DryLimit48h: DryLimit48h,
+                        DryLimit72h: DryLimit72h,
+                        DryLimit96h: DryLimit96h,
+                        WetLimit24h: WetLimit24h,
+                        WetLimit48h: WetLimit48h,
+                        WetLimit72h: WetLimit72h,
+                        WetLimit96h: WetLimit96h,
+                        RunsToOmit: RunsToOmit,
+
+                    }).done((ret) => {
+                        if (ret) {
+                            cssp.Dialog.ShowDialogErrorWithError(ret);
+                        }
+                        else {
+                            cssp.MWQMSite.ReloadAnalysisReportParameter();
+                        }
+                    }).fail(() => {
+                        cssp.Dialog.ShowDialogErrorWithFail(command);
+                    });
+            }
+            else if (value == "View") {
+                cssp.Dialog.ShowDialogMessage("Export to Excel not implemented yet");
+                return;
+            }
+            else {
+                let MWQMAnalysisReportParameterID: number = parseInt(value);
+                $(".jbMWQMSubsectorAnalysisSaveCreateOrExportToExcel").html(cssp.GetHTMLVariable("#LayoutVariables", "varView"));
+                $(".InputAnalysisNameDiv").removeClass("hidden").addClass("hidden");
+            }
+        };
+        public ReloadAnalysisReportParameter: Function = (): void => {
+            let SubsectorTVItemID: number = parseInt($("#ViewDiv").data("tvitemid"));
+            let command: string = "MWQM/_mwqmAnalysisReportParameter";
+            $.get(cssp.BaseURL + command,
+                {
+                    SubsectorTVItemID: SubsectorTVItemID
+                }).done((ret) => {
+                    $(".MWQMAnalysisReportParameterTopDiv").html(ret);
+                }).fail(() => {
+                    cssp.Dialog.ShowDialogErrorWithFail(command);
+                });
         };
         public AfterLoadUpdate: Function = (objName: string): void => {
             var objNameList: Array<string> = ["MWQMSiteData", "MWQMSiteCharts", "MWQMSiteOtherMWQMSites"];

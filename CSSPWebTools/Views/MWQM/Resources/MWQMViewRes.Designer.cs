@@ -322,6 +322,15 @@ namespace CSSPWebTools.Views.MWQM.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Delete analysis.
+        /// </summary>
+        public static string DeleteAnalysis {
+            get {
+                return ResourceManager.GetString("DeleteAnalysis", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Delete sample.
         /// </summary>
         public static string DeleteSample {
@@ -417,6 +426,33 @@ namespace CSSPWebTools.Views.MWQM.Resources {
         public static string EndDate {
             get {
                 return ResourceManager.GetString("EndDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Excel file name.
+        /// </summary>
+        public static string ExcelFileName {
+            get {
+                return ResourceManager.GetString("ExcelFileName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ExcelTVFileTVItemID.
+        /// </summary>
+        public static string ExcelTVFileTVItemID {
+            get {
+                return ResourceManager.GetString("ExcelTVFileTVItemID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ExcelTVFileTVText.
+        /// </summary>
+        public static string ExcelTVFileTVText {
+            get {
+                return ResourceManager.GetString("ExcelTVFileTVText", resourceCulture);
             }
         }
         
@@ -1821,6 +1857,15 @@ namespace CSSPWebTools.Views.MWQM.Resources {
         public static string UpperRainLimitStillConsideredDry {
             get {
                 return ResourceManager.GetString("UpperRainLimitStillConsideredDry", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to use full year.
+        /// </summary>
+        public static string UseFullYear {
+            get {
+                return ResourceManager.GetString("UseFullYear", resourceCulture);
             }
         }
         

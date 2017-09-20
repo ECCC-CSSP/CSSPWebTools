@@ -12,6 +12,7 @@
     int SiteCount = 0;
     int OldYear = 0;
     List<string> TideStringList = new List<string>() { "", "LT", "LF", "LR", "MT", "MF", "MR", "HT", "HF", "HR" };
+
 }
 
 <div id="MWQMSubsectorAnalysisDiv" data-subsectortvitemid="@SubsectorTVItemID">
@@ -161,7 +162,7 @@
                                     <select class="MWQMAnalysisUpperRainLimitStillConsideredDry form-control" name="UpperRainLimitStillConsideredDry1">
                                         @for (int i = 1; i < 32; i++)
                                         {
-                                        <option value="@i" @(i == 4 ? "selected=selected" : "")>@i</option>
+                                            <option value="@i" @(i == 4 ? "selected=selected" : "")>@i</option>
                                         }
                                     </select>
                                 </td>
@@ -169,7 +170,7 @@
                                     <select class="MWQMAnalysisUpperRainLimitStillConsideredDry form-control" name="UpperRainLimitStillConsideredDry2">
                                         @for (int i = 1; i < 32; i++)
                                         {
-                                        <option value="@i" @(i == 8 ? "selected=selected" : "")>@i</option>
+                                            <option value="@i" @(i == 8 ? "selected=selected" : "")>@i</option>
                                         }
                                     </select>
                                 </td>
@@ -177,7 +178,7 @@
                                     <select class="MWQMAnalysisUpperRainLimitStillConsideredDry form-control" name="UpperRainLimitStillConsideredDry3">
                                         @for (int i = 1; i < 32; i++)
                                         {
-                                        <option value="@i" @(i == 12 ? "selected=selected" : "")>@i</option>
+                                            <option value="@i" @(i == 12 ? "selected=selected" : "")>@i</option>
                                         }
                                     </select>
                                 </td>
@@ -185,7 +186,7 @@
                                     <select class="MWQMAnalysisUpperRainLimitStillConsideredDry form-control" name="UpperRainLimitStillConsideredDry4">
                                         @for (int i = 1; i < 32; i++)
                                         {
-                                        <option value="@i" @(i == 16 ? "selected=selected" : "")>@i</option>
+                                            <option value="@i" @(i == 16 ? "selected=selected" : "")>@i</option>
                                         }
                                     </select>
                                 </td>
@@ -196,7 +197,7 @@
                                     <select class="MWQMAnalysisLowerRainLimitConsideredRain form-control" name="LowerRainLimitConsideredRain1">
                                         @for (int i = 5; i < 101; i++)
                                         {
-                                        <option value="@i" @(i == 12 ? "selected=selected" : "")>@i</option>
+                                            <option value="@i" @(i == 12 ? "selected=selected" : "")>@i</option>
                                         }
                                     </select>
                                 </td>
@@ -205,7 +206,7 @@
                                         <option value="-1" selected="selected">@MWQMViewRes.NA</option>
                                         @for (int i = 5; i < 101; i++)
                                         {
-                                        <option value="@i" @(i == 25 ? "selected=selected" : "")>@i</option>
+                                            <option value="@i" @(i == 25 ? "selected=selected" : "")>@i</option>
                                         }
                                     </select>
                                 </td>
@@ -214,7 +215,7 @@
                                         <option value="-1" selected="selected">@MWQMViewRes.NA</option>
                                         @for (int i = 5; i < 101; i++)
                                         {
-                                        <option value="@i" @(i == 37 ? "selected=selected" : "")>@i</option>
+                                            <option value="@i" @(i == 37 ? "selected=selected" : "")>@i</option>
                                         }
                                     </select>
                                 </td>
@@ -223,7 +224,7 @@
                                         <option value="-1" selected="selected">@MWQMViewRes.NA</option>
                                         @for (int i = 5; i < 101; i++)
                                         {
-                                        <option value="@i" @(i == 50 ? "selected=selected" : "")>@i</option>
+                                            <option value="@i" @(i == 50 ? "selected=selected" : "")>@i</option>
                                         }
                                     </select>
                                 </td>
@@ -246,7 +247,9 @@
                         </ul>
                         <ul class="form-inline list-inline">
                             <li>
-                                @Html.Action("_mwqmAnalysisReportParameter", "MWQM", new { SubsectorTVItemID = SubsectorTVItemID })
+                                <div class="MWQMAnalysisReportParameterTopDiv">
+                                    @Html.Action("_mwqmAnalysisReportParameter", "MWQM", new { SubsectorTVItemID = SubsectorTVItemID })
+                                </div>
                             </li>
                         </ul>
                         <ul class="list-unstyled">
@@ -343,7 +346,7 @@
                     {
                         DoVert = true;
                     }
-                                }
+                }
                 <td class="MWQMRun @(DoVert ? "verticalLeft" : "")"
                     data-runcount="@RunCount"
                     data-runid="@mwqmRunAnalysisModel.MWQMRunTVItemID"
@@ -380,12 +383,12 @@
                         DoVert = true;
                     }
                 }
-            <td class="RainDay0 @(DoVert ? "verticalLeft" : "")"
-                data-runcount="@RunCount"
-                data-runid="@mwqmRunAnalysisModel.MWQMRunTVItemID"
-                data-rainday0="@(mwqmRunAnalysisModel.RainDay0_mm != null ? ((float)mwqmRunAnalysisModel.RainDay0_mm).ToString("F0") : "-1")">
-                <span>@(mwqmRunAnalysisModel.RainDay0_mm != null ? ((float)mwqmRunAnalysisModel.RainDay0_mm).ToString("F0") : "--")</span>
-            </td>
+                <td class="RainDay0 @(DoVert ? "verticalLeft" : "")"
+                    data-runcount="@RunCount"
+                    data-runid="@mwqmRunAnalysisModel.MWQMRunTVItemID"
+                    data-rainday0="@(mwqmRunAnalysisModel.RainDay0_mm != null ? ((float)mwqmRunAnalysisModel.RainDay0_mm).ToString("F0") : "-1")">
+                    <span>@(mwqmRunAnalysisModel.RainDay0_mm != null ? ((float)mwqmRunAnalysisModel.RainDay0_mm).ToString("F0") : "--")</span>
+                </td>
 
                 RunCount += 1;
                 OldYear = mwqmRunAnalysisModel.DateTime_Local.Year;
@@ -409,12 +412,12 @@
                         DoVert = true;
                     }
                 }
-            <td class="RainDay1 @(DoVert ? "verticalLeft" : "")"
-                data-runcount="@RunCount"
-                data-runid="@mwqmRunAnalysisModel.MWQMRunTVItemID"
-                data-rainday1="@(mwqmRunAnalysisModel.RainDay1_mm != null ? ((float)mwqmRunAnalysisModel.RainDay1_mm).ToString("F0") : "-1")">
-                <span>@(mwqmRunAnalysisModel.RainDay1_mm != null ? ((float)mwqmRunAnalysisModel.RainDay1_mm).ToString("F0") : "--")</span>
-            </td>
+                <td class="RainDay1 @(DoVert ? "verticalLeft" : "")"
+                    data-runcount="@RunCount"
+                    data-runid="@mwqmRunAnalysisModel.MWQMRunTVItemID"
+                    data-rainday1="@(mwqmRunAnalysisModel.RainDay1_mm != null ? ((float)mwqmRunAnalysisModel.RainDay1_mm).ToString("F0") : "-1")">
+                    <span>@(mwqmRunAnalysisModel.RainDay1_mm != null ? ((float)mwqmRunAnalysisModel.RainDay1_mm).ToString("F0") : "--")</span>
+                </td>
 
                 RunCount += 1;
                 OldYear = mwqmRunAnalysisModel.DateTime_Local.Year;
@@ -438,12 +441,12 @@
                         DoVert = true;
                     }
                 }
-            <td class="RainDay2 @(DoVert ? "verticalLeft" : "")"
-                data-runcount="@RunCount"
-                data-runid="@mwqmRunAnalysisModel.MWQMRunTVItemID"
-                data-rainday2="@(mwqmRunAnalysisModel.RainDay2_mm != null ? ((float)mwqmRunAnalysisModel.RainDay2_mm).ToString("F0") : "-1")">
-                <span>@(mwqmRunAnalysisModel.RainDay2_mm != null ? ((float)mwqmRunAnalysisModel.RainDay2_mm).ToString("F0") : "--")</span>
-            </td>
+                <td class="RainDay2 @(DoVert ? "verticalLeft" : "")"
+                    data-runcount="@RunCount"
+                    data-runid="@mwqmRunAnalysisModel.MWQMRunTVItemID"
+                    data-rainday2="@(mwqmRunAnalysisModel.RainDay2_mm != null ? ((float)mwqmRunAnalysisModel.RainDay2_mm).ToString("F0") : "-1")">
+                    <span>@(mwqmRunAnalysisModel.RainDay2_mm != null ? ((float)mwqmRunAnalysisModel.RainDay2_mm).ToString("F0") : "--")</span>
+                </td>
 
                 RunCount += 1;
                 OldYear = mwqmRunAnalysisModel.DateTime_Local.Year;
@@ -467,12 +470,12 @@
                         DoVert = true;
                     }
                 }
-            <td class="RainDay3 @(DoVert ? "verticalLeft" : "")"
-                data-runcount="@RunCount"
-                data-runid="@mwqmRunAnalysisModel.MWQMRunTVItemID"
-                data-rainday3="@(mwqmRunAnalysisModel.RainDay3_mm != null ? ((float)mwqmRunAnalysisModel.RainDay3_mm).ToString("F0") : "-1")">
-                <span>@(mwqmRunAnalysisModel.RainDay3_mm != null ? ((float)mwqmRunAnalysisModel.RainDay3_mm).ToString("F0") : "--")</span>
-            </td>
+                <td class="RainDay3 @(DoVert ? "verticalLeft" : "")"
+                    data-runcount="@RunCount"
+                    data-runid="@mwqmRunAnalysisModel.MWQMRunTVItemID"
+                    data-rainday3="@(mwqmRunAnalysisModel.RainDay3_mm != null ? ((float)mwqmRunAnalysisModel.RainDay3_mm).ToString("F0") : "-1")">
+                    <span>@(mwqmRunAnalysisModel.RainDay3_mm != null ? ((float)mwqmRunAnalysisModel.RainDay3_mm).ToString("F0") : "--")</span>
+                </td>
 
                 RunCount += 1;
                 OldYear = mwqmRunAnalysisModel.DateTime_Local.Year;
@@ -496,12 +499,12 @@
                         DoVert = true;
                     }
                 }
-            <td class="RainDay4 @(DoVert ? "verticalLeft" : "")"
-                data-runcount="@RunCount"
-                data-runid="@mwqmRunAnalysisModel.MWQMRunTVItemID"
-                data-rainday4="@(mwqmRunAnalysisModel.RainDay4_mm != null ? ((float)mwqmRunAnalysisModel.RainDay4_mm).ToString("F0") : "-1")">
-                <span>@(mwqmRunAnalysisModel.RainDay4_mm != null ? ((float)mwqmRunAnalysisModel.RainDay4_mm).ToString("F0") : "--")</span>
-            </td>
+                <td class="RainDay4 @(DoVert ? "verticalLeft" : "")"
+                    data-runcount="@RunCount"
+                    data-runid="@mwqmRunAnalysisModel.MWQMRunTVItemID"
+                    data-rainday4="@(mwqmRunAnalysisModel.RainDay4_mm != null ? ((float)mwqmRunAnalysisModel.RainDay4_mm).ToString("F0") : "-1")">
+                    <span>@(mwqmRunAnalysisModel.RainDay4_mm != null ? ((float)mwqmRunAnalysisModel.RainDay4_mm).ToString("F0") : "--")</span>
+                </td>
 
                 RunCount += 1;
                 OldYear = mwqmRunAnalysisModel.DateTime_Local.Year;
@@ -525,12 +528,12 @@
                         DoVert = true;
                     }
                 }
-            <td class="RainDay5 @(DoVert ? "verticalLeft" : "")"
-                data-runcount="@RunCount"
-                data-runid="@mwqmRunAnalysisModel.MWQMRunTVItemID"
-                data-rainday5="@(mwqmRunAnalysisModel.RainDay5_mm != null ? ((float)mwqmRunAnalysisModel.RainDay5_mm).ToString("F0") : "-1")">
-                <span>@(mwqmRunAnalysisModel.RainDay5_mm != null ? ((float)mwqmRunAnalysisModel.RainDay5_mm).ToString("F0") : "--")</span>
-            </td>
+                <td class="RainDay5 @(DoVert ? "verticalLeft" : "")"
+                    data-runcount="@RunCount"
+                    data-runid="@mwqmRunAnalysisModel.MWQMRunTVItemID"
+                    data-rainday5="@(mwqmRunAnalysisModel.RainDay5_mm != null ? ((float)mwqmRunAnalysisModel.RainDay5_mm).ToString("F0") : "-1")">
+                    <span>@(mwqmRunAnalysisModel.RainDay5_mm != null ? ((float)mwqmRunAnalysisModel.RainDay5_mm).ToString("F0") : "--")</span>
+                </td>
 
                 RunCount += 1;
                 OldYear = mwqmRunAnalysisModel.DateTime_Local.Year;
@@ -554,12 +557,12 @@
                         DoVert = true;
                     }
                 }
-            <td class="RainDay6 @(DoVert ? "verticalLeft" : "")"
-                data-runcount="@RunCount"
-                data-runid="@mwqmRunAnalysisModel.MWQMRunTVItemID"
-                data-rainday6="@(mwqmRunAnalysisModel.RainDay6_mm != null ? ((float)mwqmRunAnalysisModel.RainDay6_mm).ToString("F0") : "-1")">
-                <span>@(mwqmRunAnalysisModel.RainDay6_mm != null ? ((float)mwqmRunAnalysisModel.RainDay6_mm).ToString("F0") : "--")</span>
-            </td>
+                <td class="RainDay6 @(DoVert ? "verticalLeft" : "")"
+                    data-runcount="@RunCount"
+                    data-runid="@mwqmRunAnalysisModel.MWQMRunTVItemID"
+                    data-rainday6="@(mwqmRunAnalysisModel.RainDay6_mm != null ? ((float)mwqmRunAnalysisModel.RainDay6_mm).ToString("F0") : "-1")">
+                    <span>@(mwqmRunAnalysisModel.RainDay6_mm != null ? ((float)mwqmRunAnalysisModel.RainDay6_mm).ToString("F0") : "--")</span>
+                </td>
 
                 RunCount += 1;
                 OldYear = mwqmRunAnalysisModel.DateTime_Local.Year;
@@ -583,12 +586,12 @@
                         DoVert = true;
                     }
                 }
-            <td class="RainDay7 @(DoVert ? "verticalLeft" : "")"
-                data-runcount="@RunCount"
-                data-runid="@mwqmRunAnalysisModel.MWQMRunTVItemID"
-                data-rainday7="@(mwqmRunAnalysisModel.RainDay7_mm != null ? ((float)mwqmRunAnalysisModel.RainDay7_mm).ToString("F0") : "-1")">
-                <span>@(mwqmRunAnalysisModel.RainDay7_mm != null ? ((float)mwqmRunAnalysisModel.RainDay7_mm).ToString("F0") : "--")</span>
-            </td>
+                <td class="RainDay7 @(DoVert ? "verticalLeft" : "")"
+                    data-runcount="@RunCount"
+                    data-runid="@mwqmRunAnalysisModel.MWQMRunTVItemID"
+                    data-rainday7="@(mwqmRunAnalysisModel.RainDay7_mm != null ? ((float)mwqmRunAnalysisModel.RainDay7_mm).ToString("F0") : "-1")">
+                    <span>@(mwqmRunAnalysisModel.RainDay7_mm != null ? ((float)mwqmRunAnalysisModel.RainDay7_mm).ToString("F0") : "--")</span>
+                </td>
 
                 RunCount += 1;
                 OldYear = mwqmRunAnalysisModel.DateTime_Local.Year;
@@ -612,12 +615,12 @@
                         DoVert = true;
                     }
                 }
-            <td class="RainDay8 @(DoVert ? "verticalLeft" : "")"
-                data-runcount="@RunCount"
-                data-runid="@mwqmRunAnalysisModel.MWQMRunTVItemID"
-                data-rainday8="@(mwqmRunAnalysisModel.RainDay8_mm != null ? ((float)mwqmRunAnalysisModel.RainDay8_mm).ToString("F0") : "-1")">
-                <span>@(mwqmRunAnalysisModel.RainDay8_mm != null ? ((float)mwqmRunAnalysisModel.RainDay8_mm).ToString("F0") : "--")</span>
-            </td>
+                <td class="RainDay8 @(DoVert ? "verticalLeft" : "")"
+                    data-runcount="@RunCount"
+                    data-runid="@mwqmRunAnalysisModel.MWQMRunTVItemID"
+                    data-rainday8="@(mwqmRunAnalysisModel.RainDay8_mm != null ? ((float)mwqmRunAnalysisModel.RainDay8_mm).ToString("F0") : "-1")">
+                    <span>@(mwqmRunAnalysisModel.RainDay8_mm != null ? ((float)mwqmRunAnalysisModel.RainDay8_mm).ToString("F0") : "--")</span>
+                </td>
 
                 RunCount += 1;
                 OldYear = mwqmRunAnalysisModel.DateTime_Local.Year;
@@ -641,12 +644,12 @@
                         DoVert = true;
                     }
                 }
-            <td class="RainDay9 @(DoVert ? "verticalLeft" : "")"
-                data-runcount="@RunCount"
-                data-runid="@mwqmRunAnalysisModel.MWQMRunTVItemID"
-                data-rainday9="@(mwqmRunAnalysisModel.RainDay9_mm != null ? ((float)mwqmRunAnalysisModel.RainDay9_mm).ToString("F0") : "-1")">
-                <span>@(mwqmRunAnalysisModel.RainDay9_mm != null ? ((float)mwqmRunAnalysisModel.RainDay9_mm).ToString("F0") : "--")</span>
-            </td>
+                <td class="RainDay9 @(DoVert ? "verticalLeft" : "")"
+                    data-runcount="@RunCount"
+                    data-runid="@mwqmRunAnalysisModel.MWQMRunTVItemID"
+                    data-rainday9="@(mwqmRunAnalysisModel.RainDay9_mm != null ? ((float)mwqmRunAnalysisModel.RainDay9_mm).ToString("F0") : "-1")">
+                    <span>@(mwqmRunAnalysisModel.RainDay9_mm != null ? ((float)mwqmRunAnalysisModel.RainDay9_mm).ToString("F0") : "--")</span>
+                </td>
 
                 RunCount += 1;
                 OldYear = mwqmRunAnalysisModel.DateTime_Local.Year;
@@ -670,12 +673,12 @@
                         DoVert = true;
                     }
                 }
-            <td class="RainDay10 @(DoVert ? "verticalLeft" : "")"
-                data-runcount="@RunCount"
-                data-runid="@mwqmRunAnalysisModel.MWQMRunTVItemID"
-                data-rainday10="@(mwqmRunAnalysisModel.RainDay10_mm != null ? ((float)mwqmRunAnalysisModel.RainDay10_mm).ToString("F0") : "-1")">
-                <span>@(mwqmRunAnalysisModel.RainDay10_mm != null ? ((float)mwqmRunAnalysisModel.RainDay10_mm).ToString("F0") : "--")</span>
-            </td>
+                <td class="RainDay10 @(DoVert ? "verticalLeft" : "")"
+                    data-runcount="@RunCount"
+                    data-runid="@mwqmRunAnalysisModel.MWQMRunTVItemID"
+                    data-rainday10="@(mwqmRunAnalysisModel.RainDay10_mm != null ? ((float)mwqmRunAnalysisModel.RainDay10_mm).ToString("F0") : "-1")">
+                    <span>@(mwqmRunAnalysisModel.RainDay10_mm != null ? ((float)mwqmRunAnalysisModel.RainDay10_mm).ToString("F0") : "--")</span>
+                </td>
 
                 RunCount += 1;
                 OldYear = mwqmRunAnalysisModel.DateTime_Local.Year;
@@ -697,12 +700,12 @@
                         DoVert = true;
                     }
                 }
-            <td class="StartTide @(DoVert ? "verticalLeft" : "")"
-                data-runcount="@RunCount"
-                data-runid="@mwqmRunAnalysisModel.MWQMRunTVItemID"
-                data-starttide="@(mwqmRunAnalysisModel.Tide_Start == null || mwqmRunAnalysisModel.Tide_Start == TideTextEnum.Error ? "--" : TideStringList[(int)mwqmRunAnalysisModel.Tide_Start])">
-                <span>@(mwqmRunAnalysisModel.Tide_Start == null || mwqmRunAnalysisModel.Tide_Start == TideTextEnum.Error ? "--" : TideStringList[(int)mwqmRunAnalysisModel.Tide_Start])</span>
-            </td>
+                <td class="StartTide @(DoVert ? "verticalLeft" : "")"
+                    data-runcount="@RunCount"
+                    data-runid="@mwqmRunAnalysisModel.MWQMRunTVItemID"
+                    data-starttide="@(mwqmRunAnalysisModel.Tide_Start == null || mwqmRunAnalysisModel.Tide_Start == TideTextEnum.Error ? "--" : TideStringList[(int)mwqmRunAnalysisModel.Tide_Start])">
+                    <span>@(mwqmRunAnalysisModel.Tide_Start == null || mwqmRunAnalysisModel.Tide_Start == TideTextEnum.Error ? "--" : TideStringList[(int)mwqmRunAnalysisModel.Tide_Start])</span>
+                </td>
 
                 RunCount += 1;
                 OldYear = mwqmRunAnalysisModel.DateTime_Local.Year;
@@ -724,12 +727,12 @@
                         DoVert = true;
                     }
                 }
-            <td class="EndTide @(DoVert ? "verticalLeft" : "")"
-                data-runcount="@RunCount"
-                data-runid="@mwqmRunAnalysisModel.MWQMRunTVItemID"
-                data-endtide="@(mwqmRunAnalysisModel.Tide_End == null || mwqmRunAnalysisModel.Tide_End == TideTextEnum.Error ? "--" : TideStringList[(int)mwqmRunAnalysisModel.Tide_End])">
-                <span>@(mwqmRunAnalysisModel.Tide_End == null || mwqmRunAnalysisModel.Tide_End == TideTextEnum.Error ? "--" : TideStringList[(int)mwqmRunAnalysisModel.Tide_End])</span>
-            </td>
+                <td class="EndTide @(DoVert ? "verticalLeft" : "")"
+                    data-runcount="@RunCount"
+                    data-runid="@mwqmRunAnalysisModel.MWQMRunTVItemID"
+                    data-endtide="@(mwqmRunAnalysisModel.Tide_End == null || mwqmRunAnalysisModel.Tide_End == TideTextEnum.Error ? "--" : TideStringList[(int)mwqmRunAnalysisModel.Tide_End])">
+                    <span>@(mwqmRunAnalysisModel.Tide_End == null || mwqmRunAnalysisModel.Tide_End == TideTextEnum.Error ? "--" : TideStringList[(int)mwqmRunAnalysisModel.Tide_End])</span>
+                </td>
 
                 RunCount += 1;
                 OldYear = mwqmRunAnalysisModel.DateTime_Local.Year;
