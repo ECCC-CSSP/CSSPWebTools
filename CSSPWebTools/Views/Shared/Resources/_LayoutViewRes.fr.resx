@@ -217,8 +217,8 @@
     <value>ReplaceID should not be empty</value>
     <comment>15</comment>
   </data>
-  <data name="Save" xml:space="preserve">
-    <value>Sauvegarder</value>
+  <data name="SaveForReport" xml:space="preserve">
+    <value>Sauvegarder pour rapport</value>
     <comment>15</comment>
   </data>
   <data name="Sectors" xml:space="preserve">
@@ -462,5 +462,20 @@
   </data>
   <data name="DeleteExcelDocument" xml:space="preserve">
     <value>Effacer le document Excel</value>
+  </data>
+  <data name="NewAnalysisName" xml:space="preserve">
+    <value>Nouveau nom d'analyse</value>
+  </data>
+  <data name="NewExcelFileName" xml:space="preserve">
+    <value>Nouvelle filière Excel</value>
+  </data>
+  <data name="Saved" xml:space="preserve">
+    <value>Sauvegarder</value>
+  </data>
+  <data name="Deleted" xml:space="preserve">
+    <value>Effacé</value>
+  </data>
+  <data name="RunsOmitted" xml:space="preserve">
+    <value>Tournée omises</value>
   </data>
 </root>

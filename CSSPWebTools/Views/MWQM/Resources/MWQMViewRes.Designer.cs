@@ -898,6 +898,15 @@ namespace CSSPWebTools.Views.MWQM.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Mid.
+        /// </summary>
+        public static string Mid {
+            get {
+                return ResourceManager.GetString("Mid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Mid range.
         /// </summary>
         public static string MidRange {
@@ -1123,6 +1132,15 @@ namespace CSSPWebTools.Views.MWQM.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Parameters.
+        /// </summary>
+        public static string Parameters {
+            get {
+                return ResourceManager.GetString("Parameters", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to % of P90 &gt; 260 .
         /// </summary>
         public static string PercentageOfP90gt260 {
@@ -1299,6 +1317,15 @@ namespace CSSPWebTools.Views.MWQM.Resources {
         public static string RainDay9 {
             get {
                 return ResourceManager.GetString("RainDay9", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ranges.
+        /// </summary>
+        public static string Ranges {
+            get {
+                return ResourceManager.GetString("Ranges", resourceCulture);
             }
         }
         
@@ -1618,6 +1645,15 @@ namespace CSSPWebTools.Views.MWQM.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Select one option below.
+        /// </summary>
+        public static string SelectOneOptionBelow {
+            get {
+                return ResourceManager.GetString("SelectOneOptionBelow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Select Sea State.
         /// </summary>
         public static string SelectSeaState {
@@ -1650,6 +1686,15 @@ namespace CSSPWebTools.Views.MWQM.Resources {
         public static string SelectTheSampleMatrix {
             get {
                 return ResourceManager.GetString("SelectTheSampleMatrix", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Short.
+        /// </summary>
+        public static string Short {
+            get {
+                return ResourceManager.GetString("Short", resourceCulture);
             }
         }
         
@@ -1843,6 +1888,15 @@ namespace CSSPWebTools.Views.MWQM.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to to.
+        /// </summary>
+        public static string To {
+            get {
+                return ResourceManager.GetString("To", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Upper and lower rain limit considered dry or wet.
         /// </summary>
         public static string UpperAndLowerRainLimitConsideredDryOrWet {
@@ -1866,6 +1920,15 @@ namespace CSSPWebTools.Views.MWQM.Resources {
         public static string UseFullYear {
             get {
                 return ResourceManager.GetString("UseFullYear", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use these parameters.
+        /// </summary>
+        public static string UseTheseParameters {
+            get {
+                return ResourceManager.GetString("UseTheseParameters", resourceCulture);
             }
         }
         

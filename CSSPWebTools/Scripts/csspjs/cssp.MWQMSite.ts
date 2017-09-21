@@ -41,20 +41,38 @@ module CSSP {
         }
 
         // Functions
+        public MWQMSiteFileDownload: Function = ($bjs: JQuery): void => {
+            var TVFileTVItemID: string = $bjs.data("tvfiletvitemid");
+            window.document.location.href = cssp.BaseURL + "File/FileDownload?TVFileTVItemID=" + TVFileTVItemID;
+        };
         public AfterLoadParameter: Function = (): void => {
             $("select[name='MWQMAnalysisReportParameterSaveCreateOrExportToExcel']").off("change");
             $("select[name='MWQMAnalysisReportParameterSaveCreateOrExportToExcel']").on("change", () => {
                 let value: string = $("select[name='MWQMAnalysisReportParameterSaveCreateOrExportToExcel']").val();
-                if (value == "Save") {
-                    $(".jbMWQMSubsectorAnalysisSaveCreateOrExportToExcel").html(cssp.GetHTMLVariable("#LayoutVariables", "varSave"));
-                    $(".InputAnalysisNameDiv").removeClass("hidden");
-                }
-                else if (value == "Export") {
-                    $(".jbMWQMSubsectorAnalysisSaveCreateOrExportToExcel").html(cssp.GetHTMLVariable("#LayoutVariables", "varExportToExcel"));
+                if (value == "Empty") {
+                    let MWQMAnalysisReportParameterID: number = 0;
                     $(".InputAnalysisNameDiv").removeClass("hidden").addClass("hidden");
+                    $(".jbMWQMSubsectorAnalysisSaveCreateOrExportToExcel").removeClass("hidden").addClass("hidden");
+                    cssp.MWQMSite.ShowOnlyTheSelectedMWQMAnalysisReportParameter(MWQMAnalysisReportParameterID);
+                }
+                else if (value == "Save" || value == "Export") {
+                    let MWQMAnalysisReportParameterID: number = 0;
+                    $(".InputAnalysisNameDiv").removeClass("hidden");
+                    $("button.jbMWQMSubsectorAnalysisSaveCreateOrExportToExcel").removeClass("hidden");
+                    if (value == "Save") {
+                        $(".jbMWQMSubsectorAnalysisSaveCreateOrExportToExcel").html(cssp.GetHTMLVariable("#LayoutVariables", "varSaveForReport"));
+                        $(".InputAnalysisNameDiv").find("label.InputAnalysisName").html(cssp.GetHTMLVariable("#LayoutVariables", "varNewAnalysisName"));
+                        $(".AnalysisReportYearDiv").removeClass("hidden");
+                    }
+                    else {
+                        $(".jbMWQMSubsectorAnalysisSaveCreateOrExportToExcel").html(cssp.GetHTMLVariable("#LayoutVariables", "varExportToExcel"));
+                        $(".InputAnalysisNameDiv").find("label.InputAnalysisName").html(cssp.GetHTMLVariable("#LayoutVariables", "varNewExcelFileName"));
+                        $(".AnalysisReportYearDiv").removeClass("hidden").addClass("hidden");
+                    }
+                    cssp.MWQMSite.ShowOnlyTheSelectedMWQMAnalysisReportParameter(MWQMAnalysisReportParameterID);
                 }
                 else if (value.substring(0, 4) == "View") {
-                    let MWQMAnalysisReportParameterID = parseInt(value.replace("Excel_", ""));
+                    let MWQMAnalysisReportParameterID: number = parseInt(value.replace("View_", ""));
                     let TextShown: string = $("select[name='MWQMAnalysisReportParameterSaveCreateOrExportToExcel']").text();
                     if (TextShown.substring(TextShown.length - 7) == "[Excel]") {
                         $(".jbMWQMSubsectorAnalysisReportParameterOrExcelDelete").html(cssp.GetHTMLVariable("#LayoutVariables", "varDeleteExcelDocument"));
@@ -63,6 +81,17 @@ module CSSP {
                         $(".jbMWQMSubsectorAnalysisReportParameterOrExcelDelete").html(cssp.GetHTMLVariable("#LayoutVariables", "varDeleteAnalysis"));
                     }
                     $(".jbMWQMSubsectorAnalysisSaveCreateOrExportToExcel").html(cssp.GetHTMLVariable("#LayoutVariables", "varView"));
+                    let RunsToOmitText: string = $(".RunsToOmit").text();
+                    let RunsIDs: string[] = RunsToOmitText.split(",");
+                    RunsToOmitText = "";
+                    for (let i = 0, count = RunsIDs.length; i < count; i++) {
+                        if (RunsIDs[i].length > 0) {
+                            RunsToOmitText = RunsToOmitText + "<span>" + $("#AnalysisTable").find("td.MWQMRun[data-runid='" + RunsIDs[i].trim() + "']").eq(0).data("date") + "&nbsp;&nbsp;&nbsp;</span>";
+                        }
+                    }
+                    if (RunsToOmitText.length > 0) {
+                        $(".RunsToOmitShowDates").html(cssp.GetHTMLVariable("#LayoutVariables", "varRunsOmitted") + " : " + RunsToOmitText);
+                    }
                     $(".InputAnalysisNameDiv").removeClass("hidden").addClass("hidden");
                     cssp.MWQMSite.ShowOnlyTheSelectedMWQMAnalysisReportParameter(MWQMAnalysisReportParameterID);
                 }
@@ -96,11 +125,15 @@ module CSSP {
                         cssp.Dialog.ShowDialogErrorWithError(ret);
                     }
                     else {
+                        cssp.Dialog.ShowDialogSuccess(cssp.GetHTMLVariable("#LayoutVariables", "varDeleted"));
                         cssp.MWQMSite.ReloadAnalysisReportParameter();
                     }
                 }).fail(() => {
                     cssp.Dialog.ShowDialogErrorWithFail(command);
                 });
+        };
+        public MWQMSubsectorAnalysisReportParameterOrExcelLoad: Function = ($bjs: JQuery): void => {
+            cssp.Dialog.ShowDialogMessage("Need to set all the parameters within the open analysis")
         };
         public MWQMSubsectorAnalysisSaveCreateOrExportToExcel: Function = ($bjs: JQuery): void => {
             let value = $bjs.closest(".MWQMAnalysisReportParameterTopDiv").find("select[name='MWQMAnalysisReportParameterSaveCreateOrExportToExcel']").val();
@@ -125,7 +158,7 @@ module CSSP {
                 let EndDate = $("select.MWQMSubsectorAnalysisEndDate").val();
                 let AnalysisCalculationType = $("select.MWQMSubsectorAnalysisCalculateType").val();
                 let NumberOfRuns = $("select.MWQMSubsectorAnalysisRuns").val();
-                let FullYear = $("input.SelectFullYear").val();
+                let FullYear = $("input.SelectFullYear").is(":Checked") ? true : false;
                 let SalinityHighlightDeviationFromAverage = $("select.MWQMSubsectorAnalysisHighlightSalinityDeviationFromAverage").val();
                 let ShortRangeNumberOfDays = $("input[name='ShortRange']:checked").val();
                 let MidRangeNumberOfDays = $("input[name='MidRange']:checked").val();
@@ -167,12 +200,13 @@ module CSSP {
                         WetLimit72h: WetLimit72h,
                         WetLimit96h: WetLimit96h,
                         RunsToOmit: RunsToOmit,
-
+                        Command: Command
                     }).done((ret) => {
                         if (ret) {
                             cssp.Dialog.ShowDialogErrorWithError(ret);
                         }
                         else {
+                            cssp.Dialog.ShowDialogSuccess(cssp.GetHTMLVariable("#LayoutVariables", "varSaved"));
                             cssp.MWQMSite.ReloadAnalysisReportParameter();
                         }
                     }).fail(() => {

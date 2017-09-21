@@ -277,6 +277,15 @@ namespace CSSPWebTools.Views.Shared.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Deleted.
+        /// </summary>
+        public static string Deleted {
+            get {
+                return ResourceManager.GetString("Deleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Delete Excel document.
         /// </summary>
         public static string DeleteExcelDocument {
@@ -619,6 +628,24 @@ namespace CSSPWebTools.Views.Shared.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to New analysis name.
+        /// </summary>
+        public static string NewAnalysisName {
+            get {
+                return ResourceManager.GetString("NewAnalysisName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New Excel file name.
+        /// </summary>
+        public static string NewExcelFileName {
+            get {
+                return ResourceManager.GetString("NewExcelFileName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No Data.
         /// </summary>
         public static string NoData {
@@ -772,6 +799,15 @@ namespace CSSPWebTools.Views.Shared.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Runs omitted.
+        /// </summary>
+        public static string RunsOmitted {
+            get {
+                return ResourceManager.GetString("RunsOmitted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Same Page.
         /// </summary>
         public static string SamePage {
@@ -790,11 +826,20 @@ namespace CSSPWebTools.Views.Shared.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Save.
+        ///   Looks up a localized string similar to Saved.
         /// </summary>
-        public static string Save {
+        public static string Saved {
             get {
-                return ResourceManager.GetString("Save", resourceCulture);
+                return ResourceManager.GetString("Saved", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save for report.
+        /// </summary>
+        public static string SaveForReport {
+            get {
+                return ResourceManager.GetString("SaveForReport", resourceCulture);
             }
         }
         

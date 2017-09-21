@@ -789,7 +789,28 @@
   <data name="ExcelTVFileTVText" xml:space="preserve">
     <value>ExcelTVFileTVText</value>
   </data>
+  <data name="Mid" xml:space="preserve">
+    <value>Mid</value>
+  </data>
+  <data name="Parameters" xml:space="preserve">
+    <value>Parameters</value>
+  </data>
+  <data name="Ranges" xml:space="preserve">
+    <value>Ranges</value>
+  </data>
+  <data name="SelectOneOptionBelow" xml:space="preserve">
+    <value>Select one option below</value>
+  </data>
+  <data name="Short" xml:space="preserve">
+    <value>Short</value>
+  </data>
+  <data name="To" xml:space="preserve">
+    <value>to</value>
+  </data>
   <data name="UseFullYear" xml:space="preserve">
     <value>use full year</value>
+  </data>
+  <data name="UseTheseParameters" xml:space="preserve">
+    <value>Use these parameters</value>
   </data>
 </root>

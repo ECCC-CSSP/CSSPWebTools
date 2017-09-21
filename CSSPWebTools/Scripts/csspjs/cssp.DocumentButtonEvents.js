@@ -796,6 +796,11 @@ var CSSP;
                                 cssp.MWQMSite.LoadMWQMSiteCharts();
                             }
                             break;
+                        case "jbMWQMSiteFileDownload":
+                            {
+                                cssp.MWQMSite.MWQMSiteFileDownload($bjs);
+                            }
+                            break;
                         case "jbMWQMSiteOtherMWQMSitesLoad":
                             {
                                 cssp.MWQMSite.LoadOtherMWQMSites();
@@ -874,6 +879,11 @@ var CSSP;
                         case "jbMWQMSubsectorAnalysisReportParameterOrExcelDelete":
                             {
                                 cssp.MWQMSite.MWQMSubsectorAnalysisReportParameterOrExcelDelete($bjs);
+                            }
+                            break;
+                        case "jbMWQMSubsectorAnalysisReportParameterOrExcelLoad":
+                            {
+                                cssp.MWQMSite.MWQMSubsectorAnalysisReportParameterOrExcelLoad($bjs);
                             }
                             break;
                         case "jbMWQMSubsectorAnalysisLoadForReport":
