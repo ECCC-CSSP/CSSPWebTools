@@ -813,4 +813,10 @@
   <data name="UseTheseParameters" xml:space="preserve">
     <value>Use these parameters</value>
   </data>
+  <data name="ExportOrSave" xml:space="preserve">
+    <value>Export or save</value>
+  </data>
+  <data name="ForExcelExportDeletingTheAnalysisWillNotAutomaticallyDeleteTheExcelFile" xml:space="preserve">
+    <value>For Excel export, deleting the analysis will not automatically delete the Excel file</value>
+  </data>
 </root>

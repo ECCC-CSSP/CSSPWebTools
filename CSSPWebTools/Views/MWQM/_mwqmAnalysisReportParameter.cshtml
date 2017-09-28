@@ -25,7 +25,7 @@
         }
         else
         {
-            <option value="@("View_" + mwqmAnalysisReportParameterModel.MWQMAnalysisReportParameterID)">@("[Excel] - " +mwqmAnalysisReportParameterModel.AnalysisName)</option>
+            <option value="@("View_" + mwqmAnalysisReportParameterModel.MWQMAnalysisReportParameterID)">@("[Excel] - " + mwqmAnalysisReportParameterModel.AnalysisName)</option>
         }
     }
     @foreach (MWQMAnalysisReportParameterModel mwqmAnalysisReportParameterModel in mwqmAnalysisReportParameterModelList.Where(c => c.Command == AnalysisReportExportCommandEnum.Report).OrderBy(c => c.AnalysisName))
@@ -40,29 +40,82 @@
         }
     }
 </select>
-<div class="InputAnalysisNameDiv hidden">
-    <label class="InputAnalysisName" for="InputAnalysisName">@MWQMViewRes.ExcelFileName</label>
-    <input class="InputAnalysisName form-control" type="text" value="" name="InputAnalysisName" /><br />
-    <div class="AnalysisReportYearDiv">
-        <label for="AnalysisReportYear">@MWQMViewRes.AnalysisReportYear</label>
-        <input class="AnalysisReportYear form-control" type="text" value="" name="AnalysisReportYear" /><br />
+<div class="InputAnalysisNameDiv panel panel-info hidden">
+    <div class="panel-heading">
+        <div class="h4">@MWQMViewRes.ExportOrSave</div>
+    </div>
+    <div class="panel-body">
+        <label class="InputAnalysisName" for="InputAnalysisName">@MWQMViewRes.ExcelFileName</label>
+        <input class="InputAnalysisName form-control" type="text" value="" name="InputAnalysisName" /><br />
+        <div class="AnalysisReportYearDiv">
+            <label for="AnalysisReportYear">@MWQMViewRes.AnalysisReportYear</label>
+            <select class="AnalysisReportYear form-control" type="text" value="" name="AnalysisReportYear">
+                @for (int i = 1980, maxYear = (DateTime.Now.Year + 1); i < maxYear; i++)
+                {
+                    <option value="@i">@i</option>
+                }
+            </select>
+            <br />
+        </div>
+        <button class="jbMWQMSubsectorAnalysisSaveCreateOrExportToExcel btn btn-default hidden">@MWQMViewRes.ExportToExcelDocument</button>
     </div>
 </div>
-<button class="jbMWQMSubsectorAnalysisSaveCreateOrExportToExcel btn btn-default hidden">@MWQMViewRes.ExportToExcelDocument</button>
 @foreach (MWQMAnalysisReportParameterModel mwqmAnalysisReportParameterModel in mwqmAnalysisReportParameterModelList)
 {
-    <div class="MWQMAnalysisReportParameter hidden" data-parameterid="@mwqmAnalysisReportParameterModel.MWQMAnalysisReportParameterID">
-        <h3>@MWQMViewRes.Parameters</h3>
-        <blockquote class="h5">
+    List<string> DataTypesList = mwqmAnalysisReportParameterModel.ShowDataTypes.Split(",".ToCharArray(), StringSplitOptions.None).ToList();
+    string DataTypesText = "";
+    foreach (string s in DataTypesList)
+    {
+        if (string.IsNullOrWhiteSpace(s))
+        {
+            continue;
+        }
+        DataTypesText = DataTypesText + _BaseEnumService.GetEnumText_ExcelExportShowDataTypeEnum((ExcelExportShowDataTypeEnum)int.Parse(s)) + ", ";
+    }
+    string AnalysisCalculationTypeText = "";
+    if (mwqmAnalysisReportParameterModel.AnalysisCalculationType == AnalysisCalculationTypeEnum.AllAllAll)
+    {
+        AnalysisCalculationTypeText = "All_All_All";
+    }
+    if (mwqmAnalysisReportParameterModel.AnalysisCalculationType == AnalysisCalculationTypeEnum.WetAllAll)
+    {
+        AnalysisCalculationTypeText = "Wet_All_All";
+    }
+    if (mwqmAnalysisReportParameterModel.AnalysisCalculationType == AnalysisCalculationTypeEnum.DryAllAll)
+    {
+        AnalysisCalculationTypeText = "Dry_All_All";
+    }
+    if (mwqmAnalysisReportParameterModel.AnalysisCalculationType == AnalysisCalculationTypeEnum.WetWetAll)
+    {
+        AnalysisCalculationTypeText = "Wet_Wet_All";
+    }
+    if (mwqmAnalysisReportParameterModel.AnalysisCalculationType == AnalysisCalculationTypeEnum.DryDryAll)
+    {
+        AnalysisCalculationTypeText = "Dry_Dry_All";
+    }
+    if (mwqmAnalysisReportParameterModel.AnalysisCalculationType == AnalysisCalculationTypeEnum.WetDryAll)
+    {
+        AnalysisCalculationTypeText = "Wet_Dry_All";
+    }
+    if (mwqmAnalysisReportParameterModel.AnalysisCalculationType == AnalysisCalculationTypeEnum.DryWetAll)
+    {
+        AnalysisCalculationTypeText = "Dry_Wet_All";
+    }
+    <div class="MWQMAnalysisReportParameter panel panel-info hidden" data-parameterid="@mwqmAnalysisReportParameterModel.MWQMAnalysisReportParameterID">
+        <div class="panel-heading">
+            <div class="h4">@MWQMViewRes.Parameters</div>
+        </div>
+        <div class="panel-body">
+            <span class="AnalysisName hidden">@mwqmAnalysisReportParameterModel.AnalysisName</span>
             @if (mwqmAnalysisReportParameterModel.Command == AnalysisReportExportCommandEnum.Report)
             {
-                <span class="AnalysisReportYear">(@mwqmAnalysisReportParameterModel.AnalysisReportYear)&nbsp;</span>
+                <span>(<span class="AnalysisReportYear">@mwqmAnalysisReportParameterModel.AnalysisReportYear</span>)&nbsp;</span>
             }
-            <span class="StartDate">@mwqmAnalysisReportParameterModel.StartDate.ToString("yyyy MMMM dd")</span> @MWQMViewRes.To
-            <span class="EndDate">@mwqmAnalysisReportParameterModel.EndDate.ToString("yyyy MMMM dd")</span>,
-            <span class="AnalysisCalculationType">@(_BaseEnumService.GetEnumText_AnalysisCalculationTypeEnum(mwqmAnalysisReportParameterModel.AnalysisCalculationType))</span>,
-            <span class="NumberOfRuns">@mwqmAnalysisReportParameterModel.NumberOfRuns</span> runs,
-            <span class="FullYear hidden">@mwqmAnalysisReportParameterModel.FullYear</span>
+            <span class="StartDate" data-startdate="@mwqmAnalysisReportParameterModel.StartDate.ToString("yyyy-MM-dd")">@mwqmAnalysisReportParameterModel.StartDate.ToString("yyyy MMMM dd")</span> @MWQMViewRes.To
+            <span class="EndDate" data-enddate="@mwqmAnalysisReportParameterModel.EndDate.ToString("yyyy-MM-dd")">@mwqmAnalysisReportParameterModel.EndDate.ToString("yyyy MMMM dd")</span>,
+            <span class="AnalysisCalculationType" data-analysiscalculationtype="@AnalysisCalculationTypeText">@(_BaseEnumService.GetEnumText_AnalysisCalculationTypeEnum(mwqmAnalysisReportParameterModel.AnalysisCalculationType))</span>,
+            <span class="NumberOfRuns" data-numberofruns="@mwqmAnalysisReportParameterModel.NumberOfRuns">@mwqmAnalysisReportParameterModel.NumberOfRuns</span> runs,
+            <span class="FullYear hidden" data-fullyear="@mwqmAnalysisReportParameterModel.FullYear">@mwqmAnalysisReportParameterModel.FullYear</span>
             @if (mwqmAnalysisReportParameterModel.FullYear)
                 {
                 <span>@MWQMViewRes.UseFullYear</span>
@@ -72,9 +125,9 @@
                 <span class="text-strikeThrough">@MWQMViewRes.UseFullYear</span>
             }
             ,
-            <span>@MWQMViewRes.Sal (</span><span class="SalinityHighlightDeviationFromAverage">@mwqmAnalysisReportParameterModel.SalinityHighlightDeviationFromAverage</span>),
-            <span>@MWQMViewRes.Short</span> (<span class="ShortRangeNumberOfDays">@mwqmAnalysisReportParameterModel.ShortRangeNumberOfDays</span>) @MWQMViewRes.And
-            <span>@MWQMViewRes.Mid</span> (<span class="MidRangeNumberOfDays">@mwqmAnalysisReportParameterModel.MidRangeNumberOfDays</span>)
+            <span>@MWQMViewRes.Sal (</span><span class="SalinityHighlightDeviationFromAverage" data-salinityhighlightdeviationfromaverage="@mwqmAnalysisReportParameterModel.SalinityHighlightDeviationFromAverage">@mwqmAnalysisReportParameterModel.SalinityHighlightDeviationFromAverage</span>),
+            <span>@MWQMViewRes.Short</span> (<span class="ShortRangeNumberOfDays" data-shortrangenumberofdays="@mwqmAnalysisReportParameterModel.ShortRangeNumberOfDays">@mwqmAnalysisReportParameterModel.ShortRangeNumberOfDays</span>) @MWQMViewRes.And
+            <span>@MWQMViewRes.Mid</span> (<span class="MidRangeNumberOfDays" data-midrangenumberofdays="@mwqmAnalysisReportParameterModel.MidRangeNumberOfDays">@mwqmAnalysisReportParameterModel.MidRangeNumberOfDays</span>)
             <span>@MWQMViewRes.Ranges</span>
             <table class="table table-condensed">
                 <tr>
@@ -86,35 +139,36 @@
                 </tr>
                 <tr>
                     <td>@MWQMViewRes.Dry</td>
-                    <td><span class="DryLimit24h">@mwqmAnalysisReportParameterModel.DryLimit24h</span></td>
-                    <td><span class="DryLimit48h">@mwqmAnalysisReportParameterModel.DryLimit48h</span></td>
-                    <td><span class="DryLimit72h">@mwqmAnalysisReportParameterModel.DryLimit72h</span></td>
-                    <td><span class="DryLimit96h">@mwqmAnalysisReportParameterModel.DryLimit96h</span></td>
+                    <td><span class="DryLimit24h" data-drylimit24h="@mwqmAnalysisReportParameterModel.DryLimit24h">@mwqmAnalysisReportParameterModel.DryLimit24h</span></td>
+                    <td><span class="DryLimit48h" data-drylimit48h="@mwqmAnalysisReportParameterModel.DryLimit48h">@mwqmAnalysisReportParameterModel.DryLimit48h</span></td>
+                    <td><span class="DryLimit72h" data-drylimit72h="@mwqmAnalysisReportParameterModel.DryLimit72h">@mwqmAnalysisReportParameterModel.DryLimit72h</span></td>
+                    <td><span class="DryLimit96h" data-drylimit96h="@mwqmAnalysisReportParameterModel.DryLimit96h">@mwqmAnalysisReportParameterModel.DryLimit96h</span></td>
                 </tr>
                 <tr>
                     <td>@MWQMViewRes.Wet</td>
-                    <td><span class="WetLimit24h">@mwqmAnalysisReportParameterModel.WetLimit24h</span></td>
-                    <td><span class="WetLimit48h">@mwqmAnalysisReportParameterModel.WetLimit48h</span></td>
-                    <td><span class="WetLimit72h">@mwqmAnalysisReportParameterModel.WetLimit72h</span></td>
-                    <td><span class="WetLimit96h">@mwqmAnalysisReportParameterModel.WetLimit96h</span></td>
+                    <td><span class="WetLimit24h" data-wetlimit24h="@mwqmAnalysisReportParameterModel.WetLimit24h">@mwqmAnalysisReportParameterModel.WetLimit24h</span></td>
+                    <td><span class="WetLimit48h" data-wetlimit48h="@mwqmAnalysisReportParameterModel.WetLimit48h">@mwqmAnalysisReportParameterModel.WetLimit48h</span></td>
+                    <td><span class="WetLimit72h" data-wetlimit72h="@mwqmAnalysisReportParameterModel.WetLimit72h">@mwqmAnalysisReportParameterModel.WetLimit72h</span></td>
+                    <td><span class="WetLimit96h" data-wetlimit96h="@mwqmAnalysisReportParameterModel.WetLimit96h">@mwqmAnalysisReportParameterModel.WetLimit96h</span></td>
                 </tr>
             </table>
-            <span class="RunsToOmit hidden">@mwqmAnalysisReportParameterModel.RunsToOmit</span>
-            <span class="RunsToOmitShowDates"></span>
+            <span class="RunsToOmit hidden" data-runstoomit="@mwqmAnalysisReportParameterModel.RunsToOmit">@mwqmAnalysisReportParameterModel.RunsToOmit</span>
+            <span class="RunsToOmitShowDates"></span><br />
+            <span class="ShowDataTypes hidden" data-showdatatypes="@mwqmAnalysisReportParameterModel.ShowDataTypes">@mwqmAnalysisReportParameterModel.ShowDataTypes</span>
+            <span class="ShowDataTypesText">@DataTypesText</span><br />
             <span class="ExcelTVFileTVItemID hidden">@mwqmAnalysisReportParameterModel.ExcelTVFileTVItemID</span>
-            <span class="Command hidden">@mwqmAnalysisReportParameterModel.Command</span>
+            <span class="Command hidden" data-command="@mwqmAnalysisReportParameterModel.Command">@mwqmAnalysisReportParameterModel.Command</span>
             @if (mwqmAnalysisReportParameterModel.Command == AnalysisReportExportCommandEnum.Excel)
             {
                 string fileName = mwqmAnalysisReportParameterModel.AnalysisName + ".xlsx";
-                <span>@MWQMViewRes.ExcelFileName :</span>
                 <button class="jbMWQMSiteFileDownload btn btn-default" data-tvfiletvitemid="@mwqmAnalysisReportParameterModel.ExcelTVFileTVItemID" title="Download">
                     <span class="glyphicon glyphicon-download"></span>
-                </button><span>&nbsp; &nbsp;@fileName</span>
+                </button><span>&nbsp; &nbsp;@fileName</span><br />
             }
             <br />
-            <button class="jbMWQMSubsectorAnalysisReportParameterOrExcelLoad btn btn-default">@MWQMViewRes.UseTheseParameters</button>
-            <button class="jbMWQMSubsectorAnalysisReportParameterOrExcelDelete btn btn-default">@MWQMViewRes.DeleteAnalysis</button>
-        </blockquote>
+            <button class="jbMWQMSubsectorAnalysisReportParameterOrExcelLoad btn btn-default hidden">@MWQMViewRes.UseTheseParameters</button>
+            <button class="jbMWQMSubsectorAnalysisReportParameterOrExcelDelete btn btn-default" title="@MWQMViewRes.ForExcelExportDeletingTheAnalysisWillNotAutomaticallyDeleteTheExcelFile">@MWQMViewRes.DeleteAnalysis</button>
+        </div>
     </div>
 }
 <script type="text/javascript">

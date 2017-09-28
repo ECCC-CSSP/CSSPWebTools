@@ -88,6 +88,15 @@ namespace CSSPWebTools.Views.Shared.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Already exist. See :.
+        /// </summary>
+        public static string AlreadyExistSee {
+            get {
+                return ResourceManager.GetString("AlreadyExistSee", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Analysis name required.
         /// </summary>
         public static string AnalysisNameRequired {
@@ -358,11 +367,11 @@ namespace CSSPWebTools.Views.Shared.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Export to Excel.
+        ///   Looks up a localized string similar to Export to Excel document.
         /// </summary>
-        public static string ExportToExcel {
+        public static string ExportToExcelDocument {
             get {
-                return ResourceManager.GetString("ExportToExcel", resourceCulture);
+                return ResourceManager.GetString("ExportToExcelDocument", resourceCulture);
             }
         }
         

@@ -795,4 +795,10 @@
   <data name="UseTheseParameters" xml:space="preserve">
     <value>Utiliser ces paramètres</value>
   </data>
+  <data name="ExportOrSave" xml:space="preserve">
+    <value>Exporter ou sauvegarder</value>
+  </data>
+  <data name="ForExcelExportDeletingTheAnalysisWillNotAutomaticallyDeleteTheExcelFile" xml:space="preserve">
+    <value>Pour les documents Excel exportés, effacer l'analyse n'effacera pas automatiquement la filiè Excel</value>
+  </data>
 </root>

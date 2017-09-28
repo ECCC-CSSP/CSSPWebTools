@@ -56,6 +56,9 @@
                     case "cssp.MikeScenario.SetDialogEventsSourceStartEnd":
                         cssp.MikeScenario.SetDialogEventsSourceStartEnd($ajs);
                         break;
+                    case "cssp.MWQMSite.SetDialogEvents":
+                        cssp.MWQMSite.SetDialogEvents($ajs);
+                        break;
                     case "cssp.MWQMRun.SetDialogEventsRun":
                         cssp.MWQMRun.SetDialogEventsRun($ajs);
                         break;

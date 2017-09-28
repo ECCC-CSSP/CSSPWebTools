@@ -878,7 +878,7 @@ var CSSP;
                             break;
                         case "jbMWQMSubsectorAnalysisReportParameterOrExcelDelete":
                             {
-                                cssp.MWQMSite.MWQMSubsectorAnalysisReportParameterOrExcelDelete($bjs);
+                                cssp.MWQMSite.AskToRemoveMWQMAnalysisReportParameter($bjs);
                             }
                             break;
                         case "jbMWQMSubsectorAnalysisReportParameterOrExcelLoad":

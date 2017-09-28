@@ -457,6 +457,15 @@ namespace CSSPWebTools.Views.MWQM.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Export or save.
+        /// </summary>
+        public static string ExportOrSave {
+            get {
+                return ResourceManager.GetString("ExportOrSave", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Export to Excel document.
         /// </summary>
         public static string ExportToExcelDocument {
@@ -534,6 +543,15 @@ namespace CSSPWebTools.Views.MWQM.Resources {
         public static string FieldRelatedInformation {
             get {
                 return ResourceManager.GetString("FieldRelatedInformation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to For Excel export, deleting the analysis will not automatically delete the Excel file.
+        /// </summary>
+        public static string ForExcelExportDeletingTheAnalysisWillNotAutomaticallyDeleteTheExcelFile {
+            get {
+                return ResourceManager.GetString("ForExcelExportDeletingTheAnalysisWillNotAutomaticallyDeleteTheExcelFile", resourceCulture);
             }
         }
         

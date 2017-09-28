@@ -32,7 +32,27 @@ var CSSP;
             this.MWQMPercOver260$ = null; // $("#AnalysisTable").find("td.PercOver260")
             this.MWQMColorAndLetter$ = null; // $("#AnalysisTable").find("td.ColorAndLetter")
             this.MWQMSampleList$ = []; // loop $("#AnalysisTable").find("td.MWQMSample[data-sitecount='" + i + "']")
+            this.StopRecalculation = false;
             // Functions
+            this.AskToRemoveMWQMAnalysisReportParameter = function ($bjs) {
+                var AnalysisName = $bjs.closest(".MWQMAnalysisReportParameter").find(".AnalysisName").text();
+                var AnalysisReportYear = $bjs.closest(".MWQMAnalysisReportParameter").find(".AnalysisReportYear").text();
+                var Command = $bjs.closest(".MWQMAnalysisReportParameter").find(".Command").text();
+                if (Command == "Report") {
+                    cssp.Dialog.ShowDialogAreYouSure("[" + AnalysisReportYear + "] - " + AnalysisName);
+                }
+                else {
+                    cssp.Dialog.ShowDialogAreYouSure("[Excel] - " + AnalysisName);
+                }
+                cssp.Dialog.CheckDialogAndButtonsExist(["#DialogBasic", "#DialogBasicYes"], 5, "cssp.MWQMSite.SetDialogEvents", $bjs);
+            };
+            this.SetDialogEvents = function ($bjs) {
+                $("#DialogBasicYes").one("click", function (evt) {
+                    $("#DialogBasic").one('hidden.bs.modal', function () {
+                        cssp.MWQMSite.MWQMSubsectorAnalysisReportParameterOrExcelDelete($bjs);
+                    });
+                });
+            };
             this.MWQMSiteFileDownload = function ($bjs) {
                 var TVFileTVItemID = $bjs.data("tvfiletvitemid");
                 window.document.location.href = cssp.BaseURL + "File/FileDownload?TVFileTVItemID=" + TVFileTVItemID;
@@ -57,7 +77,7 @@ var CSSP;
                             $(".AnalysisReportYearDiv").removeClass("hidden");
                         }
                         else {
-                            $(".jbMWQMSubsectorAnalysisSaveCreateOrExportToExcel").html(cssp.GetHTMLVariable("#LayoutVariables", "varExportToExcel"));
+                            $(".jbMWQMSubsectorAnalysisSaveCreateOrExportToExcel").html(cssp.GetHTMLVariable("#LayoutVariables", "varExportToExcelDocument"));
                             $(".InputAnalysisNameDiv").find("label.InputAnalysisName").html(cssp.GetHTMLVariable("#LayoutVariables", "varNewExcelFileName"));
                             $(".AnalysisReportYearDiv").removeClass("hidden").addClass("hidden");
                         }
@@ -73,17 +93,6 @@ var CSSP;
                             $(".jbMWQMSubsectorAnalysisReportParameterOrExcelDelete").html(cssp.GetHTMLVariable("#LayoutVariables", "varDeleteAnalysis"));
                         }
                         $(".jbMWQMSubsectorAnalysisSaveCreateOrExportToExcel").html(cssp.GetHTMLVariable("#LayoutVariables", "varView"));
-                        var RunsToOmitText = $(".RunsToOmit").text();
-                        var RunsIDs = RunsToOmitText.split(",");
-                        RunsToOmitText = "";
-                        for (var i = 0, count = RunsIDs.length; i < count; i++) {
-                            if (RunsIDs[i].length > 0) {
-                                RunsToOmitText = RunsToOmitText + "<span>" + $("#AnalysisTable").find("td.MWQMRun[data-runid='" + RunsIDs[i].trim() + "']").eq(0).data("date") + "&nbsp;&nbsp;&nbsp;</span>";
-                            }
-                        }
-                        if (RunsToOmitText.length > 0) {
-                            $(".RunsToOmitShowDates").html(cssp.GetHTMLVariable("#LayoutVariables", "varRunsOmitted") + " : " + RunsToOmitText);
-                        }
                         $(".InputAnalysisNameDiv").removeClass("hidden").addClass("hidden");
                         cssp.MWQMSite.ShowOnlyTheSelectedMWQMAnalysisReportParameter(MWQMAnalysisReportParameterID);
                     }
@@ -97,10 +106,22 @@ var CSSP;
                     var id = parseInt($(elem).data("parameterid"));
                     if (id == MWQMAnalysisReportParameterID) {
                         $(elem).removeClass("hidden");
+                        var RunsToOmitText = $(elem).find(".RunsToOmit").text();
+                        var RunsIDs = RunsToOmitText.split(",");
+                        RunsToOmitText = "";
+                        for (var i = 0, count = RunsIDs.length; i < count; i++) {
+                            if (RunsIDs[i].length > 0) {
+                                RunsToOmitText = RunsToOmitText + "<span>" + $("#AnalysisTable").find("td.MWQMRun[data-runid='" + RunsIDs[i].trim() + "']").eq(0).data("date") + "&nbsp;&nbsp;&nbsp;</span>";
+                            }
+                        }
+                        if (RunsToOmitText.length > 0) {
+                            $(elem).find(".RunsToOmitShowDates").html(cssp.GetHTMLVariable("#LayoutVariables", "varRunsOmitted") + " : " + RunsToOmitText);
+                        }
                     }
                     else {
                         if (!$(elem).hasClass("hidden")) {
                             $(elem).addClass("hidden");
+                            $(elem).find(".RunsToOmitShowDates").html("");
                         }
                     }
                 });
@@ -124,7 +145,90 @@ var CSSP;
                 });
             };
             this.MWQMSubsectorAnalysisReportParameterOrExcelLoad = function ($bjs) {
-                cssp.Dialog.ShowDialogMessage("Need to set all the parameters within the open analysis");
+                cssp.Dialog.ShowDialogMessage("Not implemented yet...");
+                return;
+                //cssp.MWQMSite.StopRecalculation = true;
+                //$(".jbMWQMSubsectorAnalysisRemoveFromStat").each((ind: number, elem: Element) => {
+                //    if ($(elem).hasClass("btn-danger")) {
+                //        $(elem).removeClass("btn-danger")
+                //    }
+                //});
+                //$("select.MWQMSubsectorAnalysisStartDate").val($bjs.closest(".MWQMAnalysisReportParameter").find(".StartDate").data("startdate"));
+                //$("select.MWQMSubsectorAnalysisEndDate").val($bjs.closest(".MWQMAnalysisReportParameter").find(".EndDate").data("enddate"));
+                //$("select.MWQMSubsectorAnalysisRuns").val($bjs.closest(".MWQMAnalysisReportParameter").find(".NumberOfRuns").data("numberofruns"));
+                //$("select.MWQMSubsectorAnalysisCalculateType").val($bjs.closest(".MWQMAnalysisReportParameter").find(".AnalysisCalculationType").data("analysiscalculationtype"));
+                //$("select.MWQMSubsectorAnalysisHighlightSalinityDeviationFromAverage").val($bjs.closest(".MWQMAnalysisReportParameter").find(".SalinityHighlightDeviationFromAverage").data("salinityhighlightdeviationfromaverage"));
+                //$("select[name='UpperRainLimitStillConsideredDry1']").val($bjs.closest(".MWQMAnalysisReportParameter").find(".DryLimit24h").data("drylimit24h"));
+                //$("select[name='UpperRainLimitStillConsideredDry2']").val($bjs.closest(".MWQMAnalysisReportParameter").find(".DryLimit48h").data("drylimit48h"));
+                //$("select[name='UpperRainLimitStillConsideredDry3']").val($bjs.closest(".MWQMAnalysisReportParameter").find(".DryLimit72h").data("drylimit72h"));
+                //$("select[name='UpperRainLimitStillConsideredDry4']").val($bjs.closest(".MWQMAnalysisReportParameter").find(".DryLimit96h").data("drylimit96h"));
+                //$("select[name='UpperRainLimitStillConsideredWet1']").val($bjs.closest(".MWQMAnalysisReportParameter").find(".WetLimit24h").data("wetlimit24h"));
+                //$("select[name='UpperRainLimitStillConsideredWet2']").val($bjs.closest(".MWQMAnalysisReportParameter").find(".WetLimit48h").data("wetlimit48h"));
+                //$("select[name='UpperRainLimitStillConsideredWet3']").val($bjs.closest(".MWQMAnalysisReportParameter").find(".WetLimit72h").data("wetlimit72h"));
+                //$("select[name='UpperRainLimitStillConsideredWet4']").val($bjs.closest(".MWQMAnalysisReportParameter").find(".WetLimit96h").data("wetlimit96h"));
+                //if ($bjs.closest(".MWQMAnalysisReportParameter").find(".FullYear").data("fullyear") == "True") {
+                //    $("input.SelectFullYear").attr("checked", "checked");
+                //}
+                //else {
+                //    $("input.SelectFullYear").attr("checked", "");
+                //}
+                //$("input[name='ShortRange']").val($bjs.closest(".MWQMAnalysisReportParameter").find(".ShortRangeNumberOfDays").data("shortrangenumberofdays"));
+                //$("input[name='ShortRange']").val($bjs.closest(".MWQMAnalysisReportParameter").find(".MidRangeNumberOfDays").data("midrangenumberofdays"));
+                //let allRunsToOmit: string = $(".RunsToOmit").data("runstoomit");
+                //let RunsToOmitList: string[] = allRunsToOmit.split(",");
+                //for (let i = 0, count = RunsToOmitList.length; i < count; i++)
+                //{
+                //    if (RunsToOmitList[i].length > 0) {
+                //        $("td.MWQMRun").each((int: number, elem: Element) => {
+                //            if ($(elem).data("runid") == RunsToOmitList[i]) {
+                //                $(elem).find("button.jbMWQMSubsectorAnalysisRemoveFromStat").eq(0).removeClass("btn-success").removeClass("btn-default").addClass("btn-danger");
+                //                return;
+                //            }
+                //        })
+                //    }
+                //}
+                //$("input.MWQMAnalysisTableDataType[name='DataTypeTemp']").removeAttr("checked");
+                //$("input.MWQMAnalysisTableDataType[name='DataTypeSal']").removeAttr("checked");
+                //$("input.MWQMAnalysisTableDataType[name='DataTypeP90']").removeAttr("checked");
+                //$("input.MWQMAnalysisTableDataType[name='DataTypeGM']").removeAttr("checked");
+                //$("input.MWQMAnalysisTableDataType[name='DataTypeMed']").removeAttr("checked");
+                //$("input.MWQMAnalysisTableDataType[name='DataTypeP43']").removeAttr("checked");
+                //$("input.MWQMAnalysisTableDataType[name='DataTypeP260']").removeAttr("checked");
+                //let ShowDataTypes: string = $bjs.closest(".MWQMAnalysisReportParameter").find(".ShowDataTypes").data("showdatatypes");
+                //let ShowDataTypeList: string[] = ShowDataTypes.split(",");
+                //for (let i = 0, count = ShowDataTypeList.length; i < count; i++) {
+                //    if (ShowDataTypeList[i].length > 0) {
+                //        if (ShowDataTypeList[i] == "2") {
+                //            $("input.MWQMAnalysisTableDataType[name='DataTypeTemp']").attr("checked", "checked");
+                //        }
+                //        if (ShowDataTypeList[i] == "3") {
+                //            $("input.MWQMAnalysisTableDataType[name='DataTypeSal']").attr("checked", "checked");
+                //        }
+                //        if (ShowDataTypeList[i] == "4") {
+                //            $("input.MWQMAnalysisTableDataType[name='DataTypeP90']").attr("checked", "checked");
+                //        }
+                //        if (ShowDataTypeList[i] == "5") {
+                //            $("input.MWQMAnalysisTableDataType[name='DataTypeGM']").attr("checked", "checked");
+                //        }
+                //        if (ShowDataTypeList[i] == "6") {
+                //            $("input.MWQMAnalysisTableDataType[name='DataTypeMed']").attr("checked", "checked");
+                //        }
+                //        if (ShowDataTypeList[i] == "7") {
+                //            $("input.MWQMAnalysisTableDataType[name='DataTypeP43']").attr("checked", "checked");
+                //        }
+                //        if (ShowDataTypeList[i] == "8") {
+                //            $("input.MWQMAnalysisTableDataType[name='DataTypeP260']").attr("checked", "checked");
+                //        }
+                //    }
+                //}
+                //cssp.MWQMSite.StopRecalculation = false;
+                //window.setTimeout(() => {
+                //    cssp.MWQMSite.MWQMSubsectorAnalysisFillJQueryVariables();
+                //    cssp.MWQMSite.MWQMSubsectorAnalysisLoadVariables();
+                //    cssp.MWQMSite.MWQMSubsectorAnalysisRecalculate();
+                //    cssp.MWQMSite.MWQMSubsectorAnalysisShortRangeChanged();
+                //    cssp.MWQMSite.MWQMSubsectorAnalysisMidRangeChanged();
+                //}, 100);
             };
             this.MWQMSubsectorAnalysisSaveCreateOrExportToExcel = function ($bjs) {
                 var value = $bjs.closest(".MWQMAnalysisReportParameterTopDiv").find("select[name='MWQMAnalysisReportParameterSaveCreateOrExportToExcel']").val();
@@ -136,14 +240,7 @@ var CSSP;
                     if (!AnalysisName) {
                         cssp.Dialog.ShowDialogError(cssp.GetHTMLVariable("#LayoutVariables", "varAnalysisNameRequired"));
                     }
-                    var AnalysisReportYearText = $("input[name='AnalysisReportYear']").val();
-                    if (!AnalysisReportYearText) {
-                        cssp.Dialog.ShowDialogError(cssp.GetHTMLVariable("#LayoutVariables", "varAnalysisReportYearRequired"));
-                    }
-                    var AnalysisReportYear = parseInt(AnalysisReportYearText);
-                    if (AnalysisReportYear === NaN) {
-                        cssp.Dialog.ShowDialogError(cssp.GetHTMLVariable("#LayoutVariables", "varAnalysisReportYearRequired"));
-                    }
+                    var AnalysisReportYear = $("select[name='AnalysisReportYear']").val();
                     var StartDate = $("select.MWQMSubsectorAnalysisStartDate").val();
                     var EndDate = $("select.MWQMSubsectorAnalysisEndDate").val();
                     var AnalysisCalculationType = $("select.MWQMSubsectorAnalysisCalculateType").val();
@@ -161,12 +258,21 @@ var CSSP;
                     var WetLimit72h = $("select[name='LowerRainLimitConsideredRain3']").val();
                     var WetLimit96h = $("select[name='LowerRainLimitConsideredRain4']").val();
                     var RunsToOmit_1 = ",";
-                    var Command = (value == "Save" ? 1 /* Report */ : 2 /* Excel */);
                     $(".jbMWQMSubsectorAnalysisRemoveFromStat").each(function (ind, elem) {
                         if ($(elem).hasClass("btn-danger")) {
                             RunsToOmit_1 = RunsToOmit_1 + $(elem).closest("td.MWQMRun").data("runid") + ",";
                         }
                     });
+                    var ShowDataTypes = ",";
+                    ShowDataTypes = ShowDataTypes + ($("input.MWQMAnalysisTableDataType[name='DataTypeFC']").is(":checked") ? "1," /* FC */ : "");
+                    ShowDataTypes = ShowDataTypes + ($("input.MWQMAnalysisTableDataType[name='DataTypeTemp']").is(":checked") ? "2," /* Temperature */ : "");
+                    ShowDataTypes = ShowDataTypes + ($("input.MWQMAnalysisTableDataType[name='DataTypeSal']").is(":checked") ? "3," /* Salinity */ : "");
+                    ShowDataTypes = ShowDataTypes + ($("input.MWQMAnalysisTableDataType[name='DataTypeP90']").is(":checked") ? "4," /* P90 */ : "");
+                    ShowDataTypes = ShowDataTypes + ($("input.MWQMAnalysisTableDataType[name='DataTypeGM']").is(":checked") ? "5," /* Geometric Mean */ : "");
+                    ShowDataTypes = ShowDataTypes + ($("input.MWQMAnalysisTableDataType[name='DataTypeMed']").is(":checked") ? "6," /* Median */ : "");
+                    ShowDataTypes = ShowDataTypes + ($("input.MWQMAnalysisTableDataType[name='DataTypeP43']").is(":checked") ? "7," /* % of P90 > 43 */ : "");
+                    ShowDataTypes = ShowDataTypes + ($("input.MWQMAnalysisTableDataType[name='DataTypeP260']").is(":checked") ? "8," /* % of P90 > 260 */ : "");
+                    var Command = (value == "Save" ? 1 /* Report */ : 2 /* Excel */);
                     var command_1 = "MWQM/PostAddFormMWQMAnalysisReportParameterJSON";
                     $.post(cssp.BaseURL + command_1, {
                         SubsectorTVItemID: SubsectorTVItemID,
@@ -189,6 +295,7 @@ var CSSP;
                         WetLimit72h: WetLimit72h,
                         WetLimit96h: WetLimit96h,
                         RunsToOmit: RunsToOmit_1,
+                        ShowDataTypes: ShowDataTypes,
                         Command: Command
                     }).done(function (ret) {
                         if (ret) {
@@ -201,10 +308,6 @@ var CSSP;
                     }).fail(function () {
                         cssp.Dialog.ShowDialogErrorWithFail(command_1);
                     });
-                }
-                else if (value == "View") {
-                    cssp.Dialog.ShowDialogMessage("Export to Excel not implemented yet");
-                    return;
                 }
                 else {
                     var MWQMAnalysisReportParameterID_1 = parseInt(value);
@@ -889,6 +992,9 @@ var CSSP;
                 }
             };
             this.MWQMSubsectorAnalysisBeforeRecalculation = function () {
+                if (cssp.MWQMSite.StopRecalculation) {
+                    return;
+                }
                 window.setTimeout(function () {
                     if ($(".jbMWQMSubsectorAnalysisShowHideRunsNotUsed").hasClass("btn-success")) {
                         cssp.MWQMSite.MWQMSubsectorAnalysisShowHideRunsNotUsed($(".jbMWQMSubsectorAnalysisShowHideRunsNotUsed"));

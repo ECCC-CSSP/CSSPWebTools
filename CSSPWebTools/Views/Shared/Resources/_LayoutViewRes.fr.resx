@@ -442,8 +442,8 @@
   <data name="EmailDistributionListsExportedToSharedDrive" xml:space="preserve">
     <value>Listes de distribution de courrier électronique exportées vers un lecteur partagé</value>
   </data>
-  <data name="ExportToExcel" xml:space="preserve">
-    <value>Exporter en format Excel</value>
+  <data name="ExportToExcelDocument" xml:space="preserve">
+    <value>Exporter en document Excel</value>
   </data>
   <data name="Parameter_NotImplemented" xml:space="preserve">
     <value>Parameter {0} n'est pas implenté</value>
@@ -477,5 +477,8 @@
   </data>
   <data name="RunsOmitted" xml:space="preserve">
     <value>Tournée omises</value>
+  </data>
+  <data name="AlreadyExistSee" xml:space="preserve">
+    <value>Existe déjà. Voir :</value>
   </data>
 </root>
