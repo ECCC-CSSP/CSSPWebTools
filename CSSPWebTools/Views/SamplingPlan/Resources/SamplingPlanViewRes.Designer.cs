@@ -232,6 +232,15 @@ namespace CSSPWebTools.Views.SamplingPlan.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Change run sampling type.
+        /// </summary>
+        public static string ChangeRunSamplingType {
+            get {
+                return ResourceManager.GetString("ChangeRunSamplingType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Change the information above to change the sampling plan name.
         /// </summary>
         public static string ChangeTheInformationAboveToChangeTheSamplingPlanName {
@@ -282,6 +291,15 @@ namespace CSSPWebTools.Views.SamplingPlan.Resources {
         public static string CreateSamplingPlan {
             get {
                 return ResourceManager.GetString("CreateSamplingPlan", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ctrl + click to select multiple.
+        /// </summary>
+        public static string CtrlClickToSelectMultiple {
+            get {
+                return ResourceManager.GetString("CtrlClickToSelectMultiple", resourceCulture);
             }
         }
         

@@ -512,12 +512,26 @@ var CSSP;
                 var SampleMatrix = parseInt($bjs.closest(".LabSheetItem").find("select[name='SampleMatrix']").val());
                 var Laboratory = parseInt($bjs.closest(".LabSheetItem").find("select[name='Laboratory']").val());
                 var LabSheetID = parseInt($bjs.data("labsheetid"));
+                var ChangeRunSamplingType = "";
+                $bjs.closest(".LabSheetItem").find("select[name='ChangeRunSamplingType']").each(function (ind, elem) {
+                    ChangeRunSamplingType = ChangeRunSamplingType + $(elem).val();
+                });
+                for (var i = 0; i < 20; i++) {
+                    ChangeRunSamplingType = ChangeRunSamplingType.replace(",", "|");
+                }
                 var date = new Date();
                 var TimeOffsetMinutes = date.getTimezoneOffset();
                 var OriginalText = $bjs.text();
                 $bjs.text(cssp.GetHTMLVariable("#LayoutVariables", "varSaving"));
                 var command = "SamplingPlan/LabSheetAcceptedJSON";
-                $.post(cssp.BaseURL + command, { LabSheetID: LabSheetID, TimeOffsetMinutes: TimeOffsetMinutes, AnalyzeMethod: AnalyzeMethod, SampleMatrix: SampleMatrix, Laboratory: Laboratory })
+                $.post(cssp.BaseURL + command, {
+                    LabSheetID: LabSheetID,
+                    TimeOffsetMinutes: TimeOffsetMinutes,
+                    AnalyzeMethod: AnalyzeMethod,
+                    SampleMatrix: SampleMatrix,
+                    Laboratory: Laboratory,
+                    ChangeRunSamplingType: ChangeRunSamplingType,
+                })
                     .done(function (ret) {
                     if (ret) {
                         cssp.Dialog.ShowDialogErrorWithError(ret);

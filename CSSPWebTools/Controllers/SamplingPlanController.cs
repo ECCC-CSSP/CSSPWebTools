@@ -451,9 +451,9 @@ namespace CSSPWebTools.Controllers
         #region Functions JSON
         [HttpPost]
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
-        public JsonResult LabSheetAcceptedJSON(int LabSheetID, int TimeOffsetMinutes, int AnalyzeMethod, int SampleMatrix, int Laboratory)
+        public JsonResult LabSheetAcceptedJSON(int LabSheetID, int TimeOffsetMinutes, int AnalyzeMethod, int SampleMatrix, int Laboratory, string ChangeRunSamplingType)
         {
-            LabSheetModel labSheetModel = _LabSheetService.LabSheetAcceptedDB(LabSheetID, TimeOffsetMinutes, AnalyzeMethod, SampleMatrix, Laboratory);
+            LabSheetModel labSheetModel = _LabSheetService.LabSheetAcceptedDB(LabSheetID, TimeOffsetMinutes, AnalyzeMethod, SampleMatrix, Laboratory, ChangeRunSamplingType);
 
             return Json(labSheetModel.Error, JsonRequestBehavior.AllowGet);
         }

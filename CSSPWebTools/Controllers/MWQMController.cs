@@ -19,6 +19,7 @@ namespace CSSPWebTools.Controllers
         #endregion Variables
 
         #region Properties
+        public AppTaskService _AppTaskService { get; private set; }
         public MWQMSiteService _MWQMSiteService { get; private set; }
         public MWQMRunService _MWQMRunService { get; private set; }
         public MWQMSampleService _MWQMSampleService { get; private set; }
@@ -40,6 +41,7 @@ namespace CSSPWebTools.Controllers
         protected override void Initialize(System.Web.Routing.RequestContext requestContext)
         {
             base.Initialize(requestContext);
+            _AppTaskService = new AppTaskService(LanguageRequest, User);
             _MWQMSiteService = new MWQMSiteService(LanguageRequest, User);
             _MWQMRunService = new MWQMRunService(LanguageRequest, User);
             _MWQMSampleService = new MWQMSampleService(LanguageRequest, User);
@@ -56,12 +58,16 @@ namespace CSSPWebTools.Controllers
         {
             ViewBag.SubsectorTVItemID = SubsectorTVItemID;
             ViewBag.MWQMAnalysisReportParameterModelList = null;
+            ViewBag.AppTaskModelList = new List<AppTaskModel>();
 
             List<MWQMAnalysisReportParameterModel> mwqmAnalysisReportParameterModelList = _MWQMAnalysisReportParameterService.GetMWQMAnalysisReportParameterModelListWithSubsectorTVItemIDDB(SubsectorTVItemID);
             ViewBag.MWQMAnalysisReportParameterModelList = mwqmAnalysisReportParameterModelList;
 
             ViewBag.IsShowMoreInfo = (GetURLVarShowEnumStr(URLVarShowEnum.ShowMoreInfo) == "0" ? false : true);
             ViewBag.IsShowMap = (GetURLVarShowEnumStr(URLVarShowEnum.ShowMap) == "0" ? false : true);
+
+            List<AppTaskModel> appTaskModelList = _AppTaskService.GetAppTaskModelListWithTVItemIDDB(SubsectorTVItemID);
+            ViewBag.AppTaskModelList = appTaskModelList;
 
             return PartialView();
         }

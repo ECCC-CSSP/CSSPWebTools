@@ -839,6 +839,11 @@ module CSSP {
                             cssp.MWQMSite.MWQMShowHideOnMap();
                         }
                         break;
+                    case "jbMWQMSubsectorAnalysisParameterReload":
+                        {
+                            cssp.MWQMSite.ReloadAnalysisReportParameter();
+                        }
+                        break;
                     case "jbMWQMSubsectorAnalysisShowHideColorAndLetterHelp":
                         {
                             cssp.MWQMSite.MWQMSubsectorAnalysisShowHideColorAndLetterHelp($bjs);

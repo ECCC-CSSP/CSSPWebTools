@@ -508,4 +508,10 @@
   <data name="Status" xml:space="preserve">
     <value>Status</value>
   </data>
+  <data name="ChangeRunSamplingType" xml:space="preserve">
+    <value>Change run sampling type</value>
+  </data>
+  <data name="CtrlClickToSelectMultiple" xml:space="preserve">
+    <value>Ctrl + click to select multiple</value>
+  </data>
 </root>

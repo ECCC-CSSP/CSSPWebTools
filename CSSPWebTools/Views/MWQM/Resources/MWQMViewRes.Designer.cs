@@ -1420,6 +1420,15 @@ namespace CSSPWebTools.Views.MWQM.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Running Task(s).
+        /// </summary>
+        public static string RunningTask {
+            get {
+                return ResourceManager.GetString("RunningTask", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Run number.
         /// </summary>
         public static string RunNumber {

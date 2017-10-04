@@ -571,16 +571,31 @@
             }
         };
         public SamplingPlanAcceptLabSheet: Function = ($bjs: JQuery): void => {
-            var AnalyzeMethod: number = parseInt($bjs.closest(".LabSheetItem").find("select[name='AnalyzeMethod']").val());
-            var SampleMatrix: number = parseInt($bjs.closest(".LabSheetItem").find("select[name='SampleMatrix']").val());
-            var Laboratory: number = parseInt($bjs.closest(".LabSheetItem").find("select[name='Laboratory']").val());
-            var LabSheetID: number = parseInt($bjs.data("labsheetid"));
-            var date = new Date();
-            var TimeOffsetMinutes: number = date.getTimezoneOffset();
-            var OriginalText: string = $bjs.text();
+            let AnalyzeMethod: number = parseInt($bjs.closest(".LabSheetItem").find("select[name='AnalyzeMethod']").val());
+            let SampleMatrix: number = parseInt($bjs.closest(".LabSheetItem").find("select[name='SampleMatrix']").val());
+            let Laboratory: number = parseInt($bjs.closest(".LabSheetItem").find("select[name='Laboratory']").val());
+            let LabSheetID: number = parseInt($bjs.data("labsheetid"));
+            let ChangeRunSamplingType: string = "";
+            $bjs.closest(".LabSheetItem").find("select[name='ChangeRunSamplingType']").each((ind: number, elem: Element) => {
+                ChangeRunSamplingType = ChangeRunSamplingType + $(elem).val();
+            });
+            for (let i = 0; i < 20; i++) {
+                ChangeRunSamplingType = ChangeRunSamplingType.replace(",", "|");
+            }
+            let date: any = new Date();
+            let TimeOffsetMinutes: number = date.getTimezoneOffset();
+            let OriginalText: string = $bjs.text();
             $bjs.text(cssp.GetHTMLVariable("#LayoutVariables", "varSaving"));
-            var command = "SamplingPlan/LabSheetAcceptedJSON";
-            $.post(cssp.BaseURL + command, { LabSheetID: LabSheetID, TimeOffsetMinutes: TimeOffsetMinutes, AnalyzeMethod: AnalyzeMethod, SampleMatrix: SampleMatrix, Laboratory: Laboratory })
+            let command = "SamplingPlan/LabSheetAcceptedJSON";
+            $.post(cssp.BaseURL + command,
+                {
+                    LabSheetID: LabSheetID,
+                    TimeOffsetMinutes: TimeOffsetMinutes,
+                    AnalyzeMethod: AnalyzeMethod,
+                    SampleMatrix: SampleMatrix,
+                    Laboratory: Laboratory,
+                    ChangeRunSamplingType: ChangeRunSamplingType,
+                })
                 .done((ret) => {
                     if (ret) {
                         cssp.Dialog.ShowDialogErrorWithError(ret);

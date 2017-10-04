@@ -1105,6 +1105,22 @@ else
                                     <span class="help-block"></span>
                                 </div>
                             </div>
+                            @* Change Run Sampling Type*@
+                            <div class="form-group">
+                                <label for="ChangeRunSamplingType" class="control-label">@SamplingPlanViewRes.ChangeRunSamplingType</label>
+                                <div>
+                                    <select name="ChangeRunSamplingType" size="5" multiple="multiple">
+                                        @foreach (SampleTypeEnumTextOrdered sampleTypeEnumTextOrdered in _BaseEnumService.GetSampleTypeEnumTextOrderedList())
+                                        {
+                                            <option value="@((int)sampleTypeEnumTextOrdered.SampleType)" @(sampleTypeEnumTextOrdered.SampleType == labSheetModelAndA1Sheet.LabSheetA1Sheet.SampleType ? "selected=selected" : "")>
+                                                @(sampleTypeEnumTextOrdered.SampleTypeText)
+                                            </option>
+                                        }
+                                    </select>
+                                    <span>@SamplingPlanViewRes.CtrlClickToSelectMultiple</span>
+                                    <span class="help-block"></span>
+                                </div>
+                            </div>
                         </div>
                         @if (labSheetModelAndA1Sheet.LabSheetA1Sheet.LabSheetA1MeasurementList.Where(c => c.MPN == -999).Any())
                         {

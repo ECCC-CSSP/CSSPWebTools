@@ -819,4 +819,7 @@
   <data name="ForExcelExportDeletingTheAnalysisWillNotAutomaticallyDeleteTheExcelFile" xml:space="preserve">
     <value>For Excel export, deleting the analysis will not automatically delete the Excel file</value>
   </data>
+  <data name="RunningTask" xml:space="preserve">
+    <value>Running Task(s)</value>
+  </data>
 </root>

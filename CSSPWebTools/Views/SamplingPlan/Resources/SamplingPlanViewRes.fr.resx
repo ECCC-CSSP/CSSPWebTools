@@ -480,4 +480,10 @@
   <data name="Status" xml:space="preserve">
     <value>État</value>
   </data>
+  <data name="ChangeRunSamplingType" xml:space="preserve">
+    <value>Changer le type d'échantillonnage</value>
+  </data>
+  <data name="CtrlClickToSelectMultiple" xml:space="preserve">
+    <value>Ctrl + clique pour sélectionner plusieurs</value>
+  </data>
 </root>
