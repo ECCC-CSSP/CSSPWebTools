@@ -430,6 +430,15 @@ namespace CSSPWebTools.Views.MWQM.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to End tide.
+        /// </summary>
+        public static string EndTide {
+            get {
+                return ResourceManager.GetString("EndTide", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Excel file name.
         /// </summary>
         public static string ExcelFileName {
@@ -1803,6 +1812,15 @@ namespace CSSPWebTools.Views.MWQM.Resources {
         public static string StartDateAndTime {
             get {
                 return ResourceManager.GetString("StartDateAndTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Start tide.
+        /// </summary>
+        public static string StartTide {
+            get {
+                return ResourceManager.GetString("StartTide", resourceCulture);
             }
         }
         

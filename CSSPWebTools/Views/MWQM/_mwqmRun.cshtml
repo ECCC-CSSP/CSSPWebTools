@@ -159,6 +159,18 @@
                     </span>
                 </li>
                 <li>
+                    <label>@MWQMViewRes.StartTide</label>
+                    <span>
+                        @(_BaseEnumService.GetEnumText_TideTextEnum(mwqmRunModel.Tide_Start))
+                    </span>
+                </li>
+                <li>
+                    <label>@MWQMViewRes.EndTide</label>
+                    <span>
+                        @(_BaseEnumService.GetEnumText_TideTextEnum(mwqmRunModel.Tide_End))
+                    </span>
+                </li>
+                <li>
                     <label>@MWQMViewRes.RunSamplingCrewInitials</label>
                     <span>
                         @(string.IsNullOrWhiteSpace(mwqmRunModel.SampleCrewInitials) ? MWQMViewRes.Empty : mwqmRunModel.SampleCrewInitials)

@@ -804,4 +804,10 @@
   <data name="RunningTask" xml:space="preserve">
     <value>Tâche(s) en cours</value>
   </data>
+  <data name="EndTide" xml:space="preserve">
+    <value>Marée de la fin</value>
+  </data>
+  <data name="StartTide" xml:space="preserve">
+    <value>Marée du début</value>
+  </data>
 </root>

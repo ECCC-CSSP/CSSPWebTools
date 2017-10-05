@@ -575,13 +575,13 @@
             let SampleMatrix: number = parseInt($bjs.closest(".LabSheetItem").find("select[name='SampleMatrix']").val());
             let Laboratory: number = parseInt($bjs.closest(".LabSheetItem").find("select[name='Laboratory']").val());
             let LabSheetID: number = parseInt($bjs.data("labsheetid"));
-            let ChangeRunSamplingType: string = "";
-            $bjs.closest(".LabSheetItem").find("select[name='ChangeRunSamplingType']").each((ind: number, elem: Element) => {
-                ChangeRunSamplingType = ChangeRunSamplingType + $(elem).val();
-            });
-            for (let i = 0; i < 20; i++) {
-                ChangeRunSamplingType = ChangeRunSamplingType.replace(",", "|");
-            }
+            //let ChangeRunSamplingType: string = "";
+            //$bjs.closest(".LabSheetItem").find("select[name='ChangeRunSamplingType']").each((ind: number, elem: Element) => {
+            //    ChangeRunSamplingType = ChangeRunSamplingType + $(elem).val();
+            //});
+            //for (let i = 0; i < 20; i++) {
+            //    ChangeRunSamplingType = ChangeRunSamplingType.replace(",", "|");
+            //}
             let date: any = new Date();
             let TimeOffsetMinutes: number = date.getTimezoneOffset();
             let OriginalText: string = $bjs.text();
@@ -594,7 +594,7 @@
                     AnalyzeMethod: AnalyzeMethod,
                     SampleMatrix: SampleMatrix,
                     Laboratory: Laboratory,
-                    ChangeRunSamplingType: ChangeRunSamplingType,
+                    //ChangeRunSamplingType: ChangeRunSamplingType,
                 })
                 .done((ret) => {
                     if (ret) {

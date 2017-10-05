@@ -512,13 +512,13 @@ var CSSP;
                 var SampleMatrix = parseInt($bjs.closest(".LabSheetItem").find("select[name='SampleMatrix']").val());
                 var Laboratory = parseInt($bjs.closest(".LabSheetItem").find("select[name='Laboratory']").val());
                 var LabSheetID = parseInt($bjs.data("labsheetid"));
-                var ChangeRunSamplingType = "";
-                $bjs.closest(".LabSheetItem").find("select[name='ChangeRunSamplingType']").each(function (ind, elem) {
-                    ChangeRunSamplingType = ChangeRunSamplingType + $(elem).val();
-                });
-                for (var i = 0; i < 20; i++) {
-                    ChangeRunSamplingType = ChangeRunSamplingType.replace(",", "|");
-                }
+                //let ChangeRunSamplingType: string = "";
+                //$bjs.closest(".LabSheetItem").find("select[name='ChangeRunSamplingType']").each((ind: number, elem: Element) => {
+                //    ChangeRunSamplingType = ChangeRunSamplingType + $(elem).val();
+                //});
+                //for (let i = 0; i < 20; i++) {
+                //    ChangeRunSamplingType = ChangeRunSamplingType.replace(",", "|");
+                //}
                 var date = new Date();
                 var TimeOffsetMinutes = date.getTimezoneOffset();
                 var OriginalText = $bjs.text();
@@ -530,7 +530,6 @@ var CSSP;
                     AnalyzeMethod: AnalyzeMethod,
                     SampleMatrix: SampleMatrix,
                     Laboratory: Laboratory,
-                    ChangeRunSamplingType: ChangeRunSamplingType,
                 })
                     .done(function (ret) {
                     if (ret) {

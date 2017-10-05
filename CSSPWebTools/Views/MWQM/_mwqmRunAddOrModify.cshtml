@@ -215,12 +215,43 @@
                                 <div class="blockMargin lineSpaceBottom">
                                     <div class="form-inline">
                                         <div class="form-group  blockRightSpace">
-                                            <label class="control-label"> @MWQMViewRes.RunNumber</label>
                                             <div>
                                                 <select class="form-control" name="RunNumber">
                                                     @for (int i = 1; i < 21; i++)
                                                     {
                                                         <option @((mwqmRunModel.RunNumber != 0 && mwqmRunModel.RunNumber == i) ? "selected=selected" : "") value="@i.ToString()">@i.ToString()</option>
+                                                    }
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                @* StartTide*@
+                                <label>@MWQMViewRes.StartTide</label>
+                                <div class="blockMargin lineSpaceBottom">
+                                    <div class="form-inline">
+                                        <div class="form-group  blockRightSpace">
+                                            <div>
+                                                <select class="form-control" name="StartTide">
+                                                    @foreach (TideTextEnumTextOrdered tideTextEnumTextOrdered in _BaseEnumService.GetTideTextEnumTextOrderedList())
+                                                    {
+                                                        <option value="@((int)tideTextEnumTextOrdered.TideText)" @(mwqmRunModel.RunSampleType != 0 && (tideTextEnumTextOrdered.TideText == mwqmRunModel.Tide_Start) ? "selected=selected" : "")>@(tideTextEnumTextOrdered.TideTextText)</option>
+                                                    }
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                @* EndTide*@
+                                <label>@MWQMViewRes.EndTide</label>
+                                <div class="blockMargin lineSpaceBottom">
+                                    <div class="form-inline">
+                                        <div class="form-group  blockRightSpace">
+                                            <div>
+                                                <select class="form-control" name="EndTide">
+                                                    @foreach (TideTextEnumTextOrdered tideTextEnumTextOrdered in _BaseEnumService.GetTideTextEnumTextOrderedList())
+                                                    {
+                                                        <option value="@((int)tideTextEnumTextOrdered.TideText)" @(mwqmRunModel.RunSampleType != 0 && (tideTextEnumTextOrdered.TideText == mwqmRunModel.Tide_End) ? "selected=selected" : "")>@(tideTextEnumTextOrdered.TideTextText)</option>
                                                     }
                                                 </select>
                                             </div>
@@ -715,7 +746,7 @@
                                         <tbody>
                                             @foreach (MWQMSampleModel mwqmSampleModel in mwqmSampleModelList.OrderBy(c => c.MWQMSiteTVText))
                                             {
-                                            @tableRow(mwqmRunModel, mwqmSampleModel, mwqmController, tvItemModelMWQMSiteList, _BaseEnumService);
+                                                @tableRow(mwqmRunModel, mwqmSampleModel, mwqmController, tvItemModelMWQMSiteList, _BaseEnumService);
                                             }
                                             @tableRow(mwqmRunModel, new MWQMSampleModel(), mwqmController, tvItemModelMWQMSiteList, _BaseEnumService)
                                         </tbody>
