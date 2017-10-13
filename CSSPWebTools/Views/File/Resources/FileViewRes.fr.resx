@@ -269,4 +269,13 @@
   <data name="Language" xml:space="preserve">
     <value>La langue</value>
   </data>
+  <data name="CreateDocumentUsingParameters" xml:space="preserve">
+    <value>Créer un document à partir de paramètres</value>
+  </data>
+  <data name="GenerateReport" xml:space="preserve">
+    <value>Générer rapport</value>
+  </data>
+  <data name="NotImplementedYet" xml:space="preserve">
+    <value>Pas encore mis en oeuvre</value>
+  </data>
 </root>

@@ -19,6 +19,54 @@ module CSSP {
         }
 
         // Function
+        public ReportTypeAddOrModify: Function = ($bjs: JQuery): void => {
+            let IsAdd: boolean = $bjs.data("addormodify") == "add" ? true : false;
+            let $form: JQuery = $bjs.closest("form.ReportTypeForm");
+            if ($form.length == 0) {
+                cssp.Dialog.ShowDialogErrorWithCouldNotFind_Within_(".ReportTypeForm", "Form tag");
+                return;
+            }
+
+            if (!$form.valid || $form.valid()) {
+                let command: string = $form.attr("action");
+                $.post(cssp.BaseURL + command, $form.serializeArray())
+                    .done((ret) => {
+                        if (ret.Error != "") {
+                            cssp.Dialog.ShowDialogErrorWithError(ret.Error);
+                        }
+                        else {
+                            if (IsAdd) {
+                                cssp.Helper.PageRefresh();
+                                cssp.Dialog.ShowDialogSuccess("Added successfully");
+                            }
+                            else {
+                                cssp.Dialog.ShowDialogSuccess("Modified successfully");
+                            }
+                        }
+                    })
+                    .fail(() => {
+                        cssp.Dialog.ShowDialogErrorWithFail(command);
+                    });
+            }
+
+        };
+        public ReportTypeDelete: Function = ($bjs: JQuery): void => {
+            let ReportTypeID: number = parseInt($bjs.data("reporttypeid"));
+
+            let command: string = "ReportType/ReportTypeDeleteJSON";
+            $.post(cssp.BaseURL + command, { ReportTypeID: ReportTypeID })
+                .done((ret) => {
+                    if (ret.Error != "") {
+                        cssp.Dialog.ShowDialogErrorWithError(ret.Error);
+                    }
+                    else {
+                        cssp.Helper.PageRefresh();
+                    }
+                })
+                .fail(() => {
+                    cssp.Dialog.ShowDialogErrorWithFail(command);
+                });
+        };
         public AskToRemoveUser: Function = ($ajs: JQuery): void => {
             cssp.Dialog.ShowDialogAreYouSure(cssp.Admin.contactModel.LoginEmail);
             cssp.Dialog.CheckDialogAndButtonsExist(["#DialogBasic", "#DialogBasicYes"], 5, "cssp.Admin.SetDialogEvents", $ajs);
@@ -38,7 +86,7 @@ module CSSP {
                     cssp.Dialog.ShowDialogErrorWithFail(command);
                 }).always(() => {
                     // nothing
-                }); 
+                });
         };
         public CreateChildTVTypeLoop: Function = (ParentTVTypeAndTVPath: CSSP.TVTypeNamesAndTVPath, $ParentBlockquote: JQuery): void => {
             for (var j = 0; j < cssp.Admin.TVTypeNamesAndTVPathCount; j++) {
@@ -248,7 +296,7 @@ module CSSP {
                 });
         };
         public RemoveUserTVItemAuth: Function = ($ajs: JQuery): void => {
-            
+
             var command: string = "Admin/RemoveUserTVItemAuthJSON";
             var TVItemUserAuthID: number = $ajs.closest("blockquote.adminTVItemsSelectedTemp").data("tvitemuserauthid");
             $("#TVTypeNamesAndPath").html($("#AdminWorking").html());
@@ -328,9 +376,9 @@ module CSSP {
                 displayKey: "FullName",
                 source: cssp.Admin.AdminContactSearchRes.ttAdapter(),
             }).on("typeahead:selected", function (obj, datum, name) {
-                    cssp.Admin.contactModel = new CSSP.ContactModel(datum.ContactTVItemID, true, "");
-                    cssp.Admin.LoadUser();
-                });
+                cssp.Admin.contactModel = new CSSP.ContactModel(datum.ContactTVItemID, true, "");
+                cssp.Admin.LoadUser();
+            });
         };
         public SetUserTVItemAuth: Function = ($ajs: JQuery, TVAuth: number): void => {
             var command: string = "Admin/SetUserTVItemAuthJSON";

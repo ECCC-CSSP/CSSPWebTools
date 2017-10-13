@@ -19,7 +19,7 @@ namespace CSSPWebTools.Views.File.Resources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class FileViewRes {
@@ -102,6 +102,15 @@ namespace CSSPWebTools.Views.File.Resources {
         public static string CreateDocumentFromTemplates {
             get {
                 return ResourceManager.GetString("CreateDocumentFromTemplates", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create document using parameters.
+        /// </summary>
+        public static string CreateDocumentUsingParameters {
+            get {
+                return ResourceManager.GetString("CreateDocumentUsingParameters", resourceCulture);
             }
         }
         
@@ -259,6 +268,15 @@ namespace CSSPWebTools.Views.File.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Generate report.
+        /// </summary>
+        public static string GenerateReport {
+            get {
+                return ResourceManager.GetString("GenerateReport", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to in meters (approx.).
         /// </summary>
         public static string inMetersApprox {
@@ -327,6 +345,15 @@ namespace CSSPWebTools.Views.File.Resources {
         public static string NoExtension {
             get {
                 return ResourceManager.GetString("NoExtension", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Not implemented yet.
+        /// </summary>
+        public static string NotImplementedYet {
+            get {
+                return ResourceManager.GetString("NotImplementedYet", resourceCulture);
             }
         }
         

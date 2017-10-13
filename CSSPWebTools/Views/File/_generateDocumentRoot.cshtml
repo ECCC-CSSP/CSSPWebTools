@@ -1,0 +1,57 @@
+﻿@using CSSPWebTools.Views.File.Resources;
+@using CSSPWebTools.Controllers;
+@using CSSPEnumsDLL.Enums;
+@using CSSPEnumsDLL.Services;
+@using CSSPModelsDLL.Models;
+
+@{
+    FileController fileController = (FileController)ViewBag.FileController;
+    TVItemModel tvItemModel = (TVItemModel)ViewBag.TVItemModel;
+    BaseEnumService _BaseEnumService = new BaseEnumService(ViewBag.Language);
+}
+
+<div class="GenerateReportRootTopDiv">
+    <form class="GenerateReport" method="post" role="form" action="File/GenerateReportJSON">
+        @Html.AntiForgeryToken()
+        <fieldset>
+            <legend><span>@FileViewRes.GenerateReport</span></legend>
+            <input type="hidden" value=""
+            <div class="form-group">
+                <label class="control-label col-sm-3" for="Param1">Param1</label>
+                <div class="col-sm-9">
+                    <input autofocus="autofocus" id="Param1" class="form-control" name="Param1" type="text" value="">
+                    <span class="help-block"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-3" for="Param2">Param2</label>
+                <div class="col-sm-9">
+                    <input autofocus="autofocus" id="Param2" class="form-control" name="Param2" type="text" value="">
+                    <span class="help-block"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-3" for="Param3">Param3</label>
+                <div class="col-sm-9">
+                    <input autofocus="autofocus" id="Param3" class="form-control" name="Param3" type="text" value="">
+                    <span class="help-block"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-3" for="Param4">Param4</label>
+                <div class="col-sm-9">
+                    <input autofocus="autofocus" id="Param4" class="form-control" name="Param4" type="text" value="">
+                    <span class="help-block"></span>
+                </div>
+            </div>
+            <div class="btn-block  col-sm-offset-3 col-sm-9">
+                <button class="jbGenerateReport btn btn-primary" type="submit">
+                    <span class="glyphicon glyphicon-check"></span>
+                    &nbsp;@FileViewRes.GenerateReport
+                </button>
+            </div>
+        </fieldset>
+    </form>
+
+</div>
+

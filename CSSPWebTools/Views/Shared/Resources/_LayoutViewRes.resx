@@ -483,4 +483,7 @@
   <data name="AlreadyExistSee" xml:space="preserve">
     <value>Already exist. See :</value>
   </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
 </root>

@@ -117,169 +117,76 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Download" xml:space="preserve">
-    <value>Download</value>
-    <comment>FL</comment>
+  <data name="Add" xml:space="preserve">
+    <value>Ajouter</value>
   </data>
-  <data name="Edit" xml:space="preserve">
-    <value>Edit</value>
-    <comment>FL FE</comment>
+  <data name="Area" xml:space="preserve">
+    <value>Région</value>
   </data>
-  <data name="FileDescription" xml:space="preserve">
-    <value>File description</value>
-    <comment>FE FI</comment>
+  <data name="BoxModel" xml:space="preserve">
+    <value>Box model (fr)</value>
   </data>
-  <data name="FilePurpose" xml:space="preserve">
-    <value>File purpose</value>
-    <comment>FE FI</comment>
-  </data>
-  <data name="Files" xml:space="preserve">
-    <value>Files</value>
-    <comment>FL</comment>
-  </data>
-  <data name="KB" xml:space="preserve">
-    <value>KB</value>
-    <comment>FL</comment>
-  </data>
-  <data name="Latitude" xml:space="preserve">
-    <value>Latitude</value>
-    <comment>FE</comment>
-  </data>
-  <data name="Longitude" xml:space="preserve">
-    <value>Longitude</value>
-    <comment>FE</comment>
-  </data>
-  <data name="MB" xml:space="preserve">
-    <value>MB</value>
-    <comment>FL</comment>
-  </data>
-  <data name="Upload" xml:space="preserve">
-    <value>Upload</value>
-    <comment>FI</comment>
-  </data>
-  <data name="UploadFile" xml:space="preserve">
-    <value>Upload file</value>
-    <comment>FI</comment>
-  </data>
-  <data name="UseParentCoordinates" xml:space="preserve">
-    <value>Use parent coordinates</value>
-    <comment>FE</comment>
-  </data>
-  <data name="TaskRunning" xml:space="preserve">
-    <value>Task running</value>
-    <comment>FAT</comment>
-  </data>
-  <data name="Cancel" xml:space="preserve">
-    <value>Cancel</value>
-    <comment>FG FE FI</comment>
-  </data>
-  <data name="FileName" xml:space="preserve">
-    <value>FileName</value>
-    <comment>FE</comment>
-  </data>
-  <data name="Save" xml:space="preserve">
-    <value>Save</value>
-    <comment>FE</comment>
-  </data>
-  <data name="Empty" xml:space="preserve">
-    <value>empty</value>
-    <comment>FL</comment>
-  </data>
-  <data name="_fileEditReturnedEmpty" xml:space="preserve">
-    <value>_fileEdit Returned Empty</value>
-    <comment>FL</comment>
+  <data name="Country" xml:space="preserve">
+    <value>Pays</value>
   </data>
   <data name="Delete" xml:space="preserve">
-    <value>Delete</value>
-    <comment>FL</comment>
+    <value>Effacer</value>
   </data>
-  <data name="FileGenerateOptions" xml:space="preserve">
-    <value>File Generate Options</value>
-    <comment>FG</comment>
+  <data name="Description" xml:space="preserve">
+    <value>Description</value>
   </data>
-  <data name="Generate" xml:space="preserve">
-    <value>Generate</value>
-    <comment>FG</comment>
+  <data name="Infrastructure" xml:space="preserve">
+    <value>Infrastructure</value>
   </data>
-  <data name="FileType" xml:space="preserve">
-    <value>File Type</value>
-    <comment>FG</comment>
+  <data name="MikeScenario" xml:space="preserve">
+    <value>Mike scenario (fr)</value>
   </data>
-  <data name="CreateDocumentFromTemplates" xml:space="preserve">
-    <value>Create document from templates</value>
-    <comment>FG</comment>
+  <data name="MikeSource" xml:space="preserve">
+    <value>Mike source (fr)</value>
   </data>
-  <data name="Refresh" xml:space="preserve">
-    <value>Refresh</value>
-    <comment>FAT</comment>
+  <data name="Modify" xml:space="preserve">
+    <value>Modifier</value>
   </data>
-  <data name="Processing" xml:space="preserve">
-    <value>Processing</value>
-    <comment>FAT</comment>
+  <data name="Municipality" xml:space="preserve">
+    <value>Municipalité</value>
   </data>
-  <data name="TemplateExample" xml:space="preserve">
-    <value>template example</value>
-    <comment>FG</comment>
+  <data name="Name" xml:space="preserve">
+    <value>Nom</value>
   </data>
-  <data name="EditMode" xml:space="preserve">
-    <value>Edit Mode</value>
-    <comment>FE</comment>
+  <data name="New" xml:space="preserve">
+    <value>Nouveau</value>
   </data>
-  <data name="ContourValues" xml:space="preserve">
-    <value>Contour Values</value>
+  <data name="PolSourceSite" xml:space="preserve">
+    <value>Polllution source site (fr)</value>
   </data>
-  <data name="CurrentVectorsWillBeShowAtTheCenterOfEachElementForWhichThePathHasAPointInIt" xml:space="preserve">
-    <value>2) - Current vectors will be shown at the center of each element for which the path has a point in it.</value>
+  <data name="Province" xml:space="preserve">
+    <value>Province</value>
   </data>
-  <data name="ForEach10cm_sShowVectorLength" xml:space="preserve">
-    <value>For each 10 cm/s show vector length</value>
+  <data name="ReportType" xml:space="preserve">
+    <value>Type de rapport</value>
   </data>
-  <data name="inMetersApprox" xml:space="preserve">
-    <value>in meters (approx.)</value>
+  <data name="ReportTypes" xml:space="preserve">
+    <value>Types de rapport</value>
   </data>
-  <data name="ReplaceTheTextWithinBoxByCopyingAGoogleEarthPath" xml:space="preserve">
-    <value>1) - Replace the text within this box by copying a Google Earth Path.</value>
+  <data name="Root" xml:space="preserve">
+    <value>Base</value>
   </data>
-  <data name="SelectAllCtrlAPasteCtrlV" xml:space="preserve">
-    <value>Select all [Ctrl + A] Paste [Ctrl-V]</value>
+  <data name="Sector" xml:space="preserve">
+    <value>Secteur</value>
   </data>
-  <data name="SubsectorPollutionSourceFieldSheet" xml:space="preserve">
-    <value>Subsector Pollution Source Field Sheet</value>
+  <data name="StartOfFileName" xml:space="preserve">
+    <value>Début de nom de filière</value>
   </data>
-  <data name="SaveAsFileName" xml:space="preserve">
-    <value>Save as file name</value>
+  <data name="Subsector" xml:space="preserve">
+    <value>Sous-secteur</value>
   </data>
-  <data name="NoExtension" xml:space="preserve">
-    <value>no extension</value>
+  <data name="TVType" xml:space="preserve">
+    <value>Type d'item</value>
   </data>
-  <data name="KeepFileName" xml:space="preserve">
-    <value>Keep file name</value>
+  <data name="UniqueCode" xml:space="preserve">
+    <value>Code unique</value>
   </data>
-  <data name="FromWater" xml:space="preserve">
-    <value>From Water</value>
-  </data>
-  <data name="Templates" xml:space="preserve">
-    <value>Templates</value>
-  </data>
-  <data name="Both" xml:space="preserve">
-    <value>Both</value>
-  </data>
-  <data name="English" xml:space="preserve">
-    <value>English</value>
-  </data>
-  <data name="French" xml:space="preserve">
-    <value>Français</value>
-  </data>
-  <data name="Language" xml:space="preserve">
-    <value>Language</value>
-  </data>
-  <data name="CreateDocumentUsingParameters" xml:space="preserve">
-    <value>Create document using parameters</value>
-  </data>
-  <data name="GenerateReport" xml:space="preserve">
-    <value>Generate report</value>
-  </data>
-  <data name="NotImplementedYet" xml:space="preserve">
-    <value>Not implemented yet</value>
+  <data name="VisualPlumesScenario" xml:space="preserve">
+    <value>Visual plume scenario (fr)</value>
   </data>
 </root>

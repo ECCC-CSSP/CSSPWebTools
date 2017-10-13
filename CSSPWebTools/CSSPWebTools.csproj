@@ -206,6 +206,9 @@
     <Compile Include="Controllers\AddressController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\ReportTypeController.cs" />
+    <Compile Include="Controllers\KMZController.cs" />
+    <Compile Include="Controllers\ChartController.cs" />
     <Compile Include="Controllers\BoxModelController.cs" />
     <Compile Include="Controllers\ClimateSiteController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
@@ -431,6 +434,16 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>RainExceedanceViewRes.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ReportType\Resources\ReportTypeViewRes.fr.Designer.cs">
+      <DependentUpon>ReportTypeViewRes.fr.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Views\ReportType\Resources\ReportTypeViewRes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReportTypeViewRes.resx</DependentUpon>
     </Compile>
     <Compile Include="Views\SamplingPlan\Resources\SamplingPlanViewRes.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -745,11 +758,12 @@
     <Content Include="Views\MikeScenario\_mikeScenarioGenerateResults_New.cshtml" />
     <Content Include="Views\MWQM\_mwqmSubsector.cshtml" />
     <Content Include="Views\MWQM\_mwqmAnalysisReportParameter.cshtml" />
+    <Content Include="Views\File\_generateDocumentRoot.cshtml" />
+    <Content Include="Views\ReportType\_reportTypeEdit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\Resources\" />
-    <Folder Include="Views\Report\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -1070,6 +1084,14 @@
     <EmbeddedResource Include="Views\RainExceedance\Resources\RainExceedanceViewRes.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>RainExceedanceViewRes.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ReportType\Resources\ReportTypeViewRes.fr.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ReportTypeViewRes.fr.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ReportType\Resources\ReportTypeViewRes.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ReportTypeViewRes.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\SamplingPlan\Resources\SamplingPlanViewRes.fr.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

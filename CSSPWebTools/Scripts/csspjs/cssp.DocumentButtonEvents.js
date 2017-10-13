@@ -996,6 +996,16 @@ var CSSP;
                                 cssp.Register.FormSubmit();
                             }
                             break;
+                        case "jbReportTypeAddOrModify":
+                            {
+                                cssp.Admin.ReportTypeAddOrModify($bjs);
+                            }
+                            break;
+                        case "jbReportTypeDelete":
+                            {
+                                cssp.Admin.ReportTypeDelete($bjs);
+                            }
+                            break;
                         case "jbSamplingPlanAdd":
                             {
                                 cssp.SamplingPlan.SamplingPlanAdd($bjs);
