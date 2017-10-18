@@ -207,6 +207,7 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\ReportTypeController.cs" />
+    <Compile Include="Controllers\DocumentController.cs" />
     <Compile Include="Controllers\KMZController.cs" />
     <Compile Include="Controllers\ChartController.cs" />
     <Compile Include="Controllers\BoxModelController.cs" />
@@ -334,6 +335,16 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DialogViewRes.fr.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Document\Resources\DocumentViewRes.fr.Designer.cs">
+      <DependentUpon>DocumentViewRes.fr.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Views\Document\Resources\DocumentViewRes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DocumentViewRes.resx</DependentUpon>
     </Compile>
     <Compile Include="Views\EmailDistributionList\Resources\EmailDistributionListViewRes.fr.Designer.cs">
       <DependentUpon>EmailDistributionListViewRes.fr.resx</DependentUpon>
@@ -758,8 +769,57 @@
     <Content Include="Views\MikeScenario\_mikeScenarioGenerateResults_New.cshtml" />
     <Content Include="Views\MWQM\_mwqmSubsector.cshtml" />
     <Content Include="Views\MWQM\_mwqmAnalysisReportParameter.cshtml" />
-    <Content Include="Views\File\_generateDocumentRoot.cshtml" />
+    <Content Include="Views\Document\_documentGenerateRootDocx.cshtml" />
     <Content Include="Views\ReportType\_reportTypeEdit.cshtml" />
+    <Content Include="Views\ReportType\_reportTypeList.cshtml" />
+    <Content Include="Views\ReportType\_reportTypeAllEdit.cshtml" />
+    <Content Include="Views\Document\_documentList.cshtml" />
+    <Content Include="Views\Document\_documentGenerateRootXlsx.cshtml" />
+    <Content Include="Views\Document\_documentGenerateRootKMZ.cshtml" />
+    <Content Include="Views\Document\_documentGenerateNotImplemented.cshtml" />
+    <Content Include="Views\Document\_documentParameters.cshtml" />
+    <Content Include="Views\Document\_documentGenerateAreaDocx.cshtml" />
+    <Content Include="Views\Document\_documentGenerateAreaKMZ.cshtml" />
+    <Content Include="Views\Document\_documentGenerateAreaXlsx.cshtml" />
+    <Content Include="Views\Document\_documentGenerateCountryDocx.cshtml" />
+    <Content Include="Views\Document\_documentGenerateCountryKMZ.cshtml" />
+    <Content Include="Views\Document\_documentGenerateCountryXlsx.cshtml" />
+    <Content Include="Views\Document\_documentGenerateInfrastructureDocx.cshtml" />
+    <Content Include="Views\Document\_documentGenerateInfrastructureKMZ.cshtml" />
+    <Content Include="Views\Document\_documentGenerateInfrastructureXlsx.cshtml" />
+    <Content Include="Views\Document\_documentGenerateMikeScenarioDocx.cshtml" />
+    <Content Include="Views\Document\_documentGenerateMikeScenarioKMZ.cshtml" />
+    <Content Include="Views\Document\_documentGenerateMikeScenarioXlsx.cshtml" />
+    <Content Include="Views\Document\_documentGenerateMikeSourceXlsx.cshtml" />
+    <Content Include="Views\Document\_documentGenerateMikeSourceKMZ.cshtml" />
+    <Content Include="Views\Document\_documentGenerateMikeSourceDocx.cshtml" />
+    <Content Include="Views\Document\_documentGenerateMunicipalityXlsx.cshtml" />
+    <Content Include="Views\Document\_documentGenerateMunicipalityKMZ.cshtml" />
+    <Content Include="Views\Document\_documentGenerateMunicipalityDocx.cshtml" />
+    <Content Include="Views\Document\_documentGenerateMWQMSiteDocx.cshtml" />
+    <Content Include="Views\Document\_documentGenerateMWQMSiteKMZ.cshtml" />
+    <Content Include="Views\Document\_documentGenerateMWQMSiteXlsx.cshtml" />
+    <Content Include="Views\Document\_documentGeneratePolSourceSiteXlsx.cshtml" />
+    <Content Include="Views\Document\_documentGeneratePolSourceSiteKMZ.cshtml" />
+    <Content Include="Views\Document\_documentGeneratePolSourceSiteDocx.cshtml" />
+    <Content Include="Views\Document\_documentGenerateProvinceXlsx.cshtml" />
+    <Content Include="Views\Document\_documentGenerateProvinceKMZ.cshtml" />
+    <Content Include="Views\Document\_documentGenerateProvinceDocx.cshtml" />
+    <Content Include="Views\Document\_documentGenerateSectorDocx.cshtml" />
+    <Content Include="Views\Document\_documentGenerateSectorKMZ.cshtml" />
+    <Content Include="Views\Document\_documentGenerateSectorXlsx.cshtml" />
+    <Content Include="Views\Document\_documentGenerateSubsectorDocx.cshtml" />
+    <Content Include="Views\Document\_documentGenerateSubsectorKMZ.cshtml" />
+    <Content Include="Views\Document\_documentGenerateSubsectorXlsx.cshtml" />
+    <Content Include="Views\Document\_documentGenerateBoxModelDocx.cshtml" />
+    <Content Include="Views\Document\_documentGenerateBoxModelKMZ.cshtml" />
+    <Content Include="Views\Document\_documentGenerateBoxModelXlsx.cshtml" />
+    <Content Include="Views\Document\_documentGenerateVisualPlumesScenarioDocx.cshtml" />
+    <Content Include="Views\Document\_documentGenerateVisualPlumesScenarioKMZ.cshtml" />
+    <Content Include="Views\Document\_documentGenerateVisualPlumesScenarioXlsx.cshtml" />
+    <Content Include="Views\Document\_documentGenerateMWQMRunDocx.cshtml" />
+    <Content Include="Views\Document\_documentGenerateMWQMRunKMZ.cshtml" />
+    <Content Include="Views\Document\_documentGenerateMWQMRunXlsx.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -807,6 +867,8 @@
     <TypeScriptCompile Include="Scripts\csspjstest\cssp.TestRemote.ts" />
     <TypeScriptCompile Include="Scripts\csspjstest\cssp.TestRequired.ts" />
     <TypeScriptCompile Include="Scripts\csspjstest\cssp.TestURL.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\cssp.ReportType.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\cssp.Document.ts" />
     <TypeScriptCompile Include="Scripts\csspjs\cssp.ClimateSite.ts" />
     <TypeScriptCompile Include="Scripts\csspjs\cssp.HydrometricSite.ts" />
     <TypeScriptCompile Include="Scripts\csspjs\cssp.EmailDistributionList.ts" />
@@ -998,6 +1060,14 @@
     <EmbeddedResource Include="Views\Dialog\Resources\DialogViewRes.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>DialogViewRes.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Document\Resources\DocumentViewRes.fr.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>DocumentViewRes.fr.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Document\Resources\DocumentViewRes.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>DocumentViewRes.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\EmailDistributionList\Resources\EmailDistributionListViewRes.fr.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

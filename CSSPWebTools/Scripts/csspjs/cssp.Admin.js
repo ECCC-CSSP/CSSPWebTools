@@ -10,51 +10,6 @@ var CSSP;
             this.TVItemTVAuthList = [];
             this.TVTypeTVAuthList = [];
             // Function
-            this.ReportTypeAddOrModify = function ($bjs) {
-                var IsAdd = $bjs.data("addormodify") == "add" ? true : false;
-                var $form = $bjs.closest("form.ReportTypeForm");
-                if ($form.length == 0) {
-                    cssp.Dialog.ShowDialogErrorWithCouldNotFind_Within_(".ReportTypeForm", "Form tag");
-                    return;
-                }
-                if (!$form.valid || $form.valid()) {
-                    var command_1 = $form.attr("action");
-                    $.post(cssp.BaseURL + command_1, $form.serializeArray())
-                        .done(function (ret) {
-                        if (ret.Error != "") {
-                            cssp.Dialog.ShowDialogErrorWithError(ret.Error);
-                        }
-                        else {
-                            if (IsAdd) {
-                                cssp.Helper.PageRefresh();
-                                cssp.Dialog.ShowDialogSuccess("Added successfully");
-                            }
-                            else {
-                                cssp.Dialog.ShowDialogSuccess("Modified successfully");
-                            }
-                        }
-                    })
-                        .fail(function () {
-                        cssp.Dialog.ShowDialogErrorWithFail(command_1);
-                    });
-                }
-            };
-            this.ReportTypeDelete = function ($bjs) {
-                var ReportTypeID = parseInt($bjs.data("reporttypeid"));
-                var command = "ReportType/ReportTypeDeleteJSON";
-                $.post(cssp.BaseURL + command, { ReportTypeID: ReportTypeID })
-                    .done(function (ret) {
-                    if (ret.Error != "") {
-                        cssp.Dialog.ShowDialogErrorWithError(ret.Error);
-                    }
-                    else {
-                        cssp.Helper.PageRefresh();
-                    }
-                })
-                    .fail(function () {
-                    cssp.Dialog.ShowDialogErrorWithFail(command);
-                });
-            };
             this.AskToRemoveUser = function ($ajs) {
                 cssp.Dialog.ShowDialogAreYouSure(cssp.Admin.contactModel.LoginEmail);
                 cssp.Dialog.CheckDialogAndButtonsExist(["#DialogBasic", "#DialogBasicYes"], 5, "cssp.Admin.SetDialogEvents", $ajs);

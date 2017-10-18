@@ -19,54 +19,7 @@ module CSSP {
         }
 
         // Function
-        public ReportTypeAddOrModify: Function = ($bjs: JQuery): void => {
-            let IsAdd: boolean = $bjs.data("addormodify") == "add" ? true : false;
-            let $form: JQuery = $bjs.closest("form.ReportTypeForm");
-            if ($form.length == 0) {
-                cssp.Dialog.ShowDialogErrorWithCouldNotFind_Within_(".ReportTypeForm", "Form tag");
-                return;
-            }
 
-            if (!$form.valid || $form.valid()) {
-                let command: string = $form.attr("action");
-                $.post(cssp.BaseURL + command, $form.serializeArray())
-                    .done((ret) => {
-                        if (ret.Error != "") {
-                            cssp.Dialog.ShowDialogErrorWithError(ret.Error);
-                        }
-                        else {
-                            if (IsAdd) {
-                                cssp.Helper.PageRefresh();
-                                cssp.Dialog.ShowDialogSuccess("Added successfully");
-                            }
-                            else {
-                                cssp.Dialog.ShowDialogSuccess("Modified successfully");
-                            }
-                        }
-                    })
-                    .fail(() => {
-                        cssp.Dialog.ShowDialogErrorWithFail(command);
-                    });
-            }
-
-        };
-        public ReportTypeDelete: Function = ($bjs: JQuery): void => {
-            let ReportTypeID: number = parseInt($bjs.data("reporttypeid"));
-
-            let command: string = "ReportType/ReportTypeDeleteJSON";
-            $.post(cssp.BaseURL + command, { ReportTypeID: ReportTypeID })
-                .done((ret) => {
-                    if (ret.Error != "") {
-                        cssp.Dialog.ShowDialogErrorWithError(ret.Error);
-                    }
-                    else {
-                        cssp.Helper.PageRefresh();
-                    }
-                })
-                .fail(() => {
-                    cssp.Dialog.ShowDialogErrorWithFail(command);
-                });
-        };
         public AskToRemoveUser: Function = ($ajs: JQuery): void => {
             cssp.Dialog.ShowDialogAreYouSure(cssp.Admin.contactModel.LoginEmail);
             cssp.Dialog.CheckDialogAndButtonsExist(["#DialogBasic", "#DialogBasicYes"], 5, "cssp.Admin.SetDialogEvents", $ajs);

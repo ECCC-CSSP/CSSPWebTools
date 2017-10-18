@@ -97,21 +97,20 @@
                 });
         };
         public CreateDocumentShowHide: Function = ($bjs: JQuery): any => {
-            if ($("#FileDiv").find(".CreateDocument").children().length == 0) {
-                $("#FileDiv").find(".CreateDocument").removeClass("hidden");
-                if ($("#FileDiv").find(".CreateDocument").children().length == 0) {
-                    var TVItemID: string = $bjs.closest("#ViewDiv").data("tvitemid");
-                    var command: string = "File/_createDocument";
-                    $.get(cssp.BaseURL + command, {
-                        TVItemID: TVItemID,
-                    }).done((ret) => {
-                        $("#FileDiv").find(".CreateDocument").html(ret);
-                    }).fail(() => {
-                        cssp.Dialog.ShowDialogErrorWithFail(command);
-                    });
-                }
+            if ($bjs.hasClass("btn-default")) {
+                $bjs.removeClass("btn-default").addClass("btn-success");
+                var TVItemID: string = $bjs.closest("#ViewDiv").data("tvitemid");
+                var command: string = "File/_createDocument";
+                $.get(cssp.BaseURL + command, {
+                    TVItemID: TVItemID,
+                }).done((ret) => {
+                    $("#FileDiv").find(".CreateDocument").html(ret);
+                }).fail(() => {
+                    cssp.Dialog.ShowDialogErrorWithFail(command);
+                });
             }
             else {
+                $bjs.removeClass("btn-success").addClass("btn-default");
                 $("#FileDiv").find(".CreateDocument").html("");
             }
         };

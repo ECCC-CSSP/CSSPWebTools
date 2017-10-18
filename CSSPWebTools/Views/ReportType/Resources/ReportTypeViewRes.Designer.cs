@@ -115,6 +115,33 @@ namespace CSSPWebTools.Views.ReportType.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Edit.
+        /// </summary>
+        public static string Edit {
+            get {
+                return ResourceManager.GetString("Edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to File name will start with.
+        /// </summary>
+        public static string FileNameWillStartWith {
+            get {
+                return ResourceManager.GetString("FileNameWillStartWith", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to File type.
+        /// </summary>
+        public static string FileType {
+            get {
+                return ResourceManager.GetString("FileType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Infrastructure.
         /// </summary>
         public static string Infrastructure {
@@ -151,6 +178,15 @@ namespace CSSPWebTools.Views.ReportType.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to More information.
+        /// </summary>
+        public static string MoreInformation {
+            get {
+                return ResourceManager.GetString("MoreInformation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Municipality.
         /// </summary>
         public static string Municipality {
@@ -174,6 +210,15 @@ namespace CSSPWebTools.Views.ReportType.Resources {
         public static string New {
             get {
                 return ResourceManager.GetString("New", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No report type created yet for {0}.
+        /// </summary>
+        public static string NoReportTypeCreatedYetFor_ {
+            get {
+                return ResourceManager.GetString("NoReportTypeCreatedYetFor_", resourceCulture);
             }
         }
         

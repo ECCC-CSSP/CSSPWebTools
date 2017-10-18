@@ -39,7 +39,12 @@
                         <select class="form-control" name="FilePurpose" id="FilePurpose">
                             @foreach (FilePurposeAndText filePurposeAndText in filePurposeAndTextList)
                             {
-                                if (filePurposeAndText.FilePurpose != FilePurposeEnum.Error && filePurposeAndText.FilePurpose != FilePurposeEnum.Generated && !filePurposeAndText.FilePurposeText.ToLower().StartsWith("mike"))
+                                if (filePurposeAndText.FilePurpose != FilePurposeEnum.Error
+                                    && filePurposeAndText.FilePurpose != FilePurposeEnum.TemplateGenerated
+                                    && filePurposeAndText.FilePurpose != FilePurposeEnum.ReportGenerated
+                                    && filePurposeAndText.FilePurpose != FilePurposeEnum.GeneratedFCForm
+                                    && filePurposeAndText.FilePurpose != FilePurposeEnum.Analysis
+                                    && !filePurposeAndText.FilePurposeText.ToLower().StartsWith("mike"))
                                 {
                                     if (IsFirst)
                                     {

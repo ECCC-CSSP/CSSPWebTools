@@ -1,0 +1,427 @@
+﻿@using CSSPWebTools.Views.Document.Resources;
+@using CSSPWebTools.Models;
+@using CSSPEnumsDLL.Enums;
+@using CSSPModelsDLL.Models;
+@using CSSPWebTools.Controllers;
+
+@{
+    DocumentController documentController = (DocumentController)ViewBag.DocumentController;
+    int ReportTypeID = (int)ViewBag.ReportTypeID;
+    int TVItemID = (int)ViewBag.TVItemID;
+    int TVFileTVItemID = (int)ViewBag.TVFileTVItemID;
+    ReportTypeModel reportTypeModel = (ReportTypeModel)ViewBag.ReportTypeModel;
+}
+
+@switch (reportTypeModel.TVType)
+{
+    case TVTypeEnum.Root:
+        {
+            switch (reportTypeModel.FileType)
+            {
+                case FileTypeEnum.DOCX:
+                    {
+                        @Html.Action("_documentGenerateRootDocx", "Document", new { ReportTypeID = reportTypeModel.ReportTypeID, TVItemID = TVItemID, TVFileTVItemID = TVFileTVItemID })
+                    }
+                    break;
+                case FileTypeEnum.KMZ:
+                    {
+                        @Html.Action("_documentGenerateRootKMZ", "Document", new { ReportTypeID = reportTypeModel.ReportTypeID, TVItemID = TVItemID, TVFileTVItemID = TVFileTVItemID })
+                    }
+                    break;
+                case FileTypeEnum.XLSX:
+                    {
+                        @Html.Action("_documentGenerateRootXlsx", "Document", new { ReportTypeID = reportTypeModel.ReportTypeID, TVItemID = TVItemID, TVFileTVItemID = TVFileTVItemID })
+                    }
+                    break;
+                default:
+                    {
+                        @Html.Action("_documentGenerateNotImplemented", "Document", new { ReportTypeID = reportTypeModel.ReportTypeID, FileType = (int)reportTypeModel.FileType, TVItemID = TVItemID })
+                    }
+                    break;
+            }
+        }
+        break;
+    case TVTypeEnum.Area:
+        {
+            switch (reportTypeModel.FileType)
+            {
+                case FileTypeEnum.DOCX:
+                    {
+                        @Html.Action("_documentGenerateAreaDocx", "Document", new { ReportTypeID = reportTypeModel.ReportTypeID, TVItemID = TVItemID, TVFileTVItemID = TVFileTVItemID })
+                    }
+                    break;
+                case FileTypeEnum.KMZ:
+                    {
+                        @Html.Action("_documentGenerateAreaKMZ", "Document", new { ReportTypeID = reportTypeModel.ReportTypeID, TVItemID = TVItemID, TVFileTVItemID = TVFileTVItemID })
+                    }
+                    break;
+                case FileTypeEnum.XLSX:
+                    {
+                        @Html.Action("_documentGenerateAreaXlsx", "Document", new { ReportTypeID = reportTypeModel.ReportTypeID, TVItemID = TVItemID, TVFileTVItemID = TVFileTVItemID })
+                    }
+                    break;
+                default:
+                    {
+                        @Html.Action("_documentGenerateNotImplemented", "Document", new { ReportTypeID = reportTypeModel.ReportTypeID, FileType = (int)reportTypeModel.FileType, TVItemID = TVItemID })
+                    }
+                    break;
+            }
+        }
+        break;
+    case TVTypeEnum.Country:
+        {
+            switch (reportTypeModel.FileType)
+            {
+                case FileTypeEnum.DOCX:
+                    {
+                        @Html.Action("_documentGenerateCountryDocx", "Document", new { ReportTypeID = reportTypeModel.ReportTypeID, TVItemID = TVItemID, TVFileTVItemID = TVFileTVItemID })
+                    }
+                    break;
+                case FileTypeEnum.KMZ:
+                    {
+                        @Html.Action("_documentGenerateCountryKMZ", "Document", new { ReportTypeID = reportTypeModel.ReportTypeID, TVItemID = TVItemID, TVFileTVItemID = TVFileTVItemID })
+                    }
+                    break;
+                case FileTypeEnum.XLSX:
+                    {
+                        @Html.Action("_documentGenerateCountryXlsx", "Document", new { ReportTypeID = reportTypeModel.ReportTypeID, TVItemID = TVItemID, TVFileTVItemID = TVFileTVItemID })
+                    }
+                    break;
+                default:
+                    {
+                        @Html.Action("_documentGenerateNotImplemented", "Document", new { ReportTypeID = reportTypeModel.ReportTypeID, FileType = (int)reportTypeModel.FileType, TVItemID = TVItemID })
+                    }
+                    break;
+            }
+        }
+        break;
+    case TVTypeEnum.Infrastructure:
+        {
+            switch (reportTypeModel.FileType)
+            {
+                case FileTypeEnum.DOCX:
+                    {
+                        @Html.Action("_documentGenerateInfrastructureDocx", "Document", new { ReportTypeID = reportTypeModel.ReportTypeID, TVItemID = TVItemID, TVFileTVItemID = TVFileTVItemID })
+                    }
+                    break;
+                case FileTypeEnum.KMZ:
+                    {
+                        @Html.Action("_documentGenerateInfrastructureKMZ", "Document", new { ReportTypeID = reportTypeModel.ReportTypeID, TVItemID = TVItemID, TVFileTVItemID = TVFileTVItemID })
+                    }
+                    break;
+                case FileTypeEnum.XLSX:
+                    {
+                        @Html.Action("_documentGenerateInfrastructureXlsx", "Document", new { ReportTypeID = reportTypeModel.ReportTypeID, TVItemID = TVItemID, TVFileTVItemID = TVFileTVItemID })
+                    }
+                    break;
+                default:
+                    {
+                        @Html.Action("_documentGenerateNotImplemented", "Document", new { ReportTypeID = reportTypeModel.ReportTypeID, FileType = (int)reportTypeModel.FileType, TVItemID = TVItemID })
+                    }
+                    break;
+            }
+        }
+        break;
+    case TVTypeEnum.MikeScenario:
+        {
+            switch (reportTypeModel.FileType)
+            {
+                case FileTypeEnum.DOCX:
+                    {
+                        @Html.Action("_documentGenerateMikeScenarioDocx", "Document", new { ReportTypeID = reportTypeModel.ReportTypeID, TVItemID = TVItemID, TVFileTVItemID = TVFileTVItemID })
+                    }
+                    break;
+                case FileTypeEnum.KMZ:
+                    {
+                        @Html.Action("_documentGenerateMikeScenarioKMZ", "Document", new { ReportTypeID = reportTypeModel.ReportTypeID, TVItemID = TVItemID, TVFileTVItemID = TVFileTVItemID })
+                    }
+                    break;
+                case FileTypeEnum.XLSX:
+                    {
+                        @Html.Action("_documentGenerateMikeScenarioXlsx", "Document", new { ReportTypeID = reportTypeModel.ReportTypeID, TVItemID = TVItemID, TVFileTVItemID = TVFileTVItemID })
+                    }
+                    break;
+                default:
+                    {
+                        @Html.Action("_documentGenerateNotImplemented", "Document", new { ReportTypeID = reportTypeModel.ReportTypeID, FileType = (int)reportTypeModel.FileType, TVItemID = TVItemID })
+                    }
+                    break;
+            }
+        }
+        break;
+    case TVTypeEnum.MikeSource:
+        {
+            switch (reportTypeModel.FileType)
+            {
+                case FileTypeEnum.DOCX:
+                    {
+                        @Html.Action("_documentGenerateMikeSourceDocx", "Document", new { ReportTypeID = reportTypeModel.ReportTypeID, TVItemID = TVItemID, TVFileTVItemID = TVFileTVItemID })
+                    }
+                    break;
+                case FileTypeEnum.KMZ:
+                    {
+                        @Html.Action("_documentGenerateMikeSourceKMZ", "Document", new { ReportTypeID = reportTypeModel.ReportTypeID, TVItemID = TVItemID, TVFileTVItemID = TVFileTVItemID })
+                    }
+                    break;
+                case FileTypeEnum.XLSX:
+                    {
+                        @Html.Action("_documentGenerateMikeSourceXlsx", "Document", new { ReportTypeID = reportTypeModel.ReportTypeID, TVItemID = TVItemID, TVFileTVItemID = TVFileTVItemID })
+                    }
+                    break;
+                default:
+                    {
+                        @Html.Action("_documentGenerateNotImplemented", "Document", new { ReportTypeID = reportTypeModel.ReportTypeID, FileType = (int)reportTypeModel.FileType, TVItemID = TVItemID })
+                    }
+                    break;
+            }
+        }
+        break;
+    case TVTypeEnum.Municipality:
+        {
+            switch (reportTypeModel.FileType)
+            {
+                case FileTypeEnum.DOCX:
+                    {
+                        @Html.Action("_documentGenerateMunicipalityDocx", "Document", new { ReportTypeID = reportTypeModel.ReportTypeID, TVItemID = TVItemID, TVFileTVItemID = TVFileTVItemID })
+                    }
+                    break;
+                case FileTypeEnum.KMZ:
+                    {
+                        @Html.Action("_documentGenerateMunicipalityKMZ", "Document", new { ReportTypeID = reportTypeModel.ReportTypeID, TVItemID = TVItemID, TVFileTVItemID = TVFileTVItemID })
+                    }
+                    break;
+                case FileTypeEnum.XLSX:
+                    {
+                        @Html.Action("_documentGenerateMunicipalityXlsx", "Document", new { ReportTypeID = reportTypeModel.ReportTypeID, TVItemID = TVItemID, TVFileTVItemID = TVFileTVItemID })
+                    }
+                    break;
+                default:
+                    {
+                        @Html.Action("_documentGenerateNotImplemented", "Document", new { ReportTypeID = reportTypeModel.ReportTypeID, FileType = (int)reportTypeModel.FileType, TVItemID = TVItemID })
+                    }
+                    break;
+            }
+        }
+        break;
+    case TVTypeEnum.MWQMSite:
+        {
+            switch (reportTypeModel.FileType)
+            {
+                case FileTypeEnum.DOCX:
+                    {
+                        @Html.Action("_documentGenerateMWQMSiteDocx", "Document", new { ReportTypeID = reportTypeModel.ReportTypeID, TVItemID = TVItemID, TVFileTVItemID = TVFileTVItemID })
+                    }
+                    break;
+                case FileTypeEnum.KMZ:
+                    {
+                        @Html.Action("_documentGenerateMWQMSiteKMZ", "Document", new { ReportTypeID = reportTypeModel.ReportTypeID, TVItemID = TVItemID, TVFileTVItemID = TVFileTVItemID })
+                    }
+                    break;
+                case FileTypeEnum.XLSX:
+                    {
+                        @Html.Action("_documentGenerateMWQMSiteXlsx", "Document", new { ReportTypeID = reportTypeModel.ReportTypeID, TVItemID = TVItemID, TVFileTVItemID = TVFileTVItemID })
+                    }
+                    break;
+                default:
+                    {
+                        @Html.Action("_documentGenerateNotImplemented", "Document", new { ReportTypeID = reportTypeModel.ReportTypeID, FileType = (int)reportTypeModel.FileType, TVItemID = TVItemID })
+                    }
+                    break;
+            }
+        }
+        break;
+    case TVTypeEnum.PolSourceSite:
+        {
+            switch (reportTypeModel.FileType)
+            {
+                case FileTypeEnum.DOCX:
+                    {
+                        @Html.Action("_documentGeneratePolSourceSiteDocx", "Document", new { ReportTypeID = reportTypeModel.ReportTypeID, TVItemID = TVItemID, TVFileTVItemID = TVFileTVItemID })
+                    }
+                    break;
+                case FileTypeEnum.KMZ:
+                    {
+                        @Html.Action("_documentGeneratePolSourceSiteKMZ", "Document", new { ReportTypeID = reportTypeModel.ReportTypeID, TVItemID = TVItemID, TVFileTVItemID = TVFileTVItemID })
+                    }
+                    break;
+                case FileTypeEnum.XLSX:
+                    {
+                        @Html.Action("_documentGeneratePolSourceSiteXlsx", "Document", new { ReportTypeID = reportTypeModel.ReportTypeID, TVItemID = TVItemID, TVFileTVItemID = TVFileTVItemID })
+                    }
+                    break;
+                default:
+                    {
+                        @Html.Action("_documentGenerateNotImplemented", "Document", new { ReportTypeID = reportTypeModel.ReportTypeID, FileType = (int)reportTypeModel.FileType, TVItemID = TVItemID })
+                    }
+                    break;
+            }
+        }
+        break;
+    case TVTypeEnum.Province:
+        {
+            switch (reportTypeModel.FileType)
+            {
+                case FileTypeEnum.DOCX:
+                    {
+                        @Html.Action("_documentGenerateProvinceDocx", "Document", new { ReportTypeID = reportTypeModel.ReportTypeID, TVItemID = TVItemID, TVFileTVItemID = TVFileTVItemID })
+                    }
+                    break;
+                case FileTypeEnum.KMZ:
+                    {
+                        @Html.Action("_documentGenerateProvinceKMZ", "Document", new { ReportTypeID = reportTypeModel.ReportTypeID, TVItemID = TVItemID, TVFileTVItemID = TVFileTVItemID })
+                    }
+                    break;
+                case FileTypeEnum.XLSX:
+                    {
+                        @Html.Action("_documentGenerateProvinceXlsx", "Document", new { ReportTypeID = reportTypeModel.ReportTypeID, TVItemID = TVItemID, TVFileTVItemID = TVFileTVItemID })
+                    }
+                    break;
+                default:
+                    {
+                        @Html.Action("_documentGenerateNotImplemented", "Document", new { ReportTypeID = reportTypeModel.ReportTypeID, FileType = (int)reportTypeModel.FileType, TVItemID = TVItemID })
+                    }
+                    break;
+            }
+        }
+        break;
+    case TVTypeEnum.Sector:
+        {
+            switch (reportTypeModel.FileType)
+            {
+                case FileTypeEnum.DOCX:
+                    {
+                        @Html.Action("_documentGenerateSectorDocx", "Document", new { ReportTypeID = reportTypeModel.ReportTypeID, TVItemID = TVItemID, TVFileTVItemID = TVFileTVItemID })
+                    }
+                    break;
+                case FileTypeEnum.KMZ:
+                    {
+                        @Html.Action("_documentGenerateSectorKMZ", "Document", new { ReportTypeID = reportTypeModel.ReportTypeID, TVItemID = TVItemID, TVFileTVItemID = TVFileTVItemID })
+                    }
+                    break;
+                case FileTypeEnum.XLSX:
+                    {
+                        @Html.Action("_documentGenerateSectorXlsx", "Document", new { ReportTypeID = reportTypeModel.ReportTypeID, TVItemID = TVItemID, TVFileTVItemID = TVFileTVItemID })
+                    }
+                    break;
+                default:
+                    {
+                        @Html.Action("_documentGenerateNotImplemented", "Document", new { ReportTypeID = reportTypeModel.ReportTypeID, FileType = (int)reportTypeModel.FileType, TVItemID = TVItemID })
+                    }
+                    break;
+            }
+        }
+        break;
+    case TVTypeEnum.Subsector:
+        {
+            switch (reportTypeModel.FileType)
+            {
+                case FileTypeEnum.DOCX:
+                    {
+                        @Html.Action("_documentGenerateSubsectorDocx", "Document", new { ReportTypeID = reportTypeModel.ReportTypeID, TVItemID = TVItemID, TVFileTVItemID = TVFileTVItemID })
+                    }
+                    break;
+                case FileTypeEnum.KMZ:
+                    {
+                        @Html.Action("_documentGenerateSubsectorKMZ", "Document", new { ReportTypeID = reportTypeModel.ReportTypeID, TVItemID = TVItemID, TVFileTVItemID = TVFileTVItemID })
+                    }
+                    break;
+                case FileTypeEnum.XLSX:
+                    {
+                        @Html.Action("_documentGenerateSubsectorXlsx", "Document", new { ReportTypeID = reportTypeModel.ReportTypeID, TVItemID = TVItemID, TVFileTVItemID = TVFileTVItemID })
+                    }
+                    break;
+                default:
+                    {
+                        @Html.Action("_documentGenerateNotImplemented", "Document", new { ReportTypeID = reportTypeModel.ReportTypeID, FileType = (int)reportTypeModel.FileType, TVItemID = TVItemID })
+                    }
+                    break;
+            }
+        }
+        break;
+    case TVTypeEnum.BoxModel:
+        {
+            switch (reportTypeModel.FileType)
+            {
+                case FileTypeEnum.DOCX:
+                    {
+                        @Html.Action("_documentGenerateBoxModelDocx", "Document", new { ReportTypeID = reportTypeModel.ReportTypeID, TVItemID = TVItemID, TVFileTVItemID = TVFileTVItemID })
+                    }
+                    break;
+                case FileTypeEnum.KMZ:
+                    {
+                        @Html.Action("_documentGenerateBoxModelKMZ", "Document", new { ReportTypeID = reportTypeModel.ReportTypeID, TVItemID = TVItemID, TVFileTVItemID = TVFileTVItemID })
+                    }
+                    break;
+                case FileTypeEnum.XLSX:
+                    {
+                        @Html.Action("_documentGenerateBoxModelXlsx", "Document", new { ReportTypeID = reportTypeModel.ReportTypeID, TVItemID = TVItemID, TVFileTVItemID = TVFileTVItemID })
+                    }
+                    break;
+                default:
+                    {
+                        @Html.Action("_documentGenerateNotImplemented", "Document", new { ReportTypeID = reportTypeModel.ReportTypeID, FileType = (int)reportTypeModel.FileType, TVItemID = TVItemID })
+                    }
+                    break;
+            }
+        }
+        break;
+    case TVTypeEnum.VisualPlumesScenario:
+        {
+            switch (reportTypeModel.FileType)
+            {
+                case FileTypeEnum.DOCX:
+                    {
+                        @Html.Action("_documentGenerateVisualPlumesScenarioDocx", "Document", new { ReportTypeID = reportTypeModel.ReportTypeID, TVItemID = TVItemID, TVFileTVItemID = TVFileTVItemID })
+                    }
+                    break;
+                case FileTypeEnum.KMZ:
+                    {
+                        @Html.Action("_documentGenerateVisualPlumesScenarioKMZ", "Document", new { ReportTypeID = reportTypeModel.ReportTypeID, TVItemID = TVItemID, TVFileTVItemID = TVFileTVItemID })
+                    }
+                    break;
+                case FileTypeEnum.XLSX:
+                    {
+                        @Html.Action("_documentGenerateVisualPlumesScenarioXlsx", "Document", new { ReportTypeID = reportTypeModel.ReportTypeID, TVItemID = TVItemID, TVFileTVItemID = TVFileTVItemID })
+                    }
+                    break;
+                default:
+                    {
+                        @Html.Action("_documentGenerateNotImplemented", "Document", new { ReportTypeID = reportTypeModel.ReportTypeID, FileType = (int)reportTypeModel.FileType, TVItemID = TVItemID })
+                    }
+                    break;
+            }
+        }
+        break;
+    case TVTypeEnum.MWQMRun:
+        {
+            switch (reportTypeModel.FileType)
+            {
+                case FileTypeEnum.DOCX:
+                    {
+                        @Html.Action("_documentGenerateMWQMRunDocx", "Document", new { ReportTypeID = reportTypeModel.ReportTypeID, TVItemID = TVItemID, TVFileTVItemID = TVFileTVItemID })
+                    }
+                    break;
+                case FileTypeEnum.KMZ:
+                    {
+                        @Html.Action("_documentGenerateMWQMRunKMZ", "Document", new { ReportTypeID = reportTypeModel.ReportTypeID, TVItemID = TVItemID, TVFileTVItemID = TVFileTVItemID })
+                    }
+                    break;
+                case FileTypeEnum.XLSX:
+                    {
+                        @Html.Action("_documentGenerateMWQMRunXlsx", "Document", new { ReportTypeID = reportTypeModel.ReportTypeID, TVItemID = TVItemID, TVFileTVItemID = TVFileTVItemID })
+                    }
+                    break;
+                default:
+                    {
+                        @Html.Action("_documentGenerateNotImplemented", "Document", new { ReportTypeID = reportTypeModel.ReportTypeID, FileType = (int)reportTypeModel.FileType, TVItemID = TVItemID })
+                    }
+                    break;
+            }
+        }
+        break;
+    default:
+        @Html.Action("_documentGenerateNotImplemented", "Document", new { ReportTypeID = reportTypeModel.ReportTypeID, FileType = 0, TVItemID = TVItemID, TVFileTVItemID = TVFileTVItemID })
+        break;
+}
+
+

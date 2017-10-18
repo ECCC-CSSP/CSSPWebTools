@@ -2697,6 +2697,25 @@ namespace CSSPWebTools.Controllers
             urlModel.VariableShow = urlModel.VariableShow.Insert((int)urlShowVar, value);
             urlModel.VariableShow = urlModel.VariableShow.Replace(" ", "0");
         }
+        [NonAction]
+        public string GetParameters(string Parameter, List<string> ParamValueList)
+        {
+            foreach (string pv in ParamValueList)
+            {
+                List<string> ParamValue = pv.Split(",".ToCharArray(), StringSplitOptions.RemoveEmptyEntries).ToList();
+                if (ParamValue.Count != 2)
+                {
+                    return "";
+                }
+                if (Parameter == ParamValue[0])
+                {
+                    return ParamValue[1];
+                }
+            }
+
+            return "";
+        }
+
         #endregion Functions Helper public
 
         #endregion Functions (public)

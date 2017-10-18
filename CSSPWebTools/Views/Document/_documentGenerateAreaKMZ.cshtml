@@ -1,0 +1,49 @@
+﻿@using CSSPWebTools.Views.Document.Resources;
+@using CSSPWebTools.Controllers;
+@using CSSPEnumsDLL.Enums;
+@using CSSPEnumsDLL.Services;
+@using CSSPModelsDLL.Models;
+
+@{
+    DocumentController documentController = (DocumentController)ViewBag.DocumentController;
+    int ReportTypeID = (int)ViewBag.ReportTypeID;
+    int TVItemID = (int)ViewBag.TVItemID;
+    int TVFileTVItemID = (int)ViewBag.TVFileTVItemID;
+    ReportTypeModel reportTypeModel = (ReportTypeModel)ViewBag.ReportTypeModel;
+}
+
+@if (TVFileTVItemID == 0)
+{
+    <ul class="GenerateReportTopDiv BorderOtherInfrastructure list-unstyled">
+        <li>
+            <form class="GenerateReport" method="post" role="form" action="Document/DocumentGenerateJSON">
+                @Html.AntiForgeryToken()
+                <fieldset>
+                    <legend><span>@DocumentViewRes.Parameters</span></legend>
+                    <input type="hidden" name="TVItemID" value="@TVItemID" />
+                    <input type="hidden" name="ReportTypeID" value="@ReportTypeID" />
+                    @Parameters()
+                    <div class="form-group">
+                        <button class="jbDocumentGenerate btn btn-primary" type="submit">
+                            <span class="glyphicon glyphicon-check"></span>
+                            &nbsp;@DocumentViewRes.GenerateReportWithParameters
+                        </button>
+                    </div>
+                </fieldset>
+            </form>
+        </li>
+    </ul>
+}
+else
+{
+    <ul class="list-unstyled">
+        <li>
+            @Parameters()
+        </li>
+    </ul>
+}
+
+@helper Parameters()
+{
+    <span>@DocumentViewRes.NoParameters</span>
+}

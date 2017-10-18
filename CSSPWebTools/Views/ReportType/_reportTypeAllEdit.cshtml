@@ -1,0 +1,190 @@
+﻿@using CSSPWebTools.Views.ReportType.Resources;
+@using CSSPWebTools.Controllers;
+@using CSSPEnumsDLL.Enums;
+@using CSSPEnumsDLL.Services;
+@using CSSPModelsDLL.Models;
+@using System.Linq;
+
+@{
+    ReportTypeController ReportTypeController = (ReportTypeController)ViewBag.ReportTypeController;
+    List<ReportTypeModel> reportTypeModelList = (List<ReportTypeModel>)ViewBag.ReportTypeModelList;
+    BaseEnumService _BaseEnumService = new BaseEnumService(ViewBag.Language);
+    List<TVTypeEnumTextOrdered> tvTypeEnumTextOrderedList = (List<TVTypeEnumTextOrdered>)ViewBag.TVTypeEnumTextOrderedList;
+    List<FileTypeEnumTextOrdered> fileTypeEnumTextOrderedList = (List<FileTypeEnumTextOrdered>)ViewBag.FileTypeEnumTextOrderedList;
+    bool IsFirstTVType = true;
+    bool IsFirstFileType = true;
+}
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <div class="panel-title">@ReportTypeViewRes.ReportTypes</div>
+    </div>
+    <div class="panel-body">
+        @if (reportTypeModelList != null)
+        {
+            foreach (ReportTypeModel reportTypeModel in reportTypeModelList)
+            {
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <div class="panel-title"><span>@ReportTypeViewRes.ReportType</span><span> --- </span><span>@reportTypeModel.Name</span></div>
+                    </div>
+                    <div class="panel-body">
+                        <form class="ReportTypeForm form-horizontal col-lg-6 col-md-8 col-sm-10" method="post" role="form" action="ReportType/ReportTypeAddOrModifyJSON">
+                            @Html.AntiForgeryToken()
+                            <fieldset>
+                                <input type="hidden" name="ReportTypeID" value="@reportTypeModel.ReportTypeID" />
+
+                                <div class="form-group">
+                                    <label class="control-label col-sm-3" for="TVType">@ReportTypeViewRes.TVType</label>
+                                    <div class="col-sm-9">
+                                        <select class="form-control" name="TVType">
+                                            @foreach (TVTypeEnumTextOrdered tvTypeEnumTextOrdered in tvTypeEnumTextOrderedList)
+                                            {
+                                                <option value="@((int)(tvTypeEnumTextOrdered.TVType))" @(tvTypeEnumTextOrdered.TVType == reportTypeModel.TVType ? "selected=selected" : "")>@tvTypeEnumTextOrdered.TVTypeText</option>
+                                            }
+                                        </select>
+                                        <span class="help-block"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-3" for="FileType">@ReportTypeViewRes.FileType</label>
+                                    <div class="col-sm-9">
+                                        <select class="form-control" name="FileType">
+                                            @foreach (FileTypeEnumTextOrdered fileTypeEnumTextOrdered in fileTypeEnumTextOrderedList)
+                                            {
+                                                <option value="@((int)(fileTypeEnumTextOrdered.FileType))" @(fileTypeEnumTextOrdered.FileType == reportTypeModel.FileType ? "selected=selected" : "")>@fileTypeEnumTextOrdered.FileTypeText</option>
+                                            }
+                                        </select>
+                                        <span class="help-block"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-3" for="UniqueCode">@ReportTypeViewRes.UniqueCode</label>
+                                    <div class="col-sm-9">
+                                        <input class="form-control" name="UniqueCode" type="text" value="@reportTypeModel.UniqueCode">
+                                        <span class="help-block"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-3" for="LastName">@ReportTypeViewRes.Name</label>
+                                    <div class="col-sm-9">
+                                        <input name="Name" class="form-control" type="text" value="@reportTypeModel.Name">
+                                        <span class="help-block"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-3" for="WebName">@ReportTypeViewRes.StartOfFileName</label>
+                                    <div class="col-sm-9">
+                                        <input name="StartOfFileName" class="form-control" type="text" value="@reportTypeModel.StartOfFileName">
+                                        <span class="help-block"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-3" for="Description">@ReportTypeViewRes.Description</label>
+                                    <div class="col-sm-9">
+                                        <textarea name="Description" class="form-control">@reportTypeModel.Description</textarea>
+                                        <span class="help-block"></span>
+                                    </div>
+                                </div>
+
+                                <div class="btn-block">
+                                    <button class="jbReportTypeAddOrModify btn btn-primary" type="submit" data-addormodify="modify">
+                                        <span class="glyphicon glyphicon-check"></span>
+                                        &nbsp;@ReportTypeViewRes.Modify
+                                    </button>
+                                    <button class="jbReportTypeDelete btn btn-primary" type="submit" data-reporttypeid="@reportTypeModel.ReportTypeID">
+                                        <span class="glyphicon glyphicon-check"></span>
+                                        &nbsp;@ReportTypeViewRes.Delete
+                                    </button>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            }
+        }
+
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <div class="panel-title"><span>@ReportTypeViewRes.ReportType</span><span> --- </span><span>@ReportTypeViewRes.New</span></div>
+            </div>
+            <div class="panel-body">
+                <form class="ReportTypeForm form-horizontal col-lg-6 col-md-8 col-sm-10" method="post" role="form" action="ReportType/ReportTypeAddOrModifyJSON">
+                    @Html.AntiForgeryToken()
+                    <fieldset>
+                        <input type="hidden" name="ReportTypeID" value="0" />
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-3" for="TVType">@ReportTypeViewRes.TVType</label>
+                            <div class="col-sm-9">
+                                <select class="form-control" name="TVType">
+                                    @foreach (TVTypeEnumTextOrdered tvTypeEnumTextOrdered in tvTypeEnumTextOrderedList)
+                                    {
+                                        <option value="@((int)(tvTypeEnumTextOrdered.TVType))" @(IsFirstTVType ? "selected=selected" : "")>@tvTypeEnumTextOrdered.TVTypeText</option>
+                                        if (IsFirstTVType)
+                                        {
+                                            IsFirstTVType = false;
+                                        }
+                                    }
+                                </select>
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-3" for="FileType">@ReportTypeViewRes.FileType</label>
+                            <div class="col-sm-9">
+                                <select class="form-control" name="FileType">
+                                    @foreach (FileTypeEnumTextOrdered fileTypeEnumTextOrdered in fileTypeEnumTextOrderedList)
+                                    {
+                                        <option value="@((int)(fileTypeEnumTextOrdered.FileType))" @(IsFirstFileType ? "selected=selected" : "")>@fileTypeEnumTextOrdered.FileTypeText</option>
+                                        if (IsFirstFileType)
+                                        {
+                                            IsFirstFileType = false;
+                                        }
+                                    }
+                                </select>
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-3" for="UniqueCode">@ReportTypeViewRes.UniqueCode</label>
+                            <div class="col-sm-3">
+                                <input class="form-control" name="UniqueCode" type="text" value="">
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-3" for="LastName">@ReportTypeViewRes.Name</label>
+                            <div class="col-sm-9">
+                                <input name="Name" class="form-control" type="text" value="">
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-3" for="WebName">@ReportTypeViewRes.StartOfFileName</label>
+                            <div class="col-sm-9">
+                                <input name="StartOfFileName" class="form-control" type="text" value="">
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-3" for="Description">@ReportTypeViewRes.Description</label>
+                            <div class="col-sm-9">
+                                <textarea name="Description" class="form-control"></textarea>
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+
+                        <div class="btn-block col-sm-offset-3 col-sm-9">
+                            <button class="jbReportTypeAddOrModify btn btn-primary" type="submit" data-addormodify="add">
+                                <span class="glyphicon glyphicon-check"></span>
+                                &nbsp;@ReportTypeViewRes.Add
+                            </button>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

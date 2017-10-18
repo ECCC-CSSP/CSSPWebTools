@@ -1,0 +1,73 @@
+﻿@using CSSPWebTools.Views.Document.Resources;
+@using CSSPWebTools.Models;
+@using CSSPEnumsDLL.Enums;
+@using CSSPModelsDLL.Models;
+@using CSSPWebTools.Controllers;
+
+@{
+    DocumentController _DocumentController = (DocumentController)ViewBag.DocumentController;
+    int ReportTypeID = (int)ViewBag.ReportTypeID;
+    int TVItemID = (int)ViewBag.TVItemID;
+    List<TVFileModel> tvFileModelList = (List<TVFileModel>)ViewBag.TVFileModelList;
+}
+
+@if (tvFileModelList.Count > 0)
+{
+    <ul class="list-unstyled  BorderOtherInfrastructure">
+        @foreach (TVFileModel tvFileModel in tvFileModelList)
+        {
+            <li class="ReportFileTopDiv">
+                <button class="jbFileDownload btn btn-default" data-tvfiletvitemid="@tvFileModel.TVFileTVItemID" title="@DocumentViewRes.Download"><span class="glyphicon glyphicon-download"></span></button>
+                <button class="jbReportTypeParametersOfFile btn btn-default" 
+                        data-reporttypeid="@ReportTypeID" 
+                        data-tvitemid="@TVItemID" 
+                        data-tvfiletvitemid="@tvFileModel.TVFileTVItemID" 
+                        title="@DocumentViewRes.Parameters"><span class="glyphicon glyphicon-info-sign"></span></button>
+                @switch (tvFileModel.FileType)
+                {
+                    case FileTypeEnum.DOCX:
+                        {
+                            <img src="~/Images/Word_icon16.png" /><span>&nbsp;@tvFileModel.ServerFileName</span>
+                        }
+                        break;
+                    case FileTypeEnum.KMZ:
+                        {
+                            <img src="~/Images/GoogleEarth_icon16.png" /><span>&nbsp;@tvFileModel.ServerFileName</span>
+                        }
+                        break;
+                    case FileTypeEnum.PDF:
+                        {
+                            <img src="~/Images/Pdf_icon16.png" /><span>&nbsp;@tvFileModel.ServerFileName</span>
+                        }
+                        break;
+                    case FileTypeEnum.XLSX:
+                        {
+                            <img src="~/Images/Excel_icon16.png" /><span>&nbsp;@tvFileModel.ServerFileName</span>
+                        }
+                        break;
+                    default:
+                        {
+                            <img src="~/Images/GeneralFile_icon16.png" /><span>&nbsp;@tvFileModel.ServerFileName</span>
+                        }
+                        break;
+                }
+                &nbsp;|&nbsp;
+                @if ((tvFileModel.FileSize_kb / 1024) > 1)
+                {
+                    <span> @(string.Format("{0:F1}", tvFileModel.FileSize_kb / 1024)) @DocumentViewRes.MB </span>
+                }
+                else
+                {
+                    <span>@(string.Format("{0:F1}", tvFileModel.FileSize_kb)) @DocumentViewRes.KB</span>
+                }
+                &nbsp;|&nbsp;
+                <span>@string.Format("{0:F}", tvFileModel.FileCreatedDate_UTC.ToLocalTime())</span>
+                <button class="jbFileAskToDelete btn btn-default" data-tvfiletvitemid="@tvFileModel.TVFileTVItemID" title="@DocumentViewRes.Delete"><span class="glyphicon glyphicon-trash"></span></button>
+                <div class="ReportFileParametersDiv">
+
+                </div>
+            </li>
+        }
+    </ul>
+}
+

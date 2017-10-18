@@ -234,6 +234,7 @@ namespace CSSPWebTools.Controllers
 
             return Json(coordModel, JsonRequestBehavior.AllowGet);
         }
+
         #endregion Functions public
 
         #region private

@@ -11,7 +11,7 @@
     BaseEnumService _BaseEnumService = new BaseEnumService(ViewBag.Language);
 }
 
-<div class="panel panel-default">
+<div class="panel panel-info">
     <div class="panel-heading">
         <h4 class="panel-title">@FileViewRes.CreateDocumentUsingParameters</h4>
     </div>
@@ -23,382 +23,82 @@
             }
             else
             {
-                <div>
+                <div class="ReportTypeListTopDiv">
                     @switch (tvItemModel.TVType)
                     {
                         case TVTypeEnum.Root:
                             {
-                                @Html.Action("_generateReportRoot", "File", new { TVItemID = tvItemModel.TVItemID });
-                            }
-                            break;
-                        case TVTypeEnum.Address:
-                            {
-                                <h4>@(FileViewRes.NotImplementedYet + " [" + tvItemModel.TVType.ToString() + "]")</h4>
+                                @Html.Action("_reportTypeList", "ReportType", new { TVType = (int)TVTypeEnum.Root, TVItemID = tvItemModel.TVItemID });
                             }
                             break;
                         case TVTypeEnum.Area:
                             {
-                                <h4>@(FileViewRes.NotImplementedYet + " [" + tvItemModel.TVType.ToString() + "]")</h4>
-                            }
-                            break;
-                        case TVTypeEnum.ClimateSite:
-                            {
-                                <h4>@(FileViewRes.NotImplementedYet + " [" + tvItemModel.TVType.ToString() + "]")</h4>
-                            }
-                            break;
-                        case TVTypeEnum.Contact:
-                            {
-                                <h4>@(FileViewRes.NotImplementedYet + " [" + tvItemModel.TVType.ToString() + "]")</h4>
+                                @Html.Action("_reportTypeList", "ReportType", new { TVType = (int)TVTypeEnum.Area, TVItemID = tvItemModel.TVItemID });
                             }
                             break;
                         case TVTypeEnum.Country:
                             {
-                                <h4>@(FileViewRes.NotImplementedYet + " [" + tvItemModel.TVType.ToString() + "]")</h4>
-                            }
-                            break;
-                        case TVTypeEnum.Email:
-                            {
-                                <h4>@(FileViewRes.NotImplementedYet + " [" + tvItemModel.TVType.ToString() + "]")</h4>
-                            }
-                            break;
-                        case TVTypeEnum.File:
-                            {
-                                <h4>@(FileViewRes.NotImplementedYet + " [" + tvItemModel.TVType.ToString() + "]")</h4>
-                            }
-                            break;
-                        case TVTypeEnum.HydrometricSite:
-                            {
-                                <h4>@(FileViewRes.NotImplementedYet + " [" + tvItemModel.TVType.ToString() + "]")</h4>
+                                @Html.Action("_reportTypeList", "ReportType", new { TVType = (int)TVTypeEnum.Country, TVItemID = tvItemModel.TVItemID });
                             }
                             break;
                         case TVTypeEnum.Infrastructure:
                             {
-                                <h4>@(FileViewRes.NotImplementedYet + " [" + tvItemModel.TVType.ToString() + "]")</h4>
-                            }
-                            break;
-                        case TVTypeEnum.MikeBoundaryConditionWebTide:
-                            {
-                                <h4>@(FileViewRes.NotImplementedYet + " [" + tvItemModel.TVType.ToString() + "]")</h4>
-                            }
-                            break;
-                        case TVTypeEnum.MikeBoundaryConditionMesh:
-                            {
-                                <h4>@(FileViewRes.NotImplementedYet + " [" + tvItemModel.TVType.ToString() + "]")</h4>
+                                @Html.Action("_reportTypeList", "ReportType", new { TVType = (int)TVTypeEnum.Infrastructure, TVItemID = tvItemModel.TVItemID });
                             }
                             break;
                         case TVTypeEnum.MikeScenario:
                             {
-                                <h4>@(FileViewRes.NotImplementedYet + " [" + tvItemModel.TVType.ToString() + "]")</h4>
+                                @Html.Action("_reportTypeList", "ReportType", new { TVType = (int)TVTypeEnum.MikeScenario, TVItemID = tvItemModel.TVItemID });
                             }
                             break;
                         case TVTypeEnum.MikeSource:
                             {
-                                <h4>@(FileViewRes.NotImplementedYet + " [" + tvItemModel.TVType.ToString() + "]")</h4>
+                                @Html.Action("_reportTypeList", "ReportType", new { TVType = (int)TVTypeEnum.MikeSource, TVItemID = tvItemModel.TVItemID });
                             }
                             break;
                         case TVTypeEnum.Municipality:
                             {
-                                <h4>@(FileViewRes.NotImplementedYet + " [" + tvItemModel.TVType.ToString() + "]")</h4>
+                                @Html.Action("_reportTypeList", "ReportType", new { TVType = (int)TVTypeEnum.Municipality, TVItemID = tvItemModel.TVItemID });
                             }
                             break;
                         case TVTypeEnum.MWQMSite:
                             {
-                                <h4>@(FileViewRes.NotImplementedYet + " [" + tvItemModel.TVType.ToString() + "]")</h4>
+                                @Html.Action("_reportTypeList", "ReportType", new { TVType = (int)TVTypeEnum.MWQMSite, TVItemID = tvItemModel.TVItemID });
                             }
                             break;
                         case TVTypeEnum.PolSourceSite:
                             {
-                                <h4>@(FileViewRes.NotImplementedYet + " [" + tvItemModel.TVType.ToString() + "]")</h4>
+                                @Html.Action("_reportTypeList", "ReportType", new { TVType = (int)TVTypeEnum.PolSourceSite, TVItemID = tvItemModel.TVItemID });
                             }
                             break;
                         case TVTypeEnum.Province:
                             {
-                                <h4>@(FileViewRes.NotImplementedYet + " [" + tvItemModel.TVType.ToString() + "]")</h4>
+                                @Html.Action("_reportTypeList", "ReportType", new { TVType = (int)TVTypeEnum.Province, TVItemID = tvItemModel.TVItemID });
                             }
                             break;
                         case TVTypeEnum.Sector:
                             {
-                                <h4>@(FileViewRes.NotImplementedYet + " [" + tvItemModel.TVType.ToString() + "]")</h4>
+                                @Html.Action("_reportTypeList", "ReportType", new { TVType = (int)TVTypeEnum.Sector, TVItemID = tvItemModel.TVItemID });
                             }
                             break;
                         case TVTypeEnum.Subsector:
                             {
-                                <h4>@(FileViewRes.NotImplementedYet + " [" + tvItemModel.TVType.ToString() + "]")</h4>
-                            }
-                            break;
-                        case TVTypeEnum.Tel:
-                            {
-                                <h4>@(FileViewRes.NotImplementedYet + " [" + tvItemModel.TVType.ToString() + "]")</h4>
-                            }
-                            break;
-                        case TVTypeEnum.TideSite:
-                            {
-                                <h4>@(FileViewRes.NotImplementedYet + " [" + tvItemModel.TVType.ToString() + "]")</h4>
-                            }
-                            break;
-                        case TVTypeEnum.MWQMSiteSample:
-                            {
-                                <h4>@(FileViewRes.NotImplementedYet + " [" + tvItemModel.TVType.ToString() + "]")</h4>
-                            }
-                            break;
-                        case TVTypeEnum.WasteWaterTreatmentPlant:
-                            {
-                                <h4>@(FileViewRes.NotImplementedYet + " [" + tvItemModel.TVType.ToString() + "]")</h4>
-                            }
-                            break;
-                        case TVTypeEnum.LiftStation:
-                            {
-                                <h4>@(FileViewRes.NotImplementedYet + " [" + tvItemModel.TVType.ToString() + "]")</h4>
-                            }
-                            break;
-                        case TVTypeEnum.Spill:
-                            {
-                                <h4>@(FileViewRes.NotImplementedYet + " [" + tvItemModel.TVType.ToString() + "]")</h4>
+                                @Html.Action("_reportTypeList", "ReportType", new { TVType = (int)TVTypeEnum.Subsector, TVItemID = tvItemModel.TVItemID });
                             }
                             break;
                         case TVTypeEnum.BoxModel:
                             {
-                                <h4>@(FileViewRes.NotImplementedYet + " [" + tvItemModel.TVType.ToString() + "]")</h4>
+                                @Html.Action("_reportTypeList", "ReportType", new { TVType = (int)TVTypeEnum.BoxModel, TVItemID = tvItemModel.TVItemID });
                             }
                             break;
                         case TVTypeEnum.VisualPlumesScenario:
                             {
-                                <h4>@(FileViewRes.NotImplementedYet + " [" + tvItemModel.TVType.ToString() + "]")</h4>
-                            }
-                            break;
-                        case TVTypeEnum.Outfall:
-                            {
-                                <h4>@(FileViewRes.NotImplementedYet + " [" + tvItemModel.TVType.ToString() + "]")</h4>
-                            }
-                            break;
-                        case TVTypeEnum.OtherInfrastructure:
-                            {
-                                <h4>@(FileViewRes.NotImplementedYet + " [" + tvItemModel.TVType.ToString() + "]")</h4>
+                                @Html.Action("_reportTypeList", "ReportType", new { TVType = (int)TVTypeEnum.VisualPlumesScenario, TVItemID = tvItemModel.TVItemID });
                             }
                             break;
                         case TVTypeEnum.MWQMRun:
                             {
-                                <h4>@(FileViewRes.NotImplementedYet + " [" + tvItemModel.TVType.ToString() + "]")</h4>
-                            }
-                            break;
-                        case TVTypeEnum.NoDepuration:
-                            {
-                                <h4>@(FileViewRes.NotImplementedYet + " [" + tvItemModel.TVType.ToString() + "]")</h4>
-                            }
-                            break;
-                        case TVTypeEnum.Failed:
-                            {
-                                <h4>@(FileViewRes.NotImplementedYet + " [" + tvItemModel.TVType.ToString() + "]")</h4>
-                            }
-                            break;
-                        case TVTypeEnum.Passed:
-                            {
-                                <h4>@(FileViewRes.NotImplementedYet + " [" + tvItemModel.TVType.ToString() + "]")</h4>
-                            }
-                            break;
-                        case TVTypeEnum.NoData:
-                            {
-                                <h4>@(FileViewRes.NotImplementedYet + " [" + tvItemModel.TVType.ToString() + "]")</h4>
-                            }
-                            break;
-                        case TVTypeEnum.LessThan10:
-                            {
-                                <h4>@(FileViewRes.NotImplementedYet + " [" + tvItemModel.TVType.ToString() + "]")</h4>
-                            }
-                            break;
-                        case TVTypeEnum.MeshNode:
-                            {
-                                <h4>@(FileViewRes.NotImplementedYet + " [" + tvItemModel.TVType.ToString() + "]")</h4>
-                            }
-                            break;
-                        case TVTypeEnum.WebTideNode:
-                            {
-                                <h4>@(FileViewRes.NotImplementedYet + " [" + tvItemModel.TVType.ToString() + "]")</h4>
-                            }
-                            break;
-                        case TVTypeEnum.SamplingPlan:
-                            {
-                                <h4>@(FileViewRes.NotImplementedYet + " [" + tvItemModel.TVType.ToString() + "]")</h4>
-                            }
-                            break;
-                        case TVTypeEnum.SeeOther:
-                            {
-                                <h4>@(FileViewRes.NotImplementedYet + " [" + tvItemModel.TVType.ToString() + "]")</h4>
-                            }
-                            break;
-                        case TVTypeEnum.LineOverflow:
-                            {
-                                <h4>@(FileViewRes.NotImplementedYet + " [" + tvItemModel.TVType.ToString() + "]")</h4>
-                            }
-                            break;
-                        case TVTypeEnum.BoxModelInputs:
-                            {
-                                <h4>@(FileViewRes.NotImplementedYet + " [" + tvItemModel.TVType.ToString() + "]")</h4>
-                            }
-                            break;
-                        case TVTypeEnum.BoxModelResults:
-                            {
-                                <h4>@(FileViewRes.NotImplementedYet + " [" + tvItemModel.TVType.ToString() + "]")</h4>
-                            }
-                            break;
-                        case TVTypeEnum.ClimateSiteInfo:
-                            {
-                                <h4>@(FileViewRes.NotImplementedYet + " [" + tvItemModel.TVType.ToString() + "]")</h4>
-                            }
-                            break;
-                        case TVTypeEnum.ClimateSiteData:
-                            {
-                                <h4>@(FileViewRes.NotImplementedYet + " [" + tvItemModel.TVType.ToString() + "]")</h4>
-                            }
-                            break;
-                        case TVTypeEnum.HydrometricSiteInfo:
-                            {
-                                <h4>@(FileViewRes.NotImplementedYet + " [" + tvItemModel.TVType.ToString() + "]")</h4>
-                            }
-                            break;
-                        case TVTypeEnum.HydrometricSiteData:
-                            {
-                                <h4>@(FileViewRes.NotImplementedYet + " [" + tvItemModel.TVType.ToString() + "]")</h4>
-                            }
-                            break;
-                        case TVTypeEnum.InfrastructureInfo:
-                            {
-                                <h4>@(FileViewRes.NotImplementedYet + " [" + tvItemModel.TVType.ToString() + "]")</h4>
-                            }
-                            break;
-                        case TVTypeEnum.LabSheetInfo:
-                            {
-                                <h4>@(FileViewRes.NotImplementedYet + " [" + tvItemModel.TVType.ToString() + "]")</h4>
-                            }
-                            break;
-                        case TVTypeEnum.LabSheetDetailInfo:
-                            {
-                                <h4>@(FileViewRes.NotImplementedYet + " [" + tvItemModel.TVType.ToString() + "]")</h4>
-                            }
-                            break;
-                        case TVTypeEnum.MapInfo:
-                            {
-                                <h4>@(FileViewRes.NotImplementedYet + " [" + tvItemModel.TVType.ToString() + "]")</h4>
-                            }
-                            break;
-                        case TVTypeEnum.MapInfoPoint:
-                            {
-                                <h4>@(FileViewRes.NotImplementedYet + " [" + tvItemModel.TVType.ToString() + "]")</h4>
-                            }
-                            break;
-                        case TVTypeEnum.MikeSourceStartEndInfo:
-                            {
-                                <h4>@(FileViewRes.NotImplementedYet + " [" + tvItemModel.TVType.ToString() + "]")</h4>
-                            }
-                            break;
-                        case TVTypeEnum.MWQMLookupMPNInfo:
-                            {
-                                <h4>@(FileViewRes.NotImplementedYet + " [" + tvItemModel.TVType.ToString() + "]")</h4>
-                            }
-                            break;
-                        case TVTypeEnum.SamplingPlanInfo:
-                            {
-                                <h4>@(FileViewRes.NotImplementedYet + " [" + tvItemModel.TVType.ToString() + "]")</h4>
-                            }
-                            break;
-                        case TVTypeEnum.SamplingPlanSubsectorInfo:
-                            {
-                                <h4>@(FileViewRes.NotImplementedYet + " [" + tvItemModel.TVType.ToString() + "]")</h4>
-                            }
-                            break;
-                        case TVTypeEnum.SamplingPlanSubsectorSiteInfo:
-                            {
-                                <h4>@(FileViewRes.NotImplementedYet + " [" + tvItemModel.TVType.ToString() + "]")</h4>
-                            }
-                            break;
-                        case TVTypeEnum.MWQMSiteStartEndInfo:
-                            {
-                                <h4>@(FileViewRes.NotImplementedYet + " [" + tvItemModel.TVType.ToString() + "]")</h4>
-                            }
-                            break;
-                        case TVTypeEnum.MWQMSubsectorInfo:
-                            {
-                                <h4>@(FileViewRes.NotImplementedYet + " [" + tvItemModel.TVType.ToString() + "]")</h4>
-                            }
-                            break;
-                        case TVTypeEnum.PolSourceSiteInfo:
-                            {
-                                <h4>@(FileViewRes.NotImplementedYet + " [" + tvItemModel.TVType.ToString() + "]")</h4>
-                            }
-                            break;
-                        case TVTypeEnum.PolSourceSiteObsInfo:
-                            {
-                                <h4>@(FileViewRes.NotImplementedYet + " [" + tvItemModel.TVType.ToString() + "]")</h4>
-                            }
-                            break;
-                        case TVTypeEnum.HydrometricRatingCurveInfo:
-                            {
-                                <h4>@(FileViewRes.NotImplementedYet + " [" + tvItemModel.TVType.ToString() + "]")</h4>
-                            }
-                            break;
-                        case TVTypeEnum.HydrometricRatingCurveDataInfo:
-                            {
-                                <h4>@(FileViewRes.NotImplementedYet + " [" + tvItemModel.TVType.ToString() + "]")</h4>
-                            }
-                            break;
-                        case TVTypeEnum.TideLocationInfo:
-                            {
-                                <h4>@(FileViewRes.NotImplementedYet + " [" + tvItemModel.TVType.ToString() + "]")</h4>
-                            }
-                            break;
-                        case TVTypeEnum.TideSiteDataInfo:
-                            {
-                                <h4>@(FileViewRes.NotImplementedYet + " [" + tvItemModel.TVType.ToString() + "]")</h4>
-                            }
-                            break;
-                        case TVTypeEnum.UseOfSite:
-                            {
-                                <h4>@(FileViewRes.NotImplementedYet + " [" + tvItemModel.TVType.ToString() + "]")</h4>
-                            }
-                            break;
-                        case TVTypeEnum.VisualPlumesScenarioInfo:
-                            {
-                                <h4>@(FileViewRes.NotImplementedYet + " [" + tvItemModel.TVType.ToString() + "]")</h4>
-                            }
-                            break;
-                        case TVTypeEnum.VisualPlumesScenarioAmbient:
-                            {
-                                <h4>@(FileViewRes.NotImplementedYet + " [" + tvItemModel.TVType.ToString() + "]")</h4>
-                            }
-                            break;
-                        case TVTypeEnum.VisualPlumesScenarioResults:
-                            {
-                                <h4>@(FileViewRes.NotImplementedYet + " [" + tvItemModel.TVType.ToString() + "]")</h4>
-                            }
-                            break;
-                        case TVTypeEnum.TotalFile:
-                            {
-                                <h4>@(FileViewRes.NotImplementedYet + " [" + tvItemModel.TVType.ToString() + "]")</h4>
-                            }
-                            break;
-                        case TVTypeEnum.MikeSourceIsRiver:
-                            {
-                                <h4>@(FileViewRes.NotImplementedYet + " [" + tvItemModel.TVType.ToString() + "]")</h4>
-                            }
-                            break;
-                        case TVTypeEnum.MikeSourceIncluded:
-                            {
-                                <h4>@(FileViewRes.NotImplementedYet + " [" + tvItemModel.TVType.ToString() + "]")</h4>
-                            }
-                            break;
-                        case TVTypeEnum.MikeSourceNotIncluded:
-                            {
-                                <h4>@(FileViewRes.NotImplementedYet + " [" + tvItemModel.TVType.ToString() + "]")</h4>
-                            }
-                            break;
-                        case TVTypeEnum.RainExceedance:
-                            {
-                                <h4>@(FileViewRes.NotImplementedYet + " [" + tvItemModel.TVType.ToString() + "]")</h4>
-                            }
-                            break;
-                        case TVTypeEnum.EmailDistributionList:
-                            {
-                                <h4>@(FileViewRes.NotImplementedYet + " [" + tvItemModel.TVType.ToString() + "]")</h4>
+                                @Html.Action("_reportTypeList", "ReportType", new { TVType = (int)TVTypeEnum.MWQMRun, TVItemID = tvItemModel.TVItemID });
                             }
                             break;
                         default:
@@ -412,7 +112,7 @@
         </div>
     </div>
 </div>
-<div class="panel panel-default">
+<div class="panel panel-info">
     <div class="panel-heading">
         <h4 class="panel-title">@FileViewRes.CreateDocumentFromTemplates</h4>
     </div>

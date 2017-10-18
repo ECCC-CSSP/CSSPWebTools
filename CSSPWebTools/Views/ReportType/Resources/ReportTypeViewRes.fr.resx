@@ -135,6 +135,15 @@
   <data name="Description" xml:space="preserve">
     <value>Description</value>
   </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Editer</value>
+  </data>
+  <data name="FileNameWillStartWith" xml:space="preserve">
+    <value>Le nom des filières vont commencer par</value>
+  </data>
+  <data name="FileType" xml:space="preserve">
+    <value>Type de filière</value>
+  </data>
   <data name="Infrastructure" xml:space="preserve">
     <value>Infrastructure</value>
   </data>
@@ -147,6 +156,9 @@
   <data name="Modify" xml:space="preserve">
     <value>Modifier</value>
   </data>
+  <data name="MoreInformation" xml:space="preserve">
+    <value>Plus d'information</value>
+  </data>
   <data name="Municipality" xml:space="preserve">
     <value>Municipalité</value>
   </data>
@@ -155,6 +167,9 @@
   </data>
   <data name="New" xml:space="preserve">
     <value>Nouveau</value>
+  </data>
+  <data name="NoReportTypeCreatedYetFor_" xml:space="preserve">
+    <value>Aucun type de rapport créer pour le type d'item {0}</value>
   </data>
   <data name="PolSourceSite" xml:space="preserve">
     <value>Polllution source site (fr)</value>

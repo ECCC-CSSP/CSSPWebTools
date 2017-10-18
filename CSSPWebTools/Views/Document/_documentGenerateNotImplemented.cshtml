@@ -1,0 +1,21 @@
+﻿@using CSSPWebTools.Views.Document.Resources;
+@using CSSPWebTools.Controllers;
+@using CSSPEnumsDLL.Enums;
+@using CSSPEnumsDLL.Services;
+@using CSSPModelsDLL.Models;
+
+@{
+    DocumentController documentController = (DocumentController)ViewBag.DocumentController;
+    int ReportTypeID = (int)ViewBag.ReportTypeID;
+    FileTypeEnum FileType = (FileTypeEnum)ViewBag.FileType;
+    int TVItemID = (int)ViewBag.TVItemID;
+    ReportTypeModel reportTypeModel = (ReportTypeModel)ViewBag.ReportTypeModel;
+    BaseEnumService _BaseEnumService = new BaseEnumService(ViewBag.Language);
+}
+
+<ul class="GenerateReportTopDiv BorderOtherInfrastructure list-unstyled">
+    <li>
+       <span>@reportTypeModel.Name @DocumentViewRes.WithFileType @FileType.ToString() @DocumentViewRes.IsNotImplemented</span>
+    </li>
+</ul>
+

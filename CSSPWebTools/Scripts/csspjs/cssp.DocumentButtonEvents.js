@@ -232,6 +232,11 @@ var CSSP;
                                 cssp.Contact.ContactShowHideModify($bjs);
                             }
                             break;
+                        case "jbDocumentGenerate":
+                            {
+                                cssp.Document.FormSubmit($bjs);
+                            }
+                            break;
                         case "jbEmailAdd":
                             {
                                 cssp.Email.FormSubmitAddOrUpdate($bjs);
@@ -998,12 +1003,27 @@ var CSSP;
                             break;
                         case "jbReportTypeAddOrModify":
                             {
-                                cssp.Admin.ReportTypeAddOrModify($bjs);
+                                cssp.ReportType.ReportTypeAddOrModify($bjs);
                             }
                             break;
                         case "jbReportTypeDelete":
                             {
-                                cssp.Admin.ReportTypeDelete($bjs);
+                                cssp.ReportType.ReportTypeDelete($bjs);
+                            }
+                            break;
+                        case "jbReportTypeDelete":
+                            {
+                                cssp.ReportType.ReportTypeDelete($bjs);
+                            }
+                            break;
+                        case "jbReportTypeEdit":
+                            {
+                                cssp.ReportType.ReportTypeEdit($bjs);
+                            }
+                            break;
+                        case "jbReportTypeParametersOfFile":
+                            {
+                                cssp.ReportType.ShowParametersOfFile($bjs);
                             }
                             break;
                         case "jbSamplingPlanAdd":
