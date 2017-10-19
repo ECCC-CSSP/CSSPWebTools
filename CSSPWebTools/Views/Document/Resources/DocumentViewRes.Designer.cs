@@ -88,6 +88,24 @@ namespace CSSPWebTools.Views.Document.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Hide graphic.
+        /// </summary>
+        public static string HideGraphic {
+            get {
+                return ResourceManager.GetString("HideGraphic", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hide table.
+        /// </summary>
+        public static string HideTable {
+            get {
+                return ResourceManager.GetString("HideTable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to is not implemented.
         /// </summary>
         public static string IsNotImplemented {
@@ -129,24 +147,6 @@ namespace CSSPWebTools.Views.Document.Resources {
         public static string Parameters {
             get {
                 return ResourceManager.GetString("Parameters", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Show graphic.
-        /// </summary>
-        public static string ShowGraphic {
-            get {
-                return ResourceManager.GetString("ShowGraphic", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Show table.
-        /// </summary>
-        public static string ShowTable {
-            get {
-                return ResourceManager.GetString("ShowTable", resourceCulture);
             }
         }
         

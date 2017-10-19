@@ -54,8 +54,8 @@ namespace CSSPWebTools.Controllers
             ViewBag.TVItemID = TVItemID;
             ViewBag.TVFileTVItemID = TVFileTVItemID;
             ViewBag.ReportTypeModel = null;
-            ViewBag.ShowTable = null;
-            ViewBag.ShowGraphic = null;
+            ViewBag.HideTable = null;
+            ViewBag.HideGraphic = null;
 
             ReportTypeModel reportTypeModel = _ReportTypeService.GetReportTypeModelWithReportTypeIDDB(ReportTypeID);
             ViewBag.ReportTypeModel = reportTypeModel;
@@ -68,10 +68,10 @@ namespace CSSPWebTools.Controllers
                 string Parameters = tvFileModel.Parameters;
                 List<string> ParamValueList = Parameters.Split("|||".ToCharArray(), StringSplitOptions.RemoveEmptyEntries).ToList();
 
-                string ShowTable = GetParameters("ShowTable", ParamValueList);
-                ViewBag.ShowTable = ShowTable;
-                string ShowGraphic = GetParameters("ShowGraphic", ParamValueList);
-                ViewBag.ShowGraphic = ShowGraphic;
+                string HideTable = GetParameters("HideTable", ParamValueList);
+                ViewBag.HideTable = HideTable;
+                string HideGraphic = GetParameters("HideGraphic", ParamValueList);
+                ViewBag.HideGraphic = HideGraphic;
             }
 
             return PartialView();
@@ -112,8 +112,8 @@ namespace CSSPWebTools.Controllers
             ViewBag.TVItemID = TVItemID;
             ViewBag.TVFileTVItemID = TVFileTVItemID;
             ViewBag.ReportTypeModel = null;
-            ViewBag.ShowTable = null;
-            ViewBag.ShowGraphic = null;
+            ViewBag.HideTable = null;
+            ViewBag.HideGraphic = null;
 
             ReportTypeModel reportTypeModel = _ReportTypeService.GetReportTypeModelWithReportTypeIDDB(ReportTypeID);
             ViewBag.ReportTypeModel = reportTypeModel;
@@ -126,10 +126,10 @@ namespace CSSPWebTools.Controllers
                 string Parameters = tvFileModel.Parameters;
                 List<string> ParamValueList = Parameters.Split("|||".ToCharArray(), StringSplitOptions.RemoveEmptyEntries).ToList();
 
-                string ShowTable = GetParameters("ShowTable", ParamValueList);
-                ViewBag.ShowTable = ShowTable;
-                string ShowGraphic = GetParameters("ShowGraphic", ParamValueList);
-                ViewBag.ShowGraphic = ShowGraphic;
+                string HideTable = GetParameters("HideTable", ParamValueList);
+                ViewBag.HideTable = HideTable;
+                string HideGraphic = GetParameters("HideGraphic", ParamValueList);
+                ViewBag.HideGraphic = HideGraphic;
             }
 
             return PartialView();
@@ -146,8 +146,8 @@ namespace CSSPWebTools.Controllers
             ViewBag.TVItemID = TVItemID;
             ViewBag.TVFileTVItemID = TVFileTVItemID;
             ViewBag.ReportTypeModel = null;
-            ViewBag.ShowTable = null;
-            ViewBag.ShowGraphic = null;
+            ViewBag.HideTable = null;
+            ViewBag.HideGraphic = null;
 
             ReportTypeModel reportTypeModel = _ReportTypeService.GetReportTypeModelWithReportTypeIDDB(ReportTypeID);
             ViewBag.ReportTypeModel = reportTypeModel;
@@ -160,10 +160,10 @@ namespace CSSPWebTools.Controllers
                 string Parameters = tvFileModel.Parameters;
                 List<string> ParamValueList = Parameters.Split("|||".ToCharArray(), StringSplitOptions.RemoveEmptyEntries).ToList();
 
-                string ShowTable = GetParameters("ShowTable", ParamValueList);
-                ViewBag.ShowTable = ShowTable;
-                string ShowGraphic = GetParameters("ShowGraphic", ParamValueList);
-                ViewBag.ShowGraphic = ShowGraphic;
+                string HideTable = GetParameters("HideTable", ParamValueList);
+                ViewBag.HideTable = HideTable;
+                string HideGraphic = GetParameters("HideGraphic", ParamValueList);
+                ViewBag.HideGraphic = HideGraphic;
             }
 
             return PartialView();
@@ -204,8 +204,8 @@ namespace CSSPWebTools.Controllers
             ViewBag.TVItemID = TVItemID;
             ViewBag.TVFileTVItemID = TVFileTVItemID;
             ViewBag.ReportTypeModel = null;
-            ViewBag.ShowTable = null;
-            ViewBag.ShowGraphic = null;
+            ViewBag.HideTable = null;
+            ViewBag.HideGraphic = null;
 
             ReportTypeModel reportTypeModel = _ReportTypeService.GetReportTypeModelWithReportTypeIDDB(ReportTypeID);
             ViewBag.ReportTypeModel = reportTypeModel;
@@ -218,10 +218,10 @@ namespace CSSPWebTools.Controllers
                 string Parameters = tvFileModel.Parameters;
                 List<string> ParamValueList = Parameters.Split("|||".ToCharArray(), StringSplitOptions.RemoveEmptyEntries).ToList();
 
-                string ShowTable = GetParameters("ShowTable", ParamValueList);
-                ViewBag.ShowTable = ShowTable;
-                string ShowGraphic = GetParameters("ShowGraphic", ParamValueList);
-                ViewBag.ShowGraphic = ShowGraphic;
+                string HideTable = GetParameters("HideTable", ParamValueList);
+                ViewBag.HideTable = HideTable;
+                string HideGraphic = GetParameters("HideGraphic", ParamValueList);
+                ViewBag.HideGraphic = HideGraphic;
             }
 
             return PartialView();
@@ -238,8 +238,8 @@ namespace CSSPWebTools.Controllers
             ViewBag.TVItemID = TVItemID;
             ViewBag.TVFileTVItemID = TVFileTVItemID;
             ViewBag.ReportTypeModel = null;
-            ViewBag.ShowTable = null;
-            ViewBag.ShowGraphic = null;
+            ViewBag.HideTable = null;
+            ViewBag.HideGraphic = null;
 
             ReportTypeModel reportTypeModel = _ReportTypeService.GetReportTypeModelWithReportTypeIDDB(ReportTypeID);
             ViewBag.ReportTypeModel = reportTypeModel;
@@ -252,10 +252,10 @@ namespace CSSPWebTools.Controllers
                 string Parameters = tvFileModel.Parameters;
                 List<string> ParamValueList = Parameters.Split("|||".ToCharArray(), StringSplitOptions.RemoveEmptyEntries).ToList();
 
-                string ShowTable = GetParameters("ShowTable", ParamValueList);
-                ViewBag.ShowTable = ShowTable;
-                string ShowGraphic = GetParameters("ShowGraphic", ParamValueList);
-                ViewBag.ShowGraphic = ShowGraphic;
+                string HideTable = GetParameters("HideTable", ParamValueList);
+                ViewBag.HideTable = HideTable;
+                string HideGraphic = GetParameters("HideGraphic", ParamValueList);
+                ViewBag.HideGraphic = HideGraphic;
             }
 
             return PartialView();
@@ -296,8 +296,8 @@ namespace CSSPWebTools.Controllers
             ViewBag.TVItemID = TVItemID;
             ViewBag.TVFileTVItemID = TVFileTVItemID;
             ViewBag.ReportTypeModel = null;
-            ViewBag.ShowTable = null;
-            ViewBag.ShowGraphic = null;
+            ViewBag.HideTable = null;
+            ViewBag.HideGraphic = null;
 
             ReportTypeModel reportTypeModel = _ReportTypeService.GetReportTypeModelWithReportTypeIDDB(ReportTypeID);
             ViewBag.ReportTypeModel = reportTypeModel;
@@ -310,10 +310,10 @@ namespace CSSPWebTools.Controllers
                 string Parameters = tvFileModel.Parameters;
                 List<string> ParamValueList = Parameters.Split("|||".ToCharArray(), StringSplitOptions.RemoveEmptyEntries).ToList();
 
-                string ShowTable = GetParameters("ShowTable", ParamValueList);
-                ViewBag.ShowTable = ShowTable;
-                string ShowGraphic = GetParameters("ShowGraphic", ParamValueList);
-                ViewBag.ShowGraphic = ShowGraphic;
+                string HideTable = GetParameters("HideTable", ParamValueList);
+                ViewBag.HideTable = HideTable;
+                string HideGraphic = GetParameters("HideGraphic", ParamValueList);
+                ViewBag.HideGraphic = HideGraphic;
             }
 
             return PartialView();
@@ -330,8 +330,8 @@ namespace CSSPWebTools.Controllers
             ViewBag.TVItemID = TVItemID;
             ViewBag.TVFileTVItemID = TVFileTVItemID;
             ViewBag.ReportTypeModel = null;
-            ViewBag.ShowTable = null;
-            ViewBag.ShowGraphic = null;
+            ViewBag.HideTable = null;
+            ViewBag.HideGraphic = null;
 
             ReportTypeModel reportTypeModel = _ReportTypeService.GetReportTypeModelWithReportTypeIDDB(ReportTypeID);
             ViewBag.ReportTypeModel = reportTypeModel;
@@ -344,10 +344,10 @@ namespace CSSPWebTools.Controllers
                 string Parameters = tvFileModel.Parameters;
                 List<string> ParamValueList = Parameters.Split("|||".ToCharArray(), StringSplitOptions.RemoveEmptyEntries).ToList();
 
-                string ShowTable = GetParameters("ShowTable", ParamValueList);
-                ViewBag.ShowTable = ShowTable;
-                string ShowGraphic = GetParameters("ShowGraphic", ParamValueList);
-                ViewBag.ShowGraphic = ShowGraphic;
+                string HideTable = GetParameters("HideTable", ParamValueList);
+                ViewBag.HideTable = HideTable;
+                string HideGraphic = GetParameters("HideGraphic", ParamValueList);
+                ViewBag.HideGraphic = HideGraphic;
             }
 
             return PartialView();
@@ -388,8 +388,8 @@ namespace CSSPWebTools.Controllers
             ViewBag.TVItemID = TVItemID;
             ViewBag.TVFileTVItemID = TVFileTVItemID;
             ViewBag.ReportTypeModel = null;
-            ViewBag.ShowTable = null;
-            ViewBag.ShowGraphic = null;
+            ViewBag.HideTable = null;
+            ViewBag.HideGraphic = null;
 
             ReportTypeModel reportTypeModel = _ReportTypeService.GetReportTypeModelWithReportTypeIDDB(ReportTypeID);
             ViewBag.ReportTypeModel = reportTypeModel;
@@ -402,10 +402,10 @@ namespace CSSPWebTools.Controllers
                 string Parameters = tvFileModel.Parameters;
                 List<string> ParamValueList = Parameters.Split("|||".ToCharArray(), StringSplitOptions.RemoveEmptyEntries).ToList();
 
-                string ShowTable = GetParameters("ShowTable", ParamValueList);
-                ViewBag.ShowTable = ShowTable;
-                string ShowGraphic = GetParameters("ShowGraphic", ParamValueList);
-                ViewBag.ShowGraphic = ShowGraphic;
+                string HideTable = GetParameters("HideTable", ParamValueList);
+                ViewBag.HideTable = HideTable;
+                string HideGraphic = GetParameters("HideGraphic", ParamValueList);
+                ViewBag.HideGraphic = HideGraphic;
             }
 
             return PartialView();
@@ -422,8 +422,8 @@ namespace CSSPWebTools.Controllers
             ViewBag.TVItemID = TVItemID;
             ViewBag.TVFileTVItemID = TVFileTVItemID;
             ViewBag.ReportTypeModel = null;
-            ViewBag.ShowTable = null;
-            ViewBag.ShowGraphic = null;
+            ViewBag.HideTable = null;
+            ViewBag.HideGraphic = null;
 
             ReportTypeModel reportTypeModel = _ReportTypeService.GetReportTypeModelWithReportTypeIDDB(ReportTypeID);
             ViewBag.ReportTypeModel = reportTypeModel;
@@ -436,10 +436,10 @@ namespace CSSPWebTools.Controllers
                 string Parameters = tvFileModel.Parameters;
                 List<string> ParamValueList = Parameters.Split("|||".ToCharArray(), StringSplitOptions.RemoveEmptyEntries).ToList();
 
-                string ShowTable = GetParameters("ShowTable", ParamValueList);
-                ViewBag.ShowTable = ShowTable;
-                string ShowGraphic = GetParameters("ShowGraphic", ParamValueList);
-                ViewBag.ShowGraphic = ShowGraphic;
+                string HideTable = GetParameters("HideTable", ParamValueList);
+                ViewBag.HideTable = HideTable;
+                string HideGraphic = GetParameters("HideGraphic", ParamValueList);
+                ViewBag.HideGraphic = HideGraphic;
             }
 
             return PartialView();
@@ -480,8 +480,8 @@ namespace CSSPWebTools.Controllers
             ViewBag.TVItemID = TVItemID;
             ViewBag.TVFileTVItemID = TVFileTVItemID;
             ViewBag.ReportTypeModel = null;
-            ViewBag.ShowTable = null;
-            ViewBag.ShowGraphic = null;
+            ViewBag.HideTable = null;
+            ViewBag.HideGraphic = null;
 
             ReportTypeModel reportTypeModel = _ReportTypeService.GetReportTypeModelWithReportTypeIDDB(ReportTypeID);
             ViewBag.ReportTypeModel = reportTypeModel;
@@ -494,10 +494,10 @@ namespace CSSPWebTools.Controllers
                 string Parameters = tvFileModel.Parameters;
                 List<string> ParamValueList = Parameters.Split("|||".ToCharArray(), StringSplitOptions.RemoveEmptyEntries).ToList();
 
-                string ShowTable = GetParameters("ShowTable", ParamValueList);
-                ViewBag.ShowTable = ShowTable;
-                string ShowGraphic = GetParameters("ShowGraphic", ParamValueList);
-                ViewBag.ShowGraphic = ShowGraphic;
+                string HideTable = GetParameters("HideTable", ParamValueList);
+                ViewBag.HideTable = HideTable;
+                string HideGraphic = GetParameters("HideGraphic", ParamValueList);
+                ViewBag.HideGraphic = HideGraphic;
             }
 
             return PartialView();
@@ -514,8 +514,8 @@ namespace CSSPWebTools.Controllers
             ViewBag.TVItemID = TVItemID;
             ViewBag.TVFileTVItemID = TVFileTVItemID;
             ViewBag.ReportTypeModel = null;
-            ViewBag.ShowTable = null;
-            ViewBag.ShowGraphic = null;
+            ViewBag.HideTable = null;
+            ViewBag.HideGraphic = null;
 
             ReportTypeModel reportTypeModel = _ReportTypeService.GetReportTypeModelWithReportTypeIDDB(ReportTypeID);
             ViewBag.ReportTypeModel = reportTypeModel;
@@ -528,10 +528,10 @@ namespace CSSPWebTools.Controllers
                 string Parameters = tvFileModel.Parameters;
                 List<string> ParamValueList = Parameters.Split("|||".ToCharArray(), StringSplitOptions.RemoveEmptyEntries).ToList();
 
-                string ShowTable = GetParameters("ShowTable", ParamValueList);
-                ViewBag.ShowTable = ShowTable;
-                string ShowGraphic = GetParameters("ShowGraphic", ParamValueList);
-                ViewBag.ShowGraphic = ShowGraphic;
+                string HideTable = GetParameters("HideTable", ParamValueList);
+                ViewBag.HideTable = HideTable;
+                string HideGraphic = GetParameters("HideGraphic", ParamValueList);
+                ViewBag.HideGraphic = HideGraphic;
             }
 
             return PartialView();
@@ -572,8 +572,8 @@ namespace CSSPWebTools.Controllers
             ViewBag.TVItemID = TVItemID;
             ViewBag.TVFileTVItemID = TVFileTVItemID;
             ViewBag.ReportTypeModel = null;
-            ViewBag.ShowTable = null;
-            ViewBag.ShowGraphic = null;
+            ViewBag.HideTable = null;
+            ViewBag.HideGraphic = null;
 
             ReportTypeModel reportTypeModel = _ReportTypeService.GetReportTypeModelWithReportTypeIDDB(ReportTypeID);
             ViewBag.ReportTypeModel = reportTypeModel;
@@ -586,10 +586,10 @@ namespace CSSPWebTools.Controllers
                 string Parameters = tvFileModel.Parameters;
                 List<string> ParamValueList = Parameters.Split("|||".ToCharArray(), StringSplitOptions.RemoveEmptyEntries).ToList();
 
-                string ShowTable = GetParameters("ShowTable", ParamValueList);
-                ViewBag.ShowTable = ShowTable;
-                string ShowGraphic = GetParameters("ShowGraphic", ParamValueList);
-                ViewBag.ShowGraphic = ShowGraphic;
+                string HideTable = GetParameters("HideTable", ParamValueList);
+                ViewBag.HideTable = HideTable;
+                string HideGraphic = GetParameters("HideGraphic", ParamValueList);
+                ViewBag.HideGraphic = HideGraphic;
             }
 
             return PartialView();
@@ -606,8 +606,8 @@ namespace CSSPWebTools.Controllers
             ViewBag.TVItemID = TVItemID;
             ViewBag.TVFileTVItemID = TVFileTVItemID;
             ViewBag.ReportTypeModel = null;
-            ViewBag.ShowTable = null;
-            ViewBag.ShowGraphic = null;
+            ViewBag.HideTable = null;
+            ViewBag.HideGraphic = null;
 
             ReportTypeModel reportTypeModel = _ReportTypeService.GetReportTypeModelWithReportTypeIDDB(ReportTypeID);
             ViewBag.ReportTypeModel = reportTypeModel;
@@ -620,10 +620,10 @@ namespace CSSPWebTools.Controllers
                 string Parameters = tvFileModel.Parameters;
                 List<string> ParamValueList = Parameters.Split("|||".ToCharArray(), StringSplitOptions.RemoveEmptyEntries).ToList();
 
-                string ShowTable = GetParameters("ShowTable", ParamValueList);
-                ViewBag.ShowTable = ShowTable;
-                string ShowGraphic = GetParameters("ShowGraphic", ParamValueList);
-                ViewBag.ShowGraphic = ShowGraphic;
+                string HideTable = GetParameters("HideTable", ParamValueList);
+                ViewBag.HideTable = HideTable;
+                string HideGraphic = GetParameters("HideGraphic", ParamValueList);
+                ViewBag.HideGraphic = HideGraphic;
             }
 
             return PartialView();
@@ -664,8 +664,8 @@ namespace CSSPWebTools.Controllers
             ViewBag.TVItemID = TVItemID;
             ViewBag.TVFileTVItemID = TVFileTVItemID;
             ViewBag.ReportTypeModel = null;
-            ViewBag.ShowTable = null;
-            ViewBag.ShowGraphic = null;
+            ViewBag.HideTable = null;
+            ViewBag.HideGraphic = null;
 
             ReportTypeModel reportTypeModel = _ReportTypeService.GetReportTypeModelWithReportTypeIDDB(ReportTypeID);
             ViewBag.ReportTypeModel = reportTypeModel;
@@ -678,10 +678,10 @@ namespace CSSPWebTools.Controllers
                 string Parameters = tvFileModel.Parameters;
                 List<string> ParamValueList = Parameters.Split("|||".ToCharArray(), StringSplitOptions.RemoveEmptyEntries).ToList();
 
-                string ShowTable = GetParameters("ShowTable", ParamValueList);
-                ViewBag.ShowTable = ShowTable;
-                string ShowGraphic = GetParameters("ShowGraphic", ParamValueList);
-                ViewBag.ShowGraphic = ShowGraphic;
+                string HideTable = GetParameters("HideTable", ParamValueList);
+                ViewBag.HideTable = HideTable;
+                string HideGraphic = GetParameters("HideGraphic", ParamValueList);
+                ViewBag.HideGraphic = HideGraphic;
             }
 
             return PartialView();
@@ -698,8 +698,8 @@ namespace CSSPWebTools.Controllers
             ViewBag.TVItemID = TVItemID;
             ViewBag.TVFileTVItemID = TVFileTVItemID;
             ViewBag.ReportTypeModel = null;
-            ViewBag.ShowTable = null;
-            ViewBag.ShowGraphic = null;
+            ViewBag.HideTable = null;
+            ViewBag.HideGraphic = null;
 
             ReportTypeModel reportTypeModel = _ReportTypeService.GetReportTypeModelWithReportTypeIDDB(ReportTypeID);
             ViewBag.ReportTypeModel = reportTypeModel;
@@ -712,10 +712,10 @@ namespace CSSPWebTools.Controllers
                 string Parameters = tvFileModel.Parameters;
                 List<string> ParamValueList = Parameters.Split("|||".ToCharArray(), StringSplitOptions.RemoveEmptyEntries).ToList();
 
-                string ShowTable = GetParameters("ShowTable", ParamValueList);
-                ViewBag.ShowTable = ShowTable;
-                string ShowGraphic = GetParameters("ShowGraphic", ParamValueList);
-                ViewBag.ShowGraphic = ShowGraphic;
+                string HideTable = GetParameters("HideTable", ParamValueList);
+                ViewBag.HideTable = HideTable;
+                string HideGraphic = GetParameters("HideGraphic", ParamValueList);
+                ViewBag.HideGraphic = HideGraphic;
             }
 
             return PartialView();
@@ -756,8 +756,8 @@ namespace CSSPWebTools.Controllers
             ViewBag.TVItemID = TVItemID;
             ViewBag.TVFileTVItemID = TVFileTVItemID;
             ViewBag.ReportTypeModel = null;
-            ViewBag.ShowTable = null;
-            ViewBag.ShowGraphic = null;
+            ViewBag.HideTable = null;
+            ViewBag.HideGraphic = null;
 
             ReportTypeModel reportTypeModel = _ReportTypeService.GetReportTypeModelWithReportTypeIDDB(ReportTypeID);
             ViewBag.ReportTypeModel = reportTypeModel;
@@ -770,10 +770,10 @@ namespace CSSPWebTools.Controllers
                 string Parameters = tvFileModel.Parameters;
                 List<string> ParamValueList = Parameters.Split("|||".ToCharArray(), StringSplitOptions.RemoveEmptyEntries).ToList();
 
-                string ShowTable = GetParameters("ShowTable", ParamValueList);
-                ViewBag.ShowTable = ShowTable;
-                string ShowGraphic = GetParameters("ShowGraphic", ParamValueList);
-                ViewBag.ShowGraphic = ShowGraphic;
+                string HideTable = GetParameters("HideTable", ParamValueList);
+                ViewBag.HideTable = HideTable;
+                string HideGraphic = GetParameters("HideGraphic", ParamValueList);
+                ViewBag.HideGraphic = HideGraphic;
             }
 
             return PartialView();
@@ -790,8 +790,8 @@ namespace CSSPWebTools.Controllers
             ViewBag.TVItemID = TVItemID;
             ViewBag.TVFileTVItemID = TVFileTVItemID;
             ViewBag.ReportTypeModel = null;
-            ViewBag.ShowTable = null;
-            ViewBag.ShowGraphic = null;
+            ViewBag.HideTable = null;
+            ViewBag.HideGraphic = null;
 
             ReportTypeModel reportTypeModel = _ReportTypeService.GetReportTypeModelWithReportTypeIDDB(ReportTypeID);
             ViewBag.ReportTypeModel = reportTypeModel;
@@ -804,10 +804,10 @@ namespace CSSPWebTools.Controllers
                 string Parameters = tvFileModel.Parameters;
                 List<string> ParamValueList = Parameters.Split("|||".ToCharArray(), StringSplitOptions.RemoveEmptyEntries).ToList();
 
-                string ShowTable = GetParameters("ShowTable", ParamValueList);
-                ViewBag.ShowTable = ShowTable;
-                string ShowGraphic = GetParameters("ShowGraphic", ParamValueList);
-                ViewBag.ShowGraphic = ShowGraphic;
+                string HideTable = GetParameters("HideTable", ParamValueList);
+                ViewBag.HideTable = HideTable;
+                string HideGraphic = GetParameters("HideGraphic", ParamValueList);
+                ViewBag.HideGraphic = HideGraphic;
             }
 
             return PartialView();
@@ -848,8 +848,8 @@ namespace CSSPWebTools.Controllers
             ViewBag.TVItemID = TVItemID;
             ViewBag.TVFileTVItemID = TVFileTVItemID;
             ViewBag.ReportTypeModel = null;
-            ViewBag.ShowTable = null;
-            ViewBag.ShowGraphic = null;
+            ViewBag.HideTable = null;
+            ViewBag.HideGraphic = null;
 
             ReportTypeModel reportTypeModel = _ReportTypeService.GetReportTypeModelWithReportTypeIDDB(ReportTypeID);
             ViewBag.ReportTypeModel = reportTypeModel;
@@ -862,10 +862,10 @@ namespace CSSPWebTools.Controllers
                 string Parameters = tvFileModel.Parameters;
                 List<string> ParamValueList = Parameters.Split("|||".ToCharArray(), StringSplitOptions.RemoveEmptyEntries).ToList();
 
-                string ShowTable = GetParameters("ShowTable", ParamValueList);
-                ViewBag.ShowTable = ShowTable;
-                string ShowGraphic = GetParameters("ShowGraphic", ParamValueList);
-                ViewBag.ShowGraphic = ShowGraphic;
+                string HideTable = GetParameters("HideTable", ParamValueList);
+                ViewBag.HideTable = HideTable;
+                string HideGraphic = GetParameters("HideGraphic", ParamValueList);
+                ViewBag.HideGraphic = HideGraphic;
             }
 
             return PartialView();
@@ -882,8 +882,8 @@ namespace CSSPWebTools.Controllers
             ViewBag.TVItemID = TVItemID;
             ViewBag.TVFileTVItemID = TVFileTVItemID;
             ViewBag.ReportTypeModel = null;
-            ViewBag.ShowTable = null;
-            ViewBag.ShowGraphic = null;
+            ViewBag.HideTable = null;
+            ViewBag.HideGraphic = null;
 
             ReportTypeModel reportTypeModel = _ReportTypeService.GetReportTypeModelWithReportTypeIDDB(ReportTypeID);
             ViewBag.ReportTypeModel = reportTypeModel;
@@ -896,10 +896,10 @@ namespace CSSPWebTools.Controllers
                 string Parameters = tvFileModel.Parameters;
                 List<string> ParamValueList = Parameters.Split("|||".ToCharArray(), StringSplitOptions.RemoveEmptyEntries).ToList();
 
-                string ShowTable = GetParameters("ShowTable", ParamValueList);
-                ViewBag.ShowTable = ShowTable;
-                string ShowGraphic = GetParameters("ShowGraphic", ParamValueList);
-                ViewBag.ShowGraphic = ShowGraphic;
+                string HideTable = GetParameters("HideTable", ParamValueList);
+                ViewBag.HideTable = HideTable;
+                string HideGraphic = GetParameters("HideGraphic", ParamValueList);
+                ViewBag.HideGraphic = HideGraphic;
             }
 
             return PartialView();
@@ -940,8 +940,8 @@ namespace CSSPWebTools.Controllers
             ViewBag.TVItemID = TVItemID;
             ViewBag.TVFileTVItemID = TVFileTVItemID;
             ViewBag.ReportTypeModel = null;
-            ViewBag.ShowTable = null;
-            ViewBag.ShowGraphic = null;
+            ViewBag.HideTable = null;
+            ViewBag.HideGraphic = null;
 
             ReportTypeModel reportTypeModel = _ReportTypeService.GetReportTypeModelWithReportTypeIDDB(ReportTypeID);
             ViewBag.ReportTypeModel = reportTypeModel;
@@ -954,10 +954,10 @@ namespace CSSPWebTools.Controllers
                 string Parameters = tvFileModel.Parameters;
                 List<string> ParamValueList = Parameters.Split("|||".ToCharArray(), StringSplitOptions.RemoveEmptyEntries).ToList();
 
-                string ShowTable = GetParameters("ShowTable", ParamValueList);
-                ViewBag.ShowTable = ShowTable;
-                string ShowGraphic = GetParameters("ShowGraphic", ParamValueList);
-                ViewBag.ShowGraphic = ShowGraphic;
+                string HideTable = GetParameters("HideTable", ParamValueList);
+                ViewBag.HideTable = HideTable;
+                string HideGraphic = GetParameters("HideGraphic", ParamValueList);
+                ViewBag.HideGraphic = HideGraphic;
             }
 
             return PartialView();
@@ -974,8 +974,8 @@ namespace CSSPWebTools.Controllers
             ViewBag.TVItemID = TVItemID;
             ViewBag.TVFileTVItemID = TVFileTVItemID;
             ViewBag.ReportTypeModel = null;
-            ViewBag.ShowTable = null;
-            ViewBag.ShowGraphic = null;
+            ViewBag.HideTable = null;
+            ViewBag.HideGraphic = null;
 
             ReportTypeModel reportTypeModel = _ReportTypeService.GetReportTypeModelWithReportTypeIDDB(ReportTypeID);
             ViewBag.ReportTypeModel = reportTypeModel;
@@ -988,10 +988,10 @@ namespace CSSPWebTools.Controllers
                 string Parameters = tvFileModel.Parameters;
                 List<string> ParamValueList = Parameters.Split("|||".ToCharArray(), StringSplitOptions.RemoveEmptyEntries).ToList();
 
-                string ShowTable = GetParameters("ShowTable", ParamValueList);
-                ViewBag.ShowTable = ShowTable;
-                string ShowGraphic = GetParameters("ShowGraphic", ParamValueList);
-                ViewBag.ShowGraphic = ShowGraphic;
+                string HideTable = GetParameters("HideTable", ParamValueList);
+                ViewBag.HideTable = HideTable;
+                string HideGraphic = GetParameters("HideGraphic", ParamValueList);
+                ViewBag.HideGraphic = HideGraphic;
             }
 
             return PartialView();
@@ -1032,8 +1032,8 @@ namespace CSSPWebTools.Controllers
             ViewBag.TVItemID = TVItemID;
             ViewBag.TVFileTVItemID = TVFileTVItemID;
             ViewBag.ReportTypeModel = null;
-            ViewBag.ShowTable = null;
-            ViewBag.ShowGraphic = null;
+            ViewBag.HideTable = null;
+            ViewBag.HideGraphic = null;
 
             ReportTypeModel reportTypeModel = _ReportTypeService.GetReportTypeModelWithReportTypeIDDB(ReportTypeID);
             ViewBag.ReportTypeModel = reportTypeModel;
@@ -1046,10 +1046,10 @@ namespace CSSPWebTools.Controllers
                 string Parameters = tvFileModel.Parameters;
                 List<string> ParamValueList = Parameters.Split("|||".ToCharArray(), StringSplitOptions.RemoveEmptyEntries).ToList();
 
-                string ShowTable = GetParameters("ShowTable", ParamValueList);
-                ViewBag.ShowTable = ShowTable;
-                string ShowGraphic = GetParameters("ShowGraphic", ParamValueList);
-                ViewBag.ShowGraphic = ShowGraphic;
+                string HideTable = GetParameters("HideTable", ParamValueList);
+                ViewBag.HideTable = HideTable;
+                string HideGraphic = GetParameters("HideGraphic", ParamValueList);
+                ViewBag.HideGraphic = HideGraphic;
             }
 
             return PartialView();
@@ -1066,8 +1066,8 @@ namespace CSSPWebTools.Controllers
             ViewBag.TVItemID = TVItemID;
             ViewBag.TVFileTVItemID = TVFileTVItemID;
             ViewBag.ReportTypeModel = null;
-            ViewBag.ShowTable = null;
-            ViewBag.ShowGraphic = null;
+            ViewBag.HideTable = null;
+            ViewBag.HideGraphic = null;
 
             ReportTypeModel reportTypeModel = _ReportTypeService.GetReportTypeModelWithReportTypeIDDB(ReportTypeID);
             ViewBag.ReportTypeModel = reportTypeModel;
@@ -1080,10 +1080,10 @@ namespace CSSPWebTools.Controllers
                 string Parameters = tvFileModel.Parameters;
                 List<string> ParamValueList = Parameters.Split("|||".ToCharArray(), StringSplitOptions.RemoveEmptyEntries).ToList();
 
-                string ShowTable = GetParameters("ShowTable", ParamValueList);
-                ViewBag.ShowTable = ShowTable;
-                string ShowGraphic = GetParameters("ShowGraphic", ParamValueList);
-                ViewBag.ShowGraphic = ShowGraphic;
+                string HideTable = GetParameters("HideTable", ParamValueList);
+                ViewBag.HideTable = HideTable;
+                string HideGraphic = GetParameters("HideGraphic", ParamValueList);
+                ViewBag.HideGraphic = HideGraphic;
             }
 
             return PartialView();
@@ -1124,8 +1124,8 @@ namespace CSSPWebTools.Controllers
             ViewBag.TVItemID = TVItemID;
             ViewBag.TVFileTVItemID = TVFileTVItemID;
             ViewBag.ReportTypeModel = null;
-            ViewBag.ShowTable = null;
-            ViewBag.ShowGraphic = null;
+            ViewBag.HideTable = null;
+            ViewBag.HideGraphic = null;
 
             ReportTypeModel reportTypeModel = _ReportTypeService.GetReportTypeModelWithReportTypeIDDB(ReportTypeID);
             ViewBag.ReportTypeModel = reportTypeModel;
@@ -1138,10 +1138,10 @@ namespace CSSPWebTools.Controllers
                 string Parameters = tvFileModel.Parameters;
                 List<string> ParamValueList = Parameters.Split("|||".ToCharArray(), StringSplitOptions.RemoveEmptyEntries).ToList();
 
-                string ShowTable = GetParameters("ShowTable", ParamValueList);
-                ViewBag.ShowTable = ShowTable;
-                string ShowGraphic = GetParameters("ShowGraphic", ParamValueList);
-                ViewBag.ShowGraphic = ShowGraphic;
+                string HideTable = GetParameters("HideTable", ParamValueList);
+                ViewBag.HideTable = HideTable;
+                string HideGraphic = GetParameters("HideGraphic", ParamValueList);
+                ViewBag.HideGraphic = HideGraphic;
             }
 
             return PartialView();
@@ -1158,8 +1158,8 @@ namespace CSSPWebTools.Controllers
             ViewBag.TVItemID = TVItemID;
             ViewBag.TVFileTVItemID = TVFileTVItemID;
             ViewBag.ReportTypeModel = null;
-            ViewBag.ShowTable = null;
-            ViewBag.ShowGraphic = null;
+            ViewBag.HideTable = null;
+            ViewBag.HideGraphic = null;
 
             ReportTypeModel reportTypeModel = _ReportTypeService.GetReportTypeModelWithReportTypeIDDB(ReportTypeID);
             ViewBag.ReportTypeModel = reportTypeModel;
@@ -1172,10 +1172,10 @@ namespace CSSPWebTools.Controllers
                 string Parameters = tvFileModel.Parameters;
                 List<string> ParamValueList = Parameters.Split("|||".ToCharArray(), StringSplitOptions.RemoveEmptyEntries).ToList();
 
-                string ShowTable = GetParameters("ShowTable", ParamValueList);
-                ViewBag.ShowTable = ShowTable;
-                string ShowGraphic = GetParameters("ShowGraphic", ParamValueList);
-                ViewBag.ShowGraphic = ShowGraphic;
+                string HideTable = GetParameters("HideTable", ParamValueList);
+                ViewBag.HideTable = HideTable;
+                string HideGraphic = GetParameters("HideGraphic", ParamValueList);
+                ViewBag.HideGraphic = HideGraphic;
             }
 
             return PartialView();
@@ -1216,8 +1216,8 @@ namespace CSSPWebTools.Controllers
             ViewBag.TVItemID = TVItemID;
             ViewBag.TVFileTVItemID = TVFileTVItemID;
             ViewBag.ReportTypeModel = null;
-            ViewBag.ShowTable = null;
-            ViewBag.ShowGraphic = null;
+            ViewBag.HideTable = null;
+            ViewBag.HideGraphic = null;
 
             ReportTypeModel reportTypeModel = _ReportTypeService.GetReportTypeModelWithReportTypeIDDB(ReportTypeID);
             ViewBag.ReportTypeModel = reportTypeModel;
@@ -1230,10 +1230,10 @@ namespace CSSPWebTools.Controllers
                 string Parameters = tvFileModel.Parameters;
                 List<string> ParamValueList = Parameters.Split("|||".ToCharArray(), StringSplitOptions.RemoveEmptyEntries).ToList();
 
-                string ShowTable = GetParameters("ShowTable", ParamValueList);
-                ViewBag.ShowTable = ShowTable;
-                string ShowGraphic = GetParameters("ShowGraphic", ParamValueList);
-                ViewBag.ShowGraphic = ShowGraphic;
+                string HideTable = GetParameters("HideTable", ParamValueList);
+                ViewBag.HideTable = HideTable;
+                string HideGraphic = GetParameters("HideGraphic", ParamValueList);
+                ViewBag.HideGraphic = HideGraphic;
             }
 
             return PartialView();
@@ -1250,8 +1250,8 @@ namespace CSSPWebTools.Controllers
             ViewBag.TVItemID = TVItemID;
             ViewBag.TVFileTVItemID = TVFileTVItemID;
             ViewBag.ReportTypeModel = null;
-            ViewBag.ShowTable = null;
-            ViewBag.ShowGraphic = null;
+            ViewBag.HideTable = null;
+            ViewBag.HideGraphic = null;
 
             ReportTypeModel reportTypeModel = _ReportTypeService.GetReportTypeModelWithReportTypeIDDB(ReportTypeID);
             ViewBag.ReportTypeModel = reportTypeModel;
@@ -1264,10 +1264,10 @@ namespace CSSPWebTools.Controllers
                 string Parameters = tvFileModel.Parameters;
                 List<string> ParamValueList = Parameters.Split("|||".ToCharArray(), StringSplitOptions.RemoveEmptyEntries).ToList();
 
-                string ShowTable = GetParameters("ShowTable", ParamValueList);
-                ViewBag.ShowTable = ShowTable;
-                string ShowGraphic = GetParameters("ShowGraphic", ParamValueList);
-                ViewBag.ShowGraphic = ShowGraphic;
+                string HideTable = GetParameters("HideTable", ParamValueList);
+                ViewBag.HideTable = HideTable;
+                string HideGraphic = GetParameters("HideGraphic", ParamValueList);
+                ViewBag.HideGraphic = HideGraphic;
             }
 
             return PartialView();
@@ -1308,8 +1308,8 @@ namespace CSSPWebTools.Controllers
             ViewBag.TVItemID = TVItemID;
             ViewBag.TVFileTVItemID = TVFileTVItemID;
             ViewBag.ReportTypeModel = null;
-            ViewBag.ShowTable = null;
-            ViewBag.ShowGraphic = null;
+            ViewBag.HideTable = null;
+            ViewBag.HideGraphic = null;
 
             ReportTypeModel reportTypeModel = _ReportTypeService.GetReportTypeModelWithReportTypeIDDB(ReportTypeID);
             ViewBag.ReportTypeModel = reportTypeModel;
@@ -1322,10 +1322,10 @@ namespace CSSPWebTools.Controllers
                 string Parameters = tvFileModel.Parameters;
                 List<string> ParamValueList = Parameters.Split("|||".ToCharArray(), StringSplitOptions.RemoveEmptyEntries).ToList();
 
-                string ShowTable = GetParameters("ShowTable", ParamValueList);
-                ViewBag.ShowTable = ShowTable;
-                string ShowGraphic = GetParameters("ShowGraphic", ParamValueList);
-                ViewBag.ShowGraphic = ShowGraphic;
+                string HideTable = GetParameters("HideTable", ParamValueList);
+                ViewBag.HideTable = HideTable;
+                string HideGraphic = GetParameters("HideGraphic", ParamValueList);
+                ViewBag.HideGraphic = HideGraphic;
             }
 
             return PartialView();
@@ -1342,8 +1342,8 @@ namespace CSSPWebTools.Controllers
             ViewBag.TVItemID = TVItemID;
             ViewBag.TVFileTVItemID = TVFileTVItemID;
             ViewBag.ReportTypeModel = null;
-            ViewBag.ShowTable = null;
-            ViewBag.ShowGraphic = null;
+            ViewBag.HideTable = null;
+            ViewBag.HideGraphic = null;
 
             ReportTypeModel reportTypeModel = _ReportTypeService.GetReportTypeModelWithReportTypeIDDB(ReportTypeID);
             ViewBag.ReportTypeModel = reportTypeModel;
@@ -1356,10 +1356,10 @@ namespace CSSPWebTools.Controllers
                 string Parameters = tvFileModel.Parameters;
                 List<string> ParamValueList = Parameters.Split("|||".ToCharArray(), StringSplitOptions.RemoveEmptyEntries).ToList();
 
-                string ShowTable = GetParameters("ShowTable", ParamValueList);
-                ViewBag.ShowTable = ShowTable;
-                string ShowGraphic = GetParameters("ShowGraphic", ParamValueList);
-                ViewBag.ShowGraphic = ShowGraphic;
+                string HideTable = GetParameters("HideTable", ParamValueList);
+                ViewBag.HideTable = HideTable;
+                string HideGraphic = GetParameters("HideGraphic", ParamValueList);
+                ViewBag.HideGraphic = HideGraphic;
             }
 
             return PartialView();
@@ -1400,8 +1400,8 @@ namespace CSSPWebTools.Controllers
             ViewBag.TVItemID = TVItemID;
             ViewBag.TVFileTVItemID = TVFileTVItemID;
             ViewBag.ReportTypeModel = null;
-            ViewBag.ShowTable = null;
-            ViewBag.ShowGraphic = null;
+            ViewBag.HideTable = null;
+            ViewBag.HideGraphic = null;
 
             ReportTypeModel reportTypeModel = _ReportTypeService.GetReportTypeModelWithReportTypeIDDB(ReportTypeID);
             ViewBag.ReportTypeModel = reportTypeModel;
@@ -1414,10 +1414,10 @@ namespace CSSPWebTools.Controllers
                 string Parameters = tvFileModel.Parameters;
                 List<string> ParamValueList = Parameters.Split("|||".ToCharArray(), StringSplitOptions.RemoveEmptyEntries).ToList();
 
-                string ShowTable = GetParameters("ShowTable", ParamValueList);
-                ViewBag.ShowTable = ShowTable;
-                string ShowGraphic = GetParameters("ShowGraphic", ParamValueList);
-                ViewBag.ShowGraphic = ShowGraphic;
+                string HideTable = GetParameters("HideTable", ParamValueList);
+                ViewBag.HideTable = HideTable;
+                string HideGraphic = GetParameters("HideGraphic", ParamValueList);
+                ViewBag.HideGraphic = HideGraphic;
             }
 
             return PartialView();

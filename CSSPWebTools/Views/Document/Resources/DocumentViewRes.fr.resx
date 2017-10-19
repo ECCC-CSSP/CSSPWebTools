@@ -126,6 +126,12 @@
   <data name="GenerateReportWithParameters" xml:space="preserve">
     <value>Générer report avec paramètres</value>
   </data>
+  <data name="HideGraphic" xml:space="preserve">
+    <value>Cacher graphique</value>
+  </data>
+  <data name="HideTable" xml:space="preserve">
+    <value>Cacher tableau</value>
+  </data>
   <data name="IsNotImplemented" xml:space="preserve">
     <value>n'a pas encore été mis en place</value>
   </data>
@@ -140,12 +146,6 @@
   </data>
   <data name="Parameters" xml:space="preserve">
     <value>Paramètres</value>
-  </data>
-  <data name="ShowGraphic" xml:space="preserve">
-    <value>Montrer graphique</value>
-  </data>
-  <data name="ShowTable" xml:space="preserve">
-    <value>Montrer tableau</value>
   </data>
   <data name="WithFileType" xml:space="preserve">
     <value>pour le type de filière</value>

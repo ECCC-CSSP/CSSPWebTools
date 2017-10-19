@@ -45,12 +45,6 @@ else
 
 @helper Parameters()
 {
-    <label class="checkbox-inline">
-        <input name="ShowTable" type="checkbox" @(!string.IsNullOrWhiteSpace(ViewBag.ShowTable) ? "checked=checked" : "") />
-        @DocumentViewRes.ShowTable
-    </label>
-    <label class="checkbox-inline">
-        <input name="ShowGraphic" type="checkbox" @(!string.IsNullOrWhiteSpace(ViewBag.ShowGraphic) ? "checked=checked" : "") />
-        @DocumentViewRes.ShowGraphic
-    </label>
+    <span>@DocumentViewRes.NoParameters</span>
 }
+

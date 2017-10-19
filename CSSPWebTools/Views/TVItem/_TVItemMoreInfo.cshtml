@@ -180,8 +180,13 @@
         case TVTypeEnum.File:
             {
                 <span class="moreInfo-NamesValues">
-                    <span>@TVItemViewRes.Description - <b>@(string.IsNullOrWhiteSpace(tvItemMoreInfoFileModel.FullDesc) ? TVItemViewRes.Empty : tvItemMoreInfoFileModel.FullDesc)</b></span>
+                    <span><b>@TVItemViewRes.Description</b> - @(string.IsNullOrWhiteSpace(tvItemMoreInfoFileModel.FullDesc) ? TVItemViewRes.Empty : tvItemMoreInfoFileModel.FullDesc)</span>
                 </span>
+                if (!string.IsNullOrWhiteSpace(tvItemMoreInfoFileModel.Parameters))
+                {
+                    <br />
+                    <span><b>@TVItemViewRes.Parameters</b> - @(tvItemMoreInfoFileModel.Parameters)</span>
+                }
             }
             break;
         case TVTypeEnum.Infrastructure:

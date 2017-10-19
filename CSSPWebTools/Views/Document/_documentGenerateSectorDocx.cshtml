@@ -46,11 +46,11 @@ else
 @helper Parameters()
 {
     <label class="checkbox-inline">
-        <input name="ShowTable" type="checkbox" @(!string.IsNullOrWhiteSpace(ViewBag.ShowTable) ? "checked=checked" : "") />
-        @DocumentViewRes.ShowTable
+        <input name="HideTable" type="checkbox" @(!string.IsNullOrWhiteSpace(ViewBag.HideTable) ? "checked=checked" : "") />
+        @DocumentViewRes.HideTable
     </label>
     <label class="checkbox-inline">
-        <input name="ShowGraphic" type="checkbox" @(!string.IsNullOrWhiteSpace(ViewBag.ShowGraphic) ? "checked=checked" : "") />
-        @DocumentViewRes.ShowGraphic
+        <input name="HideGraphic" type="checkbox" @(!string.IsNullOrWhiteSpace(ViewBag.HideGraphic) ? "checked=checked" : "") />
+        @DocumentViewRes.HideGraphic
     </label>
 }

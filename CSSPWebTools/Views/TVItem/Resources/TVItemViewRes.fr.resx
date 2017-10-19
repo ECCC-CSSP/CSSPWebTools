@@ -465,4 +465,7 @@
   <data name="DataSet" xml:space="preserve">
     <value>Ensemble de données</value>
   </data>
+  <data name="Parameters" xml:space="preserve">
+    <value>Paramètres</value>
+  </data>
 </root>

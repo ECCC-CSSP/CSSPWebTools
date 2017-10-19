@@ -45,12 +45,16 @@ else
 
 @helper Parameters()
 {
-    <label class="checkbox-inline">
-        <input name="ShowTable" type="checkbox" @(!string.IsNullOrWhiteSpace(ViewBag.ShowTable) ? "checked=checked" : "") />
-        @DocumentViewRes.ShowTable
-    </label>
-    <label class="checkbox-inline">
-        <input name="ShowGraphic" type="checkbox" @(!string.IsNullOrWhiteSpace(ViewBag.ShowGraphic) ? "checked=checked" : "") />
-        @DocumentViewRes.ShowGraphic
+    <label class="group-inline">
+        <select name="Year" class="form-control">
+            @for (int i = DateTime.Now.Year; i > 1989; i--)
+            {
+                <option value="@i">@i.ToString()</option>
+            }
+        </select>
     </label>
 }
+
+<table class="table table-striped table-condensed">
+
+</table>
