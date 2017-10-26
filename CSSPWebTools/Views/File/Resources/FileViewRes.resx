@@ -282,4 +282,7 @@
   <data name="NotImplementedYet" xml:space="preserve">
     <value>Not implemented yet</value>
   </data>
+  <data name="CreatePDF" xml:space="preserve">
+    <value>Create PDF</value>
+  </data>
 </root>

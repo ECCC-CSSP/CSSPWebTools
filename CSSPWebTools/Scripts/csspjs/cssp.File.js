@@ -110,6 +110,46 @@ var CSSP;
                     $("#FileDiv").find(".CreateDocument").html("");
                 }
             };
+            this.CreateDocxPDF = function ($bjs) {
+                var TVItemID = parseInt($bjs.closest("#ViewDiv").data("tvitemid"));
+                var TVFileTVItemID = parseInt($bjs.data("tvfiletvitemid"));
+                var command = "File/CreateDocxPDFJSON";
+                $.post(cssp.BaseURL + command, {
+                    TVItemID: TVItemID,
+                    TVFileTVItemID: TVFileTVItemID,
+                })
+                    .done(function (ret) {
+                    if (ret) {
+                        cssp.Dialog.ShowDialogErrorWithError(ret);
+                    }
+                    else {
+                        cssp.Helper.PageRefresh();
+                    }
+                })
+                    .fail(function () {
+                    cssp.Dialog.ShowDialogErrorWithFail(command);
+                });
+            };
+            this.CreateXlsxPDF = function ($bjs) {
+                var TVItemID = parseInt($bjs.closest("#ViewDiv").data("tvitemid"));
+                var TVFileTVItemID = parseInt($bjs.data("tvfiletvitemid"));
+                var command = "File/CreateXlsxPDFJSON";
+                $.post(cssp.BaseURL + command, {
+                    TVItemID: TVItemID,
+                    TVFileTVItemID: TVFileTVItemID,
+                })
+                    .done(function (ret) {
+                    if (ret) {
+                        cssp.Dialog.ShowDialogErrorWithError(ret);
+                    }
+                    else {
+                        cssp.Helper.PageRefresh();
+                    }
+                })
+                    .fail(function () {
+                    cssp.Dialog.ShowDialogErrorWithFail(command);
+                });
+            };
             this.FileImportShowHide = function ($bjs) {
                 if ($("#FileDiv").find(".FileImport").children().length == 0) {
                     $("#FileDiv").find(".FileImport").removeClass("hidden");

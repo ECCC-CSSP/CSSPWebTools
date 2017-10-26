@@ -115,6 +115,15 @@ namespace CSSPWebTools.Views.File.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Create PDF.
+        /// </summary>
+        public static string CreatePDF {
+            get {
+                return ResourceManager.GetString("CreatePDF", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 2) - Current vectors will be shown at the center of each element for which the path has a point in it..
         /// </summary>
         public static string CurrentVectorsWillBeShowAtTheCenterOfEachElementForWhichThePathHasAPointInIt {

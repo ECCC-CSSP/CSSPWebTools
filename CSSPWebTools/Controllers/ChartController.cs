@@ -79,6 +79,27 @@ namespace CSSPWebTools.Controllers
         #endregion Overrides
 
         #region Functions public
+        [HttpGet]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public ActionResult SummaryStatisticsOfFCUsedRuns(string Years)
+        {
+            List<int> YearList = Years.Split("_".ToCharArray(), StringSplitOptions.RemoveEmptyEntries).Select(c => int.Parse(c)).ToList();
+
+            List<int> YearDistinct = YearList.Distinct().ToList();
+            List<int> CountPerYear = new List<int>();
+            foreach (int Year in YearDistinct)
+            {
+                CountPerYear.Add(YearList.Where(c => c == Year).Count());
+            }
+
+            var chart = new Chart(width: 600, height: 100)
+                .SetXAxis(ControllerRes.YearsWithSamplesUsed, 1980)
+                .AddSeries(chartType: "Column",
+                            xValue: YearDistinct,
+                            yValues: CountPerYear)
+                            .GetBytes("png");
+            return File(chart, "image/bytes");
+        }
 
         [HttpGet]
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]

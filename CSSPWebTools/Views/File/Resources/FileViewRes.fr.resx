@@ -278,4 +278,7 @@
   <data name="NotImplementedYet" xml:space="preserve">
     <value>Pas encore mis en oeuvre</value>
   </data>
+  <data name="CreatePDF" xml:space="preserve">
+    <value>Create PDF (fr)</value>
+  </data>
 </root>

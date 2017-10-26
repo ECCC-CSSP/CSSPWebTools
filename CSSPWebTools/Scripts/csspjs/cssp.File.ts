@@ -114,6 +114,50 @@
                 $("#FileDiv").find(".CreateDocument").html("");
             }
         };
+        public CreateDocxPDF: Function = ($bjs: JQuery): void => {
+            let TVItemID: number = parseInt($bjs.closest("#ViewDiv").data("tvitemid"));
+            var TVFileTVItemID: number = parseInt($bjs.data("tvfiletvitemid"));
+
+            var command: string = "File/CreateDocxPDFJSON";
+            $.post(cssp.BaseURL + command,
+                {
+                    TVItemID: TVItemID,
+                    TVFileTVItemID: TVFileTVItemID,
+                })
+                .done((ret) => {
+                    if (ret) {
+                        cssp.Dialog.ShowDialogErrorWithError(ret);
+                    }
+                    else {
+                        cssp.Helper.PageRefresh();
+                    }
+                })
+                .fail(() => {
+                    cssp.Dialog.ShowDialogErrorWithFail(command);
+                });
+        };
+        public CreateXlsxPDF: Function = ($bjs: JQuery): void => {
+            let TVItemID: number = parseInt($bjs.closest("#ViewDiv").data("tvitemid"));
+            var TVFileTVItemID: number = parseInt($bjs.data("tvfiletvitemid"));
+
+            var command: string = "File/CreateXlsxPDFJSON";
+            $.post(cssp.BaseURL + command,
+                {
+                    TVItemID: TVItemID,
+                    TVFileTVItemID: TVFileTVItemID,
+                })
+                .done((ret) => {
+                    if (ret) {
+                        cssp.Dialog.ShowDialogErrorWithError(ret);
+                    }
+                    else {
+                        cssp.Helper.PageRefresh();
+                    }
+                })
+                .fail(() => {
+                    cssp.Dialog.ShowDialogErrorWithFail(command);
+                });
+        };
         public FileImportShowHide: Function = ($bjs: JQuery): any => {
             if ($("#FileDiv").find(".FileImport").children().length == 0) {
                 $("#FileDiv").find(".FileImport").removeClass("hidden");

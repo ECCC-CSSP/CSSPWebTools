@@ -383,4 +383,7 @@
   <data name="LogBook" xml:space="preserve">
     <value>Journal de bord</value>
   </data>
+  <data name="YearsWithSamplesUsed" xml:space="preserve">
+    <value>Années avec des échantillons utilisés</value>
+  </data>
 </root>

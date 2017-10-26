@@ -1576,25 +1576,25 @@ module CSSP {
                             }
                             if (j <= ShortRangeEnd && j > 0) {
                                 if (j == 1) {
-                                    if (LowerRainLimitConsideredRain1 < TotalRain) {
+                                    if (LowerRainLimitConsideredRain1 <= TotalRain) {
                                         Rain$.addClass("bg-info");
                                         UseRun = true;
                                     }
                                 }
                                 else if (j == 2) {
-                                    if (LowerRainLimitConsideredRain2 < TotalRain) {
+                                    if (LowerRainLimitConsideredRain2 <= TotalRain) {
                                         Rain$.addClass("bg-info");
                                         UseRun = true;
                                     }
                                 }
                                 else if (j == 3) {
-                                    if (LowerRainLimitConsideredRain3 < TotalRain) {
+                                    if (LowerRainLimitConsideredRain3 <= TotalRain) {
                                         Rain$.addClass("bg-info");
                                         UseRun = true;
                                     }
                                 }
                                 else {
-                                    if (LowerRainLimitConsideredRain4 < TotalRain) {
+                                    if (LowerRainLimitConsideredRain4 <= TotalRain) {
                                         Rain$.addClass("bg-info");
                                         UseRun = true;
                                     }
@@ -1634,7 +1634,7 @@ module CSSP {
                             }
                             if (j <= ShortRangeEnd && j > 0) {
                                 if (j == 1) {
-                                    if (UpperRainLimitStillConsideredDry1 > TotalRain) {
+                                    if (UpperRainLimitStillConsideredDry1 >= TotalRain) {
                                         UseRun = true;
                                     }
                                     else {
@@ -1642,7 +1642,7 @@ module CSSP {
                                     }
                                 }
                                 else if (j == 2) {
-                                    if (UpperRainLimitStillConsideredDry2 > TotalRain) {
+                                    if (UpperRainLimitStillConsideredDry2 >= TotalRain) {
                                         UseRun = true;
                                     }
                                     else {
@@ -1650,7 +1650,7 @@ module CSSP {
                                     }
                                 }
                                 else if (j == 3) {
-                                    if (UpperRainLimitStillConsideredDry3 > TotalRain) {
+                                    if (UpperRainLimitStillConsideredDry3 >= TotalRain) {
                                         UseRun = true;
                                     }
                                     else {
@@ -1658,7 +1658,7 @@ module CSSP {
                                     }
                                 }
                                 else {
-                                    if (UpperRainLimitStillConsideredDry4 > TotalRain) {
+                                    if (UpperRainLimitStillConsideredDry4 >= TotalRain) {
                                         UseRun = true;
                                     }
                                     else {
@@ -1700,25 +1700,25 @@ module CSSP {
                             if (j <= ShortRangeEnd && j > 0) {
                                 TotalRainShort = TotalRainShort + RainValue;
                                 if (j == 1) {
-                                    if (LowerRainLimitConsideredRain1 < TotalRainShort) {
+                                    if (LowerRainLimitConsideredRain1 <= TotalRainShort) {
                                         Rain$.addClass("bg-info");
                                         UseRun = true;
                                     }
                                 }
                                 else if (j == 2) {
-                                    if (LowerRainLimitConsideredRain2 < TotalRainShort) {
+                                    if (LowerRainLimitConsideredRain2 <= TotalRainShort) {
                                         Rain$.addClass("bg-info");
                                         UseRun = true;
                                     }
                                 }
                                 else if (j == 3) {
-                                    if (LowerRainLimitConsideredRain3 < TotalRainShort) {
+                                    if (LowerRainLimitConsideredRain3 <= TotalRainShort) {
                                         Rain$.addClass("bg-info");
                                         UseRun = true;
                                     }
                                 }
                                 else {
-                                    if (LowerRainLimitConsideredRain4 < TotalRainShort) {
+                                    if (LowerRainLimitConsideredRain4 <= TotalRainShort) {
                                         Rain$.addClass("bg-info");
                                         UseRun = true;
                                     }
@@ -1727,25 +1727,25 @@ module CSSP {
                             else if (j > ShortRangeEnd && j <= MidRangeEnd) {
                                 TotalRainMid = TotalRainMid + RainValue;
                                 if (j == (ShortRangeEnd + 1)) {
-                                    if (LowerRainLimitConsideredRain1 < TotalRainMid) {
+                                    if (LowerRainLimitConsideredRain1 <= TotalRainMid) {
                                         Rain$.addClass("bg-info");
                                         UseRun = true;
                                     }
                                 }
                                 else if (j == (ShortRangeEnd + 2)) {
-                                    if (LowerRainLimitConsideredRain2 < TotalRainMid) {
+                                    if (LowerRainLimitConsideredRain2 <= TotalRainMid) {
                                         Rain$.addClass("bg-info");
                                         UseRun = true;
                                     }
                                 }
                                 else if (j == (ShortRangeEnd + 3)) {
-                                    if (LowerRainLimitConsideredRain3 < TotalRainMid) {
+                                    if (LowerRainLimitConsideredRain3 <= TotalRainMid) {
                                         Rain$.addClass("bg-info");
                                         UseRun = true;
                                     }
                                 }
                                 else {
-                                    if (LowerRainLimitConsideredRain4 < TotalRainMid) {
+                                    if (LowerRainLimitConsideredRain4 <= TotalRainMid) {
                                         Rain$.addClass("bg-info");
                                         UseRun = true;
                                     }
@@ -1796,7 +1796,7 @@ module CSSP {
                             if (j <= ShortRangeEnd && j > 0) {
                                 TotalRainShort = TotalRainShort + RainValue;
                                 if (j == 1) {
-                                    if (UpperRainLimitStillConsideredDry1 > TotalRainShort) {
+                                    if (UpperRainLimitStillConsideredDry1 >= TotalRainShort) {
                                         UseRun = true;
                                     }
                                     else {
@@ -1804,7 +1804,7 @@ module CSSP {
                                     }
                                 }
                                 else if (j == 2) {
-                                    if (UpperRainLimitStillConsideredDry2 > TotalRainShort) {
+                                    if (UpperRainLimitStillConsideredDry2 >= TotalRainShort) {
                                         UseRun = true;
                                     }
                                     else {
@@ -1812,7 +1812,7 @@ module CSSP {
                                     }
                                 }
                                 else if (j == 3) {
-                                    if (UpperRainLimitStillConsideredDry3 > TotalRainShort) {
+                                    if (UpperRainLimitStillConsideredDry3 >= TotalRainShort) {
                                         UseRun = true;
                                     }
                                     else {
@@ -1820,7 +1820,7 @@ module CSSP {
                                     }
                                 }
                                 else {
-                                    if (UpperRainLimitStillConsideredDry4 > TotalRainShort) {
+                                    if (UpperRainLimitStillConsideredDry4 >= TotalRainShort) {
                                         UseRun = true;
                                     }
                                     else {
@@ -1831,7 +1831,7 @@ module CSSP {
                             else if (j > ShortRangeEnd && j <= MidRangeEnd) {
                                 TotalRainMid = TotalRainMid + RainValue;
                                 if (j == (ShortRangeEnd + 1)) {
-                                    if (UpperRainLimitStillConsideredDry1 > TotalRainMid) {
+                                    if (UpperRainLimitStillConsideredDry1 >= TotalRainMid) {
                                         UseRun = true;
                                     }
                                     else {
@@ -1839,7 +1839,7 @@ module CSSP {
                                     }
                                 }
                                 else if (j == (ShortRangeEnd + 2)) {
-                                    if (UpperRainLimitStillConsideredDry2 > TotalRainMid) {
+                                    if (UpperRainLimitStillConsideredDry2 >= TotalRainMid) {
                                         UseRun = true;
                                     }
                                     else {
@@ -1847,7 +1847,7 @@ module CSSP {
                                     }
                                 }
                                 else if (j == (ShortRangeEnd + 3)) {
-                                    if (UpperRainLimitStillConsideredDry3 > TotalRainMid) {
+                                    if (UpperRainLimitStillConsideredDry3 >= TotalRainMid) {
                                         UseRun = true;
                                     }
                                     else {
@@ -1855,7 +1855,7 @@ module CSSP {
                                     }
                                 }
                                 else {
-                                    if (UpperRainLimitStillConsideredDry4 > TotalRainMid) {
+                                    if (UpperRainLimitStillConsideredDry4 >= TotalRainMid) {
                                         UseRun = true;
                                     }
                                     else {
@@ -1896,25 +1896,25 @@ module CSSP {
                             if (j <= ShortRangeEnd && j > 0) {
                                 TotalRainShort = TotalRainShort + RainValue;
                                 if (j == 1) {
-                                    if (LowerRainLimitConsideredRain1 < TotalRainShort) {
+                                    if (LowerRainLimitConsideredRain1 <= TotalRainShort) {
                                         Rain$.addClass("bg-info");
                                         UseRun = true;
                                     }
                                 }
                                 else if (j == 2) {
-                                    if (LowerRainLimitConsideredRain2 < TotalRainShort) {
+                                    if (LowerRainLimitConsideredRain2 <= TotalRainShort) {
                                         Rain$.addClass("bg-info");
                                         UseRun = true;
                                     }
                                 }
                                 else if (j == 3) {
-                                    if (LowerRainLimitConsideredRain3 < TotalRainShort) {
+                                    if (LowerRainLimitConsideredRain3 <= TotalRainShort) {
                                         Rain$.addClass("bg-info");
                                         UseRun = true;
                                     }
                                 }
                                 else {
-                                    if (LowerRainLimitConsideredRain4 < TotalRainShort) {
+                                    if (LowerRainLimitConsideredRain4 <= TotalRainShort) {
                                         Rain$.addClass("bg-info");
                                         UseRun = true;
                                     }
@@ -1923,7 +1923,7 @@ module CSSP {
                             else if (j > ShortRangeEnd && j <= MidRangeEnd) {
                                 TotalRainMid = TotalRainMid + RainValue;
                                 if (j == (ShortRangeEnd + 1)) {
-                                    if (UpperRainLimitStillConsideredDry1 > TotalRainMid) {
+                                    if (UpperRainLimitStillConsideredDry1 >= TotalRainMid) {
                                         UseRun = true;
                                     }
                                     else {
@@ -1931,7 +1931,7 @@ module CSSP {
                                     }
                                 }
                                 else if (j == (ShortRangeEnd + 2)) {
-                                    if (UpperRainLimitStillConsideredDry2 > TotalRainMid) {
+                                    if (UpperRainLimitStillConsideredDry2 >= TotalRainMid) {
                                         UseRun = true;
                                     }
                                     else {
@@ -1939,7 +1939,7 @@ module CSSP {
                                     }
                                 }
                                 else if (j == (ShortRangeEnd + 3)) {
-                                    if (UpperRainLimitStillConsideredDry3 > TotalRainMid) {
+                                    if (UpperRainLimitStillConsideredDry3 >= TotalRainMid) {
                                         UseRun = true;
                                     }
                                     else {
@@ -1947,7 +1947,7 @@ module CSSP {
                                     }
                                 }
                                 else {
-                                    if (UpperRainLimitStillConsideredDry4 > TotalRainMid) {
+                                    if (UpperRainLimitStillConsideredDry4 >= TotalRainMid) {
                                         UseRun = true;
                                     }
                                     else {
@@ -2000,7 +2000,7 @@ module CSSP {
                             if (j <= ShortRangeEnd && j > 0) {
                                 TotalRainShort = TotalRainShort + RainValue;
                                 if (j == 1) {
-                                    if (UpperRainLimitStillConsideredDry1 > TotalRainShort) {
+                                    if (UpperRainLimitStillConsideredDry1 >= TotalRainShort) {
                                         UseRun = true;
                                     }
                                     else {
@@ -2008,7 +2008,7 @@ module CSSP {
                                     }
                                 }
                                 else if (j == 2) {
-                                    if (UpperRainLimitStillConsideredDry2 > TotalRainShort) {
+                                    if (UpperRainLimitStillConsideredDry2 >= TotalRainShort) {
                                         UseRun = true;
                                     }
                                     else {
@@ -2016,7 +2016,7 @@ module CSSP {
                                     }
                                 }
                                 else if (j == 3) {
-                                    if (UpperRainLimitStillConsideredDry3 > TotalRainShort) {
+                                    if (UpperRainLimitStillConsideredDry3 >= TotalRainShort) {
                                         UseRun = true;
                                     }
                                     else {
@@ -2024,7 +2024,7 @@ module CSSP {
                                     }
                                 }
                                 else {
-                                    if (UpperRainLimitStillConsideredDry4 > TotalRainShort) {
+                                    if (UpperRainLimitStillConsideredDry4 >= TotalRainShort) {
                                         UseRun = true;
                                     }
                                     else {
@@ -2035,25 +2035,25 @@ module CSSP {
                             else if (j > ShortRangeEnd && j <= MidRangeEnd) {
                                 TotalRainMid = TotalRainMid + RainValue;
                                 if (j == (ShortRangeEnd + 1)) {
-                                    if (LowerRainLimitConsideredRain1 < TotalRainMid) {
+                                    if (LowerRainLimitConsideredRain1 <= TotalRainMid) {
                                         Rain$.addClass("bg-info");
                                         UseRun = true;
                                     }
                                 }
                                 else if (j == (ShortRangeEnd + 2)) {
-                                    if (LowerRainLimitConsideredRain2 < TotalRainMid) {
+                                    if (LowerRainLimitConsideredRain2 <= TotalRainMid) {
                                         Rain$.addClass("bg-info");
                                         UseRun = true;
                                     }
                                 }
                                 else if (j == (ShortRangeEnd + 3)) {
-                                    if (LowerRainLimitConsideredRain3 < TotalRainMid) {
+                                    if (LowerRainLimitConsideredRain3 <= TotalRainMid) {
                                         Rain$.addClass("bg-info");
                                         UseRun = true;
                                     }
                                 }
                                 else {
-                                    if (LowerRainLimitConsideredRain4 < TotalRainMid) {
+                                    if (LowerRainLimitConsideredRain4 <= TotalRainMid) {
                                         Rain$.addClass("bg-info");
                                         UseRun = true;
                                     }

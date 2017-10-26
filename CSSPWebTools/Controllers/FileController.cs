@@ -148,6 +148,24 @@ namespace CSSPWebTools.Controllers
 
         [HttpPost]
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public JsonResult CreateDocxPDFJSON(FormCollection fc)
+        {
+            string ret = _TVFileService.CreateDocxPDFDB(fc);
+
+            return Json(ret, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public JsonResult CreateXlsxPDFJSON(FormCollection fc)
+        {
+            string ret = _TVFileService.CreateXlsxPDFDB(fc);
+
+            return Json(ret, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
         public JsonResult FileEditSaveJSON(FormCollection fc)
         {
             TVFileModel tvFileModelRet = _TVFileService.FileEditSaveDB(fc);

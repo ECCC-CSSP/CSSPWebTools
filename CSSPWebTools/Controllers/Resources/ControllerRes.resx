@@ -391,4 +391,7 @@
   <data name="LogBook" xml:space="preserve">
     <value>Log Book</value>
   </data>
+  <data name="YearsWithSamplesUsed" xml:space="preserve">
+    <value>Years with samples used</value>
+  </data>
 </root>

@@ -1449,7 +1449,7 @@ namespace CSSPWebTools.Controllers
             ViewBag.TVItemID = TVItemID;
             ViewBag.TVFileModelList = null;
 
-            List<TVFileModel> tvFileModelList = _TVFileService.GetTVFileModelListWithReportTypeIDDB(ReportTypeID);
+            List<TVFileModel> tvFileModelList = _TVFileService.GetTVFileModelListWithReportTypeIDAndTVItemIDDB(ReportTypeID, TVItemID);
             ViewBag.TVFileModelList = tvFileModelList;
 
             return PartialView();

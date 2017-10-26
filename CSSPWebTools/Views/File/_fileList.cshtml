@@ -12,7 +12,7 @@
     TVAuthEnum tvAuth = (TVAuthEnum)ViewBag.TVAuth;
     int NumberOfSample = (int)ViewBag.NumberOfSample;
     bool IsShowMoreInfo = (bool)ViewBag.IsShowMoreInfo;
-   }
+}
 
 <div id="FileDiv">
     <div id="FileVariables" class="hidden">
@@ -42,7 +42,7 @@
                 {
                     <div class="panel panel-info">
                         <div class="panel-heading">
-                            <h4 class="panel-title">@fpat.FilePurposeText @FileViewRes.Files</h4>
+                            <h4 class="panel-title">@fpat.FilePurposeText</h4>
                         </div>
 
                         <div class="panel-body">
@@ -70,6 +70,23 @@
                                                     if (!fpat.FilePurpose.ToString().StartsWith("Mike") || fpat.FilePurpose.ToString().Contains("KMZ"))
                                                     {
                                                         <button class="jbFileAskToDelete btn btn-default" data-tvfiletvitemid="@tvFileModel.TVFileTVItemID" title="@FileViewRes.Delete"><span class="glyphicon glyphicon-trash"></span></button>
+                                                    }
+                                                }
+                                                @if (fpat.FilePurpose == FilePurposeEnum.ReportGenerated)
+                                                {
+                                                    if (tvAuth >= TVAuthEnum.Delete && tvFileModel.FileType == FileTypeEnum.DOCX)
+                                                    {
+                                                        if (!fpat.FilePurpose.ToString().StartsWith("Mike") || fpat.FilePurpose.ToString().Contains("KMZ"))
+                                                        {
+                                                            <button class="jbFileCreateDocxPDF btn btn-default" data-tvfiletvitemid="@tvFileModel.TVFileTVItemID" title="@FileViewRes.CreatePDF"><span class="glyphicon glyphicon-export"></span>&nbsp;PDF</button>
+                                                        }
+                                                    }
+                                                    if (tvAuth >= TVAuthEnum.Delete && tvFileModel.FileType == FileTypeEnum.XLSX)
+                                                    {
+                                                        if (!fpat.FilePurpose.ToString().StartsWith("Mike") || fpat.FilePurpose.ToString().Contains("KMZ"))
+                                                        {
+                                                            <button class="jbFileCreateXlsxPDF btn btn-default" data-tvfiletvitemid="@tvFileModel.TVFileTVItemID" title="@FileViewRes.CreatePDF"><span class="glyphicon glyphicon-export"></span>&nbsp;PDF</button>
+                                                        }
                                                     }
                                                 }
                                             </li>

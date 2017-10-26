@@ -320,6 +320,16 @@ module CSSP {
                             cssp.File.AskToDelete($bjs);
                         }
                         break;
+                    case "jbFileCreateDocxPDF":
+                        {
+                            cssp.File.CreateDocxPDF($bjs);
+                        }
+                        break;
+                    case "jbFileCreateXlsxPDF":
+                        {
+                            cssp.File.CreateXlsxPDF($bjs);
+                        }
+                        break;
                     case "jbFileDownload":
                         {
                             cssp.File.FileDownload($bjs);

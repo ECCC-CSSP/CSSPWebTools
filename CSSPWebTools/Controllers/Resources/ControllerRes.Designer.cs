@@ -842,5 +842,14 @@ namespace CSSPWebTools.Controllers.Resources {
                 return ResourceManager.GetString("VisualPlumes", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Years with samples used.
+        /// </summary>
+        public static string YearsWithSamplesUsed {
+            get {
+                return ResourceManager.GetString("YearsWithSamplesUsed", resourceCulture);
+            }
+        }
     }
 }
