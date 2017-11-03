@@ -286,7 +286,7 @@ namespace CSSPWebTools.Views.ClimateSite.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to A une tournée.
+        ///   Looks up a localized string similar to Has runs.
         /// </summary>
         public static string HasRuns {
             get {

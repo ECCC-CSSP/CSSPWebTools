@@ -22,7 +22,7 @@
                     <legend><span>@DocumentViewRes.Parameters</span></legend>
                     <input type="hidden" name="TVItemID" value="@TVItemID" />
                     <input type="hidden" name="ReportTypeID" value="@ReportTypeID" />
-                    @Parameters()
+                    @Parameters(reportTypeModel.UniqueCode)
                     <div class="form-group">
                         <button class="jbDocumentGenerate btn btn-primary" type="submit">
                             <span class="glyphicon glyphicon-check"></span>
@@ -38,23 +38,40 @@ else
 {
     <ul class="list-unstyled">
         <li>
-            @Parameters()
+            @Parameters(reportTypeModel.UniqueCode)
         </li>
     </ul>
 }
 
-@helper Parameters()
+@helper Parameters(string UniqueCode)
 {
-    <label class="group-inline">
-        <select name="Year" class="form-control">
-            @for (int i = DateTime.Now.Year; i > 1989; i--)
-            {
-                <option value="@i">@i.ToString()</option>
-            }
-        </select>
-    </label>
+switch (UniqueCode)
+{
+    case "FCSummaryStatDocx":
+        {
+                <label class="group-inline">
+                    <select name="Year" class="form-control">
+                        @for (int i = DateTime.Now.Year; i > 1989; i--)
+                        {
+                            <option value="@i">@i.ToString()</option>
+                        }
+                    </select>
+                </label>
+        }
+        break;
+    case "MapActivePolSourceSitesDocx":
+        {
+                <span>@DocumentViewRes.NoParameters</span>
+        }
+        break;
+    case "MapActiveMWQMSitesDocx":
+        {
+                <span>@DocumentViewRes.NoParameters</span>
+        }
+        break;
+    default:
+        break;
+}
 }
 
-<table class="table table-striped table-condensed">
-
-</table>
+<table class="table table-striped table-condensed"></table>

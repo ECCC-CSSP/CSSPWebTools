@@ -103,7 +103,7 @@ var CSSP;
             this.GetCivicAddress = function () {
                 $(".GoogleAddressText").text(cssp.GetHTMLVariable("#LayoutVariables", "varInProgress"));
                 $("input[name='LatLngText']").val($(".CivicAddressLatLng").val());
-                var url = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + $(".CivicAddressLatLng").first().val().replace(" ", ",");
+                var url = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + $(".CivicAddressLatLng").first().val().replace(" ", ",") + "&key=AIzaSyAwPGpdSM6z0A7DFdWPbS3vIDTk2mxINaA";
                 var command = "Address/GetGoogleCivicAddress";
                 $.getJSON(cssp.BaseURL + command, { LatLngText: $(".CivicAddressLatLng").first().val().replace(" ", ",") })
                     .done(function (ret) {

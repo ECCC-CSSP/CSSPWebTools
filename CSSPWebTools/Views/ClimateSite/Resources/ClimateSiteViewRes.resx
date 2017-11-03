@@ -313,6 +313,6 @@
     <value>Climate site</value>
   </data>
   <data name="HasRuns" xml:space="preserve">
-    <value>A une tournée</value>
+    <value>Has runs</value>
   </data>
 </root>

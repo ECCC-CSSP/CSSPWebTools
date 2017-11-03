@@ -158,7 +158,7 @@ namespace CSSPWebTools.Controllers
         {
             using (WebClient webClient = new WebClient())
             {
-                string url = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + LatLngText;
+                string url = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + LatLngText + "&Key=AIzaSyAwPGpdSM6z0A7DFdWPbS3vIDTk2mxINaA";
                 string jsonStr = webClient.DownloadString(url);
 
                 byte[] bytes = Encoding.Default.GetBytes(jsonStr);
