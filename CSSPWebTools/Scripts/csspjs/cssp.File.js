@@ -7,7 +7,7 @@ var CSSP;
             this.FormUploadName = "#FileUploadForm";
             this.FormEditName = "#FileEditForm";
             this.AskToDelete = function ($bjs) {
-                var TVText = $bjs.closest("TVFileItem").find(".TVText").text();
+                var TVText = $bjs.closest(".TVFileItem").find(".TVText").text();
                 cssp.Dialog.ShowDialogAreYouSure(TVText);
                 cssp.Dialog.CheckDialogAndButtonsExist(["#DialogBasic", "#DialogBasicYes"], 5, "cssp.File.SetDialogEvents", $bjs);
             };
@@ -310,7 +310,8 @@ var CSSP;
                             TVFileTVItemID: TVFileTVItemID,
                         }).done(function (ret) {
                             if (ret == "") {
-                                cssp.Helper.PageRefresh();
+                                cssp.Dialog.ShowDialogSuccess($bjs.closest(".TVFileItem").find(".TVText").text());
+                                $bjs.closest(".TVFileItem").html("");
                             }
                             else {
                                 cssp.Dialog.ShowDialogErrorWithError(ret);

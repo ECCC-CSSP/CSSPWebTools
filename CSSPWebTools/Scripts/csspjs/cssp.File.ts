@@ -8,7 +8,7 @@
         constructor() {
         }
         public AskToDelete: Function = ($bjs: JQuery): void => {
-            var TVText: string = $bjs.closest("TVFileItem").find(".TVText").text();
+            var TVText: string = $bjs.closest(".TVFileItem").find(".TVText").text();
             cssp.Dialog.ShowDialogAreYouSure(TVText);
             cssp.Dialog.CheckDialogAndButtonsExist(["#DialogBasic", "#DialogBasicYes"], 5, "cssp.File.SetDialogEvents", $bjs);
         };
@@ -331,7 +331,8 @@
                             TVFileTVItemID: TVFileTVItemID,
                         }).done((ret) => {
                             if (ret == "") {
-                                cssp.Helper.PageRefresh();
+                                cssp.Dialog.ShowDialogSuccess($bjs.closest(".TVFileItem").find(".TVText").text());                               
+                                $bjs.closest(".TVFileItem").html("");
                             }
                             else {
                                 cssp.Dialog.ShowDialogErrorWithError(ret);

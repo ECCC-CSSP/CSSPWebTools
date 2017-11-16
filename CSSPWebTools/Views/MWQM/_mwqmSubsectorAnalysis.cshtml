@@ -18,9 +18,9 @@
 <div id="MWQMSubsectorAnalysisDiv" data-subsectortvitemid="@SubsectorTVItemID">
     <table id="AnalysisTable" class="table text-center">
         <tr class="CanHide">
-            <th class="FirstTH" colspan="9" rowspan="14">
+            <th class="FirstTH verticalRight" colspan="11">
                 <div class="panel">
-                    <ul class="form-inline list-inline">
+                    @*<ul class="form-inline list-inline">
                         <li>
                             <button class="jbMWQMSubsectorAnalysisShowHideRainRows btn btn-default">@MWQMViewRes.HideRainRows</button>
                         </li>
@@ -33,12 +33,11 @@
                         <li>
                             <button class="jbMWQMSubsectorAnalysisShowHideRunsNotUsed btn btn-default">@MWQMViewRes.HideRunsNotUsed</button>
                         </li>
-                    </ul>
-                    <div class="QueryTool">
+                    </ul>*@
+                    <div class="QueryTool small">
                         <ul class="form-inline list-inline">
                             <li>
-                                <strong>@MWQMViewRes.Between</strong>
-                                <select class="MWQMSubsectorAnalysisStartDate form-control">
+                                <select class="MWQMSubsectorAnalysisStartDate form-control" title="@MWQMViewRes.StartDate">
                                     @foreach (MWQMRunAnalysisModel mwqmRunAnalysisModel in mwqmSubsectorAnalysisModel.MWQMRunAnalysisModelList.OrderByDescending(c => c.DateTime_Local))
                                     {
                                         <option value="@(mwqmRunAnalysisModel.DateTime_Local.ToString("yyyy-MM-dd"))"
@@ -49,8 +48,7 @@
                                 </select>
                             </li>
                             <li>
-                                <strong>@MWQMViewRes.And</strong>
-                                <select class="MWQMSubsectorAnalysisEndDate form-control">
+                                <select class="MWQMSubsectorAnalysisEndDate form-control" title="@MWQMViewRes.EndDate">
                                     @foreach (MWQMRunAnalysisModel mwqmRunAnalysisModel in mwqmSubsectorAnalysisModel.MWQMRunAnalysisModelList.OrderByDescending(c => c.DateTime_Local))
                                     {
                                         <option value="@(mwqmRunAnalysisModel.DateTime_Local.ToString("yyyy-MM-dd"))"
@@ -60,8 +58,6 @@
                                     }
                                 </select>
                             </li>
-                        </ul>
-                        <ul class="form-inline list-inline">
                             <li>
                                 <strong>@MWQMViewRes.Runs:</strong>
                                 <select class="MWQMSubsectorAnalysisRuns form-control">
@@ -73,270 +69,18 @@
                             </li>
                             <li>
                                 <input class="SelectFullYear" type="checkbox" checked="checked" name="SelectFullYear" />
-                                <span>@MWQMViewRes.SelectFullYear</span>
+                                <span>@MWQMViewRes.FullYear</span>
                             </li>
                             <li>
-                                <span class="NeedRecal"
-                                      data-inprogress="@MWQMViewRes.InProgress"
-                                      data-needrecalculation="@MWQMViewRes.NeedRecalculation"
-                                      data-completed="@MWQMViewRes.Completed"></span>
-                            </li>
-                        </ul>
-                        <ul class="form-inline list-inline">
-                            <li>
-                                <strong>@MWQMViewRes.HighlightSalinityDeviationFromAverage</strong>
-                                <select class="MWQMSubsectorAnalysisHighlightSalinityDeviationFromAverage form-control">
-                                    @for (int i = 3; i < 13; i++)
-                                    {
-                                        <option value="@i" @(i == 8 ? "selected=selected" : "")>
-                                            @i
-                                        </option>
-                                    }
-                                </select>
-                            </li>
-                        </ul>
-                        <ul class="form-inline list-inline">
-                            <li>
-                                <ul class="form-inline list-inline">
-                                    <li>
-                                        @MWQMViewRes.ShortRange : [-1] - [
-                                    </li>
-                                    <li>
-                                        <label><input type="radio" name="ShortRange" class="ShortRange ShortRange1" value="-1" /> (-1)</label>
-                                    </li>
-                                    <li>
-                                        <label><input type="radio" name="ShortRange" class="ShortRange ShortRange2" value="-2" /> (-2)</label>
-                                    </li>
-                                    <li>
-                                        <label><input type="radio" name="ShortRange" class="ShortRange ShortRange3" value="-3" checked="checked" /> (-3)</label>
-                                    </li>
-                                    <li>
-                                        <label><input type="radio" name="ShortRange" class="ShortRange ShortRange4" value="-4" /> (-4)</label>
-                                    </li>
-                                    <li>
-                                        <label><input type="radio" name="ShortRange" class="ShortRange ShortRange5" value="-5" /> (-5)</label>
-                                    </li>
-                                    <li>]</li>
-                                </ul>
-                                <ul class="form-inline list-inline">
-                                    <li>@MWQMViewRes.MidRange : [<span class="MidRangeStart">4</span>] - [</li>
-                                    <li class="hidden" data-value="-2">
-                                        <label><input type="radio" name="MidRange" class="MidRange MidRange2" value="-2" /> (-2)</label>
-                                    </li>
-                                    <li class="hidden" data-value="-3">
-                                        <label><input type="radio" name="MidRange" class="MidRange MidRange3" value="-3" /> (-3)</label>
-                                    </li>
-                                    <li data-value="-4">
-                                        <label><input type="radio" name="MidRange" class="MidRange MidRange4" value="-4" /> (-4)</label>
-                                    </li>
-                                    <li data-value="-5">
-                                        <label><input type="radio" name="MidRange" class="MidRange MidRange5" value="-5" /> (-5)</label>
-                                    </li>
-                                    <li data-value="-6">
-                                        <label><input type="radio" name="MidRange" class="MidRange MidRange6" value="-6" checked="checked" /> (-6)</label>
-                                    </li>
-                                    <li data-value="-7">
-                                        <label><input type="radio" name="MidRange" class="MidRange MidRange7" value="-7" /> (-7)</label>
-                                    </li>
-                                    <li data-value="-8">
-                                        <label><input type="radio" name="MidRange" class="MidRange MidRange8" value="-8" /> (-8)</label>
-                                    </li>
-                                    <li>]</li>
-                                </ul>
-                            </li>
-                        </ul>
-                        <Table class="table table-condensed">
-                            <tr>
-                                <th colspan="5" class="h4">@MWQMViewRes.UpperAndLowerRainLimitConsideredDryOrWet</th>
-                            </tr>
-                            <tr>
-                                <th>&nbsp;</th>
-                                <th>0-24h</th>
-                                <th>0-48h</th>
-                                <th>0-72h</th>
-                                <th>0-96h</th>
-                            </tr>
-                            <tr>
-                                <td>@MWQMViewRes.Dry</td>
-                                <td>
-                                    <select class="MWQMAnalysisUpperRainLimitStillConsideredDry form-control" name="UpperRainLimitStillConsideredDry1">
-                                        @for (int i = 1; i < 32; i++)
-                                        {
-                                            <option value="@i" @(i == 4 ? "selected=selected" : "")>@i</option>
-                                        }
-                                    </select>
-                                </td>
-                                <td>
-                                    <select class="MWQMAnalysisUpperRainLimitStillConsideredDry form-control" name="UpperRainLimitStillConsideredDry2">
-                                        @for (int i = 1; i < 32; i++)
-                                        {
-                                            <option value="@i" @(i == 8 ? "selected=selected" : "")>@i</option>
-                                        }
-                                    </select>
-                                </td>
-                                <td>
-                                    <select class="MWQMAnalysisUpperRainLimitStillConsideredDry form-control" name="UpperRainLimitStillConsideredDry3">
-                                        @for (int i = 1; i < 32; i++)
-                                        {
-                                            <option value="@i" @(i == 12 ? "selected=selected" : "")>@i</option>
-                                        }
-                                    </select>
-                                </td>
-                                <td>
-                                    <select class="MWQMAnalysisUpperRainLimitStillConsideredDry form-control" name="UpperRainLimitStillConsideredDry4">
-                                        @for (int i = 1; i < 32; i++)
-                                        {
-                                            <option value="@i" @(i == 16 ? "selected=selected" : "")>@i</option>
-                                        }
-                                    </select>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>@MWQMViewRes.Wet</td>
-                                <td>
-                                    <select class="MWQMAnalysisLowerRainLimitConsideredRain form-control" name="LowerRainLimitConsideredRain1">
-                                        @for (int i = 5; i < 101; i++)
-                                        {
-                                            <option value="@i" @(i == 12 ? "selected=selected" : "")>@i</option>
-                                        }
-                                    </select>
-                                </td>
-                                <td>
-                                    <select class="MWQMAnalysisLowerRainLimitConsideredRain form-control" name="LowerRainLimitConsideredRain2">
-                                        <option value="-1" selected="selected">@MWQMViewRes.NA</option>
-                                        @for (int i = 5; i < 101; i++)
-                                        {
-                                            <option value="@i" @(i == 25 ? "selected=selected" : "")>@i</option>
-                                        }
-                                    </select>
-                                </td>
-                                <td>
-                                    <select class="MWQMAnalysisLowerRainLimitConsideredRain form-control" name="LowerRainLimitConsideredRain3">
-                                        <option value="-1" selected="selected">@MWQMViewRes.NA</option>
-                                        @for (int i = 5; i < 101; i++)
-                                        {
-                                            <option value="@i" @(i == 37 ? "selected=selected" : "")>@i</option>
-                                        }
-                                    </select>
-                                </td>
-                                <td>
-                                    <select class="MWQMAnalysisLowerRainLimitConsideredRain form-control" name="LowerRainLimitConsideredRain4">
-                                        <option value="-1" selected="selected">@MWQMViewRes.NA</option>
-                                        @for (int i = 5; i < 101; i++)
-                                        {
-                                            <option value="@i" @(i == 50 ? "selected=selected" : "")>@i</option>
-                                        }
-                                    </select>
-                                </td>
-                            </tr>
-                        </Table>
-                        <ul class="form-inline list-inline">
-                            <li>
-                                <strong>@MWQMViewRes.Calculation:</strong>
-                                <select class="MWQMSubsectorAnalysisCalculateType form-control" name="MWQMSubsectorAnalysisCalculateType">
-                                    <option value="All_All_All" selected="selected">@MWQMViewRes.All - @MWQMViewRes.All - @MWQMViewRes.All</option>
-                                    <option value="Wet_All_All">@MWQMViewRes.Wet - @MWQMViewRes.All - @MWQMViewRes.All</option>
-                                    <option value="Dry_All_All">@MWQMViewRes.Dry - @MWQMViewRes.All - @MWQMViewRes.All</option>
-                                    @*<option value="Wet_Wet_All">@MWQMViewRes.Wet - @MWQMViewRes.Wet - @MWQMViewRes.All</option>
-                                    <option value="Dry_Dry_All">@MWQMViewRes.Dry - @MWQMViewRes.Dry - @MWQMViewRes.All</option>
-                                    <option value="Wet_Dry_All">@MWQMViewRes.Wet - @MWQMViewRes.Dry - @MWQMViewRes.All</option>
-                                    <option value="Dry_Wet_All">@MWQMViewRes.Dry - @MWQMViewRes.Wet - @MWQMViewRes.All</option>*@
-                                </select>
-                            </li>
-                            <li>@MWQMViewRes.ShortMidLongRange</li>
-                        </ul>
-                        <ul class="form-inline list-inline">
-                            <li>
-                                <div class="MWQMAnalysisReportParameterTopDiv">
-                                    @Html.Action("_mwqmAnalysisReportParameter", "MWQM", new { SubsectorTVItemID = SubsectorTVItemID })
-                                </div>
-                            </li>
-                        </ul>
-                        <ul class="list-unstyled">
-                            <li>
-                                @MWQMViewRes.ColorAndLetterSchema <button class="jbMWQMSubsectorAnalysisShowHideColorAndLetterHelp btn btn-default small"><span class="glyphicon glyphicon-info-sign"></span></button>
-                                <table class="ColorAndLetterSchema table table-condensed hidden">
-                                    <tr>
-                                        <td class="bgbluef">F</td>
-                                        <td>GM > 181.33 or Med > 181.33 or P90 > 460.0 or % > 260 > 18.33</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="bgbluee">E</td>
-                                        <td>GM > 162.67 or Med > 162.67 or P90 > 420.0 or % > 260 > 16.67</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="bgblued">D</td>
-                                        <td>GM > 144.0 or Med > 144.0 or P90 > 380.0 or % > 260 > 15.0</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="bgbluec">C</td>
-                                        <td>GM > 125.33 or Med > 125.33 or P90 > 340.0 or % > 260 > 13.33</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="bgblueb">B</td>
-                                        <td>GM > 106.67 or Med > 106.67 or P90 > 300.0 or % > 260 > 11.67</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="bgbluea">A</td>
-                                        <td>GM > 88 or Med > 88 or P90 > 260 or % > 260 > 10</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="bgredf">F</td>
-                                        <td>GM > 75.67 or Med > 75.67 or P90 > 223.83 or % > 43 > 26.67</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="bgrede">E</td>
-                                        <td>GM > 63.33 or Med > 63.33 or P90 > 187.67 or % > 43 > 23.33</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="bgredd">D</td>
-                                        <td>GM > 51.0 or Med > 51.0 or P90 > 151.5 or % > 43 > 20.0</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="bgredc">C</td>
-                                        <td>GM > 38.67 or Med > 38.67 or P90 > 115.33 or % > 43 > 16.67</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="bgredb">B</td>
-                                        <td>GM > 26.33 or Med > 26.33 or P90 > 79.17 or % > 43 > 13.33</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="bgreda">A</td>
-                                        <td>GM > 14 or Med > 14 or P90 > 43 or % > 43 > 10</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="bggreenf">F</td>
-                                        <td>GM > 11.67 or Med > 11.67 or P90 > 35.83 or % > 43 > 8.33</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="bggreene">E</td>
-                                        <td>GM > 9.33 or Med > 9.33 or P90 > 28.67 or % > 43 > 6.67</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="bggreend">D</td>
-                                        <td>GM > 7.0 or Med > 7.0 or P90 > 21.5 or % > 43 > 5.0</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="bggreenc">C</td>
-                                        <td>GM > 4.67 or Med > 4.67 or P90 > 14.33 or % > 43 > 3.33</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="bggreenb">B</td>
-                                        <td>GM > 2.33 or Med > 2.33 or P90 > 7.17 or % > 43 > 1.67</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="bggreena">A</td>
-                                        <td>Everything else</td>
-                                    </tr>
-                                </table>
+                                <button class="jbMWQMSubsectorAnalysisShowHideRunsNotUsed btn btn-default">@MWQMViewRes.Used</button>
                             </li>
                         </ul>
                     </div>
                 </div>
             </th>
-            <th class="verticalRight" colspan="2">
-                @MWQMViewRes.RunDate<br /><br />@MWQMViewRes.RainDay
-            </th>
+            @*<th class="verticalRight" colspan="2">
+                    @MWQMViewRes.RunDate<br /><br />@MWQMViewRes.RainDay
+                </th>*@
             @foreach (MWQMRunAnalysisModel mwqmRunAnalysisModel in mwqmSubsectorAnalysisModel.MWQMRunAnalysisModelList.OrderByDescending(c => c.DateTime_Local))
             {
                 bool DoVert = false;
@@ -364,6 +108,428 @@
                 RunCount += 1;
                 OldYear = mwqmRunAnalysisModel.DateTime_Local.Year;
             }
+        </tr>
+        <tr>
+            <th>Site</th>
+            <th>Samples</th>
+            <th>Period</th>
+            <th>Min&nbsp;FC</th>
+            <th>Max&nbsp;FC</th>
+            <th>GMean</th>
+            <th>Median</th>
+            <th>P90</th>
+            <th>%&nbsp;>&nbsp;43</th>
+            <th>%&nbsp;>&nbsp;260</th>
+            <th class="verticalRight">&nbsp;&nbsp;</th>
+            <th colspan="@(mwqmSubsectorAnalysisModel.MWQMRunAnalysisModelList.Count())">
+                @*<ul class="form-inline list-inline">
+                    <li>*@
+                <label for="DataTypeFC" title="@MWQMViewRes.FecalColiformPer100mL">
+                    <input class="MWQMAnalysisTableDataType DataTypeFC" name="DataTypeFC" type="checkbox" checked="checked" disabled="disabled" />
+                    @MWQMViewRes.FecalColiformPer100mL
+                </label>
+                &nbsp;
+                <label class="text-info" for="DataTypeTemp" title="@MWQMViewRes.Temperature">
+                    <input class="MWQMAnalysisTableDataType DataTypeTemp" name="DataTypeTemp" id="DataTypeTemp" type="checkbox" />
+                    @MWQMViewRes.Temperature
+                </label>
+                &nbsp;
+                <label class="text-info" for="DataTypeSal" title="@MWQMViewRes.Salinity">
+                    <input class="MWQMAnalysisTableDataType  DataTypeSal" name="DataTypeSal" id="DataTypeSal" type="checkbox" />
+                    @MWQMViewRes.Salinity
+                </label>
+                &nbsp;
+                <label class="text-info" for="DataTypeP90" title="@MWQMViewRes.P90">
+                    <input class="MWQMAnalysisTableDataType DataTypeP90" name="DataTypeP90" id="DataTypeP90" type="checkbox" />
+                    @MWQMViewRes.P90
+                </label>
+                &nbsp;
+                <label class="text-info" for="DataTypeGM" title="@MWQMViewRes.GeometricMean">
+                    <input class="MWQMAnalysisTableDataType DataTypeGM" name="DataTypeGM" id="DataTypeGM" type="checkbox" />
+                    @MWQMViewRes.GeometricMean
+                </label>
+                &nbsp;
+                <label class="text-info" for="DataTypeMed" title="@MWQMViewRes.Median">
+                    <input class="MWQMAnalysisTableDataType DataTypeMed" name="DataTypeMed" id="DataTypeMed" type="checkbox" />
+                    @MWQMViewRes.Median
+                </label>
+                &nbsp;
+                <label class="text-info" for="DataTypeP43" title="@MWQMViewRes.PercentageOfP90gt43">
+                    <input class="MWQMAnalysisTableDataType DataTypeP43" name="DataTypeP43" id="DataTypeP43" type="checkbox" />
+                    @MWQMViewRes.PercentageOfP90gt43
+                </label>
+                &nbsp;
+                <label class="text-info" for="DataTypeP260" title="@MWQMViewRes.PercentageOfP90gt260">
+                    <input class="MWQMAnalysisTableDataType DataTypeP260" name="DataTypeP260" id="DataTypeP260" type="checkbox" />
+                    @MWQMViewRes.PercentageOfP90gt260
+                </label>
+                @*</li>
+                    </ul>*@
+            </th>
+        </tr>
+        @foreach (MWQMSiteAnalysisModel mwqmSiteAnalysisModel in mwqmSubsectorAnalysisModel.MWQMSiteAnalysisModelList.Where(c => c.IsActive == true).OrderBy(c => c.MWQMSiteTVText))
+        {
+            RunCount = 0;
+            string Classification = "";
+            string ClassBgColor = "";
+            switch (mwqmSiteAnalysisModel.MWQMSiteLatestClassification)
+            {
+                case MWQMSiteLatestClassificationEnum.Approved:
+                    {
+                        Classification = "A";
+                        ClassBgColor = "bggreen";
+                    }
+                    break;
+                case MWQMSiteLatestClassificationEnum.ConditionallyApproved:
+                    {
+                        Classification = "CA";
+                        ClassBgColor = "bggreen";
+                    }
+                    break;
+                case MWQMSiteLatestClassificationEnum.Restricted:
+                    {
+                        Classification = "R";
+                        ClassBgColor = "bgred";
+                    }
+                    break;
+                case MWQMSiteLatestClassificationEnum.ConditionallyRestricted:
+                    {
+                        Classification = "CR";
+                        ClassBgColor = "bgred";
+                    }
+                    break;
+                case MWQMSiteLatestClassificationEnum.Prohibited:
+                    {
+                        Classification = "P";
+                        ClassBgColor = "bgblack";
+                    }
+                    break;
+                case MWQMSiteLatestClassificationEnum.Unclassified:
+                    {
+                        Classification = "U";
+                        ClassBgColor = "white";
+                    }
+                    break;
+                default:
+                    break;
+            }
+            <tr>
+                <td class="MWQMSite"
+                    data-tvitemid="@mwqmSiteAnalysisModel.MWQMSiteTVItemID"
+                    data-sitecount="@SiteCount"
+                    data-isactive="@mwqmSiteAnalysisModel.IsActive">
+                    <span class="text-nowrap text-success">
+                        @mwqmSiteAnalysisModel.MWQMSiteTVText
+                        <span>(@Classification) </span><span class="@ClassBgColor">&nbsp;&nbsp;</span>
+                    </span>
+                </td>
+                <td class="SamplesCount" data-sitecount="@SiteCount">--</td>
+                <td class="Period text-nowrap" data-sitecount="@SiteCount">--</td>
+                <td class="MinFC" data-sitecount="@SiteCount">--</td>
+                <td class="MaxFC" data-sitecount="@SiteCount">--</td>
+                <td class="GMean" data-sitecount="@SiteCount">--</td>
+                <td class="Median" data-sitecount="@SiteCount">--</td>
+                <td class="P90" data-sitecount="@SiteCount">--</td>
+                <td class="PercOver43" data-sitecount="@SiteCount">--</td>
+                <td class="PercOver260" data-sitecount="@SiteCount">--</td>
+                <td class="ColorAndLetter verticalRight" data-sitecount="@SiteCount">&nbsp;&nbsp;</td>
+                @foreach (MWQMRunAnalysisModel mwqmRunAnalysisModel in mwqmSubsectorAnalysisModel.MWQMRunAnalysisModelList.OrderByDescending(c => c.DateTime_Local))
+                {
+                    bool DoVert = false;
+                    if (OldYear != 0)
+                    {
+                        if (OldYear != mwqmRunAnalysisModel.DateTime_Local.Year)
+                        {
+                            DoVert = true;
+                        }
+                    }
+                    MWQMSampleAnalysisModel mwqmSampleAnalysisModel = mwqmSubsectorAnalysisModel.MWQMSampleAnalysisModelList.Where(c => c.MWQMSiteTVItemID == mwqmSiteAnalysisModel.MWQMSiteTVItemID && c.MWQMRunTVItemID == mwqmRunAnalysisModel.MWQMRunTVItemID).FirstOrDefault();
+                    <td class="MWQMSample @(DoVert ? "verticalLeft" : "")
+                        @(mwqmSampleAnalysisModel == null || mwqmSampleAnalysisModel.SampleTypesText == null
+                        || mwqmSampleAnalysisModel.SampleTypesText != "Routine" ? "" :
+                        (mwqmSampleAnalysisModel.FecCol_MPN_100ml > 43 ?
+                        (mwqmSampleAnalysisModel.FecCol_MPN_100ml > 500 ? "bg-danger" : "bg-warning") : ""))"
+                        data-date="@mwqmRunAnalysisModel.DateTime_Local.ToString("yyyy-MM-dd")"
+                        data-sampletypetext="@(mwqmSampleAnalysisModel == null
+                        || mwqmSampleAnalysisModel.SampleTypesText == null ? "" : mwqmSampleAnalysisModel.SampleTypesText)"
+                        data-sitecount="@SiteCount"
+                        data-runcount="@RunCount"
+                        data-runid="@mwqmRunAnalysisModel.MWQMRunTVItemID"
+                        data-siteid="@mwqmSiteAnalysisModel.MWQMSiteTVItemID"
+                        data-fc=@(mwqmSampleAnalysisModel == null ? "-1" : mwqmSampleAnalysisModel.FecCol_MPN_100ml.ToString("F0"))
+                        data-temp=@(mwqmSampleAnalysisModel == null || mwqmSampleAnalysisModel.WaterTemp_C == null ? "-1" : ((float)mwqmSampleAnalysisModel.WaterTemp_C).ToString("F1"))
+                        data-sal=@(mwqmSampleAnalysisModel == null || mwqmSampleAnalysisModel.Salinity_PPT == null ? "-1" : ((float)mwqmSampleAnalysisModel.Salinity_PPT).ToString("F1"))>
+                        @(mwqmSampleAnalysisModel == null ? "--" : (mwqmSampleAnalysisModel.FecCol_MPN_100ml == 1 ? "<2" : mwqmSampleAnalysisModel.FecCol_MPN_100ml.ToString("F0")))
+                    </td>
+
+                    RunCount += 1;
+                    OldYear = mwqmRunAnalysisModel.DateTime_Local.Year;
+                }
+            </tr>
+            SiteCount += 1;
+        }
+        <tr>
+            <th colspan="11" class="verticalRight">&nbsp;</th>
+            <th colspan="5">@MWQMViewRes.Precipitation</th>
+        </tr>
+        <tr>
+            <th colspan="9" rowspan="14">
+                <ul class="form-inline list-inline">
+                    <li>
+                        <strong>@MWQMViewRes.HighlightSalinityDeviationFromAverage</strong>
+                        <select class="MWQMSubsectorAnalysisHighlightSalinityDeviationFromAverage form-control">
+                            @for (int i = 3; i < 13; i++)
+                            {
+                                <option value="@i" @(i == 8 ? "selected=selected" : "")>
+                                    @i
+                                </option>
+                            }
+                        </select>
+                    </li>
+                    <li>
+                        <span class="NeedRecal"
+                              data-inprogress="@MWQMViewRes.InProgress"
+                              data-needrecalculation="@MWQMViewRes.NeedRecalculation"
+                              data-completed="@MWQMViewRes.Completed"></span>
+                    </li>
+                </ul>
+                <ul class="form-inline list-inline">
+                    <li>
+                        <ul class="form-inline list-inline">
+                            <li>
+                                @MWQMViewRes.ShortRange : [-1] - [
+                            </li>
+                            <li>
+                                <label><input type="radio" name="ShortRange" class="ShortRange ShortRange1" value="-1" /> (-1)</label>
+                            </li>
+                            <li>
+                                <label><input type="radio" name="ShortRange" class="ShortRange ShortRange2" value="-2" /> (-2)</label>
+                            </li>
+                            <li>
+                                <label><input type="radio" name="ShortRange" class="ShortRange ShortRange3" value="-3" checked="checked" /> (-3)</label>
+                            </li>
+                            <li>
+                                <label><input type="radio" name="ShortRange" class="ShortRange ShortRange4" value="-4" /> (-4)</label>
+                            </li>
+                            <li>
+                                <label><input type="radio" name="ShortRange" class="ShortRange ShortRange5" value="-5" /> (-5)</label>
+                            </li>
+                            <li>]</li>
+                        </ul>
+                        <ul class="form-inline list-inline">
+                            <li>@MWQMViewRes.MidRange : [<span class="MidRangeStart">4</span>] - [</li>
+                            <li class="hidden" data-value="-2">
+                                <label><input type="radio" name="MidRange" class="MidRange MidRange2" value="-2" /> (-2)</label>
+                            </li>
+                            <li class="hidden" data-value="-3">
+                                <label><input type="radio" name="MidRange" class="MidRange MidRange3" value="-3" /> (-3)</label>
+                            </li>
+                            <li data-value="-4">
+                                <label><input type="radio" name="MidRange" class="MidRange MidRange4" value="-4" /> (-4)</label>
+                            </li>
+                            <li data-value="-5">
+                                <label><input type="radio" name="MidRange" class="MidRange MidRange5" value="-5" /> (-5)</label>
+                            </li>
+                            <li data-value="-6">
+                                <label><input type="radio" name="MidRange" class="MidRange MidRange6" value="-6" checked="checked" /> (-6)</label>
+                            </li>
+                            <li data-value="-7">
+                                <label><input type="radio" name="MidRange" class="MidRange MidRange7" value="-7" /> (-7)</label>
+                            </li>
+                            <li data-value="-8">
+                                <label><input type="radio" name="MidRange" class="MidRange MidRange8" value="-8" /> (-8)</label>
+                            </li>
+                            <li>]</li>
+                        </ul>
+                    </li>
+                </ul>
+                <Table class="table table-condensed">
+                    <tr>
+                        <th colspan="5" class="h4">@MWQMViewRes.UpperAndLowerRainLimitConsideredDryOrWet</th>
+                    </tr>
+                    <tr>
+                        <th>&nbsp;</th>
+                        <th>0-24h</th>
+                        <th>0-48h</th>
+                        <th>0-72h</th>
+                        <th>0-96h</th>
+                    </tr>
+                    <tr>
+                        <td>@MWQMViewRes.Dry</td>
+                        <td>
+                            <select class="MWQMAnalysisUpperRainLimitStillConsideredDry form-control" name="UpperRainLimitStillConsideredDry1">
+                                @for (int i = 1; i < 32; i++)
+                                {
+                                    <option value="@i" @(i == 4 ? "selected=selected" : "")>@i</option>
+                                }
+                            </select>
+                        </td>
+                        <td>
+                            <select class="MWQMAnalysisUpperRainLimitStillConsideredDry form-control" name="UpperRainLimitStillConsideredDry2">
+                                @for (int i = 1; i < 32; i++)
+                                {
+                                    <option value="@i" @(i == 8 ? "selected=selected" : "")>@i</option>
+                                }
+                            </select>
+                        </td>
+                        <td>
+                            <select class="MWQMAnalysisUpperRainLimitStillConsideredDry form-control" name="UpperRainLimitStillConsideredDry3">
+                                @for (int i = 1; i < 32; i++)
+                                {
+                                    <option value="@i" @(i == 12 ? "selected=selected" : "")>@i</option>
+                                }
+                            </select>
+                        </td>
+                        <td>
+                            <select class="MWQMAnalysisUpperRainLimitStillConsideredDry form-control" name="UpperRainLimitStillConsideredDry4">
+                                @for (int i = 1; i < 32; i++)
+                                {
+                                    <option value="@i" @(i == 16 ? "selected=selected" : "")>@i</option>
+                                }
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>@MWQMViewRes.Wet</td>
+                        <td>
+                            <select class="MWQMAnalysisLowerRainLimitConsideredRain form-control" name="LowerRainLimitConsideredRain1">
+                                @for (int i = 5; i < 101; i++)
+                                {
+                                    <option value="@i" @(i == 12 ? "selected=selected" : "")>@i</option>
+                                }
+                            </select>
+                        </td>
+                        <td>
+                            <select class="MWQMAnalysisLowerRainLimitConsideredRain form-control" name="LowerRainLimitConsideredRain2">
+                                <option value="-1" selected="selected">@MWQMViewRes.NA</option>
+                                @for (int i = 5; i < 101; i++)
+                                {
+                                    <option value="@i" @(i == 25 ? "selected=selected" : "")>@i</option>
+                                }
+                            </select>
+                        </td>
+                        <td>
+                            <select class="MWQMAnalysisLowerRainLimitConsideredRain form-control" name="LowerRainLimitConsideredRain3">
+                                <option value="-1" selected="selected">@MWQMViewRes.NA</option>
+                                @for (int i = 5; i < 101; i++)
+                                {
+                                    <option value="@i" @(i == 37 ? "selected=selected" : "")>@i</option>
+                                }
+                            </select>
+                        </td>
+                        <td>
+                            <select class="MWQMAnalysisLowerRainLimitConsideredRain form-control" name="LowerRainLimitConsideredRain4">
+                                <option value="-1" selected="selected">@MWQMViewRes.NA</option>
+                                @for (int i = 5; i < 101; i++)
+                                {
+                                    <option value="@i" @(i == 50 ? "selected=selected" : "")>@i</option>
+                                }
+                            </select>
+                        </td>
+                    </tr>
+                </Table>
+                <ul class="form-inline list-inline">
+                    <li>
+                        <strong>@MWQMViewRes.Calculation:</strong>
+                        <select class="MWQMSubsectorAnalysisCalculateType form-control" name="MWQMSubsectorAnalysisCalculateType">
+                            <option value="All_All_All" selected="selected">@MWQMViewRes.All - @MWQMViewRes.All - @MWQMViewRes.All</option>
+                            <option value="Wet_All_All">@MWQMViewRes.Wet - @MWQMViewRes.All - @MWQMViewRes.All</option>
+                            <option value="Dry_All_All">@MWQMViewRes.Dry - @MWQMViewRes.All - @MWQMViewRes.All</option>
+                            @*<option value="Wet_Wet_All">@MWQMViewRes.Wet - @MWQMViewRes.Wet - @MWQMViewRes.All</option>
+                                <option value="Dry_Dry_All">@MWQMViewRes.Dry - @MWQMViewRes.Dry - @MWQMViewRes.All</option>
+                                <option value="Wet_Dry_All">@MWQMViewRes.Wet - @MWQMViewRes.Dry - @MWQMViewRes.All</option>
+                                <option value="Dry_Wet_All">@MWQMViewRes.Dry - @MWQMViewRes.Wet - @MWQMViewRes.All</option>*@
+                        </select>
+                    </li>
+                    <li>@MWQMViewRes.ShortMidLongRange</li>
+                </ul>
+                <ul class="form-inline list-inline">
+                    <li>
+                        <div class="MWQMAnalysisReportParameterTopDiv">
+                            @Html.Action("_mwqmAnalysisReportParameter", "MWQM", new { SubsectorTVItemID = SubsectorTVItemID })
+                        </div>
+                    </li>
+                </ul>
+                <ul class="list-unstyled">
+                    <li>
+                        @MWQMViewRes.ColorAndLetterSchema <button class="jbMWQMSubsectorAnalysisShowHideColorAndLetterHelp btn btn-default small"><span class="glyphicon glyphicon-info-sign"></span></button>
+                        <table class="ColorAndLetterSchema table table-condensed hidden">
+                            <tr>
+                                <td class="bgbluef">F</td>
+                                <td>GM > 181.33 or Med > 181.33 or P90 > 460.0 or % > 260 > 18.33</td>
+                            </tr>
+                            <tr>
+                                <td class="bgbluee">E</td>
+                                <td>GM > 162.67 or Med > 162.67 or P90 > 420.0 or % > 260 > 16.67</td>
+                            </tr>
+                            <tr>
+                                <td class="bgblued">D</td>
+                                <td>GM > 144.0 or Med > 144.0 or P90 > 380.0 or % > 260 > 15.0</td>
+                            </tr>
+                            <tr>
+                                <td class="bgbluec">C</td>
+                                <td>GM > 125.33 or Med > 125.33 or P90 > 340.0 or % > 260 > 13.33</td>
+                            </tr>
+                            <tr>
+                                <td class="bgblueb">B</td>
+                                <td>GM > 106.67 or Med > 106.67 or P90 > 300.0 or % > 260 > 11.67</td>
+                            </tr>
+                            <tr>
+                                <td class="bgbluea">A</td>
+                                <td>GM > 88 or Med > 88 or P90 > 260 or % > 260 > 10</td>
+                            </tr>
+                            <tr>
+                                <td class="bgredf">F</td>
+                                <td>GM > 75.67 or Med > 75.67 or P90 > 223.83 or % > 43 > 26.67</td>
+                            </tr>
+                            <tr>
+                                <td class="bgrede">E</td>
+                                <td>GM > 63.33 or Med > 63.33 or P90 > 187.67 or % > 43 > 23.33</td>
+                            </tr>
+                            <tr>
+                                <td class="bgredd">D</td>
+                                <td>GM > 51.0 or Med > 51.0 or P90 > 151.5 or % > 43 > 20.0</td>
+                            </tr>
+                            <tr>
+                                <td class="bgredc">C</td>
+                                <td>GM > 38.67 or Med > 38.67 or P90 > 115.33 or % > 43 > 16.67</td>
+                            </tr>
+                            <tr>
+                                <td class="bgredb">B</td>
+                                <td>GM > 26.33 or Med > 26.33 or P90 > 79.17 or % > 43 > 13.33</td>
+                            </tr>
+                            <tr>
+                                <td class="bgreda">A</td>
+                                <td>GM > 14 or Med > 14 or P90 > 43 or % > 43 > 10</td>
+                            </tr>
+                            <tr>
+                                <td class="bggreenf">F</td>
+                                <td>GM > 11.67 or Med > 11.67 or P90 > 35.83 or % > 43 > 8.33</td>
+                            </tr>
+                            <tr>
+                                <td class="bggreene">E</td>
+                                <td>GM > 9.33 or Med > 9.33 or P90 > 28.67 or % > 43 > 6.67</td>
+                            </tr>
+                            <tr>
+                                <td class="bggreend">D</td>
+                                <td>GM > 7.0 or Med > 7.0 or P90 > 21.5 or % > 43 > 5.0</td>
+                            </tr>
+                            <tr>
+                                <td class="bggreenc">C</td>
+                                <td>GM > 4.67 or Med > 4.67 or P90 > 14.33 or % > 43 > 3.33</td>
+                            </tr>
+                            <tr>
+                                <td class="bggreenb">B</td>
+                                <td>GM > 2.33 or Med > 2.33 or P90 > 7.17 or % > 43 > 1.67</td>
+                            </tr>
+                            <tr>
+                                <td class="bggreena">A</td>
+                                <td>Everything else</td>
+                            </tr>
+                        </table>
+                    </li>
+                </ul>
+            </th>
         </tr>
         @{
             RunCount = 0;
@@ -740,168 +906,12 @@
         </tr>
         @{
             RunCount = 0;
-            SiteCount = 0;
+            //SiteCount = 0;
             OldYear = 0;
         }
-        <tr>
-            <th>Site</th>
-            <th>Samples</th>
-            <th>Period</th>
-            <th>Min&nbsp;FC</th>
-            <th>Max&nbsp;FC</th>
-            <th>GMean</th>
-            <th>Median</th>
-            <th>P90</th>
-            <th>%&nbsp;>&nbsp;43</th>
-            <th>%&nbsp;>&nbsp;260</th>
-            <th class="verticalRight">&nbsp;&nbsp;</th>
-            <th colspan="@(mwqmSubsectorAnalysisModel.MWQMRunAnalysisModelList.Count())">
-                @*<ul class="form-inline list-inline">
-                    <li>*@
-                <label for="DataTypeFC" title="@MWQMViewRes.FecalColiformPer100mL">
-                    <input class="MWQMAnalysisTableDataType DataTypeFC" name="DataTypeFC" type="checkbox" checked="checked" disabled="disabled" />
-                    @MWQMViewRes.FecalColiformPer100mL
-                </label>
-                &nbsp;
-                <label class="text-info" for="DataTypeTemp" title="@MWQMViewRes.Temperature">
-                    <input class="MWQMAnalysisTableDataType DataTypeTemp" name="DataTypeTemp" id="DataTypeTemp" type="checkbox" />
-                    @MWQMViewRes.Temperature
-                </label>
-                &nbsp;
-                <label class="text-info" for="DataTypeSal" title="@MWQMViewRes.Salinity">
-                    <input class="MWQMAnalysisTableDataType  DataTypeSal" name="DataTypeSal" id="DataTypeSal" type="checkbox" />
-                    @MWQMViewRes.Salinity
-                </label>
-                &nbsp;
-                <label class="text-info" for="DataTypeP90" title="@MWQMViewRes.P90">
-                    <input class="MWQMAnalysisTableDataType DataTypeP90" name="DataTypeP90" id="DataTypeP90" type="checkbox" />
-                    @MWQMViewRes.P90
-                </label>
-                &nbsp;
-                <label class="text-info" for="DataTypeGM" title="@MWQMViewRes.GeometricMean">
-                    <input class="MWQMAnalysisTableDataType DataTypeGM" name="DataTypeGM" id="DataTypeGM" type="checkbox" />
-                    @MWQMViewRes.GeometricMean
-                </label>
-                &nbsp;
-                <label class="text-info" for="DataTypeMed" title="@MWQMViewRes.Median">
-                    <input class="MWQMAnalysisTableDataType DataTypeMed" name="DataTypeMed" id="DataTypeMed" type="checkbox" />
-                    @MWQMViewRes.Median
-                </label>
-                &nbsp;
-                <label class="text-info" for="DataTypeP43" title="@MWQMViewRes.PercentageOfP90gt43">
-                    <input class="MWQMAnalysisTableDataType DataTypeP43" name="DataTypeP43" id="DataTypeP43" type="checkbox" />
-                    @MWQMViewRes.PercentageOfP90gt43
-                </label>
-                &nbsp;
-                <label class="text-info" for="DataTypeP260" title="@MWQMViewRes.PercentageOfP90gt260">
-                    <input class="MWQMAnalysisTableDataType DataTypeP260" name="DataTypeP260" id="DataTypeP260" type="checkbox" />
-                    @MWQMViewRes.PercentageOfP90gt260
-                </label>
-                @*</li>
-                    </ul>*@
-            </th>
-        </tr>
-        @foreach (MWQMSiteAnalysisModel mwqmSiteAnalysisModel in mwqmSubsectorAnalysisModel.MWQMSiteAnalysisModelList.Where(c => c.IsActive == true).OrderBy(c => c.MWQMSiteTVText))
-        {
-            RunCount = 0;
-            string Classification = "";
-            string ClassBgColor = "";
-            switch (mwqmSiteAnalysisModel.MWQMSiteLatestClassification)
-            {
-                case MWQMSiteLatestClassificationEnum.Approved:
-                    {
-                        Classification = "A";
-                        ClassBgColor = "bggreen";
-                    }
-                    break;
-                case MWQMSiteLatestClassificationEnum.ConditionallyApproved:
-                    {
-                        Classification = "CA";
-                        ClassBgColor = "bggreen";
-                    }
-                    break;
-                case MWQMSiteLatestClassificationEnum.Restricted:
-                    {
-                        Classification = "R";
-                        ClassBgColor = "bgred";
-                    }
-                    break;
-                case MWQMSiteLatestClassificationEnum.ConditionallyRestricted:
-                    {
-                        Classification = "CR";
-                        ClassBgColor = "bgred";
-                    }
-                    break;
-                case MWQMSiteLatestClassificationEnum.Prohibited:
-                    {
-                        Classification = "P";
-                        ClassBgColor = "bgblack";
-                    }
-                    break;
-                case MWQMSiteLatestClassificationEnum.Unclassified:
-                    {
-                        Classification = "U";
-                        ClassBgColor = "white";
-                    }
-                    break;
-                default:
-                    break;
-            }
-            <tr>
-                <td class="MWQMSite"
-                    data-tvitemid="@mwqmSiteAnalysisModel.MWQMSiteTVItemID"
-                    data-sitecount="@SiteCount"
-                    data-isactive="@mwqmSiteAnalysisModel.IsActive">
-                    <span class="text-nowrap text-success">
-                        @mwqmSiteAnalysisModel.MWQMSiteTVText
-                        <span>(@Classification) </span><span class="@ClassBgColor">&nbsp;&nbsp;</span>
-                    </span>
-                </td>
-                <td class="SamplesCount" data-sitecount="@SiteCount">--</td>
-                <td class="Period text-nowrap" data-sitecount="@SiteCount">--</td>
-                <td class="MinFC" data-sitecount="@SiteCount">--</td>
-                <td class="MaxFC" data-sitecount="@SiteCount">--</td>
-                <td class="GMean" data-sitecount="@SiteCount">--</td>
-                <td class="Median" data-sitecount="@SiteCount">--</td>
-                <td class="P90" data-sitecount="@SiteCount">--</td>
-                <td class="PercOver43" data-sitecount="@SiteCount">--</td>
-                <td class="PercOver260" data-sitecount="@SiteCount">--</td>
-                <td class="ColorAndLetter verticalRight" data-sitecount="@SiteCount">&nbsp;&nbsp;</td>
-                @foreach (MWQMRunAnalysisModel mwqmRunAnalysisModel in mwqmSubsectorAnalysisModel.MWQMRunAnalysisModelList.OrderByDescending(c => c.DateTime_Local))
-                {
-                    bool DoVert = false;
-                    if (OldYear != 0)
-                    {
-                        if (OldYear != mwqmRunAnalysisModel.DateTime_Local.Year)
-                        {
-                            DoVert = true;
-                        }
-                    }
-                    MWQMSampleAnalysisModel mwqmSampleAnalysisModel = mwqmSubsectorAnalysisModel.MWQMSampleAnalysisModelList.Where(c => c.MWQMSiteTVItemID == mwqmSiteAnalysisModel.MWQMSiteTVItemID && c.MWQMRunTVItemID == mwqmRunAnalysisModel.MWQMRunTVItemID).FirstOrDefault();
-                    <td class="MWQMSample @(DoVert ? "verticalLeft" : "")
-                        @(mwqmSampleAnalysisModel == null || mwqmSampleAnalysisModel.SampleTypesText == null
-                        || mwqmSampleAnalysisModel.SampleTypesText != "Routine" ? "" :
-                        (mwqmSampleAnalysisModel.FecCol_MPN_100ml > 43 ?
-                        (mwqmSampleAnalysisModel.FecCol_MPN_100ml > 500 ? "bg-danger" : "bg-warning") : ""))"
-                        data-date="@mwqmRunAnalysisModel.DateTime_Local.ToString("yyyy-MM-dd")"
-                        data-sampletypetext="@(mwqmSampleAnalysisModel == null
-                        || mwqmSampleAnalysisModel.SampleTypesText == null ? "" : mwqmSampleAnalysisModel.SampleTypesText)"
-                        data-sitecount="@SiteCount"
-                        data-runcount="@RunCount"
-                        data-runid="@mwqmRunAnalysisModel.MWQMRunTVItemID"
-                        data-siteid="@mwqmSiteAnalysisModel.MWQMSiteTVItemID"
-                        data-fc=@(mwqmSampleAnalysisModel == null ? "-1" : mwqmSampleAnalysisModel.FecCol_MPN_100ml.ToString("F0"))
-                        data-temp=@(mwqmSampleAnalysisModel == null || mwqmSampleAnalysisModel.WaterTemp_C == null ? "-1" : ((float)mwqmSampleAnalysisModel.WaterTemp_C).ToString("F1"))
-                        data-sal=@(mwqmSampleAnalysisModel == null || mwqmSampleAnalysisModel.Salinity_PPT == null ? "-1" : ((float)mwqmSampleAnalysisModel.Salinity_PPT).ToString("F1"))>
-                        @(mwqmSampleAnalysisModel == null ? "--" : (mwqmSampleAnalysisModel.FecCol_MPN_100ml == 1 ? "<2" : mwqmSampleAnalysisModel.FecCol_MPN_100ml.ToString("F0")))
-                    </td>
 
-                    RunCount += 1;
-                    OldYear = mwqmRunAnalysisModel.DateTime_Local.Year;
-                }
-            </tr>
-            SiteCount += 1;
-        }
+
+        @* here we should add the rest of the query and the precipitation *@
         @foreach (MWQMSiteAnalysisModel mwqmSiteAnalysisModel in mwqmSubsectorAnalysisModel.MWQMSiteAnalysisModelList.Where(c => c.IsActive == false).OrderBy(c => c.MWQMSiteTVText))
             {
                 RunCount = 0;

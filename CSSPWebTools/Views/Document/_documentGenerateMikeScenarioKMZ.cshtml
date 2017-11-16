@@ -22,7 +22,7 @@
                     <legend><span>@DocumentViewRes.Parameters</span></legend>
                     <input type="hidden" name="TVItemID" value="@TVItemID" />
                     <input type="hidden" name="ReportTypeID" value="@ReportTypeID" />
-                    @Parameters()
+                    @Parameters(reportTypeModel.UniqueCode)
                     <div class="form-group">
                         <button class="jbDocumentGenerate btn btn-primary" type="submit">
                             <span class="glyphicon glyphicon-check"></span>
@@ -38,12 +38,33 @@ else
 {
     <ul class="list-unstyled">
         <li>
-            @Parameters()
+            @Parameters(reportTypeModel.UniqueCode)
         </li>
     </ul>
 }
 
-@helper Parameters()
+@helper Parameters(string UniqueCode)
 {
-    <span>@DocumentViewRes.NoParameters</span>
+switch (UniqueCode)
+{
+    case "MikeScenarioBoundaryConditionsKMZ":
+    case "MikeScenarioMeshKMZ":
+    case "MikeScenarioStudyAreaKMZ":
+        {
+                <span>@DocumentViewRes.NoParameters</span>
+        }
+        break;
+    case "MikeScenarioPollutionLimitKMZ":
+    case "MikeScenarioPollutionAnimationKMZ":
+        {
+                <label class="group-inline">
+                    <span>@DocumentViewRes.ContourValues</span>
+                    <input type="text" name="ContourValues" value="14 88" class="form-control">
+                    <span>EX: 14 88 1000</span>
+                </label>
+        }
+        break;
+    default:
+        break;
+}
 }

@@ -33,8 +33,11 @@
                     <input class="MapTopCenterItemVisibility" type="checkbox" data-tag="Browse" />&nbsp;&nbsp;@MapViewRes.Browse
                 </li>
                 @*<li>
-                    <input class="MapTopCenterItemVisibility" type="checkbox" data-tag="Distance" />&nbsp;&nbsp;@MapViewRes.Distance
+                    <input class="MapTopCenterItemVisibility" type="checkbox" data-tag="MoveLabel" />&nbsp;&nbsp;@MapViewRes.MoveLabel
                 </li>*@
+                @*<li>
+                        <input class="MapTopCenterItemVisibility" type="checkbox" data-tag="Distance" />&nbsp;&nbsp;@MapViewRes.Distance
+                    </li>*@
             </ul>
             <ul class="MapTopCenterSetup hidden list-inline">
                 <li>
@@ -51,6 +54,7 @@
             </ul>
             <ul class="MapTopCenterEdit hidden list-inline">
                 <li>
+                    @MapViewRes.Edit
                     <button class="jbMapEdit btn btn-default" role="menuitem" href="#" tabindex="-1" title="@MapViewRes.Edit"><span class="glyphicon glyphicon-pencil"></span></button>&nbsp;
                 </li>
                 <li>
@@ -60,6 +64,28 @@
                     <button class="jbMapEditCancel disabled btn btn-default small" role="menuitem" href="#" tabindex="-1" title="@MapViewRes.Cancel"><span class="glyphicon glyphicon-ban-circle"></span></button>&nbsp;
                 </li>
             </ul>
+            @*<ul class="MapTopCenterMoveLabel hidden list-inline">
+                <li>
+                    @MapViewRes.MoveLabel
+                    <button class="jbMapEditMoveLabel btn btn-default" role="menuitem" href="#" tabindex="-1" title="@MapViewRes.MoveLabel"><span class="glyphicon glyphicon-pencil"></span></button>&nbsp;
+                </li>
+                <li>
+                    <button class="jbMapEditMoveLabelCancel disabled btn btn-default small" role="menuitem" href="#" tabindex="-1" title="@MapViewRes.Cancel"><span class="glyphicon glyphicon-ban-circle"></span></button>&nbsp;
+                </li>
+                <li>
+                    <ul class="MapEditMoveLabelAuto list-inline">
+                        <li>
+                            <button class="jbMapEditMoveLabelAuto btn btn-default small" role="menuitem" href="#" tabindex="-1" title="@MapViewRes.Automatic"><span class="glyphicon glyphicon-fullscreen"></span></button>&nbsp;
+                        </li>
+                        <li>
+                            <input name="MovelLabelOnlyActive" type="checkbox" checked="checked" />&nbsp;&nbsp;@MapViewRes.OnlyActive
+                        </li>
+                        <li>
+                            <button class="jbMapEditMoveLabelClear btn btn-default small" role="menuitem" href="#" tabindex="-1" title="@MapViewRes.Clear"><span class="glyphicon glyphicon-screenshot"></span></button>&nbsp;
+                        </li>
+                    </ul>
+                </li>
+            </ul>*@
             <div class="MapTopCenterLegend hidden">
                 <ul class="list-inline LegendPinObj"></ul>
             </div>

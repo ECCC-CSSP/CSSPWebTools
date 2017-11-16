@@ -481,6 +481,26 @@ var CSSP;
                                 cssp.GoogleMap.MapEditCancel($bjs);
                             }
                             break;
+                        case "jbMapEditMoveLabel":
+                            {
+                                cssp.GoogleMap.MapMoveLabel($bjs);
+                            }
+                            break;
+                        case "jbMapEditMoveLabelAuto":
+                            {
+                                cssp.GoogleMap.MapEditMoveLabelAuto($bjs);
+                            }
+                            break;
+                        case "jbMapEditMoveLabelCancel":
+                            {
+                                cssp.GoogleMap.MapEditMoveLabelCancel($bjs);
+                            }
+                            break;
+                        case "jbMapEditMoveLabelClear":
+                            {
+                                cssp.GoogleMap.MapEditMoveLabelClear($bjs);
+                            }
+                            break;
                         case "jbMapEditPointCancel":
                             {
                                 cssp.GoogleMap.MapEditPointCancel($bjs);
@@ -491,6 +511,11 @@ var CSSP;
                                 cssp.GoogleMap.MapEditPointSave($bjs);
                             }
                             break;
+                        //case "jbMapEditMoveLabelPointSave":
+                        //    {
+                        //        cssp.GoogleMap.MapEditMoveLabelPointSave($bjs);
+                        //    }
+                        //    break;
                         case "jbMapEditSave":
                             {
                                 cssp.GoogleMap.MapEditSave($bjs);
@@ -826,11 +851,6 @@ var CSSP;
                                 cssp.MWQMSite.LoadMWQMSiteTable();
                             }
                             break;
-                        case "jbMWQMSiteShowHideEditButtons":
-                            {
-                                cssp.MWQMSite.ShowHideEditButtons($bjs);
-                            }
-                            break;
                         case "jbMWQMSiteInfoShowHide":
                             {
                                 cssp.MWQMSite.MWQMSiteInfoShowHide($bjs);
@@ -846,9 +866,19 @@ var CSSP;
                                 cssp.MWQMSite.DrawCharts();
                             }
                             break;
+                        case "jbMWQMSiteShowHideEditButtons":
+                            {
+                                cssp.MWQMSite.ShowHideEditButtons($bjs);
+                            }
+                            break;
                         case "jbMWQMSiteShowHideOnMap":
                             {
                                 cssp.MWQMSite.MWQMShowHideOnMap();
+                            }
+                            break;
+                        case "jbMWQMSiteShowSiteText":
+                            {
+                                cssp.MWQMSite.ShowSiteText($bjs);
                             }
                             break;
                         case "jbMWQMSubsectorAnalysisParameterReload":

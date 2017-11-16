@@ -2,7 +2,7 @@
 declare var StyledMarker;
 declare var StyledIcon;
 declare var StyledIconTypes;
-
+declare var RichMarker;
 
 module CSSP {
     export class GoogleMap {
@@ -42,6 +42,8 @@ module CSSP {
         public itemsDropDown: Array<string> = [];
         public LegendArr: Array<LegendElem> = [];
 
+        public MoveLabel: boolean = false;
+
         // Function
         constructor() {
             this.TVItemObjects = [];
@@ -68,9 +70,216 @@ module CSSP {
                 elem.set("editable", false);
             });
         };
-        public CreateMarker: Function = (i: number, j: number, k: number, color: string, TVType: CSSP.TVTypeEnum): void => {
-            var zIndex: number = cssp.GoogleMap.ZIndexPointBase + cssp.GoogleMap.TVItemObjects[i].MapObjList[j].MapInfoID;
-            var mark: google.maps.Marker = new StyledMarker(
+        public CreateMarker: Function = (i: number, j: number, k: number, color: string, TVType: CSSP.TVTypeEnum, LatAverage: number, LngAverage: number): void => {
+            //let LineLengthLat: number = 0.001;
+            //let LineLengthLng: number = 0.001;
+            let zIndex: number = cssp.GoogleMap.ZIndexPointBase + cssp.GoogleMap.TVItemObjects[i].MapObjList[j].MapInfoID;
+            let mark: google.maps.Marker = new google.maps.Marker();
+
+            //if (cssp.GoogleMap.TVItemObjects[i].MapObjList[j].CoordList.length == 2) {
+
+            //    if (cssp.GoogleMap.TVItemObjects[i].TVType == TVTypeEnum.MWQMSite || cssp.GoogleMap.TVItemObjects[i].TVType == TVTypeEnum.PolSourceSite) {
+            //        let AnchorNumber: number = 0;
+            //        if (cssp.GoogleMap.TVItemObjects[i].MapObjList[j].CoordList[k].Lat >= LatAverage && cssp.GoogleMap.TVItemObjects[i].MapObjList[j].CoordList[k].Lng >= LngAverage) {
+            //            AnchorNumber = 7; //BOTTOM_LEFT
+            //            LineLengthLat = LineLengthLat * 1;
+            //            LineLengthLng = LineLengthLng * 1;
+            //        }
+            //        else if (cssp.GoogleMap.TVItemObjects[i].MapObjList[j].CoordList[k].Lat < LatAverage && cssp.GoogleMap.TVItemObjects[i].MapObjList[j].CoordList[k].Lng >= LngAverage) {
+            //            AnchorNumber = 1; //TOP_LEFT
+            //            LineLengthLat = LineLengthLat * -1;
+            //            LineLengthLng = LineLengthLng * 1;
+            //        }
+            //        else if (cssp.GoogleMap.TVItemObjects[i].MapObjList[j].CoordList[k].Lat < LatAverage && cssp.GoogleMap.TVItemObjects[i].MapObjList[j].CoordList[k].Lng < LngAverage) {
+            //            AnchorNumber = 3; //TOP_RIGHT
+            //            LineLengthLat = LineLengthLat * -1;
+            //            LineLengthLng = LineLengthLng * -1;
+            //        }
+            //        else if (cssp.GoogleMap.TVItemObjects[i].MapObjList[j].CoordList[k].Lat > LatAverage && cssp.GoogleMap.TVItemObjects[i].MapObjList[j].CoordList[k].Lng < LngAverage) {
+            //            AnchorNumber = 9; //BOTTOM_RIGHT
+            //            LineLengthLat = LineLengthLat * 1;
+            //            LineLengthLng = LineLengthLng * -1;
+            //        }
+            //        else {
+            //            AnchorNumber = 7; //BOTTOM_LEFT
+            //        }
+
+            //        var CoordList = [];
+            //        CoordList.push(new google.maps.LatLng(cssp.GoogleMap.TVItemObjects[i].MapObjList[j].CoordList[k].Lat, cssp.GoogleMap.TVItemObjects[i].MapObjList[j].CoordList[k].Lng));
+            //        CoordList.push(new google.maps.LatLng(cssp.GoogleMap.TVItemObjects[i].MapObjList[j].CoordList[k].Lat + LineLengthLat, cssp.GoogleMap.TVItemObjects[i].MapObjList[j].CoordList[k].Lng + LineLengthLng));
+            //        let polyl: google.maps.Polyline = new google.maps.Polyline({
+            //            path: CoordList,
+            //            strokeColor: '#9F9',
+            //            strokeOpacity: 1,
+            //            strokeWeight: 1,
+            //            map: cssp.GoogleMap.Map,
+            //            zIndex: zIndex,
+            //        });
+            //        cssp.GoogleMap.MVCObjPolylines.push(polyl);
+            //        let div = document.createElement('div');
+            //        let text = (cssp.GoogleMap.TVItemObjects[i].TVText.length > 0 ?
+            //            (cssp.GoogleMap.TVItemObjects[i].TVText.length <= cssp.GoogleMap.MarkerTextLength
+            //                ? cssp.GoogleMap.TVItemObjects[i].TVText
+            //                : cssp.GoogleMap.TVItemObjects[i].TVText.substring(0, cssp.GoogleMap.MarkerTextLength))
+            //            : "");
+
+            //        div.innerHTML = '<div class="my-other-marker" style="background-color:#' + color + '">' + text + '</div>';
+            //        mark = new RichMarker(
+            //            {
+            //                map: cssp.GoogleMap.Map,
+            //                position: new google.maps.LatLng(cssp.GoogleMap.TVItemObjects[i].MapObjList[j].CoordList[k].Lat + LineLengthLat, cssp.GoogleMap.TVItemObjects[i].MapObjList[j].CoordList[k].Lng + LineLengthLng),
+            //                draggable: true,
+            //                flat: true,
+            //                anchor: AnchorNumber,
+            //                content: div
+            //            });
+            //    }
+            //    else {
+            //        let div = document.createElement('div');
+            //        let text = (cssp.GoogleMap.TVItemObjects[i].TVText.length > 0 ?
+            //            (cssp.GoogleMap.TVItemObjects[i].TVText.length <= cssp.GoogleMap.MarkerTextLength
+            //                ? cssp.GoogleMap.TVItemObjects[i].TVText
+            //                : cssp.GoogleMap.TVItemObjects[i].TVText.substring(0, cssp.GoogleMap.MarkerTextLength))
+            //            : "");
+
+            //        div.innerHTML = '<div class="my-other-marker" style="background-color:#' + color + '">' + text + '</div>';
+            //        mark = new RichMarker(
+            //            {
+            //                map: cssp.GoogleMap.Map,
+            //                position: new google.maps.LatLng(cssp.GoogleMap.TVItemObjects[i].MapObjList[j].CoordList[k].Lat, cssp.GoogleMap.TVItemObjects[i].MapObjList[j].CoordList[k].Lng),
+            //                draggable: true,
+            //                flat: true,
+            //                anchor: 5, //MIDDLE
+            //                content: div
+            //            });
+            //    }
+            //    //var CoordList = [];
+            //    //CoordList.push(new google.maps.LatLng(cssp.GoogleMap.TVItemObjects[i].MapObjList[j].CoordList[k].Lat, cssp.GoogleMap.TVItemObjects[i].MapObjList[j].CoordList[k].Lng));
+            //    //CoordList.push(new google.maps.LatLng(cssp.GoogleMap.TVItemObjects[i].MapObjList[j].CoordList[k + 1].Lat, cssp.GoogleMap.TVItemObjects[i].MapObjList[j].CoordList[k + 1].Lng));
+            //    //let polyl: google.maps.Polyline = new google.maps.Polyline({
+            //    //    path: CoordList,
+            //    //    strokeColor: '#9F9',
+            //    //    strokeOpacity: 1,
+            //    //    strokeWeight: 1,
+            //    //    map: cssp.GoogleMap.Map,
+            //    //    zIndex: zIndex,
+            //    //});
+            //    //cssp.GoogleMap.MVCObjPolylines.push(polyl);
+            //    //mark = new StyledMarker(
+            //    //    {
+            //    //        styleIcon: (new StyledIcon(
+            //    //            StyledIconTypes.BUBBLE,
+            //    //            {
+            //    //                color: color,
+            //    //                text: (cssp.GoogleMap.TVItemObjects[i].TVText.length > 0 ?
+            //    //                    (cssp.GoogleMap.TVItemObjects[i].TVText.length <= cssp.GoogleMap.MarkerTextLength
+            //    //                        ? encodeURIComponent(cssp.GoogleMap.TVItemObjects[i].TVText)
+            //    //                        : encodeURIComponent(cssp.GoogleMap.TVItemObjects[i].TVText.substring(0, cssp.GoogleMap.MarkerTextLength)))
+            //    //                    : ""),
+            //    //            })),
+            //    //        position: new google.maps.LatLng(cssp.GoogleMap.TVItemObjects[i].MapObjList[j].CoordList[k + 1].Lat, cssp.GoogleMap.TVItemObjects[i].MapObjList[j].CoordList[k + 1].Lng),
+            //    //        map: cssp.GoogleMap.Map,
+            //    //        draggable: cssp.GoogleMap.Editing,
+            //    //        raiseOnDrag: true,
+            //    //        zIndex: zIndex,
+            //    //    });
+            //}
+            //else {
+            //    if (cssp.GoogleMap.TVItemObjects[i].TVType == TVTypeEnum.MWQMSite || cssp.GoogleMap.TVItemObjects[i].TVType == TVTypeEnum.PolSourceSite) {
+            //        let AnchorNumber: number = 0;
+            //        if (cssp.GoogleMap.TVItemObjects[i].MapObjList[j].CoordList[k].Lat >= LatAverage && cssp.GoogleMap.TVItemObjects[i].MapObjList[j].CoordList[k].Lng >= LngAverage) {
+            //            AnchorNumber = 7; //BOTTOM_LEFT
+            //            LineLengthLat = LineLengthLat * 1;
+            //            LineLengthLng = LineLengthLng * 1;
+            //        }
+            //        else if (cssp.GoogleMap.TVItemObjects[i].MapObjList[j].CoordList[k].Lat < LatAverage && cssp.GoogleMap.TVItemObjects[i].MapObjList[j].CoordList[k].Lng >= LngAverage) {
+            //            AnchorNumber = 1; //TOP_LEFT
+            //            LineLengthLat = LineLengthLat * -1;
+            //            LineLengthLng = LineLengthLng * 1;
+            //        }
+            //        else if (cssp.GoogleMap.TVItemObjects[i].MapObjList[j].CoordList[k].Lat < LatAverage && cssp.GoogleMap.TVItemObjects[i].MapObjList[j].CoordList[k].Lng < LngAverage) {
+            //            AnchorNumber = 3; //TOP_RIGHT
+            //            LineLengthLat = LineLengthLat * -1;
+            //            LineLengthLng = LineLengthLng * -1;
+            //        }
+            //        else if (cssp.GoogleMap.TVItemObjects[i].MapObjList[j].CoordList[k].Lat > LatAverage && cssp.GoogleMap.TVItemObjects[i].MapObjList[j].CoordList[k].Lng < LngAverage) {
+            //            AnchorNumber = 9; //BOTTOM_RIGHT
+            //            LineLengthLat = LineLengthLat * 1;
+            //            LineLengthLng = LineLengthLng * -1;
+            //        }
+            //        else {
+            //            AnchorNumber = 7; //BOTTOM_LEFT
+            //        }
+
+            //        var CoordList = [];
+            //        CoordList.push(new google.maps.LatLng(cssp.GoogleMap.TVItemObjects[i].MapObjList[j].CoordList[k].Lat, cssp.GoogleMap.TVItemObjects[i].MapObjList[j].CoordList[k].Lng));
+            //        CoordList.push(new google.maps.LatLng(cssp.GoogleMap.TVItemObjects[i].MapObjList[j].CoordList[k].Lat + LineLengthLat, cssp.GoogleMap.TVItemObjects[i].MapObjList[j].CoordList[k].Lng + LineLengthLng));
+            //        let polyl: google.maps.Polyline = new google.maps.Polyline({
+            //            path: CoordList,
+            //            strokeColor: '#9F9',
+            //            strokeOpacity: 1,
+            //            strokeWeight: 1,
+            //            map: cssp.GoogleMap.Map,
+            //            zIndex: zIndex,
+            //        });
+            //        cssp.GoogleMap.MVCObjPolylines.push(polyl);
+            //        let div = document.createElement('div');
+            //        let text = (cssp.GoogleMap.TVItemObjects[i].TVText.length > 0 ?
+            //            (cssp.GoogleMap.TVItemObjects[i].TVText.length <= cssp.GoogleMap.MarkerTextLength
+            //                ? cssp.GoogleMap.TVItemObjects[i].TVText
+            //                : cssp.GoogleMap.TVItemObjects[i].TVText.substring(0, cssp.GoogleMap.MarkerTextLength))
+            //            : "");
+
+            //        div.innerHTML = '<div class="my-other-marker" style="background-color:#' + color + '">' + text + '</div>';
+            //        mark = new RichMarker(
+            //            {
+            //                map: cssp.GoogleMap.Map,
+            //                position: new google.maps.LatLng(cssp.GoogleMap.TVItemObjects[i].MapObjList[j].CoordList[k].Lat + LineLengthLat, cssp.GoogleMap.TVItemObjects[i].MapObjList[j].CoordList[k].Lng + LineLengthLng),
+            //                draggable: true,
+            //                flat: true,
+            //                anchor: AnchorNumber,
+            //                content: div
+            //            });
+            //    }
+            //    else {
+            //        let div = document.createElement('div');
+            //        let text = (cssp.GoogleMap.TVItemObjects[i].TVText.length > 0 ?
+            //            (cssp.GoogleMap.TVItemObjects[i].TVText.length <= cssp.GoogleMap.MarkerTextLength
+            //                ? cssp.GoogleMap.TVItemObjects[i].TVText
+            //                : cssp.GoogleMap.TVItemObjects[i].TVText.substring(0, cssp.GoogleMap.MarkerTextLength))
+            //            : "");
+
+            //        div.innerHTML = '<div class="my-other-marker" style="background-color:#' + color + '">' + text + '</div>';
+            //        mark = new RichMarker(
+            //            {
+            //                map: cssp.GoogleMap.Map,
+            //                position: new google.maps.LatLng(cssp.GoogleMap.TVItemObjects[i].MapObjList[j].CoordList[k].Lat, cssp.GoogleMap.TVItemObjects[i].MapObjList[j].CoordList[k].Lng),
+            //                draggable: true,
+            //                flat: true,
+            //                anchor: 5, //MIDDLE
+            //                content: div
+            //            });
+            //    }
+            //    //mark = new StyledMarker(
+            //    //    {
+            //    //        styleIcon: (new StyledIcon(
+            //    //            StyledIconTypes.BUBBLE,
+            //    //            {
+            //    //                color: color,
+            //    //                text: (cssp.GoogleMap.TVItemObjects[i].TVText.length > 0 ?
+            //    //                    (cssp.GoogleMap.TVItemObjects[i].TVText.length <= cssp.GoogleMap.MarkerTextLength
+            //    //                        ? encodeURIComponent(cssp.GoogleMap.TVItemObjects[i].TVText)
+            //    //                        : encodeURIComponent(cssp.GoogleMap.TVItemObjects[i].TVText.substring(0, cssp.GoogleMap.MarkerTextLength)))
+            //    //                    : ""),
+            //    //            })),
+            //    //        position: new google.maps.LatLng(cssp.GoogleMap.TVItemObjects[i].MapObjList[j].CoordList[k].Lat, cssp.GoogleMap.TVItemObjects[i].MapObjList[j].CoordList[k].Lng),
+            //    //        map: cssp.GoogleMap.Map,
+            //    //        draggable: cssp.GoogleMap.Editing,
+            //    //        raiseOnDrag: true,
+            //    //        zIndex: zIndex,
+            //    //    });
+            //}
+            mark = new StyledMarker(
                 {
                     styleIcon: (new StyledIcon(
                         StyledIconTypes.BUBBLE,
@@ -88,6 +297,7 @@ module CSSP {
                     raiseOnDrag: true,
                     zIndex: zIndex,
                 });
+
             //   http://google-maps-utility-library-v3.googlecode.com/svn/trunk/infobox/docs/examples.html
             google.maps.event.addListener(mark, 'click', () => {
                 cssp.GoogleMap.infoWindow.setContent("<div class=\"MapMarkerDiv\">" + cssp.GetHTMLVariable("#LayoutVariables", "varInProgress") + "</div>");
@@ -102,33 +312,53 @@ module CSSP {
                     cssp.Dialog.ShowDialogErrorWithFail(command);
                 });
             });
+            google.maps.event.addListener(mark, 'rightclick', () => {
+                if (cssp.GoogleMap.MoveLabel) {
+                    let MapInfoID: number = mark.getZIndex() - cssp.GoogleMap.ZIndexPointBase;
+                    let Lat: number = mark.getPosition().lat();
+                    let Lng: number = mark.getPosition().lng()
+                    cssp.GoogleMap.MapDeleteLabel(MapInfoID, Lat, Lng);
+                }
+            });
             google.maps.event.addListener(mark, 'dragstart', () => {
                 cssp.GoogleMap.DragStartPos = mark.getPosition();
             });
             google.maps.event.addListener(mark, 'drag', () => {
-                var contentString = "<div  class='ui-corner-all app-commentBox'>";
-                contentString += "<h4>" + cssp.GetHTMLVariable("#LayoutVariables", "varDraggingPoint") + "</h4 > ";
-                contentString += "Lat: " + mark.getPosition().lat().toFixed(6) + "<br />";
-                contentString += "Lng: " + mark.getPosition().lng().toFixed(6);
-                contentString += "</div>";
-                cssp.GoogleMap.infoWindow.setContent(contentString);
-                cssp.GoogleMap.infoWindow.open(cssp.GoogleMap.Map, mark);
+                if (cssp.GoogleMap.MoveLabel) {
+                }
+                else {
+                    var contentString = "<div  class='ui-corner-all app-commentBox'>";
+                    contentString += "<h4>" + cssp.GetHTMLVariable("#LayoutVariables", "varDraggingPoint") + "</h4 > ";
+                    contentString += "Lat: " + mark.getPosition().lat().toFixed(6) + "<br />";
+                    contentString += "Lng: " + mark.getPosition().lng().toFixed(6);
+                    contentString += "</div>";
+                    cssp.GoogleMap.infoWindow.setContent(contentString);
+                    cssp.GoogleMap.infoWindow.open(cssp.GoogleMap.Map, mark);
+                }
             });
             google.maps.event.addListener(mark, 'dragend', () => {
-                var contentString = "<div class='MapEditPointDiv app-infoBlock'>";
-                contentString += "<form name='MapEditPointForm' class='MapEditPointForm' method='post' action='Map/SavePointJSON'>";
-                contentString += "  <input type='hidden' name='MapInfoID' value='" + (mark.getZIndex() - cssp.GoogleMap.ZIndexPointBase).toString() + "' />";
-                contentString += "  <h5>" + cssp.GetHTMLVariable("#LayoutVariables", "varPreviousCoordinates") + "</h5>";
-                contentString += "  Lat: " + cssp.GoogleMap.DragStartPos.lat().toFixed(6) + ", Lng: " + cssp.GoogleMap.DragStartPos.lng().toFixed(6) + " <br / > ";
-                contentString += "  <h5>" + cssp.GetHTMLVariable("#LayoutVariables", "varActualCoordinates") + "</h5>";
-                contentString += "  Lat: <input type='text' name='Lat' class='isnumber form-control' value ='" + mark.getPosition().lat().toFixed(6) + "' / > ";
-                contentString += "  Lng: <input type='text' name='Lng' class='isnumber form-control' value='" + mark.getPosition().lng().toFixed(6) + "' /><br /></br> ";
-                contentString += "  <button class='jbMapEditPointSave btn btn-default'>" + cssp.GetHTMLVariable("#LayoutVariables", "varSave") + "</button>";
-                contentString += "  <button class='jbMapEditPointCancel btn btn-default'>" + cssp.GetHTMLVariable("#LayoutVariables", "varCancel") + "</button>";
-                contentString += "</form>";
-                contentString += "</div>";
-                cssp.GoogleMap.infoWindow.setContent(contentString);
-                cssp.GoogleMap.infoWindow.open(cssp.GoogleMap.Map, mark);
+                if (cssp.GoogleMap.MoveLabel) {
+                    let MapInfoID: number = mark.getZIndex() - cssp.GoogleMap.ZIndexPointBase;
+                    let Lat: number = mark.getPosition().lat();
+                    let Lng: number = mark.getPosition().lng()
+                    cssp.GoogleMap.MapEditMoveLabelPointSave(MapInfoID, Lat, Lng);
+                }
+                else {
+                    var contentString = "<div class='MapEditPointDiv app-infoBlock'>";
+                    contentString += "<form name='MapEditPointForm' class='MapEditPointForm' method='post' action='Map/SavePointJSON'>";
+                    contentString += "  <input type='hidden' name='MapInfoID' value='" + (mark.getZIndex() - cssp.GoogleMap.ZIndexPointBase).toString() + "' />";
+                    contentString += "  <h5>" + cssp.GetHTMLVariable("#LayoutVariables", "varPreviousCoordinates") + "</h5>";
+                    contentString += "  Lat: " + cssp.GoogleMap.DragStartPos.lat().toFixed(6) + ", Lng: " + cssp.GoogleMap.DragStartPos.lng().toFixed(6) + " <br / > ";
+                    contentString += "  <h5>" + cssp.GetHTMLVariable("#LayoutVariables", "varActualCoordinates") + "</h5>";
+                    contentString += "  Lat: <input type='text' name='Lat' class='isnumber form-control' value ='" + mark.getPosition().lat().toFixed(6) + "' / > ";
+                    contentString += "  Lng: <input type='text' name='Lng' class='isnumber form-control' value='" + mark.getPosition().lng().toFixed(6) + "' /><br /></br> ";
+                    contentString += "  <button class='jbMapEditPointSave btn btn-default'>" + cssp.GetHTMLVariable("#LayoutVariables", "varSave") + "</button>";
+                    contentString += "  <button class='jbMapEditPointCancel btn btn-default'>" + cssp.GetHTMLVariable("#LayoutVariables", "varCancel") + "</button>";
+                    contentString += "</form>";
+                    contentString += "</div>";
+                    cssp.GoogleMap.infoWindow.setContent(contentString);
+                    cssp.GoogleMap.infoWindow.open(cssp.GoogleMap.Map, mark);
+                }
             });
 
             cssp.GoogleMap.MVCObjPoints.push(mark);
@@ -262,17 +492,31 @@ module CSSP {
 
             cssp.GoogleMap.itemsDropDown = [];
 
+            let LatAverage: number = 0.0;
+            let LngAverage: number = 0.0;
+            let LatTotal: number = 0.0;
+            let LngTotal: number = 0.0;
+            let count: number = 0.0;
+            for (var i = 0, CountObj: number = cssp.GoogleMap.TVItemObjects.length; i < CountObj; i++) {
+                if (cssp.GoogleMap.TVItemObjects[i].TVType == TVTypeEnum.MWQMSite || cssp.GoogleMap.TVItemObjects[i].TVType == TVTypeEnum.PolSourceSite) {
+                    count = count + 1;
+                    LatTotal = LatTotal + cssp.GoogleMap.TVItemObjects[i].MapObjList[0].CoordList[0].Lat;
+                    LngTotal = LngTotal + cssp.GoogleMap.TVItemObjects[i].MapObjList[0].CoordList[0].Lng;
+                }
+            }
+            LatAverage = LatTotal / count;
+            LngAverage = LngTotal / count;
             for (var i = 0, CountObj: number = cssp.GoogleMap.TVItemObjects.length; i < CountObj; i++) {
                 cssp.GoogleMap.DrawPolys(i, true);
-                cssp.GoogleMap.DrawPoints(i, true);
+                cssp.GoogleMap.DrawPoints(i, true, LatAverage, LngAverage);
             }
             $(".ObjLoaded").removeClass("hidden");
             $(".ObjNotLoaded").addClass("hidden");
             cssp.GoogleMap.CrossVisible = false;
         };
-        public DrawPoints: Function = (i: number, DoLatLng: boolean): void => {
-            var legendElem: LegendElem = undefined;
-            var MapInfoID = cssp.GoogleMap.EditingZIndex - cssp.GoogleMap.ZIndexPointBase;
+        public DrawPoints: Function = (i: number, DoLatLng: boolean, LatAverage: number, LngAverage: number): void => {
+            let legendElem: LegendElem = undefined;
+            let MapInfoID = cssp.GoogleMap.EditingZIndex - cssp.GoogleMap.ZIndexPointBase;
             for (var j = 0, CountObj = cssp.GoogleMap.TVItemObjects[i].MapObjList.length; j < CountObj; j++) {
                 if (cssp.GoogleMap.TVItemObjects[i].MapObjList[j].MapInfoDrawType == DrawTypeEnum.Point) {
                     if (DoLatLng) {
@@ -292,7 +536,8 @@ module CSSP {
                         }
                     }
 
-                    for (var k = 0, CountCoord = cssp.GoogleMap.TVItemObjects[i].MapObjList[j].CoordList.length; k < CountCoord; k++) {
+                    //for (var k = 0, CountCoord = cssp.GoogleMap.TVItemObjects[i].MapObjList[j].CoordList.length; k < CountCoord; k++) {
+                    for (var k = 0; k < 1; k++) {
 
                         var tempImage: google.maps.Icon;
 
@@ -401,7 +646,7 @@ module CSSP {
                                 {
                                     legendElem = cssp.GoogleMap.LegendSetup(new LegendElem(CSSP.TVTypeEnum.WebTideNode, "AA0000",
                                         cssp.GetHTMLVariable("#LayoutVariables", "varWebTideNode")));
-                                           }
+                                }
                                 break;
                             case TVTypeEnum.Municipality:
                                 {
@@ -546,7 +791,7 @@ module CSSP {
                         //    cssp.GoogleMap.itemsDropDown.push("<li><a href=\"#\"><span style='color: #" + Color + "'>" + Legend + "</span></a></li>");
                         //}
 
-                        cssp.GoogleMap.CreateMarker(i, j, k, legendElem.Color, legendElem.TVType, !cssp.GoogleMap.IsLabel);
+                        cssp.GoogleMap.CreateMarker(i, j, k, legendElem.Color, legendElem.TVType, LatAverage, LngAverage);
                     }
                 }
             }
@@ -776,8 +1021,28 @@ module CSSP {
 
             return legendElem;
         };
+        public MapDeleteLabel: Function = (MapInfoID: number, Lat: number, Lng: number): void => {
+            $("#CurrentLatLng").val(cssp.GetHTMLVariable("#LayoutVariables", "varDeleting"));
+            let command: string = "Map/MapDeleteLabelJSON";
+            $.post(cssp.BaseURL + command, {
+                MapInfoID: MapInfoID,
+                Lat: Lat,
+                Lng: Lng,
+            }).done((ret) => {
+                if (ret) {
+                    cssp.Dialog.ShowDialogErrorWithError(ret);
+                }
+                else {
+                    $("#CurrentLatLng").val(cssp.GetHTMLVariable("#LayoutVariables", "varDeleted"));
+                    cssp.GoogleMap.ReadAndShowObjects(false);
+                }
+            }).fail(function () {
+                cssp.Dialog.ShowDialogErrorWithFail(command);
+            });
+        };
         public MapEdit: Function = ($bjs: JQuery): void => {
             cssp.GoogleMap.Editing = true;
+            cssp.GoogleMap.MoveLabel = false;
             $(".jbMapEdit").removeClass("disabled").addClass("disabled");
             $(".jbMapEditSave").removeClass("disabled");
             $(".jbMapEditCancel").removeClass("disabled");
@@ -790,6 +1055,7 @@ module CSSP {
         };
         public MapEditCancel: Function = ($aja: JQuery): void => {
             cssp.GoogleMap.Editing = false;
+            cssp.GoogleMap.MoveLabel = false;
             $(".jbMapEdit").removeClass("disabled");
             $(".jbMapEditSave").removeClass("disabled").addClass("disabled");
             $(".jbMapEditCancel").removeClass("disabled").addClass("disabled");
@@ -799,6 +1065,74 @@ module CSSP {
             cssp.GoogleMap.ClearEdit();
             cssp.GoogleMap.DrawObjects();
             $(".EditSubMenu").removeClass("open");
+        };
+        public MapMoveLabel: Function = ($bjs: JQuery): void => {
+            cssp.GoogleMap.Editing = true;
+            cssp.GoogleMap.MoveLabel = true;
+            $(".jbMapEditMoveLabel").removeClass("disabled").addClass("disabled");
+            $(".jbMapEditMoveLabelCancel").removeClass("disabled");
+            $("#MapTopCenterID").trigger("click");
+            cssp.GoogleMap.EditingZIndex = 0;
+            cssp.GoogleMap.infoWindow.close();
+            cssp.GoogleMap.ClearEdit();
+            cssp.GoogleMap.DrawObjects();
+        };
+        public MapEditMoveLabelAuto: Function = ($bjs: JQuery): void => {
+            let SubsectorTVItemID: number = parseInt($("#ViewDiv").data("tvitemid"));
+            let TVType: number = parseInt($("#TVItemListDiv").data("tvtype"));
+            let OnlyActive: boolean = $("input[name ='MovelLabelOnlyActive']").is(":checked");
+
+            $("#CurrentLatLng").val(cssp.GetHTMLVariable("#LayoutVariables", "varInProgress"));
+            let command: string = "Map/MapMoveLabelAutoJSON";
+            $.post(cssp.BaseURL + command, {
+                SubsectorTVItemID: SubsectorTVItemID,
+                TVType: TVType,
+                OnlyActive: OnlyActive,
+            }).done((ret) => {
+                if (ret) {
+                    cssp.Dialog.ShowDialogErrorWithError(ret);
+                }
+                else {
+                    $("#CurrentLatLng").val(cssp.GetHTMLVariable("#LayoutVariables", "varSuccess"));
+                    cssp.GoogleMap.ReadAndShowObjects(false);
+                }
+            }).fail(function () {
+                cssp.Dialog.ShowDialogErrorWithFail(command);
+            });
+        };
+        public MapEditMoveLabelClear: Function = ($bjs: JQuery): void => {
+            let SubsectorTVItemID: number = parseInt($("#ViewDiv").data("tvitemid"));
+            let TVType: number = parseInt($("#TVItemListDiv").data("tvtype"));
+            let OnlyActive: boolean = $("input[name ='MovelLabelOnlyActive']").is(":checked");
+
+            $("#CurrentLatLng").val(cssp.GetHTMLVariable("#LayoutVariables", "varInProgress"));
+            let command: string = "Map/MapMoveLabelClearJSON";
+            $.post(cssp.BaseURL + command, {
+                SubsectorTVItemID: SubsectorTVItemID,
+                TVType: TVType,
+                OnlyActive: OnlyActive,
+            }).done((ret) => {
+                if (ret) {
+                    cssp.Dialog.ShowDialogErrorWithError(ret);
+                }
+                else {
+                    $("#CurrentLatLng").val(cssp.GetHTMLVariable("#LayoutVariables", "varSuccess"));
+                    cssp.GoogleMap.ReadAndShowObjects(false);
+                }
+            }).fail(function () {
+                cssp.Dialog.ShowDialogErrorWithFail(command);
+            });
+        };
+        public MapEditMoveLabelCancel: Function = ($aja: JQuery): void => {
+            cssp.GoogleMap.Editing = false;
+            cssp.GoogleMap.MoveLabel = false;
+            $(".jbMapEditMoveLabel").removeClass("disabled");
+            $(".jbMapEditMoveLabelCancel").removeClass("disabled").addClass("disabled");
+            $("#MapTopCenterID").trigger("click");
+            cssp.GoogleMap.EditingZIndex = 0;
+            cssp.GoogleMap.infoWindow.close();
+            cssp.GoogleMap.ClearEdit();
+            cssp.GoogleMap.ReadAndShowObjects(false);
         };
         public MapEditPointCancel: Function = ($aja: JQuery): void => {
             cssp.GoogleMap.infoWindow.close();
@@ -865,12 +1199,31 @@ module CSSP {
                             }
                             cssp.GoogleMap.ClearEdit();
                             cssp.GoogleMap.infoWindow.close();
-                            cssp.GoogleMap.ReadAndShowObjects();
+                            cssp.GoogleMap.ReadAndShowObjects(false);
                         }
                     }).fail(function () {
                         cssp.Dialog.ShowDialogErrorWithFail(command);
                     });
             }
+        };
+        public MapEditMoveLabelPointSave: Function = (MapInfoID: number, Lat: number, Lng: number): void => {
+            $("#CurrentLatLng").val(cssp.GetHTMLVariable("#LayoutVariables", "varSaving"));
+            let command: string = "Map/SaveMoveLabelPointJSON";
+            $.post(cssp.BaseURL + command, {
+                MapInfoID: MapInfoID,
+                Lat: Lat,
+                Lng: Lng,
+            }).done((ret) => {
+                if (ret) {
+                    cssp.Dialog.ShowDialogErrorWithError(ret);
+                }
+                else {
+                    $("#CurrentLatLng").val(cssp.GetHTMLVariable("#LayoutVariables", "varSaved"));
+                    cssp.GoogleMap.ReadAndShowObjects(false);
+                }
+            }).fail(function () {
+                cssp.Dialog.ShowDialogErrorWithFail(command);
+            });
         };
         public MapEditSave: Function = ($aja: JQuery): void => {
             var MapInfoIDPolygon: number = cssp.GoogleMap.EditingZIndex - cssp.GoogleMap.ZIndexPolygonBase;

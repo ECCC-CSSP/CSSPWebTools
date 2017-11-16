@@ -505,7 +505,7 @@
     <value>Select a classification</value>
   </data>
   <data name="EndDate" xml:space="preserve">
-    <value>End Date</value>
+    <value>End date</value>
   </data>
   <data name="InTxt" xml:space="preserve">
     <value>in</value>
@@ -520,7 +520,7 @@
     <value>or</value>
   </data>
   <data name="StartDate" xml:space="preserve">
-    <value>Start Date</value>
+    <value>Start date</value>
   </data>
   <data name="VisibleDataType" xml:space="preserve">
     <value>Visible data type</value>
@@ -827,5 +827,8 @@
   </data>
   <data name="StartTide" xml:space="preserve">
     <value>Start tide</value>
+  </data>
+  <data name="Used" xml:space="preserve">
+    <value>Used</value>
   </data>
 </root>

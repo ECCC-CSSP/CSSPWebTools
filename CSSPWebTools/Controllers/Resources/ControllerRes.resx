@@ -394,4 +394,7 @@
   <data name="YearsWithSamplesUsed" xml:space="preserve">
     <value>Years with samples used</value>
   </data>
+  <data name="ShowSiteText" xml:space="preserve">
+    <value>Show site text</value>
+  </data>
 </root>

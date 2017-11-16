@@ -61,6 +61,15 @@ namespace CSSPWebTools.Views.Document.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Contour values.
+        /// </summary>
+        public static string ContourValues {
+            get {
+                return ResourceManager.GetString("ContourValues", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Delete.
         /// </summary>
         public static string Delete {

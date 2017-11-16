@@ -421,7 +421,7 @@ namespace CSSPWebTools.Views.MWQM.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to End Date.
+        ///   Looks up a localized string similar to End date.
         /// </summary>
         public static string EndDate {
             get {
@@ -1798,7 +1798,7 @@ namespace CSSPWebTools.Views.MWQM.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Start Date.
+        ///   Looks up a localized string similar to Start date.
         /// </summary>
         public static string StartDate {
             get {
@@ -1956,6 +1956,15 @@ namespace CSSPWebTools.Views.MWQM.Resources {
         public static string UpperRainLimitStillConsideredDry {
             get {
                 return ResourceManager.GetString("UpperRainLimitStillConsideredDry", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Used.
+        /// </summary>
+        public static string Used {
+            get {
+                return ResourceManager.GetString("Used", resourceCulture);
             }
         }
         

@@ -810,4 +810,7 @@
   <data name="StartTide" xml:space="preserve">
     <value>Marée du début</value>
   </data>
+  <data name="Used" xml:space="preserve">
+    <value>Utilisés</value>
+  </data>
 </root>

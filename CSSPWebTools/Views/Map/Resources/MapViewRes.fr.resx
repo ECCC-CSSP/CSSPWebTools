@@ -360,4 +360,16 @@
   <data name="MapHelper" xml:space="preserve">
     <value>Aide carte</value>
   </data>
+  <data name="MoveLabel" xml:space="preserve">
+    <value>Move label (fr)</value>
+  </data>
+  <data name="Automatic" xml:space="preserve">
+    <value>Automatic (fr)</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+    <value>Clear (fr)</value>
+  </data>
+  <data name="OnlyActive" xml:space="preserve">
+    <value>Only active (fr)</value>
+  </data>
 </root>

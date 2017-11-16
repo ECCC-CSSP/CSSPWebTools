@@ -219,16 +219,16 @@ function inherits(childCtor, parentCtor) {
         getShape: function (props, width, height) {
             var _iconmap = {};
             _iconmap.coord = [
-              width / 2, height,
-              (7 / 16) * width, (5 / 8) * height,
-              (5 / 16) * width, (7 / 16) * height,
-              (7 / 32) * width, (5 / 16) * height,
-              (5 / 16) * width, (1 / 8) * height,
-              (1 / 2) * width, 0,
-              (11 / 16) * width, (1 / 8) * height,
-              (25 / 32) * width, (5 / 16) * height,
-              (11 / 16) * width, (7 / 16) * height,
-              (9 / 16) * width, (5 / 8) * height
+                width / 2, height,
+                (7 / 16) * width, (5 / 8) * height,
+                (5 / 16) * width, (7 / 16) * height,
+                (7 / 32) * width, (5 / 16) * height,
+                (5 / 16) * width, (1 / 8) * height,
+                (1 / 2) * width, 0,
+                (11 / 16) * width, (1 / 8) * height,
+                (25 / 32) * width, (5 / 16) * height,
+                (11 / 16) * width, (7 / 16) * height,
+                (9 / 16) * width, (5 / 8) * height,
             ];
             for (var i = 0; i < _iconmap.coord.length; i++) {
                 _iconmap.coord[i] = Math.round(_iconmap.coord[i]);
@@ -262,15 +262,15 @@ function inherits(childCtor, parentCtor) {
         getShape: function (props, width, height) {
             var _iconmap = {};
             _iconmap.coord = [
-              0, 44,
-              13, 26,
-              13, 6,
-              17, 1,
-              width - 4, 1,
-              width, 6,
-              width, 21,
-              width - 4, 26,
-              21, 26
+                0, 44,
+                13, 26,
+                13, 6,
+                17, 1,
+                width - 4, 1,
+                width, 6,
+                width, 21,
+                width - 4, 26,
+                21, 26,
             ];
             _iconmap.type = 'poly';
             return _iconmap;

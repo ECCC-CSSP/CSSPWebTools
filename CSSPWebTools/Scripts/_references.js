@@ -16,5 +16,6 @@
 /// <reference path="respondforie.min.js" />
 /// <reference path="sammy-0.7.5.js" />
 /// <reference path="stylemarker.js" />
+/// <reference path="richmarker.js" />
 /// <reference path="typeahead.bundle.min.js" />
 /// <reference path="typeahead.jquery.min.js" />

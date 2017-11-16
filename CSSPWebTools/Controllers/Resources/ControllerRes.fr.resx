@@ -386,4 +386,7 @@
   <data name="YearsWithSamplesUsed" xml:space="preserve">
     <value>Années avec des échantillons utilisés</value>
   </data>
+  <data name="ShowSiteText" xml:space="preserve">
+    <value>Voir le nom des sites</value>
+  </data>
 </root>

@@ -185,13 +185,13 @@ namespace CSSPWebTools.Controllers
             return CreateHashURL(urlModel.TVItemIDList[0]);
         }
         [NonAction]
-        public List<List<IconInfo>> FillClimateSiteIcons(TVAuthEnum TVAuth)
+        public List<List<IconInfo>> FillClimateSiteIcons(TVAuthEnum TVAuth, TVItemModel tvItemModel)
         {
             List<List<IconInfo>> viewTVItemIconListList = new List<List<IconInfo>>();
 
             viewTVItemIconListList.Add(FillTVItemMoreInfoIcons(TVAuth));
 
-            viewTVItemIconListList.Add(FillTVItemMapIcons(TVAuth));
+            viewTVItemIconListList.Add(FillTVItemMapIcons(TVAuth, tvItemModel));
 
             return viewTVItemIconListList;
         }
@@ -215,7 +215,7 @@ namespace CSSPWebTools.Controllers
             return viewTVItemIconList;
         }
         [NonAction]
-        public List<List<IconInfo>> FillEmailDistributionListIcons(TVAuthEnum TVAuth)
+        public List<List<IconInfo>> FillEmailDistributionListIcons(TVAuthEnum TVAuth, TVItemModel tvItemModel)
         {
             List<List<IconInfo>> viewTVItemIconListList = new List<List<IconInfo>>();
 
@@ -226,7 +226,7 @@ namespace CSSPWebTools.Controllers
                 viewTVItemIconListList.Add(FillEmailDistributionListEditIcons(TVAuth));
             }
 
-            viewTVItemIconListList.Add(FillTVItemMapIcons(TVAuth));
+            viewTVItemIconListList.Add(FillTVItemMapIcons(TVAuth, tvItemModel));
 
             return viewTVItemIconListList;
         }
@@ -281,7 +281,7 @@ namespace CSSPWebTools.Controllers
             return viewTVItemIconList;
         }
         [NonAction]
-        public List<List<IconInfo>> FillHydrometricSiteIcons(TVAuthEnum TVAuth)
+        public List<List<IconInfo>> FillHydrometricSiteIcons(TVAuthEnum TVAuth, TVItemModel tvItemModel)
         {
             List<List<IconInfo>> viewTVItemIconListList = new List<List<IconInfo>>();
 
@@ -292,7 +292,7 @@ namespace CSSPWebTools.Controllers
                 viewTVItemIconListList.Add(FillHydrometricSiteEditIcons(TVAuth));
             }
 
-            viewTVItemIconListList.Add(FillTVItemMapIcons(TVAuth));
+            viewTVItemIconListList.Add(FillTVItemMapIcons(TVAuth, tvItemModel));
 
             return viewTVItemIconListList;
         }
@@ -346,7 +346,7 @@ namespace CSSPWebTools.Controllers
             return viewTVItemIconList;
         }
         [NonAction]
-        public List<List<IconInfo>> FillInfrastructureBoxModelIcons(TVAuthEnum TVAuth)
+        public List<List<IconInfo>> FillInfrastructureBoxModelIcons(TVAuthEnum TVAuth, TVItemModel tvItemModel)
         {
             List<List<IconInfo>> viewTVItemIconListList = new List<List<IconInfo>>();
 
@@ -357,7 +357,7 @@ namespace CSSPWebTools.Controllers
                 viewTVItemIconListList.Add(FillInfrastructureBoxModelAddIcons(TVAuth));
             }
 
-            viewTVItemIconListList.Add(FillTVItemMapIcons(TVAuth));
+            viewTVItemIconListList.Add(FillTVItemMapIcons(TVAuth, tvItemModel));
 
             return viewTVItemIconListList;
         }
@@ -381,7 +381,7 @@ namespace CSSPWebTools.Controllers
             return viewTVItemIconList;
         }
         [NonAction]
-        public List<List<IconInfo>> FillInfrastructureInformationIcons(TVAuthEnum TVAuth)
+        public List<List<IconInfo>> FillInfrastructureInformationIcons(TVAuthEnum TVAuth, TVItemModel tvItemModel)
         {
             List<List<IconInfo>> viewTVItemIconListList = new List<List<IconInfo>>();
 
@@ -392,7 +392,7 @@ namespace CSSPWebTools.Controllers
                 viewTVItemIconListList.Add(FillInfrastructureEditIcons(TVAuth));
             }
 
-            viewTVItemIconListList.Add(FillTVItemMapIcons(TVAuth));
+            viewTVItemIconListList.Add(FillTVItemMapIcons(TVAuth, tvItemModel));
 
             return viewTVItemIconListList;
         }
@@ -416,7 +416,7 @@ namespace CSSPWebTools.Controllers
             return viewTVItemIconList;
         }
         [NonAction]
-        public List<List<IconInfo>> FillInfrastructureVisualPlumeIcons(TVAuthEnum TVAuth)
+        public List<List<IconInfo>> FillInfrastructureVisualPlumeIcons(TVAuthEnum TVAuth, TVItemModel tvItemModel)
         {
             List<List<IconInfo>> viewTVItemIconListList = new List<List<IconInfo>>();
 
@@ -427,7 +427,7 @@ namespace CSSPWebTools.Controllers
                 viewTVItemIconListList.Add(FillInfrastructureVisualPlumeAddIcons(TVAuth));
             }
 
-            viewTVItemIconListList.Add(FillTVItemMapIcons(TVAuth));
+            viewTVItemIconListList.Add(FillTVItemMapIcons(TVAuth, tvItemModel));
 
             return viewTVItemIconListList;
         }
@@ -470,7 +470,7 @@ namespace CSSPWebTools.Controllers
             return viewTVItemIconList;
         }
         [NonAction]
-        public List<List<IconInfo>> FillMikeScenarioImportIcons(TVAuthEnum TVAuth)
+        public List<List<IconInfo>> FillMikeScenarioImportIcons(TVAuthEnum TVAuth, TVItemModel tvItemModel)
         {
             List<List<IconInfo>> viewTVItemIconListList = new List<List<IconInfo>>();
 
@@ -481,7 +481,7 @@ namespace CSSPWebTools.Controllers
                 viewTVItemIconListList.Add(FillMikeScenarioImportEditIcons(TVAuth));
             }
 
-            viewTVItemIconListList.Add(FillTVItemMapIcons(TVAuth));
+            viewTVItemIconListList.Add(FillTVItemMapIcons(TVAuth, tvItemModel));
 
             return viewTVItemIconListList;
         }
@@ -549,7 +549,7 @@ namespace CSSPWebTools.Controllers
             return viewTVItemIconList;
         }
         [NonAction]
-        public List<List<IconInfo>> FillMikeScenarioGeneralParametersIcons(TVAuthEnum TVAuth, MikeScenarioModel mikeScenarioModel)
+        public List<List<IconInfo>> FillMikeScenarioGeneralParametersIcons(TVAuthEnum TVAuth, TVItemModel tvItemModel, MikeScenarioModel mikeScenarioModel)
         {
             List<List<IconInfo>> viewTVItemIconListList = new List<List<IconInfo>>();
 
@@ -560,12 +560,12 @@ namespace CSSPWebTools.Controllers
                 viewTVItemIconListList.Add(FillMikeScenarioGeneralParametersEditIcons(TVAuth, mikeScenarioModel));
             }
 
-            viewTVItemIconListList.Add(FillTVItemMapIcons(TVAuth));
+            viewTVItemIconListList.Add(FillTVItemMapIcons(TVAuth, tvItemModel));
 
             return viewTVItemIconListList;
         }
         [NonAction]
-        public List<List<IconInfo>> FillMikeScenarioInputSummaryIcons(TVAuthEnum TVAuth)
+        public List<List<IconInfo>> FillMikeScenarioInputSummaryIcons(TVAuthEnum TVAuth, TVItemModel tvItemModel)
         {
             List<List<IconInfo>> viewTVItemIconListList = new List<List<IconInfo>>();
 
@@ -576,7 +576,7 @@ namespace CSSPWebTools.Controllers
             //    viewTVItemIconListList.Add(FillMikeScenarioInputSummaryEditIcons(TVAuth));
             //}
 
-            viewTVItemIconListList.Add(FillTVItemMapIcons(TVAuth));
+            viewTVItemIconListList.Add(FillTVItemMapIcons(TVAuth, tvItemModel));
 
             return viewTVItemIconListList;
         }
@@ -603,7 +603,7 @@ namespace CSSPWebTools.Controllers
             return viewTVItemIconList;
         }
         [NonAction]
-        public List<List<IconInfo>> FillMikeScenarioSourcesIcons(TVAuthEnum TVAuth, MikeScenarioModel mikeScenarioModel)
+        public List<List<IconInfo>> FillMikeScenarioSourcesIcons(TVAuthEnum TVAuth, TVItemModel tvItemModel, MikeScenarioModel mikeScenarioModel)
         {
             List<List<IconInfo>> viewTVItemIconListList = new List<List<IconInfo>>();
 
@@ -614,12 +614,12 @@ namespace CSSPWebTools.Controllers
                 viewTVItemIconListList.Add(FillMikeScenarioSourcesEditIcons(TVAuth, mikeScenarioModel));
             }
 
-            viewTVItemIconListList.Add(FillTVItemMapIcons(TVAuth));
+            viewTVItemIconListList.Add(FillTVItemMapIcons(TVAuth, tvItemModel));
 
             return viewTVItemIconListList;
         }
         [NonAction]
-        public List<List<IconInfo>> FillMikeScenarioToolsIcons(TVAuthEnum TVAuth)
+        public List<List<IconInfo>> FillMikeScenarioToolsIcons(TVAuthEnum TVAuth, TVItemModel tvItemModel)
         {
             List<List<IconInfo>> viewTVItemIconListList = new List<List<IconInfo>>();
 
@@ -630,7 +630,7 @@ namespace CSSPWebTools.Controllers
                 viewTVItemIconListList.Add(FillMikeScenarioToolsEditIcons(TVAuth));
             }
 
-            viewTVItemIconListList.Add(FillTVItemMapIcons(TVAuth));
+            viewTVItemIconListList.Add(FillTVItemMapIcons(TVAuth, tvItemModel));
 
             return viewTVItemIconListList;
         }
@@ -666,7 +666,7 @@ namespace CSSPWebTools.Controllers
             return viewTVItemIconList;
         }
         [NonAction]
-        public List<List<IconInfo>> FillMunicipalityContactIcons(TVAuthEnum TVAuth)
+        public List<List<IconInfo>> FillMunicipalityContactIcons(TVAuthEnum TVAuth, TVItemModel tvItemModel)
         {
             List<List<IconInfo>> viewTVItemIconListList = new List<List<IconInfo>>();
 
@@ -677,7 +677,7 @@ namespace CSSPWebTools.Controllers
                 viewTVItemIconListList.Add(FillMunicipalityContactEditIcons(TVAuth));
             }
 
-            viewTVItemIconListList.Add(FillTVItemMapIcons(TVAuth));
+            viewTVItemIconListList.Add(FillTVItemMapIcons(TVAuth, tvItemModel));
 
             return viewTVItemIconListList;
         }
@@ -766,7 +766,7 @@ namespace CSSPWebTools.Controllers
             return viewTVItemIconList;
         }
         [NonAction]
-        public List<List<IconInfo>> FillRainExceedanceIcons(TVAuthEnum TVAuth)
+        public List<List<IconInfo>> FillRainExceedanceIcons(TVAuthEnum TVAuth, TVItemModel tvItemModel)
         {
             List<List<IconInfo>> viewTVItemIconListList = new List<List<IconInfo>>();
 
@@ -777,7 +777,7 @@ namespace CSSPWebTools.Controllers
                 viewTVItemIconListList.Add(FillRainExceedanceEditIcons(TVAuth));
             }
 
-            viewTVItemIconListList.Add(FillTVItemMapIcons(TVAuth));
+            viewTVItemIconListList.Add(FillTVItemMapIcons(TVAuth, tvItemModel));
 
             return viewTVItemIconListList;
         }
@@ -844,7 +844,7 @@ namespace CSSPWebTools.Controllers
             return viewTVItemIconList;
         }
         [NonAction]
-        public List<IconInfo> FillMWQMRunMapIcons(TVAuthEnum TVAuth, TVItemModel tvItemModel)
+        public List<IconInfo> FillMWQMRunMapIcons(TVAuthEnum TVAuth, TVItemModel tvItemModel, TVTypeEnum showType)
         {
             List<IconInfo> viewTVItemIconList = new List<IconInfo>();
 
@@ -881,6 +881,17 @@ namespace CSSPWebTools.Controllers
                         ToolTip = ControllerRes.MWQMRunShowOnMap,
                     });
                 }
+                if (showType == TVTypeEnum.MWQMRun)
+                {
+                    viewTVItemIconList.Add(new IconInfo()
+                    {
+                        URL = "",
+                        IsVisible = true,
+                        jbClassName = "jbMWQMSiteShowSiteText btn btn-default",
+                        Icon = "glyphicon glyphicon-text-width",
+                        ToolTip = ControllerRes.ShowSiteText,
+                    });
+                }
                 viewTVItemIconList.Add(new IconInfo()
                 {
                     URL = "",
@@ -902,7 +913,7 @@ namespace CSSPWebTools.Controllers
             return viewTVItemIconList;
         }
         [NonAction]
-        public List<List<IconInfo>> FillMWQMRunIcons(TVAuthEnum TVAuth)
+        public List<List<IconInfo>> FillMWQMRunIcons(TVAuthEnum TVAuth, TVItemModel tvItemModel, TVTypeEnum showType)
         {
             List<List<IconInfo>> viewTVItemIconListList = new List<List<IconInfo>>();
 
@@ -913,7 +924,7 @@ namespace CSSPWebTools.Controllers
                 viewTVItemIconListList.Add(FillMWQMRunEditIcons(TVAuth));
             }
 
-            viewTVItemIconListList.Add(FillTVItemMapIcons(TVAuth));
+            viewTVItemIconListList.Add(FillMWQMRunMapIcons(TVAuth, tvItemModel, showType));
 
             return viewTVItemIconListList;
         }
@@ -933,11 +944,11 @@ namespace CSSPWebTools.Controllers
                     ToolTip = ControllerRes.Edit,
                 });
             }
-       
+
             return viewTVItemIconList;
         }
         [NonAction]
-        public List<List<IconInfo>> FillMWQMSiteIcons(TVAuthEnum TVAuth, TVItemModel tvItemModel)
+        public List<List<IconInfo>> FillMWQMSiteIcons(TVAuthEnum TVAuth, TVItemModel tvItemModel, TVTypeEnum showType)
         {
             List<List<IconInfo>> viewTVItemIconListList = new List<List<IconInfo>>();
 
@@ -948,12 +959,12 @@ namespace CSSPWebTools.Controllers
                 viewTVItemIconListList.Add(FillMWQMSiteEditIcons(TVAuth));
             }
 
-            viewTVItemIconListList.Add(FillMWQMSiteMapIcons(TVAuth, tvItemModel));
+            viewTVItemIconListList.Add(FillMWQMSiteMapIcons(TVAuth, tvItemModel, showType));
 
             return viewTVItemIconListList;
         }
         [NonAction]
-        public List<IconInfo> FillMWQMSiteMapIcons(TVAuthEnum TVAuth, TVItemModel tvItemModel)
+        public List<IconInfo> FillMWQMSiteMapIcons(TVAuthEnum TVAuth, TVItemModel tvItemModel, TVTypeEnum showType)
         {
             List<IconInfo> viewTVItemIconList = new List<IconInfo>();
 
@@ -988,6 +999,17 @@ namespace CSSPWebTools.Controllers
                         jbClassName = "jbMWQMSiteShowHideOnMap btn btn-default",
                         Icon = "glyphicon glyphicon-map-marker",
                         ToolTip = ControllerRes.MWQMSiteShowOnMap,
+                    });
+                }
+                if (showType == TVTypeEnum.MWQMSite)
+                {
+                    viewTVItemIconList.Add(new IconInfo()
+                    {
+                        URL = "",
+                        IsVisible = true,
+                        jbClassName = "jbMWQMSiteShowSiteText btn btn-default",
+                        Icon = "glyphicon glyphicon-text-width",
+                        ToolTip = ControllerRes.ShowSiteText,
                     });
                 }
                 viewTVItemIconList.Add(new IconInfo()
@@ -1069,7 +1091,7 @@ namespace CSSPWebTools.Controllers
             return viewTVItemIconList;
         }
         [NonAction]
-        public List<List<IconInfo>> FillTideSiteIcons(TVAuthEnum TVAuth)
+        public List<List<IconInfo>> FillTideSiteIcons(TVAuthEnum TVAuth, TVItemModel tvItemModel)
         {
             List<List<IconInfo>> viewTVItemIconListList = new List<List<IconInfo>>();
 
@@ -1080,12 +1102,12 @@ namespace CSSPWebTools.Controllers
                 viewTVItemIconListList.Add(FillTideSiteEditIcons(TVAuth));
             }
 
-            viewTVItemIconListList.Add(FillTVItemMapIcons(TVAuth));
+            viewTVItemIconListList.Add(FillTVItemMapIcons(TVAuth, tvItemModel));
 
             return viewTVItemIconListList;
         }
         [NonAction]
-        public List<List<IconInfo>> FillLogBookIcons(TVAuthEnum TVAuth)
+        public List<List<IconInfo>> FillLogBookIcons(TVAuthEnum TVAuth, TVItemModel tvItemModel)
         {
             List<List<IconInfo>> viewTVItemIconListList = new List<List<IconInfo>>();
 
@@ -1096,7 +1118,7 @@ namespace CSSPWebTools.Controllers
                 viewTVItemIconListList.Add(FillLogBookEditIcons(TVAuth));
             }
 
-            viewTVItemIconListList.Add(FillTVItemMapIcons(TVAuth));
+            viewTVItemIconListList.Add(FillTVItemMapIcons(TVAuth, tvItemModel));
 
             return viewTVItemIconListList;
         }
@@ -1182,7 +1204,7 @@ namespace CSSPWebTools.Controllers
             return viewTVItemIconList;
         }
         [NonAction]
-        public List<List<IconInfo>> FillTVItemFileIcons(TVAuthEnum TVAuth)
+        public List<List<IconInfo>> FillTVItemFileIcons(TVAuthEnum TVAuth, TVItemModel tvItemModel)
         {
             List<List<IconInfo>> viewTVItemIconListList = new List<List<IconInfo>>();
 
@@ -1195,12 +1217,12 @@ namespace CSSPWebTools.Controllers
                 viewTVItemIconListList.Add(FillFileGenerateIcons(TVAuth));
             }
 
-            viewTVItemIconListList.Add(FillTVItemMapIcons(TVAuth));
+            viewTVItemIconListList.Add(FillTVItemMapIcons(TVAuth, tvItemModel));
 
             return viewTVItemIconListList;
         }
         [NonAction]
-        public List<List<IconInfo>> FillTVItemIcons(TVAuthEnum TVAuth)
+        public List<List<IconInfo>> FillTVItemIcons(TVAuthEnum TVAuth, TVItemModel tvItemModel)
         {
             List<List<IconInfo>> viewTVItemIconListList = new List<List<IconInfo>>();
 
@@ -1211,7 +1233,7 @@ namespace CSSPWebTools.Controllers
                 viewTVItemIconListList.Add(FillTVItemEditIcons(TVAuth));
             }
 
-            viewTVItemIconListList.Add(FillTVItemMapIcons(TVAuth));
+            viewTVItemIconListList.Add(FillTVItemMapIcons(TVAuth, tvItemModel));
 
             return viewTVItemIconListList;
         }
@@ -1247,7 +1269,7 @@ namespace CSSPWebTools.Controllers
             return viewTVItemIconList;
         }
         [NonAction]
-        public List<List<IconInfo>> FillTVItemInfrastructuresIcons(TVAuthEnum TVAuth)
+        public List<List<IconInfo>> FillTVItemInfrastructuresIcons(TVAuthEnum TVAuth, TVItemModel tvItemModel)
         {
             List<List<IconInfo>> viewTVItemIconListList = new List<List<IconInfo>>();
 
@@ -1258,12 +1280,12 @@ namespace CSSPWebTools.Controllers
                 viewTVItemIconListList.Add(FillTVItemInfrastructureEditIcons(TVAuth));
             }
 
-            viewTVItemIconListList.Add(FillTVItemMapIcons(TVAuth));
+            viewTVItemIconListList.Add(FillTVItemMapIcons(TVAuth, tvItemModel));
 
             return viewTVItemIconListList;
         }
         [NonAction]
-        public List<IconInfo> FillTVItemMapIcons(TVAuthEnum TVAuth)
+        public List<IconInfo> FillTVItemMapIcons(TVAuthEnum TVAuth, TVItemModel tvItemModel)
         {
             List<IconInfo> viewTVItemIconList = new List<IconInfo>();
 
@@ -1289,6 +1311,17 @@ namespace CSSPWebTools.Controllers
                     Icon = "glyphicon glyphicon-globe",
                     ToolTip = ControllerRes.HideMap,
                 });
+                if (tvItemModel.TVType == TVTypeEnum.MWQMSite)
+                {
+                    viewTVItemIconList.Add(new IconInfo()
+                    {
+                        URL = "",
+                        IsVisible = true,
+                        jbClassName = "jbMWQMSiteShowSiteText btn btn-default",
+                        Icon = "glyphicon glyphicon-text-width",
+                        ToolTip = ControllerRes.ShowSiteText,
+                    });
+                }
                 viewTVItemIconList.Add(new IconInfo()
                 {
                     URL = "",
@@ -1310,7 +1343,7 @@ namespace CSSPWebTools.Controllers
             return viewTVItemIconList;
         }
         [NonAction]
-        public List<List<IconInfo>> FillTVItemMikeScenarioIcons(TVAuthEnum TVAuth)
+        public List<List<IconInfo>> FillTVItemMikeScenarioIcons(TVAuthEnum TVAuth, TVItemModel tvItemModel)
         {
             List<List<IconInfo>> viewTVItemIconListList = new List<List<IconInfo>>();
 
@@ -1321,7 +1354,7 @@ namespace CSSPWebTools.Controllers
                 viewTVItemIconListList.Add(FillMikeScenarioEditIcons(TVAuth));
             }
 
-            viewTVItemIconListList.Add(FillTVItemMapIcons(TVAuth));
+            viewTVItemIconListList.Add(FillTVItemMapIcons(TVAuth, tvItemModel));
 
             return viewTVItemIconListList;
         }
@@ -1368,12 +1401,12 @@ namespace CSSPWebTools.Controllers
                 viewTVItemIconListList.Add(FillMunicipalityEditIcons(TVAuth, tvItemModel));
             }
 
-            viewTVItemIconListList.Add(FillTVItemMapIcons(TVAuth));
+            viewTVItemIconListList.Add(FillTVItemMapIcons(TVAuth, tvItemModel));
 
             return viewTVItemIconListList;
         }
         [NonAction]
-        public List<List<IconInfo>> FillTVItemSamplingPlanIcons(TVAuthEnum TVAuth)
+        public List<List<IconInfo>> FillTVItemSamplingPlanIcons(TVAuthEnum TVAuth, TVItemModel tvItemModel)
         {
             List<List<IconInfo>> viewTVItemIconListList = new List<List<IconInfo>>();
 
@@ -1384,7 +1417,7 @@ namespace CSSPWebTools.Controllers
                 viewTVItemIconListList.Add(FillSamplingPlanEditIcons(TVAuth));
             }
 
-            viewTVItemIconListList.Add(FillTVItemMapIcons(TVAuth));
+            viewTVItemIconListList.Add(FillTVItemMapIcons(TVAuth, tvItemModel));
 
             return viewTVItemIconListList;
         }
@@ -1408,7 +1441,7 @@ namespace CSSPWebTools.Controllers
             return viewTVItemIconList;
         }
         [NonAction]
-        public List<List<IconInfo>> FillTVItemMWQMRunIcons(TVAuthEnum TVAuth, TVItemModel tvItemModel)
+        public List<List<IconInfo>> FillTVItemMWQMRunIcons(TVAuthEnum TVAuth, TVItemModel tvItemModel, TVTypeEnum showType)
         {
             List<List<IconInfo>> viewTVItemIconListList = new List<List<IconInfo>>();
 
@@ -1419,7 +1452,7 @@ namespace CSSPWebTools.Controllers
                 viewTVItemIconListList.Add(FillTVItemMWQMRunEditIcons(TVAuth));
             }
 
-            viewTVItemIconListList.Add(FillMWQMRunMapIcons(TVAuth, tvItemModel));
+            viewTVItemIconListList.Add(FillMWQMRunMapIcons(TVAuth, tvItemModel, showType));
 
             return viewTVItemIconListList;
         }
@@ -1455,7 +1488,7 @@ namespace CSSPWebTools.Controllers
             return viewTVItemIconList;
         }
         [NonAction]
-        public List<List<IconInfo>> FillTVItemMWQMSiteIcons(TVAuthEnum TVAuth, TVItemModel tvItemModel)
+        public List<List<IconInfo>> FillTVItemMWQMSiteIcons(TVAuthEnum TVAuth, TVItemModel tvItemModel, TVTypeEnum showType)
         {
             List<List<IconInfo>> viewTVItemIconListList = new List<List<IconInfo>>();
 
@@ -1466,7 +1499,7 @@ namespace CSSPWebTools.Controllers
                 viewTVItemIconListList.Add(FillTVItemMWQMSiteEditIcons(TVAuth));
             }
 
-            viewTVItemIconListList.Add(FillMWQMSiteMapIcons(TVAuth, tvItemModel));
+            viewTVItemIconListList.Add(FillMWQMSiteMapIcons(TVAuth, tvItemModel, showType));
 
             return viewTVItemIconListList;
         }
@@ -1946,7 +1979,7 @@ namespace CSSPWebTools.Controllers
                             Controller = "TVItem",
                             ShowTVType = TVTypeEnum.Sector,
                             Stat = _TVItemStatService.GetTVItemStatModelWithTVItemIDAndTVTypeDB(tvItemModelLocationCurrent.TVItemID, TVTypeEnum.Sector).ChildCount,
-                            viewTVItemIconListList = FillTVItemIcons(TVAuth),
+                            viewTVItemIconListList = FillTVItemIcons(TVAuth, tvItemModelLocationCurrent),
                         });
                         ViewTVItemInfoList.Add(new TabInfo()
                         {
@@ -1973,7 +2006,7 @@ namespace CSSPWebTools.Controllers
                             ShowTVType = TVTypeEnum.File,
                             Stat = _TVItemStatService.GetTVItemStatModelWithTVItemIDAndTVTypeDB(tvItemModelLocationCurrent.TVItemID, TVTypeEnum.File).ChildCount,
                             Stat2 = _TVItemStatService.GetTVItemStatModelWithTVItemIDAndTVTypeDB(tvItemModelLocationCurrent.TVItemID, TVTypeEnum.TotalFile).ChildCount,
-                            viewTVItemIconListList = FillTVItemFileIcons(TVAuth),
+                            viewTVItemIconListList = FillTVItemFileIcons(TVAuth, tvItemModelLocationCurrent),
                         });
                     }
                     break;
@@ -1991,7 +2024,7 @@ namespace CSSPWebTools.Controllers
                             Controller = "TVItem",
                             ShowTVType = TVTypeEnum.Province,
                             Stat = _TVItemStatService.GetTVItemStatModelWithTVItemIDAndTVTypeDB(tvItemModelLocationCurrent.TVItemID, TVTypeEnum.Province).ChildCount,
-                            viewTVItemIconListList = FillTVItemIcons(TVAuth),
+                            viewTVItemIconListList = FillTVItemIcons(TVAuth, tvItemModelLocationCurrent),
                         });
                         ViewTVItemInfoList.Add(new TabInfo()
                         {
@@ -2005,7 +2038,7 @@ namespace CSSPWebTools.Controllers
                             ShowTVType = TVTypeEnum.File,
                             Stat = _TVItemStatService.GetTVItemStatModelWithTVItemIDAndTVTypeDB(tvItemModelLocationCurrent.TVItemID, TVTypeEnum.File).ChildCount,
                             Stat2 = _TVItemStatService.GetTVItemStatModelWithTVItemIDAndTVTypeDB(tvItemModelLocationCurrent.TVItemID, TVTypeEnum.TotalFile).ChildCount,
-                            viewTVItemIconListList = FillTVItemFileIcons(TVAuth),
+                            viewTVItemIconListList = FillTVItemFileIcons(TVAuth, tvItemModelLocationCurrent),
                         });
                         ViewTVItemInfoList.Add(new TabInfo()
                         {
@@ -2018,7 +2051,7 @@ namespace CSSPWebTools.Controllers
                             Controller = "TVItem",
                             ShowTVType = TVTypeEnum.EmailDistributionList,
                             Stat = _TVItemStatService.GetTVItemStatModelWithTVItemIDAndTVTypeDB(tvItemModelLocationCurrent.TVItemID, TVTypeEnum.EmailDistributionList).ChildCount,
-                            viewTVItemIconListList = FillEmailDistributionListIcons(TVAuth),
+                            viewTVItemIconListList = FillEmailDistributionListIcons(TVAuth, tvItemModelLocationCurrent),
                         });
                         ViewTVItemInfoList.Add(new TabInfo()
                         {
@@ -2031,7 +2064,7 @@ namespace CSSPWebTools.Controllers
                             Controller = "TVItem",
                             ShowTVType = TVTypeEnum.RainExceedance,
                             Stat = _TVItemStatService.GetTVItemStatModelWithTVItemIDAndTVTypeDB(tvItemModelLocationCurrent.TVItemID, TVTypeEnum.RainExceedance).ChildCount,
-                            viewTVItemIconListList = FillRainExceedanceIcons(TVAuth),
+                            viewTVItemIconListList = FillRainExceedanceIcons(TVAuth, tvItemModelLocationCurrent),
                         });
                     }
                     break;
@@ -2049,7 +2082,7 @@ namespace CSSPWebTools.Controllers
                             Controller = "TVItem",
                             ShowTVType = TVTypeEnum.Infrastructure,
                             Stat = -1,
-                            viewTVItemIconListList = FillInfrastructureInformationIcons(TVAuth),
+                            viewTVItemIconListList = FillInfrastructureInformationIcons(TVAuth, tvItemModelLocationCurrent),
                         });
                         ViewTVItemInfoList.Add(new TabInfo()
                         {
@@ -2062,7 +2095,7 @@ namespace CSSPWebTools.Controllers
                             Controller = "TVItem",
                             ShowTVType = TVTypeEnum.BoxModel,
                             Stat = _TVItemStatService.GetTVItemStatModelWithTVItemIDAndTVTypeDB(tvItemModelLocationCurrent.TVItemID, TVTypeEnum.BoxModel).ChildCount,
-                            viewTVItemIconListList = FillInfrastructureBoxModelIcons(TVAuth),
+                            viewTVItemIconListList = FillInfrastructureBoxModelIcons(TVAuth, tvItemModelLocationCurrent),
                         });
                         ViewTVItemInfoList.Add(new TabInfo()
                         {
@@ -2075,7 +2108,7 @@ namespace CSSPWebTools.Controllers
                             Controller = "TVItem",
                             ShowTVType = TVTypeEnum.VisualPlumesScenario,
                             Stat = _TVItemStatService.GetTVItemStatModelWithTVItemIDAndTVTypeDB(tvItemModelLocationCurrent.TVItemID, TVTypeEnum.VisualPlumesScenario).ChildCount,
-                            viewTVItemIconListList = FillInfrastructureVisualPlumeIcons(TVAuth),
+                            viewTVItemIconListList = FillInfrastructureVisualPlumeIcons(TVAuth, tvItemModelLocationCurrent),
                         });
                         ViewTVItemInfoList.Add(new TabInfo()
                         {
@@ -2089,7 +2122,7 @@ namespace CSSPWebTools.Controllers
                             ShowTVType = TVTypeEnum.File,
                             Stat = _TVItemStatService.GetTVItemStatModelWithTVItemIDAndTVTypeDB(tvItemModelLocationCurrent.TVItemID, TVTypeEnum.File).ChildCount,
                             Stat2 = _TVItemStatService.GetTVItemStatModelWithTVItemIDAndTVTypeDB(tvItemModelLocationCurrent.TVItemID, TVTypeEnum.TotalFile).ChildCount,
-                            viewTVItemIconListList = FillTVItemFileIcons(TVAuth),
+                            viewTVItemIconListList = FillTVItemFileIcons(TVAuth, tvItemModelLocationCurrent),
                         });
                     }
                     break;
@@ -2113,7 +2146,7 @@ namespace CSSPWebTools.Controllers
                                 Controller = "TVItem",
                                 ShowTVType = TVTypeEnum.MikeScenario,
                                 Stat = -1,
-                                viewTVItemIconListList = FillMikeScenarioImportIcons(TVAuth),
+                                viewTVItemIconListList = FillMikeScenarioImportIcons(TVAuth, tvItemModelLocationCurrent),
                             });
                         }
                         else
@@ -2131,7 +2164,7 @@ namespace CSSPWebTools.Controllers
                                     Controller = "TVItem",
                                     ShowTVType = TVTypeEnum.MikeScenario,
                                     Stat = -1,
-                                    viewTVItemIconListList = FillMikeScenarioImportIcons(TVAuth),
+                                    viewTVItemIconListList = FillMikeScenarioImportIcons(TVAuth, tvItemModelLocationCurrent),
                                 });
                             }
                             else
@@ -2147,7 +2180,7 @@ namespace CSSPWebTools.Controllers
                                     Controller = "TVItem",
                                     ShowTVType = TVTypeEnum.MikeScenario,
                                     Stat = -1,
-                                    viewTVItemIconListList = FillMikeScenarioGeneralParametersIcons(TVAuth, mikeScenarioModel),
+                                    viewTVItemIconListList = FillMikeScenarioGeneralParametersIcons(TVAuth, tvItemModelLocationCurrent, mikeScenarioModel),
                                 });
                                 ViewTVItemInfoList.Add(new TabInfo()
                                 {
@@ -2160,7 +2193,7 @@ namespace CSSPWebTools.Controllers
                                     Controller = "TVItem",
                                     ShowTVType = TVTypeEnum.MikeScenario,
                                     Stat = _TVItemStatService.GetTVItemStatModelWithTVItemIDAndTVTypeDB(tvItemModelLocationCurrent.TVItemID, TVTypeEnum.MikeSource).ChildCount,
-                                    viewTVItemIconListList = FillMikeScenarioSourcesIcons(TVAuth, mikeScenarioModel),
+                                    viewTVItemIconListList = FillMikeScenarioSourcesIcons(TVAuth, tvItemModelLocationCurrent, mikeScenarioModel),
                                 });
                                 ViewTVItemInfoList.Add(new TabInfo()
                                 {
@@ -2173,7 +2206,7 @@ namespace CSSPWebTools.Controllers
                                     Controller = "TVItem",
                                     ShowTVType = TVTypeEnum.MikeScenario,
                                     Stat = -1,
-                                    viewTVItemIconListList = FillMikeScenarioInputSummaryIcons(TVAuth),
+                                    viewTVItemIconListList = FillMikeScenarioInputSummaryIcons(TVAuth, tvItemModelLocationCurrent),
                                 });
                                 ViewTVItemInfoList.Add(new TabInfo()
                                 {
@@ -2187,7 +2220,7 @@ namespace CSSPWebTools.Controllers
                                     ShowTVType = TVTypeEnum.File,
                                     Stat = _TVItemStatService.GetTVItemStatModelWithTVItemIDAndTVTypeDB(tvItemModelLocationCurrent.TVItemID, TVTypeEnum.File).ChildCount,
                                     Stat2 = _TVItemStatService.GetTVItemStatModelWithTVItemIDAndTVTypeDB(tvItemModelLocationCurrent.TVItemID, TVTypeEnum.TotalFile).ChildCount,
-                                    viewTVItemIconListList = FillTVItemFileIcons(TVAuth),
+                                    viewTVItemIconListList = FillTVItemFileIcons(TVAuth, tvItemModelLocationCurrent),
                                 });
                                 ViewTVItemInfoList.Add(new TabInfo()
                                 {
@@ -2200,7 +2233,7 @@ namespace CSSPWebTools.Controllers
                                     Controller = "TVItem",
                                     ShowTVType = TVTypeEnum.MikeScenario,
                                     Stat = -1,
-                                    viewTVItemIconListList = FillMikeScenarioToolsIcons(TVAuth),
+                                    viewTVItemIconListList = FillMikeScenarioToolsIcons(TVAuth, tvItemModelLocationCurrent),
                                 });
                             }
                         }
@@ -2220,7 +2253,7 @@ namespace CSSPWebTools.Controllers
                             Controller = "TVItem",
                             ShowTVType = TVTypeEnum.Infrastructure,
                             Stat = _TVItemStatService.GetTVItemStatModelWithTVItemIDAndTVTypeDB(tvItemModelLocationCurrent.TVItemID, TVTypeEnum.Infrastructure).ChildCount,
-                            viewTVItemIconListList = FillTVItemInfrastructuresIcons(TVAuth),
+                            viewTVItemIconListList = FillTVItemInfrastructuresIcons(TVAuth, tvItemModelLocationCurrent),
                         });
                         ViewTVItemInfoList.Add(new TabInfo()
                         {
@@ -2233,7 +2266,7 @@ namespace CSSPWebTools.Controllers
                             Controller = "TVItem",
                             ShowTVType = TVTypeEnum.MikeScenario,
                             Stat = _TVItemStatService.GetTVItemStatModelWithTVItemIDAndTVTypeDB(tvItemModelLocationCurrent.TVItemID, TVTypeEnum.MikeScenario).ChildCount,
-                            viewTVItemIconListList = FillTVItemMikeScenarioIcons(TVAuth),
+                            viewTVItemIconListList = FillTVItemMikeScenarioIcons(TVAuth, tvItemModelLocationCurrent),
                         });
                         ViewTVItemInfoList.Add(new TabInfo()
                         {
@@ -2246,7 +2279,7 @@ namespace CSSPWebTools.Controllers
                             Controller = "TVItem",
                             ShowTVType = TVTypeEnum.Contact,
                             Stat = _TVItemStatService.GetTVItemStatModelWithTVItemIDAndTVTypeDB(tvItemModelLocationCurrent.TVItemID, TVTypeEnum.Contact).ChildCount,
-                            viewTVItemIconListList = FillMunicipalityContactIcons(TVAuth),
+                            viewTVItemIconListList = FillMunicipalityContactIcons(TVAuth, tvItemModelLocationCurrent),
                         });
                         ViewTVItemInfoList.Add(new TabInfo()
                         {
@@ -2260,7 +2293,7 @@ namespace CSSPWebTools.Controllers
                             ShowTVType = TVTypeEnum.File,
                             Stat = _TVItemStatService.GetTVItemStatModelWithTVItemIDAndTVTypeDB(tvItemModelLocationCurrent.TVItemID, TVTypeEnum.File).ChildCount,
                             Stat2 = _TVItemStatService.GetTVItemStatModelWithTVItemIDAndTVTypeDB(tvItemModelLocationCurrent.TVItemID, TVTypeEnum.TotalFile).ChildCount,
-                            viewTVItemIconListList = FillTVItemFileIcons(TVAuth),
+                            viewTVItemIconListList = FillTVItemFileIcons(TVAuth, tvItemModelLocationCurrent),
                         });
                     }
                     break;
@@ -2278,7 +2311,7 @@ namespace CSSPWebTools.Controllers
                             Controller = "TVItem",
                             ShowTVType = TVTypeEnum.MWQMRun,
                             Stat = _TVItemStatService.GetTVItemStatModelWithTVItemIDAndTVTypeDB(tvItemModelLocationCurrent.TVItemID, TVTypeEnum.MWQMSiteSample).ChildCount,
-                            viewTVItemIconListList = FillMWQMRunIcons(TVAuth),
+                            viewTVItemIconListList = FillMWQMRunIcons(TVAuth, tvItemModelLocationCurrent, TVTypeEnum.MWQMRun),
                         });
                         ViewTVItemInfoList.Add(new TabInfo()
                         {
@@ -2292,7 +2325,7 @@ namespace CSSPWebTools.Controllers
                             ShowTVType = TVTypeEnum.File,
                             Stat = _TVItemStatService.GetTVItemStatModelWithTVItemIDAndTVTypeDB(tvItemModelLocationCurrent.TVItemID, TVTypeEnum.File).ChildCount,
                             Stat2 = _TVItemStatService.GetTVItemStatModelWithTVItemIDAndTVTypeDB(tvItemModelLocationCurrent.TVItemID, TVTypeEnum.TotalFile).ChildCount,
-                            viewTVItemIconListList = FillTVItemFileIcons(TVAuth),
+                            viewTVItemIconListList = FillTVItemFileIcons(TVAuth, tvItemModelLocationCurrent),
                         });
                     }
                     break;
@@ -2310,7 +2343,7 @@ namespace CSSPWebTools.Controllers
                             Controller = "TVItem",
                             ShowTVType = TVTypeEnum.MWQMSite,
                             Stat = _TVItemStatService.GetTVItemStatModelWithTVItemIDAndTVTypeDB(tvItemModelLocationCurrent.TVItemID, TVTypeEnum.MWQMSiteSample).ChildCount,
-                            viewTVItemIconListList = FillMWQMSiteIcons(TVAuth, tvItemModelLocationCurrent),
+                            viewTVItemIconListList = FillMWQMSiteIcons(TVAuth, tvItemModelLocationCurrent, TVTypeEnum.MWQMSite),
                         });
                         ViewTVItemInfoList.Add(new TabInfo()
                         {
@@ -2324,7 +2357,7 @@ namespace CSSPWebTools.Controllers
                             ShowTVType = TVTypeEnum.File,
                             Stat = _TVItemStatService.GetTVItemStatModelWithTVItemIDAndTVTypeDB(tvItemModelLocationCurrent.TVItemID, TVTypeEnum.File).ChildCount,
                             Stat2 = _TVItemStatService.GetTVItemStatModelWithTVItemIDAndTVTypeDB(tvItemModelLocationCurrent.TVItemID, TVTypeEnum.TotalFile).ChildCount,
-                            viewTVItemIconListList = FillTVItemFileIcons(TVAuth),
+                            viewTVItemIconListList = FillTVItemFileIcons(TVAuth, tvItemModelLocationCurrent),
                         });
                     }
                     break;
@@ -2356,7 +2389,7 @@ namespace CSSPWebTools.Controllers
                             ShowTVType = TVTypeEnum.File,
                             Stat = _TVItemStatService.GetTVItemStatModelWithTVItemIDAndTVTypeDB(tvItemModelLocationCurrent.TVItemID, TVTypeEnum.File).ChildCount,
                             Stat2 = _TVItemStatService.GetTVItemStatModelWithTVItemIDAndTVTypeDB(tvItemModelLocationCurrent.TVItemID, TVTypeEnum.TotalFile).ChildCount,
-                            viewTVItemIconListList = FillTVItemFileIcons(TVAuth),
+                            viewTVItemIconListList = FillTVItemFileIcons(TVAuth, tvItemModelLocationCurrent),
                         });
                     }
                     break;
@@ -2374,7 +2407,7 @@ namespace CSSPWebTools.Controllers
                             Controller = "TVItem",
                             ShowTVType = TVTypeEnum.Area,
                             Stat = _TVItemStatService.GetTVItemStatModelWithTVItemIDAndTVTypeDB(tvItemModelLocationCurrent.TVItemID, TVTypeEnum.Area).ChildCount,
-                            viewTVItemIconListList = FillTVItemIcons(TVAuth),
+                            viewTVItemIconListList = FillTVItemIcons(TVAuth, tvItemModelLocationCurrent),
                         });
                         ViewTVItemInfoList.Add(new TabInfo()
                         {
@@ -2401,7 +2434,7 @@ namespace CSSPWebTools.Controllers
                             ShowTVType = TVTypeEnum.File,
                             Stat = _TVItemStatService.GetTVItemStatModelWithTVItemIDAndTVTypeDB(tvItemModelLocationCurrent.TVItemID, TVTypeEnum.File).ChildCount,
                             Stat2 = _TVItemStatService.GetTVItemStatModelWithTVItemIDAndTVTypeDB(tvItemModelLocationCurrent.TVItemID, TVTypeEnum.TotalFile).ChildCount,
-                            viewTVItemIconListList = FillTVItemFileIcons(TVAuth),
+                            viewTVItemIconListList = FillTVItemFileIcons(TVAuth, tvItemModelLocationCurrent),
                         });
                         ViewTVItemInfoList.Add(new TabInfo()
                         {
@@ -2414,7 +2447,7 @@ namespace CSSPWebTools.Controllers
                             Controller = "TVItem",
                             ShowTVType = TVTypeEnum.SamplingPlan,
                             Stat = 0,
-                            viewTVItemIconListList = FillTVItemSamplingPlanIcons(TVAuth),
+                            viewTVItemIconListList = FillTVItemSamplingPlanIcons(TVAuth, tvItemModelLocationCurrent),
                         });
                     }
                     break;
@@ -2432,7 +2465,7 @@ namespace CSSPWebTools.Controllers
                             Controller = "TVItem",
                             ShowTVType = TVTypeEnum.Country,
                             Stat = _TVItemStatService.GetTVItemStatModelWithTVItemIDAndTVTypeDB(tvItemModelLocationCurrent.TVItemID, TVTypeEnum.Country).ChildCount,
-                            viewTVItemIconListList = FillTVItemIcons(TVAuth),
+                            viewTVItemIconListList = FillTVItemIcons(TVAuth, tvItemModelLocationCurrent),
                         });
                         ViewTVItemInfoList.Add(new TabInfo()
                         {
@@ -2446,7 +2479,7 @@ namespace CSSPWebTools.Controllers
                             ShowTVType = TVTypeEnum.File,
                             Stat = _TVItemStatService.GetTVItemStatModelWithTVItemIDAndTVTypeDB(tvItemModelLocationCurrent.TVItemID, TVTypeEnum.File).ChildCount,
                             Stat2 = _TVItemStatService.GetTVItemStatModelWithTVItemIDAndTVTypeDB(tvItemModelLocationCurrent.TVItemID, TVTypeEnum.TotalFile).ChildCount,
-                            viewTVItemIconListList = FillTVItemFileIcons(TVAuth),
+                            viewTVItemIconListList = FillTVItemFileIcons(TVAuth, tvItemModelLocationCurrent),
                         });
                     }
                     break;
@@ -2464,7 +2497,7 @@ namespace CSSPWebTools.Controllers
                             Controller = "TVItem",
                             ShowTVType = TVTypeEnum.Subsector,
                             Stat = _TVItemStatService.GetTVItemStatModelWithTVItemIDAndTVTypeDB(tvItemModelLocationCurrent.TVItemID, TVTypeEnum.Subsector).ChildCount,
-                            viewTVItemIconListList = FillTVItemIcons(TVAuth),
+                            viewTVItemIconListList = FillTVItemIcons(TVAuth, tvItemModelLocationCurrent),
                         });
                         ViewTVItemInfoList.Add(new TabInfo()
                         {
@@ -2491,7 +2524,7 @@ namespace CSSPWebTools.Controllers
                             ShowTVType = TVTypeEnum.File,
                             Stat = _TVItemStatService.GetTVItemStatModelWithTVItemIDAndTVTypeDB(tvItemModelLocationCurrent.TVItemID, TVTypeEnum.File).ChildCount,
                             Stat2 = _TVItemStatService.GetTVItemStatModelWithTVItemIDAndTVTypeDB(tvItemModelLocationCurrent.TVItemID, TVTypeEnum.TotalFile).ChildCount,
-                            viewTVItemIconListList = FillTVItemFileIcons(TVAuth),
+                            viewTVItemIconListList = FillTVItemFileIcons(TVAuth, tvItemModelLocationCurrent),
                         });
                     }
                     break;
@@ -2509,7 +2542,7 @@ namespace CSSPWebTools.Controllers
                             Controller = "TVItem",
                             ShowTVType = TVTypeEnum.MWQMSite,
                             Stat = _TVItemStatService.GetTVItemStatModelWithTVItemIDAndTVTypeDB(tvItemModelLocationCurrent.TVItemID, TVTypeEnum.MWQMSite).ChildCount,
-                            viewTVItemIconListList = FillTVItemMWQMSiteIcons(TVAuth, tvItemModelLocationCurrent),
+                            viewTVItemIconListList = FillTVItemMWQMSiteIcons(TVAuth, tvItemModelLocationCurrent, TVTypeEnum.MWQMSite),
                         });
                         ViewTVItemInfoList.Add(new TabInfo()
                         {
@@ -2522,7 +2555,7 @@ namespace CSSPWebTools.Controllers
                             Controller = "TVItem",
                             ShowTVType = TVTypeEnum.MWQMRun,
                             Stat = _TVItemStatService.GetTVItemStatModelWithTVItemIDAndTVTypeDB(tvItemModelLocationCurrent.TVItemID, TVTypeEnum.MWQMRun).ChildCount,
-                            viewTVItemIconListList = FillTVItemMWQMRunIcons(TVAuth, tvItemModelLocationCurrent),
+                            viewTVItemIconListList = FillTVItemMWQMRunIcons(TVAuth, tvItemModelLocationCurrent, TVTypeEnum.MWQMRun),
                         });
                         ViewTVItemInfoList.Add(new TabInfo()
                         {
@@ -2562,7 +2595,7 @@ namespace CSSPWebTools.Controllers
                             ShowTVType = TVTypeEnum.File,
                             Stat = _TVItemStatService.GetTVItemStatModelWithTVItemIDAndTVTypeDB(tvItemModelLocationCurrent.TVItemID, TVTypeEnum.File).ChildCount,
                             Stat2 = _TVItemStatService.GetTVItemStatModelWithTVItemIDAndTVTypeDB(tvItemModelLocationCurrent.TVItemID, TVTypeEnum.TotalFile).ChildCount,
-                            viewTVItemIconListList = FillTVItemFileIcons(TVAuth),
+                            viewTVItemIconListList = FillTVItemFileIcons(TVAuth, tvItemModelLocationCurrent),
                         });
                         ViewTVItemInfoList.Add(new TabInfo()
                         {
@@ -2575,7 +2608,7 @@ namespace CSSPWebTools.Controllers
                             Controller = "TVItem",
                             ShowTVType = TVTypeEnum.ClimateSite,
                             Stat = _TVItemStatService.GetTVItemStatModelWithTVItemIDAndTVTypeDB(tvItemModelLocationCurrent.TVItemID, TVTypeEnum.ClimateSite).ChildCount,
-                            viewTVItemIconListList = FillClimateSiteIcons(TVAuth),
+                            viewTVItemIconListList = FillClimateSiteIcons(TVAuth, tvItemModelLocationCurrent),
                         });
                         ViewTVItemInfoList.Add(new TabInfo()
                         {
@@ -2588,7 +2621,7 @@ namespace CSSPWebTools.Controllers
                             Controller = "TVItem",
                             ShowTVType = TVTypeEnum.HydrometricSite,
                             Stat = _TVItemStatService.GetTVItemStatModelWithTVItemIDAndTVTypeDB(tvItemModelLocationCurrent.TVItemID, TVTypeEnum.HydrometricSite).ChildCount,
-                            viewTVItemIconListList = FillHydrometricSiteIcons(TVAuth),
+                            viewTVItemIconListList = FillHydrometricSiteIcons(TVAuth, tvItemModelLocationCurrent),
                         });
                         ViewTVItemInfoList.Add(new TabInfo()
                         {
@@ -2601,7 +2634,7 @@ namespace CSSPWebTools.Controllers
                             Controller = "TVItem",
                             ShowTVType = TVTypeEnum.TideSite,
                             Stat = _TVItemStatService.GetTVItemStatModelWithTVItemIDAndTVTypeDB(tvItemModelLocationCurrent.TVItemID, TVTypeEnum.TideSite).ChildCount,
-                            viewTVItemIconListList = FillTideSiteIcons(TVAuth),
+                            viewTVItemIconListList = FillTideSiteIcons(TVAuth, tvItemModelLocationCurrent),
                         });
                         ViewTVItemInfoList.Add(new TabInfo()
                         {
@@ -2614,7 +2647,7 @@ namespace CSSPWebTools.Controllers
                             Controller = "TVItem",
                             ShowTVType = TVTypeEnum.MWQMSite,
                             Stat = 0,
-                            viewTVItemIconListList = FillLogBookIcons(TVAuth),
+                            viewTVItemIconListList = FillLogBookIcons(TVAuth, tvItemModelLocationCurrent),
                         });
                     }
                     break;

@@ -935,22 +935,6 @@ module CSSP {
                 cssp.MWQMSite.AfterLoadUpdate("MWQMSiteCharts");
             }
         };
-        public MWQMShowHideOnMap: Function = (Show: boolean): void => {
-            if ($(".jbMWQMSiteShowHideOnMap").hasClass("btn-default")) {
-                var TVItemID: number = parseInt($("#ViewDiv").data("tvitemid"));
-                if (TVItemID != 0) {
-                    cssp.GoogleMap.DrawCross(TVItemID);
-                    $(".jbMWQMSiteShowHideOnMap").removeClass("btn-default").addClass("btn-success");
-                }
-            }
-            else {
-                cssp.GoogleMap.DrawCross(-1);
-                $(".jbMWQMSiteShowHideOnMap").removeClass("btn-success").addClass("btn-default");
-                if (Show) {
-                    cssp.MWQMSite.MWQMShowHideOnMap(true);
-                }
-            }
-        };
         public MWQMSiteEdit: Function = ($bjs: JQuery): void => {
             if ($(".jbMWQMSiteEdit").hasClass("btn-default")) {
                 $("#MWQMSiteAddOrModifyDiv").html(cssp.GetHTMLVariable("#LayoutVariables", "varInProgress"));
@@ -1067,6 +1051,38 @@ module CSSP {
             else {
                 $bjs.removeClass("btn-success").addClass("btn-default");
                 $TVItemEdit.html("");
+            }
+        };
+        public MWQMShowHideOnMap: Function = (Show: boolean): void => {
+            if ($(".jbMWQMSiteShowHideOnMap").hasClass("btn-default")) {
+                var TVItemID: number = parseInt($("#ViewDiv").data("tvitemid"));
+                if (TVItemID != 0) {
+                    cssp.GoogleMap.DrawCross(TVItemID);
+                    $(".jbMWQMSiteShowHideOnMap").removeClass("btn-default").addClass("btn-success");
+                }
+            }
+            else {
+                cssp.GoogleMap.DrawCross(-1);
+                $(".jbMWQMSiteShowHideOnMap").removeClass("btn-success").addClass("btn-default");
+                if (Show) {
+                    cssp.MWQMSite.MWQMShowHideOnMap(true);
+                }
+            }
+        };
+        public ShowSiteText: Function = ($bjs: JQuery): void => {
+            if ($bjs.hasClass("btn-default")) {
+                $bjs.removeClass("btn-default").addClass("btn-success");
+                if (cssp.GoogleMap.MarkerTextLength < 8) {
+                    cssp.GoogleMap.MarkerTextLength = 8;
+                    cssp.GoogleMap.DrawObjects();
+                }
+            }
+            else {
+                $bjs.removeClass("btn-success").addClass("btn-default");
+                if (cssp.GoogleMap.MarkerTextLength > 1) {
+                    cssp.GoogleMap.MarkerTextLength = 1;
+                    cssp.GoogleMap.DrawObjects();
+                }
             }
         };
         public MWQMSubsectorAnalysisBeforeRecalculation: Function = (): void => {

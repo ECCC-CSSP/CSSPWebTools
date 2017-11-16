@@ -16,99 +16,90 @@
         <h4 class="panel-title">@FileViewRes.CreateDocumentUsingParameters</h4>
     </div>
     <div class="panel-body">
-        <div>
-            @if (docTemplateModelList.Count == 0)
-            {
-                @FileViewRes.Empty
-            }
-            else
-            {
-                <div class="ReportTypeListTopDiv">
-                    @switch (tvItemModel.TVType)
+        <div class="ReportTypeListTopDiv">
+            @switch (tvItemModel.TVType)
                     {
                         case TVTypeEnum.Root:
                             {
-                                @Html.Action("_reportTypeList", "ReportType", new { TVType = (int)TVTypeEnum.Root, TVItemID = tvItemModel.TVItemID });
+                    @Html.Action("_reportTypeList", "ReportType", new { TVType = (int)TVTypeEnum.Root, TVItemID = tvItemModel.TVItemID });
                             }
                             break;
                         case TVTypeEnum.Area:
                             {
-                                @Html.Action("_reportTypeList", "ReportType", new { TVType = (int)TVTypeEnum.Area, TVItemID = tvItemModel.TVItemID });
+                    @Html.Action("_reportTypeList", "ReportType", new { TVType = (int)TVTypeEnum.Area, TVItemID = tvItemModel.TVItemID });
                             }
                             break;
                         case TVTypeEnum.Country:
                             {
-                                @Html.Action("_reportTypeList", "ReportType", new { TVType = (int)TVTypeEnum.Country, TVItemID = tvItemModel.TVItemID });
+                    @Html.Action("_reportTypeList", "ReportType", new { TVType = (int)TVTypeEnum.Country, TVItemID = tvItemModel.TVItemID });
                             }
                             break;
                         case TVTypeEnum.Infrastructure:
                             {
-                                @Html.Action("_reportTypeList", "ReportType", new { TVType = (int)TVTypeEnum.Infrastructure, TVItemID = tvItemModel.TVItemID });
+                    @Html.Action("_reportTypeList", "ReportType", new { TVType = (int)TVTypeEnum.Infrastructure, TVItemID = tvItemModel.TVItemID });
                             }
                             break;
                         case TVTypeEnum.MikeScenario:
                             {
-                                @Html.Action("_reportTypeList", "ReportType", new { TVType = (int)TVTypeEnum.MikeScenario, TVItemID = tvItemModel.TVItemID });
+                    @Html.Action("_reportTypeList", "ReportType", new { TVType = (int)TVTypeEnum.MikeScenario, TVItemID = tvItemModel.TVItemID });
                             }
                             break;
                         case TVTypeEnum.MikeSource:
                             {
-                                @Html.Action("_reportTypeList", "ReportType", new { TVType = (int)TVTypeEnum.MikeSource, TVItemID = tvItemModel.TVItemID });
+                    @Html.Action("_reportTypeList", "ReportType", new { TVType = (int)TVTypeEnum.MikeSource, TVItemID = tvItemModel.TVItemID });
                             }
                             break;
                         case TVTypeEnum.Municipality:
                             {
-                                @Html.Action("_reportTypeList", "ReportType", new { TVType = (int)TVTypeEnum.Municipality, TVItemID = tvItemModel.TVItemID });
+                    @Html.Action("_reportTypeList", "ReportType", new { TVType = (int)TVTypeEnum.Municipality, TVItemID = tvItemModel.TVItemID });
                             }
                             break;
                         case TVTypeEnum.MWQMSite:
                             {
-                                @Html.Action("_reportTypeList", "ReportType", new { TVType = (int)TVTypeEnum.MWQMSite, TVItemID = tvItemModel.TVItemID });
+                    @Html.Action("_reportTypeList", "ReportType", new { TVType = (int)TVTypeEnum.MWQMSite, TVItemID = tvItemModel.TVItemID });
                             }
                             break;
                         case TVTypeEnum.PolSourceSite:
                             {
-                                @Html.Action("_reportTypeList", "ReportType", new { TVType = (int)TVTypeEnum.PolSourceSite, TVItemID = tvItemModel.TVItemID });
+                    @Html.Action("_reportTypeList", "ReportType", new { TVType = (int)TVTypeEnum.PolSourceSite, TVItemID = tvItemModel.TVItemID });
                             }
                             break;
                         case TVTypeEnum.Province:
                             {
-                                @Html.Action("_reportTypeList", "ReportType", new { TVType = (int)TVTypeEnum.Province, TVItemID = tvItemModel.TVItemID });
+                    @Html.Action("_reportTypeList", "ReportType", new { TVType = (int)TVTypeEnum.Province, TVItemID = tvItemModel.TVItemID });
                             }
                             break;
                         case TVTypeEnum.Sector:
                             {
-                                @Html.Action("_reportTypeList", "ReportType", new { TVType = (int)TVTypeEnum.Sector, TVItemID = tvItemModel.TVItemID });
+                    @Html.Action("_reportTypeList", "ReportType", new { TVType = (int)TVTypeEnum.Sector, TVItemID = tvItemModel.TVItemID });
                             }
                             break;
                         case TVTypeEnum.Subsector:
                             {
-                                @Html.Action("_reportTypeList", "ReportType", new { TVType = (int)TVTypeEnum.Subsector, TVItemID = tvItemModel.TVItemID });
+                    @Html.Action("_reportTypeList", "ReportType", new { TVType = (int)TVTypeEnum.Subsector, TVItemID = tvItemModel.TVItemID });
                             }
                             break;
                         case TVTypeEnum.BoxModel:
                             {
-                                @Html.Action("_reportTypeList", "ReportType", new { TVType = (int)TVTypeEnum.BoxModel, TVItemID = tvItemModel.TVItemID });
+                    @Html.Action("_reportTypeList", "ReportType", new { TVType = (int)TVTypeEnum.BoxModel, TVItemID = tvItemModel.TVItemID });
                             }
                             break;
                         case TVTypeEnum.VisualPlumesScenario:
                             {
-                                @Html.Action("_reportTypeList", "ReportType", new { TVType = (int)TVTypeEnum.VisualPlumesScenario, TVItemID = tvItemModel.TVItemID });
+                    @Html.Action("_reportTypeList", "ReportType", new { TVType = (int)TVTypeEnum.VisualPlumesScenario, TVItemID = tvItemModel.TVItemID });
                             }
                             break;
                         case TVTypeEnum.MWQMRun:
                             {
-                                @Html.Action("_reportTypeList", "ReportType", new { TVType = (int)TVTypeEnum.MWQMRun, TVItemID = tvItemModel.TVItemID });
+                    @Html.Action("_reportTypeList", "ReportType", new { TVType = (int)TVTypeEnum.MWQMRun, TVItemID = tvItemModel.TVItemID });
                             }
                             break;
                         default:
                             {
-                               <h4>@(FileViewRes.NotImplementedYet + " [" + tvItemModel.TVType.ToString() + "]")</h4>
+                    <h4>@(FileViewRes.NotImplementedYet + " [" + tvItemModel.TVType.ToString() + "]")</h4>
                             }
                             break;
                     }
-                </div>
-            }
         </div>
     </div>
 </div>

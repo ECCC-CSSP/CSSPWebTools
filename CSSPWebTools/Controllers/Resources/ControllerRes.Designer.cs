@@ -736,6 +736,15 @@ namespace CSSPWebTools.Controllers.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Show site text.
+        /// </summary>
+        public static string ShowSiteText {
+            get {
+                return ResourceManager.GetString("ShowSiteText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Show smaller map.
         /// </summary>
         public static string ShowSmallerMap {

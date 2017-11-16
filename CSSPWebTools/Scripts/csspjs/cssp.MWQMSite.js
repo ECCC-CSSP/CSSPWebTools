@@ -864,22 +864,6 @@ var CSSP;
                     cssp.MWQMSite.AfterLoadUpdate("MWQMSiteCharts");
                 }
             };
-            this.MWQMShowHideOnMap = function (Show) {
-                if ($(".jbMWQMSiteShowHideOnMap").hasClass("btn-default")) {
-                    var TVItemID = parseInt($("#ViewDiv").data("tvitemid"));
-                    if (TVItemID != 0) {
-                        cssp.GoogleMap.DrawCross(TVItemID);
-                        $(".jbMWQMSiteShowHideOnMap").removeClass("btn-default").addClass("btn-success");
-                    }
-                }
-                else {
-                    cssp.GoogleMap.DrawCross(-1);
-                    $(".jbMWQMSiteShowHideOnMap").removeClass("btn-success").addClass("btn-default");
-                    if (Show) {
-                        cssp.MWQMSite.MWQMShowHideOnMap(true);
-                    }
-                }
-            };
             this.MWQMSiteEdit = function ($bjs) {
                 if ($(".jbMWQMSiteEdit").hasClass("btn-default")) {
                     $("#MWQMSiteAddOrModifyDiv").html(cssp.GetHTMLVariable("#LayoutVariables", "varInProgress"));
@@ -989,6 +973,38 @@ var CSSP;
                 else {
                     $bjs.removeClass("btn-success").addClass("btn-default");
                     $TVItemEdit.html("");
+                }
+            };
+            this.MWQMShowHideOnMap = function (Show) {
+                if ($(".jbMWQMSiteShowHideOnMap").hasClass("btn-default")) {
+                    var TVItemID = parseInt($("#ViewDiv").data("tvitemid"));
+                    if (TVItemID != 0) {
+                        cssp.GoogleMap.DrawCross(TVItemID);
+                        $(".jbMWQMSiteShowHideOnMap").removeClass("btn-default").addClass("btn-success");
+                    }
+                }
+                else {
+                    cssp.GoogleMap.DrawCross(-1);
+                    $(".jbMWQMSiteShowHideOnMap").removeClass("btn-success").addClass("btn-default");
+                    if (Show) {
+                        cssp.MWQMSite.MWQMShowHideOnMap(true);
+                    }
+                }
+            };
+            this.ShowSiteText = function ($bjs) {
+                if ($bjs.hasClass("btn-default")) {
+                    $bjs.removeClass("btn-default").addClass("btn-success");
+                    if (cssp.GoogleMap.MarkerTextLength < 8) {
+                        cssp.GoogleMap.MarkerTextLength = 8;
+                        cssp.GoogleMap.DrawObjects();
+                    }
+                }
+                else {
+                    $bjs.removeClass("btn-success").addClass("btn-default");
+                    if (cssp.GoogleMap.MarkerTextLength > 1) {
+                        cssp.GoogleMap.MarkerTextLength = 1;
+                        cssp.GoogleMap.DrawObjects();
+                    }
                 }
             };
             this.MWQMSubsectorAnalysisBeforeRecalculation = function () {

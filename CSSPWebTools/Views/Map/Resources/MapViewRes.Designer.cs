@@ -97,6 +97,15 @@ namespace CSSPWebTools.Views.Map.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Automatic.
+        /// </summary>
+        public static string Automatic {
+            get {
+                return ResourceManager.GetString("Automatic", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to BM.
         /// </summary>
         public static string BoxModel_abr {
@@ -129,6 +138,15 @@ namespace CSSPWebTools.Views.Map.Resources {
         public static string Cancel {
             get {
                 return ResourceManager.GetString("Cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Clear.
+        /// </summary>
+        public static string Clear {
+            get {
+                return ResourceManager.GetString("Clear", resourceCulture);
             }
         }
         
@@ -412,6 +430,15 @@ namespace CSSPWebTools.Views.Map.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Move label.
+        /// </summary>
+        public static string MoveLabel {
+            get {
+                return ResourceManager.GetString("MoveLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to MU.
         /// </summary>
         public static string Municipality_abr {
@@ -444,6 +471,15 @@ namespace CSSPWebTools.Views.Map.Resources {
         public static string MyProfile {
             get {
                 return ResourceManager.GetString("MyProfile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Only active.
+        /// </summary>
+        public static string OnlyActive {
+            get {
+                return ResourceManager.GetString("OnlyActive", resourceCulture);
             }
         }
         

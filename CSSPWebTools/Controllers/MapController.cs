@@ -125,6 +125,38 @@ namespace CSSPWebTools.Controllers
 
         [HttpPost]
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public ActionResult SaveMoveLabelPointJSON(int MapInfoID, float Lat, float Lng)
+        {
+            MapInfoPointModel mapInfoPointModel = _MapInfoService.PostSaveMoveLabelPointDB(MapInfoID, Lat, Lng);
+            return Json(mapInfoPointModel.Error, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public ActionResult MapDeleteLabelJSON(int MapInfoID, float Lat, float Lng)
+        {
+            MapInfoPointModel mapInfoPointModel = _MapInfoService.PostMapDeleteLabelDB(MapInfoID, Lat, Lng);
+            return Json(mapInfoPointModel.Error, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public ActionResult MapMoveLabelAutoJSON(int SubsectorTVItemID, int TVType, bool OnlyActive)
+        {
+            MapInfoPointModel mapInfoPointModel = _MapInfoService.PostMapMoveLabelAutoDB(SubsectorTVItemID, TVType, OnlyActive);
+            return Json(mapInfoPointModel.Error, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public ActionResult MapMoveLabelClearJSON(int SubsectorTVItemID, int TVType, bool OnlyActive)
+        {
+            MapInfoPointModel mapInfoPointModel = _MapInfoService.PostMapMoveLabelClearDB(SubsectorTVItemID, TVType, OnlyActive);
+            return Json(mapInfoPointModel.Error, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
         public ActionResult SavePolyJSON(string LatLngListText, int MapInfoID = 0, bool IsPolygon = true)
         {
             MapInfoModel mapInfoModel = _MapInfoService.PostSavePolyDB(LatLngListText, MapInfoID);
