@@ -49,24 +49,78 @@ switch (UniqueCode)
 {
     case "FCSummaryStatDocx":
         {
-                <label class="group-inline">
-                    <select name="Year" class="form-control">
-                        @for (int i = DateTime.Now.Year; i > 1989; i--)
-                        {
-                            <option value="@i">@i.ToString()</option>
-                        }
-                    </select>
-                </label>
+                <div class="form-inline">
+                    <label class="text-nowrap">
+                        <span>@DocumentViewRes.ReportYear</span>
+                        <select name="Year" class="form-control">
+                            @for (int i = DateTime.Now.Year; i > 1989; i--)
+                            {
+                                <option value="@i">@i.ToString()</option>
+                            }
+                        </select>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                    </label>
+                    <label class="text-nowrap">
+                        <input type="checkbox" name="HideAllAllAll" />
+                        <span>&nbsp;&nbsp;@DocumentViewRes.HideAllAllAll &nbsp;&nbsp;</span>
+                    </label>
+                    <label class="text-nowrap">
+                        <input type="checkbox" name="HideWetAllAll" />
+                        <span>&nbsp;&nbsp;@DocumentViewRes.HideWetAllAll &nbsp;&nbsp;</span>
+                    </label>
+                    <label class="text-nowrap">
+                        <input type="checkbox" name="HideDryAllAll" />
+                        <span>&nbsp;&nbsp;@DocumentViewRes.HideDryAllAll &nbsp;&nbsp;</span>
+                    </label>
+                    <label class="text-nowrap">
+                        <input type="checkbox" name="HideMaxFCColumn" />
+                        <span>&nbsp;&nbsp;@DocumentViewRes.HideMaxFCColumn &nbsp;&nbsp;</span>
+                    </label>
+                </div>
         }
         break;
     case "MapActivePolSourceSitesDocx":
         {
-                <span>@DocumentViewRes.NoParameters</span>
+                <div class="form-inline">
+                    <label class="text-nowrap">
+                        <input type="checkbox" name="HideVerticalScale" />
+                        <span>&nbsp;&nbsp;@DocumentViewRes.HideVerticalScale &nbsp;&nbsp;</span>
+                    </label>
+                    <label class="text-nowrap">
+                        <input type="checkbox" name="HideHorizontalScale" />
+                        <span>&nbsp;&nbsp;@DocumentViewRes.HideHorizontalScale &nbsp;&nbsp;</span>
+                    </label>
+                    <label class="text-nowrap">
+                        <input type="checkbox" name="HideNorthArrow" />
+                        <span>&nbsp;&nbsp;@DocumentViewRes.HideNorthArrow &nbsp;&nbsp;</span>
+                    </label>
+                    <label class="text-nowrap">
+                        <input type="checkbox" name="HideSubsectorName" />
+                        <span>&nbsp;&nbsp;@DocumentViewRes.HideSubsectorName &nbsp;&nbsp;</span>
+                    </label>
+                </div>
         }
         break;
     case "MapActiveMWQMSitesDocx":
         {
-                <span>@DocumentViewRes.NoParameters</span>
+                <div class="form-inline">
+                    <label class="text-nowrap">
+                        <input type="checkbox" name="HideVerticalScale" />
+                        <span>&nbsp;&nbsp;@DocumentViewRes.HideVerticalScale &nbsp;&nbsp;</span>
+                    </label>
+                    <label class="text-nowrap">
+                        <input type="checkbox" name="HideHorizontalScale" />
+                        <span>&nbsp;&nbsp;@DocumentViewRes.HideHorizontalScale &nbsp;&nbsp;</span>
+                    </label>
+                    <label class="text-nowrap">
+                        <input type="checkbox" name="HideNorthArrow" />
+                        <span>&nbsp;&nbsp;@DocumentViewRes.HideNorthArrow &nbsp;&nbsp;</span>
+                    </label>
+                    <label class="text-nowrap">
+                        <input type="checkbox" name="HideSubsectorName" />
+                        <span>&nbsp;&nbsp;@DocumentViewRes.HideSubsectorName &nbsp;&nbsp;</span>
+                    </label>
+                </div>
         }
         break;
     default:

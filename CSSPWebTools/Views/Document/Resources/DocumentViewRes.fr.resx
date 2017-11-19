@@ -129,11 +129,35 @@
   <data name="GenerateReportWithParameters" xml:space="preserve">
     <value>Générer report avec paramètres</value>
   </data>
+  <data name="HideAllAllAll" xml:space="preserve">
+    <value>Masquer Tous-Tous-Tous</value>
+  </data>
+  <data name="HideDryAllAll" xml:space="preserve">
+    <value>Masquer Sec-Tous-Tous</value>
+  </data>
   <data name="HideGraphic" xml:space="preserve">
-    <value>Cacher graphique</value>
+    <value>Masquer graphique</value>
+  </data>
+  <data name="HideHorizontalScale" xml:space="preserve">
+    <value>Masquer l'échelle horizontale</value>
+  </data>
+  <data name="HideMaxFCColumn" xml:space="preserve">
+    <value>Masquer la colonne CF Max</value>
+  </data>
+  <data name="HideNorthArrow" xml:space="preserve">
+    <value>Masquer l'indication nord</value>
+  </data>
+  <data name="HideSubsectorName" xml:space="preserve">
+    <value>Masquer le nom du sous-secteur</value>
   </data>
   <data name="HideTable" xml:space="preserve">
-    <value>Cacher tableau</value>
+    <value>Masquer tableau</value>
+  </data>
+  <data name="HideVerticalScale" xml:space="preserve">
+    <value>Masquer l'échelle verticale</value>
+  </data>
+  <data name="HideWetAllAll" xml:space="preserve">
+    <value>Masquer Pluie-Tous-Tous</value>
   </data>
   <data name="IsNotImplemented" xml:space="preserve">
     <value>n'a pas encore été mis en place</value>
@@ -149,6 +173,9 @@
   </data>
   <data name="Parameters" xml:space="preserve">
     <value>Paramètres</value>
+  </data>
+  <data name="ReportYear" xml:space="preserve">
+    <value>L'année du rapport</value>
   </data>
   <data name="WithFileType" xml:space="preserve">
     <value>pour le type de filière</value>

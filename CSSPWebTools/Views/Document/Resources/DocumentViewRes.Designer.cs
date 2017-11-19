@@ -97,6 +97,24 @@ namespace CSSPWebTools.Views.Document.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Hide All-All-All.
+        /// </summary>
+        public static string HideAllAllAll {
+            get {
+                return ResourceManager.GetString("HideAllAllAll", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hide Dry-All-All.
+        /// </summary>
+        public static string HideDryAllAll {
+            get {
+                return ResourceManager.GetString("HideDryAllAll", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Hide graphic.
         /// </summary>
         public static string HideGraphic {
@@ -106,11 +124,65 @@ namespace CSSPWebTools.Views.Document.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Hide horizontal scale.
+        /// </summary>
+        public static string HideHorizontalScale {
+            get {
+                return ResourceManager.GetString("HideHorizontalScale", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hide Max FC column.
+        /// </summary>
+        public static string HideMaxFCColumn {
+            get {
+                return ResourceManager.GetString("HideMaxFCColumn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hide north arrow.
+        /// </summary>
+        public static string HideNorthArrow {
+            get {
+                return ResourceManager.GetString("HideNorthArrow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hide subsector name.
+        /// </summary>
+        public static string HideSubsectorName {
+            get {
+                return ResourceManager.GetString("HideSubsectorName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Hide table.
         /// </summary>
         public static string HideTable {
             get {
                 return ResourceManager.GetString("HideTable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hide vertical scale.
+        /// </summary>
+        public static string HideVerticalScale {
+            get {
+                return ResourceManager.GetString("HideVerticalScale", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hide Wet-All-All.
+        /// </summary>
+        public static string HideWetAllAll {
+            get {
+                return ResourceManager.GetString("HideWetAllAll", resourceCulture);
             }
         }
         
@@ -156,6 +228,15 @@ namespace CSSPWebTools.Views.Document.Resources {
         public static string Parameters {
             get {
                 return ResourceManager.GetString("Parameters", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Report year.
+        /// </summary>
+        public static string ReportYear {
+            get {
+                return ResourceManager.GetString("ReportYear", resourceCulture);
             }
         }
         
