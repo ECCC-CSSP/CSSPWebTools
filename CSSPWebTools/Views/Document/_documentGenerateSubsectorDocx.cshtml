@@ -123,6 +123,22 @@ switch (UniqueCode)
                 </div>
         }
         break;
+    case "FullReportCoverPage":
+        {
+                <div class="form-inline">
+                    <label class="text-nowrap">
+                        <span>@DocumentViewRes.ReportYear</span>
+                        <select name="Year" class="form-control">
+                            @for (int i = DateTime.Now.Year; i > 1989; i--)
+                            {
+                                <option value="@i">@i.ToString()</option>
+                            }
+                        </select>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                    </label>
+                </div>
+        }
+        break;
     default:
         break;
 }
