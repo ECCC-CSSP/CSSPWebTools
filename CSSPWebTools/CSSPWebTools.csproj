@@ -555,6 +555,7 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="HtmlPage2.html" />
+    <Content Include="HtmlPage3.html" />
     <Content Include="Images\CSSPWebTools_logo32.png" />
     <Content Include="Images\CSSPWebTools_logo32_name.png" />
     <Content Include="Images\DataFile_icon16.png" />
