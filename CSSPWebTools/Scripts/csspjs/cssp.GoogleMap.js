@@ -458,13 +458,14 @@ var CSSP;
                 cssp.GoogleMap.MVCObjPolygons.clear();
                 cssp.GoogleMap.MVCObjPolylines.clear();
                 cssp.GoogleMap.itemsDropDown = [];
-                var LatAverage = 0.0;
-                var LngAverage = 0.0;
-                var LatTotal = 0.0;
-                var LngTotal = 0.0;
-                var count = 0.0;
-                for (var i = 0, CountObj = cssp.GoogleMap.TVItemObjects.length; i < CountObj; i++) {
-                    if (cssp.GoogleMap.TVItemObjects[i].TVType == CSSP.TVTypeEnum.MWQMSite || cssp.GoogleMap.TVItemObjects[i].TVType == CSSP.TVTypeEnum.PolSourceSite) {
+                /*
+                let LatAverage: number = 0.0;
+                let LngAverage: number = 0.0;
+                let LatTotal: number = 0.0;
+                let LngTotal: number = 0.0;
+                let count: number = 0.0;
+                for (var i = 0, CountObj: number = cssp.GoogleMap.TVItemObjects.length; i < CountObj; i++) {
+                    if (cssp.GoogleMap.TVItemObjects[i].TVType == TVTypeEnum.MWQMSite || cssp.GoogleMap.TVItemObjects[i].TVType == TVTypeEnum.PolSourceSite) {
                         count = count + 1;
                         LatTotal = LatTotal + cssp.GoogleMap.TVItemObjects[i].MapObjList[0].CoordList[0].Lat;
                         LngTotal = LngTotal + cssp.GoogleMap.TVItemObjects[i].MapObjList[0].CoordList[0].Lng;
@@ -472,15 +473,16 @@ var CSSP;
                 }
                 LatAverage = LatTotal / count;
                 LngAverage = LngTotal / count;
+                */
                 for (var i = 0, CountObj = cssp.GoogleMap.TVItemObjects.length; i < CountObj; i++) {
                     cssp.GoogleMap.DrawPolys(i, true);
-                    cssp.GoogleMap.DrawPoints(i, true, LatAverage, LngAverage);
+                    cssp.GoogleMap.DrawPoints(i, true /*, LatAverage, LngAverage */);
                 }
                 $(".ObjLoaded").removeClass("hidden");
                 $(".ObjNotLoaded").addClass("hidden");
                 cssp.GoogleMap.CrossVisible = false;
             };
-            this.DrawPoints = function (i, DoLatLng, LatAverage, LngAverage) {
+            this.DrawPoints = function (i, DoLatLng /*, LatAverage: number, LngAverage: number */) {
                 var legendElem = undefined;
                 var MapInfoID = cssp.GoogleMap.EditingZIndex - cssp.GoogleMap.ZIndexPointBase;
                 for (var j = 0, CountObj = cssp.GoogleMap.TVItemObjects[i].MapObjList.length; j < CountObj; j++) {
@@ -720,7 +722,7 @@ var CSSP;
                             //    Legend = cssp.GetHTMLVariable("#LayoutVariables", "varEdit");
                             //    cssp.GoogleMap.itemsDropDown.push("<li><a href=\"#\"><span style='color: #" + Color + "'>" + Legend + "</span></a></li>");
                             //}
-                            cssp.GoogleMap.CreateMarker(i, j, k, legendElem.Color, legendElem.TVType, LatAverage, LngAverage);
+                            cssp.GoogleMap.CreateMarker(i, j, k, legendElem.Color, legendElem.TVType /*, LatAverage, LngAverage */);
                         }
                     }
                 }

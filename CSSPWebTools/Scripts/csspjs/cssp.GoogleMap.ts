@@ -492,6 +492,7 @@ module CSSP {
 
             cssp.GoogleMap.itemsDropDown = [];
 
+            /*
             let LatAverage: number = 0.0;
             let LngAverage: number = 0.0;
             let LatTotal: number = 0.0;
@@ -506,15 +507,18 @@ module CSSP {
             }
             LatAverage = LatTotal / count;
             LngAverage = LngTotal / count;
+            */
+
             for (var i = 0, CountObj: number = cssp.GoogleMap.TVItemObjects.length; i < CountObj; i++) {
                 cssp.GoogleMap.DrawPolys(i, true);
-                cssp.GoogleMap.DrawPoints(i, true, LatAverage, LngAverage);
+                cssp.GoogleMap.DrawPoints(i, true /*, LatAverage, LngAverage */);
             }
+
             $(".ObjLoaded").removeClass("hidden");
             $(".ObjNotLoaded").addClass("hidden");
             cssp.GoogleMap.CrossVisible = false;
         };
-        public DrawPoints: Function = (i: number, DoLatLng: boolean, LatAverage: number, LngAverage: number): void => {
+        public DrawPoints: Function = (i: number, DoLatLng: boolean /*, LatAverage: number, LngAverage: number */): void => {
             let legendElem: LegendElem = undefined;
             let MapInfoID = cssp.GoogleMap.EditingZIndex - cssp.GoogleMap.ZIndexPointBase;
             for (var j = 0, CountObj = cssp.GoogleMap.TVItemObjects[i].MapObjList.length; j < CountObj; j++) {
@@ -791,7 +795,7 @@ module CSSP {
                         //    cssp.GoogleMap.itemsDropDown.push("<li><a href=\"#\"><span style='color: #" + Color + "'>" + Legend + "</span></a></li>");
                         //}
 
-                        cssp.GoogleMap.CreateMarker(i, j, k, legendElem.Color, legendElem.TVType, LatAverage, LngAverage);
+                        cssp.GoogleMap.CreateMarker(i, j, k, legendElem.Color, legendElem.TVType /*, LatAverage, LngAverage */);
                     }
                 }
             }
