@@ -2375,7 +2375,7 @@ module CSSP {
                     let ValRunResList: ValRun[] = cssp.MWQMSite.MWQMSubsectorAnalysisGeometricMean(ValRunList);
                     let GMeanText: string = "--";
                     if (ValRunResList.length > 0 && ValRunResList[0].val != -1) {
-                        GMeanText = (ValRunResList[0].val < 1.95 ? "<2" : ValRunResList[0].val.toFixed(0)).toString();
+                        GMeanText = (ValRunResList[0].val < 1.95 ? "<2" : Math.round(ValRunResList[0].val)).toString();
                     }
                     cssp.MWQMSite.MWQMGMean$.eq(j).text(GMeanText).removeClass("bg-warning");
                     if (ValRunResList.length > 0 && ValRunResList[0].val > 14) {
@@ -2383,7 +2383,7 @@ module CSSP {
                     }
 
                     while (ValRunResList.length > 0) {
-                        cssp.MWQMSite.mwqmSubsectorAnalysisModel.mwqmSiteAnalysisModelList[j].mwqmSampleAnalysisModel[ValRunResList[0].run].GeoMean = parseInt(ValRunResList[0].val.toFixed(0).toString());
+                        cssp.MWQMSite.mwqmSubsectorAnalysisModel.mwqmSiteAnalysisModelList[j].mwqmSampleAnalysisModel[ValRunResList[0].run].GeoMean = Math.round(ValRunResList[0].val);
 
                         ValRunResList.shift();
                     }
@@ -2391,7 +2391,7 @@ module CSSP {
                     ValRunResList = cssp.MWQMSite.MWQMSubsectorAnalysisGetMedian(ValRunList);
                     let MedianText: string = "--";
                     if (ValRunResList.length > 0 && ValRunResList[0].val != -1) {
-                        MedianText = (ValRunResList[0].val < 2 ? "<2" : ValRunResList[0].val.toFixed(0)).toString();
+                        MedianText = (ValRunResList[0].val < 2 ? "<2" : Math.round(ValRunResList[0].val)).toString();
                     }
                     cssp.MWQMSite.MWQMMedian$.eq(j).text(MedianText).removeClass("bg-warning");
                     if (ValRunResList.length > 0 && ValRunResList[0].val > 14) {
@@ -2399,7 +2399,7 @@ module CSSP {
                     }
 
                     while (ValRunResList.length > 0) {
-                        cssp.MWQMSite.mwqmSubsectorAnalysisModel.mwqmSiteAnalysisModelList[j].mwqmSampleAnalysisModel[ValRunResList[0].run].Median = parseInt(ValRunResList[0].val.toFixed(0).toString());
+                        cssp.MWQMSite.mwqmSubsectorAnalysisModel.mwqmSiteAnalysisModelList[j].mwqmSampleAnalysisModel[ValRunResList[0].run].Median = Math.round(ValRunResList[0].val);
 
                         ValRunResList.shift();
                     }
@@ -2408,7 +2408,7 @@ module CSSP {
                     ValRunResList = cssp.MWQMSite.MWQMSubsectorAnalysisGetP90(ValRunList);
                     let P90Text: string = "--";
                     if (ValRunResList.length > 0 && ValRunResList[0].val != -1) {
-                        P90Text = ValRunResList[0].val.toFixed(0).toString();
+                        P90Text = Math.round(ValRunResList[0].val).toString();
                     }
                     cssp.MWQMSite.MWQMP90$.eq(j).text(P90Text).removeClass("bg-warning");
                     if (ValRunResList.length > 0 && ValRunResList[0].val > 43) {
@@ -2416,7 +2416,7 @@ module CSSP {
                     }
 
                     while (ValRunResList.length > 0) {
-                        cssp.MWQMSite.mwqmSubsectorAnalysisModel.mwqmSiteAnalysisModelList[j].mwqmSampleAnalysisModel[ValRunResList[0].run].P90 = parseInt(ValRunResList[0].val.toFixed(0).toString());
+                        cssp.MWQMSite.mwqmSubsectorAnalysisModel.mwqmSiteAnalysisModelList[j].mwqmSampleAnalysisModel[ValRunResList[0].run].P90 = Math.round(ValRunResList[0].val);
 
                         ValRunResList.shift();
                     }
@@ -2425,7 +2425,7 @@ module CSSP {
                     ValRunResList = cssp.MWQMSite.MWQMSubsectorAnalysisPercOver43(ValRunList);
                     let PercOver43Text: string = "--";
                     if (ValRunResList.length > 0 && ValRunResList[0].val != -1) {
-                        PercOver43Text = ValRunResList[0].val.toFixed(0).toString();
+                        PercOver43Text = Math.round(ValRunResList[0].val).toString();
                     }
                     cssp.MWQMSite.MWQMPercOver43$.eq(j).text(PercOver43Text).removeClass("bg-warning");
                     if (ValRunResList.length > 0 && ValRunResList[0].val > 10) {
@@ -2433,7 +2433,7 @@ module CSSP {
                     }
 
                     while (ValRunResList.length > 0) {
-                        cssp.MWQMSite.mwqmSubsectorAnalysisModel.mwqmSiteAnalysisModelList[j].mwqmSampleAnalysisModel[ValRunResList[0].run].PercOver43 = parseInt(ValRunResList[0].val.toFixed(0).toString());
+                        cssp.MWQMSite.mwqmSubsectorAnalysisModel.mwqmSiteAnalysisModelList[j].mwqmSampleAnalysisModel[ValRunResList[0].run].PercOver43 = Math.round(ValRunResList[0].val);
 
                         ValRunResList.shift();
                     }
@@ -2442,7 +2442,7 @@ module CSSP {
                     ValRunResList = cssp.MWQMSite.MWQMSubsectorAnalysisPercOver260(ValRunList);
                     let PercOver260Text: string = "--";
                     if (ValRunResList.length > 0 && ValRunResList[0].val != -1) {
-                        PercOver260Text = ValRunResList[0].val.toFixed(0).toString();
+                        PercOver260Text = Math.round(ValRunResList[0].val).toString();
                     }
                     cssp.MWQMSite.MWQMPercOver260$.eq(j).text(PercOver260Text).removeClass("bg-warning");
                     if (ValRunResList.length > 0 && ValRunResList[0].val > 10) {
@@ -2450,7 +2450,7 @@ module CSSP {
                     }
 
                     while (ValRunResList.length > 0) {
-                        cssp.MWQMSite.mwqmSubsectorAnalysisModel.mwqmSiteAnalysisModelList[j].mwqmSampleAnalysisModel[ValRunResList[0].run].PercOver260 = parseInt(ValRunResList[0].val.toFixed(0).toString());
+                        cssp.MWQMSite.mwqmSubsectorAnalysisModel.mwqmSiteAnalysisModelList[j].mwqmSampleAnalysisModel[ValRunResList[0].run].PercOver260 = Math.round(ValRunResList[0].val);
 
                         ValRunResList.shift();
                     }
@@ -2745,64 +2745,118 @@ module CSSP {
                 return colorAndLetter;
             }
             if ((GeoMean > 88) || (Median > 88) || (P90 > 260) || (PercOver260 > 10)) {
-                if ((GeoMean > 181.33) || (Median > 181.33) || (P90 > 460.0) || (PercOver260 > 18.33)) {
+                if ((GeoMean > 181) || (Median > 181) || (P90 > 460) || (PercOver260 > 18)) {
                     colorAndLetter = new ColorAndLetter("bgbluef", "F");
                 }
-                else if ((GeoMean > 162.67) || (Median > 162.67) || (P90 > 420.0) || (PercOver260 > 16.67)) {
+                else if ((GeoMean > 163) || (Median > 163) || (P90 > 420) || (PercOver260 > 17)) {
                     colorAndLetter = new ColorAndLetter("bgbluee", "E");
                 }
-                else if ((GeoMean > 144.0) || (Median > 144.0) || (P90 > 380.0) || (PercOver260 > 15.0)) {
+                else if ((GeoMean > 144) || (Median > 144) || (P90 > 380) || (PercOver260 > 15)) {
                     colorAndLetter = new ColorAndLetter("bgblued", "D");
                 }
-                else if ((GeoMean > 125.33) || (Median > 125.33) || (P90 > 340.0) || (PercOver260 > 13.33)) {
+                else if ((GeoMean > 125) || (Median > 125) || (P90 > 340) || (PercOver260 > 13)) {
                     colorAndLetter = new ColorAndLetter("bgbluec", "C");
                 }
-                else if ((GeoMean > 106.67) || (Median > 106.67) || (P90 > 300.0) || (PercOver260 > 11.67)) {
+                else if ((GeoMean > 107) || (Median > 107) || (P90 > 300) || (PercOver260 > 12)) {
                     colorAndLetter = new ColorAndLetter("bgblueb", "B");
                 }
                 else {
                     colorAndLetter = new ColorAndLetter("bgbluea", "A");
                 }
+                //if ((GeoMean > 181.33) || (Median > 181.33) || (P90 > 460.0) || (PercOver260 > 18.33)) {
+                //    colorAndLetter = new ColorAndLetter("bgbluef", "F");
+                //}
+                //else if ((GeoMean > 162.67) || (Median > 162.67) || (P90 > 420.0) || (PercOver260 > 16.67)) {
+                //    colorAndLetter = new ColorAndLetter("bgbluee", "E");
+                //}
+                //else if ((GeoMean > 144.0) || (Median > 144.0) || (P90 > 380.0) || (PercOver260 > 15.0)) {
+                //    colorAndLetter = new ColorAndLetter("bgblued", "D");
+                //}
+                //else if ((GeoMean > 125.33) || (Median > 125.33) || (P90 > 340.0) || (PercOver260 > 13.33)) {
+                //    colorAndLetter = new ColorAndLetter("bgbluec", "C");
+                //}
+                //else if ((GeoMean > 106.67) || (Median > 106.67) || (P90 > 300.0) || (PercOver260 > 11.67)) {
+                //    colorAndLetter = new ColorAndLetter("bgblueb", "B");
+                //}
+                //else {
+                //    colorAndLetter = new ColorAndLetter("bgbluea", "A");
+                //}
             }
             else if ((GeoMean > 14) || (Median > 14) || (P90 > 43) || (PercOver43 > 10)) {
-                if ((GeoMean > 75.67) || (Median > 75.67) || (P90 > 223.83) || (PercOver43 > 26.67)) {
+                if ((GeoMean > 76) || (Median > 76) || (P90 > 224) || (PercOver43 > 27)) {
                     colorAndLetter = new ColorAndLetter("bgredf", "F");
                 }
-                else if ((GeoMean > 63.33) || (Median > 63.33) || (P90 > 187.67) || (PercOver43 > 23.33)) {
+                else if ((GeoMean > 63) || (Median > 63) || (P90 > 188) || (PercOver43 > 23)) {
                     colorAndLetter = new ColorAndLetter("bgrede", "E");
                 }
-                else if ((GeoMean > 51.0) || (Median > 51.0) || (P90 > 151.5) || (PercOver43 > 20.0)) {
+                else if ((GeoMean > 51) || (Median > 51) || (P90 > 152) || (PercOver43 > 20)) {
                     colorAndLetter = new ColorAndLetter("bgredd", "D");
                 }
-                else if ((GeoMean > 38.67) || (Median > 38.67) || (P90 > 115.33) || (PercOver43 > 16.67)) {
+                else if ((GeoMean > 39) || (Median > 39) || (P90 > 115) || (PercOver43 > 17)) {
                     colorAndLetter = new ColorAndLetter("bgredc", "C");
                 }
-                else if ((GeoMean > 26.33) || (Median > 26.33) || (P90 > 79.17) || (PercOver43 > 13.33)) {
+                else if ((GeoMean > 26) || (Median > 26) || (P90 > 79) || (PercOver43 > 13)) {
                     colorAndLetter = new ColorAndLetter("bgredb", "B");
                 }
                 else {
                     colorAndLetter = new ColorAndLetter("bgreda", "A");
                 }
+                //if ((GeoMean > 75.67) || (Median > 75.67) || (P90 > 223.83) || (PercOver43 > 26.67)) {
+                //    colorAndLetter = new ColorAndLetter("bgredf", "F");
+                //}
+                //else if ((GeoMean > 63.33) || (Median > 63.33) || (P90 > 187.67) || (PercOver43 > 23.33)) {
+                //    colorAndLetter = new ColorAndLetter("bgrede", "E");
+                //}
+                //else if ((GeoMean > 51.0) || (Median > 51.0) || (P90 > 151.5) || (PercOver43 > 20.0)) {
+                //    colorAndLetter = new ColorAndLetter("bgredd", "D");
+                //}
+                //else if ((GeoMean > 38.67) || (Median > 38.67) || (P90 > 115.33) || (PercOver43 > 16.67)) {
+                //    colorAndLetter = new ColorAndLetter("bgredc", "C");
+                //}
+                //else if ((GeoMean > 26.33) || (Median > 26.33) || (P90 > 79.17) || (PercOver43 > 13.33)) {
+                //    colorAndLetter = new ColorAndLetter("bgredb", "B");
+                //}
+                //else {
+                //    colorAndLetter = new ColorAndLetter("bgreda", "A");
+                //}
             }
             else {
-                if ((GeoMean > 11.67) || (Median > 11.67) || (P90 > 35.83) || (PercOver43 > 8.33)) {
+                if ((GeoMean > 12) || (Median > 12) || (P90 > 36) || (PercOver43 > 8)) {
                     colorAndLetter = new ColorAndLetter("bggreenf", "F");
                 }
-                else if ((GeoMean > 9.33) || (Median > 9.33) || (P90 > 28.67) || (PercOver43 > 6.67)) {
+                else if ((GeoMean > 9) || (Median > 9) || (P90 > 29) || (PercOver43 > 7)) {
                     colorAndLetter = new ColorAndLetter("bggreene", "E");
                 }
-                else if ((GeoMean > 7.0) || (Median > 7.0) || (P90 > 21.5) || (PercOver43 > 5.0)) {
+                else if ((GeoMean > 7) || (Median > 7) || (P90 > 22) || (PercOver43 > 5)) {
                     colorAndLetter = new ColorAndLetter("bggreend", "D");
                 }
-                else if ((GeoMean > 4.67) || (Median > 4.67) || (P90 > 14.33) || (PercOver43 > 3.33)) {
+                else if ((GeoMean > 5) || (Median > 5) || (P90 > 14) || (PercOver43 > 3)) {
                     colorAndLetter = new ColorAndLetter("bggreenc", "C");
                 }
-                else if ((GeoMean > 2.33) || (Median > 2.33) || (P90 > 7.17) || (PercOver43 > 1.67)) {
+                else if ((GeoMean > 2) || (Median > 2) || (P90 > 7) || (PercOver43 > 2)) {
                     colorAndLetter = new ColorAndLetter("bggreenb", "B");
                 }
                 else {
                     colorAndLetter = new ColorAndLetter("bggreena", "A");
                 }
+                //if ((GeoMean > 11.67) || (Median > 11.67) || (P90 > 35.83) || (PercOver43 > 8.33)) {
+                //    colorAndLetter = new ColorAndLetter("bggreenf", "F");
+                //}
+                //else if ((GeoMean > 9.33) || (Median > 9.33) || (P90 > 28.67) || (PercOver43 > 6.67)) {
+                //    colorAndLetter = new ColorAndLetter("bggreene", "E");
+                //}
+                //else if ((GeoMean > 7.0) || (Median > 7.0) || (P90 > 21.5) || (PercOver43 > 5.0)) {
+                //    colorAndLetter = new ColorAndLetter("bggreend", "D");
+                //}
+                //else if ((GeoMean > 4.67) || (Median > 4.67) || (P90 > 14.33) || (PercOver43 > 3.33)) {
+                //    colorAndLetter = new ColorAndLetter("bggreenc", "C");
+                //}
+                //else if ((GeoMean > 2.33) || (Median > 2.33) || (P90 > 7.17) || (PercOver43 > 1.67)) {
+                //    colorAndLetter = new ColorAndLetter("bggreenb", "B");
+                //}
+                //else {
+                //    colorAndLetter = new ColorAndLetter("bggreena", "A");
+                //}
             }
 
             return colorAndLetter;
