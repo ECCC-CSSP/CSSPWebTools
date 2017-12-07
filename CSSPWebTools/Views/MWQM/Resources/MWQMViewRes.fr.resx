@@ -412,7 +412,7 @@
     <value>Contrôle de la température #1</value>
   </data>
   <data name="LaboratoryReceivedSamples" xml:space="preserve">
-    <value>Laboratory receiving samples</value>
+    <value>Échantillons reçu au laboratoire</value>
   </data>
   <data name="Precipitation" xml:space="preserve">
     <value>Précipitations</value>
