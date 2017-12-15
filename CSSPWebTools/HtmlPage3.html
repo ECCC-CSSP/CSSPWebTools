@@ -1,10 +1,24 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <title></title>
+    <script src="Scripts/tinymce.js"></script>
+    <script type="text/javascript">
+        tinymce.init({
+            selector: '#myTextarea',
+            theme: 'modern',
+            width: 600,
+            height: 300,
+            plugins: [
+                'advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker',
+                'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
+                'save table contextmenu directionality emoticons template paste textcolor'
+            ],
+            toolbar: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent'
+        });
+    </script>
 </head>
-<body>
 
+<body>
+    <textarea id="myTextarea"></textarea>
 </body>
 </html>

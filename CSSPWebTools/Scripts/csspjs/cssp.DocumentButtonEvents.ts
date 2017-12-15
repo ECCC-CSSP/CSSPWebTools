@@ -1044,6 +1044,91 @@ module CSSP {
                             cssp.Register.FormSubmit();
                         }
                         break;
+                    case "jbReportSectionAddChild":
+                        {
+                            cssp.ReportType.ReportSectionAddChild($bjs);
+                        }
+                        break;
+                    case "jbReportSectionAddSibling":
+                        {
+                            cssp.ReportType.ReportSectionAddSibling($bjs);
+                        }
+                        break;
+                    case "jbReportSectionAddTop":
+                        {
+                            cssp.ReportType.ReportSectionAddTop($bjs);
+                        }
+                        break;
+                    case "jbReportSectionConvertToSubSection":
+                        {
+                            cssp.ReportType.ReportSectionConvertToSubSection($bjs, true);
+                        }
+                        break;
+                    case "jbReportSectionConvertToParent":
+                        {
+                            cssp.ReportType.ReportSectionConvertToParent($bjs, true);
+                        }
+                        break;
+                    case "jbReportSectionAddNewYearForTVItemID":
+                        {
+                            cssp.ReportType.ReportSectionAddNewYearForTVItemID($bjs, true);
+                        }
+                        break;
+                    case "jbReportSectionIsStatic":
+                        {
+                            cssp.ReportType.ReportSectionChangeIsStatic($bjs, true);
+                        }
+                        break;
+                    case "jbReportSectionIsNotStatic":
+                        {
+                            cssp.ReportType.ReportSectionChangeIsStatic($bjs, false);
+                        }
+                        break;
+                    case "jbAskToRemoveReportSection":
+                        {
+                            cssp.ReportType.AskToRemoveReportSection($bjs);
+                        }
+                        break;
+                    case "jbAskToRemoveReportSectionYear":
+                        {
+                            cssp.ReportType.AskToRemoveReportSectionYear($bjs);
+                        }
+                        break;
+                    case "jbReportSectionNameModify":
+                        {
+                            cssp.ReportType.ReportSectionNameModify($bjs);
+                        }
+                        break;
+                    case "jbReportSectionTextModify":
+                        {
+                            cssp.ReportType.ReportSectionTextModify($bjs);
+                        }
+                        break;
+                    case "jbReportSectionOrdinalDown":
+                        {
+                            cssp.ReportType.ReportSectionOrdinalDown($bjs);
+                        }
+                        break;
+                    case "jbReportSectionOrdinalUp":
+                        {
+                            cssp.ReportType.ReportSectionOrdinalUp($bjs);
+                        }
+                        break;
+                    case "jbReportSectionListShowHide":
+                        {
+                            cssp.ReportType.ReportSectionListShowHide($bjs);
+                        }
+                        break;
+                    case "jbReportSectionShowOrHideForm":
+                        {
+                            cssp.ReportType.ReportSectionShowOrHideForm($bjs);
+                        }
+                        break;
+                    case "jbReportSectionShowOrHideNameForm":
+                        {
+                            cssp.ReportType.ReportSectionShowOrHideNameForm($bjs);
+                        }
+                        break;
                     case "jbReportTypeAddOrModify":
                         {
                             cssp.ReportType.ReportTypeAddOrModify($bjs);
@@ -1054,9 +1139,9 @@ module CSSP {
                             cssp.ReportType.ReportTypeDelete($bjs);
                         }
                         break;
-                    case "jbReportTypeDelete":
+                    case "jbReportTypeDetailShowHide":
                         {
-                            cssp.ReportType.ReportTypeDelete($bjs);
+                            cssp.ReportType.ReportTypeDetailShowHide($bjs);
                         }
                         break;
                     case "jbReportTypeEdit":

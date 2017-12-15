@@ -120,11 +120,35 @@
   <data name="Add" xml:space="preserve">
     <value>Add</value>
   </data>
+  <data name="AddChildSection" xml:space="preserve">
+    <value>Add child section</value>
+  </data>
+  <data name="AddSiblingSection" xml:space="preserve">
+    <value>Add sibling section</value>
+  </data>
+  <data name="AddTopSection" xml:space="preserve">
+    <value>Add top section</value>
+  </data>
   <data name="Area" xml:space="preserve">
     <value>Area</value>
   </data>
   <data name="BoxModel" xml:space="preserve">
     <value>Box model</value>
+  </data>
+  <data name="ClickHereToChangeTo" xml:space="preserve">
+    <value>Click here to change to</value>
+  </data>
+  <data name="ConvertToParent" xml:space="preserve">
+    <value>Convert to parent</value>
+  </data>
+  <data name="ConvertToSubSection" xml:space="preserve">
+    <value>Convert to sub-section</value>
+  </data>
+  <data name="Copy" xml:space="preserve">
+    <value>Copy</value>
+  </data>
+  <data name="CopyReportSectionForItemAndYear" xml:space="preserve">
+    <value>Copy report section for item and year</value>
   </data>
   <data name="Country" xml:space="preserve">
     <value>Country</value>
@@ -147,6 +171,12 @@
   <data name="Infrastructure" xml:space="preserve">
     <value>Infrastructure</value>
   </data>
+  <data name="IsNotStatic" xml:space="preserve">
+    <value>Is not static</value>
+  </data>
+  <data name="IsStatic" xml:space="preserve">
+    <value>Is static</value>
+  </data>
   <data name="MikeScenario" xml:space="preserve">
     <value>Mike scenario</value>
   </data>
@@ -158,6 +188,12 @@
   </data>
   <data name="MoreInformation" xml:space="preserve">
     <value>More information</value>
+  </data>
+  <data name="MoveDown" xml:space="preserve">
+    <value>Move down</value>
+  </data>
+  <data name="MoveUp" xml:space="preserve">
+    <value>Move up</value>
   </data>
   <data name="Municipality" xml:space="preserve">
     <value>Municipality</value>
@@ -177,6 +213,15 @@
   <data name="Province" xml:space="preserve">
     <value>Province</value>
   </data>
+  <data name="ReportSectionName" xml:space="preserve">
+    <value>Report section name</value>
+  </data>
+  <data name="ReportSections" xml:space="preserve">
+    <value>Report sections</value>
+  </data>
+  <data name="ReportSectionText" xml:space="preserve">
+    <value>Report section text</value>
+  </data>
   <data name="ReportType" xml:space="preserve">
     <value>Report type</value>
   </data>
@@ -186,8 +231,23 @@
   <data name="Root" xml:space="preserve">
     <value>Root</value>
   </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
   <data name="Sector" xml:space="preserve">
     <value>Sector</value>
+  </data>
+  <data name="Setup" xml:space="preserve">
+    <value>Setup</value>
+  </data>
+  <data name="ShowOrHideReportSectionEdit" xml:space="preserve">
+    <value>Show or hide report section edit</value>
+  </data>
+  <data name="ShowOrHideReportSectionList" xml:space="preserve">
+    <value>Show or hide report section list</value>
+  </data>
+  <data name="ShowOrHideReportType" xml:space="preserve">
+    <value>Show or hide report type</value>
   </data>
   <data name="StartOfFileName" xml:space="preserve">
     <value>Start of file name</value>
@@ -203,5 +263,14 @@
   </data>
   <data name="VisualPlumesScenario" xml:space="preserve">
     <value>Visual plumes scenario</value>
+  </data>
+  <data name="AddNewYear" xml:space="preserve">
+    <value>Add new year</value>
+  </data>
+  <data name="NewYear" xml:space="preserve">
+    <value>New year</value>
+  </data>
+  <data name="ReportSectionForYear" xml:space="preserve">
+    <value>Report section for year</value>
   </data>
 </root>

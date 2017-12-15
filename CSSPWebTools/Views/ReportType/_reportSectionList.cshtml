@@ -1,0 +1,169 @@
+﻿@using CSSPWebTools.Views.ReportType.Resources;
+@using CSSPWebTools.Controllers;
+@using CSSPEnumsDLL.Enums;
+@using CSSPEnumsDLL.Services;
+@using CSSPModelsDLL.Models;
+@using System.Linq;
+
+@{
+    ReportTypeController ReportTypeController = (ReportTypeController)ViewBag.ReportTypeController;
+    ReportTypeModel reportTypeModel = (ReportTypeModel)ViewBag.ReportTypeModel;
+    List<int?> reportSectionYearList = (List<int?>)ViewBag.ReportSectionYearList;
+    List<ReportSectionModel> reportSectionModelList = (List<ReportSectionModel>)ViewBag.ReportSectionModelList;
+    int? Year = (int?)ViewBag.Year;
+    BaseEnumService _BaseEnumService = new BaseEnumService(ViewBag.Language);
+    int? TVItemID = (int?)ViewBag.TVItemID;
+}
+
+<div>
+    <button class="jbReportSectionAddTop btn btn-default" type="submit">
+        <span class="glyphicon glyphicon-plus"></span>
+        &nbsp;@ReportTypeViewRes.AddTopSection
+    </button>&nbsp;&nbsp;&nbsp;
+</div>
+<br /><br />
+@if (reportSectionModelList != null && reportSectionModelList.Count > 0)
+{
+    foreach (ReportSectionModel reportSectionModel in reportSectionModelList.Where(c => c.ParentReportSectionID == null && c.Year == null))
+    {
+        @ShowReportSectionRecursive(reportSectionModel, reportSectionModelList)
+    }
+}
+
+@helper ShowReportSectionRecursive(ReportSectionModel reportSectionModel, List<ReportSectionModel> reportSectionModelList)
+    {
+        string IsStaticjbCommand = reportSectionModel.IsStatic ? "jbReportSectionIsNotStatic" : "jbReportSectionIsStatic";
+        string IsStaticText = ReportTypeViewRes.ClickHereToChangeTo + " " + (reportSectionModel.IsStatic ? ReportTypeViewRes.IsNotStatic : ReportTypeViewRes.IsStatic);
+        string IsStaticButtonText = reportSectionModel.IsStatic ? ReportTypeViewRes.IsStatic : ReportTypeViewRes.IsNotStatic;
+        bool ShowConvertToSubSection = true;  // only visible if it has a sibling just above this ReportSection
+        bool ShowConvertToParent = true; // only visible if it has a parent just above this ReportSection
+        bool ShowMoveDown = true; // only visible if it has a sibling just below this ReportSection
+        bool ShowMoveUp = true; // only visible if it has a sibling just above this ReportSection
+        bool ShowDelete = true; // only visible if there are no child, will also be visible if there are some TemplateReportSectionID link to it
+        string DisableText = "";  // is set to true if there are some TemplateReportSectionID link to it
+
+        if (reportSectionModelList.Where(c => c.ParentReportSectionID == reportSectionModel.ReportSectionID).Any())
+        {
+            ShowDelete = false;
+        }
+
+        if (reportSectionModelList.Where(c => c.TemplateReportSectionID == reportSectionModel.ReportSectionID).Any())
+        {
+            DisableText = "disabled='disabled'";
+        }
+
+        // checking if sibling exist just above
+        List<ReportSectionModel> reportSectionSibling = reportSectionModelList.Where(c => c.ParentReportSectionID == reportSectionModel.ParentReportSectionID).OrderBy(c => c.Ordinal).ToList();
+        for (int i = 0, count = reportSectionSibling.Count; i < count; i++)
+        {
+            if (reportSectionSibling[i].ReportSectionID == reportSectionModel.ReportSectionID)
+            {
+                if (i == 0)
+                {
+                    ShowConvertToSubSection = false;
+                    ShowMoveUp = false;
+                    break;
+                }
+            }
+        }
+        for (int i = 0, count = reportSectionSibling.Count; i < count; i++)
+        {
+            if (reportSectionSibling[i].ParentReportSectionID == null)
+            {
+                ShowConvertToParent = false;
+                break;
+            }
+        }
+        for (int i = 0, count = reportSectionSibling.Count; i < count; i++)
+        {
+            if (reportSectionSibling[i].ReportSectionID == reportSectionModel.ReportSectionID)
+            {
+                if (i == count - 1)
+                {
+                    ShowMoveDown = false;
+                    break;
+                }
+            }
+        }
+
+        <div class="ReportSectionTop panel panel-info" data-reportsectionid="@reportSectionModel.ReportSectionID">
+            <div class="panel-heading">
+                <div class="panel-title">
+                    <div>
+                        <button class="jbReportSectionShowOrHideForm btn btn-default" title="@ReportTypeViewRes.ShowOrHideReportSectionEdit">
+                            <span class="glyphicon glyphicon-pencil"></span>
+                        </button>&nbsp;&nbsp;&nbsp;
+                        <button class="jbReportSectionShowOrHideNameForm btn btn-default">
+                            <span class="glyphicon glyphicon-pencil"></span>&nbsp;&nbsp;
+                            @reportSectionModel.ReportSectionName
+                        </button>&nbsp;&nbsp;&nbsp;
+                        <button class="jbReportSectionAddChild btn btn-default" title="@ReportTypeViewRes.AddChildSection">
+                            <span class="glyphicon glyphicon-plus-sign"></span>
+                        </button>&nbsp;&nbsp;&nbsp;
+                        <button class="jbReportSectionAddSibling btn btn-default" title="@ReportTypeViewRes.AddSiblingSection">
+                            <span class="glyphicon glyphicon-plus"></span>
+                        </button>&nbsp;&nbsp;&nbsp;
+                        @if (ShowDelete)
+                        {
+                            <button class="jbAskToRemoveReportSection btn btn-default" @DisableText title="@ReportTypeViewRes.Delete">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </button><span>&nbsp;&nbsp;&nbsp;</span>
+                        }
+                        @if (ShowConvertToSubSection)
+                        {
+                            <button class="jbReportSectionConvertToSubSection btn btn-default" title="@ReportTypeViewRes.ConvertToSubSection">
+                                <span class="glyphicon glyphicon-arrow-right"></span>
+                            </button><span>&nbsp;&nbsp;&nbsp;</span>
+                        }
+                        @if (ShowConvertToParent)
+                        {
+                            <button class="jbReportSectionConvertToParent btn btn-default" title="@ReportTypeViewRes.ConvertToParent">
+                                <span class="glyphicon glyphicon-arrow-left"></span>
+                            </button><span>&nbsp;&nbsp;&nbsp;</span>
+                        }
+                        <button class="@(IsStaticjbCommand) btn btn-default" title="@(IsStaticText)">
+                            @IsStaticButtonText
+                        </button>&nbsp;&nbsp;&nbsp;
+                        @if (ShowMoveDown)
+                        {
+                            <button class="jbReportSectionOrdinalDown btn btn-default" title="@ReportTypeViewRes.MoveDown">
+                                <span class="glyphicon glyphicon-arrow-down"></span>
+                            </button><span>&nbsp;&nbsp;&nbsp;</span>
+                        }
+                        @if (ShowMoveUp)
+                        {
+                            <button class="jbReportSectionOrdinalUp btn btn-default" title="@ReportTypeViewRes.MoveUp">
+                                <span class="glyphicon glyphicon-arrow-up"></span>
+                            </button><span>&nbsp;&nbsp;&nbsp;</span>
+                        }
+                    </div>
+                    <form class="ReportSectionNameForm well hidden" method="post" role="form" action="ReportType/ReportSectionNameModifyJSON">
+                        <input type="hidden" name="ReportSectionID" value="@reportSectionModel.ReportSectionID" />
+                        @* Report Section Name *@
+                        <div class="form-group">
+                            <label for="ReportSectionName" class="control-label">@ReportTypeViewRes.ReportSectionName</label>
+                            <div>
+                                <input class="form-control" type="text" name="ReportSectionName" value="@reportSectionModel.ReportSectionName" />
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button class="jbReportSectionNameModify btn btn-primary" type="submit">
+                                <span class="glyphicon glyphicon-check"></span>
+                                &nbsp;@ReportTypeViewRes.Save
+                            </button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+            <div class="panel-body">
+                <div class="ReportSectionForm">
+                </div>
+                @foreach (ReportSectionModel reportSectionModelChild in reportSectionModelList.Where(c => c.ParentReportSectionID == reportSectionModel.ReportSectionID && c.Year == null).ToList())
+                {
+                    @ShowReportSectionRecursive(reportSectionModelChild, reportSectionModelList);
+                }
+            </div>
+        </div>
+}

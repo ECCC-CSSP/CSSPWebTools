@@ -68,6 +68,12 @@ var CSSP;
                         case "cssp.PolSourceSite.SetDialogEventsDeleteObservationIssue":
                             cssp.PolSourceSite.SetDialogEventsDeleteObservationIssue($ajs);
                             break;
+                        case "cssp.ReportType.SetDialogEvents":
+                            cssp.ReportType.SetDialogEvents($ajs);
+                            break;
+                        case "cssp.ReportType.SetDialogEventsYear":
+                            cssp.ReportType.SetDialogEventsYear($ajs);
+                            break;
                         case "cssp.SamplingPlan.SetDialogEvents":
                             cssp.SamplingPlan.SetDialogEvents($ajs);
                             break;

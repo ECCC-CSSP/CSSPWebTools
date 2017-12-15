@@ -20,6 +20,7 @@ namespace CSSPWebTools.Controllers
         #endregion Variables
 
         #region Properties
+        public ReportSectionService _ReportSectionService { get; private set; }
         public ReportTypeService _ReportTypeService { get; private set; }
         public ReportTypeLanguageService _ReportTypeLanguageService { get; private set; }
         public ReportTypeController _ReportTypeController { get; private set; }
@@ -38,6 +39,7 @@ namespace CSSPWebTools.Controllers
         protected override void Initialize(System.Web.Routing.RequestContext requestContext)
         {
             base.Initialize(requestContext);
+            _ReportSectionService = new ReportSectionService(LanguageRequest, User);
             _ReportTypeService = new ReportTypeService(LanguageRequest, User);
             _ReportTypeLanguageService = new ReportTypeLanguageService(LanguageRequest, User);
             _TVFileService = new TVFileService(LanguageRequest, User);
@@ -71,25 +73,10 @@ namespace CSSPWebTools.Controllers
 
         [HttpGet]
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
-        public PartialViewResult _reportTypeEdit(int ReportTypeID, int TVItemID)
-        {
-            ViewBag.ReportTypeController = _ReportTypeController;
-            ViewBag.TVItemID = TVItemID;
-            ViewBag.ReportTypeModel = null;
-
-            ReportTypeModel reportTypeModel = _ReportTypeService.GetReportTypeModelWithReportTypeIDDB(ReportTypeID);
-            ViewBag.ReportTypeModel = reportTypeModel;
-
-            return PartialView();
-        }
-
-        [HttpGet]
-        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
-        public PartialViewResult _reportTypeList(int TVType, int TVItemID)
+        public PartialViewResult _reportTypeList(int TVType)
         {
             ViewBag.ReportTypeController = _ReportTypeController;
             ViewBag.ReportTypeModelList = null;
-            ViewBag.TVItemID = TVItemID;
             ViewBag.TVType = (TVTypeEnum)TVType;
 
             List<ReportTypeModel> reportTypeModelList = _ReportTypeService.GetReportTypeModelListWithTVTypeDB((TVTypeEnum)TVType);
@@ -98,6 +85,169 @@ namespace CSSPWebTools.Controllers
             return PartialView();
         }
 
+        [HttpGet]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public PartialViewResult _reportSectionList(int ReportTypeID)
+        {
+            ViewBag.ReportTypeController = _ReportTypeController;
+            ViewBag.ReportTypeModel = null;
+            ViewBag.ReportSectionYearList = null;
+            ViewBag.ReportSectionModelList = null;
+
+            ReportTypeModel reportTypeModel = _ReportTypeService.GetReportTypeModelWithReportTypeIDDB(ReportTypeID);
+            ViewBag.ReportTypeModel = reportTypeModel;
+
+            List<int?> reportSectionYearList = _ReportSectionService.GetReportSectionYearListWithReportTypeIDDB(ReportTypeID);
+            ViewBag.ReportSectionYearList = reportSectionYearList;
+
+            List<ReportSectionModel> reportSectionModelList = _ReportSectionService.GetReportSectionModelListWithReportTypeIDAndTVItemIDNoReportSectionTextDB(ReportTypeID, null);
+            ViewBag.ReportSectionModelList = reportSectionModelList;
+
+            return PartialView();
+        }
+
+        [HttpGet]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public PartialViewResult _reportSectionForm(int ReportSectionID, int TVItemID)
+        {
+            ViewBag.ReportSectionModelList = null;
+
+            List<ReportSectionModel> reportSectionModelList = new List<ReportSectionModel>();
+            ReportSectionModel reportSectionModel = _ReportSectionService.GetReportSectionModelWithReportSectionIDDB(ReportSectionID);
+
+            reportSectionModelList.Add(reportSectionModel);
+
+            List<ReportSectionModel> reportSectionModelLinkList = _ReportSectionService.GetReportSectionModelListWithReportSectionIDTemplateLinkAndTVItemIDForAllYearsDB(ReportSectionID, TVItemID);
+
+            foreach (ReportSectionModel reportSectionModelLink in reportSectionModelLinkList)
+            {
+                reportSectionModelList.Add(reportSectionModelLink);
+            }
+
+            ViewBag.ReportSectionModelList = reportSectionModelList;
+
+            return PartialView();
+        }
+
+
+        [HttpPost]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public JsonResult ReportSectionAddChildJSON(int ReportSectionID)
+        {
+            ReportSectionModel reportSectionModel = _ReportSectionService.PostReportSectionAddChildDB(ReportSectionID);
+
+            return Json(reportSectionModel.Error, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public JsonResult ReportSectionAddNewYearForTVItemIDJSON(int ReportSectionID, int TVItemID, int Year)
+        {
+            ReportSectionModel reportSectionModel = _ReportSectionService.PostReportSectionAddNewYearForTVItemIDDB(ReportSectionID, TVItemID, Year);
+
+            return Json(reportSectionModel.Error, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public JsonResult ReportSectionAddSiblingJSON(int ReportSectionID)
+        {
+            ReportSectionModel reportSectionModel = _ReportSectionService.PostReportSectionAddSiblingDB(ReportSectionID);
+
+            return Json(reportSectionModel.Error, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public JsonResult ReportSectionAddTopJSON(int ReportTypeID)
+        {
+            ReportSectionModel reportSectionModel = _ReportSectionService.PostReportSectionAddTopDB(ReportTypeID);
+
+            return Json(reportSectionModel.Error, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public JsonResult ReportSectionChangeIsStaticJSON(int ReportSectionID, bool IsStatic)
+        {
+            ReportSectionModel reportSectionModel = _ReportSectionService.PostReportSectionChangeIsStaticDB(ReportSectionID, IsStatic);
+
+            return Json(reportSectionModel.Error, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public JsonResult ReportSectionChangeLockedJSON(int ReportTypeID, bool Locked)
+        {
+            ReportSectionModel reportSectionModel = _ReportSectionService.PostReportSectionChangeLockedDB(ReportTypeID, Locked);
+
+            return Json(reportSectionModel.Error, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public JsonResult ReportSectionConvertToParentJSON(int ReportSectionID)
+        {
+            ReportSectionModel reportSectionModel = _ReportSectionService.PostReportSectionConvertToParentDB(ReportSectionID);
+
+            return Json(reportSectionModel.Error, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public JsonResult ReportSectionConvertToSubSectionJSON(int ReportSectionID)
+        {
+            ReportSectionModel reportSectionModel = _ReportSectionService.PostReportSectionConvertToSubSectionDB(ReportSectionID);
+
+            return Json(reportSectionModel.Error, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public JsonResult ReportSectionDeleteJSON(int ReportSectionID)
+        {
+            ReportSectionModel reportSectionModel = _ReportSectionService.PostDeleteReportSectionWithReportSectionIDDB(ReportSectionID);
+
+            return Json(reportSectionModel.Error, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        [ValidateInput(false)]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public JsonResult ReportSectionNameModifyJSON(FormCollection fc)
+        {
+            ReportSectionModel reportSectionModel = _ReportSectionService.PostReportSectionNameModifyDB(fc);
+
+            return Json(reportSectionModel.Error, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        [ValidateInput(false)]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public JsonResult ReportSectionTextModifyJSON(FormCollection fc)
+        {
+            ReportSectionModel reportSectionModel = _ReportSectionService.PostReportSectionTextModifyDB(fc);
+
+            return Json(reportSectionModel.Error, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public JsonResult ReportSectionOrdinalDownJSON(int ReportSectionID)
+        {
+            ReportSectionModel reportSectionModel = _ReportSectionService.PostReportSectionOrdinalDownDB(ReportSectionID);
+
+            return Json(reportSectionModel.Error, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public JsonResult ReportSectionOrdinalUpJSON(int ReportSectionID)
+        {
+            ReportSectionModel reportSectionModel = _ReportSectionService.PostReportSectionOrdinalUpDB(ReportSectionID);
+
+            return Json(reportSectionModel.Error, JsonRequestBehavior.AllowGet);
+        }
 
         [HttpPost]
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
@@ -105,7 +255,7 @@ namespace CSSPWebTools.Controllers
         {
             ReportTypeModel reportTypeModel = _ReportTypeService.PostAddOrModifyReportTypeDB(fc);
 
-            return Json(reportTypeModel, JsonRequestBehavior.AllowGet);
+            return Json(reportTypeModel.Error, JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost]
@@ -114,7 +264,7 @@ namespace CSSPWebTools.Controllers
         {
             ReportTypeModel reportTypeModel = _ReportTypeService.PostDeleteReportTypeWithReportTypeIDDB(ReportTypeID);
 
-            return Json(reportTypeModel, JsonRequestBehavior.AllowGet);
+            return Json(reportTypeModel.Error, JsonRequestBehavior.AllowGet);
         }
 
 

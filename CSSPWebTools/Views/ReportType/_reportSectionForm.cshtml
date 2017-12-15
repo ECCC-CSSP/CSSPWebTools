@@ -1,0 +1,131 @@
+﻿@using CSSPWebTools.Views.ReportType.Resources;
+@using CSSPWebTools.Controllers;
+@using CSSPEnumsDLL.Enums;
+@using CSSPEnumsDLL.Services;
+@using CSSPModelsDLL.Models;
+@using System.Linq;
+
+@{
+    List<ReportSectionModel> reportSectionModelList = (List<ReportSectionModel>)ViewBag.ReportSectionModelList;
+
+    List<int> randomNumberList = new List<int>();
+
+    Random random = new Random();
+    foreach (ReportSectionModel reportSectionModel in reportSectionModelList.Where(c => c.Year != null).OrderBy(c => c.Year))
+    {
+
+        randomNumberList.Add(random.Next(100000, 900000));
+    }
+
+    randomNumberList.Add(random.Next(100000, 900000));
+}
+
+@if (reportSectionModelList.Count == 0)
+{
+    <h1>Error... should have at least 1 ReportSection</h1>
+}
+else
+{
+    /* reportSectionModelList[0] is the templated report section */
+
+    <div>
+        <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active"><a href="#template" aria-controls="template" role="tab" data-toggle="tab">Template</a></li>
+            @{
+                int count = 0;
+            }
+            @foreach (ReportSectionModel reportSectionModel in reportSectionModelList.Where(c => c.Year != null).OrderBy(c => c.Year))
+            {
+                <li role="presentation"><a href="#reportsection@(randomNumberList[count])" aria-controls="@(reportSectionModel.Year)" role="tab" data-toggle="tab">@(reportSectionModel.Year)</a></li>
+                count += 1;
+            }
+            @if (!reportSectionModelList[0].IsStatic)
+            {
+                <li role="presentation"><a href="#reportsection@(randomNumberList[count])" aria-controls="@ReportTypeViewRes.NewYear" role="tab" data-toggle="tab">@ReportTypeViewRes.NewYear</a></li>
+            }
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="template">
+                <form class="ReportSectionTextForm well" method="post" role="form" action="ReportType/ReportSectionTextModifyJSON">
+                    <input type="hidden" name="ReportSectionID" value="@reportSectionModelList[0].ReportSectionID" />
+                    @* Report Section text*@
+                    <div class="form-group">
+                        <label for="ReportSectionText" class="control-label">@ReportTypeViewRes.ReportSectionText</label>
+                        <div>
+                            <textarea class="ReportSectionTextArea form-control" rows="4" name="ReportSectionText">@reportSectionModelList[0].ReportSectionText</textarea>
+                            <span class="help-block"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button class="jbReportSectionTextModify btn btn-primary" type="submit">
+                            <span class="glyphicon glyphicon-check"></span>
+                            &nbsp;@ReportTypeViewRes.Save
+                        </button>
+                    </div>
+                </form>
+            </div>
+            @{
+                count = 0;
+            }
+            @foreach (ReportSectionModel reportSectionModel in reportSectionModelList.Where(c => c.Year != null).OrderBy(c => c.Year))
+            {
+                <div role="tabpanel" class="tab-pane" id="reportsection@(randomNumberList[count])">
+                    <form class="ReportSectionTextForm well" method="post" role="form" action="ReportType/ReportSectionTextModifyJSON">
+                        <input type="hidden" name="ReportSectionID" value="@reportSectionModel.ReportSectionID" />
+                        @* Report Section text*@
+                        <div class="form-group">
+                            <label for="ReportSectionText" class="control-label">@ReportTypeViewRes.ReportSectionText</label>
+                            <div>
+                                <textarea class="ReportSectionTextArea form-control" rows="4" name="ReportSectionText">@reportSectionModel.ReportSectionText</textarea>
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button class="jbReportSectionTextModify btn btn-primary" type="submit">
+                                <span class="glyphicon glyphicon-check"></span>
+                                &nbsp;@ReportTypeViewRes.Save
+                            </button>
+                            <button class="jbAskToRemoveReportSectionYear btn btn-default" data-reportsectionid="@reportSectionModel.ReportSectionID" title="@ReportTypeViewRes.Delete">
+                                <span class="glyphicon glyphicon-trash"></span>
+                                &nbsp;@ReportTypeViewRes.Delete
+                            </button><span>&nbsp;&nbsp;&nbsp;</span>
+                        </div>
+                    </form>
+                </div>
+                count += 1;
+            }
+            @if (!reportSectionModelList[0].IsStatic)
+            {
+                <div role="tabpanel" class="tab-pane" id="reportsection@(randomNumberList[count])">
+                    <div class="well">
+                        <div class="form-group">
+                            <label for="ReportSectionYear" class="control-label">@ReportTypeViewRes.ReportSectionForYear</label>
+                            <div>
+                                <select name="ReportSectionYear" class="form-control">
+                                    @for (int i = DateTime.Now.Year + 1; i > 1979; i--)
+                                    {
+                                        <option value="@i">@i</option>
+                                    }
+                                </select>
+                                <span class="help-block"></span>
+                                <button class="jbReportSectionAddNewYearForTVItemID btn btn-default">
+                                    @ReportTypeViewRes.AddNewYear
+                                </button>&nbsp;&nbsp;&nbsp;
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+
+    <script>
+        tinymce.init({
+            selector: ".ReportSectionTextArea",
+            height: 200,
+        });
+    </script>
+}

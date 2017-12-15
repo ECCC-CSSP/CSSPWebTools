@@ -10,7 +10,6 @@
     List<ReportTypeModel> reportTypeModelList = (List<ReportTypeModel>)ViewBag.ReportTypeModelList;
     BaseEnumService _BaseEnumService = new BaseEnumService(ViewBag.Language);
     TVTypeEnum TVType = (TVTypeEnum)ViewBag.TVType;
-    int TVItemID = (int)ViewBag.TVItemID;
 }
 
 @if (reportTypeModelList.Count == 0)
@@ -21,10 +20,16 @@ else
 {
     foreach (ReportTypeModel reportTypeModel in reportTypeModelList)
     {
-        <div class="ReportTypeItemTop panel panel-success">
+        <div class="ReportTypeItemTop panel panel-success" data-reporttypeid="@reportTypeModel.ReportTypeID">
             <div class="panel-heading">
                 <div class="panel-title">
                     <div>
+                        <button class="jbReportTypeDetailShowHide btn btn-default">
+                            <span class="glyphicon glyphicon-arrow-down" title="@ReportTypeViewRes.ShowOrHideReportType"></span>
+                        </button>&nbsp;&nbsp;&nbsp;
+                        <button class="jbReportSectionListShowHide btn btn-default">
+                            <span class="glyphicon glyphicon-book" title="@(ReportTypeViewRes.ShowOrHideReportSectionList) "></span>
+                        </button>&nbsp;&nbsp;&nbsp;
                         @switch (reportTypeModel.FileType)
                         {
                             case FileTypeEnum.DOCX:
@@ -49,25 +54,20 @@ else
                                 break;
                         }
                         <span>&nbsp;&nbsp;@reportTypeModel.Name</span>&nbsp;&nbsp;&nbsp;
-                        @*<button class="jbReportTypeEdit btn btn-default">
-                            <span class="glyphicon glyphicon-pencil" title="@ReportTypeViewRes.Edit"></span>
-                        </button>&nbsp;&nbsp;&nbsp;*@
                         <span>@ReportTypeViewRes.FileNameWillStartWith : @(reportTypeModel.StartOfFileName)</span>
                     </div>
                 </div>
             </div>
-            <div class="panel-body">
-                <div class="ReportTypeEdit hidden">
-                    @Html.Action("_reportTypeEdit", "ReportType", new { ReportTypeID = reportTypeModel.ReportTypeID, TVItemID = TVItemID })
+            <div class="ParametersTop panel-body hidden">
+                <label>@reportTypeModel.Description</label>
+                <div class="DocumentListDiv">
                 </div>
-                <div class="ParametersTop">
-                    <label>@reportTypeModel.Description</label>
-                    <div class="DocumentListDiv">
-                        @Html.Action("_documentList", "Document", new { ReportTypeID = reportTypeModel.ReportTypeID, TVItemID = TVItemID })
-                    </div>
-                    <div class="DocumentGenerateDiv">
-                        @Html.Action("_documentParameters", "Document", new { ReportTypeID = reportTypeModel.ReportTypeID, TVItemID = TVItemID, TVFileTVItemID = 0 })
-                    </div>
+                <div class="DocumentGenerateDiv">
+                </div>
+            </div>
+            <div class="ReportSectionListTopDiv panel-body hidden">
+                <label>@ReportTypeViewRes.ReportSections</label>
+                <div class="ReportSectionListDiv">
                 </div>
             </div>
         </div>

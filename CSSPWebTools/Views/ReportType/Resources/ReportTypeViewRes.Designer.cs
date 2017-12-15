@@ -70,6 +70,42 @@ namespace CSSPWebTools.Views.ReportType.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add child section.
+        /// </summary>
+        public static string AddChildSection {
+            get {
+                return ResourceManager.GetString("AddChildSection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add new year.
+        /// </summary>
+        public static string AddNewYear {
+            get {
+                return ResourceManager.GetString("AddNewYear", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add sibling section.
+        /// </summary>
+        public static string AddSiblingSection {
+            get {
+                return ResourceManager.GetString("AddSiblingSection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add top section.
+        /// </summary>
+        public static string AddTopSection {
+            get {
+                return ResourceManager.GetString("AddTopSection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Area.
         /// </summary>
         public static string Area {
@@ -84,6 +120,51 @@ namespace CSSPWebTools.Views.ReportType.Resources {
         public static string BoxModel {
             get {
                 return ResourceManager.GetString("BoxModel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Click here to change to.
+        /// </summary>
+        public static string ClickHereToChangeTo {
+            get {
+                return ResourceManager.GetString("ClickHereToChangeTo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Convert to parent.
+        /// </summary>
+        public static string ConvertToParent {
+            get {
+                return ResourceManager.GetString("ConvertToParent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Convert to sub-section.
+        /// </summary>
+        public static string ConvertToSubSection {
+            get {
+                return ResourceManager.GetString("ConvertToSubSection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Copy.
+        /// </summary>
+        public static string Copy {
+            get {
+                return ResourceManager.GetString("Copy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Copy report section for item and year.
+        /// </summary>
+        public static string CopyReportSectionForItemAndYear {
+            get {
+                return ResourceManager.GetString("CopyReportSectionForItemAndYear", resourceCulture);
             }
         }
         
@@ -151,6 +232,24 @@ namespace CSSPWebTools.Views.ReportType.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Is not static.
+        /// </summary>
+        public static string IsNotStatic {
+            get {
+                return ResourceManager.GetString("IsNotStatic", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Is static.
+        /// </summary>
+        public static string IsStatic {
+            get {
+                return ResourceManager.GetString("IsStatic", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Mike scenario.
         /// </summary>
         public static string MikeScenario {
@@ -187,6 +286,24 @@ namespace CSSPWebTools.Views.ReportType.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Move down.
+        /// </summary>
+        public static string MoveDown {
+            get {
+                return ResourceManager.GetString("MoveDown", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Move up.
+        /// </summary>
+        public static string MoveUp {
+            get {
+                return ResourceManager.GetString("MoveUp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Municipality.
         /// </summary>
         public static string Municipality {
@@ -210,6 +327,15 @@ namespace CSSPWebTools.Views.ReportType.Resources {
         public static string New {
             get {
                 return ResourceManager.GetString("New", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New year.
+        /// </summary>
+        public static string NewYear {
+            get {
+                return ResourceManager.GetString("NewYear", resourceCulture);
             }
         }
         
@@ -241,6 +367,42 @@ namespace CSSPWebTools.Views.ReportType.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Report section for year.
+        /// </summary>
+        public static string ReportSectionForYear {
+            get {
+                return ResourceManager.GetString("ReportSectionForYear", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Report section name.
+        /// </summary>
+        public static string ReportSectionName {
+            get {
+                return ResourceManager.GetString("ReportSectionName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Report sections.
+        /// </summary>
+        public static string ReportSections {
+            get {
+                return ResourceManager.GetString("ReportSections", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Report section text.
+        /// </summary>
+        public static string ReportSectionText {
+            get {
+                return ResourceManager.GetString("ReportSectionText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Report type.
         /// </summary>
         public static string ReportType {
@@ -268,11 +430,56 @@ namespace CSSPWebTools.Views.ReportType.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Save.
+        /// </summary>
+        public static string Save {
+            get {
+                return ResourceManager.GetString("Save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Sector.
         /// </summary>
         public static string Sector {
             get {
                 return ResourceManager.GetString("Sector", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Setup.
+        /// </summary>
+        public static string Setup {
+            get {
+                return ResourceManager.GetString("Setup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show or hide report section edit.
+        /// </summary>
+        public static string ShowOrHideReportSectionEdit {
+            get {
+                return ResourceManager.GetString("ShowOrHideReportSectionEdit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show or hide report section list.
+        /// </summary>
+        public static string ShowOrHideReportSectionList {
+            get {
+                return ResourceManager.GetString("ShowOrHideReportSectionList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show or hide report type.
+        /// </summary>
+        public static string ShowOrHideReportType {
+            get {
+                return ResourceManager.GetString("ShowOrHideReportType", resourceCulture);
             }
         }
         
