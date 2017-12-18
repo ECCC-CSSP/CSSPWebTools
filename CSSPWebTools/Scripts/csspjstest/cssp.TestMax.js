@@ -1,6 +1,6 @@
 var CSSP;
 (function (CSSP) {
-    var TestMax = (function () {
+    var TestMax = /** @class */ (function () {
         function TestMax() {
             this.DoTest = function ($form, $input, $nextSpan, i) {
                 cssp.Test.CleanFormVisibleInput($form);

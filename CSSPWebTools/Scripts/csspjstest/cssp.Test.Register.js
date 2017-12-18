@@ -2,7 +2,7 @@ var CSSP;
 (function (CSSP) {
     var Test;
     (function (Test) {
-        var Register = (function () {
+        var Register = /** @class */ (function () {
             // Constructor
             function Register() {
                 var _this = this;

@@ -1,6 +1,6 @@
 var CSSP;
 (function (CSSP) {
-    var TestRemote = (function () {
+    var TestRemote = /** @class */ (function () {
         function TestRemote() {
             this.DoTest = function ($form, $input, $nextSpan, i) {
                 cssp.Test.CleanFormVisibleInput($form);

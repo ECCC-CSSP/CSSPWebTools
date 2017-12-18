@@ -2,7 +2,7 @@ var CSSP;
 (function (CSSP) {
     var Test;
     (function (Test) {
-        var Home = (function () {
+        var Home = /** @class */ (function () {
             // Constructors
             function Home() {
                 // Variables

@@ -1,6 +1,6 @@
 var CSSP;
 (function (CSSP) {
-    var Address = (function () {
+    var Address = /** @class */ (function () {
         // Constructors
         function Address() {
             // Variables
