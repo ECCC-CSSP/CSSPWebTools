@@ -294,7 +294,7 @@ module CSSP {
                 $bjs.removeClass("btn-default").addClass("btn-success");
                 let ReportSectionID: number = parseInt($bjs.closest(".ReportSectionTop").data("reportsectionid"));
                 let TVItemID: number = parseInt($bjs.closest("#ViewDiv").data("tvitemid"));
-                let formDiv$: JQuery = $bjs.closest(".ReportSectionTop").find(".ReportSectionForm");
+                let formDiv$: JQuery = $bjs.closest(".ReportSectionTop").find(".ReportSectionForm").eq(0);
 
                 formDiv$.html(cssp.GetHTMLVariable("#LayoutVariables", "varLoading"));
 
@@ -311,7 +311,7 @@ module CSSP {
             }
             else {
                 $bjs.removeClass("btn-success").addClass("btn-default");
-                let formDiv$: JQuery = $bjs.closest(".ReportSectionTop").find(".ReportSectionForm");
+                let formDiv$: JQuery = $bjs.closest(".ReportSectionTop").find(".ReportSectionForm").eq(0);
 
                 formDiv$.html("");
             }
@@ -319,11 +319,11 @@ module CSSP {
         public ReportSectionShowOrHideNameForm: Function = ($bjs: JQuery): void => {
             if ($bjs.hasClass("btn-default")) {
                 $bjs.removeClass("btn-default").addClass("btn-success");
-                $bjs.closest(".ReportSectionTop").find(".ReportSectionNameForm").removeClass("hidden");
+                $bjs.closest(".ReportSectionTop").find(".ReportSectionNameForm").eq(0).removeClass("hidden");
             }
             else {
                 $bjs.removeClass("btn-success").addClass("btn-default");
-                $bjs.closest(".ReportSectionTop").find(".ReportSectionNameForm").removeClass("hidden").addClass("hidden");
+                $bjs.closest(".ReportSectionTop").find(".ReportSectionNameForm").eq(0).removeClass("hidden").addClass("hidden");
             }
         };
         public ReportSectionReloadList: Function = ($bjs: JQuery): void => {
