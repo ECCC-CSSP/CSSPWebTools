@@ -2,7 +2,7 @@ var CSSP;
 (function (CSSP) {
     var Test;
     (function (Test) {
-        var ForgotPasswordEmailSent = (function () {
+        var ForgotPasswordEmailSent = /** @class */ (function () {
             // Constructors
             function ForgotPasswordEmailSent() {
                 var _this = this;

@@ -1,6 +1,6 @@
 var CSSP;
 (function (CSSP) {
-    var EmailDistributionList = (function () {
+    var EmailDistributionList = /** @class */ (function () {
         // Variables
         // Constructors
         function EmailDistributionList() {

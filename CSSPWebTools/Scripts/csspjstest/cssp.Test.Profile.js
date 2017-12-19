@@ -2,7 +2,7 @@ var CSSP;
 (function (CSSP) {
     var Test;
     (function (Test) {
-        var Profile = (function () {
+        var Profile = /** @class */ (function () {
             // Constructor
             function Profile() {
                 // Function

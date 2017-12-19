@@ -1,6 +1,6 @@
 var CSSP;
 (function (CSSP) {
-    var TestModal = (function () {
+    var TestModal = /** @class */ (function () {
         function TestModal() {
             this.DoTest = function ($cssPath, CurrentCSSPath) {
                 test(CurrentCSSPath + " [modal]", function () {

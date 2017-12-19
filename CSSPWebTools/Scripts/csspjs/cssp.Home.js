@@ -1,6 +1,6 @@
 var CSSP;
 (function (CSSP) {
-    var Home = (function () {
+    var Home = /** @class */ (function () {
         // Constructors
         function Home() {
             // Functions

@@ -1,6 +1,6 @@
 var CSSP;
 (function (CSSP) {
-    var TestEqualTo = (function () {
+    var TestEqualTo = /** @class */ (function () {
         function TestEqualTo() {
             this.DoTest = function ($form, $input, $nextSpan, i) {
                 cssp.Test.CleanFormVisibleInput($form);

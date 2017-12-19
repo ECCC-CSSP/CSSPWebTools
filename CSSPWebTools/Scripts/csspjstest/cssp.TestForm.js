@@ -1,6 +1,6 @@
 var CSSP;
 (function (CSSP) {
-    var TestForm = (function () {
+    var TestForm = /** @class */ (function () {
         function TestForm() {
             this.DoTest = function ($cssPath, CurrentCSSPath) {
                 test(CurrentCSSPath, function () {

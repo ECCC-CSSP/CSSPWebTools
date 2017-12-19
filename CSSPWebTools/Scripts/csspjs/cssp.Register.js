@@ -1,6 +1,6 @@
 var CSSP;
 (function (CSSP) {
-    var Register = (function () {
+    var Register = /** @class */ (function () {
         // Constructors
         function Register() {
             // Variables

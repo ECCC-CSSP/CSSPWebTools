@@ -1,6 +1,6 @@
 var CSSP;
 (function (CSSP) {
-    var TestMinLength = (function () {
+    var TestMinLength = /** @class */ (function () {
         function TestMinLength() {
             this.DoTest = function ($form, $input, $nextSpan, i) {
                 cssp.Test.CleanFormVisibleInput($form);
