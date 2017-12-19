@@ -313,7 +313,7 @@ module CSSP {
                 $bjs.removeClass("btn-success").addClass("btn-default");
                 let formDiv$: JQuery = $bjs.closest(".ReportSectionTop").find(".ReportSectionForm").eq(0);
 
-                formDiv$.html("");
+                formDiv$.html(""); 
             }
         };
         public ReportSectionShowOrHideNameForm: Function = ($bjs: JQuery): void => {

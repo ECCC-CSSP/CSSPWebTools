@@ -1,6 +1,6 @@
 var CSSP;
 (function (CSSP) {
-    var MWQMRun = /** @class */ (function () {
+    var MWQMRun = (function () {
         // Constructors
         function MWQMRun() {
             var _this = this;

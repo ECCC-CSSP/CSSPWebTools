@@ -1,6 +1,6 @@
 var CSSP;
 (function (CSSP) {
-    var TestDropDownMenu = /** @class */ (function () {
+    var TestDropDownMenu = (function () {
         function TestDropDownMenu() {
             this.DoTest = function ($cssPath, CurrentCSSPath) {
                 test(CurrentCSSPath + " [dropdown]", function () {

@@ -2,7 +2,7 @@ var CSSP;
 (function (CSSP) {
     var Test;
     (function (Test) {
-        var File = /** @class */ (function () {
+        var File = (function () {
             // Constructors
             function File() {
                 var _this = this;

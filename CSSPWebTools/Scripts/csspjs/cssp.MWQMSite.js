@@ -1,6 +1,6 @@
 var CSSP;
 (function (CSSP) {
-    var MWQMSite = /** @class */ (function () {
+    var MWQMSite = (function () {
         // Constructors
         function MWQMSite() {
             var _this = this;

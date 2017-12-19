@@ -1,6 +1,6 @@
 var CSSP;
 (function (CSSP) {
-    var TestAccordion = /** @class */ (function () {
+    var TestAccordion = (function () {
         function TestAccordion() {
             this.DoTest = function ($cssPath, CurrentCSSPath) {
                 test(CurrentCSSPath + " [panel-group]", function () {
