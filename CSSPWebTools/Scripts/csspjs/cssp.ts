@@ -269,6 +269,7 @@ var cssp = new CSSP.app();
 
 cssp.StartDir = "";
 //cssp.StartDir = "/csspwebtools"; 
+//cssp.StartDir = "/csspwebtoolsjoe"; 
 cssp.BaseURL = cssp.StartDir + "/" + Globalize.culture.name + "/";
 
 cssp.Init();

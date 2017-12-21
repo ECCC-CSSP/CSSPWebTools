@@ -114,7 +114,7 @@ namespace CSSPWebTools.Controllers
 
             List<FilePurposeAndText> filePurposeAndTextList = FillFilePurposeAndTextList();
             ViewBag.FilePurposeAndTextList = filePurposeAndTextList.OrderBy(c => c.FilePurposeText).ToList();
-          
+
             return PartialView();
         }
 
@@ -134,7 +134,7 @@ namespace CSSPWebTools.Controllers
                 List<DocTemplateModel> docTemplateModelList = _DocTemplateService.GetDocTemplateModelListWithTVTypeDB(tvItemModel.TVType);
                 ViewBag.DocTemplateModelList = docTemplateModelList;
             }
-            return PartialView(); 
+            return PartialView();
         }
 
         [HttpPost]
@@ -182,7 +182,7 @@ namespace CSSPWebTools.Controllers
 
             List<FilePurposeAndText> filePurposeAndTextList = FillFilePurposeAndTextList();
             ViewBag.FilePurposeAndTextList = filePurposeAndTextList.OrderBy(c => c.FilePurposeText).ToList();
-          
+
             return PartialView();
         }
 
@@ -232,7 +232,7 @@ namespace CSSPWebTools.Controllers
 
             return Json(tvFileModelRet.Error, JsonRequestBehavior.AllowGet);
         }
-         
+
         [HttpPost]
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
         public PartialViewResult _fileUpload(FormCollection fc)
@@ -380,7 +380,7 @@ namespace CSSPWebTools.Controllers
                 {
                     ServerFileName = SaveAsFileName + fi.Extension;
                 }
-                
+
                 string ServerFilePath = "";
 
                 TVItemModel tvItemModelParent = new TVItemModel();
@@ -415,7 +415,7 @@ namespace CSSPWebTools.Controllers
                 {
                     di.Create();
                 }
-         
+
                 fi = new FileInfo(ServerFilePath + ServerFileName);
 
                 if (fi.Exists)
@@ -445,7 +445,7 @@ namespace CSSPWebTools.Controllers
                     FilePurpose = FilePurpose,
                     FileDescription = FileDescription,
                     FileType = fileType,
-                    FileSize_kb = Math.Max(hpf.ContentLength/1024, 1),
+                    FileSize_kb = Math.Max(hpf.ContentLength / 1024, 1),
                     FileInfo = "Uploaded file",
                     FileCreatedDate_UTC = DateTime.Now,
                     FromWater = FromWater,

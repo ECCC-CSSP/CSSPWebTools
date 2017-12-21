@@ -192,39 +192,39 @@
     <Compile Include="Controllers\AddressController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
-    <Compile Include="Controllers\ReportTypeController.cs" />
-    <Compile Include="Controllers\DocumentController.cs" />
-    <Compile Include="Controllers\KMZController.cs" />
-    <Compile Include="Controllers\ChartController.cs" />
     <Compile Include="Controllers\BoxModelController.cs" />
+    <Compile Include="Controllers\ChartController.cs" />
     <Compile Include="Controllers\ClimateSiteController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\DialogController.cs" />
+    <Compile Include="Controllers\DocumentController.cs" />
     <Compile Include="Controllers\EmailController.cs" />
+    <Compile Include="Controllers\EmailDistributionListController.cs" />
     <Compile Include="Controllers\FileController.cs" />
     <Compile Include="Controllers\HelpController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HydrometricSiteController.cs" />
     <Compile Include="Controllers\InfrastructureController.cs" />
-    <Compile Include="Controllers\EmailDistributionListController.cs" />
-    <Compile Include="Controllers\RainExceedanceController.cs" />
-    <Compile Include="Controllers\SamplingPlanController.cs" />
+    <Compile Include="Controllers\KMZController.cs" />
     <Compile Include="Controllers\MapController.cs" />
     <Compile Include="Controllers\MikeScenarioController.cs" />
     <Compile Include="Controllers\MWQMController.cs" />
     <Compile Include="Controllers\PolSourceController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
+    <Compile Include="Controllers\RainExceedanceController.cs" />
     <Compile Include="Controllers\ReportController.cs" />
+    <Compile Include="Controllers\ReportTypeController.cs" />
+    <Compile Include="Controllers\Resources\ControllerRes.Designer.cs">
+      <DependentUpon>ControllerRes.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
     <Compile Include="Controllers\Resources\ControllerRes.fr.Designer.cs">
       <DependentUpon>ControllerRes.fr.resx</DependentUpon>
-      <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="Controllers\Resources\ControllerRes.Designer.cs">
       <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ControllerRes.resx</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\SamplingPlanController.cs" />
     <Compile Include="Controllers\TelController.cs" />
     <Compile Include="Controllers\TideSiteController.cs" />
     <Compile Include="Controllers\TVItemController.cs" />
@@ -1055,14 +1055,14 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Controllers\Resources\ControllerRes.fr.resx">
+      <SubType>Designer</SubType>
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>ControllerRes.fr.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Controllers\Resources\ControllerRes.resx">
+      <SubType>Designer</SubType>
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>ControllerRes.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Account\Resources\AccountViewRes.fr.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
