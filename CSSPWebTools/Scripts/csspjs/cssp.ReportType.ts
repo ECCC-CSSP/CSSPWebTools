@@ -245,6 +245,8 @@ module CSSP {
         };
         public ReportSectionTextModify: Function = ($bjs: JQuery): void => {
             tinymce.triggerSave();
+            tinymce.triggerSave();
+            tinymce.triggerSave();
             let $form: JQuery = $bjs.closest("form.ReportSectionTextForm");
             if ($form.length == 0) {
                 cssp.Dialog.ShowDialogErrorWithCouldNotFind_Within_(".ReportSectionTextForm", "Form tag");
