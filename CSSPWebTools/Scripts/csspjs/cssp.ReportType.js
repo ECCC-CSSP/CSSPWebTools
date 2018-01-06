@@ -214,6 +214,8 @@ var CSSP;
             };
             this.ReportSectionTextModify = function ($bjs) {
                 tinymce.triggerSave();
+                tinymce.triggerSave();
+                tinymce.triggerSave();
                 var $form = $bjs.closest("form.ReportSectionTextForm");
                 if ($form.length == 0) {
                     cssp.Dialog.ShowDialogErrorWithCouldNotFind_Within_(".ReportSectionTextForm", "Form tag");
@@ -259,7 +261,7 @@ var CSSP;
                     $bjs.removeClass("btn-default").addClass("btn-success");
                     var ReportSectionID = parseInt($bjs.closest(".ReportSectionTop").data("reportsectionid"));
                     var TVItemID = parseInt($bjs.closest("#ViewDiv").data("tvitemid"));
-                    var formDiv$_1 = $bjs.closest(".ReportSectionTop").find(".ReportSectionForm");
+                    var formDiv$_1 = $bjs.closest(".ReportSectionTop").find(".ReportSectionForm").eq(0);
                     formDiv$_1.html(cssp.GetHTMLVariable("#LayoutVariables", "varLoading"));
                     var command_3 = "ReportType/_reportSectionForm";
                     $.get(cssp.BaseURL + command_3, {
@@ -273,18 +275,18 @@ var CSSP;
                 }
                 else {
                     $bjs.removeClass("btn-success").addClass("btn-default");
-                    var formDiv$ = $bjs.closest(".ReportSectionTop").find(".ReportSectionForm");
+                    var formDiv$ = $bjs.closest(".ReportSectionTop").find(".ReportSectionForm").eq(0);
                     formDiv$.html("");
                 }
             };
             this.ReportSectionShowOrHideNameForm = function ($bjs) {
                 if ($bjs.hasClass("btn-default")) {
                     $bjs.removeClass("btn-default").addClass("btn-success");
-                    $bjs.closest(".ReportSectionTop").find(".ReportSectionNameForm").removeClass("hidden");
+                    $bjs.closest(".ReportSectionTop").find(".ReportSectionNameForm").eq(0).removeClass("hidden");
                 }
                 else {
                     $bjs.removeClass("btn-success").addClass("btn-default");
-                    $bjs.closest(".ReportSectionTop").find(".ReportSectionNameForm").removeClass("hidden").addClass("hidden");
+                    $bjs.closest(".ReportSectionTop").find(".ReportSectionNameForm").eq(0).removeClass("hidden").addClass("hidden");
                 }
             };
             this.ReportSectionReloadList = function ($bjs) {
