@@ -1,6 +1,6 @@
 var CSSP;
 (function (CSSP) {
-    var View = (function () {
+    var View = /** @class */ (function () {
         // Constructors
         function View() {
             // Functions

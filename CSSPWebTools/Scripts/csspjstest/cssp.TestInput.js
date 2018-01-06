@@ -1,6 +1,6 @@
 var CSSP;
 (function (CSSP) {
-    var TestInput = (function () {
+    var TestInput = /** @class */ (function () {
         function TestInput() {
             this.DoTest = function ($cssPath, CurrentCSSPath) {
                 test(CurrentCSSPath + " [" + $cssPath.attr("name") + "]", function () {

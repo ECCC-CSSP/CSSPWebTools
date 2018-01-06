@@ -1,6 +1,6 @@
 var CSSP;
 (function (CSSP) {
-    var TestRange = (function () {
+    var TestRange = /** @class */ (function () {
         function TestRange() {
             this.DoTest = function ($form, $input, $nextSpan, i) {
                 cssp.Test.CleanFormVisibleInput($form);

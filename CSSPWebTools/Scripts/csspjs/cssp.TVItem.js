@@ -1,6 +1,6 @@
 var CSSP;
 (function (CSSP) {
-    var TVItem = (function () {
+    var TVItem = /** @class */ (function () {
         // Constructors
         function TVItem() {
             // Variables

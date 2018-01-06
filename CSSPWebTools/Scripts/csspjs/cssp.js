@@ -1,6 +1,6 @@
 var CSSP;
 (function (CSSP) {
-    var app = (function () {
+    var app = /** @class */ (function () {
         // Constructors
         function app() {
             var _this = this;
@@ -210,7 +210,6 @@ var CSSP;
 var cssp = new CSSP.app();
 cssp.StartDir = "";
 //cssp.StartDir = "/csspwebtools"; 
-//cssp.StartDir = "/csspwebtoolsjoe"; 
 cssp.BaseURL = cssp.StartDir + "/" + Globalize.culture.name + "/";
 cssp.Init();
 cssp.Address = new CSSP.Address();

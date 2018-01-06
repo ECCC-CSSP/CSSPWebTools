@@ -1,6 +1,6 @@
 var CSSP;
 (function (CSSP) {
-    var HydrometricSite = (function () {
+    var HydrometricSite = /** @class */ (function () {
         // Variables
         // Constructors
         function HydrometricSite() {

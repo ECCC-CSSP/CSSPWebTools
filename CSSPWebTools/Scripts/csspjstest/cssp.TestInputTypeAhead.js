@@ -1,6 +1,6 @@
 var CSSP;
 (function (CSSP) {
-    var TestInputTypeAhead = (function () {
+    var TestInputTypeAhead = /** @class */ (function () {
         function TestInputTypeAhead() {
             this.DoTest = function ($cssPath, CurrentCSSPath) {
                 test(CurrentCSSPath + " [typeahead]", function () {

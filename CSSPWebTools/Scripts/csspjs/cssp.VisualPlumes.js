@@ -1,6 +1,6 @@
 var CSSP;
 (function (CSSP) {
-    var VisualPlumes = (function () {
+    var VisualPlumes = /** @class */ (function () {
         // Constructors
         function VisualPlumes() {
             // Variables

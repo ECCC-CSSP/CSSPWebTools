@@ -1,6 +1,6 @@
 var CSSP;
 (function (CSSP) {
-    var Sammy = (function () {
+    var Sammy = /** @class */ (function () {
         // Constructors
         function Sammy() {
             var _this = this;
