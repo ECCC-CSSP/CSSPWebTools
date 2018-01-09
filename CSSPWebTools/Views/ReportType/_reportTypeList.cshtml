@@ -18,7 +18,7 @@
 }
 else
 {
-    foreach (ReportTypeModel reportTypeModel in reportTypeModelList)
+    foreach (ReportTypeModel reportTypeModel in reportTypeModelList.OrderBy(c => c.Name))
     {
         <div class="ReportTypeItemTop panel panel-success" data-reporttypeid="@reportTypeModel.ReportTypeID">
             <div class="panel-heading">
