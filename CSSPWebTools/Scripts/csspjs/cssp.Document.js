@@ -1,6 +1,6 @@
 var CSSP;
 (function (CSSP) {
-    var Document = /** @class */ (function () {
+    var Document = (function () {
         // Variables
         // Constructor
         function Document() {

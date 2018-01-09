@@ -1,6 +1,6 @@
 var CSSP;
 (function (CSSP) {
-    var TestEmail = /** @class */ (function () {
+    var TestEmail = (function () {
         function TestEmail() {
             this.DoTest = function ($form, $input, $nextSpan, i) {
                 cssp.Test.CleanFormVisibleInput($form);

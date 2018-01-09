@@ -2,7 +2,7 @@ var CSSP;
 (function (CSSP) {
     var Test;
     (function (Test) {
-        var Admin = /** @class */ (function () {
+        var Admin = (function () {
             // Constructor
             function Admin() {
                 // Function

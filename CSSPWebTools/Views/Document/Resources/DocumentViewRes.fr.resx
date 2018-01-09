@@ -177,6 +177,12 @@
   <data name="ReportYear" xml:space="preserve">
     <value>L'année du rapport</value>
   </data>
+  <data name="SubsectorMunicipalityIsASpecialCaseAndShouldNotBeGeneratedByItself" xml:space="preserve">
+    <value>Subsector municipality est un cas spéciale et ne devrait pas &#x1E;être généré par soit-même</value>
+  </data>
+  <data name="SubsectorMunicipalityIsUsedWithinTheReEvaluation" xml:space="preserve">
+    <value>Subsector municipality est utilisé à l'intérieur du document Re-evaluation</value>
+  </data>
   <data name="WithFileType" xml:space="preserve">
     <value>pour le type de filière</value>
   </data>

@@ -23,12 +23,15 @@
                     <input type="hidden" name="TVItemID" value="@TVItemID" />
                     <input type="hidden" name="ReportTypeID" value="@ReportTypeID" />
                     @Parameters(reportTypeModel.UniqueCode)
-                    <div class="form-group">
-                        <button class="jbDocumentGenerate btn btn-primary" type="submit">
-                            <span class="glyphicon glyphicon-check"></span>
-                            &nbsp;@DocumentViewRes.GenerateReportWithParameters
-                        </button>
-                    </div>
+                    @if (reportTypeModel.UniqueCode != "SubsectorMunicipalityDocx")
+                    {
+                        <div class="form-group">
+                            <button class="jbDocumentGenerate btn btn-primary" type="submit">
+                                <span class="glyphicon glyphicon-check"></span>
+                                &nbsp;@DocumentViewRes.GenerateReportWithParameters
+                            </button>
+                        </div>
+                    }
                 </fieldset>
             </form>
         </li>
@@ -75,118 +78,6 @@ else
                         <label class="text-nowrap">
                             <input type="checkbox" name="HideMaxFCColumn" />
                             <span>&nbsp;&nbsp;@DocumentViewRes.HideMaxFCColumn &nbsp;&nbsp;</span>
-                        </label>
-                    </div>
-                }
-                break;
-            case "MapActivePolSourceSitesDocx":
-                {
-                    <div class="form-inline">
-                        <label class="text-nowrap">
-                            <span>@DocumentViewRes.ReportYear</span>
-                            <select name="Year" class="form-control">
-                                @for (int i = DateTime.Now.Year; i > 1989; i--)
-                                {
-                                    <option value="@i">@i.ToString()</option>
-                                }
-                            </select>
-                            &nbsp;&nbsp;&nbsp;&nbsp;
-                        </label>
-                        <label class="text-nowrap">
-                            <input type="checkbox" name="HideVerticalScale" />
-                            <span>&nbsp;&nbsp;@DocumentViewRes.HideVerticalScale &nbsp;&nbsp;</span>
-                        </label>
-                        <label class="text-nowrap">
-                            <input type="checkbox" name="HideHorizontalScale" />
-                            <span>&nbsp;&nbsp;@DocumentViewRes.HideHorizontalScale &nbsp;&nbsp;</span>
-                        </label>
-                        <label class="text-nowrap">
-                            <input type="checkbox" name="HideNorthArrow" />
-                            <span>&nbsp;&nbsp;@DocumentViewRes.HideNorthArrow &nbsp;&nbsp;</span>
-                        </label>
-                        <label class="text-nowrap">
-                            <input type="checkbox" name="HideSubsectorName" />
-                            <span>&nbsp;&nbsp;@DocumentViewRes.HideSubsectorName &nbsp;&nbsp;</span>
-                        </label>
-                    </div>
-                }
-                break;
-            case "MapActiveMWQMSitesDocx":
-                {
-                    <div class="form-inline">
-                        <label class="text-nowrap">
-                            <span>@DocumentViewRes.ReportYear</span>
-                            <select name="Year" class="form-control">
-                                @for (int i = DateTime.Now.Year; i > 1989; i--)
-                                {
-                                    <option value="@i">@i.ToString()</option>
-                                }
-                            </select>
-                            &nbsp;&nbsp;&nbsp;&nbsp;
-                        </label>
-                        <label class="text-nowrap">
-                            <input type="checkbox" name="HideVerticalScale" />
-                            <span>&nbsp;&nbsp;@DocumentViewRes.HideVerticalScale &nbsp;&nbsp;</span>
-                        </label>
-                        <label class="text-nowrap">
-                            <input type="checkbox" name="HideHorizontalScale" />
-                            <span>&nbsp;&nbsp;@DocumentViewRes.HideHorizontalScale &nbsp;&nbsp;</span>
-                        </label>
-                        <label class="text-nowrap">
-                            <input type="checkbox" name="HideNorthArrow" />
-                            <span>&nbsp;&nbsp;@DocumentViewRes.HideNorthArrow &nbsp;&nbsp;</span>
-                        </label>
-                        <label class="text-nowrap">
-                            <input type="checkbox" name="HideSubsectorName" />
-                            <span>&nbsp;&nbsp;@DocumentViewRes.HideSubsectorName &nbsp;&nbsp;</span>
-                        </label>
-                    </div>
-                }
-                break;
-            case "ReEvaluationCoverPageDocx":
-                {
-                    <div class="form-inline">
-                        <label class="text-nowrap">
-                            <span>@DocumentViewRes.ReportYear</span>
-                            <select name="Year" class="form-control">
-                                @for (int i = DateTime.Now.Year; i > 1989; i--)
-                                {
-                                    <option value="@i">@i.ToString()</option>
-                                }
-                            </select>
-                            &nbsp;&nbsp;&nbsp;&nbsp;
-                        </label>
-                    </div>
-                }
-                break;
-            case "PollutionSourceSitesDocx":
-                {
-                    <div class="form-inline">
-                        <label class="text-nowrap">
-                            <span>@DocumentViewRes.ReportYear</span>
-                            <select name="Year" class="form-control">
-                                @for (int i = DateTime.Now.Year; i > 1989; i--)
-                                {
-                                    <option value="@i">@i.ToString()</option>
-                                }
-                            </select>
-                            &nbsp;&nbsp;&nbsp;&nbsp;
-                        </label>
-                    </div>
-                }
-                break;
-            case "MWQMSitesDocx":
-                {
-                    <div class="form-inline">
-                        <label class="text-nowrap">
-                            <span>@DocumentViewRes.ReportYear</span>
-                            <select name="Year" class="form-control">
-                                @for (int i = DateTime.Now.Year; i > 1989; i--)
-                                {
-                                    <option value="@i">@i.ToString()</option>
-                                }
-                            </select>
-                            &nbsp;&nbsp;&nbsp;&nbsp;
                         </label>
                     </div>
                 }
@@ -243,14 +134,9 @@ else
                 {
                     <div class="form-inline">
                         <label class="text-nowrap">
-                            <span>@DocumentViewRes.ReportYear</span>
-                            <select name="Year" class="form-control">
-                                @for (int i = DateTime.Now.Year; i > 1989; i--)
-                                {
-                                    <option value="@i">@i.ToString()</option>
-                                }
-                            </select>
-                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span>@DocumentViewRes.SubsectorMunicipalityIsASpecialCaseAndShouldNotBeGeneratedByItself</span>
+                            <br />
+                            <span>@DocumentViewRes.SubsectorMunicipalityIsUsedWithinTheReEvaluation</span>
                         </label>
                     </div>
                 }

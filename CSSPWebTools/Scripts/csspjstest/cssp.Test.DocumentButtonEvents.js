@@ -2,7 +2,7 @@ var CSSP;
 (function (CSSP) {
     var Test;
     (function (Test) {
-        var DocumentButtonEvents = /** @class */ (function () {
+        var DocumentButtonEvents = (function () {
             // Constructor
             function DocumentButtonEvents() {
                 // Functions

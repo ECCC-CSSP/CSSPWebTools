@@ -2,7 +2,7 @@ var CSSP;
 (function (CSSP) {
     var Test;
     (function (Test) {
-        var Dialog = /** @class */ (function () {
+        var Dialog = (function () {
             // Constructors
             function Dialog() {
                 var _this = this;

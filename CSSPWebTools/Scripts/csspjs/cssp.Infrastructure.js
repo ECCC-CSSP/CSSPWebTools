@@ -1,6 +1,6 @@
 var CSSP;
 (function (CSSP) {
-    var Infrastructure = /** @class */ (function () {
+    var Infrastructure = (function () {
         // constructor
         function Infrastructure() {
             // variables

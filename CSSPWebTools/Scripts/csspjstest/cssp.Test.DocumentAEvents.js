@@ -2,7 +2,7 @@ var CSSP;
 (function (CSSP) {
     var Test;
     (function (Test) {
-        var DocumentAEvents = /** @class */ (function () {
+        var DocumentAEvents = (function () {
             // Variables
             // Constructor
             function DocumentAEvents() {

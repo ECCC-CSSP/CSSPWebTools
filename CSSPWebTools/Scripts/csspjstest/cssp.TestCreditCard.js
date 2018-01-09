@@ -1,6 +1,6 @@
 var CSSP;
 (function (CSSP) {
-    var TestCreditCard = /** @class */ (function () {
+    var TestCreditCard = (function () {
         function TestCreditCard() {
             this.DoTest = function ($form, $input, $nextSpan, i) {
                 cssp.Test.CleanFormVisibleInput($form);

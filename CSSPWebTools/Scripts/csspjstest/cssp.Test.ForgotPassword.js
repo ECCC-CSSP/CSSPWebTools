@@ -2,7 +2,7 @@ var CSSP;
 (function (CSSP) {
     var Test;
     (function (Test) {
-        var ForgotPassword = /** @class */ (function () {
+        var ForgotPassword = (function () {
             // Constructors
             function ForgotPassword() {
                 var _this = this;

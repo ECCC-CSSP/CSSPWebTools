@@ -2,7 +2,7 @@ var CSSP;
 (function (CSSP) {
     var Test;
     (function (Test) {
-        var FuncField = /** @class */ (function () {
+        var FuncField = (function () {
             // Constructors
             function FuncField(funcName, fieldName, formCSSPath) {
                 this.funcName = funcName;
@@ -12,7 +12,7 @@ var CSSP;
             return FuncField;
         }());
         Test.FuncField = FuncField;
-        var app = /** @class */ (function () {
+        var app = (function () {
             // Constructor
             function app() {
                 this._DoesNotExist = "{0} does not exist.";

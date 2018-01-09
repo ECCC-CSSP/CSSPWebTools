@@ -1,6 +1,6 @@
 var CSSP;
 (function (CSSP) {
-    var ForgotPassword = /** @class */ (function () {
+    var ForgotPassword = (function () {
         // Constructors
         function ForgotPassword() {
             // Variables

@@ -664,7 +664,6 @@
     <Content Include="Scripts\plugins\print\plugin.min.js" />
     <Content Include="Scripts\plugins\save\plugin.min.js" />
     <Content Include="Scripts\plugins\searchreplace\plugin.min.js" />
-    <Content Include="Scripts\plugins\tinymcespellchecker\plugin.min.js" />
     <Content Include="Scripts\plugins\tabfocus\plugin.min.js" />
     <Content Include="Scripts\plugins\table\plugin.min.js" />
     <Content Include="Scripts\plugins\template\plugin.min.js" />
