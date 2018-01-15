@@ -106,6 +106,24 @@ namespace CSSPWebTools.Views.Document.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Hide analysis color and letter column.
+        /// </summary>
+        public static string HideAnalysisColorAndLetterColumn {
+            get {
+                return ResourceManager.GetString("HideAnalysisColorAndLetterColumn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hide classification column.
+        /// </summary>
+        public static string HideClassificationColumn {
+            get {
+                return ResourceManager.GetString("HideClassificationColumn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Hide Dry-All-All.
         /// </summary>
         public static string HideDryAllAll {
@@ -147,6 +165,15 @@ namespace CSSPWebTools.Views.Document.Resources {
         public static string HideNorthArrow {
             get {
                 return ResourceManager.GetString("HideNorthArrow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hide &gt; 260 column.
+        /// </summary>
+        public static string HideOver260Column {
+            get {
+                return ResourceManager.GetString("HideOver260Column", resourceCulture);
             }
         }
         
@@ -255,6 +282,15 @@ namespace CSSPWebTools.Views.Document.Resources {
         public static string SubsectorMunicipalityIsUsedWithinTheReEvaluation {
             get {
                 return ResourceManager.GetString("SubsectorMunicipalityIsUsedWithinTheReEvaluation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Summary statistics of FC densities tables parameters.
+        /// </summary>
+        public static string SummaryStatisticsOfFCDensitiesTablesParameters {
+            get {
+                return ResourceManager.GetString("SummaryStatisticsOfFCDensitiesTablesParameters", resourceCulture);
             }
         }
         

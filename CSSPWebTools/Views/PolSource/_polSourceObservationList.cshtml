@@ -118,6 +118,34 @@
                                             <span class="glyphicon glyphicon-trash"></span>
                                         </button>
                                         @PolSourceViewRes.Issue (@(i + 1))
+                                        @if (i < polSourceObservationModel.PolSourceObservationIssueModelList.Count)
+                                        {
+                                            if (i == 0)
+                                            {
+                                                <button class="jbPolSourceObservationIssueMoveDown btn btn-default"
+                                                        data-polsourceobservationissueid="@polSourceObservationModel.PolSourceObservationIssueModelList[i].PolSourceObservationIssueID" title="@PolSourceViewRes.MoveDown">
+                                                    <span class="glyphicon glyphicon-arrow-down"></span>
+                                                </button>
+                                            }
+                                            else if (i < (polSourceObservationModel.PolSourceObservationIssueModelList.Count - 1))
+                                            {
+                                                <button class="jbPolSourceObservationIssueMoveDown btn btn-default"
+                                                        data-polsourceobservationissueid="@polSourceObservationModel.PolSourceObservationIssueModelList[i].PolSourceObservationIssueID" title="@PolSourceViewRes.MoveDown">
+                                                    <span class="glyphicon glyphicon-arrow-down"></span>
+                                                </button>
+                                                <button class="jbPolSourceObservationIssueMoveUp btn btn-default"
+                                                        data-polsourceobservationissueid="@polSourceObservationModel.PolSourceObservationIssueModelList[i].PolSourceObservationIssueID" title="@PolSourceViewRes.MoveUp">
+                                                    <span class="glyphicon glyphicon-arrow-up"></span>
+                                                </button>
+                                            }
+                                            else
+                                            {
+                                                <button class="jbPolSourceObservationIssueMoveUp btn btn-default"
+                                                        data-polsourceobservationissueid="@polSourceObservationModel.PolSourceObservationIssueModelList[i].PolSourceObservationIssueID" title="@PolSourceViewRes.MoveUp">
+                                                    <span class="glyphicon glyphicon-arrow-up"></span>
+                                                </button>
+                                            }
+                                        }
                                     </div>
                                     @foreach (PolSourceObsInfoEnum polSourceObsInfo in polSourceObservationModel.PolSourceObservationIssueModelList[i].PolSourceObsInfoList)
                                     {
@@ -138,7 +166,7 @@
             </div>
         </div>
     </div>
-                                            }
+}
 
 @foreach (PolSourceObservationModel polSourceObservationModelRest in polSourceObservationModelList.Skip(1))
 {
@@ -179,11 +207,39 @@
                                         <span class="glyphicon glyphicon-trash"></span>
                                     </button>
                                     <span class="PolSourceObservationIssueText">@PolSourceViewRes.Issue (@(i + 1))</span>
+                                    @if (i < polSourceObservationModelRest.PolSourceObservationIssueModelList.Count)
+                                    {
+                                        if (i == 0)
+                                        {
+                                            <button class="jbPolSourceObservationIssueMoveDown btn btn-default"
+                                                    data-polsourceobservationissueid="@polSourceObservationModelRest.PolSourceObservationIssueModelList[i].PolSourceObservationIssueID" title="@PolSourceViewRes.MoveDown">
+                                                <span class="glyphicon glyphicon-arrow-down"></span>
+                                            </button>
+                                        }
+                                        else if (i < (polSourceObservationModelRest.PolSourceObservationIssueModelList.Count - 1))
+                                        {
+                                            <button class="jbPolSourceObservationIssueMoveDown btn btn-default"
+                                                    data-polsourceobservationissueid="@polSourceObservationModelRest.PolSourceObservationIssueModelList[i].PolSourceObservationIssueID" title="@PolSourceViewRes.MoveDown">
+                                                <span class="glyphicon glyphicon-arrow-down"></span>
+                                            </button>
+                                            <button class="jbPolSourceObservationIssueMoveUp btn btn-default"
+                                                    data-polsourceobservationissueid="@polSourceObservationModelRest.PolSourceObservationIssueModelList[i].PolSourceObservationIssueID" title="@PolSourceViewRes.MoveUp">
+                                                <span class="glyphicon glyphicon-arrow-up"></span>
+                                            </button>
+                                        }
+                                        else
+                                        {
+                                            <button class="jbPolSourceObservationIssueMoveUp btn btn-default"
+                                                    data-polsourceobservationissueid="@polSourceObservationModelRest.PolSourceObservationIssueModelList[i].PolSourceObservationIssueID" title="@PolSourceViewRes.MoveUp">
+                                                <span class="glyphicon glyphicon-arrow-up"></span>
+                                            </button>
+                                        }
+                                    }
                                 </div>
                                 @foreach (PolSourceObsInfoEnum polSourceObsInfo in polSourceObservationModelRest.PolSourceObservationIssueModelList[i].PolSourceObsInfoList)
-                                    {
+                                {
                                     <span>@(_BaseEnumService.GetEnumText_PolSourceObsInfoReportEnum(polSourceObsInfo))</span>
-                                    }
+                                }
                             </li>
                         }
                     </ul>

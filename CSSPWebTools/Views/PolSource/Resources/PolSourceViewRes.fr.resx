@@ -284,4 +284,10 @@
   <data name="EditIssues" xml:space="preserve">
     <value>Modifier l'item</value>
   </data>
+  <data name="MoveDown" xml:space="preserve">
+    <value>Déplacer vers le bas</value>
+  </data>
+  <data name="MoveUp" xml:space="preserve">
+    <value>Déplacer vers le haut</value>
+  </data>
 </root>

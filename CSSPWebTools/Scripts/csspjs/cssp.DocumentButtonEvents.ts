@@ -959,6 +959,16 @@ module CSSP {
                             cssp.PolSourceSite.PolSourceObservationIssueAskToDelete($bjs);
                         }
                         break;
+                    case "jbPolSourceObservationIssueMoveDown":
+                        {
+                            cssp.PolSourceSite.PolSourceObservationIssueMoveDown($bjs);
+                        }
+                        break;
+                    case "jbPolSourceObservationIssueMoveUp":
+                        {
+                            cssp.PolSourceSite.PolSourceObservationIssueMoveUp($bjs);
+                        }
+                        break;
                     case "jbPolSourceEditIssue":
                         {
                             cssp.PolSourceSite.PolSourceEditIssue($bjs);

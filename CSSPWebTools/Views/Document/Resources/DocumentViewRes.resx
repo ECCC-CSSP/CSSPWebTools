@@ -132,6 +132,12 @@
   <data name="HideAllAllAll" xml:space="preserve">
     <value>Hide All-All-All</value>
   </data>
+  <data name="HideAnalysisColorAndLetterColumn" xml:space="preserve">
+    <value>Hide analysis color and letter column</value>
+  </data>
+  <data name="HideClassificationColumn" xml:space="preserve">
+    <value>Hide classification column</value>
+  </data>
   <data name="HideDryAllAll" xml:space="preserve">
     <value>Hide Dry-All-All</value>
   </data>
@@ -146,6 +152,9 @@
   </data>
   <data name="HideNorthArrow" xml:space="preserve">
     <value>Hide north arrow</value>
+  </data>
+  <data name="HideOver260Column" xml:space="preserve">
+    <value>Hide &gt; 260 column</value>
   </data>
   <data name="HideSubsectorName" xml:space="preserve">
     <value>Hide subsector name</value>
@@ -182,6 +191,9 @@
   </data>
   <data name="SubsectorMunicipalityIsUsedWithinTheReEvaluation" xml:space="preserve">
     <value>Subsector municipality is used within the Re-evaluation document</value>
+  </data>
+  <data name="SummaryStatisticsOfFCDensitiesTablesParameters" xml:space="preserve">
+    <value>Summary statistics of FC densities tables parameters</value>
   </data>
   <data name="WithFileType" xml:space="preserve">
     <value>with file type</value>

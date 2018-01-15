@@ -54,7 +54,7 @@ module CSSP {
                             }
                             else {
                                 var PolSourceSiteTVItemID: number = parseInt($("#ViewDiv").data("tvitemid"));
-                                cssp.PolSourceSite.PolSourceObservationListReload(PolSourceSiteTVItemID);
+                                cssp.PolSourceSite.PolSourceObservationListReload(PolSourceSiteTVItemID, null);
                             }
                         })
                         .fail(() => {
@@ -68,12 +68,52 @@ module CSSP {
             cssp.Dialog.ShowDialogAreYouSure(PolObservationDateText);
             cssp.Dialog.CheckDialogAndButtonsExist(["#DialogBasic", "#DialogBasicYes"], 5, "cssp.PolSourceSite.SetDialogEventsDeleteObservationIssue", $bjs);
         };
+        public PolSourceObservationIssueMoveDown: Function = ($bjs: JQuery): void => {
+            var PolSourceObservationIssueID: number = parseInt($bjs.data("polsourceobservationissueid"));
+            var command: string = "PolSource/PolSourceObservationIssueMoveDownJSON";
+            $.post(cssp.BaseURL + command,
+                {
+                    PolSourceObservationIssueID: PolSourceObservationIssueID,
+                })
+                .done((ret) => {
+                    if (ret) {
+                        cssp.Dialog.ShowDialogErrorWithError(ret);
+                    }
+                    else {
+                        var PolSourceSiteTVItemID: number = parseInt($("#ViewDiv").data("tvitemid"));
+                        cssp.PolSourceSite.PolSourceObservationListReload(PolSourceSiteTVItemID, null);
+                    }
+                })
+                .fail(() => {
+                    cssp.Dialog.ShowDialogErrorWithFail(command);
+                });
+        };
+        public PolSourceObservationIssueMoveUp: Function = ($bjs: JQuery): void => {
+            var PolSourceObservationIssueID: number = parseInt($bjs.data("polsourceobservationissueid"));
+            var command: string = "PolSource/PolSourceObservationIssueMoveUpJSON";
+            $.post(cssp.BaseURL + command,
+                {
+                    PolSourceObservationIssueID: PolSourceObservationIssueID,
+                })
+                .done((ret) => {
+                    if (ret) {
+                        cssp.Dialog.ShowDialogErrorWithError(ret);
+                    }
+                    else {
+                        var PolSourceSiteTVItemID: number = parseInt($("#ViewDiv").data("tvitemid"));
+                        cssp.PolSourceSite.PolSourceObservationListReload(PolSourceSiteTVItemID, null);
+                    }
+                })
+                .fail(() => {
+                    cssp.Dialog.ShowDialogErrorWithFail(command);
+                });
+        };
         public SetDialogEventsDeleteObservationIssue: Function = ($bjs: JQuery): void => {
             $("#DialogBasicYes").one("click", (evt) => {
                 $("#DialogBasic").one('hidden.bs.modal', () => {
                     var PolSourceObservationID: number = parseInt($bjs.data("polsourceobservationid"));
                     var PolSourceObservationIssueID: number = parseInt($bjs.data("polsourceobservationissueid"));
-                    var command: string = "PolSource/PolSourceIssueDeleteJSON";
+                    var command: string = "PolSource/PolSourceObservationIssueDeleteJSON";
                     $.post(cssp.BaseURL + command, {
                         PolSourceObservationIssueID: PolSourceObservationIssueID,
                     }).done((ret) => {
@@ -82,7 +122,7 @@ module CSSP {
                         }
                         else {
                             var PolSourceSiteTVItemID: number = parseInt($("#ViewDiv").data("tvitemid"));
-                            cssp.PolSourceSite.PolSourceObservationListReload(PolSourceSiteTVItemID);
+                            cssp.PolSourceSite.PolSourceObservationListReload(PolSourceSiteTVItemID, null);
                         }
                     }).fail(() => {
                         cssp.Dialog.ShowDialogErrorWithFail(command);
@@ -118,12 +158,13 @@ module CSSP {
             }
         };
         public FormSubmitIssue: Function = ($bjs: JQuery): void => {
-            var $form: JQuery = $(".IssueModifyForm");
+            let $form: JQuery = $(".IssueModifyForm");
             if ($form.length == 0) {
                 cssp.Dialog.ShowDialogErrorWithCouldNotFind_Within_(".IssueModifyForm", "IssueModifyDiv");
                 return;
             }
-            var PolSourceObservationID: number = parseInt($bjs.data("polsourceobservationid"));
+            let PolSourceObservationID: number = parseInt($bjs.data("polsourceobservationid"));
+            let PolSourceObservationIssueID: number = parseInt($bjs.closest("form.IssueModifyForm").find("input[name='PolSourceObservationIssueID']").val());
 
             var $elem: JQuery;
             $(".jbPolSourceEditIssue").each((ind: number, elem: Element) => {
@@ -145,7 +186,7 @@ module CSSP {
                         }
                         else {
                             var PolSourceSiteTVItemID: number = parseInt($("#ViewDiv").data("tvitemid"));
-                            cssp.PolSourceSite.PolSourceEditIssue($elem);
+                            cssp.PolSourceSite.PolSourceObservationListReload(PolSourceSiteTVItemID, $elem);
                             cssp.Dialog.ShowDialogSuccess(cssp.GetHTMLVariable("#LayoutVariables", "varSuccess"));
                         }
                     })
@@ -251,16 +292,18 @@ module CSSP {
                 }
                 else {
                     var PolSourceSiteTVItemID: number = parseInt($("#ViewDiv").data("tvitemid"));
-                    cssp.PolSourceSite.PolSourceObservationListReload(PolSourceSiteTVItemID);
+                    cssp.PolSourceSite.PolSourceObservationListReload(PolSourceSiteTVItemID, null);
                 }
             }).fail(() => {
                 cssp.Dialog.ShowDialogErrorWithFail(command);
             });
         };
         public PolSourceEditIssue: Function = ($bjs: JQuery) => {
-            var PolSourceObservationID: number = parseInt($bjs.data("polsourceobservationid"));
-            this.IssueOrdinal = parseInt($bjs.data("issueordinal"));
-            cssp.PolSourceSite.PolSourceIssueListReload(PolSourceObservationID, this.IssueOrdinal);
+            if ($bjs) {
+                var PolSourceObservationID: number = parseInt($bjs.data("polsourceobservationid"));
+                this.IssueOrdinal = parseInt($bjs.data("issueordinal"));
+                cssp.PolSourceSite.PolSourceIssueListReload(PolSourceObservationID, this.IssueOrdinal);
+            }
         };
         public PolSourceSaveIssue: Function = ($bjs: JQuery) => {
             var PolSourceObservationID: number = parseInt($bjs.data("polsourceobservationid"));
@@ -330,7 +373,7 @@ module CSSP {
                     }
                     else {
                         var PolSourceSiteTVItemID: number = parseInt($("#ViewDiv").data("tvitemid"));
-                        cssp.PolSourceSite.PolSourceObservationListReload(PolSourceSiteTVItemID);
+                        cssp.PolSourceSite.PolSourceObservationListReload(PolSourceSiteTVItemID, null);
                         cssp.Dialog.ShowDialogSuccess(cssp.GetHTMLVariable("#LayoutVariables", "varCopied"));
                     }
                 })
@@ -339,7 +382,7 @@ module CSSP {
                 });
         };
 
-        public PolSourceObservationListReload: Function = (PolSourceSiteTVItemID: number) => {
+        public PolSourceObservationListReload: Function = (PolSourceSiteTVItemID: number, $elem: JQuery) => {
             var command: string = "PolSource/_polSourceObservationList";
             $(".PolSourceSiteTopDiv").find(".PolSourceObservationListDiv").html(cssp.GetHTMLVariable("#LayoutVariables", "varLoading"));
             $.get(cssp.BaseURL + command, {
@@ -347,6 +390,12 @@ module CSSP {
             }).done((ret) => {
                 if (ret) {
                     $("#PolSourceSiteDiv").html(ret);
+
+                    try {
+                        cssp.PolSourceSite.PolSourceEditIssue($elem);
+                    } catch (e) {
+                        // nothing
+                    }
                 }
                 else {
                     cssp.Dialog.ShowDialogErrorWithCouldNotLoad_(command);
@@ -375,7 +424,7 @@ module CSSP {
                         }
                         else {
                             var PolSourceSiteTVItemID: number = parseInt($("#ViewDiv").data("tvitemid"));
-                            cssp.PolSourceSite.PolSourceObservationListReload(PolSourceSiteTVItemID);
+                            cssp.PolSourceSite.PolSourceObservationListReload(PolSourceSiteTVItemID, null);
                         }
                     })
                     .fail(() => {
@@ -459,7 +508,7 @@ module CSSP {
             if ($bjs.hasClass("btn-default")) {
                 $bjs.removeClass("btn-default").addClass("btn-success");
                 var PolSourceSiteTVItemID: number = parseInt($("#ViewDiv").data("tvitemid"));
-                cssp.PolSourceSite.PolSourceObservationListReload(PolSourceSiteTVItemID);
+                cssp.PolSourceSite.PolSourceObservationListReload(PolSourceSiteTVItemID, null);
             }
             else {
                 $bjs.removeClass("btn-success").addClass("btn-default");

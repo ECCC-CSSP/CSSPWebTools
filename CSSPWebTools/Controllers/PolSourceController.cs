@@ -885,9 +885,27 @@ namespace CSSPWebTools.Controllers
 
         [HttpPost]
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
-        public JsonResult PolSourceIssueDeleteJSON(int PolSourceObservationIssueID)
+        public JsonResult PolSourceObservationIssueDeleteJSON(int PolSourceObservationIssueID)
         {
             PolSourceObservationIssueModel polSourceObservationIssueModel = _PolSourceSiteService._PolSourceObservationService._PolSourceObservationIssueService.PostDeletePolSourceObservationIssueDB(PolSourceObservationIssueID);
+
+            return Json(polSourceObservationIssueModel.Error, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public JsonResult PolSourceObservationIssueMoveDownJSON(int PolSourceObservationIssueID)
+        {
+            PolSourceObservationIssueModel polSourceObservationIssueModel = _PolSourceSiteService._PolSourceObservationService._PolSourceObservationIssueService.PostPolSourceObservationIssueMoveDownDB(PolSourceObservationIssueID);
+
+            return Json(polSourceObservationIssueModel.Error, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public JsonResult PolSourceObservationIssueMoveUpJSON(int PolSourceObservationIssueID)
+        {
+            PolSourceObservationIssueModel polSourceObservationIssueModel = _PolSourceSiteService._PolSourceObservationService._PolSourceObservationIssueService.PostPolSourceObservationIssueMoveUpDB(PolSourceObservationIssueID);
 
             return Json(polSourceObservationIssueModel.Error, JsonRequestBehavior.AllowGet);
         }
