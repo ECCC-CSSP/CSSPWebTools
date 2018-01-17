@@ -285,4 +285,7 @@
   <data name="CreatePDF" xml:space="preserve">
     <value>Create PDF</value>
   </data>
+  <data name="YearOfDocument" xml:space="preserve">
+    <value>Year of document</value>
+  </data>
 </root>

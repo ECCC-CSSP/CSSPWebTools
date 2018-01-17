@@ -9,6 +9,7 @@
     PolSourceController polSourceController = (PolSourceController)ViewBag.PolSourceController;
     PolSourceObservationIssueModel polSourceObservationIssueModel = (PolSourceObservationIssueModel)ViewBag.PolSourceObservationIssueModel;
     List<PolSourceObsInfoEnumTextAndID> polSourceObsInfoEnumTextAndIDList = (List<PolSourceObsInfoEnumTextAndID>)ViewBag.PolSourceObsInfoEnumTextAndIDList;
+    List<PolSourceObsInfoEnumHideAndID> polSourceObsInfoEnumHideAndIDList = (List<PolSourceObsInfoEnumHideAndID>)ViewBag.PolSourceObsInfoEnumHideAndIDList;
     BaseEnumService _BaseEnumService = new BaseEnumService(ViewBag.Language);
 }
 
@@ -20,7 +21,7 @@
 
         </div>
         <div>
-            <button class="jbPolSourceSaveIssue btn btn-success" type="submit" 
+            <button class="jbPolSourceSaveIssue btn btn-success" type="submit"
                     data-polsourceobservationid="@polSourceObservationIssueModel.PolSourceObservationID"
                     data-issueordinal="@polSourceObservationIssueModel.Ordinal" title="@PolSourceViewRes.SaveIssue">
                 <span class="glyphicon glyphicon-check"></span>
@@ -30,42 +31,49 @@
     <div class="PolSourceGroupingTop hidden">
         @foreach (PolSourceObsInfoEnumTextAndID polSourceObsInfoEnumTextAndID in polSourceObsInfoEnumTextAndIDList.Where(c => c.ID % 100 == 0))
         {
-        List<PolSourceObsInfoEnumTextAndID> polSourceObsInfoEnumTextAndIDSubList = polSourceObsInfoEnumTextAndIDList.Where(c => c.ID > polSourceObsInfoEnumTextAndID.ID && c.ID < (polSourceObsInfoEnumTextAndID.ID + 99)).OrderBy(c => c.Text).ToList();
-        <div class="c@(polSourceObsInfoEnumTextAndID.ID)">
-            <div class="polsourceinputdiv" data-pss="c@(polSourceObsInfoEnumTextAndID.ID)">
-                <div>
-                    <label class="h4">
-                        @(_BaseEnumService.GetEnumText_PolSourceObsInfoEnum(((PolSourceObsInfoEnum)polSourceObsInfoEnumTextAndID.ID)))
-                    </label>
-                    <a href="#" class="jaPopover text-info elementSpacing" type="button" tabindex="0"
-                       data-trigger="focus" data-container="body" data-toggle="popover" data-placement="right"
-                       data-content="@(_BaseEnumService.GetEnumText_PolSourceObsInfoDescEnum(((PolSourceObsInfoEnum)polSourceObsInfoEnumTextAndID.ID)))">
-                        <span class="glyphicon glyphicon-info-sign"></span>
-                    </a>
-                    <div class="elementSpacing">
-                        <div class="form-group">
-                            @foreach (PolSourceObsInfoEnumTextAndID polSourceObsInfoEnumTextAndIDSub in polSourceObsInfoEnumTextAndIDSubList)
-                            {
-                            string ChildStart = "";
-                            PolSourceObsInfoChild polSourceObsInfoChild = polSourceController._PolSourceSiteService.polSourceObsInfoChildList.Where(c => c.PolSourceObsInfo == ((PolSourceObsInfoEnum)polSourceObsInfoEnumTextAndIDSub.ID)).FirstOrDefault<PolSourceObsInfoChild>();
-                            if (polSourceObsInfoChild != null)
-                            {
-                            ChildStart += "c" + ((int)polSourceObsInfoChild.PolSourceObsInfoChildStart).ToString() + " ";
-                            }
-                            <div class="radio-inline">
-                                <label class="control-label">
-                                    <input class="polsourceinput radio" name="c@(polSourceObsInfoEnumTextAndID.ID)" data-psc="@(ChildStart.Trim())"
-                                           @((polSourceObservationIssueModel.PolSourceObsInfoList.Contains(((PolSourceObsInfoEnum)polSourceObsInfoEnumTextAndIDSub.ID))) == true ? "checked='checked'" : "" )
-                                           type="radio" value="@((int)((PolSourceObsInfoEnum)polSourceObsInfoEnumTextAndIDSub.ID))" />
-                                    @polSourceObsInfoEnumTextAndIDSub.Text.Trim()
-                                </label>
+            List<PolSourceObsInfoEnumTextAndID> polSourceObsInfoEnumTextAndIDSubList = polSourceObsInfoEnumTextAndIDList.Where(c => c.ID > polSourceObsInfoEnumTextAndID.ID && c.ID < (polSourceObsInfoEnumTextAndID.ID + 99)).OrderBy(c => c.Text).ToList();
+            <div class="c@(polSourceObsInfoEnumTextAndID.ID)">
+                <div class="polsourceinputdiv" data-pss="c@(polSourceObsInfoEnumTextAndID.ID)">
+                    <div>
+                        <label class="h4">
+                            @(_BaseEnumService.GetEnumText_PolSourceObsInfoEnum(((PolSourceObsInfoEnum)polSourceObsInfoEnumTextAndID.ID)))
+                        </label>
+                        <a href="#" class="jaPopover text-info elementSpacing" type="button" tabindex="0"
+                           data-trigger="focus" data-container="body" data-toggle="popover" data-placement="right"
+                           data-content="@(_BaseEnumService.GetEnumText_PolSourceObsInfoDescEnum(((PolSourceObsInfoEnum)polSourceObsInfoEnumTextAndID.ID)))">
+                            <span class="glyphicon glyphicon-info-sign"></span>
+                        </a>
+                        <div class="elementSpacing">
+                            <div class="form-group">
+                                @foreach (PolSourceObsInfoEnumTextAndID polSourceObsInfoEnumTextAndIDSub in polSourceObsInfoEnumTextAndIDSubList)
+                                {
+                                    string ChildStart = "";
+                                    PolSourceObsInfoChild polSourceObsInfoChild = polSourceController._PolSourceSiteService.polSourceObsInfoChildList.Where(c => c.PolSourceObsInfo == ((PolSourceObsInfoEnum)polSourceObsInfoEnumTextAndIDSub.ID)).FirstOrDefault<PolSourceObsInfoChild>();
+                                    if (polSourceObsInfoChild != null)
+                                    {
+                                        ChildStart += "c" + ((int)polSourceObsInfoChild.PolSourceObsInfoChildStart).ToString() + " ";
+                                    }
+                                    string Hide = "";
+                                    PolSourceObsInfoEnumHideAndID polSourceObsInfoEnumHideAndID = polSourceObsInfoEnumHideAndIDList.Where(c => c.ID == polSourceObsInfoEnumTextAndIDSub.ID).FirstOrDefault();
+                                    if (polSourceObsInfoEnumHideAndID != null)
+                                    {
+                                        Hide = polSourceObsInfoEnumHideAndID.Hide;
+                                    }
+                                    <div class="radio-inline">
+                                        <label class="control-label">
+                                            <input class="polsourceinput radio" name="c@(polSourceObsInfoEnumTextAndID.ID)"
+                                                   data-psc="@(ChildStart.Trim())" data-hide="@(Hide.Trim())"
+                                                   @((polSourceObservationIssueModel.PolSourceObsInfoList.Contains(((PolSourceObsInfoEnum)polSourceObsInfoEnumTextAndIDSub.ID))) == true ? "checked='checked'" : "" )
+                                                   type="radio" value="@((int)((PolSourceObsInfoEnum)polSourceObsInfoEnumTextAndIDSub.ID))" />
+                                            @polSourceObsInfoEnumTextAndIDSub.Text.Trim()
+                                        </label>
+                                    </div>
+                                }
                             </div>
-                            }
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
         }
 
     </div>

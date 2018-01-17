@@ -430,6 +430,7 @@ namespace CSSPWebTools.Controllers
                     TVFileTVItemID = tvItemModelTVFile.TVItemID,
                     FilePurpose = FilePurposeEnum.MikeInput,
                     Language = LanguageRequest,
+                    Year = DateTime.Now.Year,
                     FileDescription = "m21fm file uploaded", // nothing for now
                     FileType = _MikeScenarioService._TVFileService.GetFileType(fi.Extension),
                     FileSize_kb = (int)(hpf.ContentLength / 1024),

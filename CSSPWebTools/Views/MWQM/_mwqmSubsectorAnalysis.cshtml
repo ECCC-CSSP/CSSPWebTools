@@ -21,19 +21,19 @@
             <th class="FirstTH verticalRight" colspan="11">
                 <div class="panel">
                     @*<ul class="form-inline list-inline">
-                        <li>
-                            <button class="jbMWQMSubsectorAnalysisShowHideRainRows btn btn-default">@MWQMViewRes.HideRainRows</button>
-                        </li>
-                        <li>
-                            <button class="jbMWQMSubsectorAnalysisShowHideTideRows btn btn-default">@MWQMViewRes.HideTideRows</button>
-                        </li>
-                        <li>
-                            <button class="jbMWQMSubsectorAnalysisShowHideQueryTool btn btn-default">@MWQMViewRes.HideQueryTool</button>
-                        </li>
-                        <li>
-                            <button class="jbMWQMSubsectorAnalysisShowHideRunsNotUsed btn btn-default">@MWQMViewRes.HideRunsNotUsed</button>
-                        </li>
-                    </ul>*@
+                            <li>
+                                <button class="jbMWQMSubsectorAnalysisShowHideRainRows btn btn-default">@MWQMViewRes.HideRainRows</button>
+                            </li>
+                            <li>
+                                <button class="jbMWQMSubsectorAnalysisShowHideTideRows btn btn-default">@MWQMViewRes.HideTideRows</button>
+                            </li>
+                            <li>
+                                <button class="jbMWQMSubsectorAnalysisShowHideQueryTool btn btn-default">@MWQMViewRes.HideQueryTool</button>
+                            </li>
+                            <li>
+                                <button class="jbMWQMSubsectorAnalysisShowHideRunsNotUsed btn btn-default">@MWQMViewRes.HideRunsNotUsed</button>
+                            </li>
+                        </ul>*@
                     <div class="QueryTool small">
                         <ul class="form-inline list-inline">
                             <li>
@@ -73,6 +73,24 @@
                             </li>
                             <li>
                                 <button class="jbMWQMSubsectorAnalysisShowHideRunsNotUsed btn btn-default">@MWQMViewRes.Used</button>
+                            </li>
+                            <li>
+                                <strong>@MWQMViewRes.Calculation:</strong>
+                                <select class="MWQMSubsectorAnalysisCalculateType form-control" name="MWQMSubsectorAnalysisCalculateType">
+                                    <option value="All_All_All" selected="selected">@MWQMViewRes.All - @MWQMViewRes.All - @MWQMViewRes.All</option>
+                                    <option value="Wet_All_All">@MWQMViewRes.Wet - @MWQMViewRes.All - @MWQMViewRes.All</option>
+                                    <option value="Dry_All_All">@MWQMViewRes.Dry - @MWQMViewRes.All - @MWQMViewRes.All</option>
+                                    @*<option value="Wet_Wet_All">@MWQMViewRes.Wet - @MWQMViewRes.Wet - @MWQMViewRes.All</option>
+                                        <option value="Dry_Dry_All">@MWQMViewRes.Dry - @MWQMViewRes.Dry - @MWQMViewRes.All</option>
+                                        <option value="Wet_Dry_All">@MWQMViewRes.Wet - @MWQMViewRes.Dry - @MWQMViewRes.All</option>
+                                        <option value="Dry_Wet_All">@MWQMViewRes.Dry - @MWQMViewRes.Wet - @MWQMViewRes.All</option>*@
+                                </select>
+                            </li>
+                            <li>@MWQMViewRes.ShortMidLongRange</li>
+                            <li>
+                                <div class="MWQMAnalysisReportParameterTopDiv">
+                                    @Html.Action("_mwqmAnalysisReportParameter", "MWQM", new { SubsectorTVItemID = SubsectorTVItemID })
+                                </div>
                             </li>
                         </ul>
                     </div>
@@ -428,28 +446,6 @@
                         </td>
                     </tr>
                 </Table>
-                <ul class="form-inline list-inline">
-                    <li>
-                        <strong>@MWQMViewRes.Calculation:</strong>
-                        <select class="MWQMSubsectorAnalysisCalculateType form-control" name="MWQMSubsectorAnalysisCalculateType">
-                            <option value="All_All_All" selected="selected">@MWQMViewRes.All - @MWQMViewRes.All - @MWQMViewRes.All</option>
-                            <option value="Wet_All_All">@MWQMViewRes.Wet - @MWQMViewRes.All - @MWQMViewRes.All</option>
-                            <option value="Dry_All_All">@MWQMViewRes.Dry - @MWQMViewRes.All - @MWQMViewRes.All</option>
-                            @*<option value="Wet_Wet_All">@MWQMViewRes.Wet - @MWQMViewRes.Wet - @MWQMViewRes.All</option>
-                                <option value="Dry_Dry_All">@MWQMViewRes.Dry - @MWQMViewRes.Dry - @MWQMViewRes.All</option>
-                                <option value="Wet_Dry_All">@MWQMViewRes.Wet - @MWQMViewRes.Dry - @MWQMViewRes.All</option>
-                                <option value="Dry_Wet_All">@MWQMViewRes.Dry - @MWQMViewRes.Wet - @MWQMViewRes.All</option>*@
-                        </select>
-                    </li>
-                    <li>@MWQMViewRes.ShortMidLongRange</li>
-                </ul>
-                <ul class="form-inline list-inline">
-                    <li>
-                        <div class="MWQMAnalysisReportParameterTopDiv">
-                            @Html.Action("_mwqmAnalysisReportParameter", "MWQM", new { SubsectorTVItemID = SubsectorTVItemID })
-                        </div>
-                    </li>
-                </ul>
                 <ul class="list-unstyled">
                     <li>
                         @MWQMViewRes.ColorAndLetterSchema <button class="jbMWQMSubsectorAnalysisShowHideColorAndLetterHelp btn btn-default small"><span class="glyphicon glyphicon-info-sign"></span></button>
@@ -913,51 +909,51 @@
 
         @* here we should add the rest of the query and the precipitation *@
         @foreach (MWQMSiteAnalysisModel mwqmSiteAnalysisModel in mwqmSubsectorAnalysisModel.MWQMSiteAnalysisModelList.Where(c => c.IsActive == false).OrderBy(c => c.MWQMSiteTVText))
+        {
+            RunCount = 0;
+            string Classification = "";
+            string ClassBgColor = "";
+            switch (mwqmSiteAnalysisModel.MWQMSiteLatestClassification)
             {
-                RunCount = 0;
-                string Classification = "";
-                string ClassBgColor = "";
-                switch (mwqmSiteAnalysisModel.MWQMSiteLatestClassification)
-                {
-                    case MWQMSiteLatestClassificationEnum.Approved:
-                        {
-                            Classification = "A";
-                            ClassBgColor = "bggreen";
-                        }
-                        break;
-                    case MWQMSiteLatestClassificationEnum.ConditionallyApproved:
-                        {
-                            Classification = "CA";
-                            ClassBgColor = "bggreen";
-                        }
-                        break;
-                    case MWQMSiteLatestClassificationEnum.Restricted:
-                        {
-                            Classification = "R";
-                            ClassBgColor = "bgred";
-                        }
-                        break;
-                    case MWQMSiteLatestClassificationEnum.ConditionallyRestricted:
-                        {
-                            Classification = "CR";
-                            ClassBgColor = "bgred";
-                        }
-                        break;
-                    case MWQMSiteLatestClassificationEnum.Prohibited:
-                        {
-                            Classification = "P";
-                            ClassBgColor = "bgblack";
-                        }
-                        break;
-                    case MWQMSiteLatestClassificationEnum.Unclassified:
-                        {
-                            Classification = "U";
-                            ClassBgColor = "white";
-                        }
-                        break;
-                    default:
-                        break;
-                }
+                case MWQMSiteLatestClassificationEnum.Approved:
+                    {
+                        Classification = "A";
+                        ClassBgColor = "bggreen";
+                    }
+                    break;
+                case MWQMSiteLatestClassificationEnum.ConditionallyApproved:
+                    {
+                        Classification = "CA";
+                        ClassBgColor = "bggreen";
+                    }
+                    break;
+                case MWQMSiteLatestClassificationEnum.Restricted:
+                    {
+                        Classification = "R";
+                        ClassBgColor = "bgred";
+                    }
+                    break;
+                case MWQMSiteLatestClassificationEnum.ConditionallyRestricted:
+                    {
+                        Classification = "CR";
+                        ClassBgColor = "bgred";
+                    }
+                    break;
+                case MWQMSiteLatestClassificationEnum.Prohibited:
+                    {
+                        Classification = "P";
+                        ClassBgColor = "bgblack";
+                    }
+                    break;
+                case MWQMSiteLatestClassificationEnum.Unclassified:
+                    {
+                        Classification = "U";
+                        ClassBgColor = "white";
+                    }
+                    break;
+                default:
+                    break;
+            }
             <tr>
                 <td class="MWQMSite text-nowrap text-danger"
                     data-tvitemid="@mwqmSiteAnalysisModel.MWQMSiteTVItemID"

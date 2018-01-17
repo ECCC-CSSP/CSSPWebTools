@@ -98,6 +98,7 @@ namespace CSSPWebTools.Controllers
             {
                 TVFileTVItemID = tvItemModelTVFile.TVItemID,
                 Language = LanguageEnum.en,
+                Year = DateTime.Now.Year,
                 FilePurpose = FilePurposeEnum.Information,
                 FileType = FileTypeEnum.CSV,
                 FileDescription = "",
@@ -246,6 +247,7 @@ namespace CSSPWebTools.Controllers
             {
                 TVFileTVItemID = tvItemModelTVFile.TVItemID,
                 Language = LanguageEnum.en,
+                Year = DateTime.Now.Year,
                 FilePurpose = FilePurposeEnum.Information,
                 FileType = FileTypeEnum.KML,
                 FileDescription = "",
@@ -852,6 +854,7 @@ namespace CSSPWebTools.Controllers
             ViewBag.PolSourceController = _PolSourceController;
             ViewBag.PolSourceObservationIssueModel = null;
             ViewBag.PolSourceObsInfoEnumTextAndIDList = null;
+            ViewBag.PolSourceObsInfoEnumHideAndIDList = null;
 
             if (PolSourceObservationIssueID == 0)
             {
@@ -862,14 +865,22 @@ namespace CSSPWebTools.Controllers
             ViewBag.PolSourceObservationIssueModel = polSourceObservationIssueModel;
 
             List<PolSourceObsInfoEnumTextAndID> polSourceObsInfoEnumTextAndIDList = new List<PolSourceObsInfoEnumTextAndID>();
+            List<PolSourceObsInfoEnumHideAndID> polSourceObsInfoEnumHideAndIDList = new List<PolSourceObsInfoEnumHideAndID>();
             foreach (int id in Enum.GetValues(typeof(PolSourceObsInfoEnum)))
             {
                 if (id == 0)
                     continue;
 
+                if (id == 12701)
+                {
+                    int sleifjsfe = 34;
+                }
+
                 polSourceObsInfoEnumTextAndIDList.Add(new PolSourceObsInfoEnumTextAndID() { Text = _BaseEnumService.GetEnumText_PolSourceObsInfoEnum((PolSourceObsInfoEnum)id), ID = id });
+                polSourceObsInfoEnumHideAndIDList.Add(new PolSourceObsInfoEnumHideAndID() { Hide = _BaseEnumService.GetEnumText_PolSourceObsInfoHideEnum((PolSourceObsInfoEnum)id), ID = id });
             }
             ViewBag.PolSourceObsInfoEnumTextAndIDList = polSourceObsInfoEnumTextAndIDList;
+            ViewBag.PolSourceObsInfoEnumHideAndIDList = polSourceObsInfoEnumHideAndIDList;
 
             return PartialView();
         }

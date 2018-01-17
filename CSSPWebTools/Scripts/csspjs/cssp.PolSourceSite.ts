@@ -249,24 +249,37 @@ module CSSP {
         public InitIssueModify: Function = (): void => {
             $(document).off("click", ".PolSourceGroupSelected input[type='radio'].polsourceinput");
             $(document).on("click", ".PolSourceGroupSelected input[type='radio'].polsourceinput", (evt: Event) => {
-                var cls = "ElementSelected";
+                let cls = "ElementSelected";
                 $(evt.target).closest(".polsourceinputdiv").find("label").removeClass(cls);
                 $(evt.target).parent().addClass(cls);
                 $(evt.target).closest(".polsourceinputdiv").nextAll().remove();
-                var childElemStr: string = $(evt.target).data("psc");
+                let childElemStr: string = $(evt.target).data("psc");
                 $(evt.target).closest(".PolSourceGroupSelected").append($(".PolSourceGroupingTop ." + childElemStr).html());
+                let hideText: string = $(evt.target).data("hide");
+                let hideList: string[] = hideText.split(",");
+                let nextPolSourcInputDiv: JQuery = $(evt.target).closest(".polsourceinputdiv").next(".polsourceinputdiv");
+                nextPolSourcInputDiv.find("input.polsourceinput").each((ind: number, elem: HTMLElement) => {
+                    $(elem).closest("div").removeClass("hidden");
+                });
+                nextPolSourcInputDiv.find("input.polsourceinput").each((ind: number, elem: HTMLElement) => {
+                    for (let i = 0, count = hideList.length; i < count; i++) {
+                        if (hideList[i] == $(elem).val()) {
+                            $(elem).closest("div").removeClass("hidden").addClass("hidden");
+                        }
+                    }
+                });
                 $(".jaPopover").popover();
             });
 
             $(".PolSourceGroupSelected").html("");
-            var ObservationInfo: Array<string> = $(".IssueModifyDiv").find("span.ObservationInfo").text().split(",");
+            let ObservationInfo: Array<string> = $(".IssueModifyDiv").find("span.ObservationInfo").text().split(",");
             if (ObservationInfo[0].length == 0) {
                 $(".PolSourceGroupSelected").append($(".PolSourceGroupingTop").find(".c10100").html());
             }
-            for (var i = 0, count = ObservationInfo.length; i < count; i++) {
+            for (let i = 0, count = ObservationInfo.length; i < count; i++) {
                 if (ObservationInfo[i].length > 0) {
                     $(".PolSourceGroupSelected").append($(".PolSourceGroupingTop").find(".c" + ObservationInfo[i].substring(0, 3) + "00").html());
-                    var cls = "ElementSelected";
+                    let cls = "ElementSelected";
                     $(".PolSourceGroupSelected").find("input[name='c" + ObservationInfo[i].substring(0, 3) + "00']").each((ind: number, elem: Element) => {
                         $(elem).find("input[name='c" + ObservationInfo[i] + "']").parent().addClass(cls);
                         if ($(elem).val() == ObservationInfo[i]) {
@@ -275,6 +288,24 @@ module CSSP {
                     });
                 }
             }
+
+            $("label.ElementSelected").each((ind: number, elem: HTMLElement) => {
+                let input$: JQuery = $(elem).find("input.polsourceinput");
+                let hideText: string = input$.data("hide");
+                let hideList: string[] = hideText.split(",");
+                let nextPolSourcInputDiv: JQuery = input$.closest(".polsourceinputdiv").next(".polsourceinputdiv");
+                nextPolSourcInputDiv.find("input.polsourceinput").each((ind: number, elem: HTMLElement) => {
+                    $(elem).closest("div").removeClass("hidden");
+                });
+                nextPolSourcInputDiv.find("input.polsourceinput").each((ind: number, elem: HTMLElement) => {
+                    for (let i = 0, count = hideList.length; i < count; i++) {
+                        if (hideList[i] == $(elem).val()) {
+                            $(elem).closest("div").removeClass("hidden").addClass("hidden");
+                        }
+                    }
+                });
+            });
+
         };
         public InitIssueList: Function = (): void => {
             // nothing for now

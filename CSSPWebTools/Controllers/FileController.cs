@@ -453,6 +453,7 @@ namespace CSSPWebTools.Controllers
                     ServerFileName = ServerFileName,
                     ServerFilePath = ServerFilePath,
                     Language = Language,
+                    Year = DateTime.Now.Year,
                 };
 
                 TVFile tvFileExist = _TVFileService.GetTVFileExistDB(tvFileModelNew);

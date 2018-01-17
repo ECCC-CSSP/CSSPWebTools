@@ -281,4 +281,7 @@
   <data name="CreatePDF" xml:space="preserve">
     <value>Create PDF (fr)</value>
   </data>
+  <data name="YearOfDocument" xml:space="preserve">
+    <value>Année du document</value>
+  </data>
 </root>

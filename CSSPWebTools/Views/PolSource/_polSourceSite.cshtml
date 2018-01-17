@@ -126,7 +126,20 @@
                             <div class="PolSourceObservationIssueText h4">@PolSourceViewRes.Issue (@(i + 1))</div>
                             @foreach (PolSourceObsInfoEnum polSourceObsInfo in polSourceObservationModel.PolSourceObservationIssueModelList[i].PolSourceObsInfoList)
                             {
-                                <span>@(_BaseEnumService.GetEnumText_PolSourceObsInfoReportEnum(polSourceObsInfo))</span>
+                                string reportPartText = _BaseEnumService.GetEnumText_PolSourceObsInfoReportEnum(polSourceObsInfo);
+
+                                if (reportPartText.StartsWith("Source:") || reportPartText.StartsWith("Source:"))
+                                {
+                                    <span><strong>Source:</strong>@(reportPartText.Replace("Source:", ""))</span>
+                                }
+                                else if (reportPartText.StartsWith("Pathway:") || reportPartText.StartsWith("Pathway:"))
+                                {
+                                    <span><strong>Pathway:</strong>@(reportPartText.Replace("Pathway:", ""))</span>
+                                }
+                                else
+                                {
+                                    <span>@(reportPartText)</span>
+                                }
                             }
                         </li>
                     }

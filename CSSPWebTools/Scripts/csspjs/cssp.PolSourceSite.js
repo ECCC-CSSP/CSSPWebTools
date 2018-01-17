@@ -242,6 +242,19 @@ var CSSP;
                     $(evt.target).closest(".polsourceinputdiv").nextAll().remove();
                     var childElemStr = $(evt.target).data("psc");
                     $(evt.target).closest(".PolSourceGroupSelected").append($(".PolSourceGroupingTop ." + childElemStr).html());
+                    var hideText = $(evt.target).data("hide");
+                    var hideList = hideText.split(",");
+                    var nextPolSourcInputDiv = $(evt.target).closest(".polsourceinputdiv").next(".polsourceinputdiv");
+                    nextPolSourcInputDiv.find("input.polsourceinput").each(function (ind, elem) {
+                        $(elem).closest("div").removeClass("hidden");
+                    });
+                    nextPolSourcInputDiv.find("input.polsourceinput").each(function (ind, elem) {
+                        for (var i = 0, count = hideList.length; i < count; i++) {
+                            if (hideList[i] == $(elem).val()) {
+                                $(elem).closest("div").removeClass("hidden").addClass("hidden");
+                            }
+                        }
+                    });
                     $(".jaPopover").popover();
                 });
                 $(".PolSourceGroupSelected").html("");
@@ -249,18 +262,37 @@ var CSSP;
                 if (ObservationInfo[0].length == 0) {
                     $(".PolSourceGroupSelected").append($(".PolSourceGroupingTop").find(".c10100").html());
                 }
-                for (var i = 0, count = ObservationInfo.length; i < count; i++) {
+                var _loop_1 = function (i, count) {
                     if (ObservationInfo[i].length > 0) {
                         $(".PolSourceGroupSelected").append($(".PolSourceGroupingTop").find(".c" + ObservationInfo[i].substring(0, 3) + "00").html());
-                        var cls = "ElementSelected";
+                        var cls_1 = "ElementSelected";
                         $(".PolSourceGroupSelected").find("input[name='c" + ObservationInfo[i].substring(0, 3) + "00']").each(function (ind, elem) {
-                            $(elem).find("input[name='c" + ObservationInfo[i] + "']").parent().addClass(cls);
+                            $(elem).find("input[name='c" + ObservationInfo[i] + "']").parent().addClass(cls_1);
                             if ($(elem).val() == ObservationInfo[i]) {
-                                $(elem).parent().addClass(cls);
+                                $(elem).parent().addClass(cls_1);
                             }
                         });
                     }
+                };
+                for (var i = 0, count = ObservationInfo.length; i < count; i++) {
+                    _loop_1(i, count);
                 }
+                $("label.ElementSelected").each(function (ind, elem) {
+                    var input$ = $(elem).find("input.polsourceinput");
+                    var hideText = input$.data("hide");
+                    var hideList = hideText.split(",");
+                    var nextPolSourcInputDiv = input$.closest(".polsourceinputdiv").next(".polsourceinputdiv");
+                    nextPolSourcInputDiv.find("input.polsourceinput").each(function (ind, elem) {
+                        $(elem).closest("div").removeClass("hidden");
+                    });
+                    nextPolSourcInputDiv.find("input.polsourceinput").each(function (ind, elem) {
+                        for (var i = 0, count = hideList.length; i < count; i++) {
+                            if (hideList[i] == $(elem).val()) {
+                                $(elem).closest("div").removeClass("hidden").addClass("hidden");
+                            }
+                        }
+                    });
+                });
             };
             this.InitIssueList = function () {
                 // nothing for now

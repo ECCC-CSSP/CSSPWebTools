@@ -482,5 +482,14 @@ namespace CSSPWebTools.Views.File.Resources {
                 return ResourceManager.GetString("UseParentCoordinates", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Year of document.
+        /// </summary>
+        public static string YearOfDocument {
+            get {
+                return ResourceManager.GetString("YearOfDocument", resourceCulture);
+            }
+        }
     }
 }
