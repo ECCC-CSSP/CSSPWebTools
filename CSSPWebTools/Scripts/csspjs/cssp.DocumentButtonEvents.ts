@@ -924,9 +924,14 @@ module CSSP {
                             cssp.MWQMSite.MWQMSubsectorAnalysisRemoveFromStat($bjs);
                         }
                         break;
-                    case "jbMWQMSubsectorAnalysisSaveCreateOrExportToExcel":
+                    case "jbMWQMSubsectorAnalysisSaveParametersForReport":
                         {
-                            cssp.MWQMSite.MWQMSubsectorAnalysisSaveCreateOrExportToExcel($bjs);
+                            cssp.MWQMSite.MWQMSubsectorAnalysisSaveParametersForReport($bjs);
+                        }
+                        break;
+                    case "jbMWQMSubsectorAnalysisExportToExcel":
+                        {
+                            cssp.MWQMSite.MWQMSubsectorAnalysisExportToExcel($bjs);
                         }
                         break;
                     case "jbMWQMSubsectorAnalysisReportParameterOrExcelDelete":

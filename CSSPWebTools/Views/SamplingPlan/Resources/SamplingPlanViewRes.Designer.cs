@@ -349,7 +349,7 @@ namespace CSSPWebTools.Views.SamplingPlan.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Where duplicate results differ in value,  the highest value will serve as the daily result and the lower value as duplicate result for QA/QC purposes..
+        ///   Looks up a localized string similar to Where duplicate results differ in value, the higher result will be used in data computation..
         /// </summary>
         public static string DuplicateHighestValueWillBeUsedAndOtherValuesAsDuplicates {
             get {

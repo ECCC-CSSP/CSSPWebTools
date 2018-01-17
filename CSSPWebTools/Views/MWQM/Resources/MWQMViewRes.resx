@@ -831,4 +831,22 @@
   <data name="Used" xml:space="preserve">
     <value>Used</value>
   </data>
+  <data name="ExcelSelectOptionBelow" xml:space="preserve">
+    <value>Excel: select option below</value>
+  </data>
+  <data name="ListOfExcelDocuments" xml:space="preserve">
+    <value>List of Excel documents</value>
+  </data>
+  <data name="ListOfSavedParametersForReport" xml:space="preserve">
+    <value>List of saved parameters for report</value>
+  </data>
+  <data name="ReportSelectOptionBelow" xml:space="preserve">
+    <value>Report: select option below</value>
+  </data>
+  <data name="SaveParametersForReport" xml:space="preserve">
+    <value>Save parameters for report</value>
+  </data>
+  <data name="WillBeUsingDefaultParameters" xml:space="preserve">
+    <value>Will be using default parameters</value>
+  </data>
 </root>

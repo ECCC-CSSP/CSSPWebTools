@@ -7,6 +7,8 @@
 @using CSSPModelsDLL.Models;
 
 @{
+    /**/
+
     int SubsectorTVItemID = (int)ViewBag.SubsectorTVItemID;
     List<MWQMAnalysisReportParameterModel> mwqmAnalysisReportParameterModelList = (List<MWQMAnalysisReportParameterModel>)ViewBag.MWQMAnalysisReportParameterModelList;
     BaseEnumService _BaseEnumService = new BaseEnumService(ViewBag.Language);
@@ -32,56 +34,62 @@
                 </li>
             </ul>
         </div>
-    </div> 
+    </div>
 }
 else
 {
-    <select class="form-control" name="MWQMAnalysisReportParameterSaveCreateOrExportToExcel">
-        <option value="Empty" selected="selected">@MWQMViewRes.SelectOneOptionBelow</option>
+    <select class="form-control" name="MWQMAnalysisReportParameterSave">
+        <option value="Empty" selected="selected">@MWQMViewRes.ReportSelectOptionBelow</option>
+        <option value="Save">@MWQMViewRes.SaveParametersForReport</option>
+        <option value="Empty">--------------------------</option>
+        @foreach (MWQMAnalysisReportParameterModel mwqmAnalysisReportParameterModel in mwqmAnalysisReportParameterModelList.Where(c => c.Command == AnalysisReportExportCommandEnum.Report).OrderBy(c => c.AnalysisReportYear).ThenBy(c => c.AnalysisName))
+        {
+            <option value="@("View_" + mwqmAnalysisReportParameterModel.MWQMAnalysisReportParameterID)">@("[" + mwqmAnalysisReportParameterModel.AnalysisReportYear + "] - " + mwqmAnalysisReportParameterModel.AnalysisName)</option>
+        }
+    </select>
+    <select class="form-control" name="MWQMAnalysisExportToExcel">
+        <option value="Empty" selected="selected">@MWQMViewRes.ExcelSelectOptionBelow</option>
         <option value="Export">@MWQMViewRes.ExportToExcelDocument</option>
-        <option value="Save">@MWQMViewRes.SaveForReport</option>
         <option value="Empty">--------------------------</option>
         @foreach (MWQMAnalysisReportParameterModel mwqmAnalysisReportParameterModel in mwqmAnalysisReportParameterModelList.Where(c => c.Command == AnalysisReportExportCommandEnum.Excel).OrderBy(c => c.AnalysisName))
         {
-            if (mwqmAnalysisReportParameterModel.Command == AnalysisReportExportCommandEnum.Report)
-            {
-                <option value="@("View_" + mwqmAnalysisReportParameterModel.MWQMAnalysisReportParameterID)">@("[" + mwqmAnalysisReportParameterModel.AnalysisReportYear + "] - " + mwqmAnalysisReportParameterModel.AnalysisName)</option>
-            }
-            else
-            {
-                <option value="@("View_" + mwqmAnalysisReportParameterModel.MWQMAnalysisReportParameterID)">@("[Excel] - " + mwqmAnalysisReportParameterModel.AnalysisName)</option>
-            }
-        }
-        @foreach (MWQMAnalysisReportParameterModel mwqmAnalysisReportParameterModel in mwqmAnalysisReportParameterModelList.Where(c => c.Command == AnalysisReportExportCommandEnum.Report).OrderBy(c => c.AnalysisName))
-        {
-            if (mwqmAnalysisReportParameterModel.Command == AnalysisReportExportCommandEnum.Report)
-            {
-                <option value="@("View_" + mwqmAnalysisReportParameterModel.MWQMAnalysisReportParameterID)">@("[" + mwqmAnalysisReportParameterModel.AnalysisReportYear + "] - " + mwqmAnalysisReportParameterModel.AnalysisName)</option>
-            }
-            else
-            {
-                <option value="@("View_" + mwqmAnalysisReportParameterModel.MWQMAnalysisReportParameterID)">@("[Excel] - " + mwqmAnalysisReportParameterModel.AnalysisName)</option>
-            }
+            <option value="@("View_" + mwqmAnalysisReportParameterModel.MWQMAnalysisReportParameterID)">@("[Excel] - " + mwqmAnalysisReportParameterModel.AnalysisName)</option>
         }
     </select>
-    <div class="InputAnalysisNameDiv panel panel-info hidden">
+    <div class="InputSaveParametersForReportDiv panel panel-info hidden">
         <div class="panel-heading">
-            <div class="h4">@MWQMViewRes.ExportOrSave</div>
+            <div class="h4">@MWQMViewRes.SaveParametersForReport</div>
+        </div>
+        <div class="panel-body">
+            <label class="InputAnalysisName" for="InputAnalysisName">@MWQMViewRes.NewAnalysisName</label>
+            <input class="InputAnalysisName form-control" type="text" value="" name="InputAnalysisName" /><br />
+            <label for="AnalysisReportYear">@MWQMViewRes.AnalysisReportYear</label>
+            <select class="AnalysisReportYear form-control" type="text" value="" name="AnalysisReportYear">
+                @for (int i = DateTime.Now.Year, minYear = 1979; minYear < i; i--)
+                {
+                    <option @(i == DateTime.Now.Year ? "checked=checked" : "") value="@i">@i</option>
+                }
+            </select>
+            <br />
+            <button class="jbMWQMSubsectorAnalysisSaveParametersForReport btn btn-default">@MWQMViewRes.SaveParametersForReport</button>
+        </div>
+    </div>
+    <div class="InputExportToExcelDiv panel panel-info hidden">
+        <div class="panel-heading">
+            <div class="h4">@MWQMViewRes.ExportToExcelDocument</div>
         </div>
         <div class="panel-body">
             <label class="InputAnalysisName" for="InputAnalysisName">@MWQMViewRes.ExcelFileName</label>
             <input class="InputAnalysisName form-control" type="text" value="" name="InputAnalysisName" /><br />
-            <div class="AnalysisReportYearDiv">
-                <label for="AnalysisReportYear">@MWQMViewRes.AnalysisReportYear</label>
-                <select class="AnalysisReportYear form-control" type="text" value="" name="AnalysisReportYear">
-                    @for (int i = DateTime.Now.Year, minYear = 1979; minYear < i; i--)
+            <label for="AnalysisReportYear">@MWQMViewRes.AnalysisReportYear</label>
+            <select class="AnalysisReportYear form-control" type="text" value="" name="AnalysisReportYear">
+                @for (int i = DateTime.Now.Year, minYear = 1979; minYear < i; i--)
                 {
-                        <option @(i == DateTime.Now.Year ? "checked=checked" : "") value="@i">@i</option>
-                    }
-                </select>
-                <br />
-            </div>
-            <button class="jbMWQMSubsectorAnalysisSaveCreateOrExportToExcel btn btn-default hidden">@MWQMViewRes.ExportToExcelDocument</button>
+                    <option @(i == DateTime.Now.Year ? "checked=checked" : "") value="@i">@i</option>
+                }
+            </select>
+            <br />
+            <button class="jbMWQMSubsectorAnalysisExportToExcel btn btn-default">@MWQMViewRes.ExportToExcelDocument</button>
         </div>
     </div>
     foreach (MWQMAnalysisReportParameterModel mwqmAnalysisReportParameterModel in mwqmAnalysisReportParameterModelList)

@@ -475,7 +475,7 @@
     <value>Rejeter la feuille de laboratoire</value>
   </data>
   <data name="DuplicateHighestValueWillBeUsedAndOtherValuesAsDuplicates" xml:space="preserve">
-    <value>Lorsque les résultats en duplicata diffèrent en valeur, la valeur la plus élevée servira de résultat quotidien et la valeur inférieure en tant que résultat de duplicata pour les besoins en AQ / QC.</value>
+    <value>Lorsque les résultats en duplicata diffèrent en valeur, le résultat le plus élevée servira lors de l'utilisation des données.</value>
   </data>
   <data name="Status" xml:space="preserve">
     <value>État</value>

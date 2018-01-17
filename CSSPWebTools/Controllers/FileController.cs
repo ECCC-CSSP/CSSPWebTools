@@ -288,6 +288,7 @@ namespace CSSPWebTools.Controllers
             bool KeepFileName = true;
             string SaveAsFileName = "";
             bool? FromWater = null;
+            int? Year = null;
 
             int.TryParse(fc["ParentTVItemID"], out ParentTVItemID);
             if (ParentTVItemID == 0)
@@ -298,6 +299,12 @@ namespace CSSPWebTools.Controllers
                 return new TVFileModel() { Error = string.Format(ServiceRes._IsRequired, ServiceRes.Language) };
 
             Language = (LanguageEnum)tempInt;
+
+            int.TryParse(fc["Year"], out tempInt);
+            if (tempInt == 0)
+                return new TVFileModel() { Error = string.Format(ServiceRes._IsRequired, ServiceRes.Year) };
+
+            Year = tempInt;
 
             int.TryParse(fc["FilePurpose"], out tempInt);
             if (tempInt == 0)
@@ -453,7 +460,7 @@ namespace CSSPWebTools.Controllers
                     ServerFileName = ServerFileName,
                     ServerFilePath = ServerFilePath,
                     Language = Language,
-                    Year = DateTime.Now.Year,
+                    Year = Year,
                 };
 
                 TVFile tvFileExist = _TVFileService.GetTVFileExistDB(tvFileModelNew);

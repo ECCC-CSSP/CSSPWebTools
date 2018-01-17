@@ -22,7 +22,7 @@
                     <legend><span>@DocumentViewRes.Parameters</span></legend>
                     <input type="hidden" name="TVItemID" value="@TVItemID" />
                     <input type="hidden" name="ReportTypeID" value="@ReportTypeID" />
-                    @Parameters(reportTypeModel.UniqueCode)
+                    @Parameters(reportTypeModel.UniqueCode, ReportTypeID, TVItemID)
                     @if (reportTypeModel.UniqueCode != "SubsectorMunicipalityDocx")
                     {
                         <div class="form-group">
@@ -41,12 +41,12 @@ else
 {
     <ul class="list-unstyled">
         <li>
-            @Parameters(reportTypeModel.UniqueCode)
+            @Parameters(reportTypeModel.UniqueCode, ReportTypeID, TVItemID)
         </li>
     </ul>
 }
 
-@helper Parameters(string UniqueCode)
+@helper Parameters(string UniqueCode, int ReportTypeID, int TVItemID)
     {
         switch (UniqueCode)
         {
@@ -58,7 +58,7 @@ else
                             <select name="Year" class="form-control">
                                 @for (int i = DateTime.Now.Year; i > 1989; i--)
                                 {
-                                    <option value="@i">@i.ToString()</option>
+                                    <option value="@i" @(i == DateTime.Now.Year ? "selected=selected" : "")>@i.ToString()</option>
                                 }
                             </select>
                             &nbsp;&nbsp;&nbsp;&nbsp;
@@ -70,36 +70,41 @@ else
                             <span class="h4">@DocumentViewRes.SummaryStatisticsOfFCDensitiesTablesParameters</span>
                         </label>
                     </div>
-                    <div class="form-inline">
-                        <label class="text-nowrap">
-                            <input type="checkbox" name="HideAllAllAll" />
-                            <span>&nbsp;&nbsp;@DocumentViewRes.HideAllAllAll &nbsp;&nbsp;</span>
-                        </label>
-                        <label class="text-nowrap">
-                            <input type="checkbox" name="HideWetAllAll" />
-                            <span>&nbsp;&nbsp;@DocumentViewRes.HideWetAllAll &nbsp;&nbsp;</span>
-                        </label>
-                        <label class="text-nowrap">
-                            <input type="checkbox" name="HideDryAllAll" />
-                            <span>&nbsp;&nbsp;@DocumentViewRes.HideDryAllAll &nbsp;&nbsp;</span>
-                        </label>
-                        <label class="text-nowrap">
-                            <input type="checkbox" name="HideClassificationColumn" />
-                            <span>&nbsp;&nbsp;@DocumentViewRes.HideClassificationColumn &nbsp;&nbsp;</span>
-                        </label>
-                        <label class="text-nowrap">
-                            <input type="checkbox" name="HideMaxFCColumn" />
-                            <span>&nbsp;&nbsp;@DocumentViewRes.HideMaxFCColumn &nbsp;&nbsp;</span>
-                        </label>
-                        <label class="text-nowrap">
-                            <input type="checkbox" name="HideOver260Column" />
-                            <span>&nbsp;&nbsp;@DocumentViewRes.HideOver260Column &nbsp;&nbsp;</span>
-                        </label>
-                        <label class="text-nowrap">
-                            <input type="checkbox" name="HideAnalysisColorAndLetterColumn" />
-                            <span>&nbsp;&nbsp;@DocumentViewRes.HideAnalysisColorAndLetterColumn &nbsp;&nbsp;</span>
-                        </label>
-                    </div>
+                    <blockquote class="h5">
+                        <div class="MWQMAnalysisReportParametersForYearDiv form-inline">
+                            @Html.Action("_mwqmAnalysisReportParameterListForYear", "MWQM", new { TVItemID = TVItemID.ToString(), Year = DateTime.Now.Year })
+                        </div>
+                        <div class="form-inline">
+                            <label class="text-nowrap">
+                                <input type="checkbox" name="HideAllAllAll" />
+                                <span>&nbsp;&nbsp;@DocumentViewRes.HideAllAllAll &nbsp;&nbsp;</span>
+                            </label>
+                            <label class="text-nowrap">
+                                <input type="checkbox" name="HideWetAllAll" />
+                                <span>&nbsp;&nbsp;@DocumentViewRes.HideWetAllAll &nbsp;&nbsp;</span>
+                            </label>
+                            <label class="text-nowrap">
+                                <input type="checkbox" name="HideDryAllAll" />
+                                <span>&nbsp;&nbsp;@DocumentViewRes.HideDryAllAll &nbsp;&nbsp;</span>
+                            </label>
+                            <label class="text-nowrap">
+                                <input type="checkbox" name="HideClassificationColumn" />
+                                <span>&nbsp;&nbsp;@DocumentViewRes.HideClassificationColumn &nbsp;&nbsp;</span>
+                            </label>
+                            <label class="text-nowrap">
+                                <input type="checkbox" name="HideMaxFCColumn" />
+                                <span>&nbsp;&nbsp;@DocumentViewRes.HideMaxFCColumn &nbsp;&nbsp;</span>
+                            </label>
+                            <label class="text-nowrap">
+                                <input type="checkbox" name="HideOver260Column" />
+                                <span>&nbsp;&nbsp;@DocumentViewRes.HideOver260Column &nbsp;&nbsp;</span>
+                            </label>
+                            <label class="text-nowrap">
+                                <input type="checkbox" name="HideAnalysisColorAndLetterColumn" />
+                                <span>&nbsp;&nbsp;@DocumentViewRes.HideAnalysisColorAndLetterColumn &nbsp;&nbsp;</span>
+                            </label>
+                        </div>
+                    </blockquote>
                 }
                 break;
             case "ReEvaluationDocx":
@@ -110,7 +115,7 @@ else
                             <select name="Year" class="form-control">
                                 @for (int i = DateTime.Now.Year; i > 1989; i--)
                                 {
-                                    <option value="@i">@i.ToString()</option>
+                                    <option value="@i" @(i == DateTime.Now.Year ? "selected=selected" : "")>@i.ToString()</option>
                                 }
                             </select>
                             &nbsp;&nbsp;&nbsp;&nbsp;
@@ -122,36 +127,41 @@ else
                             <span class="h4">@DocumentViewRes.SummaryStatisticsOfFCDensitiesTablesParameters</span>
                         </label>
                     </div>
-                    <div class="form-inline">
-                        <label class="text-nowrap">
-                            <input type="checkbox" name="HideAllAllAll" />
-                            <span>&nbsp;&nbsp;@DocumentViewRes.HideAllAllAll &nbsp;&nbsp;</span>
-                        </label>
-                        <label class="text-nowrap">
-                            <input type="checkbox" name="HideWetAllAll" />
-                            <span>&nbsp;&nbsp;@DocumentViewRes.HideWetAllAll &nbsp;&nbsp;</span>
-                        </label>
-                        <label class="text-nowrap">
-                            <input type="checkbox" name="HideDryAllAll" />
-                            <span>&nbsp;&nbsp;@DocumentViewRes.HideDryAllAll &nbsp;&nbsp;</span>
-                        </label>
-                        <label class="text-nowrap">
-                            <input type="checkbox" name="HideClassificationColumn" />
-                            <span>&nbsp;&nbsp;@DocumentViewRes.HideClassificationColumn &nbsp;&nbsp;</span>
-                        </label>
-                        <label class="text-nowrap">
-                            <input type="checkbox" name="HideMaxFCColumn" />
-                            <span>&nbsp;&nbsp;@DocumentViewRes.HideMaxFCColumn &nbsp;&nbsp;</span>
-                        </label>
-                        <label class="text-nowrap">
-                            <input type="checkbox" name="HideOver260Column" checked="checked" />
-                            <span>&nbsp;&nbsp;@DocumentViewRes.HideOver260Column &nbsp;&nbsp;</span>
-                        </label>
-                        <label class="text-nowrap">
-                            <input type="checkbox" name="HideAnalysisColorAndLetterColumn" checked="checked" />
-                            <span>&nbsp;&nbsp;@DocumentViewRes.HideAnalysisColorAndLetterColumn &nbsp;&nbsp;</span>
-                        </label>
-                    </div>
+                    <blockquote class="h5">
+                        <div class="MWQMAnalysisReportParametersForYearDiv form-inline">
+                            @Html.Action("_mwqmAnalysisReportParameterListForYear", "MWQM", new { TVItemID = TVItemID.ToString(), Year = DateTime.Now.Year })
+                        </div>
+                        <div class="form-inline">
+                            <label class="text-nowrap">
+                                <input type="checkbox" name="HideAllAllAll" />
+                                <span>&nbsp;&nbsp;@DocumentViewRes.HideAllAllAll &nbsp;&nbsp;</span>
+                            </label>
+                            <label class="text-nowrap">
+                                <input type="checkbox" name="HideWetAllAll" />
+                                <span>&nbsp;&nbsp;@DocumentViewRes.HideWetAllAll &nbsp;&nbsp;</span>
+                            </label>
+                            <label class="text-nowrap">
+                                <input type="checkbox" name="HideDryAllAll" />
+                                <span>&nbsp;&nbsp;@DocumentViewRes.HideDryAllAll &nbsp;&nbsp;</span>
+                            </label>
+                            <label class="text-nowrap">
+                                <input type="checkbox" name="HideClassificationColumn" />
+                                <span>&nbsp;&nbsp;@DocumentViewRes.HideClassificationColumn &nbsp;&nbsp;</span>
+                            </label>
+                            <label class="text-nowrap">
+                                <input type="checkbox" name="HideMaxFCColumn" />
+                                <span>&nbsp;&nbsp;@DocumentViewRes.HideMaxFCColumn &nbsp;&nbsp;</span>
+                            </label>
+                            <label class="text-nowrap">
+                                <input type="checkbox" name="HideOver260Column" checked="checked" />
+                                <span>&nbsp;&nbsp;@DocumentViewRes.HideOver260Column &nbsp;&nbsp;</span>
+                            </label>
+                            <label class="text-nowrap">
+                                <input type="checkbox" name="HideAnalysisColorAndLetterColumn" checked="checked" />
+                                <span>&nbsp;&nbsp;@DocumentViewRes.HideAnalysisColorAndLetterColumn &nbsp;&nbsp;</span>
+                            </label>
+                        </div>
+                    </blockquote>
                 }
                 break;
             case "TestObjectsDocx":
@@ -162,7 +172,7 @@ else
                             <select name="Year" class="form-control">
                                 @for (int i = DateTime.Now.Year; i > 1989; i--)
                                 {
-                                    <option value="@i">@i.ToString()</option>
+                                    <option value="@i" @(i == DateTime.Now.Year ? "selected=selected" : "")>@i.ToString()</option>
                                 }
                             </select>
                             &nbsp;&nbsp;&nbsp;&nbsp;
@@ -174,36 +184,41 @@ else
                             <span class="h4">@DocumentViewRes.SummaryStatisticsOfFCDensitiesTablesParameters</span>
                         </label>
                     </div>
-                    <div class="form-inline">
-                        <label class="text-nowrap">
-                            <input type="checkbox" name="HideAllAllAll" />
-                            <span>&nbsp;&nbsp;@DocumentViewRes.HideAllAllAll &nbsp;&nbsp;</span>
-                        </label>
-                        <label class="text-nowrap">
-                            <input type="checkbox" name="HideWetAllAll" />
-                            <span>&nbsp;&nbsp;@DocumentViewRes.HideWetAllAll &nbsp;&nbsp;</span>
-                        </label>
-                        <label class="text-nowrap">
-                            <input type="checkbox" name="HideDryAllAll" />
-                            <span>&nbsp;&nbsp;@DocumentViewRes.HideDryAllAll &nbsp;&nbsp;</span>
-                        </label>
-                        <label class="text-nowrap">
-                            <input type="checkbox" name="HideClassificationColumn" />
-                            <span>&nbsp;&nbsp;@DocumentViewRes.HideClassificationColumn &nbsp;&nbsp;</span>
-                        </label>
-                        <label class="text-nowrap">
-                            <input type="checkbox" name="HideMaxFCColumn" />
-                            <span>&nbsp;&nbsp;@DocumentViewRes.HideMaxFCColumn &nbsp;&nbsp;</span>
-                        </label>
-                        <label class="text-nowrap">
-                            <input type="checkbox" name="HideOver260Column" checked="checked" />
-                            <span>&nbsp;&nbsp;@DocumentViewRes.HideOver260Column &nbsp;&nbsp;</span>
-                        </label>
-                        <label class="text-nowrap">
-                            <input type="checkbox" name="HideAnalysisColorAndLetterColumn" checked="checked" />
-                            <span>&nbsp;&nbsp;@DocumentViewRes.HideAnalysisColorAndLetterColumn &nbsp;&nbsp;</span>
-                        </label>
-                    </div>
+                    <blockquote class="h5">
+                        <div class="MWQMAnalysisReportParametersForYearDiv form-inline">
+                            @Html.Action("_mwqmAnalysisReportParameterListForYear", "MWQM", new { TVItemID = TVItemID.ToString(), Year = DateTime.Now.Year })
+                        </div>
+                        <div class="form-inline">
+                            <label class="text-nowrap">
+                                <input type="checkbox" name="HideAllAllAll" />
+                                <span>&nbsp;&nbsp;@DocumentViewRes.HideAllAllAll &nbsp;&nbsp;</span>
+                            </label>
+                            <label class="text-nowrap">
+                                <input type="checkbox" name="HideWetAllAll" />
+                                <span>&nbsp;&nbsp;@DocumentViewRes.HideWetAllAll &nbsp;&nbsp;</span>
+                            </label>
+                            <label class="text-nowrap">
+                                <input type="checkbox" name="HideDryAllAll" />
+                                <span>&nbsp;&nbsp;@DocumentViewRes.HideDryAllAll &nbsp;&nbsp;</span>
+                            </label>
+                            <label class="text-nowrap">
+                                <input type="checkbox" name="HideClassificationColumn" />
+                                <span>&nbsp;&nbsp;@DocumentViewRes.HideClassificationColumn &nbsp;&nbsp;</span>
+                            </label>
+                            <label class="text-nowrap">
+                                <input type="checkbox" name="HideMaxFCColumn" />
+                                <span>&nbsp;&nbsp;@DocumentViewRes.HideMaxFCColumn &nbsp;&nbsp;</span>
+                            </label>
+                            <label class="text-nowrap">
+                                <input type="checkbox" name="HideOver260Column" checked="checked" />
+                                <span>&nbsp;&nbsp;@DocumentViewRes.HideOver260Column &nbsp;&nbsp;</span>
+                            </label>
+                            <label class="text-nowrap">
+                                <input type="checkbox" name="HideAnalysisColorAndLetterColumn" checked="checked" />
+                                <span>&nbsp;&nbsp;@DocumentViewRes.HideAnalysisColorAndLetterColumn &nbsp;&nbsp;</span>
+                            </label>
+                        </div>
+                    </blockquote>
                 }
                 break;
             case "AnnualReviewDocx":
@@ -238,4 +253,3 @@ else
         }
 }
 
-<table class="table table-striped table-condensed"></table>

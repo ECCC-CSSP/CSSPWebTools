@@ -74,6 +74,8 @@
                             <li>
                                 <button class="jbMWQMSubsectorAnalysisShowHideRunsNotUsed btn btn-default">@MWQMViewRes.Used</button>
                             </li>
+                        </ul>
+                        <ul class="form-inline list-inline">
                             <li>
                                 <strong>@MWQMViewRes.Calculation:</strong>
                                 <select class="MWQMSubsectorAnalysisCalculateType form-control" name="MWQMSubsectorAnalysisCalculateType">
@@ -87,6 +89,8 @@
                                 </select>
                             </li>
                             <li>@MWQMViewRes.ShortMidLongRange</li>
+                        </ul>
+                        <ul class="form-inline list-inline">
                             <li>
                                 <div class="MWQMAnalysisReportParameterTopDiv">
                                     @Html.Action("_mwqmAnalysisReportParameter", "MWQM", new { SubsectorTVItemID = SubsectorTVItemID })

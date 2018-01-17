@@ -601,11 +601,11 @@ namespace CSSPWebTools.Views.ClimateSite.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Use same climate sites and priorities as selected subsector.
+        ///   Looks up a localized string similar to Use same climate sites as selected subsector.
         /// </summary>
-        public static string UseSameClimateSitesAndPrioritiesAsSelectedSubsector {
+        public static string UseSameClimateSitesAsSelectedSubsector {
             get {
-                return ResourceManager.GetString("UseSameClimateSitesAndPrioritiesAsSelectedSubsector", resourceCulture);
+                return ResourceManager.GetString("UseSameClimateSitesAsSelectedSubsector", resourceCulture);
             }
         }
         

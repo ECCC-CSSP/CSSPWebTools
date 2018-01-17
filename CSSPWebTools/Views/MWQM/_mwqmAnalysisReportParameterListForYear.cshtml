@@ -1,0 +1,41 @@
+﻿@using CSSPWebTools.Models;
+@using CSSPWebTools.Views.MWQM.Resources;
+@using CSSPWebTools.Views.Shared.Resources;
+@using CSSPWebTools.Controllers;
+@using CSSPEnumsDLL.Enums;
+@using CSSPEnumsDLL.Services;
+@using CSSPModelsDLL.Models;
+
+@{
+    /**/
+
+    DocumentController documentController = (DocumentController)ViewBag.DocumentController;
+    int TVItemID = (int)ViewBag.TVItemID;
+    int Year = (int)ViewBag.Year;
+    List<MWQMAnalysisReportParameterModel> mwqmAnalysisReportParameterModelList = (List<MWQMAnalysisReportParameterModel>)ViewBag.MWQMAnalysisReportParameterModelList;
+}
+
+@if (mwqmAnalysisReportParameterModelList.Count == 0)
+{
+    <label class="text-nowrap">
+        <span>@MWQMViewRes.WillBeUsingDefaultParameters</span>
+    </label>
+}
+else
+{
+    <div>@MWQMViewRes.ListOfSavedParametersForReport</div>
+    <blockquote>
+        @foreach (MWQMAnalysisReportParameterModel mwqmAnalysisReportParameterModel in mwqmAnalysisReportParameterModelList)
+        {
+            <div class="text-nowrap">
+                <span>@mwqmAnalysisReportParameterModel.AnalysisName</span>
+                <span>&nbsp;&nbsp;@MWQMViewRes.Runs (@mwqmAnalysisReportParameterModel.NumberOfRuns)</span>
+            </div>
+        }
+    </blockquote>
+}
+<script type="text/javascript">
+    $(function () {
+        cssp.MWQMSite.InitAnalysisForYear();
+    });
+</script>

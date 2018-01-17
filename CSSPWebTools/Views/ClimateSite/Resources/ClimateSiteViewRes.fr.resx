@@ -300,8 +300,8 @@
   <data name="SelectAnAdjacentSubsector" xml:space="preserve">
     <value>Sélectionnez un sous-secteur adjacent</value>
   </data>
-  <data name="UseSameClimateSitesAndPrioritiesAsSelectedSubsector" xml:space="preserve">
-    <value>Utilisez les mêmes sites et priorités climatiques que le sous-secteur sélectionné</value>
+  <data name="UseSameClimateSiteAsSelectedSubsector" xml:space="preserve">
+    <value>Utilisez les mêmes sites climatiques que le sous-secteur sélectionné</value>
   </data>
   <data name="ValuesToBeUsed" xml:space="preserve">
     <value>Valeurs à utiliser</value>

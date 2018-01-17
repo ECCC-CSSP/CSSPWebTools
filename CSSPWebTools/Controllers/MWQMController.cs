@@ -73,6 +73,19 @@ namespace CSSPWebTools.Controllers
         }
         [HttpGet]
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public PartialViewResult _mwqmAnalysisReportParameterListForYear(int TVItemID, int Year)
+        {
+            ViewBag.TVItemID = TVItemID;
+            ViewBag.Year = Year;
+            ViewBag.MWQMAnalysisReportParameterModelList = null;
+
+            List<MWQMAnalysisReportParameterModel> mwqmAnalysisReportParameterModelList = _MWQMAnalysisReportParameterService.GetMWQMAnalysisReportParameterModelListWithSubsectorTVItemIDDB(TVItemID).Where(c => c.AnalysisReportYear == Year).ToList();
+            ViewBag.MWQMAnalysisReportParameterModelList = mwqmAnalysisReportParameterModelList;
+
+            return PartialView();
+        }
+        [HttpGet]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
         public PartialViewResult _mwqmSubsector(string Q)
         {
             SetArgs(Q);

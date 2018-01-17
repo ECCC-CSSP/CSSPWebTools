@@ -503,7 +503,7 @@
     <value>Approval Code</value>
   </data>
   <data name="DuplicateHighestValueWillBeUsedAndOtherValuesAsDuplicates" xml:space="preserve">
-    <value>Where duplicate results differ in value,  the highest value will serve as the daily result and the lower value as duplicate result for QA/QC purposes.</value>
+    <value>Where duplicate results differ in value, the higher result will be used in data computation.</value>
   </data>
   <data name="Status" xml:space="preserve">
     <value>Status</value>

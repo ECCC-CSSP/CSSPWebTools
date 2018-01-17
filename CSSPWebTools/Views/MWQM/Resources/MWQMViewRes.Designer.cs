@@ -448,6 +448,15 @@ namespace CSSPWebTools.Views.MWQM.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Excel: select option below.
+        /// </summary>
+        public static string ExcelSelectOptionBelow {
+            get {
+                return ResourceManager.GetString("ExcelSelectOptionBelow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ExcelTVFileTVItemID.
         /// </summary>
         public static string ExcelTVFileTVItemID {
@@ -822,6 +831,24 @@ namespace CSSPWebTools.Views.MWQM.Resources {
         public static string Latitude {
             get {
                 return ResourceManager.GetString("Latitude", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to List of Excel documents.
+        /// </summary>
+        public static string ListOfExcelDocuments {
+            get {
+                return ResourceManager.GetString("ListOfExcelDocuments", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to List of saved parameters for report.
+        /// </summary>
+        public static string ListOfSavedParametersForReport {
+            get {
+                return ResourceManager.GetString("ListOfSavedParametersForReport", resourceCulture);
             }
         }
         
@@ -1384,6 +1411,15 @@ namespace CSSPWebTools.Views.MWQM.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Report: select option below.
+        /// </summary>
+        public static string ReportSelectOptionBelow {
+            get {
+                return ResourceManager.GetString("ReportSelectOptionBelow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Run Comment.
         /// </summary>
         public static string RunComment {
@@ -1641,6 +1677,15 @@ namespace CSSPWebTools.Views.MWQM.Resources {
         public static string SaveOrGetFromDatabase {
             get {
                 return ResourceManager.GetString("SaveOrGetFromDatabase", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save parameters for report.
+        /// </summary>
+        public static string SaveParametersForReport {
+            get {
+                return ResourceManager.GetString("SaveParametersForReport", resourceCulture);
             }
         }
         
@@ -2082,6 +2127,15 @@ namespace CSSPWebTools.Views.MWQM.Resources {
         public static string WetLimit96h {
             get {
                 return ResourceManager.GetString("WetLimit96h", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Will be using default parameters.
+        /// </summary>
+        public static string WillBeUsingDefaultParameters {
+            get {
+                return ResourceManager.GetString("WillBeUsingDefaultParameters", resourceCulture);
             }
         }
         
