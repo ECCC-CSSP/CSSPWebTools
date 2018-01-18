@@ -769,101 +769,129 @@
 </script>
 
 @helper tableRow(MWQMRunModel mwqmRunModel, MWQMSampleModel mwqmSampleModel, MWQMController mwqmController, List<TVItemModel> tvItemModelMWQMSiteList, BaseEnumService _BaseEnumService)
-{
-bool IsFirst = true;
-int hour = mwqmSampleModel.SampleDateTime_Local.Hour;
-int minute = mwqmSampleModel.SampleDateTime_Local.Minute;
-string SampleTime = (hour > 9 ? hour.ToString() : ("0" + hour.ToString())) + ":" + (minute > 9 ? minute.ToString() : ("0" + minute.ToString()));
-    <tr class="MWQMSample">
-        <td>
-            <button class="jbMWQMRunSampleDelete btn btn-primary @(mwqmSampleModel.MWQMSampleID > 0 ? "" : "hidden")" data-mwqmsampleid="@mwqmSampleModel.MWQMSampleID" title="@MWQMViewRes.DeleteSample">
-                <span class="glyphicon glyphicon-trash"></span>
-            </button>
-            <button class="jbMWQMSampleModify btn btn-primary @(mwqmSampleModel.MWQMSampleID > 0 ? "" : "hidden")" data-mwqmsampleid="@mwqmSampleModel.MWQMSampleID" title="@MWQMViewRes.ChangeSample">
-                <span class="glyphicon glyphicon-check"></span>
-            </button>
-            <button class="jbMWQMSampleAdd btn btn-success @(mwqmSampleModel.MWQMSampleID == 0 ? "" : "hidden")" data-mwqmsampleid="@mwqmSampleModel.MWQMSampleID" title="@MWQMViewRes.AddSample">
-                <span class="glyphicon glyphicon-plus"></span>
-            </button>
-            <span>@* will show in progress for Add, Change or Delete *@</span>
-        </td>
-        <td>
-            <select name="MWQMSiteTVItemID" class="form-control">
-                @foreach (TVItemModel tvItemModel in tvItemModelMWQMSiteList)
-                {
-                    <option value="@tvItemModel.TVItemID" @((mwqmSampleModel.MWQMSampleID == 0 && IsFirst) || (mwqmSampleModel.MWQMSiteTVItemID == tvItemModel.TVItemID) ? "selected=selected" : "")>
-                        @(tvItemModel.TVText)
-                    </option>
-                    if (IsFirst)
+    {
+        bool IsFirst = true;
+        int hour = mwqmSampleModel.SampleDateTime_Local.Hour;
+        int minute = mwqmSampleModel.SampleDateTime_Local.Minute;
+        string SampleTime = (hour > 9 ? hour.ToString() : ("0" + hour.ToString())) + ":" + (minute > 9 ? minute.ToString() : ("0" + minute.ToString()));
+        <tr class="MWQMSample">
+            <td>
+                <button class="jbMWQMRunSampleDelete btn btn-primary @(mwqmSampleModel.MWQMSampleID > 0 ? "" : "hidden")" data-mwqmsampleid="@mwqmSampleModel.MWQMSampleID" title="@MWQMViewRes.DeleteSample">
+                    <span class="glyphicon glyphicon-trash"></span>
+                </button>
+                <button class="jbMWQMSampleModify btn btn-primary @(mwqmSampleModel.MWQMSampleID > 0 ? "" : "hidden")" data-mwqmsampleid="@mwqmSampleModel.MWQMSampleID" title="@MWQMViewRes.ChangeSample">
+                    <span class="glyphicon glyphicon-check"></span>
+                </button>
+                <button class="jbMWQMSampleAdd btn btn-success @(mwqmSampleModel.MWQMSampleID == 0 ? "" : "hidden")" data-mwqmsampleid="@mwqmSampleModel.MWQMSampleID" title="@MWQMViewRes.AddSample">
+                    <span class="glyphicon glyphicon-plus"></span>
+                </button>
+                <span>@* will show in progress for Add, Change or Delete *@</span>
+            </td>
+            <td>
+                <select name="MWQMSiteTVItemID" class="form-control">
+                    @foreach (TVItemModel tvItemModel in tvItemModelMWQMSiteList)
                     {
-                        IsFirst = false;
+                        <option value="@tvItemModel.TVItemID" @((mwqmSampleModel.MWQMSampleID == 0 && IsFirst) || (mwqmSampleModel.MWQMSiteTVItemID == tvItemModel.TVItemID) ? "selected=selected" : "")>
+                            @(tvItemModel.TVText)
+                        </option>
+                        if (IsFirst)
+                        {
+                            IsFirst = false;
+                        }
                     }
+                </select>
+                @if (true)
+                {
+                    IsFirst = true;
                 }
-            </select>
-            @if (true)
-            {
-                IsFirst = true;
-            }
-        </td>
-        <td>
-            <input class="istime form-control" type="text" name="SampleTime" value="@(mwqmSampleModel.MWQMSampleID > 0 ? SampleTime : "")" />
-            <span class="help-block"></span>
-        </td>
-        <td>
-            <input class="isnumber form-control" type="text" name="FecCol_MPN_100ml" value="@(mwqmSampleModel.MWQMSampleID > 0 ? mwqmSampleModel.FecCol_MPN_100ml.ToString("F0") : "")" />
-            <span class="help-block"></span>
-        </td>
-        <td>
-            <input class="isnumber form-control" type="text" name="Salinity_PPT" value="@(mwqmSampleModel.Salinity_PPT != null ? ((double)mwqmSampleModel.Salinity_PPT).ToString("F1") : "")" />
-            <span class="help-block"></span>
-        </td>
-        <td>
-            <input class="isnumber form-control" type="text" name="WaterTemp_C" value="@(mwqmSampleModel.WaterTemp_C != null ? ((double)mwqmSampleModel.WaterTemp_C).ToString("F1") : "")" />
-            <span class="help-block"></span>
-        </td>
-        <td>
-            <input class="isnumber form-control" type="text" name="Depth_m" value="@(mwqmSampleModel.Depth_m != null ? ((double)mwqmSampleModel.Depth_m).ToString("F1") : "")" />
-            <span class="help-block"></span>
-        </td>
-        <td>
-            <input class="isnumber form-control" type="text" name="PH" value="@(mwqmSampleModel.PH != null ? ((double)mwqmSampleModel.PH).ToString("F1") : "")" />
-            <span class="help-block"></span>
-        </td>
-        <td>
-            <input class="form-control" type="text" name="ProcessedBy" value="@(mwqmSampleModel.MWQMSampleID > 0 ? mwqmSampleModel.ProcessedBy : "")" />
-            <span class="help-block"></span>
-        </td>
-        <td>
-            <select multiple name="SampleTypes" class="form-control">
-                @foreach (SampleTypeEnumTextOrdered sampleTypeEnumTextOrdered in _BaseEnumService.GetSampleTypeEnumTextOrderedList())
-                {
-                    bool Selected = false;
-                    if (mwqmSampleModel.SampleTypeList != null)
+            </td>
+            <td>
+                <input class="istime form-control" type="text" name="SampleTime" value="@(mwqmSampleModel.MWQMSampleID > 0 ? SampleTime : "")" />
+                <span class="help-block"></span>
+            </td>
+            <td>
+                <input class="isnumber form-control" type="text" name="FecCol_MPN_100ml" value="@(mwqmSampleModel.MWQMSampleID > 0 ? mwqmSampleModel.FecCol_MPN_100ml.ToString("F0") : "")" />
+                <span class="help-block"></span>
+            </td>
+            <td>
+                <input class="isnumber form-control" type="text" name="Salinity_PPT" value="@(mwqmSampleModel.Salinity_PPT != null ? ((double)mwqmSampleModel.Salinity_PPT).ToString("F1") : "")" />
+                <span class="help-block"></span>
+            </td>
+            <td>
+                <input class="isnumber form-control" type="text" name="WaterTemp_C" value="@(mwqmSampleModel.WaterTemp_C != null ? ((double)mwqmSampleModel.WaterTemp_C).ToString("F1") : "")" />
+                <span class="help-block"></span>
+            </td>
+            <td>
+                <input class="isnumber form-control" type="text" name="Depth_m" value="@(mwqmSampleModel.Depth_m != null ? ((double)mwqmSampleModel.Depth_m).ToString("F1") : "")" />
+                <span class="help-block"></span>
+            </td>
+            <td>
+                <input class="isnumber form-control" type="text" name="PH" value="@(mwqmSampleModel.PH != null ? ((double)mwqmSampleModel.PH).ToString("F1") : "")" />
+                <span class="help-block"></span>
+            </td>
+            <td>
+                <input class="form-control" type="text" name="ProcessedBy" value="@(mwqmSampleModel.MWQMSampleID > 0 ? mwqmSampleModel.ProcessedBy : "")" />
+                <span class="help-block"></span>
+            </td>
+            <td>
+                <select multiple name="SampleTypes" class="form-control">
+                    @foreach (SampleTypeEnumTextOrdered sampleTypeEnumTextOrdered in _BaseEnumService.GetSampleTypeEnumTextOrderedList())
                     {
-                        Selected = mwqmSampleModel.SampleTypeList.Contains(sampleTypeEnumTextOrdered.SampleType);
-                    }
+                        bool Selected = false;
+                        if (mwqmSampleModel.SampleTypeList != null)
+                        {
+                            Selected = mwqmSampleModel.SampleTypeList.Contains(sampleTypeEnumTextOrdered.SampleType);
+                        }
 
-                    if (mwqmSampleModel.MWQMSampleID > 0)
-                    {
-                        <option value="@((int)sampleTypeEnumTextOrdered.SampleType)" @(Selected ? "selected=selected" : "")>
-                            @(sampleTypeEnumTextOrdered.SampleTypeText)
-                        </option>
+                        if (Selected)
+                        {
+                            if (mwqmSampleModel.MWQMSampleID > 0)
+                            {
+                                <option value="@((int)sampleTypeEnumTextOrdered.SampleType)" selected="selected">
+                                    @(sampleTypeEnumTextOrdered.SampleTypeText)
+                                </option>
+                            }
+                            else
+                            {
+                                <option value="@((int)sampleTypeEnumTextOrdered.SampleType)" 
+                                        @(((int)sampleTypeEnumTextOrdered.SampleType) == ((int)mwqmRunModel.RunSampleType) ? "selected=selected" : "")>
+                                    @(sampleTypeEnumTextOrdered.SampleTypeText)
+                                </option>
+                            }
+                        }
                     }
-                    else
+                    @foreach (SampleTypeEnumTextOrdered sampleTypeEnumTextOrdered in _BaseEnumService.GetSampleTypeEnumTextOrderedList())
                     {
-                        <option value="@((int)sampleTypeEnumTextOrdered.SampleType)" @(((int)sampleTypeEnumTextOrdered.SampleType) == ((int)mwqmRunModel.RunSampleType) ? "selected=selected" : "")>
-                            @(sampleTypeEnumTextOrdered.SampleTypeText)
-                        </option>
+                        bool Selected = false;
+                        if (mwqmSampleModel.SampleTypeList != null)
+                        {
+                            Selected = mwqmSampleModel.SampleTypeList.Contains(sampleTypeEnumTextOrdered.SampleType);
+                        }
+
+                        if (!Selected)
+                        {
+                            if (mwqmSampleModel.MWQMSampleID > 0)
+                            {
+                            <option value="@((int)sampleTypeEnumTextOrdered.SampleType)">
+                                @(sampleTypeEnumTextOrdered.SampleTypeText)
+                            </option>
+                            }
+                            else
+                            {
+                            <option value="@((int)sampleTypeEnumTextOrdered.SampleType)" @(((int)sampleTypeEnumTextOrdered.SampleType) == ((int)mwqmRunModel.RunSampleType) ? "selected=selected" : "")>
+                                @(sampleTypeEnumTextOrdered.SampleTypeText)
+                            </option>
+                            }
+                        }
                     }
-                }
-            </select>
-            <span class="help-block"></span>
-        </td>
-        <td>
-            <input class="form-control" type="text" width="400" name="MWQMSampleNote" value="@(mwqmSampleModel.MWQMSampleNote)" />
-            <span class="help-block"></span>
-        </td>
-    </tr>
+                </select>
+                <span class="help-block"></span>
+            </td>
+            <td>
+                <input class="form-control" type="text" width="400" name="MWQMSampleNote" value="@(mwqmSampleModel.MWQMSampleNote)" />
+                <span class="help-block"></span>
+            </td>
+        </tr>
 }
 <script type="text/javascript">
     $(function () {

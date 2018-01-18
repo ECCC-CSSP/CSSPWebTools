@@ -61,8 +61,11 @@ else
                             }
                         }
                     }
-                    @if ((TabInfoList != null && TabInfoList.Count > 0 && TabInfoList[0].Active == "0" && tvItemModelLocationCurrent.TVType == TVTypeEnum.Subsector)
-|| (TabInfoList != null && TabInfoList.Count > 0 && TabInfoList[0].Active == "0" && tvItemModelLocationCurrent.TVType == TVTypeEnum.MWQMSite))
+                    @if ((TabInfoList != null && TabInfoList.Count > 0
+                        && TabInfoList[0].Active == "0"
+                        && tvItemModelLocationCurrent.TVType == TVTypeEnum.Subsector)
+                        || (TabInfoList != null && TabInfoList.Count > 0 && TabInfoList[0].Active == "0" 
+                        && tvItemModelLocationCurrent.TVType == TVTypeEnum.MWQMSite))
                     {
                         <li class="MovingStats" style="color:green">
                             @foreach (URLNumberOfSamples urlNumberOfSamples in urlNumberOfSamplesList)
@@ -74,7 +77,8 @@ else
                             }
                         </li>
                     }
-                    @if ((TabInfoList != null && TabInfoList.Count > 0 && TabInfoList[0].Active == "0" && tvItemModelLocationCurrent.TVType == TVTypeEnum.Subsector))
+                    @if ((TabInfoList != null && TabInfoList.Count > 0 && TabInfoList[0].Active == "0" 
+                        && tvItemModelLocationCurrent.TVType == TVTypeEnum.Subsector))
                     {
                         <li>
                             <button class="jbMWQMSubsectorAnalysisShowHide btn btn-default">
@@ -82,8 +86,11 @@ else
                             </button>
                         </li>
                     }
-                    @if ((TabInfoList != null && TabInfoList.Count > 0 && TabInfoList[0].Active == "2" && tvItemModelLocationCurrent.TVType == TVTypeEnum.Subsector)
-            || (TabInfoList != null && TabInfoList.Count > 0 && TabInfoList[0].Active == "0" && tvItemModelLocationCurrent.TVType == TVTypeEnum.PolSourceSite))
+                    @if ((TabInfoList != null && TabInfoList.Count > 0 
+                        && TabInfoList[0].Active == "3" 
+                        && tvItemModelLocationCurrent.TVType == TVTypeEnum.Subsector)
+                        || (TabInfoList != null && TabInfoList.Count > 0 && TabInfoList[0].Active == "0" 
+                        && tvItemModelLocationCurrent.TVType == TVTypeEnum.PolSourceSite))
                     {
                         <li>
                             <a class="btn btn-@(OrderByDateModified ? "success" : "default")" href="@OrderByDateModifiedURL" type="button" title="@TVItemViewRes.OrderByDateModified">
@@ -92,7 +99,7 @@ else
                         </li>
                     }
                     <li>
-                        @if (TabInfoList[0].Active == "2")
+                        @if (TabInfoList[0].Active == "3")
                         {
                             if (tvItemModelLocationCurrent.TVType != TVTypeEnum.Country)
                             {
