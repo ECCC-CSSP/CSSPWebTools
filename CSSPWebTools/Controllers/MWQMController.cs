@@ -352,6 +352,23 @@ namespace CSSPWebTools.Controllers
 
         [HttpGet]
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public ActionResult _mwqmSubsectorAnalysis2(string Q)
+        {
+            SetArgs(Q);
+            ViewBag.URLModel = urlModel;
+            ViewBag.MWQMController = _MWQMController;
+            ViewBag.SubsectorTVItemID = urlModel.TVItemIDList[0];
+            ViewBag.MWQMSubsectorAnalysisModel = null;
+
+            MWQMSubsectorAnalysisModel mwqmSubsectorAnalysisModel = _MWQMSubsectorService.GetMWQMSubsectorAnalysisModel(urlModel.TVItemIDList[0]);
+
+            ViewBag.MWQMSubsectorAnalysisModel = mwqmSubsectorAnalysisModel;
+
+            return PartialView();
+        }
+
+        [HttpGet]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
         public ActionResult _mwqmSiteTable(int MWQMSiteTVItemID)
         {
             return PartialView();

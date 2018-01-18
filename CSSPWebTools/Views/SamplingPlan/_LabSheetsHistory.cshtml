@@ -61,7 +61,7 @@ else
                     <div class="LabSheetListTop">
                         <span>@SampleDate.ToString("yyyy MMM dd") @(labSheetModel.RunNumber == 1 ? "" : SamplingPlanViewRes.Run + " " + labSheetModel.RunNumber) </span>
                         <span class="@textColor">&nbsp;&nbsp; 
-                            (@(_BaseEnumService.GetEnumText_LabSheetStatusEnum(labSheetModel.LabSheetStatus)))
+                            (@(labSheetModel.LabSheetStatus == LabSheetStatusEnum.Transferred ? SamplingPlanViewRes.PendingApproval : _BaseEnumService.GetEnumText_LabSheetStatusEnum(labSheetModel.LabSheetStatus)))
                             &nbsp;&nbsp;
                         </span>
                         <button class="jbSamplingPlanShowHistoryLabSheetDetail btn btn-default" data-SamplingPlanid="@SamplingPlanID" data-labsheetid="@labSheetModel.LabSheetID">

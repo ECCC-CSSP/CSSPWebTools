@@ -892,6 +892,8 @@
     <Content Include="Scripts\langs\readme.md" />
     <Content Include="Views\ReportType\_reportSectionForm.cshtml" />
     <Content Include="Views\MWQM\_mwqmAnalysisReportParameterListForYear.cshtml" />
+    <Content Include="Views\File\_exportArcGIS.cshtml" />
+    <Content Include="Views\MWQM\_mwqmSubsectorAnalysis2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

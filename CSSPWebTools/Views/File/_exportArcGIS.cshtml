@@ -1,0 +1,36 @@
+﻿@using CSSPWebTools.Views.File.Resources;
+@using CSSPWebTools.Models;
+@using CSSPEnumsDLL.Enums;
+@using CSSPModelsDLL.Models;
+@using CSSPWebTools.Controllers;
+
+@{
+    URLModel urlModel = (URLModel)ViewBag.URLModel;
+    List<TVFileModel> tvFileModelList = (List<TVFileModel>)ViewBag.TVFileModelList;
+    List<FilePurposeAndText> filePurposeAndTextList = (List<FilePurposeAndText>)ViewBag.FilePurposeAndTextList;
+    TVItemModel tvItemModel = (TVItemModel)ViewBag.TVItemModel;
+    TVAuthEnum tvAuth = (TVAuthEnum)ViewBag.TVAuth;
+    int NumberOfSample = (int)ViewBag.NumberOfSample;
+    bool IsShowMoreInfo = (bool)ViewBag.IsShowMoreInfo;
+}
+
+<div id="ExportArcGIDDiv">
+    <div class="AppTaskDiv">
+        @Html.Action("_appTask", "Home", new { TVItemID = urlModel.TVItemIDList[0], Seconds = 5 })
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">To do (Charles)</h4>
+        </div>
+        <div class="panel-body">
+            <p>This page will be used to export data to the shared drive of the Arc GIS application.</p>
+
+            <p>Hoping to have one button/click to do all required export for all Arc GIS requirements.</p>
+
+        </div>
+        <div class="panel-footer">
+            
+        </div>
+    </div>
+
+</div>

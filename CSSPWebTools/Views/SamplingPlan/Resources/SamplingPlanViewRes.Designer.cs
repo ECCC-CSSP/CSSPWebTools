@@ -205,6 +205,15 @@ namespace CSSPWebTools.Views.SamplingPlan.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Blue text indicate value already in database.
+        /// </summary>
+        public static string BlueTextIndicateValueAlreadyInDatabase {
+            get {
+                return ResourceManager.GetString("BlueTextIndicateValueAlreadyInDatabase", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Calculated holding time (hours).
         /// </summary>
         public static string CalculatedHoldingTimeInHours {
@@ -687,6 +696,15 @@ namespace CSSPWebTools.Views.SamplingPlan.Resources {
         public static string NotAllRequiredEtc {
             get {
                 return ResourceManager.GetString("NotAllRequiredEtc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pending approval.
+        /// </summary>
+        public static string PendingApproval {
+            get {
+                return ResourceManager.GetString("PendingApproval", resourceCulture);
             }
         }
         

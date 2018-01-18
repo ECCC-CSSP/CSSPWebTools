@@ -153,8 +153,14 @@
   <data name="HideNorthArrow" xml:space="preserve">
     <value>Hide north arrow</value>
   </data>
+  <data name="HideNumberOfRunsUsedByYearGraph" xml:space="preserve">
+    <value>Hide number of runs used by year graph</value>
+  </data>
   <data name="HideOver260Column" xml:space="preserve">
     <value>Hide &gt; 260 column</value>
+  </data>
+  <data name="HideQueryText" xml:space="preserve">
+    <value>Hide query text</value>
   </data>
   <data name="HideSubsectorName" xml:space="preserve">
     <value>Hide subsector name</value>

@@ -224,6 +224,44 @@ namespace CSSPWebTools.Controllers
             return PartialView();
         }
 
+        [HttpGet]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public PartialViewResult _exportArcGIS(string Q)
+        {
+            ViewBag.URLModel = null;
+            ViewBag.TVFileModelList = null;
+            ViewBag.FilePurposeAndTextList = null;
+            ViewBag.TVItemModel = null;
+            ViewBag.TVAuth = null;
+            //ViewBag.Tab1ViewTVItemInfoList = null;
+            ViewBag.NumberOfSample = null;
+            ViewBag.IsShowMoreInfo = null;
+
+            SetArgs(Q);
+            ViewBag.URLModel = urlModel;
+
+            List<TVFileModel> tvFileModelList = _TVFileService.GetTVFileModelListWithParentTVItemIDDB(urlModel.TVItemIDList[0]);
+            ViewBag.TVFileModelList = tvFileModelList;
+
+            List<FilePurposeAndText> filePurposeAndTextList = FillFilePurposeAndTextList();
+            ViewBag.FilePurposeAndTextList = filePurposeAndTextList.OrderBy(c => c.FilePurposeText).ToList();
+
+            TVItemModel tvItemModel = _TVItemService.GetTVItemModelWithTVItemIDDB(urlModel.TVItemIDList[0]);
+            ViewBag.TVItemModel = tvItemModel;
+
+            TVAuthEnum tvAuth = _TVItemService.GetTVAuthWithTVItemIDAndLoggedInUser(urlModel.TVItemIDList[0], null, null, null);
+            ViewBag.TVAuth = tvAuth;
+
+            //List<TabInfo> Tab1ViewTVItemInfoList = GetTab1ViewTVItemInfoDB(tvItemModel, tvAuth);
+            //ViewBag.Tab1ViewTVItemInfoList = Tab1ViewTVItemInfoList;
+
+            ViewBag.NumberOfSample = int.Parse(GetURLVarShowEnumStr(URLVarShowEnum.NumberOfSampleDecade) + GetURLVarShowEnumStr(URLVarShowEnum.NumberOfSampleUnit));
+
+            ViewBag.IsShowMoreInfo = (GetURLVarShowEnumStr(URLVarShowEnum.ShowMoreInfo) == "0" ? false : true);
+
+            return PartialView();
+        }
+
         [HttpPost]
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
         public JsonResult FileRemoveJSON(int TVFileTVItemID)

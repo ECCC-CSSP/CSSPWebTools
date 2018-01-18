@@ -169,11 +169,29 @@ namespace CSSPWebTools.Views.Document.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Hide number of runs used by year graph.
+        /// </summary>
+        public static string HideNumberOfRunsUsedByYearGraph {
+            get {
+                return ResourceManager.GetString("HideNumberOfRunsUsedByYearGraph", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Hide &gt; 260 column.
         /// </summary>
         public static string HideOver260Column {
             get {
                 return ResourceManager.GetString("HideOver260Column", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hide query text.
+        /// </summary>
+        public static string HideQueryText {
+            get {
+                return ResourceManager.GetString("HideQueryText", resourceCulture);
             }
         }
         

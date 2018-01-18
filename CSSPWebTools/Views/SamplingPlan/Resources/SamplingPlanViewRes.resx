@@ -514,4 +514,10 @@
   <data name="CtrlClickToSelectMultiple" xml:space="preserve">
     <value>Ctrl + click to select multiple</value>
   </data>
+  <data name="BlueTextIndicateValueAlreadyInDatabase" xml:space="preserve">
+    <value>Blue text indicate value already in database</value>
+  </data>
+  <data name="PendingApproval" xml:space="preserve">
+    <value>Pending approval</value>
+  </data>
 </root>

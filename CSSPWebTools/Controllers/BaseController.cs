@@ -1878,6 +1878,10 @@ namespace CSSPWebTools.Controllers
                                 {
                                     return new ContentActionAndController() { Action = "_fileList", Controller = "File" };
                                 }
+                            case "2": // Exports to Arc GIS
+                                {
+                                    return new ContentActionAndController() { Action = "_exportArcGIS", Controller = "File" };
+                                }
                             default:
                                 {
                                     return new ContentActionAndController() { Action = "_content", Controller = "TVItem" };
@@ -1914,35 +1918,39 @@ namespace CSSPWebTools.Controllers
                                 {
                                     return new ContentActionAndController() { Action = "_content", Controller = "TVItem" };
                                 }
-                            case "1": // Subsector Runs
+                            case "1": // Subsector MWQMSites Analysis
+                                {
+                                    return new ContentActionAndController() { Action = "_mwqmSubsectorAnalysis2", Controller = "MWQM" };
+                                }
+                            case "2": // Subsector Runs
                                 {
                                     return new ContentActionAndController() { Action = "_content", Controller = "TVItem" };
                                 }
-                            case "2": // Subsector Municipalities
+                            case "3": // Subsector Municipalities
                                 {
                                     return new ContentActionAndController() { Action = "_content", Controller = "TVItem" };
                                 }
-                            case "3": // Subsector PolSourceSites
+                            case "4": // Subsector PolSourceSites
                                 {
                                     return new ContentActionAndController() { Action = "_content", Controller = "TVItem" };
                                 }
-                            case "4": // Subsector Files
+                            case "5": // Subsector Files
                                 {
                                     return new ContentActionAndController() { Action = "_fileList", Controller = "File" };
                                 }
-                            case "5": // Subsector ClimateSite
+                            case "6": // Subsector ClimateSite
                                 {
                                     return new ContentActionAndController() { Action = "_climateSiteTopPage", Controller = "ClimateSite" };
                                 }
-                            case "6": // Subsector HydrometricSite
+                            case "7": // Subsector HydrometricSite
                                 {
                                     return new ContentActionAndController() { Action = "_hydrometricSiteList", Controller = "HydrometricSite" };
                                 }
-                            case "7": // Subsector TideSite
+                            case "8": // Subsector TideSite
                                 {
                                     return new ContentActionAndController() { Action = "_tideSiteList", Controller = "TideSite" };
                                 }
-                            case "8": // Subsector LogBook
+                            case "9": // Subsector LogBook
                                 {
                                     return new ContentActionAndController() { Action = "_mwqmSubsector", Controller = "MWQM" };
                                 }
@@ -2481,6 +2489,19 @@ namespace CSSPWebTools.Controllers
                             Stat2 = _TVItemStatService.GetTVItemStatModelWithTVItemIDAndTVTypeDB(tvItemModelLocationCurrent.TVItemID, TVTypeEnum.TotalFile).ChildCount,
                             viewTVItemIconListList = FillTVItemFileIcons(TVAuth, tvItemModelLocationCurrent),
                         });
+                        ViewTVItemInfoList.Add(new TabInfo()
+                        {
+                            URL = CreateVariableShowHashURL(URLVarShowEnum.ShowRootTab, "2"),
+                            Text = ControllerRes.ExportArcGIS,
+                            Icon = "",
+                            Active = tabActive,
+                            ToolTip = "",
+                            Action = "_exportArcGIS",
+                            Controller = "File",
+                            ShowTVType = TVTypeEnum.File,
+                            Stat = 0,
+                            viewTVItemIconListList = FillTVItemFileIcons(TVAuth, tvItemModelLocationCurrent),
+                        });
                     }
                     break;
                 case TVTypeEnum.Sector:
@@ -2547,6 +2568,19 @@ namespace CSSPWebTools.Controllers
                         ViewTVItemInfoList.Add(new TabInfo()
                         {
                             URL = CreateVariableShowHashURL(URLVarShowEnum.ShowSubsectorTab, "1"),
+                            Text = ControllerRes.Analysis,
+                            Icon = "",
+                            Active = tabActive,
+                            ToolTip = "",
+                            Action = "_mwqmSubsectorAnalysis",
+                            Controller = "MWQM",
+                            ShowTVType = TVTypeEnum.MWQMSite,
+                            Stat = _TVItemStatService.GetTVItemStatModelWithTVItemIDAndTVTypeDB(tvItemModelLocationCurrent.TVItemID, TVTypeEnum.MWQMSite).ChildCount,
+                            viewTVItemIconListList = FillTVItemMWQMSiteIcons(TVAuth, tvItemModelLocationCurrent, TVTypeEnum.MWQMSite),
+                        });
+                        ViewTVItemInfoList.Add(new TabInfo()
+                        {
+                            URL = CreateVariableShowHashURL(URLVarShowEnum.ShowSubsectorTab, "2"),
                             Text = ControllerRes.MWQMRuns,
                             Icon = "",
                             Active = tabActive,
@@ -2559,7 +2593,7 @@ namespace CSSPWebTools.Controllers
                         });
                         ViewTVItemInfoList.Add(new TabInfo()
                         {
-                            URL = CreateVariableShowHashURL(URLVarShowEnum.ShowSubsectorTab, "2"),
+                            URL = CreateVariableShowHashURL(URLVarShowEnum.ShowSubsectorTab, "3"),
                             Text = ControllerRes.PolSourceSites,
                             Icon = "",
                             Active = tabActive,
@@ -2572,7 +2606,7 @@ namespace CSSPWebTools.Controllers
                         });
                         ViewTVItemInfoList.Add(new TabInfo()
                         {
-                            URL = CreateVariableShowHashURL(URLVarShowEnum.ShowSubsectorTab, "3"),
+                            URL = CreateVariableShowHashURL(URLVarShowEnum.ShowSubsectorTab, "4"),
                             Text = ControllerRes.Municipalities,
                             Icon = "",
                             Active = tabActive,
@@ -2585,7 +2619,7 @@ namespace CSSPWebTools.Controllers
                         });
                         ViewTVItemInfoList.Add(new TabInfo()
                         {
-                            URL = CreateVariableShowHashURL(URLVarShowEnum.ShowSubsectorTab, "4"),
+                            URL = CreateVariableShowHashURL(URLVarShowEnum.ShowSubsectorTab, "5"),
                             Text = ControllerRes.Files,
                             Icon = "",
                             Active = tabActive,
@@ -2599,7 +2633,7 @@ namespace CSSPWebTools.Controllers
                         });
                         ViewTVItemInfoList.Add(new TabInfo()
                         {
-                            URL = CreateVariableShowHashURL(URLVarShowEnum.ShowSubsectorTab, "5"),
+                            URL = CreateVariableShowHashURL(URLVarShowEnum.ShowSubsectorTab, "6"),
                             Text = ControllerRes.ClimateSites,
                             Icon = "",
                             Active = tabActive,
@@ -2612,7 +2646,7 @@ namespace CSSPWebTools.Controllers
                         });
                         ViewTVItemInfoList.Add(new TabInfo()
                         {
-                            URL = CreateVariableShowHashURL(URLVarShowEnum.ShowSubsectorTab, "6"),
+                            URL = CreateVariableShowHashURL(URLVarShowEnum.ShowSubsectorTab, "7"),
                             Text = ControllerRes.HydrometricSites,
                             Icon = "",
                             Active = tabActive,
@@ -2625,7 +2659,7 @@ namespace CSSPWebTools.Controllers
                         });
                         ViewTVItemInfoList.Add(new TabInfo()
                         {
-                            URL = CreateVariableShowHashURL(URLVarShowEnum.ShowSubsectorTab, "7"),
+                            URL = CreateVariableShowHashURL(URLVarShowEnum.ShowSubsectorTab, "8"),
                             Text = ControllerRes.TideSites,
                             Icon = "",
                             Active = tabActive,
@@ -2638,7 +2672,7 @@ namespace CSSPWebTools.Controllers
                         });
                         ViewTVItemInfoList.Add(new TabInfo()
                         {
-                            URL = CreateVariableShowHashURL(URLVarShowEnum.ShowSubsectorTab, "8"),
+                            URL = CreateVariableShowHashURL(URLVarShowEnum.ShowSubsectorTab, "9"),
                             Text = ControllerRes.LogBook,
                             Icon = "",
                             Active = tabActive,

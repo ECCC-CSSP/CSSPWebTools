@@ -389,4 +389,10 @@
   <data name="ShowSiteText" xml:space="preserve">
     <value>Voir le nom des sites</value>
   </data>
+  <data name="Analysis" xml:space="preserve">
+    <value>Analyse</value>
+  </data>
+  <data name="ExportArcGIS" xml:space="preserve">
+    <value>Exportation ArcGIS</value>
+  </data>
 </root>

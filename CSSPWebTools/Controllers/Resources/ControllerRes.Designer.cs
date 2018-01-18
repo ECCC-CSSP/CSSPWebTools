@@ -97,6 +97,15 @@ namespace CSSPWebTools.Controllers.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Analysis.
+        /// </summary>
+        public static string Analysis {
+            get {
+                return ResourceManager.GetString("Analysis", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Areas.
         /// </summary>
         public static string Areas {
@@ -264,6 +273,15 @@ namespace CSSPWebTools.Controllers.Resources {
         public static string Empty {
             get {
                 return ResourceManager.GetString("Empty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Export ArcGIS.
+        /// </summary>
+        public static string ExportArcGIS {
+            get {
+                return ResourceManager.GetString("ExportArcGIS", resourceCulture);
             }
         }
         

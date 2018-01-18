@@ -153,8 +153,14 @@
   <data name="HideNorthArrow" xml:space="preserve">
     <value>Masquer l'indication nord</value>
   </data>
+  <data name="HideNumberOfRunsUsedByYearGraph" xml:space="preserve">
+    <value>Masquer le graphic, nombre de randonnées utilisées par année</value>
+  </data>
   <data name="HideOver260Column" xml:space="preserve">
     <value>Masquer la colonne de &gt; 260</value>
+  </data>
+  <data name="HideQueryText" xml:space="preserve">
+    <value>Masquer le texte de requête</value>
   </data>
   <data name="HideSubsectorName" xml:space="preserve">
     <value>Masquer le nom du sous-secteur</value>
