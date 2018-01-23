@@ -855,6 +855,7 @@ namespace CSSPWebTools.Controllers
             ViewBag.PolSourceObservationIssueModel = null;
             ViewBag.PolSourceObsInfoEnumTextAndIDList = null;
             ViewBag.PolSourceObsInfoEnumHideAndIDList = null;
+            ViewBag.PolSourceObsInfoEnumDescTextAndIDList = null;
 
             if (PolSourceObservationIssueID == 0)
             {
@@ -866,21 +867,19 @@ namespace CSSPWebTools.Controllers
 
             List<PolSourceObsInfoEnumTextAndID> polSourceObsInfoEnumTextAndIDList = new List<PolSourceObsInfoEnumTextAndID>();
             List<PolSourceObsInfoEnumHideAndID> polSourceObsInfoEnumHideAndIDList = new List<PolSourceObsInfoEnumHideAndID>();
+            List<PolSourceObsInfoEnumTextAndID> polSourceObsInfoEnumDescTextAndIDList = new List<PolSourceObsInfoEnumTextAndID>();
             foreach (int id in Enum.GetValues(typeof(PolSourceObsInfoEnum)))
             {
                 if (id == 0)
                     continue;
 
-                if (id == 12701)
-                {
-                    int sleifjsfe = 34;
-                }
-
                 polSourceObsInfoEnumTextAndIDList.Add(new PolSourceObsInfoEnumTextAndID() { Text = _BaseEnumService.GetEnumText_PolSourceObsInfoEnum((PolSourceObsInfoEnum)id), ID = id });
                 polSourceObsInfoEnumHideAndIDList.Add(new PolSourceObsInfoEnumHideAndID() { Hide = _BaseEnumService.GetEnumText_PolSourceObsInfoHideEnum((PolSourceObsInfoEnum)id), ID = id });
+                polSourceObsInfoEnumDescTextAndIDList.Add(new PolSourceObsInfoEnumTextAndID() { Text = _BaseEnumService.GetEnumText_PolSourceObsInfoDescEnum((PolSourceObsInfoEnum)id), ID = id });
             }
             ViewBag.PolSourceObsInfoEnumTextAndIDList = polSourceObsInfoEnumTextAndIDList;
             ViewBag.PolSourceObsInfoEnumHideAndIDList = polSourceObsInfoEnumHideAndIDList;
+            ViewBag.PolSourceObsInfoEnumDescTextAndIDList = polSourceObsInfoEnumDescTextAndIDList;
 
             return PartialView();
         }

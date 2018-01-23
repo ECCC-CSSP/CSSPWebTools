@@ -10,6 +10,7 @@
     PolSourceObservationIssueModel polSourceObservationIssueModel = (PolSourceObservationIssueModel)ViewBag.PolSourceObservationIssueModel;
     List<PolSourceObsInfoEnumTextAndID> polSourceObsInfoEnumTextAndIDList = (List<PolSourceObsInfoEnumTextAndID>)ViewBag.PolSourceObsInfoEnumTextAndIDList;
     List<PolSourceObsInfoEnumHideAndID> polSourceObsInfoEnumHideAndIDList = (List<PolSourceObsInfoEnumHideAndID>)ViewBag.PolSourceObsInfoEnumHideAndIDList;
+    List<PolSourceObsInfoEnumTextAndID> polSourceObsInfoEnumDescTextAndIDList = (List<PolSourceObsInfoEnumTextAndID>)ViewBag.PolSourceObsInfoEnumDescTextAndIDList;
     BaseEnumService _BaseEnumService = new BaseEnumService(ViewBag.Language);
 }
 
@@ -59,8 +60,14 @@
                                     {
                                         Hide = polSourceObsInfoEnumHideAndID.Hide;
                                     }
+                                    string DescText = "";
+                                    PolSourceObsInfoEnumTextAndID polSourceObsInfoEnumDescTextAndID = polSourceObsInfoEnumDescTextAndIDList.Where(c => c.ID == polSourceObsInfoEnumTextAndIDSub.ID).FirstOrDefault();
+                                    if (polSourceObsInfoEnumDescTextAndID != null)
+                                    {
+                                        DescText = (polSourceObsInfoEnumDescTextAndID.Text == "Error" || polSourceObsInfoEnumDescTextAndID.Text == "Erreur" ? "" : polSourceObsInfoEnumDescTextAndID.Text);
+                                    }
                                     <div class="radio-inline">
-                                        <label class="control-label">
+                                        <label class="control-label" title="@DescText.Trim()">
                                             <input class="polsourceinput radio" name="c@(polSourceObsInfoEnumTextAndID.ID)"
                                                    data-psc="@(ChildStart.Trim())" data-hide="@(Hide.Trim())"
                                                    @((polSourceObservationIssueModel.PolSourceObsInfoList.Contains(((PolSourceObsInfoEnum)polSourceObsInfoEnumTextAndIDSub.ID))) == true ? "checked='checked'" : "" )
