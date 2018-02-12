@@ -290,4 +290,7 @@
   <data name="MoveUp" xml:space="preserve">
     <value>Déplacer vers le haut</value>
   </data>
+  <data name="ExtraComment" xml:space="preserve">
+    <value>Extra commentaire</value>
+  </data>
 </root>

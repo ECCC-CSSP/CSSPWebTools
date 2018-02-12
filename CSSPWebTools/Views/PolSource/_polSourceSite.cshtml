@@ -128,20 +128,46 @@
                             {
                                 string reportPartText = _BaseEnumService.GetEnumText_PolSourceObsInfoReportEnum(polSourceObsInfo);
 
-                                if (reportPartText.StartsWith("Source:") || reportPartText.StartsWith("Source:"))
+                                switch (((int)polSourceObsInfo).ToString().Substring(0, 3))
                                 {
-                                    <span><strong>Source:</strong>@(reportPartText.Replace("Source:", ""))</span>
+                                    case "101":
+                                        {
+                                            reportPartText = reportPartText.Replace("Source", "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>Source</strong>");
+                                        }
+                                        break;
+                                    case "250":
+                                        {
+                                            reportPartText = reportPartText.Replace("Pathway", "<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>Pathway</strong>");
+                                        }
+                                        break;
+                                    case "157":
+                                        {
+                                            reportPartText = reportPartText.Replace("Risk Analyses", "<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>Risk Analyses</strong>");
+                                        }
+                                        break;
+                                    case "910":
+                                        {
+                                            reportPartText = reportPartText.Replace("Risk", "<strong>Risk</strong>");
+                                        }
+                                        break;
+                                    default:
+                                        break;
                                 }
-                                else if (reportPartText.StartsWith("Pathway:") || reportPartText.StartsWith("Pathway:"))
-                                {
-                                    <span><strong>Pathway:</strong>@(reportPartText.Replace("Pathway:", ""))</span>
-                                }
-                                else
-                                {
-                                    <span>@(reportPartText)</span>
-                                }
+                                <span>@Html.Raw(reportPartText)</span>
                             }
                         </li>
+                        if (!string.IsNullOrWhiteSpace(polSourceObservationModel.PolSourceObservationIssueModelList[i].ExtraComment))
+                        {
+                            <li class="spaceLeft10">
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <br />
+                                        <strong>@PolSourceViewRes.ExtraComment</strong>
+                                        <br /><span>&nbsp;&nbsp;&nbsp;&nbsp;@polSourceObservationModel.PolSourceObservationIssueModelList[i].ExtraComment</span>
+                                    </li>
+                                </ul>
+                            </li>
+                        }
                     }
                 </ul>
             </div>

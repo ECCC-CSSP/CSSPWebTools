@@ -287,4 +287,7 @@
   <data name="MoveUp" xml:space="preserve">
     <value>Move up</value>
   </data>
+  <data name="ExtraComment" xml:space="preserve">
+    <value>Extra comment</value>
+  </data>
 </root>

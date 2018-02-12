@@ -22,12 +22,20 @@
 
         </div>
         <div>
+            <label for="ExtraComment" class="control-label">
+                @PolSourceViewRes.ExtraComment
+            </label>
+            <textarea name="ExtraComment" class="form-control" style="width:90%">@polSourceObservationIssueModel.ExtraComment</textarea>
+            <br />
+        </div>
+        <div>
             <button class="jbPolSourceSaveIssue btn btn-success" type="submit"
                     data-polsourceobservationid="@polSourceObservationIssueModel.PolSourceObservationID"
                     data-issueordinal="@polSourceObservationIssueModel.Ordinal" title="@PolSourceViewRes.SaveIssue">
                 <span class="glyphicon glyphicon-check"></span>
             </button>
         </div>
+
     </form>
     <div class="PolSourceGroupingTop hidden">
         @foreach (PolSourceObsInfoEnumTextAndID polSourceObsInfoEnumTextAndID in polSourceObsInfoEnumTextAndIDList.Where(c => c.ID % 100 == 0))
@@ -82,7 +90,6 @@
                 </div>
             </div>
         }
-
     </div>
 </div>
 <script type="text/javascript">

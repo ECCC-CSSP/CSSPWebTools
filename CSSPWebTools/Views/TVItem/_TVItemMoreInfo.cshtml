@@ -314,11 +314,9 @@
                 <span><b>@TVItemViewRes.NumberOfIssues :</b> @tvItemMoreInfoPolSourceSiteModel.IssuesTVTextList.Count()</span><br /><br />
                 foreach (string IssuesTVText in tvItemMoreInfoPolSourceSiteModel.IssuesTVTextList)
                 {
-                    string TVText = IssuesTVText.Replace("Source:", "<strong>Source:</strong>");
-                    TVText = TVText.Replace("Pathway:", "<strong>Pathway:</strong>");
                     <span>
                         <span><b>@TVItemViewRes.SelectedDescription:</b></span>
-                        <span>@Html.Raw(TVText)</span>
+                        <span>@Html.Raw(IssuesTVText)</span>
                     </span>
                     <br />
                     <br />

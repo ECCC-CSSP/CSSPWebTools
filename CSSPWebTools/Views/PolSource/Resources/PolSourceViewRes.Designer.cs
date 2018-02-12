@@ -205,6 +205,15 @@ namespace CSSPWebTools.Views.PolSource.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Extra comment.
+        /// </summary>
+        public static string ExtraComment {
+            get {
+                return ResourceManager.GetString("ExtraComment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to False.
         /// </summary>
         public static string False {
