@@ -6,6 +6,7 @@
 
 @{
     SamplingPlanController SamplingPlanController = (SamplingPlanController)ViewBag.SamplingPlanController;
+    SamplingPlanModel samplingPlanModel = (SamplingPlanModel)ViewBag.SamplingPlanModel;
     List<ContactModel> AdminContactModelList = (List<ContactModel>)ViewBag.AdminContactModelList;
     bool IsSamplingPlanner = (bool)ViewBag.IsSamplingPlanner;
     List<LabSheetModelAndA1Sheet> labSheetModelAndA1SheetList = (List<LabSheetModelAndA1Sheet>)ViewBag.LabSheetModelAndA1SheetList;
@@ -16,6 +17,13 @@
     List<string> AllowableTideString = new List<string>() { "HR", "HT", "HF", "MR", "MT", "MF", "LR", "LT", "LF" };
     BaseEnumService _BaseEnumService = new BaseEnumService(ViewBag.Language);
     string textColor = "text-default";
+
+    if (lastAnalyzeMethod == AnalyzeMethodEnum.Error)
+    {
+        lastAnalyzeMethod = (samplingPlanModel.AnalyzeMethodDefault == null ? AnalyzeMethodEnum.Error : (AnalyzeMethodEnum)samplingPlanModel.AnalyzeMethodDefault);
+        lastSampleMatrix = (samplingPlanModel.SampleMatrixDefault == null ? SampleMatrixEnum.Error : (SampleMatrixEnum)samplingPlanModel.SampleMatrixDefault);
+        lastLaboratory = (samplingPlanModel.LaboratoryDefault == null ? LaboratoryEnum.Error : (LaboratoryEnum)samplingPlanModel.LaboratoryDefault);
+    }
 
 }
 

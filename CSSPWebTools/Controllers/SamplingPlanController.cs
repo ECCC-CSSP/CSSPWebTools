@@ -360,6 +360,7 @@ namespace CSSPWebTools.Controllers
             ViewBag.LastSampleMatrix = SampleMatrixEnum.Error;
             ViewBag.LastLaboratory = LaboratoryEnum.Error;
             ViewBag.MWQMSampleModelList = new List<MWQMSampleModel>();
+            ViewBag.SamplingPlanModel = null;
 
             List<LabSheetModelAndA1Sheet> labSheetModelAndA1SheetList = new List<LabSheetModelAndA1Sheet>();
 
@@ -373,6 +374,8 @@ namespace CSSPWebTools.Controllers
             SamplingPlanModel SamplingPlanModel = SamplingPlanService.GetSamplingPlanModelWithSamplingPlanIDDB(SamplingPlanID);
             if (string.IsNullOrWhiteSpace(SamplingPlanModel.Error))
             {
+                ViewBag.SamplingPlanModel = SamplingPlanModel;
+
                 ViewBag.IsSamplingPlanner = false;
                 if (contactModel.SamplingPlanner_ProvincesTVItemID.Contains(SamplingPlanModel.ProvinceTVItemID.ToString()))
                 {
