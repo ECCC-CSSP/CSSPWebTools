@@ -172,6 +172,11 @@
                                                     reportPartText = reportPartText.Replace("Risk", "<strong>Risk</strong>");
                                                 }
                                                 break;
+                                            case "900":
+                                                {
+                                                    reportPartText = reportPartText.Replace("Status ", "<strong>Status</strong>");
+                                                }
+                                                break;
                                             default:
                                                 break;
                                         }
@@ -291,6 +296,11 @@
                                         case "910":
                                             {
                                                 reportPartText = reportPartText.Replace("Risk", "<strong>Risk</strong>");
+                                            }
+                                            break;
+                                        case "900":
+                                            {
+                                                reportPartText = reportPartText.Replace("Status ", "<strong>Status</strong>");
                                             }
                                             break;
                                         default:
