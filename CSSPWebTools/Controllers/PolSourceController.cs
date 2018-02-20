@@ -876,7 +876,7 @@ namespace CSSPWebTools.Controllers
                 string tempText = _BaseEnumService.GetEnumText_PolSourceObsInfoEnum((PolSourceObsInfoEnum)id);
                 if (tempText.IndexOf("|") > 0)
                 {
-                    tempText = tempText.Substring(0, tempText.IndexOf("|")).Trim();
+                    tempText = tempText.Substring(0, tempText.IndexOf("|"));
                 }
                 polSourceObsInfoEnumTextAndIDList.Add(new PolSourceObsInfoEnumTextAndID() { Text = tempText, ID = id });
                 polSourceObsInfoEnumHideAndIDList.Add(new PolSourceObsInfoEnumHideAndID() { Hide = _BaseEnumService.GetEnumText_PolSourceObsInfoHideEnum((PolSourceObsInfoEnum)id), ID = id });
@@ -1100,7 +1100,7 @@ namespace CSSPWebTools.Controllers
                 string tempText = _BaseEnumService.GetEnumText_PolSourceObsInfoEnum((PolSourceObsInfoEnum)id);
                 if (tempText.IndexOf("|") > 0)
                 {
-                    tempText = tempText.Substring(0, tempText.IndexOf("|")).Trim();
+                    tempText = tempText.Substring(0, tempText.IndexOf("|"));
                 }
                 polSourceObsInfoEnumTextAndIDList.Add(new PolSourceObsInfoEnumTextAndID() { Text = tempText, ID = id });
             }

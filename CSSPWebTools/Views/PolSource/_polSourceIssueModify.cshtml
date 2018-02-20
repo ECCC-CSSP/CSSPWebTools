@@ -43,7 +43,7 @@
             string tempText = _BaseEnumService.GetEnumText_PolSourceObsInfoEnum(((PolSourceObsInfoEnum)polSourceObsInfoEnumTextAndID.ID));
             if (tempText.IndexOf("|") > 0)
             {
-                tempText = tempText.Substring(0, tempText.IndexOf("|")).Trim();
+                tempText = tempText.Substring(0, tempText.IndexOf("|"));
             }
             List<PolSourceObsInfoEnumTextAndID> polSourceObsInfoEnumTextAndIDSubList = polSourceObsInfoEnumTextAndIDList.Where(c => c.ID > polSourceObsInfoEnumTextAndID.ID && c.ID < (polSourceObsInfoEnumTextAndID.ID + 99)).OrderBy(c => c.Text).ToList();
             <div class="c@(polSourceObsInfoEnumTextAndID.ID)">
