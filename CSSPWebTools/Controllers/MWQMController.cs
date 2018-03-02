@@ -336,23 +336,23 @@ namespace CSSPWebTools.Controllers
             return PartialView();
         }
 
+        //[HttpGet]
+        //[OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        //public ActionResult _mwqmSubsectorAnalysis(int SubsectorTVItemID)
+        //{
+        //    ViewBag.SubsectorTVItemID = SubsectorTVItemID;
+        //    ViewBag.MWQMSubsectorAnalysisModel = null;
+
+        //    MWQMSubsectorAnalysisModel mwqmSubsectorAnalysisModel = _MWQMSubsectorService.GetMWQMSubsectorAnalysisModel(SubsectorTVItemID);
+
+        //    ViewBag.MWQMSubsectorAnalysisModel = mwqmSubsectorAnalysisModel;
+
+        //    return PartialView();
+        //}
+
         [HttpGet]
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
-        public ActionResult _mwqmSubsectorAnalysis(int SubsectorTVItemID)
-        {
-            ViewBag.SubsectorTVItemID = SubsectorTVItemID;
-            ViewBag.MWQMSubsectorAnalysisModel = null;
-
-            MWQMSubsectorAnalysisModel mwqmSubsectorAnalysisModel = _MWQMSubsectorService.GetMWQMSubsectorAnalysisModel(SubsectorTVItemID);
-
-            ViewBag.MWQMSubsectorAnalysisModel = mwqmSubsectorAnalysisModel;
-
-            return PartialView();
-        }
-
-        [HttpGet]
-        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
-        public ActionResult _mwqmSubsectorAnalysis2(string Q)
+        public ActionResult _mwqmSubsectorAnalysis(string Q)
         {
             SetArgs(Q);
             ViewBag.URLModel = urlModel;

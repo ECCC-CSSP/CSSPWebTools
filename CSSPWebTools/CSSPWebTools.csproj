@@ -699,6 +699,7 @@
     <Content Include="Views\File\_fileList.cshtml">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="Views\MWQM\_mwqmSubsectorAnalysis.cshtml" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -814,7 +815,6 @@
     <Content Include="Views\SamplingPlan\_SamplingPlanMWQMSites.cshtml" />
     <Content Include="Views\SamplingPlan\_LabSheetsHistory.cshtml" />
     <Content Include="Views\SamplingPlan\_LabSheetsHistoryDetail.cshtml" />
-    <Content Include="Views\MWQM\_mwqmSubsectorAnalysis.cshtml" />
     <Content Include="Views\ClimateSite\_selectedRunPrecipitation.cshtml" />
     <Content Include="Views\ClimateSite\_subsectorClimateSites.cshtml" />
     <Content Include="Views\ClimateSite\_dialogToShowExOfYearsToEnter.cshtml" />
@@ -889,7 +889,6 @@
     <Content Include="Views\ReportType\_reportSectionForm.cshtml" />
     <Content Include="Views\MWQM\_mwqmAnalysisReportParameterListForYear.cshtml" />
     <Content Include="Views\File\_exportArcGIS.cshtml" />
-    <Content Include="Views\MWQM\_mwqmSubsectorAnalysis2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

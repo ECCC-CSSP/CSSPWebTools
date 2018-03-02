@@ -280,7 +280,7 @@
                         data-siteid="@mwqmSiteAnalysisModel.MWQMSiteTVItemID"
                         data-fc=@(mwqmSampleAnalysisModel == null ? "-1" : mwqmSampleAnalysisModel.FecCol_MPN_100ml.ToString("F0"))
                         data-temp=@(mwqmSampleAnalysisModel == null || mwqmSampleAnalysisModel.WaterTemp_C == null ? "-1" : ((float)mwqmSampleAnalysisModel.WaterTemp_C).ToString("F1"))
-                        data-sal=@(mwqmSampleAnalysisModel == null || mwqmSampleAnalysisModel.Salinity_PPT == null ? "-1" : ((float)mwqmSampleAnalysisModel.Salinity_PPT).ToString("F1"))>
+                        data-sal=@(mwqmSampleAnalysisModel == null || mwqmSampleAnalysisModel.Salinity_PPT == null ? "-99" : ((float)mwqmSampleAnalysisModel.Salinity_PPT).ToString("F1"))>
                         @(mwqmSampleAnalysisModel == null ? "--" : (mwqmSampleAnalysisModel.FecCol_MPN_100ml == 1 ? "<2" : mwqmSampleAnalysisModel.FecCol_MPN_100ml.ToString("F0")))
                     </td>
 
@@ -1000,7 +1000,7 @@
                         data-runid="@mwqmRunAnalysisModel.MWQMRunTVItemID"
                         data-siteid="@mwqmSiteAnalysisModel.MWQMSiteTVItemID"
                         data-fc=@(mwqmSampleAnalysisModel == null ? "-1" : mwqmSampleAnalysisModel.FecCol_MPN_100ml.ToString("F0"))
-                        data-temp=@(mwqmSampleAnalysisModel == null || mwqmSampleAnalysisModel.WaterTemp_C == null ? "-1" : ((float)mwqmSampleAnalysisModel.WaterTemp_C).ToString("F1"))
+                        data-temp=@(mwqmSampleAnalysisModel == null || mwqmSampleAnalysisModel.WaterTemp_C == null ? "-99" : ((float)mwqmSampleAnalysisModel.WaterTemp_C).ToString("F1"))
                         data-sal=@(mwqmSampleAnalysisModel == null || mwqmSampleAnalysisModel.Salinity_PPT == null ? "-1" : ((float)mwqmSampleAnalysisModel.Salinity_PPT).ToString("F1"))>
                         @(mwqmSampleAnalysisModel == null ? "--" : (mwqmSampleAnalysisModel.FecCol_MPN_100ml == 1 ? "<2" : mwqmSampleAnalysisModel.FecCol_MPN_100ml.ToString("F0")))
                     </td>

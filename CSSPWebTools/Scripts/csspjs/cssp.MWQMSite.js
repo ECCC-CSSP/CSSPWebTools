@@ -1283,76 +1283,76 @@ var CSSP;
                 }
                 $(".RainDay" + (MidRangeStart * -1).toString()).removeClass("rainRange").addClass("rainRange");
             };
-            this.MWQMSubsectorAnalysisShowHideRainRows = function ($bjs) {
-                if ($bjs.hasClass("btn-default")) {
-                    $bjs.removeClass("btn-default").addClass("btn-success");
-                    $("#AnalysisTable").find("tr.CanHide").each(function (ind, elem) {
-                        if (ind > 0 && ind < 12) {
-                            $(elem).removeClass("hidden").addClass("hidden");
-                        }
-                    });
-                    if ($(".jbMWQMSubsectorAnalysisShowHideTideRows").hasClass("btn-default")) {
-                        $("#AnalysisTable").find(".FirstTH").attr("rowspan", 3);
-                    }
-                    else {
-                        $("#AnalysisTable").find(".FirstTH").attr("rowspan", 1);
-                    }
-                }
-                else {
-                    $bjs.removeClass("btn-success").addClass("btn-default");
-                    $("#AnalysisTable").find("tr.CanHide").each(function (ind, elem) {
-                        if (ind > 0 && ind < 12) {
-                            $(elem).removeClass("hidden");
-                        }
-                    });
-                    if ($(".jbMWQMSubsectorAnalysisShowHideTideRows").hasClass("btn-default")) {
-                        $("#AnalysisTable").find(".FirstTH").attr("rowspan", 14);
-                    }
-                    else {
-                        $("#AnalysisTable").find(".FirstTH").attr("rowspan", 12);
-                    }
-                }
-            };
-            this.MWQMSubsectorAnalysisShowHideTideRows = function ($bjs) {
-                if ($bjs.hasClass("btn-default")) {
-                    $bjs.removeClass("btn-default").addClass("btn-success");
-                    $("#AnalysisTable").find("tr.CanHide").each(function (ind, elem) {
-                        if (ind > 11 && ind < 14) {
-                            $(elem).removeClass("hidden").addClass("hidden");
-                        }
-                    });
-                    if ($(".jbMWQMSubsectorAnalysisShowHideRainRows").hasClass("btn-default")) {
-                        $("#AnalysisTable").find(".FirstTH").attr("rowspan", 12);
-                    }
-                    else {
-                        $("#AnalysisTable").find(".FirstTH").attr("rowspan", 1);
-                    }
-                }
-                else {
-                    $bjs.removeClass("btn-success").addClass("btn-default");
-                    $("#AnalysisTable").find("tr.CanHide").each(function (ind, elem) {
-                        if (ind > 11 && ind < 14) {
-                            $(elem).removeClass("hidden");
-                        }
-                    });
-                    if ($(".jbMWQMSubsectorAnalysisShowHideRainRows").hasClass("btn-default")) {
-                        $("#AnalysisTable").find(".FirstTH").attr("rowspan", 14);
-                    }
-                    else {
-                        $("#AnalysisTable").find(".FirstTH").attr("rowspan", 3);
-                    }
-                }
-            };
-            this.MWQMSubsectorAnalysisShowHideQueryTool = function ($bjs) {
-                if ($bjs.hasClass("btn-default")) {
-                    $bjs.removeClass("btn-default").addClass("btn-success");
-                    $("#AnalysisTable").find(".QueryTool").removeClass("hidden").addClass("hidden");
-                }
-                else {
-                    $bjs.removeClass("btn-success").addClass("btn-default");
-                    $("#AnalysisTable").find(".QueryTool").removeClass("hidden");
-                }
-            };
+            //public MWQMSubsectorAnalysisShowHideRainRows: Function = ($bjs: JQuery): void => {
+            //    if ($bjs.hasClass("btn-default")) {
+            //        $bjs.removeClass("btn-default").addClass("btn-success");
+            //        $("#AnalysisTable").find("tr.CanHide").each((ind: number, elem: Element) => {
+            //            if (ind > 0 && ind < 12) {
+            //                $(elem).removeClass("hidden").addClass("hidden");
+            //            }
+            //        });
+            //        if ($(".jbMWQMSubsectorAnalysisShowHideTideRows").hasClass("btn-default")) {
+            //            $("#AnalysisTable").find(".FirstTH").attr("rowspan", 3);
+            //        }
+            //        else {
+            //            $("#AnalysisTable").find(".FirstTH").attr("rowspan", 1);
+            //        }
+            //    }
+            //    else {
+            //        $bjs.removeClass("btn-success").addClass("btn-default");
+            //        $("#AnalysisTable").find("tr.CanHide").each((ind: number, elem: Element) => {
+            //            if (ind > 0 && ind < 12) {
+            //                $(elem).removeClass("hidden");
+            //            }
+            //        });
+            //        if ($(".jbMWQMSubsectorAnalysisShowHideTideRows").hasClass("btn-default")) {
+            //            $("#AnalysisTable").find(".FirstTH").attr("rowspan", 14);
+            //        }
+            //        else {
+            //            $("#AnalysisTable").find(".FirstTH").attr("rowspan", 12);
+            //        }
+            //    }
+            //};
+            //public MWQMSubsectorAnalysisShowHideTideRows: Function = ($bjs: JQuery): void => {
+            //    if ($bjs.hasClass("btn-default")) {
+            //        $bjs.removeClass("btn-default").addClass("btn-success");
+            //        $("#AnalysisTable").find("tr.CanHide").each((ind: number, elem: Element) => {
+            //            if (ind > 11 && ind < 14) {
+            //                $(elem).removeClass("hidden").addClass("hidden");
+            //            }
+            //        });
+            //        if ($(".jbMWQMSubsectorAnalysisShowHideRainRows").hasClass("btn-default")) {
+            //            $("#AnalysisTable").find(".FirstTH").attr("rowspan", 12);
+            //        }
+            //        else {
+            //            $("#AnalysisTable").find(".FirstTH").attr("rowspan", 1);
+            //        }
+            //    }
+            //    else {
+            //        $bjs.removeClass("btn-success").addClass("btn-default");
+            //        $("#AnalysisTable").find("tr.CanHide").each((ind: number, elem: Element) => {
+            //            if (ind > 11 && ind < 14) {
+            //                $(elem).removeClass("hidden");
+            //            }
+            //        });
+            //        if ($(".jbMWQMSubsectorAnalysisShowHideRainRows").hasClass("btn-default")) {
+            //            $("#AnalysisTable").find(".FirstTH").attr("rowspan", 14);
+            //        }
+            //        else {
+            //            $("#AnalysisTable").find(".FirstTH").attr("rowspan", 3);
+            //        }
+            //    }
+            //};
+            //public MWQMSubsectorAnalysisShowHideQueryTool: Function = ($bjs: JQuery): void => {
+            //    if ($bjs.hasClass("btn-default")) {
+            //        $bjs.removeClass("btn-default").addClass("btn-success");
+            //        $("#AnalysisTable").find(".QueryTool").removeClass("hidden").addClass("hidden");
+            //    }
+            //    else {
+            //        $bjs.removeClass("btn-success").addClass("btn-default");
+            //        $("#AnalysisTable").find(".QueryTool").removeClass("hidden");
+            //    }
+            //};
             this.MWQMSubsectorAnalysisShowHideRunsNotUsed = function ($bjs) {
                 if ($bjs.hasClass("btn-default")) {
                     $bjs.removeClass("btn-default").addClass("btn-success");
@@ -1426,15 +1426,18 @@ var CSSP;
                         }
                         if (DataTypeTemp.length > 0) {
                             var Temp = cssp.MWQMSite.mwqmSubsectorAnalysisModel.mwqmSiteAnalysisModelList[i].mwqmSampleAnalysisModel[j].Temp;
-                            cssp.MWQMSite.MWQMSampleList$[i].eq(j).html(cssp.MWQMSite.MWQMSampleList$[i].eq(j).html() + "<br />" + (Temp == -1 ? ((i == 0 && j == 0) ? "T --" : "--") : ((i == 0 && j == 0) ? "T " + Temp.toString() : Temp.toString())));
-                            if (Temp == -1) {
+                            if (i == 3 && j == 108) {
+                                var aselfij = 34;
+                            }
+                            cssp.MWQMSite.MWQMSampleList$[i].eq(j).html(cssp.MWQMSite.MWQMSampleList$[i].eq(j).html() + "<br />" + (Temp == -99 ? ((i == 0 && j == 0) ? "T --" : "--") : ((i == 0 && j == 0) ? "T " + Number(Temp).toFixed(0).toString() : Number(Temp).toFixed(0).toString())));
+                            if (Temp == -99) {
                                 cssp.MWQMSite.MWQMSampleList$[i].eq(j).addClass("");
                             }
                         }
                         if (DataTypeSal.length > 0) {
                             //let MoreOrLess: number = HighlightSalNumber;
                             var Sal = cssp.MWQMSite.mwqmSubsectorAnalysisModel.mwqmSiteAnalysisModelList[i].mwqmSampleAnalysisModel[j].Sal;
-                            cssp.MWQMSite.MWQMSampleList$[i].eq(j).html(cssp.MWQMSite.MWQMSampleList$[i].eq(j).html() + "<br /><span>" + (Sal == -1 ? ((i == 0 && j == 0) ? "S --" : "--") : ((i == 0 && j == 0) ? "S " + Sal.toString() : Sal.toString())) + "</span>");
+                            cssp.MWQMSite.MWQMSampleList$[i].eq(j).html(cssp.MWQMSite.MWQMSampleList$[i].eq(j).html() + "<br /><span>" + (Sal == -1 ? ((i == 0 && j == 0) ? "S --" : "--") : ((i == 0 && j == 0) ? "S " + Number(Sal).toFixed(0).toString() : Number(Sal).toFixed(0).toString())) + "</span>");
                             var MWQMSiteSalAvg = -1;
                             var Total = 0;
                             var CountRun = 0;
@@ -1454,7 +1457,7 @@ var CSSP;
                         }
                         if (DataTypeP90.length > 0) {
                             var P90 = cssp.MWQMSite.mwqmSubsectorAnalysisModel.mwqmSiteAnalysisModelList[i].mwqmSampleAnalysisModel[j].P90;
-                            cssp.MWQMSite.MWQMSampleList$[i].eq(j).html(cssp.MWQMSite.MWQMSampleList$[i].eq(j).html() + "<br /><span>" + (P90 == -1 ? ((i == 0 && j == 0) ? "P --" : "--") : ((i == 0 && j == 0) ? "P " + P90.toString() : P90.toString())) + "</span>");
+                            cssp.MWQMSite.MWQMSampleList$[i].eq(j).html(cssp.MWQMSite.MWQMSampleList$[i].eq(j).html() + "<br /><span>" + (P90 == -1 ? ((i == 0 && j == 0) ? "P --" : "--") : ((i == 0 && j == 0) ? "P " + Number(P90).toFixed(0).toString() : Number(P90).toFixed(0).toString())) + "</span>");
                             if (P90 > 43) {
                                 cssp.MWQMSite.MWQMSampleList$[i].eq(j).children().eq(P90ChildNumber - 1).addClass("BorderRed");
                             }
@@ -1464,7 +1467,7 @@ var CSSP;
                         }
                         if (DataTypeGM.length > 0) {
                             var GM = cssp.MWQMSite.mwqmSubsectorAnalysisModel.mwqmSiteAnalysisModelList[i].mwqmSampleAnalysisModel[j].GeoMean;
-                            cssp.MWQMSite.MWQMSampleList$[i].eq(j).html(cssp.MWQMSite.MWQMSampleList$[i].eq(j).html() + "<br /><span>" + (GM == -1 ? ((i == 0 && j == 0) ? "G --" : "--") : ((i == 0 && j == 0) ? "G " + GM.toString() : GM.toString())) + "</span>");
+                            cssp.MWQMSite.MWQMSampleList$[i].eq(j).html(cssp.MWQMSite.MWQMSampleList$[i].eq(j).html() + "<br /><span>" + (GM == -1 ? ((i == 0 && j == 0) ? "G --" : "--") : ((i == 0 && j == 0) ? "G " + Number(GM).toFixed(0).toString() : Number(GM).toFixed(0).toString())) + "</span>");
                             if (GM > 14) {
                                 cssp.MWQMSite.MWQMSampleList$[i].eq(j).children().eq(GMChildNumber - 1).addClass("BorderRed");
                             }
@@ -1474,7 +1477,7 @@ var CSSP;
                         }
                         if (DataTypeMed.length > 0) {
                             var Med = cssp.MWQMSite.mwqmSubsectorAnalysisModel.mwqmSiteAnalysisModelList[i].mwqmSampleAnalysisModel[j].Median;
-                            cssp.MWQMSite.MWQMSampleList$[i].eq(j).html(cssp.MWQMSite.MWQMSampleList$[i].eq(j).html() + "<br /><span>" + (Med == -1 ? ((i == 0 && j == 0) ? "M --" : "--") : ((i == 0 && j == 0) ? "M " + Med.toString() : Med.toString())) + "</span>");
+                            cssp.MWQMSite.MWQMSampleList$[i].eq(j).html(cssp.MWQMSite.MWQMSampleList$[i].eq(j).html() + "<br /><span>" + (Med == -1 ? ((i == 0 && j == 0) ? "M --" : "--") : ((i == 0 && j == 0) ? "M " + Number(Med).toFixed(0).toString() : Number(Med).toFixed(0).toString())) + "</span>");
                             if (Med > 14) {
                                 cssp.MWQMSite.MWQMSampleList$[i].eq(j).children().eq(MedChildNumber - 1).addClass("BorderRed");
                             }
@@ -1484,7 +1487,7 @@ var CSSP;
                         }
                         if (DataTypeP43.length > 0) {
                             var PercOver43 = cssp.MWQMSite.mwqmSubsectorAnalysisModel.mwqmSiteAnalysisModelList[i].mwqmSampleAnalysisModel[j].PercOver43;
-                            cssp.MWQMSite.MWQMSampleList$[i].eq(j).html(cssp.MWQMSite.MWQMSampleList$[i].eq(j).html() + "<br /><span>" + (PercOver43 == -1 ? ((i == 0 && j == 0) ? "P4 --" : "--") : ((i == 0 && j == 0) ? "P4 " + PercOver43.toString() : PercOver43.toString())) + "</span>");
+                            cssp.MWQMSite.MWQMSampleList$[i].eq(j).html(cssp.MWQMSite.MWQMSampleList$[i].eq(j).html() + "<br /><span>" + (PercOver43 == -1 ? ((i == 0 && j == 0) ? "P4 --" : "--") : ((i == 0 && j == 0) ? "P4 " + Number(PercOver43).toFixed(0).toString() : Number(PercOver43).toFixed(0).toString())) + "</span>");
                             if (PercOver43 > 20) {
                                 cssp.MWQMSite.MWQMSampleList$[i].eq(j).children().eq(P43ChildNumber - 1).addClass("BorderDarkRed");
                             }
@@ -1497,7 +1500,7 @@ var CSSP;
                         }
                         if (DataTypeP260.length > 0) {
                             var PercOver260 = cssp.MWQMSite.mwqmSubsectorAnalysisModel.mwqmSiteAnalysisModelList[i].mwqmSampleAnalysisModel[j].PercOver260;
-                            cssp.MWQMSite.MWQMSampleList$[i].eq(j).html(cssp.MWQMSite.MWQMSampleList$[i].eq(j).html() + "<br /><span>" + (PercOver260 == -1 ? ((i == 0 && j == 0) ? "P6 --" : "--") : ((i == 0 && j == 0) ? "P6 " + PercOver260.toString() : PercOver260.toString())) + "</span>");
+                            cssp.MWQMSite.MWQMSampleList$[i].eq(j).html(cssp.MWQMSite.MWQMSampleList$[i].eq(j).html() + "<br /><span>" + (PercOver260 == -1 ? ((i == 0 && j == 0) ? "P6 --" : "--") : ((i == 0 && j == 0) ? "P6 " + Number(PercOver260).toFixed(0).toString() : Number(PercOver260).toFixed(0).toString())) + "</span>");
                             if (PercOver260 > 10) {
                                 cssp.MWQMSite.MWQMSampleList$[i].eq(j).children().eq(P260ChildNumber - 1).addClass("BorderRed");
                             }
@@ -2136,8 +2139,8 @@ var CSSP;
                         if (FC == 1) {
                             FC = 1.9;
                         }
-                        var Temp = parseInt(cssp.MWQMSite.MWQMSampleList$[i].eq(j).data("temp"));
-                        var Sal = parseInt(cssp.MWQMSite.MWQMSampleList$[i].eq(j).data("sal"));
+                        var Temp = parseFloat(cssp.MWQMSite.MWQMSampleList$[i].eq(j).data("temp"));
+                        var Sal = parseFloat(cssp.MWQMSite.MWQMSampleList$[i].eq(j).data("sal"));
                         var dateText = cssp.MWQMSite.MWQMSampleList$[i].eq(j).data("date");
                         var year = parseInt(dateText.substr(0, 4));
                         var month = parseInt(dateText.substr(5, 2));

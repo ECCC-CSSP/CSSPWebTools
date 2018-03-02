@@ -894,26 +894,26 @@ module CSSP {
                             cssp.MWQMSite.MWQMSubsectorAnalysisShowHideColorAndLetterHelp($bjs);
                         }
                         break;
-                    case "jbMWQMSubsectorAnalysisShowHide":
-                        {
-                            cssp.MWQMSite.MWQMSubsectorAnalysisShowHide($bjs);
-                        }
-                        break;
-                    case "jbMWQMSubsectorAnalysisShowHideRainRows":
-                        {
-                            cssp.MWQMSite.MWQMSubsectorAnalysisShowHideRainRows($bjs);
-                        }
-                        break;
-                    case "jbMWQMSubsectorAnalysisShowHideTideRows":
-                        {
-                            cssp.MWQMSite.MWQMSubsectorAnalysisShowHideTideRows($bjs);
-                        }
-                        break;
-                    case "jbMWQMSubsectorAnalysisShowHideQueryTool":
-                        {
-                            cssp.MWQMSite.MWQMSubsectorAnalysisShowHideQueryTool($bjs);
-                        }
-                        break;
+                    //case "jbMWQMSubsectorAnalysisShowHide":
+                    //    {
+                    //        cssp.MWQMSite.MWQMSubsectorAnalysisShowHide($bjs);
+                    //    }
+                    //    break;
+                    //case "jbMWQMSubsectorAnalysisShowHideRainRows":
+                    //    {
+                    //        cssp.MWQMSite.MWQMSubsectorAnalysisShowHideRainRows($bjs);
+                    //    }
+                    //    break;
+                    //case "jbMWQMSubsectorAnalysisShowHideTideRows":
+                    //    {
+                    //        cssp.MWQMSite.MWQMSubsectorAnalysisShowHideTideRows($bjs);
+                    //    }
+                    //    break;
+                    //case "jbMWQMSubsectorAnalysisShowHideQueryTool":
+                    //    {
+                    //        cssp.MWQMSite.MWQMSubsectorAnalysisShowHideQueryTool($bjs);
+                    //    }
+                    //    break;
                     case "jbMWQMSubsectorAnalysisShowHideRunsNotUsed":
                         {
                             cssp.MWQMSite.MWQMSubsectorAnalysisShowHideRunsNotUsed($bjs);

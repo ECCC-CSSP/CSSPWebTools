@@ -1920,7 +1920,7 @@ namespace CSSPWebTools.Controllers
                                 }
                             case "1": // Subsector MWQMSites Analysis
                                 {
-                                    return new ContentActionAndController() { Action = "_mwqmSubsectorAnalysis2", Controller = "MWQM" };
+                                    return new ContentActionAndController() { Action = "_mwqmSubsectorAnalysis", Controller = "MWQM" };
                                 }
                             case "2": // Subsector Runs
                                 {

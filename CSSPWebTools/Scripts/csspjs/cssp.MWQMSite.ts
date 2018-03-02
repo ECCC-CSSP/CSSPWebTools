@@ -1383,76 +1383,76 @@ module CSSP {
 
             $(".RainDay" + (MidRangeStart * -1).toString()).removeClass("rainRange").addClass("rainRange");
         };
-        public MWQMSubsectorAnalysisShowHideRainRows: Function = ($bjs: JQuery): void => {
-            if ($bjs.hasClass("btn-default")) {
-                $bjs.removeClass("btn-default").addClass("btn-success");
-                $("#AnalysisTable").find("tr.CanHide").each((ind: number, elem: Element) => {
-                    if (ind > 0 && ind < 12) {
-                        $(elem).removeClass("hidden").addClass("hidden");
-                    }
-                });
-                if ($(".jbMWQMSubsectorAnalysisShowHideTideRows").hasClass("btn-default")) {
-                    $("#AnalysisTable").find(".FirstTH").attr("rowspan", 3);
-                }
-                else {
-                    $("#AnalysisTable").find(".FirstTH").attr("rowspan", 1);
-                }
-            }
-            else {
-                $bjs.removeClass("btn-success").addClass("btn-default");
-                $("#AnalysisTable").find("tr.CanHide").each((ind: number, elem: Element) => {
-                    if (ind > 0 && ind < 12) {
-                        $(elem).removeClass("hidden");
-                    }
-                });
-                if ($(".jbMWQMSubsectorAnalysisShowHideTideRows").hasClass("btn-default")) {
-                    $("#AnalysisTable").find(".FirstTH").attr("rowspan", 14);
-                }
-                else {
-                    $("#AnalysisTable").find(".FirstTH").attr("rowspan", 12);
-                }
-            }
-        };
-        public MWQMSubsectorAnalysisShowHideTideRows: Function = ($bjs: JQuery): void => {
-            if ($bjs.hasClass("btn-default")) {
-                $bjs.removeClass("btn-default").addClass("btn-success");
-                $("#AnalysisTable").find("tr.CanHide").each((ind: number, elem: Element) => {
-                    if (ind > 11 && ind < 14) {
-                        $(elem).removeClass("hidden").addClass("hidden");
-                    }
-                });
-                if ($(".jbMWQMSubsectorAnalysisShowHideRainRows").hasClass("btn-default")) {
-                    $("#AnalysisTable").find(".FirstTH").attr("rowspan", 12);
-                }
-                else {
-                    $("#AnalysisTable").find(".FirstTH").attr("rowspan", 1);
-                }
-            }
-            else {
-                $bjs.removeClass("btn-success").addClass("btn-default");
-                $("#AnalysisTable").find("tr.CanHide").each((ind: number, elem: Element) => {
-                    if (ind > 11 && ind < 14) {
-                        $(elem).removeClass("hidden");
-                    }
-                });
-                if ($(".jbMWQMSubsectorAnalysisShowHideRainRows").hasClass("btn-default")) {
-                    $("#AnalysisTable").find(".FirstTH").attr("rowspan", 14);
-                }
-                else {
-                    $("#AnalysisTable").find(".FirstTH").attr("rowspan", 3);
-                }
-            }
-        };
-        public MWQMSubsectorAnalysisShowHideQueryTool: Function = ($bjs: JQuery): void => {
-            if ($bjs.hasClass("btn-default")) {
-                $bjs.removeClass("btn-default").addClass("btn-success");
-                $("#AnalysisTable").find(".QueryTool").removeClass("hidden").addClass("hidden");
-            }
-            else {
-                $bjs.removeClass("btn-success").addClass("btn-default");
-                $("#AnalysisTable").find(".QueryTool").removeClass("hidden");
-            }
-        };
+        //public MWQMSubsectorAnalysisShowHideRainRows: Function = ($bjs: JQuery): void => {
+        //    if ($bjs.hasClass("btn-default")) {
+        //        $bjs.removeClass("btn-default").addClass("btn-success");
+        //        $("#AnalysisTable").find("tr.CanHide").each((ind: number, elem: Element) => {
+        //            if (ind > 0 && ind < 12) {
+        //                $(elem).removeClass("hidden").addClass("hidden");
+        //            }
+        //        });
+        //        if ($(".jbMWQMSubsectorAnalysisShowHideTideRows").hasClass("btn-default")) {
+        //            $("#AnalysisTable").find(".FirstTH").attr("rowspan", 3);
+        //        }
+        //        else {
+        //            $("#AnalysisTable").find(".FirstTH").attr("rowspan", 1);
+        //        }
+        //    }
+        //    else {
+        //        $bjs.removeClass("btn-success").addClass("btn-default");
+        //        $("#AnalysisTable").find("tr.CanHide").each((ind: number, elem: Element) => {
+        //            if (ind > 0 && ind < 12) {
+        //                $(elem).removeClass("hidden");
+        //            }
+        //        });
+        //        if ($(".jbMWQMSubsectorAnalysisShowHideTideRows").hasClass("btn-default")) {
+        //            $("#AnalysisTable").find(".FirstTH").attr("rowspan", 14);
+        //        }
+        //        else {
+        //            $("#AnalysisTable").find(".FirstTH").attr("rowspan", 12);
+        //        }
+        //    }
+        //};
+        //public MWQMSubsectorAnalysisShowHideTideRows: Function = ($bjs: JQuery): void => {
+        //    if ($bjs.hasClass("btn-default")) {
+        //        $bjs.removeClass("btn-default").addClass("btn-success");
+        //        $("#AnalysisTable").find("tr.CanHide").each((ind: number, elem: Element) => {
+        //            if (ind > 11 && ind < 14) {
+        //                $(elem).removeClass("hidden").addClass("hidden");
+        //            }
+        //        });
+        //        if ($(".jbMWQMSubsectorAnalysisShowHideRainRows").hasClass("btn-default")) {
+        //            $("#AnalysisTable").find(".FirstTH").attr("rowspan", 12);
+        //        }
+        //        else {
+        //            $("#AnalysisTable").find(".FirstTH").attr("rowspan", 1);
+        //        }
+        //    }
+        //    else {
+        //        $bjs.removeClass("btn-success").addClass("btn-default");
+        //        $("#AnalysisTable").find("tr.CanHide").each((ind: number, elem: Element) => {
+        //            if (ind > 11 && ind < 14) {
+        //                $(elem).removeClass("hidden");
+        //            }
+        //        });
+        //        if ($(".jbMWQMSubsectorAnalysisShowHideRainRows").hasClass("btn-default")) {
+        //            $("#AnalysisTable").find(".FirstTH").attr("rowspan", 14);
+        //        }
+        //        else {
+        //            $("#AnalysisTable").find(".FirstTH").attr("rowspan", 3);
+        //        }
+        //    }
+        //};
+        //public MWQMSubsectorAnalysisShowHideQueryTool: Function = ($bjs: JQuery): void => {
+        //    if ($bjs.hasClass("btn-default")) {
+        //        $bjs.removeClass("btn-default").addClass("btn-success");
+        //        $("#AnalysisTable").find(".QueryTool").removeClass("hidden").addClass("hidden");
+        //    }
+        //    else {
+        //        $bjs.removeClass("btn-success").addClass("btn-default");
+        //        $("#AnalysisTable").find(".QueryTool").removeClass("hidden");
+        //    }
+        //};
         public MWQMSubsectorAnalysisShowHideRunsNotUsed: Function = ($bjs: JQuery): void => {
             if ($bjs.hasClass("btn-default")) {
                 $bjs.removeClass("btn-default").addClass("btn-success");
@@ -1527,15 +1527,18 @@ module CSSP {
                     }
                     if (DataTypeTemp.length > 0) {
                         let Temp: number = cssp.MWQMSite.mwqmSubsectorAnalysisModel.mwqmSiteAnalysisModelList[i].mwqmSampleAnalysisModel[j].Temp;
-                        cssp.MWQMSite.MWQMSampleList$[i].eq(j).html(cssp.MWQMSite.MWQMSampleList$[i].eq(j).html() + "<br />" + (Temp == -1 ? ((i == 0 && j == 0) ? "T --" : "--") : ((i == 0 && j == 0) ? "T " + Temp.toString() : Temp.toString())));
-                        if (Temp == -1) {
+                        if (i == 3 && j == 108) {
+                            let aselfij = 34;
+                        }
+                        cssp.MWQMSite.MWQMSampleList$[i].eq(j).html(cssp.MWQMSite.MWQMSampleList$[i].eq(j).html() + "<br />" + (Temp == -99 ? ((i == 0 && j == 0) ? "T --" : "--") : ((i == 0 && j == 0) ? "T " + Number(Temp).toFixed(0).toString() : Number(Temp).toFixed(0).toString())));
+                        if (Temp == -99) {
                             cssp.MWQMSite.MWQMSampleList$[i].eq(j).addClass("");
                         }
                     }
                     if (DataTypeSal.length > 0) {
                         //let MoreOrLess: number = HighlightSalNumber;
                         let Sal: number = cssp.MWQMSite.mwqmSubsectorAnalysisModel.mwqmSiteAnalysisModelList[i].mwqmSampleAnalysisModel[j].Sal;
-                        cssp.MWQMSite.MWQMSampleList$[i].eq(j).html(cssp.MWQMSite.MWQMSampleList$[i].eq(j).html() + "<br /><span>" + (Sal == -1 ? ((i == 0 && j == 0) ? "S --" : "--") : ((i == 0 && j == 0) ? "S " + Sal.toString() : Sal.toString())) + "</span>");
+                        cssp.MWQMSite.MWQMSampleList$[i].eq(j).html(cssp.MWQMSite.MWQMSampleList$[i].eq(j).html() + "<br /><span>" + (Sal == -1 ? ((i == 0 && j == 0) ? "S --" : "--") : ((i == 0 && j == 0) ? "S " + Number(Sal).toFixed(0).toString() : Number(Sal).toFixed(0).toString())) + "</span>");
 
                         let MWQMSiteSalAvg: number = -1;
                         let Total: number = 0;
@@ -1557,7 +1560,7 @@ module CSSP {
                     }
                     if (DataTypeP90.length > 0) {
                         let P90: number = cssp.MWQMSite.mwqmSubsectorAnalysisModel.mwqmSiteAnalysisModelList[i].mwqmSampleAnalysisModel[j].P90;
-                        cssp.MWQMSite.MWQMSampleList$[i].eq(j).html(cssp.MWQMSite.MWQMSampleList$[i].eq(j).html() + "<br /><span>" + (P90 == -1 ? ((i == 0 && j == 0) ? "P --" : "--") : ((i == 0 && j == 0) ? "P " + P90.toString() : P90.toString())) + "</span>");
+                        cssp.MWQMSite.MWQMSampleList$[i].eq(j).html(cssp.MWQMSite.MWQMSampleList$[i].eq(j).html() + "<br /><span>" + (P90 == -1 ? ((i == 0 && j == 0) ? "P --" : "--") : ((i == 0 && j == 0) ? "P " + Number(P90).toFixed(0).toString() : Number(P90).toFixed(0).toString())) + "</span>");
                         if (P90 > 43) {
                             cssp.MWQMSite.MWQMSampleList$[i].eq(j).children().eq(P90ChildNumber - 1).addClass("BorderRed");
                         }
@@ -1567,7 +1570,7 @@ module CSSP {
                     }
                     if (DataTypeGM.length > 0) {
                         let GM: number = cssp.MWQMSite.mwqmSubsectorAnalysisModel.mwqmSiteAnalysisModelList[i].mwqmSampleAnalysisModel[j].GeoMean;
-                        cssp.MWQMSite.MWQMSampleList$[i].eq(j).html(cssp.MWQMSite.MWQMSampleList$[i].eq(j).html() + "<br /><span>" + (GM == -1 ? ((i == 0 && j == 0) ? "G --" : "--") : ((i == 0 && j == 0) ? "G " + GM.toString() : GM.toString())) + "</span>");
+                        cssp.MWQMSite.MWQMSampleList$[i].eq(j).html(cssp.MWQMSite.MWQMSampleList$[i].eq(j).html() + "<br /><span>" + (GM == -1 ? ((i == 0 && j == 0) ? "G --" : "--") : ((i == 0 && j == 0) ? "G " + Number(GM).toFixed(0).toString() : Number(GM).toFixed(0).toString())) + "</span>");
                         if (GM > 14) {
                             cssp.MWQMSite.MWQMSampleList$[i].eq(j).children().eq(GMChildNumber - 1).addClass("BorderRed");
                         }
@@ -1577,7 +1580,7 @@ module CSSP {
                     }
                     if (DataTypeMed.length > 0) {
                         let Med: number = cssp.MWQMSite.mwqmSubsectorAnalysisModel.mwqmSiteAnalysisModelList[i].mwqmSampleAnalysisModel[j].Median;
-                        cssp.MWQMSite.MWQMSampleList$[i].eq(j).html(cssp.MWQMSite.MWQMSampleList$[i].eq(j).html() + "<br /><span>" + (Med == -1 ? ((i == 0 && j == 0) ? "M --" : "--") : ((i == 0 && j == 0) ? "M " + Med.toString() : Med.toString())) + "</span>");
+                        cssp.MWQMSite.MWQMSampleList$[i].eq(j).html(cssp.MWQMSite.MWQMSampleList$[i].eq(j).html() + "<br /><span>" + (Med == -1 ? ((i == 0 && j == 0) ? "M --" : "--") : ((i == 0 && j == 0) ? "M " + Number(Med).toFixed(0).toString() : Number(Med).toFixed(0).toString())) + "</span>");
                         if (Med > 14) {
                             cssp.MWQMSite.MWQMSampleList$[i].eq(j).children().eq(MedChildNumber - 1).addClass("BorderRed");
                         }
@@ -1587,7 +1590,7 @@ module CSSP {
                     }
                     if (DataTypeP43.length > 0) {
                         let PercOver43: number = cssp.MWQMSite.mwqmSubsectorAnalysisModel.mwqmSiteAnalysisModelList[i].mwqmSampleAnalysisModel[j].PercOver43;
-                        cssp.MWQMSite.MWQMSampleList$[i].eq(j).html(cssp.MWQMSite.MWQMSampleList$[i].eq(j).html() + "<br /><span>" + (PercOver43 == -1 ? ((i == 0 && j == 0) ? "P4 --" : "--") : ((i == 0 && j == 0) ? "P4 " + PercOver43.toString() : PercOver43.toString())) + "</span>");
+                        cssp.MWQMSite.MWQMSampleList$[i].eq(j).html(cssp.MWQMSite.MWQMSampleList$[i].eq(j).html() + "<br /><span>" + (PercOver43 == -1 ? ((i == 0 && j == 0) ? "P4 --" : "--") : ((i == 0 && j == 0) ? "P4 " + Number(PercOver43).toFixed(0).toString() : Number(PercOver43).toFixed(0).toString())) + "</span>");
                         if (PercOver43 > 20) {
                             cssp.MWQMSite.MWQMSampleList$[i].eq(j).children().eq(P43ChildNumber - 1).addClass("BorderDarkRed");
                         }
@@ -1600,7 +1603,7 @@ module CSSP {
                     }
                     if (DataTypeP260.length > 0) {
                         let PercOver260: number = cssp.MWQMSite.mwqmSubsectorAnalysisModel.mwqmSiteAnalysisModelList[i].mwqmSampleAnalysisModel[j].PercOver260;
-                        cssp.MWQMSite.MWQMSampleList$[i].eq(j).html(cssp.MWQMSite.MWQMSampleList$[i].eq(j).html() + "<br /><span>" + (PercOver260 == -1 ? ((i == 0 && j == 0) ? "P6 --" : "--") : ((i == 0 && j == 0) ? "P6 " + PercOver260.toString() : PercOver260.toString())) + "</span>");
+                        cssp.MWQMSite.MWQMSampleList$[i].eq(j).html(cssp.MWQMSite.MWQMSampleList$[i].eq(j).html() + "<br /><span>" + (PercOver260 == -1 ? ((i == 0 && j == 0) ? "P6 --" : "--") : ((i == 0 && j == 0) ? "P6 " + Number(PercOver260).toFixed(0).toString() : Number(PercOver260).toFixed(0).toString())) + "</span>");
                         if (PercOver260 > 10) {
                             cssp.MWQMSite.MWQMSampleList$[i].eq(j).children().eq(P260ChildNumber - 1).addClass("BorderRed");
                         }
@@ -2274,8 +2277,8 @@ module CSSP {
                     if (FC == 1) {
                         FC = 1.9;
                     }
-                    let Temp: number = parseInt(cssp.MWQMSite.MWQMSampleList$[i].eq(j).data("temp"));
-                    let Sal: number = parseInt(cssp.MWQMSite.MWQMSampleList$[i].eq(j).data("sal"));
+                    let Temp: number = parseFloat(cssp.MWQMSite.MWQMSampleList$[i].eq(j).data("temp"));
+                    let Sal: number = parseFloat(cssp.MWQMSite.MWQMSampleList$[i].eq(j).data("sal"));
                     let dateText: string = cssp.MWQMSite.MWQMSampleList$[i].eq(j).data("date");
                     let year: number = parseInt(dateText.substr(0, 4));
                     let month: number = parseInt(dateText.substr(5, 2));
