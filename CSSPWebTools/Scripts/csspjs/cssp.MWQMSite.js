@@ -1429,7 +1429,7 @@ var CSSP;
                             if (i == 3 && j == 108) {
                                 var aselfij = 34;
                             }
-                            cssp.MWQMSite.MWQMSampleList$[i].eq(j).html(cssp.MWQMSite.MWQMSampleList$[i].eq(j).html() + "<br />" + (Temp == -99 ? ((i == 0 && j == 0) ? "T --" : "--") : ((i == 0 && j == 0) ? "T " + Number(Temp).toFixed(0).toString() : Number(Temp).toFixed(0).toString())));
+                            cssp.MWQMSite.MWQMSampleList$[i].eq(j).html(cssp.MWQMSite.MWQMSampleList$[i].eq(j).html() + "<br />" + (Temp == -99 ? ((i == 0 && j == 0) ? "T --" : "--") : ((i == 0 && j == 0) ? "T " + Number(Temp).toFixed(1).toString() : Number(Temp).toFixed(1).toString())));
                             if (Temp == -99) {
                                 cssp.MWQMSite.MWQMSampleList$[i].eq(j).addClass("");
                             }
@@ -1437,7 +1437,7 @@ var CSSP;
                         if (DataTypeSal.length > 0) {
                             //let MoreOrLess: number = HighlightSalNumber;
                             var Sal = cssp.MWQMSite.mwqmSubsectorAnalysisModel.mwqmSiteAnalysisModelList[i].mwqmSampleAnalysisModel[j].Sal;
-                            cssp.MWQMSite.MWQMSampleList$[i].eq(j).html(cssp.MWQMSite.MWQMSampleList$[i].eq(j).html() + "<br /><span>" + (Sal == -1 ? ((i == 0 && j == 0) ? "S --" : "--") : ((i == 0 && j == 0) ? "S " + Number(Sal).toFixed(0).toString() : Number(Sal).toFixed(0).toString())) + "</span>");
+                            cssp.MWQMSite.MWQMSampleList$[i].eq(j).html(cssp.MWQMSite.MWQMSampleList$[i].eq(j).html() + "<br /><span>" + (Sal == -1 ? ((i == 0 && j == 0) ? "S --" : "--") : ((i == 0 && j == 0) ? "S " + Number(Sal).toFixed(1).toString() : Number(Sal).toFixed(1).toString())) + "</span>");
                             var MWQMSiteSalAvg = -1;
                             var Total = 0;
                             var CountRun = 0;

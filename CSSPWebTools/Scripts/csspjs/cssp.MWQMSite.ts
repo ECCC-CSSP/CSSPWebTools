@@ -1530,7 +1530,7 @@ module CSSP {
                         if (i == 3 && j == 108) {
                             let aselfij = 34;
                         }
-                        cssp.MWQMSite.MWQMSampleList$[i].eq(j).html(cssp.MWQMSite.MWQMSampleList$[i].eq(j).html() + "<br />" + (Temp == -99 ? ((i == 0 && j == 0) ? "T --" : "--") : ((i == 0 && j == 0) ? "T " + Number(Temp).toFixed(0).toString() : Number(Temp).toFixed(0).toString())));
+                        cssp.MWQMSite.MWQMSampleList$[i].eq(j).html(cssp.MWQMSite.MWQMSampleList$[i].eq(j).html() + "<br />" + (Temp == -99 ? ((i == 0 && j == 0) ? "T --" : "--") : ((i == 0 && j == 0) ? "T " + Number(Temp).toFixed(1).toString() : Number(Temp).toFixed(1).toString())));
                         if (Temp == -99) {
                             cssp.MWQMSite.MWQMSampleList$[i].eq(j).addClass("");
                         }
@@ -1538,7 +1538,7 @@ module CSSP {
                     if (DataTypeSal.length > 0) {
                         //let MoreOrLess: number = HighlightSalNumber;
                         let Sal: number = cssp.MWQMSite.mwqmSubsectorAnalysisModel.mwqmSiteAnalysisModelList[i].mwqmSampleAnalysisModel[j].Sal;
-                        cssp.MWQMSite.MWQMSampleList$[i].eq(j).html(cssp.MWQMSite.MWQMSampleList$[i].eq(j).html() + "<br /><span>" + (Sal == -1 ? ((i == 0 && j == 0) ? "S --" : "--") : ((i == 0 && j == 0) ? "S " + Number(Sal).toFixed(0).toString() : Number(Sal).toFixed(0).toString())) + "</span>");
+                        cssp.MWQMSite.MWQMSampleList$[i].eq(j).html(cssp.MWQMSite.MWQMSampleList$[i].eq(j).html() + "<br /><span>" + (Sal == -1 ? ((i == 0 && j == 0) ? "S --" : "--") : ((i == 0 && j == 0) ? "S " + Number(Sal).toFixed(1).toString() : Number(Sal).toFixed(1).toString())) + "</span>");
 
                         let MWQMSiteSalAvg: number = -1;
                         let Total: number = 0;
