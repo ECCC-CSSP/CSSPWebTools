@@ -492,4 +492,7 @@
   <data name="PendingApproval" xml:space="preserve">
     <value>En attente d'&#x1E;être accepté</value>
   </data>
+  <data name="BackupDirectory" xml:space="preserve">
+    <value>Répertoire de sauvegarde</value>
+  </data>
 </root>

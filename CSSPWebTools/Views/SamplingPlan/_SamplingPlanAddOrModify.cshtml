@@ -207,14 +207,14 @@ else
                         <div class="form-group">
                             <label for="AnalyzeMethodDefault" class="control-label">@SamplingPlanViewRes.AnalyzeMethod</label>
                             <div>
-                                <select name="AnalyzeMethodDefault">
-                                    <option value="0" @(SamplingPlanModel.AnalyzeMethodDefault != null && (AnalyzeMethodEnum)SamplingPlanModel.AnalyzeMethodDefault == 0 ? "selected=selected" : "")>
+                                <select name="AnalyzeMethodDefault" class="form-control">
+                                    <option value="0" @(SamplingPlanModel != null && SamplingPlanModel.AnalyzeMethodDefault != null && (AnalyzeMethodEnum)SamplingPlanModel.AnalyzeMethodDefault == 0 ? "selected=selected" : "")>
                                         @SamplingPlanViewRes.SelectTheAnalyzeMethod
                                     </option>
                                     @foreach (AnalyzeMethodEnumTextOrdered analyzeMethodEnumTextOrdered in _BaseEnumService.GetAnalyzeMethodEnumTextOrderedList())
                                     {
                                         <option value="@((int)analyzeMethodEnumTextOrdered.AnalyzeMethod)"
-                                                @(SamplingPlanModel.AnalyzeMethodDefault != null && analyzeMethodEnumTextOrdered.AnalyzeMethod == (AnalyzeMethodEnum)SamplingPlanModel.AnalyzeMethodDefault ? "selected=selected" : "")>
+                                                @(SamplingPlanModel != null && SamplingPlanModel.AnalyzeMethodDefault != null && analyzeMethodEnumTextOrdered.AnalyzeMethod == (AnalyzeMethodEnum)SamplingPlanModel.AnalyzeMethodDefault ? "selected=selected" : "")>
                                             @(analyzeMethodEnumTextOrdered.AnalyzeMethodText)
                                         </option>
                                     }
@@ -227,14 +227,14 @@ else
                         <div class="form-group">
                             <label for="SampleMatrixDefault" class="control-label">@SamplingPlanViewRes.SampleMatrix</label>
                             <div>
-                                <select name="SampleMatrixDefault">
-                                    <option value="0" @(SamplingPlanModel.SampleMatrixDefault != null && (SampleMatrixEnum)SamplingPlanModel.SampleMatrixDefault == 0 ? "selected=selected" : "")>
+                                <select name="SampleMatrixDefault" class="form-control">
+                                    <option value="0" @(SamplingPlanModel != null && SamplingPlanModel.SampleMatrixDefault != null && (SampleMatrixEnum)SamplingPlanModel.SampleMatrixDefault == 0 ? "selected=selected" : "")>
                                         @SamplingPlanViewRes.SelectTheSampleMatrix
                                     </option>
                                     @foreach (SampleMatrixEnumTextOrdered sampleMatrixEnumTextOrdered in _BaseEnumService.GetSampleMatrixEnumTextOrderedList())
                                     {
                                         <option value="@((int)sampleMatrixEnumTextOrdered.SampleMatrix)"
-                                                @(SamplingPlanModel.SampleMatrixDefault != null && sampleMatrixEnumTextOrdered.SampleMatrix == (SampleMatrixEnum)SamplingPlanModel.SampleMatrixDefault ? "selected=selected" : "")>
+                                                @(SamplingPlanModel != null && SamplingPlanModel.SampleMatrixDefault != null && sampleMatrixEnumTextOrdered.SampleMatrix == (SampleMatrixEnum)SamplingPlanModel.SampleMatrixDefault ? "selected=selected" : "")>
                                             @(sampleMatrixEnumTextOrdered.SampleMatrixText)
                                         </option>
                                     }
@@ -247,20 +247,31 @@ else
                         <div class="form-group">
                             <label for="LaboratoryDefault" class="control-label">@SamplingPlanViewRes.Laboratory</label>
                             <div>
-                                <select name="LaboratoryDefault">
-                                    <option value="0" @(SamplingPlanModel.LaboratoryDefault != null && (LaboratoryEnum)SamplingPlanModel.LaboratoryDefault == 0 ? "selected=selected" : "")>
+                                <select name="LaboratoryDefault" class="form-control">
+                                    <option value="0" @(SamplingPlanModel != null && SamplingPlanModel.LaboratoryDefault != null && (LaboratoryEnum)SamplingPlanModel.LaboratoryDefault == 0 ? "selected=selected" : "")>
                                         @SamplingPlanViewRes.SelectTheLaboratory
                                     </option>
                                     @foreach (LaboratoryEnumTextOrdered laboratoryEnumTextOrdered in _BaseEnumService.GetLaboratoryEnumTextOrderedList())
                                     {
                                         <option value="@((int)laboratoryEnumTextOrdered.Laboratory)"
-                                                @(SamplingPlanModel.LaboratoryDefault != null && laboratoryEnumTextOrdered.Laboratory == (LaboratoryEnum)SamplingPlanModel.LaboratoryDefault ? "selected=selected" : "")>
+                                                @(SamplingPlanModel != null && SamplingPlanModel.LaboratoryDefault != null && laboratoryEnumTextOrdered.Laboratory == (LaboratoryEnum)SamplingPlanModel.LaboratoryDefault ? "selected=selected" : "")>
                                             @(laboratoryEnumTextOrdered.LaboratoryText)
                                         </option>
                                     }
                                 </select>
                                 <span class="help-block"></span>
                             </div>
+                        </div>
+                    </div>
+
+                    @* BackupPath *@
+                    <div class="form-group">
+                        <label class="control-label" for="BackupDirectory">@SamplingPlanViewRes.BackupDirectory</label>
+                        <i class="text-lighter elementSpacing"><b>Ex: </b>\\Atlantic.int.ec.gc.ca\shares\Branches\EPB\ShellFish\CSSPTools\CSSPLabSheets\</i>
+                        <div class="form-inline elementSpacing">
+                            <span class="form-control-static"></span>
+                            <input class="form-control" style="width: 90%" name="BackupDirectory" type="text" id="BackupDirectory" value="@(SamplingPlanModel == null ? "" : SamplingPlanModel.BackupDirectory)" />
+                            <span class="help-block"></span>
                         </div>
                     </div>
 

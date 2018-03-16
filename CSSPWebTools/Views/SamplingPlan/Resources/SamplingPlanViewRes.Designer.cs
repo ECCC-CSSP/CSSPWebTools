@@ -196,6 +196,15 @@ namespace CSSPWebTools.Views.SamplingPlan.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Backup directory.
+        /// </summary>
+        public static string BackupDirectory {
+            get {
+                return ResourceManager.GetString("BackupDirectory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Blank.
         /// </summary>
         public static string Blank {

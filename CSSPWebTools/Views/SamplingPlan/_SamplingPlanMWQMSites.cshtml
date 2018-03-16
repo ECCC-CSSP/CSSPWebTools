@@ -49,59 +49,60 @@ else
                         <label class="text-primary h4">@SamplingPlanViewRes.MWQMSites</label>
                         <button class="jbSamplingPlanSubsectorSelectAll btn btn-default">@SamplingPlanViewRes.SelectAll</button>
                         <button class="jbSamplingPlanSubsectorUnSelectAll btn btn-default">@SamplingPlanViewRes.UnSelectAll</button>
+                        <span>(A) -> Active</span>
                     </li>
                     <li>
                         <ul class="list-inline">
                             <li>
                                 @foreach (TVItemModel tvItemModelMWQMSite in tvItemModelMWQMSiteList)
-                            {
-                                bool IsCheckedMWQMSite = false;
-                                bool IsDuplicate = false;
-                                if (SamplingPlanSubsectorSiteModelList != null)
                                 {
-
-                                    IsCheckedMWQMSite = (from c in SamplingPlanSubsectorSiteModelList
-                                                         where c.MWQMSiteTVItemID == tvItemModelMWQMSite.TVItemID
-                                                         select c).Any();
-
-                                    if (IsCheckedMWQMSite)
+                                    bool IsCheckedMWQMSite = false;
+                                    bool IsDuplicate = false;
+                                    if (SamplingPlanSubsectorSiteModelList != null)
                                     {
-                                        tvItemModelSelectedList.Add(tvItemModelMWQMSite);
-                                    }
 
-                                    IsDuplicate = (from c in SamplingPlanSubsectorSiteModelList
-                                                   where c.MWQMSiteTVItemID == tvItemModelMWQMSite.TVItemID
-                                                   && c.IsDuplicate == true
-                                                   select c).Any();
+                                        IsCheckedMWQMSite = (from c in SamplingPlanSubsectorSiteModelList
+                                                             where c.MWQMSiteTVItemID == tvItemModelMWQMSite.TVItemID
+                                                             select c).Any();
 
-                                    if (IsDuplicate)
-                                    {
-                                        tvItemModelDuplicate = tvItemModelMWQMSite;
-                                    }
+                                        if (IsCheckedMWQMSite)
+                                        {
+                                            tvItemModelSelectedList.Add(tvItemModelMWQMSite);
+                                        }
 
-                                    if (IsCheckedMWQMSite)
-                                    {
-                                        DuplicateOption += @"<option value=""" + tvItemModelMWQMSite.TVItemID + @"""" +
-                                            (tvItemModelMWQMSite.TVItemID == tvItemModelDuplicate.TVItemID ? "selected='selected'" : "") + ">" +
-                                        tvItemModelMWQMSite.TVText + "</option>";
+                                        IsDuplicate = (from c in SamplingPlanSubsectorSiteModelList
+                                                       where c.MWQMSiteTVItemID == tvItemModelMWQMSite.TVItemID
+                                                       && c.IsDuplicate == true
+                                                       select c).Any();
+
+                                        if (IsDuplicate)
+                                        {
+                                            tvItemModelDuplicate = tvItemModelMWQMSite;
+                                        }
+
+                                        if (IsCheckedMWQMSite)
+                                        {
+                                            DuplicateOption += @"<option value=""" + tvItemModelMWQMSite.TVItemID + @"""" +
+                                                (tvItemModelMWQMSite.TVItemID == tvItemModelDuplicate.TVItemID ? "selected='selected'" : "") + ">" +
+                                            tvItemModelMWQMSite.TVText + "</option>";
+                                        }
                                     }
+                                    string MWQMNameID = "SS" + SubsectorTVItemID + "_S" + tvItemModelMWQMSite.TVItemID;
+
+
+                                    <div class="checkbox-inline">
+
+                                        <label class="control-label  @(IsCheckedMWQMSite ? "ElementSelected" : "")">
+                                            <input class="mwqmsite checkbox invisible" name="@MWQMNameID" type="checkbox"
+                                                   @(IsCheckedMWQMSite ? "checked='checked'" : "") value="@(tvItemModelMWQMSite.TVItemID)"
+                                                   data-isduplicate="@(IsDuplicate == true ? "T" : "F")" />
+                                            <span>@tvItemModelMWQMSite.TVText @(tvItemModelMWQMSite.IsActive == true ? " (A)" : "")</span>
+                                        </label>
+                                    </div>
+
+                                    MWQMDuplicateID = "SS" + tvItemModelMWQMSite.ParentID + "_D";
+
                                 }
-                                string MWQMNameID = "SS" + SubsectorTVItemID + "_S" + tvItemModelMWQMSite.TVItemID;
-
-
-                            <div class="checkbox-inline">
-
-                                <label class="control-label  @(IsCheckedMWQMSite ? "ElementSelected" : "")">
-                                    <input class="mwqmsite checkbox invisible" name="@MWQMNameID" type="checkbox"
-                                           @(IsCheckedMWQMSite ? "checked='checked'" : "") value="@(tvItemModelMWQMSite.TVItemID)"
-                                           data-isduplicate="@(IsDuplicate == true ? "T" : "F")" />
-                                    <span>@tvItemModelMWQMSite.TVText</span>
-                                </label>
-                            </div>
-
-                                MWQMDuplicateID = "SS" + tvItemModelMWQMSite.ParentID + "_D";
-
-                            }
                             </li>
                         </ul>
                     </li>
@@ -114,7 +115,7 @@ else
                             <button class="jbSamplingPlanSubsectorEditSave btn btn-primary" type="submit">
                                 <span class="glyphicon glyphicon-check"></span>
                                 &nbsp;
-                                <span class="SamplingPlanMWQMSiteSave">@SamplingPlanViewRes.Save</span> 
+                                <span class="SamplingPlanMWQMSiteSave">@SamplingPlanViewRes.Save</span>
                             </button>
                         </div>
                     </li>

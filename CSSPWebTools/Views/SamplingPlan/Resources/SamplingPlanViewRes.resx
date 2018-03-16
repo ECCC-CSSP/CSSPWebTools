@@ -520,4 +520,7 @@
   <data name="PendingApproval" xml:space="preserve">
     <value>Pending approval</value>
   </data>
+  <data name="BackupDirectory" xml:space="preserve">
+    <value>Backup directory</value>
+  </data>
 </root>
