@@ -23,6 +23,7 @@ namespace CSSPWebTools.Controllers
         public SamplingPlanController _SamplingPlanController { get; private set; }
         public AppTaskService _AppTaskService { get; private set; }
         public SamplingPlanService _SamplingPlanService { get; private set; }
+        public SamplingPlanEmailService _SamplingPlanEmailService { get; private set; }
         public SamplingPlanSubsectorService _SamplingPlanSubsectorService { get; private set; }
         public SamplingPlanSubsectorSiteService _SamplingPlanSubsectorSiteService { get; private set; }
         public TVFileService _TVFileService { get; private set; }
@@ -43,6 +44,7 @@ namespace CSSPWebTools.Controllers
             base.Initialize(requestContext);
             _AppTaskService = new AppTaskService(LanguageRequest, User);
             _SamplingPlanService = new SamplingPlanService(LanguageRequest, User);
+            _SamplingPlanEmailService = new SamplingPlanEmailService(LanguageRequest, User);
             _SamplingPlanSubsectorService = new SamplingPlanSubsectorService(LanguageRequest, User);
             _SamplingPlanSubsectorSiteService = new SamplingPlanSubsectorSiteService(LanguageRequest, User);
             _TVFileService = new TVFileService(LanguageRequest, User);
@@ -121,6 +123,23 @@ namespace CSSPWebTools.Controllers
                     ViewBag.SamplingPlanModel = SamplingPlanModel;
                 }
             }
+
+            return PartialView();
+        }
+
+        [HttpGet]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public PartialViewResult _SamplingPlanEmailAddOrModify(int SamplingPlanID)
+        {
+            ViewBag.SamplingPlanID = SamplingPlanID;
+            ViewBag.SamplingPlanModel = null;
+            ViewBag.SamplingPlanEmailModelList = null;
+
+            SamplingPlanModel SamplingPlanModel = _SamplingPlanService.GetSamplingPlanModelWithSamplingPlanIDDB(SamplingPlanID);
+            ViewBag.SamplingPlanModel = SamplingPlanModel;
+
+            List<SamplingPlanEmailModel> samplingPlanEmailModelList = _SamplingPlanEmailService.GetSamplingPlanEmailModelListWithSamplingPlanIDDB(SamplingPlanID);
+            ViewBag.SamplingPlanEmailModelList = samplingPlanEmailModelList;
 
             return PartialView();
         }
@@ -497,6 +516,24 @@ namespace CSSPWebTools.Controllers
             SamplingPlanModel SamplingPlanModel = _SamplingPlanService.SamplingPlanCopyDB(SamplingPlanID);
 
             return Json(SamplingPlanModel.Error, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public JsonResult SamplingPlanEmailAddOrModifyJSON(FormCollection fc)
+        {
+            SamplingPlanEmailModel SamplingPlanEmailModel = _SamplingPlanEmailService.SamplingPlanEmailAddOrModifyDB(fc);
+
+            return Json(SamplingPlanEmailModel.Error, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public JsonResult SamplingPlanEmailDeleteJSON(int SamplingPlanEmailID)
+        {
+            SamplingPlanEmailModel SamplingPlanEmailModel = _SamplingPlanEmailService.PostDeleteSamplingPlanEmailDB(SamplingPlanEmailID);
+
+            return Json(SamplingPlanEmailModel.Error, JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost]

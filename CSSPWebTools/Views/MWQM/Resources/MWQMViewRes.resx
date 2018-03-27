@@ -849,4 +849,25 @@
   <data name="WillBeUsingDefaultParameters" xml:space="preserve">
     <value>Will be using default parameters</value>
   </data>
+  <data name="IsSensitive" xml:space="preserve">
+    <value>Is sensitive</value>
+  </data>
+  <data name="IsSensitiveIfNotStrikeThrough" xml:space="preserve">
+    <value>Is sensitive if not strike through</value>
+  </data>
+  <data name="MarkAllRoutineSamplesAs" xml:space="preserve">
+    <value>Mark all routine samples as</value>
+  </data>
+  <data name="NotSensitive" xml:space="preserve">
+    <value>Not sensitive</value>
+  </data>
+  <data name="NotValidated" xml:space="preserve">
+    <value>Not validated</value>
+  </data>
+  <data name="Validated" xml:space="preserve">
+    <value>Validated</value>
+  </data>
+  <data name="ValidatedIfNotStrikeThrough" xml:space="preserve">
+    <value>Validated if not strike through</value>
+  </data>
 </root>

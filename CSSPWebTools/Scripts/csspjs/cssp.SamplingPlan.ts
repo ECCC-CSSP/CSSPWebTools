@@ -64,7 +64,7 @@
             }
         };
         public ChangeSamplingPlanName() {
-            $("input[name='SamplingPlanName']").val("C:\\CSSPLabSheets\\SamplingPlan" + 
+            $("input[name='SamplingPlanName']").val("C:\\CSSPLabSheets\\SamplingPlan" +
                 "_" + $("select[name='SamplingPlanType']").find(":checked").text().trim().replace(" ", "_") +
                 "_" + $("select[name='SampleType']").find(":checked").text().trim().replace(" ", "_") +
                 "_" + $("select[name='LabSheetType']").find(":checked").text().trim().replace(" ", "_") +
@@ -323,6 +323,41 @@
                     // nothing
                 });
         };
+        public SamplingPlanEmailAddOrModify: Function = ($bjs: JQuery): void => {
+            let SamplingPlanID: number = parseInt($bjs.data("samplingplanid"));
+            let SamplingPlanEmailID: number = parseInt($bjs.data("samplingplanemailid"));
+            let tr$: JQuery = $bjs.closest("tr");
+            let Email: string = $bjs.closest("tr").find("input[name='Email']").val();
+            let IsContractor: boolean = $bjs.closest("tr").find("input[name='IsContractor']").is(":checked") ? true : false;
+            let LabSheetHasValueOver500: boolean = $bjs.closest("tr").find("input[name='LabSheetHasValueOver500']").is(":checked") ? true : false;
+            let LabSheetReceived: boolean = $bjs.closest("tr").find("input[name='LabSheetReceived']").is(":checked") ? true : false;
+            let LabSheetAccepted: boolean = $bjs.closest("tr").find("input[name='LabSheetAccepted']").is(":checked") ? true : false;
+            let LabSheetRejected: boolean = $bjs.closest("tr").find("input[name='LabSheetRejected']").is(":checked") ? true : false;
+            let FridayReminderAt14h: boolean = $bjs.closest("tr").find("input[name='FridayReminderAt14h']").is(":checked") ? true : false;
+            let command = "SamplingPlan/SamplingPlanEmailAddOrModifyJSON";
+            $.post(cssp.BaseURL + command, {
+                SamplingPlanID: SamplingPlanID,
+                SamplingPlanEmailID: SamplingPlanEmailID,
+                Email: Email,
+                IsContractor: IsContractor,
+                LabSheetHasValueOver500: LabSheetHasValueOver500,
+                LabSheetReceived: LabSheetReceived,
+                LabSheetAccepted: LabSheetAccepted,
+                LabSheetRejected: LabSheetRejected,
+                FridayReminderAt14h: FridayReminderAt14h,
+            }).done((ret) => {
+                if (ret) {
+                    cssp.Dialog.ShowDialogError(ret);
+                }
+                else {
+                    cssp.Dialog.ShowDialogSuccess(cssp.GetHTMLVariable("#LayoutVariables", "varSuccess"));
+                }
+            }).fail(() => {
+                cssp.Dialog.ShowDialogErrorWithFail(command);
+            }).always(() => {
+                // nothing
+            });
+        };
         public SamplingPlanGenerateSamplingPlan: Function = ($bjs: JQuery): void => {
             var SamplingPlanID: number = parseInt($bjs.closest(".SamplingPlanItem").data("samplingplanid"));
             var command = "SamplingPlan/SamplingPlanGenerateSamplingPlanJSON";
@@ -368,6 +403,35 @@
                         }).always(() => {
                             // nothing
                         });
+                });
+            });
+        };
+        public SamplingPlanEmailAskToDelete: Function = ($bjs: JQuery): void => {
+            let SamplingPlanEmailName: string = $bjs.closest("tr").find("input[name='Email']").val();
+            cssp.Dialog.ShowDialogAreYouSure(SamplingPlanEmailName);
+            cssp.Dialog.CheckDialogAndButtonsExist(["#DialogBasic", "#DialogBasicYes"], 5, "cssp.SamplingPlanEmail.SetDialogEvents", $bjs);
+        };
+        public SetDialogEventsEmail: Function = ($bjs) => {
+            $("#DialogBasicYes").one("click", (evt) => {
+                $("#DialogBasic").one('hidden.bs.modal', () => {
+                    let SamplingPlanEmailID: number = parseInt($bjs.data("samplingplanemailid"));
+                    let tr$: JQuery = $bjs.closest("tr");
+                    let command = "SamplingPlan/SamplingPlanEmailDeleteJSON";
+                    $.post(cssp.BaseURL + command, {
+                        SamplingPlanEmailID: SamplingPlanEmailID,
+                    }).done((ret) => {
+                        if (ret) {
+                            cssp.Dialog.ShowDialogError(ret);
+                        }
+                        else {
+                            tr$.remove();
+                            cssp.Dialog.ShowDialogSuccess(cssp.GetHTMLVariable("#LayoutVariables", "varSuccess"));
+                        }
+                    }).fail(() => {
+                        cssp.Dialog.ShowDialogErrorWithFail(command);
+                    }).always(() => {
+                        // nothing
+                    });
                 });
             });
         };

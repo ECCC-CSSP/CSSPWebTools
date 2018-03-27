@@ -1,0 +1,118 @@
+﻿@using CSSPWebTools.Views.SamplingPlan.Resources;
+@using CSSPModelsDLL.Models;
+@using CSSPEnumsDLL.Enums;
+@using CSSPEnumsDLL.Services;
+@using CSSPWebTools.Controllers;
+
+@{
+    int SamplingPlanID = (int)ViewBag.SamplingPlanID;
+    SamplingPlanModel SamplingPlanModel = (SamplingPlanModel)ViewBag.SamplingPlanModel;
+    List<SamplingPlanEmailModel> samplingPlanEmailModelList = (List<SamplingPlanEmailModel>)ViewBag.SamplingPlanEmailModelList;
+}
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h4 class="panel-title">@SamplingPlanViewRes.SettingUpEmails</h4>
+    </div>
+    <div class="panel-body">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>@SamplingPlanViewRes.Email</th>
+                    <th>@SamplingPlanViewRes.IsContractor</th>
+                    <th>@SamplingPlanViewRes.LabSheet @SamplingPlanViewRes.HasValue @SamplingPlanViewRes.Over500</th>
+                    <th>@SamplingPlanViewRes.LabSheet @SamplingPlanViewRes.Received</th>
+                    <th>@SamplingPlanViewRes.LabSheet @SamplingPlanViewRes.Accepted</th>
+                    <th>@SamplingPlanViewRes.LabSheet @SamplingPlanViewRes.Rejected</th>
+                    <th>@SamplingPlanViewRes.Friday @SamplingPlanViewRes.Reminder @SamplingPlanViewRes.At14h</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (SamplingPlanEmailModel samplingPlanEmailModel in samplingPlanEmailModelList)
+                {
+                    <tr>
+                        <td>
+                            <button class="jbSamplingPlanEmailAddOrModify btn btn-primary"
+                                    data-samplingplanid="@SamplingPlanID"
+                                    data-samplingplanemailid="@samplingPlanEmailModel.SamplingPlanEmailID">
+                                @SamplingPlanViewRes.Save
+                            </button>
+                            <button class="jbSamplingPlanEmailAskToDelete btn btn-primary"
+                                    data-samplingplanemailid="@samplingPlanEmailModel.SamplingPlanEmailID">
+                                @SamplingPlanViewRes.Delete
+                            </button>
+                        </td>
+                        <td>
+                            <input class="form-control" type="text" name="Email" value="@(samplingPlanEmailModel != null ? samplingPlanEmailModel.Email : "")" />
+                            <span class="help-block"></span>
+                        </td>
+                        <td>
+                            <input class="form-control" type="checkbox" name="IsContractor" @(samplingPlanEmailModel != null && samplingPlanEmailModel.IsContractor ? "checked='checked'" : "") />
+                            <span class="help-block"></span>
+                        </td>
+                        <td>
+                            <input class="form-control" type="checkbox" name="LabSheetHasValueOver500" @(samplingPlanEmailModel != null && samplingPlanEmailModel.LabSheetHasValueOver500 ? "checked='checked'" : "") />
+                            <span class="help-block"></span>
+                        </td>
+                        <td>
+                            <input class="form-control" type="checkbox" name="LabSheetReceived" @(samplingPlanEmailModel != null && samplingPlanEmailModel.LabSheetReceived ? "checked='checked'" : "") />
+                            <span class="help-block"></span>
+                        </td>
+                        <td>
+                            <input class="form-control" type="checkbox" name="LabSheetAccepted" @(samplingPlanEmailModel != null && samplingPlanEmailModel.LabSheetAccepted ? "checked='checked'" : "") />
+                            <span class="help-block"></span>
+                        </td>
+                        <td>
+                            <input class="form-control" type="checkbox" name="LabSheetRejected" @(samplingPlanEmailModel != null && samplingPlanEmailModel.LabSheetRejected ? "checked='checked'" : "") />
+                            <span class="help-block"></span>
+                        </td>
+                        <td>
+                            <input class="form-control" type="checkbox" name="FridayReminderAt14h" @(samplingPlanEmailModel != null && samplingPlanEmailModel.FridayReminderAt14h ? "checked='checked'" : "") />
+                            <span class="help-block"></span>
+                        </td>
+                    </tr>
+                }
+                    <tr>
+                        <td>
+                            <button class="jbSamplingPlanEmailAddOrModify btn btn-primary"
+                                    data-samplingplanid="@SamplingPlanID"
+                                    data-samplingplanemailid="0">
+                                @SamplingPlanViewRes.Add
+                            </button>
+                        </td>
+                        <td>
+                            <input class="form-control" type="text" name="Email" value="" />
+                            <span class="help-block"></span>
+                        </td>
+                        <td>
+                            <input class="form-control" type="checkbox" name="IsContractor" />
+                            <span class="help-block"></span>
+                        </td>
+                        <td>
+                            <input class="form-control" type="checkbox" name="LabSheetHasValueOver500" />
+                            <span class="help-block"></span>
+                        </td>
+                        <td>
+                            <input class="form-control" type="checkbox" name="LabSheetReceived" />
+                            <span class="help-block"></span>
+                        </td>
+                        <td>
+                            <input class="form-control" type="checkbox" name="LabSheetAccepted" />
+                            <span class="help-block"></span>
+                        </td>
+                        <td>
+                            <input class="form-control" type="checkbox" name="LabSheetRejected" />
+                            <span class="help-block"></span>
+                        </td>
+                        <td>
+                            <input class="form-control" type="checkbox" name="FridayReminderAt14h" />
+                            <span class="help-block"></span>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+
+    </div>
+</div>

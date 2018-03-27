@@ -523,4 +523,49 @@
   <data name="BackupDirectory" xml:space="preserve">
     <value>Backup directory</value>
   </data>
+  <data name="Accepted" xml:space="preserve">
+    <value>Accepted</value>
+  </data>
+  <data name="ActiveSamplingPlans" xml:space="preserve">
+    <value>Active sampling plans</value>
+  </data>
+  <data name="At14h" xml:space="preserve">
+    <value>At 14:00</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="Friday" xml:space="preserve">
+    <value>Friday</value>
+  </data>
+  <data name="HasValue" xml:space="preserve">
+    <value>Has Value</value>
+  </data>
+  <data name="InactiveOrOldSamplingPlans" xml:space="preserve">
+    <value>Inactive or old sampling plans</value>
+  </data>
+  <data name="IsActive" xml:space="preserve">
+    <value>Is Active</value>
+  </data>
+  <data name="IsContractor" xml:space="preserve">
+    <value>Is Contractor</value>
+  </data>
+  <data name="LabSheet" xml:space="preserve">
+    <value>Labsheet</value>
+  </data>
+  <data name="Over500" xml:space="preserve">
+    <value>Over 500</value>
+  </data>
+  <data name="Received" xml:space="preserve">
+    <value>Received</value>
+  </data>
+  <data name="Rejected" xml:space="preserve">
+    <value>Rejected</value>
+  </data>
+  <data name="Reminder" xml:space="preserve">
+    <value>Reminder</value>
+  </data>
+  <data name="SettingUpEmails" xml:space="preserve">
+    <value>Setting up emails</value>
+  </data>
 </root>

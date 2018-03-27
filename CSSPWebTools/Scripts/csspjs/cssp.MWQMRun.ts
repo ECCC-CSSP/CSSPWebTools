@@ -376,6 +376,98 @@ module CSSP {
                 cssp.Helper.PageRefresh();
             }
         };
+        public MarkAllRoutineSamplesAsValidated: Function = ($bjs: JQuery): void => {
+            let MWQMRunTVItemID: number = parseInt($("#ViewDiv").data("tvitemid"));
+            var command = "MWQM/MarkAllRoutineSamplesAsValidatedJSON";
+            $.post(cssp.BaseURL + command,
+                {
+                    MWQMRunTVItemID: MWQMRunTVItemID,
+                })
+                .done((ret) => {
+                    if (ret) {
+                        cssp.Dialog.ShowDialogError(ret);
+                    }
+                    else {
+                        $("select[name='SampleTypes']").each((index: number, elem: HTMLElement) => {
+                            let value: string = $(elem).val();
+                            if (value.indexOf("109") > -1) {
+                                $(elem).closest("td").next("td").find("input[name='Validated']").removeAttr("checked").attr("checked", "checked");
+                            }
+                        });
+                    }
+                }).fail(() => {
+                    cssp.Dialog.ShowDialogErrorWithFail(command);
+                });
+        };
+        public MarkAllRoutineSamplesAsNotValidated: Function = ($bjs: JQuery): void => {
+            let MWQMRunTVItemID: number = parseInt($("#ViewDiv").data("tvitemid"));
+            var command = "MWQM/MarkAllRoutineSamplesAsNotValidatedJSON";
+            $.post(cssp.BaseURL + command,
+                {
+                    MWQMRunTVItemID: MWQMRunTVItemID,
+                })
+                .done((ret) => {
+                    if (ret) {
+                        cssp.Dialog.ShowDialogError(ret);
+                    }
+                    else {
+                        $("select[name='SampleTypes']").each((index: number, elem: HTMLElement) => {
+                            let value: string = $(elem).val();
+                            if (value.indexOf("109") > -1) {
+                                $(elem).closest("td").next("td").find("input[name='Validated']").removeAttr("checked");
+                            }
+                        });
+                    }
+                }).fail(() => {
+                    cssp.Dialog.ShowDialogErrorWithFail(command);
+                });
+        };
+        public MarkAllRoutineSamplesAsIsSensitive: Function = ($bjs: JQuery): void => {
+            let MWQMRunTVItemID: number = parseInt($("#ViewDiv").data("tvitemid"));
+            var command = "MWQM/MarkAllRoutineSamplesAsIsSensitiveJSON";
+            $.post(cssp.BaseURL + command,
+                {
+                    MWQMRunTVItemID: MWQMRunTVItemID,
+                })
+                .done((ret) => {
+                    if (ret) {
+                        cssp.Dialog.ShowDialogError(ret);
+                    }
+                    else {
+                        $("select[name='SampleTypes']").each((index: number, elem: HTMLElement) => {
+                            let value: string = $(elem).val();
+                            if (value.indexOf("109") > -1) {
+                                $(elem).closest("td").next("td").next("td").find("input[name='IsSensitive']").removeAttr("checked").attr("checked", "checked");
+                            }
+                        });
+                    }
+                }).fail(() => {
+                    cssp.Dialog.ShowDialogErrorWithFail(command);
+                });
+        };
+        public MarkAllRoutineSamplesAsNotSensitive: Function = ($bjs: JQuery): void => {
+            let MWQMRunTVItemID: number = parseInt($("#ViewDiv").data("tvitemid"));
+            var command = "MWQM/MarkAllRoutineSamplesAsNotSensitiveJSON";
+            $.post(cssp.BaseURL + command,
+                {
+                    MWQMRunTVItemID: MWQMRunTVItemID,
+                })
+                .done((ret) => {
+                    if (ret) {
+                        cssp.Dialog.ShowDialogError(ret);
+                    }
+                    else {
+                        $("select[name='SampleTypes']").each((index: number, elem: HTMLElement) => {
+                            let value: string = $(elem).val();
+                            if (value.indexOf("109") > -1) {
+                                $(elem).closest("td").next("td").next("td").find("input[name='IsSensitive']").removeAttr("checked");
+                            }
+                        });
+                    }
+                }).fail(() => {
+                    cssp.Dialog.ShowDialogErrorWithFail(command);
+                });
+        };
         public MWQMSampleAddOrModify: Function = ($bjs: JQuery): void => {
             var MWQMSampleID: string = $bjs.data("mwqmsampleid");
             var MWQMRunTVItemID: string = $("#MWQMRunAddOrModifyForm").find("input[name='MWQMRunTVItemID']").val();
@@ -395,6 +487,8 @@ module CSSP {
             var PH: string = $MWQMSample.find("input[name='PH']").val();
             var ProcessedBy: string = $MWQMSample.find("input[name='ProcessedBy']").val();
             var SampleTypes: string = $MWQMSample.find("select[name='SampleTypes']").val();
+            var Validated: boolean = $MWQMSample.find("input[name='Validated']").is(":checked") ? true : false;
+            var IsSensitive: boolean = $MWQMSample.find("input[name='IsSensitive']").is(":checked") ? true : false;
             var MWQMSampleNote: string = $MWQMSample.find("input[name='MWQMSampleNote']").val();
 
 
@@ -425,6 +519,8 @@ module CSSP {
                         PH: PH,
                         ProcessedBy: ProcessedBy,
                         SampleTypes: SampleTypes,
+                        Validated: Validated,
+                        IsSensitive: IsSensitive,
                         MWQMSampleNote: MWQMSampleNote,
                     })
                     .done((ret) => {

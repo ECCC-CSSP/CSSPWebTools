@@ -889,6 +889,7 @@
     <Content Include="Views\ReportType\_reportSectionForm.cshtml" />
     <Content Include="Views\MWQM\_mwqmAnalysisReportParameterListForYear.cshtml" />
     <Content Include="Views\File\_exportArcGIS.cshtml" />
+    <Content Include="Views\SamplingPlan\_SamplingPlanEmailAddOrModify.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

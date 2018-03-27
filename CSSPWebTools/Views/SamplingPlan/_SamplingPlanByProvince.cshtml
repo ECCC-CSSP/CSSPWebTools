@@ -21,7 +21,7 @@
         <p>@SamplingPlanViewRes.ToHaveAccess</p>
         <ul class="list-inline">
             @foreach (ContactModel contactModel in AdminContactModelList)
-                {
+            {
                 <li>
                     <a href="mailto:@contactModel.LoginEmail" class="btn btn-link">@contactModel.LoginEmail</a>
                 </li>
@@ -48,94 +48,221 @@ else
             }
             else
             {
-                foreach (SamplingPlanAndFilesLabSheetCountModel SamplingPlanAndFilesAndLabSheetIDListModel in SamplingPlanAndFilesAndLabSheetIDListModelList)
-                {
-                    string HeadingID = "heading" + SamplingPlanAndFilesAndLabSheetIDListModel.SamplingPlanModel.SamplingPlanID;
-                    string CollapseID = "collapse" + SamplingPlanAndFilesAndLabSheetIDListModel.SamplingPlanModel.SamplingPlanID;
-                    <div class="SamplingPlanItem panel panel-info" data-SamplingPlanid="@SamplingPlanAndFilesAndLabSheetIDListModel.SamplingPlanModel.SamplingPlanID">
+                <div class="panel-group" id="active" role="tablist" aria-multiselectable="true">
+                    <div class="panel panel-primary">
                         <div class="panel-heading">
-                            <h4 class="panel-title SamplingPlanTitlePanel">
-                                <button class="jbSamplingPlanEdit SamplingPlanEditButons btn btn-default hidden" title="@SamplingPlanViewRes.Edit"><span class="glyphicon glyphicon-pencil"></span></button>
-                                <button class="jbSamplingPlanAskToDelete SamplingPlanEditButons btn btn-default hidden" title="@SamplingPlanViewRes.Delete"><span class="glyphicon glyphicon-trash"></span></button>
-                                <button class="jbSamplingPlanCopy SamplingPlanEditButons btn btn-default hidden" title="@SamplingPlanViewRes.Copy"><span class="glyphicon glyphicon-duplicate"></span></button>
-                                <span class="SamplingPlanName">
-                                    @(SamplingPlanAndFilesAndLabSheetIDListModel.SamplingPlanModel.ForGroupName + " (" + SamplingPlanAndFilesAndLabSheetIDListModel.SamplingPlanModel.Year + ") ")
-                                    --- (@(_BaseEnumService.GetEnumText_SampleTypeEnum(SamplingPlanAndFilesAndLabSheetIDListModel.SamplingPlanModel.SampleType))
-                                    @SamplingPlanViewRes.SampleType)
-                                </span>
-                            </h4>
+                            <div class="panel-title">
+                                <a role="button" data-toggle="collapse" data-parent="#active" href="#collapseActive" aria-expanded="true" aria-controls="collapseOne">
+                                    @SamplingPlanViewRes.ActiveSamplingPlans
+                                </a>
+                            </div>
                         </div>
-                        <div class="panel-body">
-                            @SamplingPlanViewRes.LabSheetsWaitingToBeAccepted (@SamplingPlanAndFilesAndLabSheetIDListModel.LabSheetTransferredCount)
-                            @if (SamplingPlanAndFilesAndLabSheetIDListModel.LabSheetTransferredCount > 0)
-                            {
-                                <button class="jbSamplingPlanShowTransferredLabSheets SamplingPlanEditButons btn btn-default" title="@SamplingPlanViewRes.ShowTransferredLabSheets"><span class="glyphicon glyphicon-arrow-down"></span></button>
-                            }
-                            <div class="LabSheetsTransferredDiv">
+                        <div id="collapseActive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                            <div class="panel-body">
+                                @if (!SamplingPlanAndFilesAndLabSheetIDListModelList.Where(c => c.SamplingPlanModel.IsActive == true).Any())
+                                {
+                                    <span>@SamplingPlanViewRes.Empty</span>
+                                }
+                                @foreach (SamplingPlanAndFilesLabSheetCountModel SamplingPlanAndFilesAndLabSheetIDListModel in SamplingPlanAndFilesAndLabSheetIDListModelList.Where(c => c.SamplingPlanModel.IsActive == true))
+                                {
+                                    string HeadingID = "heading" + SamplingPlanAndFilesAndLabSheetIDListModel.SamplingPlanModel.SamplingPlanID;
+                                    string CollapseID = "collapse" + SamplingPlanAndFilesAndLabSheetIDListModel.SamplingPlanModel.SamplingPlanID;
+                                    <div class="SamplingPlanItem panel panel-info" data-SamplingPlanid="@SamplingPlanAndFilesAndLabSheetIDListModel.SamplingPlanModel.SamplingPlanID">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title SamplingPlanTitlePanel">
+                                                <button class="jbSamplingPlanEdit SamplingPlanEditButons btn btn-default hidden" title="@SamplingPlanViewRes.Edit"><span class="glyphicon glyphicon-pencil"></span></button>
+                                                <button class="jbSamplingPlanAskToDelete SamplingPlanEditButons btn btn-default hidden" title="@SamplingPlanViewRes.Delete"><span class="glyphicon glyphicon-trash"></span></button>
+                                                <button class="jbSamplingPlanCopy SamplingPlanEditButons btn btn-default hidden" title="@SamplingPlanViewRes.Copy"><span class="glyphicon glyphicon-duplicate"></span></button>
+                                                <span class="SamplingPlanName">
+                                                    @(SamplingPlanAndFilesAndLabSheetIDListModel.SamplingPlanModel.ForGroupName + " (" + SamplingPlanAndFilesAndLabSheetIDListModel.SamplingPlanModel.Year + ") ")
+                                                    --- (@(_BaseEnumService.GetEnumText_SampleTypeEnum(SamplingPlanAndFilesAndLabSheetIDListModel.SamplingPlanModel.SampleType))
+                                                    @SamplingPlanViewRes.SampleType)
+                                                </span>
+                                            </h4>
+                                        </div>
+                                        <div class="panel-body">
+                                            @SamplingPlanViewRes.LabSheetsWaitingToBeAccepted (@SamplingPlanAndFilesAndLabSheetIDListModel.LabSheetTransferredCount)
+                                            @if (SamplingPlanAndFilesAndLabSheetIDListModel.LabSheetTransferredCount > 0)
+                                            {
+                                                <button class="jbSamplingPlanShowTransferredLabSheets SamplingPlanEditButons btn btn-default" title="@SamplingPlanViewRes.ShowTransferredLabSheets"><span class="glyphicon glyphicon-arrow-down"></span></button>
+                                            }
+                                            <div class="LabSheetsTransferredDiv">
 
-                            </div>
-                            @SamplingPlanViewRes.LabSheetsHistory (@SamplingPlanAndFilesAndLabSheetIDListModel.LabSheetHistoryCount)
-                            @if (SamplingPlanAndFilesAndLabSheetIDListModel.LabSheetHistoryCount > 0)
-                            {
-                                <button class="jbSamplingPlanShowHistoryLabSheets SamplingPlanEditButons btn btn-default" title="@SamplingPlanViewRes.ShowHistoryLabSheets"><span class="glyphicon glyphicon-hourglass"></span></button>
-                            }
-                            <div class="LabSheetsHistoryDiv">
+                                            </div>
+                                            @SamplingPlanViewRes.LabSheetsHistory (@SamplingPlanAndFilesAndLabSheetIDListModel.LabSheetHistoryCount)
+                                            @if (SamplingPlanAndFilesAndLabSheetIDListModel.LabSheetHistoryCount > 0)
+                                            {
+                                                <button class="jbSamplingPlanShowHistoryLabSheets SamplingPlanEditButons btn btn-default" title="@SamplingPlanViewRes.ShowHistoryLabSheets"><span class="glyphicon glyphicon-hourglass"></span></button>
+                                            }
+                                            <div class="LabSheetsHistoryDiv">
 
-                            </div>
-                            <div class="SamplingPlanModify">
+                                            </div>
+                                            <div class="SamplingPlanModify">
 
-                            </div>
-                            <div class="SamplingPlanFileDiv">
-                                <ul class="list-unstyled">
-                                    <li>
-                                        @if (SamplingPlanAndFilesAndLabSheetIDListModel.TVFileModelSamplingPlanFileTXT != null)
-                                        {
+                                            </div>
+                                            <div class="SamplingPlanFileDiv">
+                                                <ul class="list-unstyled">
+                                                    <li>
+                                                        @if (SamplingPlanAndFilesAndLabSheetIDListModel.TVFileModelSamplingPlanFileTXT != null)
+                                                        {
 
-                                            <button class="jbFileDownload SamplingPlanEditButons btn btn-default hidden"
-                                                    data-tvfiletvitemid="@SamplingPlanAndFilesAndLabSheetIDListModel.TVFileModelSamplingPlanFileTXT.TVFileTVItemID"
-                                                    title="@SamplingPlanViewRes.Download">
-                                                <span class="glyphicon glyphicon-download"></span>
-                                            </button>
-                                            <button class="jbSamplingPlanDeleteFile SamplingPlanEditButons btn btn-default hidden"
-                                                    data-tvfiletvitemid="@SamplingPlanAndFilesAndLabSheetIDListModel.TVFileModelSamplingPlanFileTXT.TVFileTVItemID"
-                                                    data-extensionwithdot=".txt"
-                                                    title="@SamplingPlanViewRes.Delete">
-                                                <span class="glyphicon glyphicon-trash"></span>
-                                            </button>
+                                                            <button class="jbFileDownload SamplingPlanEditButons btn btn-default hidden"
+                                                                    data-tvfiletvitemid="@SamplingPlanAndFilesAndLabSheetIDListModel.TVFileModelSamplingPlanFileTXT.TVFileTVItemID"
+                                                                    title="@SamplingPlanViewRes.Download">
+                                                                <span class="glyphicon glyphicon-download"></span>
+                                                            </button>
+                                                            <button class="jbSamplingPlanDeleteFile SamplingPlanEditButons btn btn-default hidden"
+                                                                    data-tvfiletvitemid="@SamplingPlanAndFilesAndLabSheetIDListModel.TVFileModelSamplingPlanFileTXT.TVFileTVItemID"
+                                                                    data-extensionwithdot=".txt"
+                                                                    title="@SamplingPlanViewRes.Delete">
+                                                                <span class="glyphicon glyphicon-trash"></span>
+                                                            </button>
 
-                                            <img src="~/Images/Notepad_icon16.png" />
-                                            <span class="fakeButton">
-                                                <span class="TVText"></span><label>@SamplingPlanAndFilesAndLabSheetIDListModel.TVFileModelSamplingPlanFileTXT.ServerFileName</label>
-                                            </span>
-                                            <span>
-                                                &nbsp;|&nbsp;
-                                                @if ((SamplingPlanAndFilesAndLabSheetIDListModel.TVFileModelSamplingPlanFileTXT.FileSize_kb / 1024) > 1)
-                                                {
-                                                    <span> @(string.Format("{0:F1}", SamplingPlanAndFilesAndLabSheetIDListModel.TVFileModelSamplingPlanFileTXT.FileSize_kb / 1024)) @SamplingPlanViewRes.MB </span>
-                                                }
-                                                else
-                                                {
-                                                    <span>@(string.Format("{0:F1}", SamplingPlanAndFilesAndLabSheetIDListModel.TVFileModelSamplingPlanFileTXT.FileSize_kb)) @SamplingPlanViewRes.KB</span>
-                                                }
-                                                &nbsp;|&nbsp;
-                                            </span>
-                                            <span>@string.Format("{0:F}", SamplingPlanAndFilesAndLabSheetIDListModel.TVFileModelSamplingPlanFileTXT.FileCreatedDate_UTC.ToLocalTime())</span>
-                                        }
-                                        else
-                                        {
-                                            <img src="~/Images/Notepad_icon16.png" />
-                                            <button class="jbSamplingPlanGenerateSamplingPlan btn btn-link"
-                                                    data-extensionwithdot=".txt">
-                                                @SamplingPlanViewRes.CreateSamplingPlan
-                                            </button>
-                                        }
-                                    </li>
+                                                            <img src="~/Images/Notepad_icon16.png" />
+                                                            <span class="fakeButton">
+                                                                <span class="TVText"></span><label>@SamplingPlanAndFilesAndLabSheetIDListModel.TVFileModelSamplingPlanFileTXT.ServerFileName</label>
+                                                            </span>
+                                                            <span>
+                                                                &nbsp;|&nbsp;
+                                                                @if ((SamplingPlanAndFilesAndLabSheetIDListModel.TVFileModelSamplingPlanFileTXT.FileSize_kb / 1024) > 1)
+                                                                {
+                                                                    <span> @(string.Format("{0:F1}", SamplingPlanAndFilesAndLabSheetIDListModel.TVFileModelSamplingPlanFileTXT.FileSize_kb / 1024)) @SamplingPlanViewRes.MB </span>
+                                                                }
+                                                                else
+                                                                {
+                                                                    <span>@(string.Format("{0:F1}", SamplingPlanAndFilesAndLabSheetIDListModel.TVFileModelSamplingPlanFileTXT.FileSize_kb)) @SamplingPlanViewRes.KB</span>
+                                                                }
+                                                                &nbsp;|&nbsp;
+                                                            </span>
+                                                            <span>@string.Format("{0:F}", SamplingPlanAndFilesAndLabSheetIDListModel.TVFileModelSamplingPlanFileTXT.FileCreatedDate_UTC.ToLocalTime())</span>
+                                                        }
+                                                        else
+                                                        {
+                                                            <img src="~/Images/Notepad_icon16.png" />
+                                                            <button class="jbSamplingPlanGenerateSamplingPlan btn btn-link"
+                                                                    data-extensionwithdot=".txt">
+                                                                @SamplingPlanViewRes.CreateSamplingPlan
+                                                            </button>
+                                                        }
+                                                    </li>
 
-                                </ul>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
                             </div>
                         </div>
                     </div>
-                }
+                </div>
+                <div class="panel-group" id="inactive" role="tablist" aria-multiselectable="true">
+                    <div class="panel panel-danger">
+                        <div class="panel-heading">
+                            <div class="panel-title">
+                                <a role="button" data-toggle="collapse" data-parent="#inactive" href="#collapseInactive" aria-expanded="true" aria-controls="collapseOne">
+                                    @SamplingPlanViewRes.InactiveOrOldSamplingPlans
+                                </a>
+                            </div>
+                        </div>
+                        <div id="collapseInactive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                            <div class="panel-body">
+                                @if (!SamplingPlanAndFilesAndLabSheetIDListModelList.Where(c => c.SamplingPlanModel.IsActive == false).Any())
+                                {
+                                    <span>@SamplingPlanViewRes.Empty</span>
+                                }
+
+                                @foreach (SamplingPlanAndFilesLabSheetCountModel SamplingPlanAndFilesAndLabSheetIDListModel in SamplingPlanAndFilesAndLabSheetIDListModelList.Where(c => c.SamplingPlanModel.IsActive == false))
+                                {
+                                    string HeadingID = "heading" + SamplingPlanAndFilesAndLabSheetIDListModel.SamplingPlanModel.SamplingPlanID;
+                                    string CollapseID = "collapse" + SamplingPlanAndFilesAndLabSheetIDListModel.SamplingPlanModel.SamplingPlanID;
+                                    <div class="SamplingPlanItem panel panel-warning" data-SamplingPlanid="@SamplingPlanAndFilesAndLabSheetIDListModel.SamplingPlanModel.SamplingPlanID">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title SamplingPlanTitlePanel">
+                                                <button class="jbSamplingPlanEdit SamplingPlanEditButons btn btn-default hidden" title="@SamplingPlanViewRes.Edit"><span class="glyphicon glyphicon-pencil"></span></button>
+                                                <button class="jbSamplingPlanAskToDelete SamplingPlanEditButons btn btn-default hidden" title="@SamplingPlanViewRes.Delete"><span class="glyphicon glyphicon-trash"></span></button>
+                                                <button class="jbSamplingPlanCopy SamplingPlanEditButons btn btn-default hidden" title="@SamplingPlanViewRes.Copy"><span class="glyphicon glyphicon-duplicate"></span></button>
+                                                <span class="SamplingPlanName">
+                                                    @(SamplingPlanAndFilesAndLabSheetIDListModel.SamplingPlanModel.ForGroupName + " (" + SamplingPlanAndFilesAndLabSheetIDListModel.SamplingPlanModel.Year + ") ")
+                                                    --- (@(_BaseEnumService.GetEnumText_SampleTypeEnum(SamplingPlanAndFilesAndLabSheetIDListModel.SamplingPlanModel.SampleType))
+                                                    @SamplingPlanViewRes.SampleType)
+                                                </span>
+                                            </h4>
+                                        </div>
+                                        <div class="panel-body">
+                                            @SamplingPlanViewRes.LabSheetsWaitingToBeAccepted (@SamplingPlanAndFilesAndLabSheetIDListModel.LabSheetTransferredCount)
+                                            @if (SamplingPlanAndFilesAndLabSheetIDListModel.LabSheetTransferredCount > 0)
+                                            {
+                                                <button class="jbSamplingPlanShowTransferredLabSheets SamplingPlanEditButons btn btn-default" title="@SamplingPlanViewRes.ShowTransferredLabSheets"><span class="glyphicon glyphicon-arrow-down"></span></button>
+                                            }
+                                            <div class="LabSheetsTransferredDiv">
+
+                                            </div>
+                                            @SamplingPlanViewRes.LabSheetsHistory (@SamplingPlanAndFilesAndLabSheetIDListModel.LabSheetHistoryCount)
+                                            @if (SamplingPlanAndFilesAndLabSheetIDListModel.LabSheetHistoryCount > 0)
+                                            {
+                                                <button class="jbSamplingPlanShowHistoryLabSheets SamplingPlanEditButons btn btn-default" title="@SamplingPlanViewRes.ShowHistoryLabSheets"><span class="glyphicon glyphicon-hourglass"></span></button>
+                                            }
+                                            <div class="LabSheetsHistoryDiv">
+
+                                            </div>
+                                            <div class="SamplingPlanModify">
+
+                                            </div>
+                                            <div class="SamplingPlanFileDiv">
+                                                <ul class="list-unstyled">
+                                                    <li>
+                                                        @if (SamplingPlanAndFilesAndLabSheetIDListModel.TVFileModelSamplingPlanFileTXT != null)
+                                                        {
+
+                                                            <button class="jbFileDownload SamplingPlanEditButons btn btn-default hidden"
+                                                                    data-tvfiletvitemid="@SamplingPlanAndFilesAndLabSheetIDListModel.TVFileModelSamplingPlanFileTXT.TVFileTVItemID"
+                                                                    title="@SamplingPlanViewRes.Download">
+                                                                <span class="glyphicon glyphicon-download"></span>
+                                                            </button>
+                                                            <button class="jbSamplingPlanDeleteFile SamplingPlanEditButons btn btn-default hidden"
+                                                                    data-tvfiletvitemid="@SamplingPlanAndFilesAndLabSheetIDListModel.TVFileModelSamplingPlanFileTXT.TVFileTVItemID"
+                                                                    data-extensionwithdot=".txt"
+                                                                    title="@SamplingPlanViewRes.Delete">
+                                                                <span class="glyphicon glyphicon-trash"></span>
+                                                            </button>
+
+                                                            <img src="~/Images/Notepad_icon16.png" />
+                                                            <span class="fakeButton">
+                                                                <span class="TVText"></span><label>@SamplingPlanAndFilesAndLabSheetIDListModel.TVFileModelSamplingPlanFileTXT.ServerFileName</label>
+                                                            </span>
+                                                            <span>
+                                                                &nbsp;|&nbsp;
+                                                                @if ((SamplingPlanAndFilesAndLabSheetIDListModel.TVFileModelSamplingPlanFileTXT.FileSize_kb / 1024) > 1)
+                                                                {
+                                                                    <span> @(string.Format("{0:F1}", SamplingPlanAndFilesAndLabSheetIDListModel.TVFileModelSamplingPlanFileTXT.FileSize_kb / 1024)) @SamplingPlanViewRes.MB </span>
+                                                                }
+                                                                else
+                                                                {
+                                                                    <span>@(string.Format("{0:F1}", SamplingPlanAndFilesAndLabSheetIDListModel.TVFileModelSamplingPlanFileTXT.FileSize_kb)) @SamplingPlanViewRes.KB</span>
+                                                                }
+                                                                &nbsp;|&nbsp;
+                                                            </span>
+                                                            <span>@string.Format("{0:F}", SamplingPlanAndFilesAndLabSheetIDListModel.TVFileModelSamplingPlanFileTXT.FileCreatedDate_UTC.ToLocalTime())</span>
+                                                        }
+                                                        else
+                                                        {
+                                                            <img src="~/Images/Notepad_icon16.png" />
+                                                            <button class="jbSamplingPlanGenerateSamplingPlan btn btn-link"
+                                                                    data-extensionwithdot=".txt">
+                                                                @SamplingPlanViewRes.CreateSamplingPlan
+                                                            </button>
+                                                        }
+                                                    </li>
+
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
             }
         </div>
 

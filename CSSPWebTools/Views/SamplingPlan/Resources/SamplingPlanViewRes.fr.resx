@@ -495,4 +495,49 @@
   <data name="BackupDirectory" xml:space="preserve">
     <value>Répertoire de sauvegarde</value>
   </data>
+  <data name="Accepted" xml:space="preserve">
+    <value>Accepted (fr)</value>
+  </data>
+  <data name="ActiveSamplingPlans" xml:space="preserve">
+    <value>Active sampling plans (fr)</value>
+  </data>
+  <data name="At14h" xml:space="preserve">
+    <value>At 14:00 (fr)</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Email (fr)</value>
+  </data>
+  <data name="Friday" xml:space="preserve">
+    <value>Friday (fr)</value>
+  </data>
+  <data name="HasValue" xml:space="preserve">
+    <value>Has Value (fr)</value>
+  </data>
+  <data name="InactiveOrOldSamplingPlans" xml:space="preserve">
+    <value>Inactive or old sampling plans (fr)</value>
+  </data>
+  <data name="IsActive" xml:space="preserve">
+    <value>Is Active (fr)</value>
+  </data>
+  <data name="IsContractor" xml:space="preserve">
+    <value>Is Contractor (fr)</value>
+  </data>
+  <data name="LabSheet" xml:space="preserve">
+    <value>Labsheet (fr)</value>
+  </data>
+  <data name="Over500" xml:space="preserve">
+    <value>Over 500 (fr)</value>
+  </data>
+  <data name="Received" xml:space="preserve">
+    <value>Received (fr)</value>
+  </data>
+  <data name="Rejected" xml:space="preserve">
+    <value>Rejected (fr)</value>
+  </data>
+  <data name="Reminder" xml:space="preserve">
+    <value>Reminder (fr)</value>
+  </data>
+  <data name="SettingUpEmails" xml:space="preserve">
+    <value>Setting up emails (fr)</value>
+  </data>
 </root>

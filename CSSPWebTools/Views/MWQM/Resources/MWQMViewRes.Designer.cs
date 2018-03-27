@@ -727,6 +727,24 @@ namespace CSSPWebTools.Views.MWQM.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Is sensitive.
+        /// </summary>
+        public static string IsSensitive {
+            get {
+                return ResourceManager.GetString("IsSensitive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Is sensitive if not strike through.
+        /// </summary>
+        public static string IsSensitiveIfNotStrikeThrough {
+            get {
+                return ResourceManager.GetString("IsSensitiveIfNotStrikeThrough", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Lab analysis.
         /// </summary>
         public static string LabAnalysis {
@@ -925,6 +943,15 @@ namespace CSSPWebTools.Views.MWQM.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Mark all routine samples as.
+        /// </summary>
+        public static string MarkAllRoutineSamplesAs {
+            get {
+                return ResourceManager.GetString("MarkAllRoutineSamplesAs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Med.
         /// </summary>
         public static string Med {
@@ -1110,6 +1137,24 @@ namespace CSSPWebTools.Views.MWQM.Resources {
         public static string Normal {
             get {
                 return ResourceManager.GetString("Normal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Not sensitive.
+        /// </summary>
+        public static string NotSensitive {
+            get {
+                return ResourceManager.GetString("NotSensitive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Not validated.
+        /// </summary>
+        public static string NotValidated {
+            get {
+                return ResourceManager.GetString("NotValidated", resourceCulture);
             }
         }
         
@@ -2032,11 +2077,29 @@ namespace CSSPWebTools.Views.MWQM.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Validated.
+        /// </summary>
+        public static string Validated {
+            get {
+                return ResourceManager.GetString("Validated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ValidateDateAndTime.
         /// </summary>
         public static string ValidateDateAndTime {
             get {
                 return ResourceManager.GetString("ValidateDateAndTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Validated if not strike through.
+        /// </summary>
+        public static string ValidatedIfNotStrikeThrough {
+            get {
+                return ResourceManager.GetString("ValidatedIfNotStrikeThrough", resourceCulture);
             }
         }
         

@@ -192,6 +192,42 @@ namespace CSSPWebTools.Controllers
         }
 
         [HttpPost]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public JsonResult MarkAllRoutineSamplesAsValidatedJSON(int MWQMRunTVItemID)
+        {
+            MWQMRunModel mwqmRunModel = _MWQMRunService.MarkAllRoutineSamplesAsValidatedDB(MWQMRunTVItemID);
+
+            return Json(mwqmRunModel.Error, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public JsonResult MarkAllRoutineSamplesAsNotValidatedJSON(int MWQMRunTVItemID)
+        {
+            MWQMRunModel mwqmRunModel = _MWQMRunService.MarkAllRoutineSamplesAsNotValidatedDB(MWQMRunTVItemID);
+
+            return Json(mwqmRunModel.Error, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public JsonResult MarkAllRoutineSamplesAsIsSensitiveJSON(int MWQMRunTVItemID)
+        {
+            MWQMRunModel mwqmRunModel = _MWQMRunService.MarkAllRoutineSamplesAsIsSensitiveDB(MWQMRunTVItemID);
+
+            return Json(mwqmRunModel.Error, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public JsonResult MarkAllRoutineSamplesAsNotSensitiveJSON(int MWQMRunTVItemID)
+        {
+            MWQMRunModel mwqmRunModel = _MWQMRunService.MarkAllRoutineSamplesAsNotSensitiveDB(MWQMRunTVItemID);
+
+            return Json(mwqmRunModel.Error, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
         [ValidateAntiForgeryToken]
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
         public JsonResult MWQMSubsectorAddOrModifyJSON(FormCollection fc)

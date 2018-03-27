@@ -133,6 +133,15 @@ namespace CSSPWebTools.Views.SamplingPlan.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Accepted.
+        /// </summary>
+        public static string Accepted {
+            get {
+                return ResourceManager.GetString("Accepted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Accept Lab Sheet And Send Information To Data Base.
         /// </summary>
         public static string AcceptLabSheetAndSendInformationToDataBase {
@@ -147,6 +156,15 @@ namespace CSSPWebTools.Views.SamplingPlan.Resources {
         public static string AccessCode {
             get {
                 return ResourceManager.GetString("AccessCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Active sampling plans.
+        /// </summary>
+        public static string ActiveSamplingPlans {
+            get {
+                return ResourceManager.GetString("ActiveSamplingPlans", resourceCulture);
             }
         }
         
@@ -183,6 +201,15 @@ namespace CSSPWebTools.Views.SamplingPlan.Resources {
         public static string ApprovalCode {
             get {
                 return ResourceManager.GetString("ApprovalCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to At 14:00.
+        /// </summary>
+        public static string At14h {
+            get {
+                return ResourceManager.GetString("At14h", resourceCulture);
             }
         }
         
@@ -394,6 +421,15 @@ namespace CSSPWebTools.Views.SamplingPlan.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Email.
+        /// </summary>
+        public static string Email {
+            get {
+                return ResourceManager.GetString("Email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Empty.
         /// </summary>
         public static string Empty {
@@ -435,6 +471,33 @@ namespace CSSPWebTools.Views.SamplingPlan.Resources {
         public static string ForGroupName {
             get {
                 return ResourceManager.GetString("ForGroupName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Friday.
+        /// </summary>
+        public static string Friday {
+            get {
+                return ResourceManager.GetString("Friday", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Has Value.
+        /// </summary>
+        public static string HasValue {
+            get {
+                return ResourceManager.GetString("HasValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Inactive or old sampling plans.
+        /// </summary>
+        public static string InactiveOrOldSamplingPlans {
+            get {
+                return ResourceManager.GetString("InactiveOrOldSamplingPlans", resourceCulture);
             }
         }
         
@@ -511,6 +574,24 @@ namespace CSSPWebTools.Views.SamplingPlan.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Is Active.
+        /// </summary>
+        public static string IsActive {
+            get {
+                return ResourceManager.GetString("IsActive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Is Contractor.
+        /// </summary>
+        public static string IsContractor {
+            get {
+                return ResourceManager.GetString("IsContractor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to KB.
         /// </summary>
         public static string KB {
@@ -525,6 +606,15 @@ namespace CSSPWebTools.Views.SamplingPlan.Resources {
         public static string Laboratory {
             get {
                 return ResourceManager.GetString("Laboratory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Labsheet.
+        /// </summary>
+        public static string LabSheet {
+            get {
+                return ResourceManager.GetString("LabSheet", resourceCulture);
             }
         }
         
@@ -709,6 +799,15 @@ namespace CSSPWebTools.Views.SamplingPlan.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Over 500.
+        /// </summary>
+        public static string Over500 {
+            get {
+                return ResourceManager.GetString("Over500", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Pending approval.
         /// </summary>
         public static string PendingApproval {
@@ -763,6 +862,15 @@ namespace CSSPWebTools.Views.SamplingPlan.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Received.
+        /// </summary>
+        public static string Received {
+            get {
+                return ResourceManager.GetString("Received", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to RECORDED TEMPERATURE IS ACTUAL READING + CORRECTION FACTOR.
         /// </summary>
         public static string RecordFactor {
@@ -772,11 +880,29 @@ namespace CSSPWebTools.Views.SamplingPlan.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Rejected.
+        /// </summary>
+        public static string Rejected {
+            get {
+                return ResourceManager.GetString("Rejected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Reject Lab Sheet.
         /// </summary>
         public static string RejectLabSheet {
             get {
                 return ResourceManager.GetString("RejectLabSheet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reminder.
+        /// </summary>
+        public static string Reminder {
+            get {
+                return ResourceManager.GetString("Reminder", resourceCulture);
             }
         }
         
@@ -957,6 +1083,15 @@ namespace CSSPWebTools.Views.SamplingPlan.Resources {
         public static string SelectTheSampleMatrix {
             get {
                 return ResourceManager.GetString("SelectTheSampleMatrix", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Setting up emails.
+        /// </summary>
+        public static string SettingUpEmails {
+            get {
+                return ResourceManager.GetString("SettingUpEmails", resourceCulture);
             }
         }
         

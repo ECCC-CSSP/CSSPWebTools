@@ -336,6 +336,94 @@ var CSSP;
                     cssp.Helper.PageRefresh();
                 }
             };
+            this.MarkAllRoutineSamplesAsValidated = function ($bjs) {
+                var MWQMRunTVItemID = parseInt($("#ViewDiv").data("tvitemid"));
+                var command = "MWQM/MarkAllRoutineSamplesAsValidatedJSON";
+                $.post(cssp.BaseURL + command, {
+                    MWQMRunTVItemID: MWQMRunTVItemID,
+                })
+                    .done(function (ret) {
+                    if (ret) {
+                        cssp.Dialog.ShowDialogError(ret);
+                    }
+                    else {
+                        $("select[name='SampleTypes']").each(function (index, elem) {
+                            var value = $(elem).val();
+                            if (value.indexOf("109") > -1) {
+                                $(elem).closest("td").next("td").find("input[name='Validated']").removeAttr("checked").attr("checked", "checked");
+                            }
+                        });
+                    }
+                }).fail(function () {
+                    cssp.Dialog.ShowDialogErrorWithFail(command);
+                });
+            };
+            this.MarkAllRoutineSamplesAsNotValidated = function ($bjs) {
+                var MWQMRunTVItemID = parseInt($("#ViewDiv").data("tvitemid"));
+                var command = "MWQM/MarkAllRoutineSamplesAsNotValidatedJSON";
+                $.post(cssp.BaseURL + command, {
+                    MWQMRunTVItemID: MWQMRunTVItemID,
+                })
+                    .done(function (ret) {
+                    if (ret) {
+                        cssp.Dialog.ShowDialogError(ret);
+                    }
+                    else {
+                        $("select[name='SampleTypes']").each(function (index, elem) {
+                            var value = $(elem).val();
+                            if (value.indexOf("109") > -1) {
+                                $(elem).closest("td").next("td").find("input[name='Validated']").removeAttr("checked");
+                            }
+                        });
+                    }
+                }).fail(function () {
+                    cssp.Dialog.ShowDialogErrorWithFail(command);
+                });
+            };
+            this.MarkAllRoutineSamplesAsIsSensitive = function ($bjs) {
+                var MWQMRunTVItemID = parseInt($("#ViewDiv").data("tvitemid"));
+                var command = "MWQM/MarkAllRoutineSamplesAsIsSensitiveJSON";
+                $.post(cssp.BaseURL + command, {
+                    MWQMRunTVItemID: MWQMRunTVItemID,
+                })
+                    .done(function (ret) {
+                    if (ret) {
+                        cssp.Dialog.ShowDialogError(ret);
+                    }
+                    else {
+                        $("select[name='SampleTypes']").each(function (index, elem) {
+                            var value = $(elem).val();
+                            if (value.indexOf("109") > -1) {
+                                $(elem).closest("td").next("td").next("td").find("input[name='IsSensitive']").removeAttr("checked").attr("checked", "checked");
+                            }
+                        });
+                    }
+                }).fail(function () {
+                    cssp.Dialog.ShowDialogErrorWithFail(command);
+                });
+            };
+            this.MarkAllRoutineSamplesAsNotSensitive = function ($bjs) {
+                var MWQMRunTVItemID = parseInt($("#ViewDiv").data("tvitemid"));
+                var command = "MWQM/MarkAllRoutineSamplesAsNotSensitiveJSON";
+                $.post(cssp.BaseURL + command, {
+                    MWQMRunTVItemID: MWQMRunTVItemID,
+                })
+                    .done(function (ret) {
+                    if (ret) {
+                        cssp.Dialog.ShowDialogError(ret);
+                    }
+                    else {
+                        $("select[name='SampleTypes']").each(function (index, elem) {
+                            var value = $(elem).val();
+                            if (value.indexOf("109") > -1) {
+                                $(elem).closest("td").next("td").next("td").find("input[name='IsSensitive']").removeAttr("checked");
+                            }
+                        });
+                    }
+                }).fail(function () {
+                    cssp.Dialog.ShowDialogErrorWithFail(command);
+                });
+            };
             this.MWQMSampleAddOrModify = function ($bjs) {
                 var MWQMSampleID = $bjs.data("mwqmsampleid");
                 var MWQMRunTVItemID = $("#MWQMRunAddOrModifyForm").find("input[name='MWQMRunTVItemID']").val();
@@ -353,6 +441,8 @@ var CSSP;
                 var PH = $MWQMSample.find("input[name='PH']").val();
                 var ProcessedBy = $MWQMSample.find("input[name='ProcessedBy']").val();
                 var SampleTypes = $MWQMSample.find("select[name='SampleTypes']").val();
+                var Validated = $MWQMSample.find("input[name='Validated']").is(":checked") ? true : false;
+                var IsSensitive = $MWQMSample.find("input[name='IsSensitive']").is(":checked") ? true : false;
                 var MWQMSampleNote = $MWQMSample.find("input[name='MWQMSampleNote']").val();
                 if (FecCol_MPN_100ml.indexOf(",") > -1 || FecCol_MPN_100ml.indexOf(".") > -1) {
                     cssp.Dialog.ShowDialogErrorWithError(cssp.GetHTMLVariable("#LayoutVariables", "varFCShouldNotHaveCommaOrDecimal"));
@@ -378,6 +468,8 @@ var CSSP;
                         PH: PH,
                         ProcessedBy: ProcessedBy,
                         SampleTypes: SampleTypes,
+                        Validated: Validated,
+                        IsSensitive: IsSensitive,
                         MWQMSampleNote: MWQMSampleNote,
                     })
                         .done(function (ret) {

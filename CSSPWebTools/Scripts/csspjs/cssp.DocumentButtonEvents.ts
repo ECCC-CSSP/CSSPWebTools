@@ -779,6 +779,26 @@ module CSSP {
                             cssp.MWQMRun.ShowPart("MWQMRunInfo");
                         }
                         break;
+                    case "jbMWQMRunMarkAllRoutineSamplesAsValidated":
+                        {
+                            cssp.MWQMRun.MarkAllRoutineSamplesAsValidated($bjs);
+                        }
+                        break;
+                    case "jbMWQMRunMarkAllRoutineSamplesAsNotValidated":
+                        {
+                            cssp.MWQMRun.MarkAllRoutineSamplesAsNotValidated($bjs);
+                        }
+                        break;
+                    case "jbMWQMRunMarkAllRoutineSamplesAsIsSensitive":
+                        {
+                            cssp.MWQMRun.MarkAllRoutineSamplesAsIsSensitive($bjs);
+                        }
+                        break;
+                    case "jbMWQMRunMarkAllRoutineSamplesAsNotSensitive":
+                        {
+                            cssp.MWQMRun.MarkAllRoutineSamplesAsNotSensitive($bjs);
+                        }
+                        break;
                     case "jbMWQMRunSampleDelete":
                         {
                             cssp.MWQMRun.AskToDeleteRunSample($bjs);
@@ -1182,6 +1202,16 @@ module CSSP {
                     case "jbSamplingPlanCopy":
                         {
                             cssp.SamplingPlan.SamplingPlanCopy($bjs);
+                        };
+                        break;
+                    case "jbSamplingPlanEmailAddOrModify":
+                        {
+                            cssp.SamplingPlan.SamplingPlanEmailAddOrModify($bjs);
+                        };
+                        break;
+                    case "jbSamplingPlanEmailAskToDelete":
+                        {
+                            cssp.SamplingPlan.SamplingPlanEmailAskToDelete($bjs);
                         };
                         break;
                     case "jbSamplingPlanGenerateSamplingPlan":

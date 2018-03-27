@@ -264,6 +264,41 @@ var CSSP;
                     // nothing
                 });
             };
+            this.SamplingPlanEmailAddOrModify = function ($bjs) {
+                var SamplingPlanID = parseInt($bjs.data("samplingplanid"));
+                var SamplingPlanEmailID = parseInt($bjs.data("samplingplanemailid"));
+                var tr$ = $bjs.closest("tr");
+                var Email = $bjs.closest("tr").find("input[name='Email']").val();
+                var IsContractor = $bjs.closest("tr").find("input[name='IsContractor']").is(":checked") ? true : false;
+                var LabSheetHasValueOver500 = $bjs.closest("tr").find("input[name='LabSheetHasValueOver500']").is(":checked") ? true : false;
+                var LabSheetReceived = $bjs.closest("tr").find("input[name='LabSheetReceived']").is(":checked") ? true : false;
+                var LabSheetAccepted = $bjs.closest("tr").find("input[name='LabSheetAccepted']").is(":checked") ? true : false;
+                var LabSheetRejected = $bjs.closest("tr").find("input[name='LabSheetRejected']").is(":checked") ? true : false;
+                var FridayReminderAt14h = $bjs.closest("tr").find("input[name='FridayReminderAt14h']").is(":checked") ? true : false;
+                var command = "SamplingPlan/SamplingPlanEmailAddOrModifyJSON";
+                $.post(cssp.BaseURL + command, {
+                    SamplingPlanID: SamplingPlanID,
+                    SamplingPlanEmailID: SamplingPlanEmailID,
+                    Email: Email,
+                    IsContractor: IsContractor,
+                    LabSheetHasValueOver500: LabSheetHasValueOver500,
+                    LabSheetReceived: LabSheetReceived,
+                    LabSheetAccepted: LabSheetAccepted,
+                    LabSheetRejected: LabSheetRejected,
+                    FridayReminderAt14h: FridayReminderAt14h,
+                }).done(function (ret) {
+                    if (ret) {
+                        cssp.Dialog.ShowDialogError(ret);
+                    }
+                    else {
+                        cssp.Dialog.ShowDialogSuccess(cssp.GetHTMLVariable("#LayoutVariables", "varSuccess"));
+                    }
+                }).fail(function () {
+                    cssp.Dialog.ShowDialogErrorWithFail(command);
+                }).always(function () {
+                    // nothing
+                });
+            };
             this.SamplingPlanGenerateSamplingPlan = function ($bjs) {
                 var SamplingPlanID = parseInt($bjs.closest(".SamplingPlanItem").data("samplingplanid"));
                 var command = "SamplingPlan/SamplingPlanGenerateSamplingPlanJSON";
@@ -304,6 +339,35 @@ var CSSP;
                             }
                         })
                             .fail(function () {
+                            cssp.Dialog.ShowDialogErrorWithFail(command);
+                        }).always(function () {
+                            // nothing
+                        });
+                    });
+                });
+            };
+            this.SamplingPlanEmailAskToDelete = function ($bjs) {
+                var SamplingPlanEmailName = $bjs.closest("tr").find("input[name='Email']").val();
+                cssp.Dialog.ShowDialogAreYouSure(SamplingPlanEmailName);
+                cssp.Dialog.CheckDialogAndButtonsExist(["#DialogBasic", "#DialogBasicYes"], 5, "cssp.SamplingPlanEmail.SetDialogEvents", $bjs);
+            };
+            this.SetDialogEventsEmail = function ($bjs) {
+                $("#DialogBasicYes").one("click", function (evt) {
+                    $("#DialogBasic").one('hidden.bs.modal', function () {
+                        var SamplingPlanEmailID = parseInt($bjs.data("samplingplanemailid"));
+                        var tr$ = $bjs.closest("tr");
+                        var command = "SamplingPlan/SamplingPlanEmailDeleteJSON";
+                        $.post(cssp.BaseURL + command, {
+                            SamplingPlanEmailID: SamplingPlanEmailID,
+                        }).done(function (ret) {
+                            if (ret) {
+                                cssp.Dialog.ShowDialogError(ret);
+                            }
+                            else {
+                                tr$.remove();
+                                cssp.Dialog.ShowDialogSuccess(cssp.GetHTMLVariable("#LayoutVariables", "varSuccess"));
+                            }
+                        }).fail(function () {
                             cssp.Dialog.ShowDialogErrorWithFail(command);
                         }).always(function () {
                             // nothing

@@ -77,6 +77,9 @@ var CSSP;
                         case "cssp.SamplingPlan.SetDialogEvents":
                             cssp.SamplingPlan.SetDialogEvents($ajs);
                             break;
+                        case "cssp.SamplingPlanEmail.SetDialogEvents":
+                            cssp.SamplingPlan.SetDialogEventsEmail($ajs);
+                            break;
                         case "cssp.TVItem.SetDialogEvents":
                             cssp.TVItem.SetDialogEvents($ajs);
                             break;
