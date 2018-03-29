@@ -1,0 +1,75 @@
+﻿@using CSSPWebTools.Views.OpenData.Resources;
+@using CSSPWebTools.Controllers;
+@using CSSPEnumsDLL.Enums;
+@using CSSPEnumsDLL.Services;
+@using CSSPModelsDLL.Models;
+@using System.Linq;
+
+@{
+    int ProvinceTVItemID = (int)ViewBag.ProvinceTVItemID;
+    List<TVItemModel> tvItemModelSubsectorList = (List<TVItemModel>)ViewBag.TVItemModelSubsectorList;
+}
+
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <div class="panel-title">
+            @OpenDataViewRes.Setup
+        </div>
+    </div>
+    <div class="panel-body">
+        <div class="OpenDataButtonsTopDiv">
+            <p>@OpenDataViewRes.ClickingTheButtonsBelowCanTakeALongTimeToExecuteSometimeAFewMinutes</p>
+            <span>@OpenDataViewRes.MarkAllRoutineSamplesForProvinceAs : </span>
+            <span class="OpenDataButtonsDiv">
+                <button class="jbOpenDataMarkAllRoutineSamplesAsValidated btn btn-primary" data-tvitemid="@ProvinceTVItemID">
+                    <span>@OpenDataViewRes.Validated</span>
+                </button>
+                <button class="jbOpenDataMarkAllRoutineSamplesAsNotValidated btn btn-primary" data-tvitemid="@ProvinceTVItemID">
+                    <span>@OpenDataViewRes.NotValidated</span>
+                </button>
+                <button class="jbOpenDataMarkAllRoutineSamplesAsIsSensitive btn btn-primary" data-tvitemid="@ProvinceTVItemID">
+                    <span>@OpenDataViewRes.IsSensitive</span>
+                </button>
+                <button class="jbOpenDataMarkAllRoutineSamplesAsNotSensitive btn btn-primary" data-tvitemid="@ProvinceTVItemID">
+                    <span>@OpenDataViewRes.NotSensitive</span>
+                </button>
+            </span>
+            <span class="OpenDataWorkingDiv hidden">
+                @OpenDataViewRes.Working ... @OpenDataViewRes.YouCanClickTheStatButtonToSeeTheStatusOfTheTask
+            </span>
+        </div>
+
+        <button class="jbOpenDataStat btn btn-default" data-tvitemid="@ProvinceTVItemID">
+            <span class="glyphicon glyphicon-arrow-right" title="@OpenDataViewRes.ShowOrHideMWQMSiteList"></span>
+            @OpenDataViewRes.Stat
+        </button>
+        <span class="OpenDataStatSpan"></span>
+
+        <br />
+        <hr />
+
+        @foreach (TVItemModel tvItemModel in tvItemModelSubsectorList)
+        {
+            <div class="OpenDataSubsectorDiv panel panel-default">
+                <div class="panel-heading">
+                    <div class="panel-title">
+                        <button class="jbOpenDataReloadSubsector btn btn-default" data-subsectortvitemid="@tvItemModel.TVItemID">
+                            <span class="glyphicon glyphicon-arrow-down" title="@OpenDataViewRes.ShowOrHideMWQMSiteList"></span>
+                        </button>
+                        <span>@tvItemModel.TVText</span>
+                        <button class="jbOpenDataStat btn btn-default" data-tvitemid="@tvItemModel.TVItemID">
+                            <span class="glyphicon glyphicon-arrow-right" title="@OpenDataViewRes.ShowOrHideMWQMSiteList"></span>
+                            Stat
+                        </button>
+                        <span class="OpenDataStatSpan"></span>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="OpenDataMWQMSiteListDiv">
+
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

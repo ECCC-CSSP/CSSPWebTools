@@ -403,4 +403,7 @@
   <data name="ExportArcGIS" xml:space="preserve">
     <value>Export ArcGIS</value>
   </data>
+  <data name="OpenData" xml:space="preserve">
+    <value>Open Data</value>
+  </data>
 </root>

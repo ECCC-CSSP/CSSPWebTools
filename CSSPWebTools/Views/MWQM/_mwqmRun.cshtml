@@ -85,8 +85,6 @@
                 <tbody>
                     @foreach (MWQMSampleModel mwqmSampleModel in mwqmSampleModelList.OrderBy(c => c.MWQMSiteTVText))
                     {
-                        string validatedStyle = mwqmSampleModel.Validated ? "" : "text-strikeThrough";
-                        string isSensitiveStyle = mwqmSampleModel.IsSensitive ? "" : "text-strikeThrough";
                         int hour = mwqmSampleModel.SampleDateTime_Local.Hour;
                         int minute = mwqmSampleModel.SampleDateTime_Local.Minute;
                         string SampleTime = (hour > 9 ? hour.ToString() : ("0" + hour.ToString())) + ":" + (minute > 9 ? minute.ToString() : ("0" + minute.ToString()));
@@ -101,8 +99,6 @@
                                         </button>
                                     }
                                     <a href="@mwqmController.CreateHashURL(mwqmSampleModel.MWQMSiteTVItemID)">@mwqmSampleModel.MWQMSiteTVText</a>
-                                    <span class="@validatedStyle" title="@MWQMViewRes.ValidatedIfNotStrikeThrough">V</span>
-                                    <span class="@isSensitiveStyle" title="@MWQMViewRes.IsSensitiveIfNotStrikeThrough">S</span>
                                 </span>
                             </td>
                             <td>

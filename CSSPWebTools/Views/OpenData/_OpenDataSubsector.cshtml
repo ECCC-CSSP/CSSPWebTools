@@ -1,0 +1,58 @@
+﻿@using CSSPWebTools.Views.OpenData.Resources;
+@using CSSPWebTools.Controllers;
+@using CSSPEnumsDLL.Enums;
+@using CSSPEnumsDLL.Services;
+@using CSSPModelsDLL.Models;
+@using System.Linq;
+
+@{
+    int SubsectorTVItemID = (int)ViewBag.SubsectorTVItemID;
+    List<TVItemModel> tvItemModelMWQMSiteList = (List<TVItemModel>)ViewBag.TVItemModelMWQMSiteList;
+}
+
+<div class="OpenDataButtonsTopDiv">
+    <span>@OpenDataViewRes.MarkAllRoutineSamplesForSubsectorAs : </span>
+    <span class="OpenDataButtonsDiv">
+        <button class="jbOpenDataMarkAllRoutineSamplesAsValidated btn btn-primary" data-tvitemid="@SubsectorTVItemID">
+            <span>@OpenDataViewRes.Validated</span>
+        </button>
+        <button class="jbOpenDataMarkAllRoutineSamplesAsNotValidated btn btn-primary" data-tvitemid="@SubsectorTVItemID">
+            <span>@OpenDataViewRes.NotValidated</span>
+        </button>
+        <button class="jbOpenDataMarkAllRoutineSamplesAsIsSensitive btn btn-primary" data-tvitemid="@SubsectorTVItemID">
+            <span>@OpenDataViewRes.IsSensitive</span>
+        </button>
+        <button class="jbOpenDataMarkAllRoutineSamplesAsNotSensitive btn btn-primary" data-tvitemid="@SubsectorTVItemID">
+            <span>@OpenDataViewRes.NotSensitive</span>
+        </button>
+    </span>
+    <span class="OpenDataWorkingDiv hidden">
+        @OpenDataViewRes.Working ... @OpenDataViewRes.YouCanClickTheStatButtonToSeeTheStatusOfTheTask
+    </span>
+    <br />
+    <hr />
+</div>
+
+@foreach (TVItemModel tvItemModel in tvItemModelMWQMSiteList)
+{
+    <div class="OpenDataMWQMSiteDiv panel panel-info">
+        <div class="panel-heading">
+            <div class="panel-title">
+                <button class="jbOpenDataReloadMWQMSite btn btn-default" data-tvitemid="@tvItemModel.TVItemID">
+                    <span class="glyphicon glyphicon-arrow-down" title="@OpenDataViewRes.ShowOrHideMWQMSamples"></span>
+                </button>
+                <span>@tvItemModel.TVText</span>
+                <button class="jbOpenDataStat btn btn-default" data-tvitemid="@tvItemModel.TVItemID">
+                    <span class="glyphicon glyphicon-arrow-right" title="@OpenDataViewRes.ShowOrHideMWQMSiteList"></span>
+                    Stat
+                </button>
+                <span class="OpenDataStatSpan"></span>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="OpenDataMWQMSamplesDiv">
+
+            </div>
+        </div>
+    </div>
+}

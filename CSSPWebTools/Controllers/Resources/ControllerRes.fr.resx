@@ -395,4 +395,7 @@
   <data name="ExportArcGIS" xml:space="preserve">
     <value>Exportation ArcGIS</value>
   </data>
+  <data name="OpenData" xml:space="preserve">
+    <value>Open Data (fr)</value>
+  </data>
 </root>

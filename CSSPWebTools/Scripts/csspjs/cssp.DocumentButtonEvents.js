@@ -776,26 +776,6 @@ var CSSP;
                                 cssp.MWQMRun.ShowPart("MWQMRunInfo");
                             }
                             break;
-                        case "jbMWQMRunMarkAllRoutineSamplesAsValidated":
-                            {
-                                cssp.MWQMRun.MarkAllRoutineSamplesAsValidated($bjs);
-                            }
-                            break;
-                        case "jbMWQMRunMarkAllRoutineSamplesAsNotValidated":
-                            {
-                                cssp.MWQMRun.MarkAllRoutineSamplesAsNotValidated($bjs);
-                            }
-                            break;
-                        case "jbMWQMRunMarkAllRoutineSamplesAsIsSensitive":
-                            {
-                                cssp.MWQMRun.MarkAllRoutineSamplesAsIsSensitive($bjs);
-                            }
-                            break;
-                        case "jbMWQMRunMarkAllRoutineSamplesAsNotSensitive":
-                            {
-                                cssp.MWQMRun.MarkAllRoutineSamplesAsNotSensitive($bjs);
-                            }
-                            break;
                         case "jbMWQMRunSampleDelete":
                             {
                                 cssp.MWQMRun.AskToDeleteRunSample($bjs);
@@ -964,6 +944,61 @@ var CSSP;
                         case "jbMWQMSubsectorAnalysisLoadForReport":
                             {
                                 cssp.MWQMSite.MWQMSubsectorAnalysisLoadForReport($bjs);
+                            }
+                            break;
+                        case "jbOpenDataReloadSubsector":
+                            {
+                                cssp.OpenData.OpenDataReloadSubsector($bjs);
+                            }
+                            break;
+                        case "jbOpenDataStat":
+                            {
+                                cssp.OpenData.OpenDataStat($bjs);
+                            }
+                            break;
+                        case "jbOpenDataReloadMWQMSite":
+                            {
+                                cssp.OpenData.OpenDataReloadMWQMSite($bjs);
+                            }
+                            break;
+                        case "jbOpenDataMarkAllRoutineSamplesAsValidated":
+                            {
+                                cssp.OpenData.OpenDataMarkAllRoutineSamplesAsValidated($bjs);
+                            }
+                            break;
+                        case "jbOpenDataMarkAllRoutineSamplesAsNotValidated":
+                            {
+                                cssp.OpenData.OpenDataMarkAllRoutineSamplesAsNotValidated($bjs);
+                            }
+                            break;
+                        case "jbOpenDataMarkAllRoutineSamplesAsIsSensitive":
+                            {
+                                cssp.OpenData.OpenDataMarkAllRoutineSamplesAsIsSensitive($bjs);
+                            }
+                            break;
+                        case "jbOpenDataMarkAllRoutineSamplesAsNotSensitive":
+                            {
+                                cssp.OpenData.OpenDataMarkAllRoutineSamplesAsNotSensitive($bjs);
+                            }
+                            break;
+                        case "jbOpenDataMarkSamplesWithMWQMSampleIDAsValidated":
+                            {
+                                cssp.OpenData.OpenDataMarkSamplesWithMWQMSampleIDAsValidated($bjs);
+                            }
+                            break;
+                        case "jbOpenDataMarkSamplesWithMWQMSampleIDAsNotValidated":
+                            {
+                                cssp.OpenData.OpenDataMarkSamplesWithMWQMSampleIDAsNotValidated($bjs);
+                            }
+                            break;
+                        case "jbOpenDataMarkSamplesWithMWQMSampleIDAsIsSensitive":
+                            {
+                                cssp.OpenData.OpenDataMarkSamplesWithMWQMSampleIDAsIsSensitive($bjs);
+                            }
+                            break;
+                        case "jbOpenDataMarkSamplesWithMWQMSampleIDAsNotSensitive":
+                            {
+                                cssp.OpenData.OpenDataMarkSamplesWithMWQMSampleIDAsNotSensitive($bjs);
                             }
                             break;
                         case "jbPageRefresh":

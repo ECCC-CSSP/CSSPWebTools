@@ -705,21 +705,6 @@
                                 <fieldset>
                                     <legend>
                                         <span>@MWQMViewRes.ModifyMWQMRun @MWQMViewRes.Samples</span>
-                                        &nbsp;&nbsp;&nbsp;
-                                        <span>@MWQMViewRes.MarkAllRoutineSamplesAs : </span>
-                                        <button class="jbMWQMRunMarkAllRoutineSamplesAsValidated btn btn-primary">
-                                            <span>@MWQMViewRes.Validated</span>
-                                        </button>
-                                        <button class="jbMWQMRunMarkAllRoutineSamplesAsNotValidated btn btn-primary">
-                                            <span>@MWQMViewRes.NotValidated</span>
-                                        </button>
-                                        <button class="jbMWQMRunMarkAllRoutineSamplesAsIsSensitive btn btn-primary">
-                                            <span>@MWQMViewRes.IsSensitive</span>
-                                        </button>
-                                        <button class="jbMWQMRunMarkAllRoutineSamplesAsNotSensitive btn btn-primary">
-                                            <span>@MWQMViewRes.NotSensitive</span>
-                                        </button>
-
                                     </legend>
 
                                     <table class="table table-bordered">
@@ -754,12 +739,6 @@
                                                 </th>
                                                 <th>
                                                     @MWQMViewRes.SampleType
-                                                </th>
-                                                <th>
-                                                    @MWQMViewRes.Validated
-                                                </th>
-                                                <th>
-                                                    @MWQMViewRes.IsSensitive
                                                 </th>
                                                 <th>
                                                     @MWQMViewRes.MWQMSampleNote
@@ -910,15 +889,6 @@
                 </select>
                 <span class="help-block"></span>
             </td>
-            <td>
-                <input class="form-control" type="checkbox" name="Validated" @(mwqmSampleModel.Validated ? "checked='checked'" : "") />
-                <span class="help-block"></span>
-            </td>
-            <td>
-                <input class="form-control" type="checkbox" name="IsSensitive" @(mwqmSampleModel.IsSensitive ? "checked='checked'" : "") />
-                <span class="help-block"></span>
-            </td>
-
             <td>
                 <input class="form-control" type="text" width="400" name="MWQMSampleNote" value="@(mwqmSampleModel.MWQMSampleNote)" />
                 <span class="help-block"></span>

@@ -224,6 +224,7 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
     </Compile>
+    <Compile Include="Controllers\OpenDataController.cs" />
     <Compile Include="Controllers\SamplingPlanController.cs" />
     <Compile Include="Controllers\TelController.cs" />
     <Compile Include="Controllers\TideSiteController.cs" />
@@ -421,6 +422,16 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>MikeScenarioViewRes.fr.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OpenData\Resources\OpenDataViewRes.fr.Designer.cs">
+      <DependentUpon>OpenDataViewRes.fr.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Views\OpenData\Resources\OpenDataViewRes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OpenDataViewRes.resx</DependentUpon>
     </Compile>
     <Compile Include="Views\RainExceedance\Resources\RainExceedanceViewRes.fr.Designer.cs">
       <DependentUpon>RainExceedanceViewRes.fr.resx</DependentUpon>
@@ -890,6 +901,12 @@
     <Content Include="Views\MWQM\_mwqmAnalysisReportParameterListForYear.cshtml" />
     <Content Include="Views\File\_exportArcGIS.cshtml" />
     <Content Include="Views\SamplingPlan\_SamplingPlanEmailAddOrModify.cshtml" />
+    <Content Include="Views\OpenData\_OpenDataSubsector.cshtml" />
+    <Content Include="Views\OpenData\_OpenDataProvince.cshtml" />
+    <Content Include="Views\OpenData\_OpenDataMWQMSite.cshtml" />
+    <Content Include="Views\OpenData\_OpenDataStat.cshtml" />
+    <Content Include="Views\OpenData\_OpenDataTopPage.cshtml" />
+    <Content Include="Views\OpenData\_OpenDataDocuments.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -937,6 +954,7 @@
     <TypeScriptCompile Include="Scripts\csspjstest\cssp.TestRemote.ts" />
     <TypeScriptCompile Include="Scripts\csspjstest\cssp.TestRequired.ts" />
     <TypeScriptCompile Include="Scripts\csspjstest\cssp.TestURL.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\cssp.OpenData.ts" />
     <TypeScriptCompile Include="Scripts\csspjs\cssp.ReportType.ts" />
     <TypeScriptCompile Include="Scripts\csspjs\cssp.Document.ts" />
     <TypeScriptCompile Include="Scripts\csspjs\cssp.ClimateSite.ts" />
@@ -1216,6 +1234,14 @@
     <EmbeddedResource Include="Views\MikeScenario\Resources\MikeScenarioViewRes.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>MikeScenarioViewRes.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\OpenData\Resources\OpenDataViewRes.fr.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>OpenDataViewRes.fr.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\OpenData\Resources\OpenDataViewRes.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>OpenDataViewRes.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\RainExceedance\Resources\RainExceedanceViewRes.fr.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

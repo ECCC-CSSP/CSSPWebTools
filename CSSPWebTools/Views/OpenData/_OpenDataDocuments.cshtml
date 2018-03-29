@@ -1,0 +1,30 @@
+﻿@using CSSPWebTools.Views.OpenData.Resources;
+@using CSSPWebTools.Controllers;
+@using CSSPEnumsDLL.Enums;
+@using CSSPEnumsDLL.Services;
+@using CSSPModelsDLL.Models;
+@using System.Linq;
+
+@{
+    int ProvinceTVItemID = (int)ViewBag.ProvinceTVItemID;
+}
+
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <div class="panel-title">
+            @OpenDataViewRes.Documents
+        </div>
+    </div>
+    <div class="panel-body">
+        <div class="AppTaskDiv">
+            @Html.Action("_appTask", "Home", new { TVItemID = ProvinceTVItemID, Seconds = 5 })
+        </div>
+        <p></p>
+        <button class="jbOpenDataGenerateKMZDocument btn btn-primary" data-tvitemid="@ProvinceTVItemID">
+            <span>@OpenDataViewRes.GenerateKMZDocumentOfMWQMSites</span>
+        </button>
+        <button class="jbOpenDataGenerateXlsxDocument btn btn-primary" data-tvitemid="@ProvinceTVItemID">
+            <span>@OpenDataViewRes.GenerateXlsxDocumentOfSamples</span>
+        </button>
+    </div>
+</div>

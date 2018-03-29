@@ -1,0 +1,13 @@
+﻿@using CSSPWebTools.Views.OpenData.Resources;
+@using CSSPWebTools.Controllers;
+@using CSSPEnumsDLL.Enums;
+@using CSSPEnumsDLL.Services;
+@using CSSPModelsDLL.Models;
+@using System.Linq;
+
+@{
+    OpenDataStat openDataStat = (OpenDataStat)ViewBag.OpenDataStat;
+}
+
+@OpenDataViewRes.Total (@openDataStat.TotalNumberOfSamples) @OpenDataViewRes.Validated (@openDataStat.NumberOfValidatedSamples) @OpenDataViewRes.Sensitive (@openDataStat.NumberOfSensitiveSamples)
+

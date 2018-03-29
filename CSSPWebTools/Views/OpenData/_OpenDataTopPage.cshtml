@@ -1,0 +1,27 @@
+﻿@using CSSPWebTools.Views.OpenData.Resources;
+@using CSSPWebTools.Controllers;
+@using CSSPEnumsDLL.Enums;
+@using CSSPEnumsDLL.Services;
+@using CSSPModelsDLL.Models;
+@using System.Linq;
+
+@{
+    int ProvinceTVItemID = (int)ViewBag.ProvinceTVItemID;   
+}
+
+<div class="ClimateSiteSetupDiv">
+    <div>
+        <ul class="nav nav-tabs">
+            <li role="presentation" class="active"><a href="#Setup" role="tab" data-toggle="tab">@OpenDataViewRes.Setup</a></li>
+            <li role="presentation"><a href="#Documents" class="OpenDataShowDocuments" role="tab" data-toggle="tab">@OpenDataViewRes.Documents</a></li>
+        </ul>
+
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="Setup" aria-expanded="true">
+                @Html.Action("_OpenDataProvince", "OpenData", new { ProvinceTVItemID = ProvinceTVItemID })
+            </div>
+            <div role="tabpanel" class="tab-pane" id="Documents">
+            </div>
+        </div>
+    </div>
+</div>
