@@ -226,9 +226,9 @@ var CSSP;
                         cssp.Dialog.ShowDialogMessage($nextSpan.text());
                     }
                 });
-                if (cssp.Test) {
-                    cssp.Test.ShowTestButtons();
-                }
+                //if (cssp.Test) {
+                //    cssp.Test.ShowTestButtons();
+                //}
             };
             this.LoadCountryList = function ($CountrySelect) {
                 var command = "Address/_CountryList";

@@ -48,7 +48,7 @@ module CSSP {
         public URLText: string = "";
 
         // Required when testing otherwise empty
-        public Test: CSSP.Test.app;
+        //public Test: CSSP.Test.app;
 
         public Sammyjs: Sammy.Application;
 
@@ -147,8 +147,8 @@ module CSSP {
             cssp.GoogleMap = new CSSP.GoogleMap();
 
             if (cssp.GetHTMLVariable("#LayoutVariables", "varDebug") == "Y") {
-                cssp.Test = new CSSP.Test.app();
-                cssp.Test.Init();
+                //cssp.Test = new CSSP.Test.app();
+                //cssp.Test.Init();
             }
 
             cssp.SetVisibility();

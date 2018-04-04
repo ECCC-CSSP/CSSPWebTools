@@ -62,9 +62,9 @@ var CSSP;
                         }
                     });
                 });
-                if (cssp.Test) {
-                    cssp.Test.ShowTestButtons();
-                }
+                //if (cssp.Test) {
+                //    cssp.Test.ShowTestButtons();
+                //}
             };
             this.InitGoogleTopCenter = function () {
                 $("#MapBreadCrumb").html($(".breadcrumb").html());

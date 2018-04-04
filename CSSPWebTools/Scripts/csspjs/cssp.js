@@ -94,8 +94,8 @@ var CSSP;
                 cssp.Helper = new CSSP.Helper();
                 cssp.GoogleMap = new CSSP.GoogleMap();
                 if (cssp.GetHTMLVariable("#LayoutVariables", "varDebug") == "Y") {
-                    cssp.Test = new CSSP.Test.app();
-                    cssp.Test.Init();
+                    //cssp.Test = new CSSP.Test.app();
+                    //cssp.Test.Init();
                 }
                 cssp.SetVisibility();
                 if (jQuery.validator) {

@@ -213,9 +213,9 @@
             $(".jbFileImportShowHide").trigger("click");
         };
         public Init: Function = (): void => {
-            if (cssp.Test) {
-                cssp.Test.ShowTestButtons();
-            }
+            //if (cssp.Test) {
+            //    cssp.Test.ShowTestButtons();
+            //}
         };
         public InitEdit: Function = (): void => {
             $(cssp.File.FormEditName).each((ind: number, elem: Element) => {
@@ -244,9 +244,9 @@
                 }
             });
 
-            if (cssp.Test) {
-                cssp.Test.ShowTestButtons();
-            }
+            //if (cssp.Test) {
+            //    cssp.Test.ShowTestButtons();
+            //}
         };
         public InitUpload: Function = (): void => {
             $(cssp.File.FormUploadName).each((ind: number, elem: Element) => {
@@ -286,9 +286,9 @@
                 }
             });
 
-            if (cssp.Test) {
-                cssp.Test.ShowTestButtons();
-            }
+            //if (cssp.Test) {
+            //    cssp.Test.ShowTestButtons();
+            //}
         };
         public GetParentLatLng: Function = ($ajs: JQuery): void => {
             var $FormImportFile = $ajs.closest("#FileUploadForm");

@@ -917,43 +917,6 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="Scripts\csspjstest\cssp.Test.Admin.ts" />
-    <TypeScriptCompile Include="Scripts\csspjstest\cssp.Test.Dialog.ts" />
-    <TypeScriptCompile Include="Scripts\csspjstest\cssp.Test.DocumentAEvents.ts" />
-    <TypeScriptCompile Include="Scripts\csspjstest\cssp.Test.DocumentButtonEvents.ts" />
-    <TypeScriptCompile Include="Scripts\csspjstest\cssp.Test.File.ts" />
-    <TypeScriptCompile Include="Scripts\csspjstest\cssp.Test.ForgotPassword.ts" />
-    <TypeScriptCompile Include="Scripts\csspjstest\cssp.Test.ForgotPasswordEmailSent.ts" />
-    <TypeScriptCompile Include="Scripts\csspjstest\cssp.Test.Header.ts" />
-    <TypeScriptCompile Include="Scripts\csspjstest\cssp.Test.Home.ts" />
-    <TypeScriptCompile Include="Scripts\csspjstest\cssp.Test.Login.ts" />
-    <TypeScriptCompile Include="Scripts\csspjstest\cssp.Test.Profile.ts" />
-    <TypeScriptCompile Include="Scripts\csspjstest\cssp.Test.Register.ts" />
-    <TypeScriptCompile Include="Scripts\csspjstest\cssp.Test.Testing.ts" />
-    <TypeScriptCompile Include="Scripts\csspjstest\cssp.Test.ts" />
-    <TypeScriptCompile Include="Scripts\csspjstest\cssp.Test.View.ts" />
-    <TypeScriptCompile Include="Scripts\csspjstest\cssp.TestAccordion.ts" />
-    <TypeScriptCompile Include="Scripts\csspjstest\cssp.TestCreditCard.ts" />
-    <TypeScriptCompile Include="Scripts\csspjstest\cssp.TestDate.ts" />
-    <TypeScriptCompile Include="Scripts\csspjstest\cssp.TestDateISO.ts" />
-    <TypeScriptCompile Include="Scripts\csspjstest\cssp.TestDigits.ts" />
-    <TypeScriptCompile Include="Scripts\csspjstest\cssp.TestDropDownMenu.ts" />
-    <TypeScriptCompile Include="Scripts\csspjstest\cssp.TestEmail.ts" />
-    <TypeScriptCompile Include="Scripts\csspjstest\cssp.TestEqualTo.ts" />
-    <TypeScriptCompile Include="Scripts\csspjstest\cssp.TestForm.ts" />
-    <TypeScriptCompile Include="Scripts\csspjstest\cssp.TestInput.ts" />
-    <TypeScriptCompile Include="Scripts\csspjstest\cssp.TestInputTypeAhead.ts" />
-    <TypeScriptCompile Include="Scripts\csspjstest\cssp.TestMax.ts" />
-    <TypeScriptCompile Include="Scripts\csspjstest\cssp.TestMaxLength.ts" />
-    <TypeScriptCompile Include="Scripts\csspjstest\cssp.TestMin.ts" />
-    <TypeScriptCompile Include="Scripts\csspjstest\cssp.TestMinLength.ts" />
-    <TypeScriptCompile Include="Scripts\csspjstest\cssp.TestModal.ts" />
-    <TypeScriptCompile Include="Scripts\csspjstest\cssp.TestNumber.ts" />
-    <TypeScriptCompile Include="Scripts\csspjstest\cssp.TestRange.ts" />
-    <TypeScriptCompile Include="Scripts\csspjstest\cssp.TestRangeLength.ts" />
-    <TypeScriptCompile Include="Scripts\csspjstest\cssp.TestRemote.ts" />
-    <TypeScriptCompile Include="Scripts\csspjstest\cssp.TestRequired.ts" />
-    <TypeScriptCompile Include="Scripts\csspjstest\cssp.TestURL.ts" />
     <TypeScriptCompile Include="Scripts\csspjs\cssp.OpenData.ts" />
     <TypeScriptCompile Include="Scripts\csspjs\cssp.ReportType.ts" />
     <TypeScriptCompile Include="Scripts\csspjs\cssp.Document.ts" />
@@ -1363,7 +1326,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>11561</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>

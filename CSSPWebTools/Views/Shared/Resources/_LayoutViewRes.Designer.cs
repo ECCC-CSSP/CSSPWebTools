@@ -682,6 +682,15 @@ namespace CSSPWebTools.Views.Shared.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Not implemented yet.
+        /// </summary>
+        public static string NotImplementedYet {
+            get {
+                return ResourceManager.GetString("NotImplementedYet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Outfall.
         /// </summary>
         public static string Outfall {

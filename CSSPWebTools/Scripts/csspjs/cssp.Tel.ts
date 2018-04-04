@@ -77,9 +77,9 @@
 
             });
 
-            if (cssp.Test) {
-                cssp.Test.ShowTestButtons();
-            }
+            //if (cssp.Test) {
+            //    cssp.Test.ShowTestButtons();
+            //}
         };
         public ReloadTelEditList: Function = (ContactTVItemID: number) => {
             var command: string = "Tel/_telEditList";

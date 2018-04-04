@@ -79,6 +79,24 @@ namespace CSSPWebTools.Views.OpenData.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Generate CSV document of MWQM samples.
+        /// </summary>
+        public static string GenerateCSVDocumentOfMWQMSamples {
+            get {
+                return ResourceManager.GetString("GenerateCSVDocumentOfMWQMSamples", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Generate CSV document of MWQM sites.
+        /// </summary>
+        public static string GenerateCSVDocumentOfMWQMSites {
+            get {
+                return ResourceManager.GetString("GenerateCSVDocumentOfMWQMSites", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Generate KMZ document of MWQM sites.
         /// </summary>
         public static string GenerateKMZDocumentOfMWQMSites {
@@ -88,11 +106,11 @@ namespace CSSPWebTools.Views.OpenData.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Generate XLSX document of samples.
+        ///   Looks up a localized string similar to Generate XLSX document of MWQM samples.
         /// </summary>
-        public static string GenerateXlsxDocumentOfSamples {
+        public static string GenerateXlsxDocumentOfMWQMSamples {
             get {
-                return ResourceManager.GetString("GenerateXlsxDocumentOfSamples", resourceCulture);
+                return ResourceManager.GetString("GenerateXlsxDocumentOfMWQMSamples", resourceCulture);
             }
         }
         
@@ -102,6 +120,15 @@ namespace CSSPWebTools.Views.OpenData.Resources {
         public static string IsSensitive {
             get {
                 return ResourceManager.GetString("IsSensitive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Load setup.
+        /// </summary>
+        public static string LoadSetup {
+            get {
+                return ResourceManager.GetString("LoadSetup", resourceCulture);
             }
         }
         
@@ -147,6 +174,15 @@ namespace CSSPWebTools.Views.OpenData.Resources {
         public static string NotValidated {
             get {
                 return ResourceManager.GetString("NotValidated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open data document production.
+        /// </summary>
+        public static string OpenDataDocumentProduction {
+            get {
+                return ResourceManager.GetString("OpenDataDocumentProduction", resourceCulture);
             }
         }
         

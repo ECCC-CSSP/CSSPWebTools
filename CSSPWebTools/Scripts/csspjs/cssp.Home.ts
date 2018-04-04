@@ -40,9 +40,9 @@ module CSSP {
             clearTimeout(cssp.Home.AppTaskTimeout);
         };
         public Init: Function = (): void => { 
-            if (cssp.Test) {
-                cssp.Test.ShowTestButtons();
-            }
+            //if (cssp.Test) {
+            //    cssp.Test.ShowTestButtons();
+            //}
         };
         public InitAppTask: Function = (): void => {
             cssp.Home.AppTaskTimeout = setTimeout(() => {

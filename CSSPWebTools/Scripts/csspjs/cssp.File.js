@@ -203,9 +203,9 @@ var CSSP;
                 $(".jbFileImportShowHide").trigger("click");
             };
             this.Init = function () {
-                if (cssp.Test) {
-                    cssp.Test.ShowTestButtons();
-                }
+                //if (cssp.Test) {
+                //    cssp.Test.ShowTestButtons();
+                //}
             };
             this.InitEdit = function () {
                 $(cssp.File.FormEditName).each(function (ind, elem) {
@@ -231,9 +231,9 @@ var CSSP;
                         $(".FromWaterDiv").removeClass("hidden").addClass("hidden");
                     }
                 });
-                if (cssp.Test) {
-                    cssp.Test.ShowTestButtons();
-                }
+                //if (cssp.Test) {
+                //    cssp.Test.ShowTestButtons();
+                //}
             };
             this.InitUpload = function () {
                 $(cssp.File.FormUploadName).each(function (ind, elem) {
@@ -268,9 +268,9 @@ var CSSP;
                         $(".FromWaterDiv").removeClass("hidden").addClass("hidden");
                     }
                 });
-                if (cssp.Test) {
-                    cssp.Test.ShowTestButtons();
-                }
+                //if (cssp.Test) {
+                //    cssp.Test.ShowTestButtons();
+                //}
             };
             this.GetParentLatLng = function ($ajs) {
                 var $FormImportFile = $ajs.closest("#FileUploadForm");

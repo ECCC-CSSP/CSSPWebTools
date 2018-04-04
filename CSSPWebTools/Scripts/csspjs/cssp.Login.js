@@ -31,9 +31,9 @@ var CSSP;
                         }
                     });
                 });
-                if (cssp.Test) {
-                    cssp.Test.ShowTestButtons();
-                }
+                //if (cssp.Test) {
+                //    cssp.Test.ShowTestButtons();
+                //}
             };
             // Functions
             this.FormSubmit = function () {

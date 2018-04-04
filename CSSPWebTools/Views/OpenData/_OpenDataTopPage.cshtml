@@ -6,22 +6,29 @@
 @using System.Linq;
 
 @{
-    int ProvinceTVItemID = (int)ViewBag.ProvinceTVItemID;   
+    int ProvinceTVItemID = (int)ViewBag.ProvinceTVItemID;
 }
 
-<div class="ClimateSiteSetupDiv">
+<div class="OpenDataTopDiv">
     <div>
         <ul class="nav nav-tabs">
-            <li role="presentation" class="active"><a href="#Setup" role="tab" data-toggle="tab">@OpenDataViewRes.Setup</a></li>
-            <li role="presentation"><a href="#Documents" class="OpenDataShowDocuments" role="tab" data-toggle="tab">@OpenDataViewRes.Documents</a></li>
+            <li role="presentation" class="active"><a href="#OpenDataDocuments" role="tab" data-toggle="tab">@OpenDataViewRes.Documents</a></li>
+            <li role="presentation"><a href="#OpenDataSetup" role="tab" data-toggle="tab" data-setup="y" data-provincetvitemid="@ProvinceTVItemID">@OpenDataViewRes.Setup</a></li>
         </ul>
 
         <div class="tab-content">
-            <div role="tabpanel" class="tab-pane active" id="Setup" aria-expanded="true">
-                @Html.Action("_OpenDataProvince", "OpenData", new { ProvinceTVItemID = ProvinceTVItemID })
+            <div role="tabpanel" class="tab-pane active" id="OpenDataDocuments" aria-expanded="true" data-setup="">
+                @Html.Action("_OpenDataDocuments", "OpenData", new { ProvinceTVItemID = ProvinceTVItemID })
             </div>
-            <div role="tabpanel" class="tab-pane" id="Documents">
+            <div role="tabpanel" class="tab-pane" id="OpenDataSetup">
+                <div class="OpenDataProvinceDiv">
+                </div>
             </div>
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    $(function () {
+        cssp.OpenData.OpenDataInit();
+    });
+</script>

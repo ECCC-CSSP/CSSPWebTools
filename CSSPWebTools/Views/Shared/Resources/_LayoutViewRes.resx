@@ -486,4 +486,7 @@
   <data name="Save" xml:space="preserve">
     <value>Save</value>
   </data>
+  <data name="NotImplementedYet" xml:space="preserve">
+    <value>Not implemented yet</value>
+  </data>
 </root>

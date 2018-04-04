@@ -50,9 +50,9 @@ var CSSP;
                 cssp.Contact.EditCancel($bjs);
             };
             this.Init = function () {
-                if (cssp.Test) {
-                    cssp.Test.ShowTestButtons();
-                }
+                //if (cssp.Test) {
+                //    cssp.Test.ShowTestButtons();
+                //}
             };
             this.InitEdit = function () {
                 $(cssp.Contact.FormName).each(function (ind, elem) {
@@ -82,9 +82,9 @@ var CSSP;
                 if ($("#ContactSearch")) {
                     $("#ContactSearch").placeholder();
                 }
-                if (cssp.Test) {
-                    cssp.Test.ShowTestButtons();
-                }
+                //if (cssp.Test) {
+                //    cssp.Test.ShowTestButtons();
+                //}
             };
             this.LinkUserToParentTVItemID = function (ParentTVItemID, ContactTVItemID) {
                 var command = "Contact/LinkParentTVItemIDAndContactTVItemIDJSON";

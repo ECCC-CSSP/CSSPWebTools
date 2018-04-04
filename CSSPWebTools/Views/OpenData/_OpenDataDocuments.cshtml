@@ -12,7 +12,7 @@
 <div class="panel panel-info">
     <div class="panel-heading">
         <div class="panel-title">
-            @OpenDataViewRes.Documents
+            @OpenDataViewRes.OpenDataDocumentProduction
         </div>
     </div>
     <div class="panel-body">
@@ -20,11 +20,17 @@
             @Html.Action("_appTask", "Home", new { TVItemID = ProvinceTVItemID, Seconds = 5 })
         </div>
         <p></p>
-        <button class="jbOpenDataGenerateKMZDocument btn btn-primary" data-tvitemid="@ProvinceTVItemID">
+        <button class="jbOpenDataGenerateCSVDocumentOfMWQMSites btn btn-primary" data-provincetvitemid="@ProvinceTVItemID">
+            <span>@OpenDataViewRes.GenerateCSVDocumentOfMWQMSites</span>
+        </button>
+        <button class="jbOpenDataGenerateKMZDocumentOfMWQMSites btn btn-primary" data-provincetvitemid="@ProvinceTVItemID">
             <span>@OpenDataViewRes.GenerateKMZDocumentOfMWQMSites</span>
         </button>
-        <button class="jbOpenDataGenerateXlsxDocument btn btn-primary" data-tvitemid="@ProvinceTVItemID">
-            <span>@OpenDataViewRes.GenerateXlsxDocumentOfSamples</span>
+        <button class="jbOpenDataGenerateCSVDocumentOfMWQMSamples btn btn-primary" data-provincetvitemid="@ProvinceTVItemID">
+            <span>@OpenDataViewRes.GenerateCSVDocumentOfMWQMSamples</span>
+        </button>
+        <button class="jbOpenDataGenerateXlsxDocumentOfMWQMSamples btn btn-primary" data-provincetvitemid="@ProvinceTVItemID">
+            <span>@OpenDataViewRes.GenerateXlsxDocumentOfMWQMSamples</span>
         </button>
     </div>
 </div>

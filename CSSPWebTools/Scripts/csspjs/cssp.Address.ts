@@ -235,9 +235,9 @@
                 }
             });
 
-            if (cssp.Test) {
-                cssp.Test.ShowTestButtons();
-            }
+            //if (cssp.Test) {
+            //    cssp.Test.ShowTestButtons();
+            //}
         };
         public LoadCountryList: Function = ($CountrySelect: JQuery) => {
             var command: string = "Address/_CountryList";

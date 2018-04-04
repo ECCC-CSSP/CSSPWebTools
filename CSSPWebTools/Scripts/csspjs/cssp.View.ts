@@ -52,9 +52,9 @@
                 cssp.View.LoadSelectRecursive($selectNext, ParentTVItemID, TVType);
             });
 
-            if (cssp.Test) {
-                cssp.Test.ShowTestButtons();
-            }
+            //if (cssp.Test) {
+            //    cssp.Test.ShowTestButtons();
+            //}
         };
         public ShowHideSecurity: Function = (): void => {
             if ($(".SecurityHidden").hasClass("hidden")) {

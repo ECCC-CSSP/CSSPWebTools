@@ -138,9 +138,9 @@ var CSSP;
                 if ($("#AdminContactSearch")) {
                     $("#AdminContactSearch").placeholder();
                 }
-                if (cssp.Test) {
-                    cssp.Test.ShowTestButtons();
-                }
+                //if (cssp.Test) {
+                //    cssp.Test.ShowTestButtons();
+                //}
             };
             this.InitUser = function (ContactTVItemID, Disabled, LoginEmail) {
                 _this.contactModel = new CSSP.ContactModel(ContactTVItemID, Disabled, LoginEmail);
@@ -164,9 +164,9 @@ var CSSP;
                         $(evt.target).closest(".ProvinceDiv").find("input.province").removeAttr("disabled");
                     });
                 });
-                if (cssp.Test) {
-                    cssp.Test.ShowTestButtons();
-                }
+                //if (cssp.Test) {
+                //    cssp.Test.ShowTestButtons();
+                //}
             };
             this.LoadTVTypeNamesAndPathList = function () {
                 var command = "Admin/GetTVTypeNameAndPathListJSON";

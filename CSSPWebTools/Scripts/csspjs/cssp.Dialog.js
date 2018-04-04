@@ -7,9 +7,9 @@ var CSSP;
             var _this = this;
             // Functions
             this.InitDialogBasic = function () {
-                if (cssp.Test) {
-                    cssp.Test.ShowTestButtons();
-                }
+                //if (cssp.Test) {
+                //    cssp.Test.ShowTestButtons();
+                //}
             };
             // Functions
             this.CheckDialogAndButtonsExist = function (SelectorArr, LoopCount, EvalDialogEvent, $ajs) {

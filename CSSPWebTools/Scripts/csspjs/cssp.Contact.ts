@@ -55,9 +55,9 @@
             cssp.Contact.EditCancel($bjs);
         };
         public Init: Function = (): void => {
-            if (cssp.Test) {
-                cssp.Test.ShowTestButtons();
-            }
+            //if (cssp.Test) {
+            //    cssp.Test.ShowTestButtons();
+            //}
         };
         public InitEdit: Function = (): void => {
             $(cssp.Contact.FormName).each((ind: number, elem: Element) => {
@@ -91,9 +91,9 @@
                 $("#ContactSearch").placeholder();
             }
 
-            if (cssp.Test) {
-                cssp.Test.ShowTestButtons();
-            }
+            //if (cssp.Test) {
+            //    cssp.Test.ShowTestButtons();
+            //}
         };
         public LinkUserToParentTVItemID: Function = (ParentTVItemID: number, ContactTVItemID: number): void => {
             var command: string = "Contact/LinkParentTVItemIDAndContactTVItemIDJSON"

@@ -946,6 +946,26 @@ var CSSP;
                                 cssp.MWQMSite.MWQMSubsectorAnalysisLoadForReport($bjs);
                             }
                             break;
+                        case "jbOpenDataGenerateCSVDocumentOfMWQMSites":
+                            {
+                                cssp.OpenData.OpenDataGenerateCSVDocumentOfMWQMSites($bjs);
+                            }
+                            break;
+                        case "jbOpenDataGenerateKMZDocumentOfMWQMSites":
+                            {
+                                cssp.OpenData.OpenDataGenerateKMZDocumentOfMWQMSites($bjs);
+                            }
+                            break;
+                        case "jbOpenDataGenerateCSVDocumentOfMWQMSamples":
+                            {
+                                cssp.OpenData.OpenDataGenerateCSVDocumentOfMWQMSamples($bjs);
+                            }
+                            break;
+                        case "jbOpenDataGenerateXlsxDocumentOfMWQMSamples":
+                            {
+                                cssp.OpenData.OpenDataGenerateXlsxDocumentOfMWQMSamples($bjs);
+                            }
+                            break;
                         case "jbOpenDataReloadSubsector":
                             {
                                 cssp.OpenData.OpenDataReloadSubsector($bjs);

@@ -151,9 +151,9 @@ module CSSP {
                 $("#AdminContactSearch").placeholder();
             }
 
-            if (cssp.Test) {
-                cssp.Test.ShowTestButtons();
-            }
+            //if (cssp.Test) {
+            //    cssp.Test.ShowTestButtons();
+            //}
         };
         public InitUser: Function = (ContactTVItemID: number, Disabled: boolean, LoginEmail: string): void => {
             this.contactModel = new CSSP.ContactModel(ContactTVItemID, Disabled, LoginEmail);
@@ -179,9 +179,9 @@ module CSSP {
                     });
             });
 
-            if (cssp.Test) {
-                cssp.Test.ShowTestButtons();
-            }
+            //if (cssp.Test) {
+            //    cssp.Test.ShowTestButtons();
+            //}
         };
         public LoadTVTypeNamesAndPathList: Function = (): void => {
             var command: string = "Admin/GetTVTypeNameAndPathListJSON";

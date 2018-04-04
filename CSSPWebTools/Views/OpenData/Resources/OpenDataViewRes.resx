@@ -123,14 +123,23 @@
   <data name="Documents" xml:space="preserve">
     <value>Documents</value>
   </data>
+  <data name="GenerateCSVDocumentOfMWQMSamples" xml:space="preserve">
+    <value>Generate CSV document of MWQM samples</value>
+  </data>
+  <data name="GenerateCSVDocumentOfMWQMSites" xml:space="preserve">
+    <value>Generate CSV document of MWQM sites</value>
+  </data>
   <data name="GenerateKMZDocumentOfMWQMSites" xml:space="preserve">
     <value>Generate KMZ document of MWQM sites</value>
   </data>
-  <data name="GenerateXlsxDocumentOfSamples" xml:space="preserve">
-    <value>Generate XLSX document of samples</value>
+  <data name="GenerateXlsxDocumentOfMWQMSamples" xml:space="preserve">
+    <value>Generate XLSX document of MWQM samples</value>
   </data>
   <data name="IsSensitive" xml:space="preserve">
     <value>Is Sensitive</value>
+  </data>
+  <data name="LoadSetup" xml:space="preserve">
+    <value>Load setup</value>
   </data>
   <data name="MarkAllRoutineSamplesForMWQMSiteAs" xml:space="preserve">
     <value>Mark all routine sample for MWQM Site as</value>
@@ -146,6 +155,9 @@
   </data>
   <data name="NotValidated" xml:space="preserve">
     <value>Not Validated</value>
+  </data>
+  <data name="OpenDataDocumentProduction" xml:space="preserve">
+    <value>Open data document production</value>
   </data>
   <data name="Sensitive" xml:space="preserve">
     <value>Sensitive</value>

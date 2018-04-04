@@ -50,9 +50,9 @@ var CSSP;
                     var ParentTVItemID = parseInt($select.val());
                     cssp.View.LoadSelectRecursive($selectNext, ParentTVItemID, TVType);
                 });
-                if (cssp.Test) {
-                    cssp.Test.ShowTestButtons();
-                }
+                //if (cssp.Test) {
+                //    cssp.Test.ShowTestButtons();
+                //}
             };
             this.ShowHideSecurity = function () {
                 if ($(".SecurityHidden").hasClass("hidden")) {

@@ -9,9 +9,9 @@
         // Functions
         public InitDialogBasic: Function = (): void => {
             
-            if (cssp.Test) {
-                cssp.Test.ShowTestButtons();
-            }
+            //if (cssp.Test) {
+            //    cssp.Test.ShowTestButtons();
+            //}
         };
         // Functions
         public CheckDialogAndButtonsExist: Function = (SelectorArr: Array<string>, LoopCount: number, EvalDialogEvent: string, $ajs: JQuery): number => {

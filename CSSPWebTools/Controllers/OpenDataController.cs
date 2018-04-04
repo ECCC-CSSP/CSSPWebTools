@@ -44,7 +44,7 @@ namespace CSSPWebTools.Controllers
         #region Views/PartialViews
         [HttpGet]
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
-        public PartialViewResult _OpenDataDocument(int ProvinceTVItemID)
+        public PartialViewResult _OpenDataDocuments(int ProvinceTVItemID)
         {
             ViewBag.ProvinceTVItemID = ProvinceTVItemID;
 
@@ -115,17 +115,33 @@ namespace CSSPWebTools.Controllers
         #region Functions JSON
         [HttpPost]
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
-        public JsonResult GenerateKMZDocumentOfMWQMSitesJSON(int TVItemID)
+        public JsonResult GenerateCSVDocumentOfMWQMSitesJSON(int ProvinceTVItemID)
         {
-            TVItemModel tvItemModel = _OpenDataService.GenerateKMZDocumentOfMWQMSitesDB(TVItemID);
+            TVItemModel tvItemModel = _OpenDataService.GenerateCSVDocumentOfMWQMSitesDB(ProvinceTVItemID);
 
             return Json(tvItemModel.Error, JsonRequestBehavior.AllowGet);
         }
         [HttpPost]
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
-        public JsonResult GenerateXlsxDocumentOfSamplesJSON(int TVItemID)
+        public JsonResult GenerateKMZDocumentOfMWQMSitesJSON(int ProvinceTVItemID)
         {
-            TVItemModel tvItemModel = _OpenDataService.GenerateXlsxDocumentOfSamplesDB(TVItemID);
+            TVItemModel tvItemModel = _OpenDataService.GenerateKMZDocumentOfMWQMSitesDB(ProvinceTVItemID);
+
+            return Json(tvItemModel.Error, JsonRequestBehavior.AllowGet);
+        }
+        [HttpPost]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public JsonResult GenerateCSVDocumentOfMWQMSamplesJSON(int ProvinceTVItemID)
+        {
+            TVItemModel tvItemModel = _OpenDataService.GenerateCSVDocumentOfMWQMSamplesDB(ProvinceTVItemID);
+
+            return Json(tvItemModel.Error, JsonRequestBehavior.AllowGet);
+        }
+        [HttpPost]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public JsonResult GenerateXlsxDocumentOfMWQMSamplesJSON(int ProvinceTVItemID)
+        {
+            TVItemModel tvItemModel = _OpenDataService.GenerateXlsxDocumentOfMWQMSamplesDB(ProvinceTVItemID);
 
             return Json(tvItemModel.Error, JsonRequestBehavior.AllowGet);
         }

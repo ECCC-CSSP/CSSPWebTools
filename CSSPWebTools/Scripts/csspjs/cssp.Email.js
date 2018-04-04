@@ -67,9 +67,9 @@ var CSSP;
                         }
                     });
                 });
-                if (cssp.Test) {
-                    cssp.Test.ShowTestButtons();
-                }
+                //if (cssp.Test) {
+                //    cssp.Test.ShowTestButtons();
+                //}
             };
             this.ReloadEmailEditList = function (ContactTVItemID) {
                 var command = "Email/_emailEditList";

@@ -36,9 +36,9 @@ var CSSP;
                 clearTimeout(cssp.Home.AppTaskTimeout);
             };
             this.Init = function () {
-                if (cssp.Test) {
-                    cssp.Test.ShowTestButtons();
-                }
+                //if (cssp.Test) {
+                //    cssp.Test.ShowTestButtons();
+                //}
             };
             this.InitAppTask = function () {
                 cssp.Home.AppTaskTimeout = setTimeout(function () {

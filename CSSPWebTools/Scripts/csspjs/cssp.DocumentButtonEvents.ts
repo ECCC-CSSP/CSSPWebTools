@@ -949,14 +949,24 @@ module CSSP {
                             cssp.MWQMSite.MWQMSubsectorAnalysisLoadForReport($bjs);
                         }
                         break;
-                    case "jbOpenDataGenerateKMZDocument":
+                    case "jbOpenDataGenerateCSVDocumentOfMWQMSites":
                         {
-                            cssp.OpenData.OpenDataGenerateKMZDocument($bjs);
+                            cssp.OpenData.OpenDataGenerateCSVDocumentOfMWQMSites($bjs);
                         }
                         break;
-                    case "jbOpenDataGenerateXlsxDocument":
+                    case "jbOpenDataGenerateKMZDocumentOfMWQMSites":
                         {
-                            cssp.OpenData.OpenDataGenerateXlsxDocument($bjs);
+                            cssp.OpenData.OpenDataGenerateKMZDocumentOfMWQMSites($bjs);
+                        }
+                        break;
+                    case "jbOpenDataGenerateCSVDocumentOfMWQMSamples":
+                        {
+                            cssp.OpenData.OpenDataGenerateCSVDocumentOfMWQMSamples($bjs);
+                        }
+                        break;
+                    case "jbOpenDataGenerateXlsxDocumentOfMWQMSamples":
+                        {
+                            cssp.OpenData.OpenDataGenerateXlsxDocumentOfMWQMSamples($bjs);
                         }
                         break;
                     case "jbOpenDataReloadSubsector":
