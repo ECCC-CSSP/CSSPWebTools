@@ -325,10 +325,10 @@
     <value>T 1.0</value>
   </data>
   <data name="TCField1" xml:space="preserve">
-    <value>CT champ #1</value>
+    <value>CT champ</value>
   </data>
   <data name="TCLab1" xml:space="preserve">
-    <value>CT lab #1</value>
+    <value>CT lab</value>
   </data>
   <data name="Temp" xml:space="preserve">
     <value>Tempér</value>

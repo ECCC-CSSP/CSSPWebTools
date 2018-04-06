@@ -358,7 +358,7 @@ else
 
                                                         TimeSpan ts = new TimeSpan(IncubationStartTime1.Ticks - SampleStartTime1.Ticks);
                                                         HoldingTime1 = ((float)ts.TotalHours).ToString("F1");
-                                                        if (ts.TotalHours > 8)
+                                                        if (ts.TotalHours > 8.0f)
                                                         {
                                                             textColor = "text-danger";
                                                         }
@@ -384,7 +384,7 @@ else
 
                                                             TimeSpan ts = new TimeSpan(IncubationStartTime2.Ticks - SampleStartTime2.Ticks);
                                                             HoldingTime2 = ((float)ts.TotalHours).ToString("F1");
-                                                            if (ts.TotalHours > 8)
+                                                            if (ts.TotalHours > 8.0f)
                                                             {
                                                                 textColor = "text-danger";
                                                             }
@@ -411,7 +411,7 @@ else
 
                                                             TimeSpan ts = new TimeSpan(IncubationStartTime3.Ticks - SampleStartTime3.Ticks);
                                                             HoldingTime3 = ((float)ts.TotalHours).ToString("F1");
-                                                            if (ts.TotalHours > 8)
+                                                            if (ts.TotalHours > 8.0f)
                                                             {
                                                                 textColor = "text-danger";
                                                             }
@@ -445,22 +445,8 @@ else
                                 <li style="vertical-align:top">
                                     <table class="table table-bordered">
                                         <tr class="@textColor">
-                                            <td rowspan="2">
-                                                <b>@SamplingPlanViewRes.TCCelcius</b> &nbsp; &nbsp; &nbsp;
-                                            </td>
-                                            <td>
-                                                @SamplingPlanViewRes.First
-                                            </td>
-                                            <td>
-                                                @labSheetModelAndA1Sheet.LabSheetA1Sheet.TCFirst
-                                            </td>
-                                        </tr>
-                                        <tr class="@textColor">
-                                            <td>
-                                                @SamplingPlanViewRes.Average
-                                            </td>
-                                            <td>
-                                                @labSheetModelAndA1Sheet.LabSheetA1Sheet.TCAverage
+                                            <td colspan="3">
+                                                <b>@SamplingPlanViewRes.TCCelcius</b>
                                             </td>
                                         </tr>
                                         <tr>
@@ -501,7 +487,7 @@ else
                                                 {
                                                     textColor = "text-danger";
                                                 }
-                                                else if (float.Parse(labSheetModelAndA1Sheet.LabSheetA1Sheet.TCLab1) > 8.0f)
+                                                else if (float.Parse(labSheetModelAndA1Sheet.LabSheetA1Sheet.TCLab1) > 10.5f)
                                                 {
                                                     textColor = "text-danger";
                                                 }
@@ -512,7 +498,7 @@ else
                                                 {
                                                     textColor = "text-danger";
                                                 }
-                                                else if (float.Parse(labSheetModelAndA1Sheet.LabSheetA1Sheet.TCLab2) > 8.0f)
+                                                else if (float.Parse(labSheetModelAndA1Sheet.LabSheetA1Sheet.TCLab2) > 10.5f)
                                                 {
                                                     textColor = "text-danger";
                                                 }

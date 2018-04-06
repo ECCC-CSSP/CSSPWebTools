@@ -436,32 +436,40 @@ namespace CSSPWebTools.Controllers
                     }
                 }
 
-                int Year = 0;
-                int Month = 0;
-                int Day = 0;
-                if (int.TryParse(labSheetModelAndA1SheetList[0].LabSheetA1Sheet.RunYear, out Year))
+                List<MWQMSampleModel> mwqmSampleModelList = new List<MWQMSampleModel>();
+                foreach (LabSheetModelAndA1Sheet labSheetModelAndA1Sheet in labSheetModelAndA1SheetList)
                 {
-                    if (int.TryParse(labSheetModelAndA1SheetList[0].LabSheetA1Sheet.RunMonth, out Month))
+                    int Year = 0;
+                    int Month = 0;
+                    int Day = 0;
+                    if (int.TryParse(labSheetModelAndA1Sheet.LabSheetA1Sheet.RunYear, out Year))
                     {
-                        if (int.TryParse(labSheetModelAndA1SheetList[0].LabSheetA1Sheet.RunDay, out Day))
+                        if (int.TryParse(labSheetModelAndA1Sheet.LabSheetA1Sheet.RunMonth, out Month))
                         {
-                            MWQMRunModel mwqmRunModelNew = new MWQMRunModel()
+                            if (int.TryParse(labSheetModelAndA1Sheet.LabSheetA1Sheet.RunDay, out Day))
                             {
-                                SubsectorTVItemID = labSheetModelAndA1SheetList[0].LabSheetA1Sheet.SubsectorTVItemID,
-                                DateTime_Local = new DateTime(Year, Month, Day),
-                                RunSampleType = labSheetModelAndA1SheetList[0].LabSheetA1Sheet.SampleType,
-                                RunNumber = labSheetModelList[0].RunNumber,
-                            };
+                                MWQMRunModel mwqmRunModelNew = new MWQMRunModel()
+                                {
+                                    SubsectorTVItemID = labSheetModelAndA1Sheet.LabSheetA1Sheet.SubsectorTVItemID,
+                                    DateTime_Local = new DateTime(Year, Month, Day),
+                                    RunSampleType = labSheetModelAndA1Sheet.LabSheetA1Sheet.SampleType,
+                                    RunNumber = labSheetModelList[0].RunNumber,
+                                };
 
-                            MWQMRunModel mwqmRunModel = mwqmRunService.GetMWQMRunModelExistDB(mwqmRunModelNew);
-                            if (string.IsNullOrWhiteSpace(mwqmRunModel.Error))
-                            {
-                                List<MWQMSampleModel> mwqmSampleModelList = mwqmSampleService.GetMWQMSampleModelListWithMWQMRunTVItemIDDB(mwqmRunModel.MWQMRunTVItemID);
-                                ViewBag.MWQMSampleModelList = mwqmSampleModelList;
+                                MWQMRunModel mwqmRunModel = mwqmRunService.GetMWQMRunModelExistDB(mwqmRunModelNew);
+                                if (string.IsNullOrWhiteSpace(mwqmRunModel.Error))
+                                {
+                                    List<MWQMSampleModel> mwqmSampleModelList2 = mwqmSampleService.GetMWQMSampleModelListWithMWQMRunTVItemIDDB(mwqmRunModel.MWQMRunTVItemID);
+                                    foreach (MWQMSampleModel mwqmSampleModel in mwqmSampleModelList2)
+                                    {
+                                        mwqmSampleModelList.Add(mwqmSampleModel);
+                                    }
+                                }
                             }
                         }
                     }
                 }
+                ViewBag.MWQMSampleModelList = mwqmSampleModelList;
 
             }
 

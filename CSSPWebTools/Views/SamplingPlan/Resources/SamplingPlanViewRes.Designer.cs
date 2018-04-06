@@ -1204,7 +1204,7 @@ namespace CSSPWebTools.Views.SamplingPlan.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TC Field #1.
+        ///   Looks up a localized string similar to TC Field.
         /// </summary>
         public static string TCField1 {
             get {
@@ -1231,7 +1231,7 @@ namespace CSSPWebTools.Views.SamplingPlan.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TC Lab #1.
+        ///   Looks up a localized string similar to TC Lab.
         /// </summary>
         public static string TCLab1 {
             get {
