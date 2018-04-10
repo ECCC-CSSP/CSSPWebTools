@@ -41,6 +41,7 @@
         @foreach (PolSourceObsInfoEnumTextAndID polSourceObsInfoEnumTextAndID in polSourceObsInfoEnumTextAndIDList.Where(c => c.ID % 100 == 0))
         {
             string tempText = _BaseEnumService.GetEnumText_PolSourceObsInfoEnum(((PolSourceObsInfoEnum)polSourceObsInfoEnumTextAndID.ID));
+            string tempTextDesc = _BaseEnumService.GetEnumText_PolSourceObsInfoDescEnum(((PolSourceObsInfoEnum)polSourceObsInfoEnumTextAndID.ID));
             if (tempText.IndexOf("|") > 0)
             {
                 tempText = tempText.Substring(0, tempText.IndexOf("|"));
@@ -54,7 +55,7 @@
                         </label>
                         <a href="#" class="jaPopover text-info elementSpacing" type="button" tabindex="0"
                            data-trigger="focus" data-container="body" data-toggle="popover" data-placement="right"
-                           data-content="@(tempText)">
+                           data-content="@(tempTextDesc)">
                             <span class="glyphicon glyphicon-info-sign"></span>
                         </a>
                         <div class="elementSpacing">

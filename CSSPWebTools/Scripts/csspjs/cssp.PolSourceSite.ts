@@ -256,6 +256,9 @@ module CSSP {
                 let childElemStr: string = $(evt.target).data("psc");
                 $(evt.target).closest(".PolSourceGroupSelected").append($(".PolSourceGroupingTop ." + childElemStr).html());
                 let hideText: string = $(evt.target).data("hide");
+                if (hideText.substring(hideText.length - 1) != ",") {
+                    hideText = hideText + ",";
+                }
                 let hideList: string[] = hideText.split(",");
                 let nextPolSourcInputDiv: JQuery = $(evt.target).closest(".polsourceinputdiv").next(".polsourceinputdiv");
                 nextPolSourcInputDiv.find("input.polsourceinput").each((ind: number, elem: HTMLElement) => {
@@ -292,6 +295,9 @@ module CSSP {
             $("label.ElementSelected").each((ind: number, elem: HTMLElement) => {
                 let input$: JQuery = $(elem).find("input.polsourceinput");
                 let hideText: string = input$.data("hide");
+                if (hideText.substring(hideText.length - 1) != ",") {
+                    hideText = hideText + ",";
+                }
                 let hideList: string[] = hideText.split(",");
                 let nextPolSourcInputDiv: JQuery = input$.closest(".polsourceinputdiv").next(".polsourceinputdiv");
                 nextPolSourcInputDiv.find("input.polsourceinput").each((ind: number, elem: HTMLElement) => {

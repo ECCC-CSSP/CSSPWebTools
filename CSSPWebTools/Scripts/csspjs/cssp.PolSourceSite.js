@@ -243,6 +243,9 @@ var CSSP;
                     var childElemStr = $(evt.target).data("psc");
                     $(evt.target).closest(".PolSourceGroupSelected").append($(".PolSourceGroupingTop ." + childElemStr).html());
                     var hideText = $(evt.target).data("hide");
+                    if (hideText.substring(hideText.length - 1) != ",") {
+                        hideText = hideText + ",";
+                    }
                     var hideList = hideText.split(",");
                     var nextPolSourcInputDiv = $(evt.target).closest(".polsourceinputdiv").next(".polsourceinputdiv");
                     nextPolSourcInputDiv.find("input.polsourceinput").each(function (ind, elem) {
@@ -280,6 +283,9 @@ var CSSP;
                 $("label.ElementSelected").each(function (ind, elem) {
                     var input$ = $(elem).find("input.polsourceinput");
                     var hideText = input$.data("hide");
+                    if (hideText.substring(hideText.length - 1) != ",") {
+                        hideText = hideText + ",";
+                    }
                     var hideList = hideText.split(",");
                     var nextPolSourcInputDiv = input$.closest(".polsourceinputdiv").next(".polsourceinputdiv");
                     nextPolSourcInputDiv.find("input.polsourceinput").each(function (ind, elem) {
