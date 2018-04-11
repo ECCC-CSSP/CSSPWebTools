@@ -150,11 +150,11 @@ module CSSP {
             }
         };
 
-        public OpenDataMarkAllRoutineSamplesAsValidated: Function = ($bjs: JQuery): void => {
+        public OpenDataMarkAllRoutineSamplesAsUseForOpenData: Function = ($bjs: JQuery): void => {
             let TVItemID: number = parseInt($bjs.data("tvitemid"));
             $bjs.closest(".OpenDataButtonsTopDiv").find(".OpenDataButtonsDiv").removeClass("hidden").addClass("hidden");
             $bjs.closest(".OpenDataButtonsTopDiv").find(".OpenDataWorkingDiv").removeClass("hidden");
-            var command = "OpenData/MarkAllRoutineSamplesAsValidatedJSON";
+            var command = "OpenData/MarkAllRoutineSamplesAsUseForOpenDataJSON";
             $.post(cssp.BaseURL + command,
                 {
                     TVItemID: TVItemID,
@@ -172,11 +172,11 @@ module CSSP {
                     cssp.Dialog.ShowDialogErrorWithFail(command);
                 });
         };
-        public OpenDataMarkAllRoutineSamplesAsNotValidated: Function = ($bjs: JQuery): void => {
+        public OpenDataMarkAllRoutineSamplesAsNotUseForOpenData: Function = ($bjs: JQuery): void => {
             let TVItemID: number = parseInt($bjs.data("tvitemid"));
             $bjs.closest(".OpenDataButtonsTopDiv").find(".OpenDataButtonsDiv").removeClass("hidden").addClass("hidden");
             $bjs.closest(".OpenDataButtonsTopDiv").find(".OpenDataWorkingDiv").removeClass("hidden");
-            var command = "OpenData/MarkAllRoutineSamplesAsNotValidatedJSON";
+            var command = "OpenData/MarkAllRoutineSamplesAsNotUseForOpenDataJSON";
             $.post(cssp.BaseURL + command,
                 {
                     TVItemID: TVItemID,
@@ -194,53 +194,9 @@ module CSSP {
                     cssp.Dialog.ShowDialogErrorWithFail(command);
                 });
         };
-        public OpenDataMarkAllRoutineSamplesAsIsSensitive: Function = ($bjs: JQuery): void => {
-            let TVItemID: number = parseInt($bjs.data("tvitemid"));
-            $bjs.closest(".OpenDataButtonsTopDiv").find(".OpenDataButtonsDiv").removeClass("hidden").addClass("hidden");
-            $bjs.closest(".OpenDataButtonsTopDiv").find(".OpenDataWorkingDiv").removeClass("hidden");
-            var command = "OpenData/MarkAllRoutineSamplesAsIsSensitiveJSON";
-            $.post(cssp.BaseURL + command,
-                {
-                    TVItemID: TVItemID,
-                })
-                .done((ret) => {
-                    if (ret) {
-                        cssp.Dialog.ShowDialogError(ret);
-                    }
-                    else {
-                        cssp.Dialog.ShowDialogSuccess(cssp.GetHTMLVariable("#LayoutVariables", "varSuccess"));
-                        $bjs.closest(".OpenDataButtonsTopDiv").find(".OpenDataButtonsDiv").removeClass("hidden");
-                        $bjs.closest(".OpenDataButtonsTopDiv").find(".OpenDataWorkingDiv").removeClass("hidden").addClass("hidden");
-                    }
-                }).fail(() => {
-                    cssp.Dialog.ShowDialogErrorWithFail(command);
-                });
-        };
-        public OpenDataMarkAllRoutineSamplesAsNotSensitive: Function = ($bjs: JQuery): void => {
-            let TVItemID: number = parseInt($bjs.data("tvitemid"));
-            $bjs.closest(".OpenDataButtonsTopDiv").find(".OpenDataButtonsDiv").removeClass("hidden").addClass("hidden");
-            $bjs.closest(".OpenDataButtonsTopDiv").find(".OpenDataWorkingDiv").removeClass("hidden");
-            var command = "OpenData/MarkAllRoutineSamplesAsNotSensitiveJSON";
-            $.post(cssp.BaseURL + command,
-                {
-                    TVItemID: TVItemID,
-                })
-                .done((ret) => {
-                    if (ret) {
-                        cssp.Dialog.ShowDialogError(ret);
-                    }
-                    else {
-                        cssp.Dialog.ShowDialogSuccess(cssp.GetHTMLVariable("#LayoutVariables", "varSuccess"));
-                        $bjs.closest(".OpenDataButtonsTopDiv").find(".OpenDataButtonsDiv").removeClass("hidden");
-                        $bjs.closest(".OpenDataButtonsTopDiv").find(".OpenDataWorkingDiv").removeClass("hidden").addClass("hidden");
-                    }
-                }).fail(() => {
-                    cssp.Dialog.ShowDialogErrorWithFail(command);
-                });
-        };
-        public OpenDataMarkSamplesWithMWQMSampleIDAsValidated: Function = ($bjs: JQuery): void => {
+        public OpenDataMarkSamplesWithMWQMSampleIDAsUseForOpenData: Function = ($bjs: JQuery): void => {
             let MWQMSampleID: number = parseInt($bjs.data("mwqmsampleid"));
-            var command = "OpenData/MarkSamplesWithMWQMSampleIDAsValidatedJSON";
+            var command = "OpenData/MarkSamplesWithMWQMSampleIDAsUseForOpenDataJSON";
             $.post(cssp.BaseURL + command,
                 {
                     MWQMSampleID: MWQMSampleID,
@@ -256,9 +212,9 @@ module CSSP {
                     cssp.Dialog.ShowDialogErrorWithFail(command);
                 });
         };
-        public OpenDataMarkSamplesWithMWQMSampleIDAsNotValidated: Function = ($bjs: JQuery): void => {
+        public OpenDataMarkSamplesWithMWQMSampleIDAsNotUseForOpenData: Function = ($bjs: JQuery): void => {
             let MWQMSampleID: number = parseInt($bjs.data("mwqmsampleid"));
-            var command = "OpenData/MarkSamplesWithMWQMSampleIDAsNotValidatedJSON";
+            var command = "OpenData/MarkSamplesWithMWQMSampleIDAsNotUseForOpenDataJSON";
             $.post(cssp.BaseURL + command,
                 {
                     MWQMSampleID: MWQMSampleID,

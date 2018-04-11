@@ -193,36 +193,18 @@ namespace CSSPWebTools.Controllers
 
         [HttpPost]
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
-        public JsonResult MarkAllRoutineSamplesAsValidatedJSON(int MWQMRunTVItemID)
+        public JsonResult MarkAllRoutineSamplesAsUseForOpenDataJSON(int MWQMRunTVItemID)
         {
-            MWQMRunModel mwqmRunModel = _MWQMRunService.MarkAllRoutineSamplesAsValidatedDB(MWQMRunTVItemID);
+            MWQMRunModel mwqmRunModel = _MWQMRunService.MarkAllRoutineSamplesAsUseForOpenDataDB(MWQMRunTVItemID);
 
             return Json(mwqmRunModel.Error, JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost]
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
-        public JsonResult MarkAllRoutineSamplesAsNotValidatedJSON(int MWQMRunTVItemID)
+        public JsonResult MarkAllRoutineSamplesAsNotUseForOpenDataJSON(int MWQMRunTVItemID)
         {
-            MWQMRunModel mwqmRunModel = _MWQMRunService.MarkAllRoutineSamplesAsNotValidatedDB(MWQMRunTVItemID);
-
-            return Json(mwqmRunModel.Error, JsonRequestBehavior.AllowGet);
-        }
-
-        [HttpPost]
-        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
-        public JsonResult MarkAllRoutineSamplesAsIsSensitiveJSON(int MWQMRunTVItemID)
-        {
-            MWQMRunModel mwqmRunModel = _MWQMRunService.MarkAllRoutineSamplesAsIsSensitiveDB(MWQMRunTVItemID);
-
-            return Json(mwqmRunModel.Error, JsonRequestBehavior.AllowGet);
-        }
-
-        [HttpPost]
-        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
-        public JsonResult MarkAllRoutineSamplesAsNotSensitiveJSON(int MWQMRunTVItemID)
-        {
-            MWQMRunModel mwqmRunModel = _MWQMRunService.MarkAllRoutineSamplesAsNotSensitiveDB(MWQMRunTVItemID);
+            MWQMRunModel mwqmRunModel = _MWQMRunService.MarkAllRoutineSamplesAsNotUseForOpenDataDB(MWQMRunTVItemID);
 
             return Json(mwqmRunModel.Error, JsonRequestBehavior.AllowGet);
         }

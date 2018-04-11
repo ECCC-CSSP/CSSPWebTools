@@ -675,9 +675,14 @@
                 });
         };
         public SamplingPlanRejectLabSheet: Function = ($bjs: JQuery): void => {
-            var LabSheetID: number = parseInt($bjs.data("labsheetid"));
-            var command = "SamplingPlan/LabSheetRejectJSON";
-            $.post(cssp.BaseURL + command, { LabSheetID: LabSheetID })
+            let LabSheetID: number = parseInt($bjs.data("labsheetid"));
+            let RejectReason: string = $bjs.closest(".AcceptRejectButtonsDiv").find("input.RejectReason").val();
+            let command = "SamplingPlan/LabSheetRejectJSON";
+            $.post(cssp.BaseURL + command,
+                {
+                    LabSheetID: LabSheetID,
+                    RejectReason: RejectReason,
+                })
                 .done((ret) => {
                     if (ret) {
                         cssp.Dialog.ShowDialogErrorWithError(ret);

@@ -831,25 +831,13 @@
   <data name="WillBeUsingDefaultParameters" xml:space="preserve">
     <value>Utilisation des paramètres par default</value>
   </data>
-  <data name="IsSensitive" xml:space="preserve">
-    <value>Est sensible</value>
-  </data>
-  <data name="IsSensitiveIfNotStrikeThrough" xml:space="preserve">
-    <value>Is sensitive if not strike through (fr)</value>
-  </data>
   <data name="MarkAllRoutineSamplesAs" xml:space="preserve">
     <value>Mark all routine samples as (fr)</value>
   </data>
-  <data name="NotSensitive" xml:space="preserve">
-    <value>Not sensitive (fr)</value>
+  <data name="NotUseForOpenData" xml:space="preserve">
+    <value>Not use for open data (fr)</value>
   </data>
-  <data name="NotValidated" xml:space="preserve">
-    <value>Not validated (fr)</value>
-  </data>
-  <data name="Validated" xml:space="preserve">
-    <value>Validaté</value>
-  </data>
-  <data name="ValidatedIfNotStrikeThrough" xml:space="preserve">
-    <value>Validated if not strike through (fr)</value>
+  <data name="UseForOpenData" xml:space="preserve">
+    <value>Use for open data (fr)</value>
   </data>
 </root>

@@ -612,8 +612,12 @@ var CSSP;
             };
             this.SamplingPlanRejectLabSheet = function ($bjs) {
                 var LabSheetID = parseInt($bjs.data("labsheetid"));
+                var RejectReason = $bjs.closest(".AcceptRejectButtonsDiv").find("input.RejectReason").val();
                 var command = "SamplingPlan/LabSheetRejectJSON";
-                $.post(cssp.BaseURL + command, { LabSheetID: LabSheetID })
+                $.post(cssp.BaseURL + command, {
+                    LabSheetID: LabSheetID,
+                    RejectReason: RejectReason,
+                })
                     .done(function (ret) {
                     if (ret) {
                         cssp.Dialog.ShowDialogErrorWithError(ret);

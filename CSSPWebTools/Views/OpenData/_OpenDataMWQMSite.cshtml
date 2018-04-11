@@ -14,17 +14,11 @@
 <div class="OpenDataButtonsTopDiv">
     <span>@OpenDataViewRes.MarkAllRoutineSamplesForMWQMSiteAs : </span>
     <span class="OpenDataButtonsDiv">
-        <button class="jbOpenDataMarkAllRoutineSamplesAsValidated btn btn-primary" data-tvitemid="@MWQMSiteTVItemID">
-            <span>@OpenDataViewRes.Validated</span>
+        <button class="jbOpenDataMarkAllRoutineSamplesAsUseForOpenData btn btn-primary" data-tvitemid="@MWQMSiteTVItemID">
+            <span>@OpenDataViewRes.UseForOpenData</span>
         </button>
-        <button class="jbOpenDataMarkAllRoutineSamplesAsNotValidated btn btn-primary" data-tvitemid="@MWQMSiteTVItemID">
-            <span>@OpenDataViewRes.NotValidated</span>
-        </button>
-        <button class="jbOpenDataMarkAllRoutineSamplesAsIsSensitive btn btn-primary" data-tvitemid="@MWQMSiteTVItemID">
-            <span>@OpenDataViewRes.IsSensitive</span>
-        </button>
-        <button class="jbOpenDataMarkAllRoutineSamplesAsNotSensitive btn btn-primary" data-tvitemid="@MWQMSiteTVItemID">
-            <span>@OpenDataViewRes.NotSensitive</span>
+        <button class="jbOpenDataMarkAllRoutineSamplesAsNotUseForOpenData btn btn-primary" data-tvitemid="@MWQMSiteTVItemID">
+            <span>@OpenDataViewRes.NotUseForOpenData</span>
         </button>
     </span>
     <span class="OpenDataWorkingDiv hidden">
@@ -36,15 +30,14 @@
 <table class="table table-striped table-condensed">
     <thead>
         <tr>
-            <th>command</th>
-            <th>Date</th>
-            <th>FC</th>
-            <th>Sal</th>
-            <th>Temp</th>
-            <th>pH</th>
-            <th>Depth</th>
-            <th>Validated</th>
-            <th>Is Sensitive</th>
+            <th>@OpenDataViewRes.Commands</th>
+            <th>@OpenDataViewRes.Date</th>
+            <th>@OpenDataViewRes.FC</th>
+            <th>@OpenDataViewRes.Sal</th>
+            <th>@OpenDataViewRes.Temp</th>
+            <th>@OpenDataViewRes.pH</th>
+            <th>@OpenDataViewRes.Depth</th>
+            <th>@OpenDataViewRes.UseForOpenData</th>
         </tr>
     </thead>
     <tbody>
@@ -52,17 +45,11 @@
         {
             <tr>
                 <td>
-                    <button class="jbOpenDataMarkSamplesWithMWQMSampleIDAsValidated btn btn-primary" data-mwqmsampleid="@mwqmSampleModel.MWQMSampleID">
-                        <span>@OpenDataViewRes.Validated</span>
+                    <button class="jbOpenDataMarkSamplesWithMWQMSampleIDAsUseForOpenData btn btn-primary" data-mwqmsampleid="@mwqmSampleModel.MWQMSampleID">
+                        <span>@OpenDataViewRes.UseForOpenData</span>
                     </button>
-                    <button class="jbOpenDataMarkSamplesWithMWQMSampleIDAsNotValidated btn btn-primary" data-mwqmsampleid="@mwqmSampleModel.MWQMSampleID">
-                        <span>@OpenDataViewRes.NotValidated</span>
-                    </button>
-                    <button class="jbOpenDataMarkSamplesWithMWQMSampleIDAsIsSensitive btn btn-primary" data-mwqmsampleid="@mwqmSampleModel.MWQMSampleID">
-                        <span>@OpenDataViewRes.IsSensitive</span>
-                    </button>
-                    <button class="jbOpenDataMarkSamplesWithMWQMSampleIDAsNotSensitive btn btn-primary" data-mwqmsampleid="@mwqmSampleModel.MWQMSampleID">
-                        <span>@OpenDataViewRes.NotSensitive</span>
+                    <button class="jbOpenDataMarkSamplesWithMWQMSampleIDAsNotUseForOpenData btn btn-primary" data-mwqmsampleid="@mwqmSampleModel.MWQMSampleID">
+                        <span>@OpenDataViewRes.NotUseForOpenData</span>
                     </button>
                 </td>
                 <td>
@@ -84,10 +71,7 @@
                     @(mwqmSampleModel.Depth_m != null ? ((float)mwqmSampleModel.Depth_m).ToString("F1") : "")
                 </td>
                 <td>
-                    @(mwqmSampleModel.Validated ? "yes" : "no")
-                </td>
-                <td>
-                    @(mwqmSampleModel.IsSensitive ? "yes" : "no")
+                    @(mwqmSampleModel.UseForOpenData ? "yes" : "no")
                 </td>
             </tr>
         }

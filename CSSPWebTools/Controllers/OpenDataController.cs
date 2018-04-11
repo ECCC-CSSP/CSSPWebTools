@@ -147,65 +147,33 @@ namespace CSSPWebTools.Controllers
         }
         [HttpPost]
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
-        public JsonResult MarkAllRoutineSamplesAsValidatedJSON(int TVItemID)
+        public JsonResult MarkAllRoutineSamplesAsUseForOpenDataJSON(int TVItemID)
         {
-            TVItemModel tvItemModel = _OpenDataService.MarkAllRoutineSamplesAsValidatedDB(TVItemID);
+            TVItemModel tvItemModel = _OpenDataService.MarkAllRoutineSamplesAsUseForOpenDataDB(TVItemID);
 
             return Json(tvItemModel.Error, JsonRequestBehavior.AllowGet);
         }
         [HttpPost]
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
-        public JsonResult MarkAllRoutineSamplesAsNotValidatedJSON(int TVItemID)
+        public JsonResult MarkAllRoutineSamplesAsNotUseForOpenDataJSON(int TVItemID)
         {
-            TVItemModel tvItemModel = _OpenDataService.MarkAllRoutineSamplesAsNotValidatedDB(TVItemID);
+            TVItemModel tvItemModel = _OpenDataService.MarkAllRoutineSamplesAsNotUseForOpenDataDB(TVItemID);
 
             return Json(tvItemModel.Error, JsonRequestBehavior.AllowGet);
         }
         [HttpPost]
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
-        public JsonResult MarkAllRoutineSamplesAsIsSensitiveJSON(int TVItemID)
+        public JsonResult MarkSamplesWithMWQMSampleIDAsUseForOpenDataJSON(int MWQMSampleID)
         {
-            TVItemModel tvItemModel = _OpenDataService.MarkAllRoutineSamplesAsIsSensitiveDB(TVItemID);
+               TVItemModel tvItemModel = _OpenDataService.MarkSamplesWithMWQMSampleIDAsUseForOpenDataDB(MWQMSampleID);
 
             return Json(tvItemModel.Error, JsonRequestBehavior.AllowGet);
         }
         [HttpPost]
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
-        public JsonResult MarkAllRoutineSamplesAsNotSensitiveJSON(int TVItemID)
+        public JsonResult MarkSamplesWithMWQMSampleIDAsNotUseForOpenDataJSON(int MWQMSampleID)
         {
-            TVItemModel tvItemModel = _OpenDataService.MarkAllRoutineSamplesAsNotSensitiveDB(TVItemID);
-
-            return Json(tvItemModel.Error, JsonRequestBehavior.AllowGet);
-        }
-        [HttpPost]
-        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
-        public JsonResult MarkSamplesWithMWQMSampleIDAsValidatedJSON(int MWQMSampleID)
-        {
-            TVItemModel tvItemModel = _OpenDataService.MarkSamplesWithMWQMSampleIDAsValidatedDB(MWQMSampleID);
-
-            return Json(tvItemModel.Error, JsonRequestBehavior.AllowGet);
-        }
-        [HttpPost]
-        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
-        public JsonResult MarkSamplesWithMWQMSampleIDAsNotValidatedJSON(int MWQMSampleID)
-        {
-            TVItemModel tvItemModel = _OpenDataService.MarkSamplesWithMWQMSampleIDAsNotValidatedDB(MWQMSampleID);
-
-            return Json(tvItemModel.Error, JsonRequestBehavior.AllowGet);
-        }
-        [HttpPost]
-        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
-        public JsonResult MarkSamplesWithMWQMSampleIDAsIsSensitiveJSON(int MWQMSampleID)
-        {
-            TVItemModel tvItemModel = _OpenDataService.MarkSamplesWithMWQMSampleIDAsIsSensitiveDB(MWQMSampleID);
-
-            return Json(tvItemModel.Error, JsonRequestBehavior.AllowGet);
-        }
-        [HttpPost]
-        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
-        public JsonResult MarkSamplesWithMWQMSampleIDAsNotSensitiveJSON(int MWQMSampleID)
-        {
-            TVItemModel tvItemModel = _OpenDataService.MarkSamplesWithMWQMSampleIDAsNotSensitiveDB(MWQMSampleID);
+            TVItemModel tvItemModel = _OpenDataService.MarkSamplesWithMWQMSampleIDAsNotUseForOpenDataDB(MWQMSampleID);
 
             return Json(tvItemModel.Error, JsonRequestBehavior.AllowGet);
         }

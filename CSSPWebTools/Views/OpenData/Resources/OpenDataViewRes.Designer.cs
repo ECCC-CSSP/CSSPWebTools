@@ -70,11 +70,47 @@ namespace CSSPWebTools.Views.OpenData.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Commands.
+        /// </summary>
+        public static string Commands {
+            get {
+                return ResourceManager.GetString("Commands", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Date.
+        /// </summary>
+        public static string Date {
+            get {
+                return ResourceManager.GetString("Date", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Depth.
+        /// </summary>
+        public static string Depth {
+            get {
+                return ResourceManager.GetString("Depth", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Documents.
         /// </summary>
         public static string Documents {
             get {
                 return ResourceManager.GetString("Documents", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to FC.
+        /// </summary>
+        public static string FC {
+            get {
+                return ResourceManager.GetString("FC", resourceCulture);
             }
         }
         
@@ -115,15 +151,6 @@ namespace CSSPWebTools.Views.OpenData.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Is Sensitive.
-        /// </summary>
-        public static string IsSensitive {
-            get {
-                return ResourceManager.GetString("IsSensitive", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Load setup.
         /// </summary>
         public static string LoadSetup {
@@ -160,20 +187,11 @@ namespace CSSPWebTools.Views.OpenData.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Not Sensitive.
+        ///   Looks up a localized string similar to Not use for open data.
         /// </summary>
-        public static string NotSensitive {
+        public static string NotUseForOpenData {
             get {
-                return ResourceManager.GetString("NotSensitive", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Not Validated.
-        /// </summary>
-        public static string NotValidated {
-            get {
-                return ResourceManager.GetString("NotValidated", resourceCulture);
+                return ResourceManager.GetString("NotUseForOpenData", resourceCulture);
             }
         }
         
@@ -183,6 +201,24 @@ namespace CSSPWebTools.Views.OpenData.Resources {
         public static string OpenDataDocumentProduction {
             get {
                 return ResourceManager.GetString("OpenDataDocumentProduction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to pH.
+        /// </summary>
+        public static string pH {
+            get {
+                return ResourceManager.GetString("pH", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sal.
+        /// </summary>
+        public static string Sal {
+            get {
+                return ResourceManager.GetString("Sal", resourceCulture);
             }
         }
         
@@ -232,6 +268,15 @@ namespace CSSPWebTools.Views.OpenData.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Temp.
+        /// </summary>
+        public static string Temp {
+            get {
+                return ResourceManager.GetString("Temp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Total.
         /// </summary>
         public static string Total {
@@ -241,11 +286,11 @@ namespace CSSPWebTools.Views.OpenData.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Validated.
+        ///   Looks up a localized string similar to Use for open data.
         /// </summary>
-        public static string Validated {
+        public static string UseForOpenData {
             get {
-                return ResourceManager.GetString("Validated", resourceCulture);
+                return ResourceManager.GetString("UseForOpenData", resourceCulture);
             }
         }
         

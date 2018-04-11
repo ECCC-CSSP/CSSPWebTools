@@ -984,44 +984,24 @@ module CSSP {
                             cssp.OpenData.OpenDataReloadMWQMSite($bjs);
                         }
                         break;
-                    case "jbOpenDataMarkAllRoutineSamplesAsValidated":
+                    case "jbOpenDataMarkAllRoutineSamplesAsUseForOpenData":
                         {
-                            cssp.OpenData.OpenDataMarkAllRoutineSamplesAsValidated($bjs);
+                            cssp.OpenData.OpenDataMarkAllRoutineSamplesAsUseForOpenData($bjs);
                         }
                         break;
-                    case "jbOpenDataMarkAllRoutineSamplesAsNotValidated":
+                    case "jbOpenDataMarkAllRoutineSamplesAsNotUseForOpenData":
                         {
-                            cssp.OpenData.OpenDataMarkAllRoutineSamplesAsNotValidated($bjs);
+                            cssp.OpenData.OpenDataMarkAllRoutineSamplesAsNotUseForOpenData($bjs);
                         }
                         break;
-                    case "jbOpenDataMarkAllRoutineSamplesAsIsSensitive":
+                    case "jbOpenDataMarkSamplesWithMWQMSampleIDAsUseForOpenData":
                         {
-                            cssp.OpenData.OpenDataMarkAllRoutineSamplesAsIsSensitive($bjs);
+                            cssp.OpenData.OpenDataMarkSamplesWithMWQMSampleIDAsUseForOpenData($bjs);
                         }
                         break;
-                    case "jbOpenDataMarkAllRoutineSamplesAsNotSensitive":
+                    case "jbOpenDataMarkSamplesWithMWQMSampleIDAsNotUseForOpenData":
                         {
-                            cssp.OpenData.OpenDataMarkAllRoutineSamplesAsNotSensitive($bjs);
-                        }
-                        break;
-                    case "jbOpenDataMarkSamplesWithMWQMSampleIDAsValidated":
-                        {
-                            cssp.OpenData.OpenDataMarkSamplesWithMWQMSampleIDAsValidated($bjs);
-                        }
-                        break;
-                    case "jbOpenDataMarkSamplesWithMWQMSampleIDAsNotValidated":
-                        {
-                            cssp.OpenData.OpenDataMarkSamplesWithMWQMSampleIDAsNotValidated($bjs);
-                        }
-                        break;
-                    case "jbOpenDataMarkSamplesWithMWQMSampleIDAsIsSensitive":
-                        {
-                            cssp.OpenData.OpenDataMarkSamplesWithMWQMSampleIDAsIsSensitive($bjs);
-                        }
-                        break;
-                    case "jbOpenDataMarkSamplesWithMWQMSampleIDAsNotSensitive":
-                        {
-                            cssp.OpenData.OpenDataMarkSamplesWithMWQMSampleIDAsNotSensitive($bjs);
+                            cssp.OpenData.OpenDataMarkSamplesWithMWQMSampleIDAsNotUseForOpenData($bjs);
                         }
                         break;
                     case "jbPageRefresh":

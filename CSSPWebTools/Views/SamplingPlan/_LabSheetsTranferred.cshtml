@@ -1129,10 +1129,12 @@ else
                                 </div>
                             </div>
                         }
-                        <div class="panel panel-default">
-                            <button class="jbSamplingPlanAcceptLabSheet btn btn-success" data-labsheetid="@labSheetModelAndA1Sheet.LabSheetModel.LabSheetID">@SamplingPlanViewRes.AcceptLabSheetAndSendInformationToDataBase</button>
-                            <button class="jbSamplingPlanRejectLabSheet btn btn-danger" data-labsheetid="@labSheetModelAndA1Sheet.LabSheetModel.LabSheetID">@SamplingPlanViewRes.RejectLabSheet</button>
-                        </div>
+                            <div class="AcceptRejectButtonsDiv panel panel-default">
+                                <button class="jbSamplingPlanAcceptLabSheet btn btn-success" data-labsheetid="@labSheetModelAndA1Sheet.LabSheetModel.LabSheetID">@SamplingPlanViewRes.AcceptLabSheetAndSendInformationToDataBase</button>
+                                <br />
+                                <button class="jbSamplingPlanRejectLabSheet btn btn-danger" data-labsheetid="@labSheetModelAndA1Sheet.LabSheetModel.LabSheetID">@SamplingPlanViewRes.RejectLabSheet</button>
+                                <input type="text" class="RejectReason" size="60" value="@SamplingPlanViewRes.RejectReason">
+                            </div>
                     </div>
                 </div>
             </div>

@@ -568,4 +568,7 @@
   <data name="SettingUpEmails" xml:space="preserve">
     <value>Setting up emails</value>
   </data>
+  <data name="RejectReason" xml:space="preserve">
+    <value>Reject reason</value>
+  </data>
 </root>

@@ -490,9 +490,9 @@ namespace CSSPWebTools.Controllers
 
         [HttpPost]
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
-        public JsonResult LabSheetRejectJSON(int LabSheetID)
+        public JsonResult LabSheetRejectJSON(int LabSheetID, string RejectReason)
         {
-            LabSheetModel labSheetModel = _LabSheetService.LabSheetRejectedDB(LabSheetID);
+            LabSheetModel labSheetModel = _LabSheetService.LabSheetRejectedDB(LabSheetID, RejectReason);
 
             return Json(labSheetModel.Error, JsonRequestBehavior.AllowGet);
         }

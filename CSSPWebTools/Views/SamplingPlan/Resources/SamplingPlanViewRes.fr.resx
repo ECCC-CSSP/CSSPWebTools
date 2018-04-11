@@ -540,4 +540,7 @@
   <data name="SettingUpEmails" xml:space="preserve">
     <value>Setting up emails (fr)</value>
   </data>
+  <data name="RejectReason" xml:space="preserve">
+    <value>Raison du rejet</value>
+  </data>
 </root>

@@ -727,24 +727,6 @@ namespace CSSPWebTools.Views.MWQM.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Is sensitive.
-        /// </summary>
-        public static string IsSensitive {
-            get {
-                return ResourceManager.GetString("IsSensitive", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Is sensitive if not strike through.
-        /// </summary>
-        public static string IsSensitiveIfNotStrikeThrough {
-            get {
-                return ResourceManager.GetString("IsSensitiveIfNotStrikeThrough", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Lab analysis.
         /// </summary>
         public static string LabAnalysis {
@@ -1141,20 +1123,11 @@ namespace CSSPWebTools.Views.MWQM.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Not sensitive.
+        ///   Looks up a localized string similar to Not use for open data.
         /// </summary>
-        public static string NotSensitive {
+        public static string NotUseForOpenData {
             get {
-                return ResourceManager.GetString("NotSensitive", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Not validated.
-        /// </summary>
-        public static string NotValidated {
-            get {
-                return ResourceManager.GetString("NotValidated", resourceCulture);
+                return ResourceManager.GetString("NotUseForOpenData", resourceCulture);
             }
         }
         
@@ -2059,6 +2032,15 @@ namespace CSSPWebTools.Views.MWQM.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Use for open data.
+        /// </summary>
+        public static string UseForOpenData {
+            get {
+                return ResourceManager.GetString("UseForOpenData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to use full year.
         /// </summary>
         public static string UseFullYear {
@@ -2077,29 +2059,11 @@ namespace CSSPWebTools.Views.MWQM.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Validated.
-        /// </summary>
-        public static string Validated {
-            get {
-                return ResourceManager.GetString("Validated", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to ValidateDateAndTime.
         /// </summary>
         public static string ValidateDateAndTime {
             get {
                 return ResourceManager.GetString("ValidateDateAndTime", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Validated if not strike through.
-        /// </summary>
-        public static string ValidatedIfNotStrikeThrough {
-            get {
-                return ResourceManager.GetString("ValidatedIfNotStrikeThrough", resourceCulture);
             }
         }
         

@@ -898,6 +898,15 @@ namespace CSSPWebTools.Views.SamplingPlan.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Reject reason.
+        /// </summary>
+        public static string RejectReason {
+            get {
+                return ResourceManager.GetString("RejectReason", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Reminder.
         /// </summary>
         public static string Reminder {

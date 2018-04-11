@@ -120,8 +120,20 @@
   <data name="ClickingTheButtonsBelowCanTakeALongTimeToExecuteSometimeAFewMinutes" xml:space="preserve">
     <value>Clicking the buttons below can take a long time to execute. Sometime a few minutes. (fr)</value>
   </data>
+  <data name="Commands" xml:space="preserve">
+    <value>Commands</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="Depth" xml:space="preserve">
+    <value>Profondeur</value>
+  </data>
   <data name="Documents" xml:space="preserve">
     <value>Documents (fr)</value>
+  </data>
+  <data name="FC" xml:space="preserve">
+    <value>CF</value>
   </data>
   <data name="GenerateCSVDocumentOfMWQMSamples" xml:space="preserve">
     <value>Generate CSV document of MWQM samples (fr)</value>
@@ -135,9 +147,6 @@
   <data name="GenerateXlsxDocumentOfMWQMSamples" xml:space="preserve">
     <value>Generate XLSX document of MWQM samples (fr)</value>
   </data>
-  <data name="IsSensitive" xml:space="preserve">
-    <value>Is Sensitive (fr)</value>
-  </data>
   <data name="LoadSetup" xml:space="preserve">
     <value>Load setup (fr)</value>
   </data>
@@ -150,14 +159,17 @@
   <data name="MarkAllRoutineSamplesForSubsectorAs" xml:space="preserve">
     <value>Mark all routine sample for subsector as (fr)</value>
   </data>
-  <data name="NotSensitive" xml:space="preserve">
-    <value>Not Sensitive (fr)</value>
-  </data>
-  <data name="NotValidated" xml:space="preserve">
-    <value>Not Validated (fr)</value>
+  <data name="NotUseForOpenData" xml:space="preserve">
+    <value>Not use for open data (fr)</value>
   </data>
   <data name="OpenDataDocumentProduction" xml:space="preserve">
     <value>Open data document production (fr)</value>
+  </data>
+  <data name="pH" xml:space="preserve">
+    <value>pH</value>
+  </data>
+  <data name="Sal" xml:space="preserve">
+    <value>Sal</value>
   </data>
   <data name="Sensitive" xml:space="preserve">
     <value>Sensitive (fr)</value>
@@ -174,11 +186,14 @@
   <data name="Stat" xml:space="preserve">
     <value>Stat</value>
   </data>
+  <data name="Temp" xml:space="preserve">
+    <value>Temp</value>
+  </data>
   <data name="Total" xml:space="preserve">
     <value>Total (fr)</value>
   </data>
-  <data name="Validated" xml:space="preserve">
-    <value>Validated (fr)</value>
+  <data name="UseForOpenData" xml:space="preserve">
+    <value>Use for open data (fr)</value>
   </data>
   <data name="Working" xml:space="preserve">
     <value>Working (fr)</value>
