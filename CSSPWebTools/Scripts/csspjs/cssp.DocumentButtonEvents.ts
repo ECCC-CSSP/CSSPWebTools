@@ -1104,6 +1104,21 @@ module CSSP {
                             cssp.Profile.FormSubmit();
                         }
                         break;
+                    case "jbProvinceToolsFillRunPrecipByClimateSitePriorityForYear":
+                        {
+                            cssp.ProvinceTools.FillRunPrecipByClimateSitePriorityForYear($bjs);
+                        }
+                        break;
+                    case "jbProvinceToolsFindMissingPrecipForProvince":
+                        {
+                            cssp.ProvinceTools.FindMissingPrecipForProvince($bjs);
+                        }
+                        break;
+                    case "jbProvinceToolsGetAllPrecipitationForYear":
+                        {
+                            cssp.ProvinceTools.GetAllPrecipitationForYear($bjs);
+                        }
+                        break;
                     case "jbRainExceedanceAddOrModify":
                         {
                             cssp.RainExceedance.FormSubmit($bjs);

@@ -209,6 +209,7 @@
     <Compile Include="Controllers\MapController.cs" />
     <Compile Include="Controllers\MikeScenarioController.cs" />
     <Compile Include="Controllers\MWQMController.cs" />
+    <Compile Include="Controllers\ProvinceToolsController.cs" />
     <Compile Include="Controllers\PolSourceController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\RainExceedanceController.cs" />
@@ -432,6 +433,16 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>OpenDataViewRes.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProvinceTools\Resources\ProvinceToolsViewRes.fr.Designer.cs">
+      <DependentUpon>ProvinceToolsViewRes.fr.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Views\ProvinceTools\Resources\ProvinceToolsViewRes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProvinceToolsViewRes.resx</DependentUpon>
     </Compile>
     <Compile Include="Views\RainExceedance\Resources\RainExceedanceViewRes.fr.Designer.cs">
       <DependentUpon>RainExceedanceViewRes.fr.resx</DependentUpon>
@@ -907,6 +918,7 @@
     <Content Include="Views\OpenData\_OpenDataStat.cshtml" />
     <Content Include="Views\OpenData\_OpenDataTopPage.cshtml" />
     <Content Include="Views\OpenData\_OpenDataDocuments.cshtml" />
+    <Content Include="Views\ProvinceTools\_ProvinceToolsTopPage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -917,6 +929,7 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="Scripts\csspjs\cssp.ProvinceTools.ts" />
     <TypeScriptCompile Include="Scripts\csspjs\cssp.OpenData.ts" />
     <TypeScriptCompile Include="Scripts\csspjs\cssp.ReportType.ts" />
     <TypeScriptCompile Include="Scripts\csspjs\cssp.Document.ts" />
@@ -1205,6 +1218,14 @@
     <EmbeddedResource Include="Views\OpenData\Resources\OpenDataViewRes.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>OpenDataViewRes.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ProvinceTools\Resources\ProvinceToolsViewRes.fr.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ProvinceToolsViewRes.fr.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ProvinceTools\Resources\ProvinceToolsViewRes.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ProvinceToolsViewRes.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\RainExceedance\Resources\RainExceedanceViewRes.fr.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

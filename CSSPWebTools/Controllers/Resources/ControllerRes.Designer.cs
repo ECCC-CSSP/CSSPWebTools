@@ -673,6 +673,15 @@ namespace CSSPWebTools.Controllers.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Province tools.
+        /// </summary>
+        public static string ProvinceTools {
+            get {
+                return ResourceManager.GetString("ProvinceTools", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Rain exceedance.
         /// </summary>
         public static string RainExceedance {

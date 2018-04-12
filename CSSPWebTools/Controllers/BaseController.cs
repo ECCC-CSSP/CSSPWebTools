@@ -1422,6 +1422,22 @@ namespace CSSPWebTools.Controllers
             return viewTVItemIconListList;
         }
         [NonAction]
+        public List<List<IconInfo>> FillTVItemProvinceToolsIcons(TVAuthEnum TVAuth, TVItemModel tvItemModel)
+        {
+            List<List<IconInfo>> viewTVItemIconListList = new List<List<IconInfo>>();
+
+            //viewTVItemIconListList.Add(FillTVItemMoreInfoIcons(TVAuth));
+
+            //if (TVAuth >= TVAuthEnum.Write)
+            //{
+            //    viewTVItemIconListList.Add(FillProvinceToolsEditIcons(TVAuth));
+            //}
+
+            viewTVItemIconListList.Add(FillTVItemMapIcons(TVAuth, tvItemModel));
+
+            return viewTVItemIconListList;
+        }
+        [NonAction]
         public List<List<IconInfo>> FillTVItemSamplingPlanIcons(TVAuthEnum TVAuth, TVItemModel tvItemModel)
         {
             List<List<IconInfo>> viewTVItemIconListList = new List<List<IconInfo>>();
@@ -1879,6 +1895,10 @@ namespace CSSPWebTools.Controllers
                             case "4": // Open Data
                                 {
                                     return new ContentActionAndController() { Action = "_OpenDataTopPage", Controller = "OpenData" };
+                                }
+                            case "5": // Province Tools
+                                {
+                                    return new ContentActionAndController() { Action = "_ProvinceToolsTopPage", Controller = "ProvinceTools" };
                                 }
                             default:
                                 {
@@ -2489,6 +2509,19 @@ namespace CSSPWebTools.Controllers
                             ShowTVType = TVTypeEnum.OpenData,
                             Stat = 0,
                             viewTVItemIconListList = FillTVItemOpenDataIcons(TVAuth, tvItemModelLocationCurrent),
+                        });
+                        ViewTVItemInfoList.Add(new TabInfo()
+                        {
+                            URL = CreateVariableShowHashURL(URLVarShowEnum.ShowProvinceTab, "5"),
+                            Text = ControllerRes.ProvinceTools,
+                            Icon = "",
+                            Active = tabActive,
+                            ToolTip = "",
+                            Action = "_content",
+                            Controller = "TVItem",
+                            ShowTVType = TVTypeEnum.ProvinceTools,
+                            Stat = 0,
+                            viewTVItemIconListList = FillTVItemProvinceToolsIcons(TVAuth, tvItemModelLocationCurrent),
                         });
                     }
                     break;

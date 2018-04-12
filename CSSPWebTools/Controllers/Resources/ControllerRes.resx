@@ -406,4 +406,7 @@
   <data name="OpenData" xml:space="preserve">
     <value>Open Data</value>
   </data>
+  <data name="ProvinceTools" xml:space="preserve">
+    <value>Province tools</value>
+  </data>
 </root>

@@ -398,4 +398,7 @@
   <data name="OpenData" xml:space="preserve">
     <value>Open Data (fr)</value>
   </data>
+  <data name="ProvinceTools" xml:space="preserve">
+    <value>Outils pour province</value>
+  </data>
 </root>

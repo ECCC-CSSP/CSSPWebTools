@@ -33,6 +33,7 @@ module CSSP {
         public MWQMSite: CSSP.MWQMSite;
         public OpenData: CSSP.OpenData;
         public PolSourceSite: CSSP.PolSourceSite;
+        public ProvinceTools: CSSP.ProvinceTools;
         public Profile: CSSP.Profile;
         public RainExceedance: CSSP.RainExceedance;
         public Register: CSSP.Register;
@@ -298,6 +299,7 @@ cssp.MWQMSite = new CSSP.MWQMSite();
 cssp.MWQMRun = new CSSP.MWQMRun();
 cssp.OpenData = new CSSP.OpenData();
 cssp.PolSourceSite = new CSSP.PolSourceSite();
+cssp.ProvinceTools = new CSSP.ProvinceTools();
 cssp.Profile = new CSSP.Profile();
 cssp.RainExceedance = new CSSP.RainExceedance();
 cssp.Register = new CSSP.Register();
