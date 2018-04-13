@@ -56,25 +56,25 @@ namespace CSSPWebTools.Controllers
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
         public JsonResult FillRunPrecipByClimateSitePriorityForYearJSON(int ProvinceTVItemID, int Year)
         {
-            TVItemModel tvItemModel = _ProvinceToolsService.FillRunPrecipByClimateSitePriorityForYearDB(ProvinceTVItemID, Year);
+            AppTaskModel appTaskModel = _ProvinceToolsService.FillRunPrecipByClimateSitePriorityForYearDB(ProvinceTVItemID, Year);
 
-            return Json(tvItemModel.Error, JsonRequestBehavior.AllowGet);
+            return Json(appTaskModel.Error, JsonRequestBehavior.AllowGet);
         }
         [HttpPost]
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
         public JsonResult FindMissingPrecipForProvinceJSON(int ProvinceTVItemID)
         {
-            TVItemModel tvItemModel = _ProvinceToolsService.FindMissingPrecipForProvinceDB(ProvinceTVItemID);
+            AppTaskModel appTaskModel = _ProvinceToolsService.FindMissingPrecipForProvinceDB(ProvinceTVItemID);
 
-            return Json(tvItemModel.Error, JsonRequestBehavior.AllowGet);
+            return Json(appTaskModel.Error, JsonRequestBehavior.AllowGet);
         }
         [HttpPost]
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
         public JsonResult GetAllPrecipitationForYearJSON(int ProvinceTVItemID, int Year)
         {
-            TVItemModel tvItemModel = _ProvinceToolsService.GetAllPrecipitationForYearDB(ProvinceTVItemID, Year);
+            AppTaskModel appTaskModel = _ProvinceToolsService.GetAllPrecipitationForYearDB(ProvinceTVItemID, Year);
 
-            return Json(tvItemModel.Error, JsonRequestBehavior.AllowGet);
+            return Json(appTaskModel.Error, JsonRequestBehavior.AllowGet);
         }
         #endregion Functions JSON
 

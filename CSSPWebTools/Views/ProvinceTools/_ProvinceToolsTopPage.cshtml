@@ -10,6 +10,9 @@
 }
 
 <div class="ProvinceToolsTopDiv">
+    <div class="AppTaskDiv">
+        @Html.Action("_appTask", "Home", new { TVItemID = ProvinceTVItemID, Seconds = 5 })
+    </div>
     <div class="panel-group" id="ProvinceToolsAccordion" role="tablist" aria-multiselectable="true">
         <div class="panel panel-info">
             <div class="panel-heading" role="tab" id="headingClimateData">
@@ -24,9 +27,9 @@
                     <div class="h4">@ProvinceToolsViewRes.SomeOfTheseTasksCanTakeALongTime</div>
                     <select class="form-control" name="Year">
                         @for (int year = DateTime.Now.Year; year > 1979; year--)
-                        {
-                            <option value="@year">@year</option>
-                        }
+        {
+                <option value="@year">@year</option>
+}
                     </select>
                     <p></p>
                     <button class="jbProvinceToolsGetAllPrecipitationForYear btn btn-primary" data-provincetvitemid="@ProvinceTVItemID">
@@ -52,6 +55,7 @@
                             <span class="percent"></span>
                         </span>
                     </button>
+                    <span>@ProvinceToolsViewRes.ADocumentWillBeCreatedShowingTheMissingPrecip</span>
                     <p></p>
                 </div>
             </div>

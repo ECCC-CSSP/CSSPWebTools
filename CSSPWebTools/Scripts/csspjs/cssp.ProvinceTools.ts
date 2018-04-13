@@ -32,6 +32,7 @@ module CSSP {
                         cssp.Dialog.ShowDialogErrorWithError(ret);
                     }
                     cssp.ProvinceTools.ReenableButton($bjs);
+                    window.location.href = window.location.href.replace("5003000000000000000001100", "2003000000000000000001100");
                 }).fail(() => {
                     cssp.Dialog.ShowDialogErrorWithFail(command);
                 });
@@ -55,6 +56,7 @@ module CSSP {
                         cssp.Dialog.ShowDialogErrorWithError(ret);
                     }
                     cssp.ProvinceTools.ReenableButton($bjs);
+                    window.location.href = window.location.href.replace("5003000000000000000001100", "2003000000000000000001100");
                 }).fail(() => {
                     cssp.Dialog.ShowDialogErrorWithFail(command);
                 });
@@ -80,6 +82,8 @@ module CSSP {
                         cssp.Dialog.ShowDialogErrorWithError(ret);
                     }
                     cssp.ProvinceTools.ReenableButton($bjs);
+                    window.location.href = window.location.href.replace("5003000000000000000001100", "2003000000000000000001100");
+                    cssp.Helper.PageRefresh();
                 }).fail(() => {
                     cssp.Dialog.ShowDialogErrorWithFail(command);
                 });

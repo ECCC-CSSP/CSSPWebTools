@@ -61,6 +61,15 @@ namespace CSSPWebTools.Views.ProvinceTools.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to A document will be created showing the missing precipitation.
+        /// </summary>
+        public static string ADocumentWillBeCreatedShowingTheMissingPrecip {
+            get {
+                return ResourceManager.GetString("ADocumentWillBeCreatedShowingTheMissingPrecip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Climate site precipitation related tools.
         /// </summary>
         public static string ClimateSitePrecipitationRelatedTools {

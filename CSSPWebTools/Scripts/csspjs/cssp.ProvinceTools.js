@@ -28,6 +28,7 @@ var CSSP;
                             cssp.Dialog.ShowDialogErrorWithError(ret);
                         }
                         cssp.ProvinceTools.ReenableButton($bjs);
+                        window.location.href = window.location.href.replace("5003000000000000000001100", "2003000000000000000001100");
                     }).fail(function () {
                         cssp.Dialog.ShowDialogErrorWithFail(command_1);
                     });
@@ -51,6 +52,7 @@ var CSSP;
                             cssp.Dialog.ShowDialogErrorWithError(ret);
                         }
                         cssp.ProvinceTools.ReenableButton($bjs);
+                        window.location.href = window.location.href.replace("5003000000000000000001100", "2003000000000000000001100");
                     }).fail(function () {
                         cssp.Dialog.ShowDialogErrorWithFail(command_2);
                     });
@@ -76,6 +78,8 @@ var CSSP;
                             cssp.Dialog.ShowDialogErrorWithError(ret);
                         }
                         cssp.ProvinceTools.ReenableButton($bjs);
+                        window.location.href = window.location.href.replace("5003000000000000000001100", "2003000000000000000001100");
+                        cssp.Helper.PageRefresh();
                     }).fail(function () {
                         cssp.Dialog.ShowDialogErrorWithFail(command_3);
                     });
