@@ -70,6 +70,15 @@ namespace CSSPWebTools.Views.File.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Active.
+        /// </summary>
+        public static string Active {
+            get {
+                return ResourceManager.GetString("Active", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Both.
         /// </summary>
         public static string Both {
@@ -286,6 +295,15 @@ namespace CSSPWebTools.Views.File.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to InActive.
+        /// </summary>
+        public static string InActive {
+            get {
+                return ResourceManager.GetString("InActive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to in meters (approx.).
         /// </summary>
         public static string inMetersApprox {
@@ -331,6 +349,15 @@ namespace CSSPWebTools.Views.File.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Lift Stations.
+        /// </summary>
+        public static string LiftStations {
+            get {
+                return ResourceManager.GetString("LiftStations", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Longitude.
         /// </summary>
         public static string Longitude {
@@ -349,6 +376,24 @@ namespace CSSPWebTools.Views.File.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Monitoring Sites.
+        /// </summary>
+        public static string MonitoringSites {
+            get {
+                return ResourceManager.GetString("MonitoringSites", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Municipalities.
+        /// </summary>
+        public static string Municipalities {
+            get {
+                return ResourceManager.GetString("Municipalities", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to no extension.
         /// </summary>
         public static string NoExtension {
@@ -363,6 +408,24 @@ namespace CSSPWebTools.Views.File.Resources {
         public static string NotImplementedYet {
             get {
                 return ResourceManager.GetString("NotImplementedYet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pollution Source Sites.
+        /// </summary>
+        public static string PollutionSourceSites {
+            get {
+                return ResourceManager.GetString("PollutionSourceSites", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Press Ctrl + click to select many.
+        /// </summary>
+        public static string PressCtrlAndClickToSelectMany {
+            get {
+                return ResourceManager.GetString("PressCtrlAndClickToSelectMany", resourceCulture);
             }
         }
         
@@ -480,6 +543,15 @@ namespace CSSPWebTools.Views.File.Resources {
         public static string UseParentCoordinates {
             get {
                 return ResourceManager.GetString("UseParentCoordinates", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to WWTP.
+        /// </summary>
+        public static string WWTP {
+            get {
+                return ResourceManager.GetString("WWTP", resourceCulture);
             }
         }
         

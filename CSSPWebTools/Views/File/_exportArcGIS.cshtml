@@ -9,6 +9,7 @@
     List<TVFileModel> tvFileModelList = (List<TVFileModel>)ViewBag.TVFileModelList;
     List<FilePurposeAndText> filePurposeAndTextList = (List<FilePurposeAndText>)ViewBag.FilePurposeAndTextList;
     TVItemModel tvItemModel = (TVItemModel)ViewBag.TVItemModel;
+    List<TVItemModel> tvItemModelProvList = (List<TVItemModel>)ViewBag.TVItemModelProvList;
     TVAuthEnum tvAuth = (TVAuthEnum)ViewBag.TVAuth;
     int NumberOfSample = (int)ViewBag.NumberOfSample;
     bool IsShowMoreInfo = (bool)ViewBag.IsShowMoreInfo;
@@ -23,13 +24,26 @@
             <h4 class="panel-title">To do (Charles)</h4>
         </div>
         <div class="panel-body">
-            <p>This page will be used to export data to the shared drive of the Arc GIS application.</p>
-
-            <p>Hoping to have one button/click to do all required export for all Arc GIS requirements.</p>
-
-        </div>
-        <div class="panel-footer">
-            
+            <span>@FileViewRes.PressCtrlAndClickToSelectMany</span>
+            <div class="form-inline">
+                <select class="form-control" name="Province" multiple>
+                    @foreach (TVItemModel tvItemModelProv in tvItemModelProvList)
+                    {
+                        <option value="@tvItemModelProv.TVItemID">@tvItemModelProv.TVText</option>
+                    }
+                </select>
+            </div>
+            <div class="form-inline">
+                <input class="form-control" type="checkbox" name="Active" value="active" checked="checked" /> @FileViewRes.Active
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <input class="form-control" type="checkbox" name="Inactive" value="inactive" /> @FileViewRes.InActive
+            </div> 
+            <p></p>
+            <button class="jbExportToArcGIS btn btn-primary" data-doctype="monitoringsites">@FileViewRes.MonitoringSites</button>
+            <button class="jbExportToArcGIS btn btn-primary" data-doctype="pollutionsourcesites">@FileViewRes.PollutionSourceSites</button>
+            <button class="jbExportToArcGIS btn btn-primary" data-doctype="municipalities">@FileViewRes.Municipalities</button>
+            <button class="jbExportToArcGIS btn btn-primary" data-doctype="wwtp">@FileViewRes.WWTP</button>
+            <button class="jbExportToArcGIS btn btn-primary" data-doctype="liftstations">@FileViewRes.LiftStations</button>
         </div>
     </div>
 

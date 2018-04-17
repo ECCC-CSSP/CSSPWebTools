@@ -233,9 +233,9 @@ namespace CSSPWebTools.Controllers
             ViewBag.FilePurposeAndTextList = null;
             ViewBag.TVItemModel = null;
             ViewBag.TVAuth = null;
-            //ViewBag.Tab1ViewTVItemInfoList = null;
             ViewBag.NumberOfSample = null;
             ViewBag.IsShowMoreInfo = null;
+            ViewBag.TVItemModelProvList = null;
 
             SetArgs(Q);
             ViewBag.URLModel = urlModel;
@@ -243,17 +243,21 @@ namespace CSSPWebTools.Controllers
             List<TVFileModel> tvFileModelList = _TVFileService.GetTVFileModelListWithParentTVItemIDDB(urlModel.TVItemIDList[0]);
             ViewBag.TVFileModelList = tvFileModelList;
 
+
             List<FilePurposeAndText> filePurposeAndTextList = FillFilePurposeAndTextList();
             ViewBag.FilePurposeAndTextList = filePurposeAndTextList.OrderBy(c => c.FilePurposeText).ToList();
 
             TVItemModel tvItemModel = _TVItemService.GetTVItemModelWithTVItemIDDB(urlModel.TVItemIDList[0]);
             ViewBag.TVItemModel = tvItemModel;
 
+            if (string.IsNullOrWhiteSpace(tvItemModel.Error))
+            {
+                List<TVItemModel> tvItemModelProvList = _TVItemService.GetChildrenTVItemModelListWithTVItemIDAndTVTypeDB(tvItemModel.TVItemID, TVTypeEnum.Province).OrderBy(c => c.TVText).ToList();
+                ViewBag.TVItemModelProvList = tvItemModelProvList;
+            }
+
             TVAuthEnum tvAuth = _TVItemService.GetTVAuthWithTVItemIDAndLoggedInUser(urlModel.TVItemIDList[0], null, null, null);
             ViewBag.TVAuth = tvAuth;
-
-            //List<TabInfo> Tab1ViewTVItemInfoList = GetTab1ViewTVItemInfoDB(tvItemModel, tvAuth);
-            //ViewBag.Tab1ViewTVItemInfoList = Tab1ViewTVItemInfoList;
 
             ViewBag.NumberOfSample = int.Parse(GetURLVarShowEnumStr(URLVarShowEnum.NumberOfSampleDecade) + GetURLVarShowEnumStr(URLVarShowEnum.NumberOfSampleUnit));
 
@@ -291,6 +295,15 @@ namespace CSSPWebTools.Controllers
             return Json(coordModel, JsonRequestBehavior.AllowGet);
         }
 
+        [HttpPost]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public JsonResult CreateArcGISDocumentJSON(FormCollection fc)
+        {
+            TVFileModel tvFileModelRet = _TVFileService.CreateArcGISDocumentDB(fc);
+
+            return Json(tvFileModelRet.Error, JsonRequestBehavior.AllowGet);
+        }
+        
         #endregion Functions public
 
         #region private

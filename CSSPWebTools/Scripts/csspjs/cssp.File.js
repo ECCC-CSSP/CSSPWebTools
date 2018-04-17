@@ -6,6 +6,35 @@ var CSSP;
             // Variables 
             this.FormUploadName = "#FileUploadForm";
             this.FormEditName = "#FileEditForm";
+            this.ExportToArcGIS = function ($bjs) {
+                var TVItemID = parseInt($("#ViewDiv").data("tvitemid"));
+                var ProvinceTVItemIDText = "";
+                $("select[name='Province']").find(":selected").each(function (ind, elem) {
+                    ProvinceTVItemIDText = ProvinceTVItemIDText + "_" + $(elem).val();
+                });
+                var Active = $("input[name='Active']").is(":checked");
+                var Inactive = $("input[name='Inactive']").is(":checked");
+                var DocType = $bjs.data("doctype");
+                var command = "File/CreateArcGISDocumentJSON";
+                $.post(cssp.BaseURL + command, {
+                    TVItemID: TVItemID,
+                    ProvinceTVItemIDText: ProvinceTVItemIDText,
+                    Active: Active,
+                    Inactive: Inactive,
+                    DocType: DocType,
+                })
+                    .done(function (ret) {
+                    if (ret) {
+                        cssp.Dialog.ShowDialogErrorWithError(ret);
+                    }
+                    else {
+                        cssp.Helper.PageRefresh();
+                    }
+                })
+                    .fail(function () {
+                    cssp.Dialog.ShowDialogErrorWithFail(command);
+                });
+            };
             this.AskToDelete = function ($bjs) {
                 var TVText = $bjs.closest(".TVFileItem").find(".TVText").text();
                 cssp.Dialog.ShowDialogAreYouSure(TVText);
@@ -53,8 +82,8 @@ var CSSP;
                 if ($bjs.closest(".TVFileItem").find(".FileEdit").children().length == 0) {
                     $bjs.removeClass("btn-default").addClass("btn-success");
                     var TVFileTVItemID = $bjs.data("tvfiletvitemid");
-                    var command = "File/_fileEdit";
-                    $.get(cssp.BaseURL + command, {
+                    var command_1 = "File/_fileEdit";
+                    $.get(cssp.BaseURL + command_1, {
                         TVFileTVItemID: TVFileTVItemID,
                     }).done(function (ret) {
                         if (ret) {
@@ -64,7 +93,7 @@ var CSSP;
                             cssp.Dialog.ShowDialogErrorWithError($.validator.format(cssp.GetHTMLVariable("#FileVariables", "var_fileEditReturnedEmpty")));
                         }
                     }).fail(function () {
-                        cssp.Dialog.ShowDialogErrorWithFail(command);
+                        cssp.Dialog.ShowDialogErrorWithFail(command_1);
                     });
                 }
                 else {
@@ -96,13 +125,13 @@ var CSSP;
                 if ($bjs.hasClass("btn-default")) {
                     $bjs.removeClass("btn-default").addClass("btn-success");
                     var TVItemID = $bjs.closest("#ViewDiv").data("tvitemid");
-                    var command = "File/_createDocument";
-                    $.get(cssp.BaseURL + command, {
+                    var command_2 = "File/_createDocument";
+                    $.get(cssp.BaseURL + command_2, {
                         TVItemID: TVItemID,
                     }).done(function (ret) {
                         $("#FileDiv").find(".CreateDocument").html(ret);
                     }).fail(function () {
-                        cssp.Dialog.ShowDialogErrorWithFail(command);
+                        cssp.Dialog.ShowDialogErrorWithFail(command_2);
                     });
                 }
                 else {
@@ -156,13 +185,13 @@ var CSSP;
                     $bjs.removeClass("btn-default").addClass("btn-success");
                     if ($("#FileDiv").find(".FileImport").children().length == 0) {
                         var ParentTVItemID = $bjs.closest("#ViewDiv").data("tvitemid");
-                        var command = "File/_fileImport";
-                        $.get(cssp.BaseURL + command, {
+                        var command_3 = "File/_fileImport";
+                        $.get(cssp.BaseURL + command_3, {
                             ParentTVItemID: ParentTVItemID,
                         }).done(function (ret) {
                             $("#FileDiv").find(".FileImport").html(ret);
                         }).fail(function () {
-                            cssp.Dialog.ShowDialogErrorWithFail(command);
+                            cssp.Dialog.ShowDialogErrorWithFail(command_3);
                         });
                     }
                 }

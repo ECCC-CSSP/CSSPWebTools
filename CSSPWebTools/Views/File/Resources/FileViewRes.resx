@@ -288,4 +288,28 @@
   <data name="YearOfDocument" xml:space="preserve">
     <value>Year of document</value>
   </data>
+  <data name="Active" xml:space="preserve">
+    <value>Active</value>
+  </data>
+  <data name="InActive" xml:space="preserve">
+    <value>InActive</value>
+  </data>
+  <data name="LiftStations" xml:space="preserve">
+    <value>Lift Stations</value>
+  </data>
+  <data name="MonitoringSites" xml:space="preserve">
+    <value>Monitoring Sites</value>
+  </data>
+  <data name="Municipalities" xml:space="preserve">
+    <value>Municipalities</value>
+  </data>
+  <data name="PollutionSourceSites" xml:space="preserve">
+    <value>Pollution Source Sites</value>
+  </data>
+  <data name="PressCtrlAndClickToSelectMany" xml:space="preserve">
+    <value>Press Ctrl + click to select many</value>
+  </data>
+  <data name="WWTP" xml:space="preserve">
+    <value>WWTP</value>
+  </data>
 </root>

@@ -284,4 +284,28 @@
   <data name="YearOfDocument" xml:space="preserve">
     <value>Année du document</value>
   </data>
+  <data name="Active" xml:space="preserve">
+    <value>Active (fr)</value>
+  </data>
+  <data name="InActive" xml:space="preserve">
+    <value>InActive (fr)</value>
+  </data>
+  <data name="LiftStations" xml:space="preserve">
+    <value>Lift Stations (fr)</value>
+  </data>
+  <data name="MonitoringSites" xml:space="preserve">
+    <value>Monitoring Sites (fr)</value>
+  </data>
+  <data name="Municipalities" xml:space="preserve">
+    <value>Municipalities (fr)</value>
+  </data>
+  <data name="PollutionSourceSites" xml:space="preserve">
+    <value>Pollution Source Sites (fr)</value>
+  </data>
+  <data name="PressCtrlAndClickToSelectMany" xml:space="preserve">
+    <value>Press Ctrl + click to select many (fr)</value>
+  </data>
+  <data name="WWTP" xml:space="preserve">
+    <value>WWTP (fr)</value>
+  </data>
 </root>

@@ -7,25 +7,57 @@
         // Constructors
         constructor() {
         }
+        public ExportToArcGIS: Function = ($bjs: JQuery): void => {
+            let TVItemID: number = parseInt($("#ViewDiv").data("tvitemid"));
+            let ProvinceTVItemIDText: string = "";
+
+            $("select[name='Province']").find(":selected").each((ind: number, elem: Element) => {
+                ProvinceTVItemIDText = ProvinceTVItemIDText + "_" + $(elem).val();
+            });
+            let Active: boolean = $("input[name='Active']").is(":checked");
+            let Inactive: boolean = $("input[name='Inactive']").is(":checked");
+            let DocType: string = $bjs.data("doctype");
+
+            let command: string = "File/CreateArcGISDocumentJSON";
+            $.post(cssp.BaseURL + command,
+                {
+                    TVItemID: TVItemID,
+                    ProvinceTVItemIDText: ProvinceTVItemIDText,
+                    Active: Active,
+                    Inactive: Inactive,
+                    DocType: DocType,
+                })
+                .done((ret) => {
+                    if (ret) {
+                        cssp.Dialog.ShowDialogErrorWithError(ret);
+                    }
+                    else {
+                        cssp.Helper.PageRefresh();
+                    }
+                })
+                .fail(() => {
+                    cssp.Dialog.ShowDialogErrorWithFail(command);
+                });
+         };
         public AskToDelete: Function = ($bjs: JQuery): void => {
-            var TVText: string = $bjs.closest(".TVFileItem").find(".TVText").text();
+            let TVText: string = $bjs.closest(".TVFileItem").find(".TVText").text();
             cssp.Dialog.ShowDialogAreYouSure(TVText);
             cssp.Dialog.CheckDialogAndButtonsExist(["#DialogBasic", "#DialogBasicYes"], 5, "cssp.File.SetDialogEvents", $bjs);
         };
         public AskToRefreshPage: Function = ($bjs: JQuery): void => {
-            var TVText: string = $bjs.closest("#FileUploadForm").find("input[name='UploadFileName']").val();
+            let TVText: string = $bjs.closest("#FileUploadForm").find("input[name='UploadFileName']").val();
             cssp.Dialog.ShowDialogSuccess(TVText);
             cssp.Dialog.CheckDialogAndButtonsExist(["#DialogBasic", "#DialogBasicClose"], 5, "cssp.File.SetDialogEvents2", $bjs);
         };
         public FileDownload: Function = ($bjs: JQuery): void => {
-            var TVFileTVItemID: string = $bjs.data("tvfiletvitemid");
+            let TVFileTVItemID: string = $bjs.data("tvfiletvitemid");
             window.document.location.href = cssp.BaseURL + "File/FileDownload?TVFileTVItemID=" + TVFileTVItemID;
         };
         public FileEditCancel: Function = ($bjs: JQuery): void => {
             $bjs.closest(".TVFileItem").find(".jbFileEditShowHide").trigger("click");
         };
         public FileEditSave: Function = ($ajb: JQuery): void => {
-            var $form: JQuery = $ajb.closest(cssp.File.FormEditName).first();
+            let $form: JQuery = $ajb.closest(cssp.File.FormEditName).first();
             if ($form.length == 0) {
                 cssp.Dialog.ShowDialogErrorWithCouldNotFind_Within_(cssp.File.FormEditName, "FileDiv");
                 return;
@@ -54,8 +86,8 @@
         public FileEditShowHide: Function = ($bjs: JQuery): void => {
             if ($bjs.closest(".TVFileItem").find(".FileEdit").children().length == 0) {
                 $bjs.removeClass("btn-default").addClass("btn-success");
-                var TVFileTVItemID: string = $bjs.data("tvfiletvitemid");
-                var command: string = "File/_fileEdit";
+                let TVFileTVItemID: string = $bjs.data("tvfiletvitemid");
+                let command: string = "File/_fileEdit";
                 $.get(cssp.BaseURL + command, {
                     TVFileTVItemID: TVFileTVItemID,
                 }).done((ret) => {
@@ -75,10 +107,10 @@
             }
         };
         public CreateDocumentFromTemplate: Function = ($bjs: JQuery): void => {
-            var TVItemID: number = parseInt($bjs.data("tvitemid"));
-            var DocTemplateID: number = parseInt($bjs.data("doctemplateid"));
+            let TVItemID: number = parseInt($bjs.data("tvitemid"));
+            let DocTemplateID: number = parseInt($bjs.data("doctemplateid"));
 
-            var command: string = "File/CreateDocumentFromTemplateJSON";
+            let command: string = "File/CreateDocumentFromTemplateJSON";
             $.post(cssp.BaseURL + command,
                 {
                     TVItemID: TVItemID,
@@ -99,8 +131,8 @@
         public CreateDocumentShowHide: Function = ($bjs: JQuery): any => {
             if ($bjs.hasClass("btn-default")) {
                 $bjs.removeClass("btn-default").addClass("btn-success");
-                var TVItemID: string = $bjs.closest("#ViewDiv").data("tvitemid");
-                var command: string = "File/_createDocument";
+                let TVItemID: string = $bjs.closest("#ViewDiv").data("tvitemid");
+                let command: string = "File/_createDocument";
                 $.get(cssp.BaseURL + command, {
                     TVItemID: TVItemID,
                 }).done((ret) => {
@@ -116,9 +148,9 @@
         };
         public CreateDocxPDF: Function = ($bjs: JQuery): void => {
             let TVItemID: number = parseInt($bjs.closest("#ViewDiv").data("tvitemid"));
-            var TVFileTVItemID: number = parseInt($bjs.data("tvfiletvitemid"));
+            let TVFileTVItemID: number = parseInt($bjs.data("tvfiletvitemid"));
 
-            var command: string = "File/CreateDocxPDFJSON";
+            let command: string = "File/CreateDocxPDFJSON";
             $.post(cssp.BaseURL + command,
                 {
                     TVItemID: TVItemID,
@@ -138,9 +170,9 @@
         };
         public CreateXlsxPDF: Function = ($bjs: JQuery): void => {
             let TVItemID: number = parseInt($bjs.closest("#ViewDiv").data("tvitemid"));
-            var TVFileTVItemID: number = parseInt($bjs.data("tvfiletvitemid"));
+            let TVFileTVItemID: number = parseInt($bjs.data("tvfiletvitemid"));
 
-            var command: string = "File/CreateXlsxPDFJSON";
+            let command: string = "File/CreateXlsxPDFJSON";
             $.post(cssp.BaseURL + command,
                 {
                     TVItemID: TVItemID,
@@ -163,8 +195,8 @@
                 $("#FileDiv").find(".FileImport").removeClass("hidden");
                 $bjs.removeClass("btn-default").addClass("btn-success");
                 if ($("#FileDiv").find(".FileImport").children().length == 0) {
-                    var ParentTVItemID: string = $bjs.closest("#ViewDiv").data("tvitemid");
-                    var command: string = "File/_fileImport";
+                    let ParentTVItemID: string = $bjs.closest("#ViewDiv").data("tvitemid");
+                    let command: string = "File/_fileImport";
                     $.get(cssp.BaseURL + command, {
                         ParentTVItemID: ParentTVItemID,
                     }).done((ret) => {
@@ -191,7 +223,7 @@
                     cssp.Dialog.ShowDialogErrorWithPleaseEnterValidNumber(cssp.GetHTMLVariable("#LayoutVariables", "varPleaseUseCommaOrDotForDecimal"));
                     return;
                 }
-                var options: JQueryFormOptions = {
+                let options: JQueryFormOptions = {
                     url: cssp.BaseURL + $form.attr("action"),
                     target: $form.find(".FileImportRes"),
                     success: () => {
@@ -291,13 +323,13 @@
             //}
         };
         public GetParentLatLng: Function = ($ajs: JQuery): void => {
-            var $FormImportFile = $ajs.closest("#FileUploadForm");
+            let $FormImportFile = $ajs.closest("#FileUploadForm");
 
             $FormImportFile.find("input[name=Lat]").val("Searching...");
             $FormImportFile.find("input[name=Lng]").val("Searching...");
 
-            var TVItemID: string = $ajs.closest("#ViewDiv").data("tvitemid");
-            var command: string = "File/GetParentLatLng";
+            let TVItemID: string = $ajs.closest("#ViewDiv").data("tvitemid");
+            let command: string = "File/GetParentLatLng";
             $.post(cssp.BaseURL + command, {
                 TVItemID: TVItemID,
             }).done((ret) => {
@@ -353,7 +385,7 @@
         public ShowHideEditButtons: Function = ($bjs: JQuery): void => {
             $(".FileImport").html("");
             $(".FileEdit").html("");
-            var $tabContent: JQuery = $bjs.closest(".tab-content");
+            let $tabContent: JQuery = $bjs.closest(".tab-content");
             $tabContent.find(".jbFileImportShowHide").removeClass("hidden");
             $tabContent.find(".jbFileEditShowHide").removeClass("hidden");
             if ($bjs.hasClass("btn-default")) {
