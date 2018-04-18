@@ -312,4 +312,7 @@
   <data name="WWTP" xml:space="preserve">
     <value>WWTP</value>
   </data>
+  <data name="ExportingFilesToArcGIS" xml:space="preserve">
+    <value>Exporting files to Arc GIS</value>
+  </data>
 </root>

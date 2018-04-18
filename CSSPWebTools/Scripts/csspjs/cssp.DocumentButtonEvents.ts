@@ -317,8 +317,7 @@ module CSSP {
                         break;
                     case "jbExportToArcGIS":
                         {
-                            cssp.Dialog.ShowDialogErrorWithError("Not implemented yet");
-                            //cssp.File.ExportToArcGIS($bjs);
+                            cssp.File.ExportToArcGIS($bjs);
                         }
                         break;
                     case "jbFileAskToDelete":

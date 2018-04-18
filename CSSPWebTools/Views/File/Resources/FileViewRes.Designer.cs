@@ -196,6 +196,15 @@ namespace CSSPWebTools.Views.File.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Exporting files to Arc GIS.
+        /// </summary>
+        public static string ExportingFilesToArcGIS {
+            get {
+                return ResourceManager.GetString("ExportingFilesToArcGIS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to File description.
         /// </summary>
         public static string FileDescription {
