@@ -14,10 +14,10 @@
 <div class="OpenDataButtonsTopDiv">
     <span>@OpenDataViewRes.MarkAllRoutineSamplesForMWQMSiteAs : </span>
     <span class="OpenDataButtonsDiv">
-        <button class="jbOpenDataMarkAllRoutineSamplesAsUseForOpenData btn btn-primary" data-tvitemid="@MWQMSiteTVItemID">
+        <button class="jbOpenDataMarkAllRoutineSamplesForOpenData btn btn-primary" data-tvitemid="@MWQMSiteTVItemID" data-useforopendata="true">
             <span>@OpenDataViewRes.UseForOpenData</span>
         </button>
-        <button class="jbOpenDataMarkAllRoutineSamplesAsNotUseForOpenData btn btn-primary" data-tvitemid="@MWQMSiteTVItemID">
+        <button class="jbOpenDataMarkAllRoutineSamplesForOpenData btn btn-primary" data-tvitemid="@MWQMSiteTVItemID" data-useforopendata="false">
             <span>@OpenDataViewRes.NotUseForOpenData</span>
         </button>
     </span>
@@ -37,7 +37,6 @@
             <th>@OpenDataViewRes.Temp</th>
             <th>@OpenDataViewRes.pH</th>
             <th>@OpenDataViewRes.Depth</th>
-            <th>@OpenDataViewRes.UseForOpenData</th>
         </tr>
     </thead>
     <tbody>
@@ -45,12 +44,19 @@
         {
             <tr>
                 <td>
-                    <button class="jbOpenDataMarkSamplesWithMWQMSampleIDAsUseForOpenData btn btn-primary" data-mwqmsampleid="@mwqmSampleModel.MWQMSampleID">
-                        <span>@OpenDataViewRes.UseForOpenData</span>
-                    </button>
-                    <button class="jbOpenDataMarkSamplesWithMWQMSampleIDAsNotUseForOpenData btn btn-primary" data-mwqmsampleid="@mwqmSampleModel.MWQMSampleID">
-                        <span>@OpenDataViewRes.NotUseForOpenData</span>
-                    </button>
+                    <div class="OpenDataMWQMSampleButtonsDiv">
+                        <button title="@OpenDataViewRes.ClickToRemoveAsOpenData"
+                                class="jbOpenDataMarkSamplesWithMWQMSampleIDForOpenData IsOpenData @(mwqmSampleModel.UseForOpenData ? "" : "hidden") btn btn-success"
+                                data-mwqmsampleid="@mwqmSampleModel.MWQMSampleID" data-useforopendata="false">
+                            <span>@OpenDataViewRes.IsOpenData</span>
+                        </button>
+                        <button title="@OpenDataViewRes.ClickToAddAsOpenData"
+                                class="jbOpenDataMarkSamplesWithMWQMSampleIDForOpenData NotOpenData @(!mwqmSampleModel.UseForOpenData ? "" : "hidden") btn btn-danger"
+                                data-mwqmsampleid="@mwqmSampleModel.MWQMSampleID" data-useforopendata="true">
+                            <span>@OpenDataViewRes.NotOpenData</span>
+                        </button>
+
+                    </div>
                 </td>
                 <td>
                     @mwqmSampleModel.SampleDateTime_Local.ToString("yyyy MMMM dd")
@@ -69,9 +75,6 @@
                 </td>
                 <td>
                     @(mwqmSampleModel.Depth_m != null ? ((float)mwqmSampleModel.Depth_m).ToString("F1") : "")
-                </td>
-                <td>
-                    @(mwqmSampleModel.UseForOpenData ? "yes" : "no")
                 </td>
             </tr>
         }

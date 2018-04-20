@@ -26,74 +26,115 @@ var CSSP;
                         });
                     }
                 });
+                $(document).off("change", "select[name='OpenDataStartYear'], select[name='OpenDataStartMonth']");
+                $(document).on("change", "select[name='OpenDataStartYear'], select[name='OpenDataStartMonth']", function (evt) {
+                    var Year = parseInt($("select[name='OpenDataStartYear']").val());
+                    var Month = parseInt($("select[name='OpenDataStartMonth']").val());
+                    var daysInMonth = new Date(Year, Month, 0).getDate();
+                    $("select[name='OpenDataStartDay']").html("");
+                    var optHTMLArr = [];
+                    for (var i = 1; i < daysInMonth + 1; i++) {
+                        optHTMLArr.push("<option value='" + i.toString() + "'>" + i.toString() + "</option>");
+                    }
+                    $("select[name='OpenDataStartDay']").html(optHTMLArr.join(""));
+                });
+                $(document).off("change", "select[name='OpenDataEndYear'], select[name='OpenDataEndMonth']");
+                $(document).on("change", "select[name='OpenDataEndYear'], select[name='OpenDataEndMonth']", function (evt) {
+                    var Year = parseInt($("select[name='OpenDataEndYear']").val());
+                    var Month = parseInt($("select[name='OpenDataEndMonth']").val());
+                    var daysInMonth = new Date(Year, Month, 0).getDate();
+                    $("select[name='OpenDataEndDay']").html("");
+                    var optHTMLArr = [];
+                    for (var i = 1; i < daysInMonth + 1; i++) {
+                        optHTMLArr.push("<option value='" + i.toString() + "'>" + i.toString() + "</option>");
+                    }
+                    $("select[name='OpenDataEndDay']").html(optHTMLArr.join(""));
+                });
             };
             this.OpenDataGenerateCSVDocumentOfMWQMSites = function ($bjs) {
-                cssp.Dialog.ShowDialogMessage(cssp.GetHTMLVariable("#LayoutVariables", "varNotImplementedYet"));
-                //let ProvinceTVItemID: number = parseInt($bjs.data("provincetvitemid"));
-                //let command: string = "OpenData/GenerateCSVDocumentOfMWQMSitesJSON";
-                //$.post(cssp.BaseURL + command, {
-                //    ProvinceTVItemID: ProvinceTVItemID,
-                //}).done((ret) => {
-                //    if (ret) {
-                //        cssp.Dialog.ShowDialogError(ret);
-                //    }
-                //    else {
-                //        cssp.Helper.PageRefresh();
-                //    }
-                //}).fail(() => {
-                //    cssp.Dialog.ShowDialogErrorWithFail(command);
-                //});
+                //cssp.Dialog.ShowDialogMessage(cssp.GetHTMLVariable("#LayoutVariables", "varNotImplementedYet"));
+                var ProvinceTVItemID = parseInt($bjs.data("provincetvitemid"));
+                var command = "OpenData/GenerateCSVDocumentOfMWQMSitesJSON";
+                $.post(cssp.BaseURL + command, {
+                    ProvinceTVItemID: ProvinceTVItemID,
+                }).done(function (ret) {
+                    if (ret) {
+                        cssp.Dialog.ShowDialogError(ret);
+                    }
+                    else {
+                        cssp.Helper.PageRefresh();
+                    }
+                }).fail(function () {
+                    cssp.Dialog.ShowDialogErrorWithFail(command);
+                });
             };
             this.OpenDataGenerateKMZDocumentOfMWQMSites = function ($bjs) {
-                cssp.Dialog.ShowDialogMessage(cssp.GetHTMLVariable("#LayoutVariables", "varNotImplementedYet"));
-                //let ProvinceTVItemID: number = parseInt($bjs.data("provincetvitemid"));
-                //let command: string = "OpenData/GenerateKMZDocumentOfMWQMSitesJSON";
-                //$.post(cssp.BaseURL + command, {
-                //    ProvinceTVItemID: ProvinceTVItemID,
-                //}).done((ret) => {
-                //    if (ret) {
-                //        cssp.Dialog.ShowDialogError(ret);
-                //    }
-                //    else {
-                //        cssp.Helper.PageRefresh();
-                //    }
-                //}).fail(() => {
-                //    cssp.Dialog.ShowDialogErrorWithFail(command);
-                //});
+                //cssp.Dialog.ShowDialogMessage(cssp.GetHTMLVariable("#LayoutVariables", "varNotImplementedYet"));
+                var ProvinceTVItemID = parseInt($bjs.data("provincetvitemid"));
+                var command = "OpenData/GenerateKMZDocumentOfMWQMSitesJSON";
+                $.post(cssp.BaseURL + command, {
+                    ProvinceTVItemID: ProvinceTVItemID,
+                }).done(function (ret) {
+                    if (ret) {
+                        cssp.Dialog.ShowDialogError(ret);
+                    }
+                    else {
+                        cssp.Helper.PageRefresh();
+                    }
+                }).fail(function () {
+                    cssp.Dialog.ShowDialogErrorWithFail(command);
+                });
             };
             this.OpenDataGenerateCSVDocumentOfMWQMSamples = function ($bjs) {
-                cssp.Dialog.ShowDialogMessage(cssp.GetHTMLVariable("#LayoutVariables", "varNotImplementedYet"));
-                //let ProvinceTVItemID: number = parseInt($bjs.data("provincetvitemid"));
-                //let command: string = "OpenData/GenerateCSVDocumentOfMWQMSamplesJSON";
-                //$.post(cssp.BaseURL + command, {
-                //    ProvinceTVItemID: ProvinceTVItemID,
-                //}).done((ret) => {
-                //    if (ret) {
-                //        cssp.Dialog.ShowDialogError(ret);
-                //    }
-                //    else {
-                //        cssp.Helper.PageRefresh();
-                //    }
-                //}).fail(() => {
-                //    cssp.Dialog.ShowDialogErrorWithFail(command);
-                //});
+                //cssp.Dialog.ShowDialogMessage(cssp.GetHTMLVariable("#LayoutVariables", "varNotImplementedYet"));
+                var ProvinceTVItemID = parseInt($bjs.data("provincetvitemid"));
+                var command = "OpenData/GenerateCSVDocumentOfMWQMSamplesJSON";
+                $.post(cssp.BaseURL + command, {
+                    ProvinceTVItemID: ProvinceTVItemID,
+                }).done(function (ret) {
+                    if (ret) {
+                        cssp.Dialog.ShowDialogError(ret);
+                    }
+                    else {
+                        cssp.Helper.PageRefresh();
+                    }
+                }).fail(function () {
+                    cssp.Dialog.ShowDialogErrorWithFail(command);
+                });
             };
             this.OpenDataGenerateXlsxDocumentOfMWQMSamples = function ($bjs) {
-                cssp.Dialog.ShowDialogMessage(cssp.GetHTMLVariable("#LayoutVariables", "varNotImplementedYet"));
-                //let ProvinceTVItemID: number = parseInt($bjs.data("provincetvitemid"));
-                //let command: string = "OpenData/GenerateXlsxDocumentOfMWQMSamplesJSON";
-                //$.post(cssp.BaseURL + command, {
-                //    ProvinceTVItemID: ProvinceTVItemID,
-                //}).done((ret) => {
-                //    if (ret) {
-                //        cssp.Dialog.ShowDialogError(ret);
-                //    }
-                //    else {
-                //        cssp.Helper.PageRefresh();
-                //    }
-                //}).fail(() => {
-                //    cssp.Dialog.ShowDialogErrorWithFail(command);
-                //});
+                //cssp.Dialog.ShowDialogMessage(cssp.GetHTMLVariable("#LayoutVariables", "varNotImplementedYet"));
+                var ProvinceTVItemID = parseInt($bjs.data("provincetvitemid"));
+                var command = "OpenData/GenerateXlsxDocumentOfMWQMSamplesJSON";
+                $.post(cssp.BaseURL + command, {
+                    ProvinceTVItemID: ProvinceTVItemID,
+                }).done(function (ret) {
+                    if (ret) {
+                        cssp.Dialog.ShowDialogError(ret);
+                    }
+                    else {
+                        cssp.Helper.PageRefresh();
+                    }
+                }).fail(function () {
+                    cssp.Dialog.ShowDialogErrorWithFail(command);
+                });
+            };
+            this.OpenDataGenerateXlsxDocumentOfMWQMSites = function ($bjs) {
+                //cssp.Dialog.ShowDialogMessage(cssp.GetHTMLVariable("#LayoutVariables", "varNotImplementedYet"));
+                var ProvinceTVItemID = parseInt($bjs.data("provincetvitemid"));
+                var command = "OpenData/GenerateXlsxDocumentOfMWQMSitesJSON";
+                $.post(cssp.BaseURL + command, {
+                    ProvinceTVItemID: ProvinceTVItemID,
+                }).done(function (ret) {
+                    if (ret) {
+                        cssp.Dialog.ShowDialogError(ret);
+                    }
+                    else {
+                        cssp.Helper.PageRefresh();
+                    }
+                }).fail(function () {
+                    cssp.Dialog.ShowDialogErrorWithFail(command);
+                });
             };
             this.OpenDataReloadSubsector = function ($bjs) {
                 if ($bjs.hasClass("btn-default")) {
@@ -143,13 +184,27 @@ var CSSP;
                     $bjs.removeClass("btn-success").addClass("btn-default");
                 }
             };
-            this.OpenDataMarkAllRoutineSamplesAsUseForOpenData = function ($bjs) {
+            this.OpenDataMarkAllRoutineSamplesForOpenData = function ($bjs) {
                 var TVItemID = parseInt($bjs.data("tvitemid"));
+                var StartYear = parseInt($("select[name='OpenDataStartYear']").val());
+                var StartMonth = parseInt($("select[name='OpenDataStartMonth']").val());
+                var StartDay = parseInt($("select[name='OpenDataStartDay']").val());
+                var EndYear = parseInt($("select[name='OpenDataEndYear']").val());
+                var EndMonth = parseInt($("select[name='OpenDataEndMonth']").val());
+                var EndDay = parseInt($("select[name='OpenDataEndDay']").val());
+                var UseForOpenData = $bjs.data("useforopendata");
                 $bjs.closest(".OpenDataButtonsTopDiv").find(".OpenDataButtonsDiv").removeClass("hidden").addClass("hidden");
                 $bjs.closest(".OpenDataButtonsTopDiv").find(".OpenDataWorkingDiv").removeClass("hidden");
-                var command = "OpenData/MarkAllRoutineSamplesAsUseForOpenDataJSON";
+                var command = "OpenData/MarkAllRoutineSamplesForOpenDataJSON";
                 $.post(cssp.BaseURL + command, {
                     TVItemID: TVItemID,
+                    StartYear: StartYear,
+                    StartMonth: StartMonth,
+                    StartDay: StartDay,
+                    EndYear: EndYear,
+                    EndMonth: EndMonth,
+                    EndDay: EndDay,
+                    UseForOpenData: UseForOpenData,
                 })
                     .done(function (ret) {
                     if (ret) {
@@ -164,90 +219,28 @@ var CSSP;
                     cssp.Dialog.ShowDialogErrorWithFail(command);
                 });
             };
-            this.OpenDataMarkAllRoutineSamplesAsNotUseForOpenData = function ($bjs) {
-                var TVItemID = parseInt($bjs.data("tvitemid"));
-                $bjs.closest(".OpenDataButtonsTopDiv").find(".OpenDataButtonsDiv").removeClass("hidden").addClass("hidden");
-                $bjs.closest(".OpenDataButtonsTopDiv").find(".OpenDataWorkingDiv").removeClass("hidden");
-                var command = "OpenData/MarkAllRoutineSamplesAsNotUseForOpenDataJSON";
-                $.post(cssp.BaseURL + command, {
-                    TVItemID: TVItemID,
-                })
-                    .done(function (ret) {
-                    if (ret) {
-                        cssp.Dialog.ShowDialogError(ret);
-                    }
-                    else {
-                        cssp.Dialog.ShowDialogSuccess(cssp.GetHTMLVariable("#LayoutVariables", "varSuccess"));
-                        $bjs.closest(".OpenDataButtonsTopDiv").find(".OpenDataButtonsDiv").removeClass("hidden");
-                        $bjs.closest(".OpenDataButtonsTopDiv").find(".OpenDataWorkingDiv").removeClass("hidden").addClass("hidden");
-                    }
-                }).fail(function () {
-                    cssp.Dialog.ShowDialogErrorWithFail(command);
-                });
-            };
-            this.OpenDataMarkSamplesWithMWQMSampleIDAsUseForOpenData = function ($bjs) {
+            this.OpenDataMarkSamplesWithMWQMSampleIDForOpenData = function ($bjs) {
                 var MWQMSampleID = parseInt($bjs.data("mwqmsampleid"));
-                var command = "OpenData/MarkSamplesWithMWQMSampleIDAsUseForOpenDataJSON";
+                var UseForOpenData = $bjs.data("useforopendata");
+                var command = "OpenData/MarkSamplesWithMWQMSampleIDForOpenDataJSON";
                 $.post(cssp.BaseURL + command, {
                     MWQMSampleID: MWQMSampleID,
+                    UseForOpenData: UseForOpenData,
                 })
                     .done(function (ret) {
                     if (ret) {
                         cssp.Dialog.ShowDialogError(ret);
                     }
                     else {
-                        cssp.Dialog.ShowDialogSuccess(cssp.GetHTMLVariable("#LayoutVariables", "varSuccess"));
-                    }
-                }).fail(function () {
-                    cssp.Dialog.ShowDialogErrorWithFail(command);
-                });
-            };
-            this.OpenDataMarkSamplesWithMWQMSampleIDAsNotUseForOpenData = function ($bjs) {
-                var MWQMSampleID = parseInt($bjs.data("mwqmsampleid"));
-                var command = "OpenData/MarkSamplesWithMWQMSampleIDAsNotUseForOpenDataJSON";
-                $.post(cssp.BaseURL + command, {
-                    MWQMSampleID: MWQMSampleID,
-                })
-                    .done(function (ret) {
-                    if (ret) {
-                        cssp.Dialog.ShowDialogError(ret);
-                    }
-                    else {
-                        cssp.Dialog.ShowDialogSuccess(cssp.GetHTMLVariable("#LayoutVariables", "varSuccess"));
-                    }
-                }).fail(function () {
-                    cssp.Dialog.ShowDialogErrorWithFail(command);
-                });
-            };
-            this.OpenDataMarkSamplesWithMWQMSampleIDAsIsSensitive = function ($bjs) {
-                var MWQMSampleID = parseInt($bjs.data("mwqmsampleid"));
-                var command = "OpenData/MarkSamplesWithMWQMSampleIDAsIsSensitiveJSON";
-                $.post(cssp.BaseURL + command, {
-                    MWQMSampleID: MWQMSampleID,
-                })
-                    .done(function (ret) {
-                    if (ret) {
-                        cssp.Dialog.ShowDialogError(ret);
-                    }
-                    else {
-                        cssp.Dialog.ShowDialogSuccess(cssp.GetHTMLVariable("#LayoutVariables", "varSuccess"));
-                    }
-                }).fail(function () {
-                    cssp.Dialog.ShowDialogErrorWithFail(command);
-                });
-            };
-            this.OpenDataMarkSamplesWithMWQMSampleIDAsNotSensitive = function ($bjs) {
-                var MWQMSampleID = parseInt($bjs.data("mwqmsampleid"));
-                var command = "OpenData/MarkSamplesWithMWQMSampleIDAsNotSensitiveJSON";
-                $.post(cssp.BaseURL + command, {
-                    MWQMSampleID: MWQMSampleID,
-                })
-                    .done(function (ret) {
-                    if (ret) {
-                        cssp.Dialog.ShowDialogError(ret);
-                    }
-                    else {
-                        cssp.Dialog.ShowDialogSuccess(cssp.GetHTMLVariable("#LayoutVariables", "varSuccess"));
+                        //cssp.Dialog.ShowDialogSuccess(cssp.GetHTMLVariable("#LayoutVariables", "varSuccess"));
+                        if (UseForOpenData) {
+                            $bjs.closest(".OpenDataMWQMSampleButtonsDiv").find(".IsOpenData").removeClass("hidden");
+                            $bjs.closest(".OpenDataMWQMSampleButtonsDiv").find(".NotOpenData").removeClass("hidden").addClass("hidden");
+                        }
+                        else {
+                            $bjs.closest(".OpenDataMWQMSampleButtonsDiv").find(".IsOpenData").removeClass("hidden").addClass("hidden");
+                            $bjs.closest(".OpenDataMWQMSampleButtonsDiv").find(".NotOpenData").removeClass("hidden");
+                        }
                     }
                 }).fail(function () {
                     cssp.Dialog.ShowDialogErrorWithFail(command);

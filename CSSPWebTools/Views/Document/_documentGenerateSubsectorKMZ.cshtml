@@ -5,6 +5,8 @@
 @using CSSPModelsDLL.Models;
 
 @{
+    /**/
+
     DocumentController documentController = (DocumentController)ViewBag.DocumentController;
     int ReportTypeID = (int)ViewBag.ReportTypeID;
     int TVItemID = (int)ViewBag.TVItemID;
@@ -22,7 +24,7 @@
                     <legend><span>@DocumentViewRes.Parameters</span></legend>
                     <input type="hidden" name="TVItemID" value="@TVItemID" />
                     <input type="hidden" name="ReportTypeID" value="@ReportTypeID" />
-                    @Parameters()
+                    @Parameters(reportTypeModel.UniqueCode)
                     <div class="form-group">
                         <button class="jbDocumentGenerate btn btn-primary" type="submit">
                             <span class="glyphicon glyphicon-check"></span>
@@ -38,12 +40,23 @@ else
 {
     <ul class="list-unstyled">
         <li>
-            @Parameters()
+            @Parameters(reportTypeModel.UniqueCode)
         </li>
     </ul>
 }
 
-@helper Parameters()
-{
-    <span>@DocumentViewRes.NoParameters</span>
+@helper Parameters(string UniqueCode)
+    {
+        /**/
+
+        switch (UniqueCode)
+        {
+            case "SubsectorInformationKMZ":
+                {
+                    <span>@DocumentViewRes.NoParameters</span>
+                }
+                break;
+            default:
+                break;
+        }
 }

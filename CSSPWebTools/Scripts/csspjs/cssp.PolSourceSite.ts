@@ -9,30 +9,7 @@ module CSSP {
         // Constructors
         constructor() {
         }
-
-        public GetAllPolSourceSiteInfoUnderSubsectorForMark: Function = ($bjs: JQuery): void => {
-            $bjs.text("Working ... Can take a few seconds");
-            var SubsectorTVItemID: number = parseInt($("#ViewDiv").data("tvitemid"));
-            var command: string = "PolSource/GetAllPolSourceSiteInfoUnderSubsectorForMark";
-            $.post(cssp.BaseURL + command,
-                {
-                    SubsectorTVItemID: SubsectorTVItemID,
-                })
-                .done((ret) => {
-                    if (ret) {
-                        cssp.Dialog.ShowDialogErrorWithError(ret);
-                    }
-                    else {
-                        cssp.Dialog.ShowDialogSuccess("Pollution Source Site Information Downloaded OK. Check under files.");
-                    }
-                    $bjs.text("MARK");
-                })
-                .fail(() => {
-                    cssp.Dialog.ShowDialogErrorWithFail(command);
-                    $bjs.text("MARK");
-                });
-        };
-
+      
         // Functions
         public PolSourceObservationAskToDelete: Function = ($bjs: JQuery): void => {
             var PolObservationDateText: string = $bjs.closest(".PolSourceObservationTopDiv").find(".PolSourceObservationDateText").text();

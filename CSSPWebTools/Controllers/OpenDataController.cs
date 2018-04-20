@@ -63,7 +63,7 @@ namespace CSSPWebTools.Controllers
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
         public PartialViewResult _OpenDataProvince(int ProvinceTVItemID)
         {
-            ViewBag.ProvinceTVItemID = urlModel.TVItemIDList[0];
+            ViewBag.ProvinceTVItemID = ProvinceTVItemID;
             ViewBag.TVItemModelSubsectorList = null;
 
             List<TVItemModel> tvItemModelSubsectorList = _TVItemService.GetChildrenTVItemModelListWithTVItemIDAndTVTypeDB(ProvinceTVItemID, TVTypeEnum.Subsector);
@@ -139,6 +139,14 @@ namespace CSSPWebTools.Controllers
         }
         [HttpPost]
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public JsonResult GenerateXlsxDocumentOfMWQMSitesJSON(int ProvinceTVItemID)
+        {
+            TVItemModel tvItemModel = _OpenDataService.GenerateXlsxDocumentOfMWQMSitesDB(ProvinceTVItemID);
+
+            return Json(tvItemModel.Error, JsonRequestBehavior.AllowGet);
+        }
+        [HttpPost]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
         public JsonResult GenerateXlsxDocumentOfMWQMSamplesJSON(int ProvinceTVItemID)
         {
             TVItemModel tvItemModel = _OpenDataService.GenerateXlsxDocumentOfMWQMSamplesDB(ProvinceTVItemID);
@@ -147,33 +155,17 @@ namespace CSSPWebTools.Controllers
         }
         [HttpPost]
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
-        public JsonResult MarkAllRoutineSamplesAsUseForOpenDataJSON(int TVItemID)
+        public JsonResult MarkAllRoutineSamplesForOpenDataJSON(FormCollection fc)
         {
-            TVItemModel tvItemModel = _OpenDataService.MarkAllRoutineSamplesAsUseForOpenDataDB(TVItemID);
+            TVItemModel tvItemModel = _OpenDataService.MarkAllRoutineSamplesForOpenDataDB(fc);
 
             return Json(tvItemModel.Error, JsonRequestBehavior.AllowGet);
         }
         [HttpPost]
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
-        public JsonResult MarkAllRoutineSamplesAsNotUseForOpenDataJSON(int TVItemID)
+        public JsonResult MarkSamplesWithMWQMSampleIDForOpenDataJSON(int MWQMSampleID, bool UseForOpenData)
         {
-            TVItemModel tvItemModel = _OpenDataService.MarkAllRoutineSamplesAsNotUseForOpenDataDB(TVItemID);
-
-            return Json(tvItemModel.Error, JsonRequestBehavior.AllowGet);
-        }
-        [HttpPost]
-        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
-        public JsonResult MarkSamplesWithMWQMSampleIDAsUseForOpenDataJSON(int MWQMSampleID)
-        {
-               TVItemModel tvItemModel = _OpenDataService.MarkSamplesWithMWQMSampleIDAsUseForOpenDataDB(MWQMSampleID);
-
-            return Json(tvItemModel.Error, JsonRequestBehavior.AllowGet);
-        }
-        [HttpPost]
-        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
-        public JsonResult MarkSamplesWithMWQMSampleIDAsNotUseForOpenDataJSON(int MWQMSampleID)
-        {
-            TVItemModel tvItemModel = _OpenDataService.MarkSamplesWithMWQMSampleIDAsNotUseForOpenDataDB(MWQMSampleID);
+               TVItemModel tvItemModel = _OpenDataService.MarkSamplesWithMWQMSampleIDForOpenDataDB(MWQMSampleID, UseForOpenData);
 
             return Json(tvItemModel.Error, JsonRequestBehavior.AllowGet);
         }

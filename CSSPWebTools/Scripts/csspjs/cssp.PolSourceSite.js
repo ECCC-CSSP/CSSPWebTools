@@ -8,27 +8,6 @@ var CSSP;
             this.FormName = "#PolSourceSiteAddOrModifyForm";
             this.PolSourcePrevSelected = [];
             this.IssueOrdinal = 0;
-            this.GetAllPolSourceSiteInfoUnderSubsectorForMark = function ($bjs) {
-                $bjs.text("Working ... Can take a few seconds");
-                var SubsectorTVItemID = parseInt($("#ViewDiv").data("tvitemid"));
-                var command = "PolSource/GetAllPolSourceSiteInfoUnderSubsectorForMark";
-                $.post(cssp.BaseURL + command, {
-                    SubsectorTVItemID: SubsectorTVItemID,
-                })
-                    .done(function (ret) {
-                    if (ret) {
-                        cssp.Dialog.ShowDialogErrorWithError(ret);
-                    }
-                    else {
-                        cssp.Dialog.ShowDialogSuccess("Pollution Source Site Information Downloaded OK. Check under files.");
-                    }
-                    $bjs.text("MARK");
-                })
-                    .fail(function () {
-                    cssp.Dialog.ShowDialogErrorWithFail(command);
-                    $bjs.text("MARK");
-                });
-            };
             // Functions
             this.PolSourceObservationAskToDelete = function ($bjs) {
                 var PolObservationDateText = $bjs.closest(".PolSourceObservationTopDiv").find(".PolSourceObservationDateText").text();

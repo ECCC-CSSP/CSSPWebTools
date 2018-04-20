@@ -489,4 +489,10 @@
   <data name="NotImplementedYet" xml:space="preserve">
     <value>Not implemented yet</value>
   </data>
+  <data name="IsOpenData" xml:space="preserve">
+    <value>Is Open Data</value>
+  </data>
+  <data name="NotOpenData" xml:space="preserve">
+    <value>Not Open Data</value>
+  </data>
 </root>

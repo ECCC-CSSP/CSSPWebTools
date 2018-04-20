@@ -448,6 +448,15 @@ namespace CSSPWebTools.Views.Shared.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Is Open Data.
+        /// </summary>
+        public static string IsOpenData {
+            get {
+                return ResourceManager.GetString("IsOpenData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Lift stations.
         /// </summary>
         public static string LiftStations {
@@ -687,6 +696,15 @@ namespace CSSPWebTools.Views.Shared.Resources {
         public static string NotImplementedYet {
             get {
                 return ResourceManager.GetString("NotImplementedYet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Not Open Data.
+        /// </summary>
+        public static string NotOpenData {
+            get {
+                return ResourceManager.GetString("NotOpenData", resourceCulture);
             }
         }
         

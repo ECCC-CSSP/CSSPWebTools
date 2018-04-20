@@ -4,6 +4,7 @@
 @using CSSPEnumsDLL.Services;
 @using CSSPModelsDLL.Models;
 @using System.Linq;
+@using System.Globalization;
 
 @{
     int ProvinceTVItemID = (int)ViewBag.ProvinceTVItemID;
@@ -13,7 +14,92 @@
 <div class="panel panel-info">
     <div class="panel-heading">
         <div class="panel-title">
-            @OpenDataViewRes.Setup
+            <div class="h2">@OpenDataViewRes.AppliedBetween</div>
+            <br />
+            @* Open Data Start Date *@
+            <label>@OpenDataViewRes.StartDate</label>
+            <div class="blockMargin lineSpaceBottom">
+                <div class="form-inline">
+                    <div class="form-group  blockRightSpace">
+                        <label class="control-label"> @OpenDataViewRes.Year</label>
+                        <div>
+                            <select class="form-control" name="OpenDataStartYear">
+                                @for (int i = 1980; i < DateTime.Now.Year + 1; i++)
+                                {
+                                    <option @(i == 1980 ? "selected=selected" : "") value="@i.ToString()">@i.ToString()</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group  blockRightSpace">
+                        <label class="control-label">@OpenDataViewRes.Month</label>
+                        <div>
+                            <select class="form-control" name="OpenDataStartMonth">
+                                @for (int i = 1; i < 13; i++)
+                                {
+                                    <option @(i == 1 ? "selected=selected" : "") value="@i.ToString()">@(CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(i))</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group  blockRightSpace">
+                        <label class="control-label">@OpenDataViewRes.Day</label>
+                        <div>
+                            <select class="form-control" name="OpenDataStartDay">
+                                @{
+                                    int NumberOfDaysInMonth = DateTime.DaysInMonth(1980, 1);
+                                    for (int i = 1; i < NumberOfDaysInMonth + 1; i++)
+                                    {
+                                        <option @(i == 1 ? "selected=selected" : "") value="@i.ToString()">@i.ToString()</option>
+                                    }
+                                }
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @* Open Data End Date *@
+            <label>@OpenDataViewRes.EndDate</label>
+            <div class="blockMargin lineSpaceBottom">
+                <div class="form-inline">
+                    <div class="form-group  blockRightSpace">
+                        <label class="control-label"> @OpenDataViewRes.Year</label>
+                        <div>
+                            <select class="form-control" name="OpenDataEndYear">
+                                @for (int i = 1980; i <= DateTime.Now.Year + 1; i++)
+                                {
+                                    <option @(i == DateTime.Now.Year ? "selected=selected" : "") value="@i.ToString()">@i.ToString()</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group  blockRightSpace">
+                        <label class="control-label">@OpenDataViewRes.Month</label>
+                        <div>
+                            <select class="form-control" name="OpenDataEndMonth">
+                                @for (int i = 1; i < 13; i++)
+                                {
+                                    <option @(i == 12 ? "selected=selected" : "") value="@i.ToString()">@(CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(i))</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group  blockRightSpace">
+                        <label class="control-label">@OpenDataViewRes.Day</label>
+                        <div>
+                            <select class="form-control" name="OpenDataEndDay">
+                                @{
+                                    int NumberOfDaysInMonth2 = DateTime.DaysInMonth(1980, 1);
+                                    for (int i = 1; i < NumberOfDaysInMonth2 + 1; i++)
+                                    {
+                                        <option @(i == NumberOfDaysInMonth2 ? "selected=selected" : "") value="@i.ToString()">@i.ToString()</option>
+                                    }
+                                }
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <div class="panel-body">
@@ -21,10 +107,10 @@
             <p>@OpenDataViewRes.ClickingTheButtonsBelowCanTakeALongTimeToExecuteSometimeAFewMinutes</p>
             <span>@OpenDataViewRes.MarkAllRoutineSamplesForProvinceAs : </span>
             <span class="OpenDataButtonsDiv">
-                <button class="jbOpenDataMarkAllRoutineSamplesAsUseForOpenData btn btn-primary" data-tvitemid="@ProvinceTVItemID">
+                <button class="jbOpenDataMarkAllRoutineSamplesForOpenData btn btn-primary" data-tvitemid="@ProvinceTVItemID" data-useforopendata="true">
                     <span>@OpenDataViewRes.UseForOpenData</span>
                 </button>
-                <button class="jbOpenDataMarkAllRoutineSamplesAsNotUseForOpenData btn btn-primary" data-tvitemid="@ProvinceTVItemID">
+                <button class="jbOpenDataMarkAllRoutineSamplesForOpenData btn btn-primary" data-tvitemid="@ProvinceTVItemID" data-useforopendata="false">
                     <span>@OpenDataViewRes.NotUseForOpenData</span>
                 </button>
             </span>

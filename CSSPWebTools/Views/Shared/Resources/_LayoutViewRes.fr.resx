@@ -487,4 +487,10 @@
   <data name="NotImplementedYet" xml:space="preserve">
     <value>Not implemented yet (fr)</value>
   </data>
+  <data name="IsOpenData" xml:space="preserve">
+    <value>Is Open Data (fr)</value>
+  </data>
+  <data name="NotOpenData" xml:space="preserve">
+    <value>Not Open Data (fr)</value>
+  </data>
 </root>

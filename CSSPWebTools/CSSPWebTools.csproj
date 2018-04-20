@@ -576,6 +576,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <None Include="testing.kml" />
     <Content Include="_Information.html" />
     <Content Include="Images\CSSPWebTools_logo32.png" />
     <Content Include="Images\CSSPWebTools_logo32_name.png" />

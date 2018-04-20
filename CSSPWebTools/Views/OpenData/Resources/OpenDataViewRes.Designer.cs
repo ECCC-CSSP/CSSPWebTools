@@ -61,11 +61,38 @@ namespace CSSPWebTools.Views.OpenData.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Applied between.
+        /// </summary>
+        public static string AppliedBetween {
+            get {
+                return ResourceManager.GetString("AppliedBetween", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Clicking the buttons below can take a long time to execute. Sometime a few minutes..
         /// </summary>
         public static string ClickingTheButtonsBelowCanTakeALongTimeToExecuteSometimeAFewMinutes {
             get {
                 return ResourceManager.GetString("ClickingTheButtonsBelowCanTakeALongTimeToExecuteSometimeAFewMinutes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Click to add as Open Data.
+        /// </summary>
+        public static string ClickToAddAsOpenData {
+            get {
+                return ResourceManager.GetString("ClickToAddAsOpenData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Click to remove as Open Data.
+        /// </summary>
+        public static string ClickToRemoveAsOpenData {
+            get {
+                return ResourceManager.GetString("ClickToRemoveAsOpenData", resourceCulture);
             }
         }
         
@@ -88,6 +115,15 @@ namespace CSSPWebTools.Views.OpenData.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Day.
+        /// </summary>
+        public static string Day {
+            get {
+                return ResourceManager.GetString("Day", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Depth.
         /// </summary>
         public static string Depth {
@@ -102,6 +138,15 @@ namespace CSSPWebTools.Views.OpenData.Resources {
         public static string Documents {
             get {
                 return ResourceManager.GetString("Documents", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to End date.
+        /// </summary>
+        public static string EndDate {
+            get {
+                return ResourceManager.GetString("EndDate", resourceCulture);
             }
         }
         
@@ -151,6 +196,24 @@ namespace CSSPWebTools.Views.OpenData.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Generate Xlsx document of MWQM Sites.
+        /// </summary>
+        public static string GenerateXlsxDocumentOfMWQMSites {
+            get {
+                return ResourceManager.GetString("GenerateXlsxDocumentOfMWQMSites", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Is Open Data.
+        /// </summary>
+        public static string IsOpenData {
+            get {
+                return ResourceManager.GetString("IsOpenData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Load setup.
         /// </summary>
         public static string LoadSetup {
@@ -183,6 +246,24 @@ namespace CSSPWebTools.Views.OpenData.Resources {
         public static string MarkAllRoutineSamplesForSubsectorAs {
             get {
                 return ResourceManager.GetString("MarkAllRoutineSamplesForSubsectorAs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Month.
+        /// </summary>
+        public static string Month {
+            get {
+                return ResourceManager.GetString("Month", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Not Open Data.
+        /// </summary>
+        public static string NotOpenData {
+            get {
+                return ResourceManager.GetString("NotOpenData", resourceCulture);
             }
         }
         
@@ -259,6 +340,15 @@ namespace CSSPWebTools.Views.OpenData.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Start date.
+        /// </summary>
+        public static string StartDate {
+            get {
+                return ResourceManager.GetString("StartDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Stat.
         /// </summary>
         public static string Stat {
@@ -300,6 +390,15 @@ namespace CSSPWebTools.Views.OpenData.Resources {
         public static string Working {
             get {
                 return ResourceManager.GetString("Working", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Year.
+        /// </summary>
+        public static string Year {
+            get {
+                return ResourceManager.GetString("Year", resourceCulture);
             }
         }
         

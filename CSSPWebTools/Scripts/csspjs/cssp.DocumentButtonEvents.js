@@ -12,11 +12,6 @@ var CSSP;
                         $bjs = $bjs.closest("button");
                     }
                     switch ($bjs.attr("class").split(" ")[0]) {
-                        case "jbGetAllPolSourceSiteInfoUnderSubsectorForMark":
-                            {
-                                cssp.PolSourceSite.GetAllPolSourceSiteInfoUnderSubsectorForMark($bjs);
-                            }
-                            break;
                         case "jbAddressAdd":
                             {
                                 cssp.Address.FormSubmitAddOrUpdate($bjs);
@@ -971,6 +966,11 @@ var CSSP;
                                 cssp.OpenData.OpenDataGenerateXlsxDocumentOfMWQMSamples($bjs);
                             }
                             break;
+                        case "jbOpenDataGenerateXlsxDocumentOfMWQMSites":
+                            {
+                                cssp.OpenData.OpenDataGenerateXlsxDocumentOfMWQMSites($bjs);
+                            }
+                            break;
                         case "jbOpenDataReloadSubsector":
                             {
                                 cssp.OpenData.OpenDataReloadSubsector($bjs);
@@ -986,24 +986,14 @@ var CSSP;
                                 cssp.OpenData.OpenDataReloadMWQMSite($bjs);
                             }
                             break;
-                        case "jbOpenDataMarkAllRoutineSamplesAsUseForOpenData":
+                        case "jbOpenDataMarkAllRoutineSamplesForOpenData":
                             {
-                                cssp.OpenData.OpenDataMarkAllRoutineSamplesAsUseForOpenData($bjs);
+                                cssp.OpenData.OpenDataMarkAllRoutineSamplesForOpenData($bjs);
                             }
                             break;
-                        case "jbOpenDataMarkAllRoutineSamplesAsNotUseForOpenData":
+                        case "jbOpenDataMarkSamplesWithMWQMSampleIDForOpenData":
                             {
-                                cssp.OpenData.OpenDataMarkAllRoutineSamplesAsNotUseForOpenData($bjs);
-                            }
-                            break;
-                        case "jbOpenDataMarkSamplesWithMWQMSampleIDAsUseForOpenData":
-                            {
-                                cssp.OpenData.OpenDataMarkSamplesWithMWQMSampleIDAsUseForOpenData($bjs);
-                            }
-                            break;
-                        case "jbOpenDataMarkSamplesWithMWQMSampleIDAsNotUseForOpenData":
-                            {
-                                cssp.OpenData.OpenDataMarkSamplesWithMWQMSampleIDAsNotUseForOpenData($bjs);
+                                cssp.OpenData.OpenDataMarkSamplesWithMWQMSampleIDForOpenData($bjs);
                             }
                             break;
                         case "jbPageRefresh":

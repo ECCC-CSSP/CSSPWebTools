@@ -191,23 +191,23 @@ namespace CSSPWebTools.Controllers
             return Json(mwqmRunModel, JsonRequestBehavior.AllowGet);
         }
 
-        [HttpPost]
-        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
-        public JsonResult MarkAllRoutineSamplesAsUseForOpenDataJSON(int MWQMRunTVItemID)
-        {
-            MWQMRunModel mwqmRunModel = _MWQMRunService.MarkAllRoutineSamplesAsUseForOpenDataDB(MWQMRunTVItemID);
+        //[HttpPost]
+        //[OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        //public JsonResult MarkAllRoutineSamplesAsUseForOpenDataJSON(int MWQMRunTVItemID)
+        //{
+        //    MWQMRunModel mwqmRunModel = _MWQMRunService.MarkAllRoutineSamplesAsUseForOpenDataDB(MWQMRunTVItemID);
 
-            return Json(mwqmRunModel.Error, JsonRequestBehavior.AllowGet);
-        }
+        //    return Json(mwqmRunModel.Error, JsonRequestBehavior.AllowGet);
+        //}
 
-        [HttpPost]
-        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
-        public JsonResult MarkAllRoutineSamplesAsNotUseForOpenDataJSON(int MWQMRunTVItemID)
-        {
-            MWQMRunModel mwqmRunModel = _MWQMRunService.MarkAllRoutineSamplesAsNotUseForOpenDataDB(MWQMRunTVItemID);
+        //[HttpPost]
+        //[OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        //public JsonResult MarkAllRoutineSamplesAsNotUseForOpenDataJSON(int MWQMRunTVItemID)
+        //{
+        //    MWQMRunModel mwqmRunModel = _MWQMRunService.MarkAllRoutineSamplesAsNotUseForOpenDataDB(MWQMRunTVItemID);
 
-            return Json(mwqmRunModel.Error, JsonRequestBehavior.AllowGet);
-        }
+        //    return Json(mwqmRunModel.Error, JsonRequestBehavior.AllowGet);
+        //}
 
         [HttpPost]
         [ValidateAntiForgeryToken]
