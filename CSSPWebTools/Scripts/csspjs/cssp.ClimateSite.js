@@ -50,7 +50,7 @@ var CSSP;
                 var SelectText = $bjs.find(":selected").val();
                 MWQMRunModel$.find("td.RainData").each(function (ind, elem) {
                     var value = parseFloat($(elem).data(SelectText));
-                    if (value == -999) {
+                    if ($(elem).data("hasbeenread") == true && value == -1) {
                         $(elem).text("E");
                     }
                     else if (value == -1) {
@@ -87,7 +87,7 @@ var CSSP;
                     var Total = 0;
                     var ValueCount = 0;
                     for (var j = 0, count = PrecArray.length; j < count; j++) {
-                        if (PrecArray[j] != -999.0 && PrecArray[j] != -1) {
+                        if (PrecArray[j] != -1) {
                             ValueCount += 1;
                             Total += PrecArray[j];
                         }
@@ -125,14 +125,14 @@ var CSSP;
                 var ClimateSiteRains$ = $bjs.closest(".SelectedRunPrecipitationInfo").find("tr.ClimateSiteRains[data-climatesitetvitemid=" + ClimateSiteTVItemIDOrderedList[0].toString() + "]");
                 for (var i = 0; i < 11; i++) {
                     var totalPrecip = ClimateSiteRains$.find("td").eq(i + 1).data("totalprecip");
-                    if (totalPrecip != "-999.0") {
+                    if (totalPrecip != "-1") {
                         $bjs.closest("tr").find("input[name='RainDay" + i + "_mm']").val(totalPrecip);
                     }
                     else {
                         for (var j = 1, count = ClimateSiteTVItemIDOrderedList.length; j < count; j++) {
                             var ClimateSiteRains2$ = $bjs.closest(".SelectedRunPrecipitationInfo").find("tr.ClimateSiteRains[data-climatesitetvitemid=" + ClimateSiteTVItemIDOrderedList[j].toString() + "]");
                             totalPrecip = ClimateSiteRains2$.find("td").eq(i + 1).data("totalprecip");
-                            if (totalPrecip != "-999") {
+                            if (totalPrecip != "-1") {
                                 $bjs.closest("tr").find("input[name='RainDay" + i + "_mm']").val(totalPrecip);
                                 break;
                             }
@@ -166,7 +166,7 @@ var CSSP;
                     var TotalValue = 0;
                     var TotalWeight = 0;
                     for (var j = 0, count = PrecArray.length; j < count; j++) {
-                        if (PrecArray[j] != -999.0 && PrecArray[j] != -1) {
+                        if (PrecArray[j] != -1) {
                             TotalWeight += WeightArray[j];
                             TotalValue += PrecArray[j] * WeightArray[j];
                         }

@@ -54,7 +54,7 @@
             let SelectText: string = $bjs.find(":selected").val();
             MWQMRunModel$.find("td.RainData").each((ind: number, elem: Element) => {
                 let value: number = parseFloat($(elem).data(SelectText));
-                if (value == -999) {
+                if ($(elem).data("hasbeenread") == true && value == -1) {
                     $(elem).text("E");
                 }
                 else if (value == -1) {
@@ -93,7 +93,7 @@
                 let ValueCount: number = 0;
                 for (let j = 0, count = PrecArray.length; j < count; j++)
                 {
-                    if (PrecArray[j] != -999.0 && PrecArray[j] != -1) {
+                    if (PrecArray[j] != -1) {
                         ValueCount += 1;
                         Total += PrecArray[j];
                     }
@@ -130,14 +130,14 @@
             let ClimateSiteRains$: JQuery = $bjs.closest(".SelectedRunPrecipitationInfo").find("tr.ClimateSiteRains[data-climatesitetvitemid=" + ClimateSiteTVItemIDOrderedList[0].toString() + "]");
             for (let i = 0; i < 11; i++) {
                 let totalPrecip: string = ClimateSiteRains$.find("td").eq(i + 1).data("totalprecip");
-                if (totalPrecip != "-999.0") {
+                if (totalPrecip != "-1") {
                     $bjs.closest("tr").find("input[name='RainDay" + i + "_mm']").val(totalPrecip);
                 }
                 else {
                     for (let j = 1, count = ClimateSiteTVItemIDOrderedList.length; j < count; j++) {
                         let ClimateSiteRains2$: JQuery = $bjs.closest(".SelectedRunPrecipitationInfo").find("tr.ClimateSiteRains[data-climatesitetvitemid=" + ClimateSiteTVItemIDOrderedList[j].toString() + "]");
                         totalPrecip = ClimateSiteRains2$.find("td").eq(i + 1).data("totalprecip");
-                        if (totalPrecip != "-999") {
+                        if (totalPrecip != "-1") {
                             $bjs.closest("tr").find("input[name='RainDay" + i + "_mm']").val(totalPrecip);
                             break;
                         }
@@ -174,7 +174,7 @@
                 let TotalValue: number = 0;
                 let TotalWeight: number = 0;
                 for (let j = 0, count = PrecArray.length; j < count; j++) {
-                    if (PrecArray[j] != -999.0 && PrecArray[j] != -1) {
+                    if (PrecArray[j] != -1) {
                         TotalWeight += WeightArray[j];
                         TotalValue += PrecArray[j] * WeightArray[j];
                     }

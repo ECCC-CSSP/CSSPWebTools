@@ -289,6 +289,7 @@
                 @foreach (ClimateDataValueModel climateDataValueModel in climateSitesAndRains.ClimateDataValueModelList)
                 {
                     <td class="RainData"
+                        data-hasbeenread="@climateDataValueModel.HasBeenRead"
                         data-preccount="@PrecCount"
                         data-totalprecip="@(climateDataValueModel.TotalPrecip_mm_cm == null ? "-1" : ((float)climateDataValueModel.TotalPrecip_mm_cm).ToString("F1"))"
                         data-rainfall="@(climateDataValueModel.Rainfall_mm == null ? "-1" : ((float)climateDataValueModel.Rainfall_mm).ToString("F1"))"
@@ -297,7 +298,7 @@
                         data-snowonground="@(climateDataValueModel.SnowOnGround_cm == null ? "-1" : ((float)climateDataValueModel.SnowOnGround_cm).ToString("F1"))"
                         data-mintemp="@(climateDataValueModel.MinTemp_C == null ? "-1" : ((float)climateDataValueModel.MinTemp_C).ToString("F1"))"
                         data-maxtemp="@(climateDataValueModel.MaxTemp_C == null ? "-1" : ((float)climateDataValueModel.MaxTemp_C).ToString("F1"))">
-                        @if (climateDataValueModel.TotalPrecip_mm_cm == null)
+                        @if (!climateDataValueModel.HasBeenRead)
                         {
                             <span>--</span>
                         }
@@ -317,12 +318,12 @@
                                         "&Month=" + climateDataValueModel.DateTime_Local.Month +
                                         "&Day=" + climateDataValueModel.DateTime_Local.Day + "&timeframe=1";
                                 <a target="_blank" href="@URL">
-                                    @(((float)climateDataValueModel.TotalPrecip_mm_cm) == -999 ? "E" : ((float)climateDataValueModel.TotalPrecip_mm_cm).ToString("F1"))
+                                    @(climateDataValueModel.TotalPrecip_mm_cm == null ? "E" : ((float)climateDataValueModel.TotalPrecip_mm_cm).ToString("F1"))
                                 </a>
                             }
                             else
                             {
-                                @(((float)climateDataValueModel.TotalPrecip_mm_cm) == -999 ? "E" : ((float)climateDataValueModel.TotalPrecip_mm_cm).ToString("F1"))
+                                @(climateDataValueModel.TotalPrecip_mm_cm == null ? "E" : ((float)climateDataValueModel.TotalPrecip_mm_cm).ToString("F1"))
                             }
                             }
                     </td>
