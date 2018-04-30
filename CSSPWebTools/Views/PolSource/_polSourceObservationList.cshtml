@@ -157,11 +157,11 @@
                                                     reportPartText = reportPartText.Replace("Source", "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>Source</strong>");
                                                 }
                                                 break;
-                                            case "153":
-                                                {
-                                                    reportPartText = reportPartText.Replace("Dilution Analyses", "<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>Dilution Analyses</strong>");
-                                                }
-                                                break;
+                                            //case "153":
+                                            //    {
+                                            //        reportPartText = reportPartText.Replace("Dilution Analyses", "<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>Dilution Analyses</strong>");
+                                            //    }
+                                            //    break;
                                             case "250":
                                                 {
                                                     reportPartText = reportPartText.Replace("Pathway", "<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>Pathway</strong>");
@@ -175,6 +175,44 @@
                                             case "910":
                                                 {
                                                     reportPartText = reportPartText.Replace("Risk", "<strong>Risk</strong>");
+                                                }
+                                                break;
+                                            case "110":
+                                            case "120":
+                                            case "122":
+                                            case "151":
+                                            case "152":
+                                            case "153":
+                                            case "155":
+                                            case "156":
+                                            case "157":
+                                            case "163":
+                                            case "166":
+                                            case "167":
+                                            case "170":
+                                            case "171":
+                                            case "172":
+                                            case "173":
+                                            case "176":
+                                            case "178":
+                                            case "181":
+                                            case "182":
+                                            case "183":
+                                            case "185":
+                                            case "186":
+                                            case "187":
+                                            case "190":
+                                            case "191":
+                                            case "192":
+                                            case "193":
+                                            case "194":
+                                            case "196":
+                                            case "198":
+                                            case "199":
+                                            case "220":
+                                            case "930":
+                                                {
+                                                    reportPartText = @"<span class=""hidden"">" + reportPartText + "</span>";
                                                 }
                                                 break;
                                             default:
@@ -283,11 +321,11 @@
                                                 reportPartText = reportPartText.Replace("Source", "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>Source</strong>");
                                             }
                                             break;
-                                        case "153":
-                                            {
-                                                reportPartText = reportPartText.Replace("Dilution Analyses", "<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>Dilution Analyses</strong>");
-                                            }
-                                            break;
+                                        //case "153":
+                                        //    {
+                                        //        reportPartText = reportPartText.Replace("Dilution Analyses", "<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>Dilution Analyses</strong>");
+                                        //    }
+                                        //    break;
                                         case "250":
                                             {
                                                 reportPartText = reportPartText.Replace("Pathway", "<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>Pathway</strong>");
@@ -301,6 +339,44 @@
                                         case "910":
                                             {
                                                 reportPartText = reportPartText.Replace("Risk", "<strong>Risk</strong>");
+                                            }
+                                            break;
+                                        case "110":
+                                        case "120":
+                                        case "122":
+                                        case "151":
+                                        case "152":
+                                        case "153":
+                                        case "155":
+                                        case "156":
+                                        case "157":
+                                        case "163":
+                                        case "166":
+                                        case "167":
+                                        case "170":
+                                        case "171":
+                                        case "172":
+                                        case "173":
+                                        case "176":
+                                        case "178":
+                                        case "181":
+                                        case "182":
+                                        case "183":
+                                        case "185":
+                                        case "186":
+                                        case "187":
+                                        case "190":
+                                        case "191":
+                                        case "192":
+                                        case "193":
+                                        case "194":
+                                        case "196":
+                                        case "198":
+                                        case "199":
+                                        case "220":
+                                        case "930":
+                                            {
+                                                reportPartText = @"<span class=""hidden"">" + reportPartText + "</span>";
                                             }
                                             break;
                                         default:
