@@ -97,6 +97,15 @@ namespace CSSPWebTools.Views.ProvinceTools.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Generate Province Pollution Source Sites For Input Tool.
+        /// </summary>
+        public static string GenerateProvincePollutionSourceSitesForInputTool {
+            get {
+                return ResourceManager.GetString("GenerateProvincePollutionSourceSitesForInputTool", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Get all precipitation for year.
         /// </summary>
         public static string GetAllPrecipitationForYear {
@@ -111,6 +120,15 @@ namespace CSSPWebTools.Views.ProvinceTools.Resources {
         public static string PlaceholderForMore {
             get {
                 return ResourceManager.GetString("PlaceholderForMore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pollution Source Sites Related Tools.
+        /// </summary>
+        public static string PollutionSourceSitesRelatedTools {
+            get {
+                return ResourceManager.GetString("PollutionSourceSitesRelatedTools", resourceCulture);
             }
         }
         

@@ -75,7 +75,7 @@ namespace CSSPWebTools.Controllers
             AppTaskModel appTaskModel = _ProvinceToolsService.GetAllPrecipitationForYearDB(ProvinceTVItemID, Year);
 
             return Json(appTaskModel.Error, JsonRequestBehavior.AllowGet);
-        }
+        }      
         #endregion Functions JSON
 
         #region Functions public Non Action

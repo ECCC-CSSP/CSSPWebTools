@@ -129,11 +129,17 @@
   <data name="FindMissingPrecipForProvince" xml:space="preserve">
     <value>Find missing precip for province</value>
   </data>
+  <data name="GenerateProvincePollutionSourceSitesForInputTool" xml:space="preserve">
+    <value>Generate Province Pollution Source Sites For Input Tool</value>
+  </data>
   <data name="GetAllPrecipitationForYear" xml:space="preserve">
     <value>Get all precipitation for year</value>
   </data>
   <data name="PlaceholderForMore" xml:space="preserve">
     <value>Placeholder for more</value>
+  </data>
+  <data name="PollutionSourceSitesRelatedTools" xml:space="preserve">
+    <value>Pollution Source Sites Related Tools</value>
   </data>
   <data name="SomeOfTheseTasksCanTakeALongTime" xml:space="preserve">
     <value>Some of these tasks can take a long time</value>

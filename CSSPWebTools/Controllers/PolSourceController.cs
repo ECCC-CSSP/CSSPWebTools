@@ -392,7 +392,37 @@ namespace CSSPWebTools.Controllers
             return Json(polSourceSiteModel.Error, JsonRequestBehavior.AllowGet);
         }
 
+        [HttpGet]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public FileResult GetPollutionSourceSitesForInputToolJSON(int SubsectorTVItemID)
+        {
+            FileInfo fi = _TVFileService.GeneratePollutionSourceSitesForInputToolDB(SubsectorTVItemID);
 
+            string ContentType = _TVFileService.GetMimeType(fi.FullName);
+            return File(fi.FullName, ContentType, fi.Name);
+        }
+        [HttpGet]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public JsonResult GetTVItemModelProvinceListJSON()
+        {
+            TVItemModel tvItemModelRoot = _TVItemService.GetRootTVItemModelDB();
+            if (!string.IsNullOrWhiteSpace(tvItemModelRoot.Error))
+            {
+                return Json(new List<TVItemModel>(), JsonRequestBehavior.AllowGet);
+            }
+
+            List<TVItemModel> tvItemModelProvinceList = _TVItemService.GetChildrenTVItemModelListWithTVItemIDAndTVTypeDB(tvItemModelRoot.TVItemID, TVTypeEnum.Province);
+
+            return Json(tvItemModelProvinceList.OrderBy(c => c.TVText), JsonRequestBehavior.AllowGet);
+        }
+        [HttpGet]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public JsonResult GetTVItemModelSubsectorListJSON(int ProvinceTVItemID)
+        {
+            List<TVItemModel> tvItemModelSubsectorList = _TVItemService.GetChildrenTVItemModelListWithTVItemIDAndTVTypeDB(ProvinceTVItemID, TVTypeEnum.Subsector);
+
+            return Json(tvItemModelSubsectorList.OrderBy(c => c.TVText), JsonRequestBehavior.AllowGet);
+        }
         #endregion Functions public
     }
 }
