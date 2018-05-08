@@ -396,9 +396,35 @@ namespace CSSPWebTools.Controllers
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
         public FileResult GetPollutionSourceSitesForInputToolJSON(int SubsectorTVItemID)
         {
-            FileInfo fi = _TVFileService.GeneratePollutionSourceSitesForInputToolDB(SubsectorTVItemID);
+            string Error = _TVFileService.GetPollutionSourceSitesForInputToolDB(SubsectorTVItemID);
+
+            string ServerFilePath = _TVFileService.GetServerFilePath(SubsectorTVItemID);
+
+            FileInfo fi = new FileInfo(_TVFileService.ChoseEDriveOrCDrive(ServerFilePath) + "Error.txt");
 
             string ContentType = _TVFileService.GetMimeType(fi.FullName);
+
+            TVItemModel tvItemModelSS = _TVItemService.GetTVItemModelWithTVItemIDDB(SubsectorTVItemID);
+            if (!string.IsNullOrWhiteSpace(tvItemModelSS.Error))
+            {
+                byte[] bytes = Encoding.ASCII.GetBytes(tvItemModelSS.Error);
+                return File(bytes, ContentType);
+            }
+
+            string TVText = tvItemModelSS.TVText;
+            if (TVText.Contains(" "))
+            {
+                TVText = TVText.Substring(0, TVText.IndexOf(" ")).Trim();
+            }
+
+            fi = new FileInfo(_TVFileService.ChoseEDriveOrCDrive(ServerFilePath) + TVText + ".txt");
+
+            if (!string.IsNullOrWhiteSpace(Error))
+            {
+                byte[] bytes = Encoding.ASCII.GetBytes(Error);
+                return File(bytes, ContentType);
+            }
+
             return File(fi.FullName, ContentType, fi.Name);
         }
         [HttpGet]
