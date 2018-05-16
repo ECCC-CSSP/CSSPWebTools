@@ -139,17 +139,9 @@ namespace CSSPWebTools.Controllers
         }
         [HttpPost]
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
-        public JsonResult GenerateXlsxDocumentOfMWQMSitesJSON(int ProvinceTVItemID)
+        public JsonResult GenerateXlsxDocumentOfMWQMSitesAndSamplesJSON(int ProvinceTVItemID)
         {
-            TVItemModel tvItemModel = _OpenDataService.GenerateXlsxDocumentOfMWQMSitesDB(ProvinceTVItemID);
-
-            return Json(tvItemModel.Error, JsonRequestBehavior.AllowGet);
-        }
-        [HttpPost]
-        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
-        public JsonResult GenerateXlsxDocumentOfMWQMSamplesJSON(int ProvinceTVItemID)
-        {
-            TVItemModel tvItemModel = _OpenDataService.GenerateXlsxDocumentOfMWQMSamplesDB(ProvinceTVItemID);
+            TVItemModel tvItemModel = _OpenDataService.GenerateXlsxDocumentOfMWQMSitesAndSamplesDB(ProvinceTVItemID);
 
             return Json(tvItemModel.Error, JsonRequestBehavior.AllowGet);
         }

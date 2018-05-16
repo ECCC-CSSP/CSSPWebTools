@@ -107,27 +107,10 @@ module CSSP {
                 cssp.Dialog.ShowDialogErrorWithFail(command);
             });
         };
-        public OpenDataGenerateXlsxDocumentOfMWQMSamples: Function = ($bjs: JQuery): void => {
+        public OpenDataGenerateXlsxDocumentOfMWQMSitesAndSamples: Function = ($bjs: JQuery): void => {
             //cssp.Dialog.ShowDialogMessage(cssp.GetHTMLVariable("#LayoutVariables", "varNotImplementedYet"));
             let ProvinceTVItemID: number = parseInt($bjs.data("provincetvitemid"));
-            let command: string = "OpenData/GenerateXlsxDocumentOfMWQMSamplesJSON";
-            $.post(cssp.BaseURL + command, {
-                ProvinceTVItemID: ProvinceTVItemID,
-            }).done((ret) => {
-                if (ret) {
-                    cssp.Dialog.ShowDialogError(ret);
-                }
-                else {
-                    cssp.Helper.PageRefresh();
-                }
-            }).fail(() => {
-                cssp.Dialog.ShowDialogErrorWithFail(command);
-            });
-        };
-        public OpenDataGenerateXlsxDocumentOfMWQMSites: Function = ($bjs: JQuery): void => {
-            //cssp.Dialog.ShowDialogMessage(cssp.GetHTMLVariable("#LayoutVariables", "varNotImplementedYet"));
-            let ProvinceTVItemID: number = parseInt($bjs.data("provincetvitemid"));
-            let command: string = "OpenData/GenerateXlsxDocumentOfMWQMSitesJSON";
+            let command: string = "OpenData/GenerateXlsxDocumentOfMWQMSitesAndSamplesJSON";
             $.post(cssp.BaseURL + command, {
                 ProvinceTVItemID: ProvinceTVItemID,
             }).done((ret) => {

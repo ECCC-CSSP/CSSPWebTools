@@ -102,27 +102,10 @@ var CSSP;
                     cssp.Dialog.ShowDialogErrorWithFail(command);
                 });
             };
-            this.OpenDataGenerateXlsxDocumentOfMWQMSamples = function ($bjs) {
+            this.OpenDataGenerateXlsxDocumentOfMWQMSitesAndSamples = function ($bjs) {
                 //cssp.Dialog.ShowDialogMessage(cssp.GetHTMLVariable("#LayoutVariables", "varNotImplementedYet"));
                 var ProvinceTVItemID = parseInt($bjs.data("provincetvitemid"));
-                var command = "OpenData/GenerateXlsxDocumentOfMWQMSamplesJSON";
-                $.post(cssp.BaseURL + command, {
-                    ProvinceTVItemID: ProvinceTVItemID,
-                }).done(function (ret) {
-                    if (ret) {
-                        cssp.Dialog.ShowDialogError(ret);
-                    }
-                    else {
-                        cssp.Helper.PageRefresh();
-                    }
-                }).fail(function () {
-                    cssp.Dialog.ShowDialogErrorWithFail(command);
-                });
-            };
-            this.OpenDataGenerateXlsxDocumentOfMWQMSites = function ($bjs) {
-                //cssp.Dialog.ShowDialogMessage(cssp.GetHTMLVariable("#LayoutVariables", "varNotImplementedYet"));
-                var ProvinceTVItemID = parseInt($bjs.data("provincetvitemid"));
-                var command = "OpenData/GenerateXlsxDocumentOfMWQMSitesJSON";
+                var command = "OpenData/GenerateXlsxDocumentOfMWQMSitesAndSamplesJSON";
                 $.post(cssp.BaseURL + command, {
                     ProvinceTVItemID: ProvinceTVItemID,
                 }).done(function (ret) {

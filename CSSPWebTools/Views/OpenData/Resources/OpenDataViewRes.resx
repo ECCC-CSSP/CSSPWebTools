@@ -144,9 +144,6 @@
   <data name="GenerateKMZDocumentOfMWQMSites" xml:space="preserve">
     <value>Generate KMZ document of MWQM sites</value>
   </data>
-  <data name="GenerateXlsxDocumentOfMWQMSamples" xml:space="preserve">
-    <value>Generate XLSX document of MWQM samples</value>
-  </data>
   <data name="LoadSetup" xml:space="preserve">
     <value>Load setup</value>
   </data>
@@ -225,8 +222,8 @@
   <data name="ClickToRemoveAsOpenData" xml:space="preserve">
     <value>Click to remove as Open Data</value>
   </data>
-  <data name="GenerateXlsxDocumentOfMWQMSites" xml:space="preserve">
-    <value>Generate Xlsx document of MWQM Sites</value>
+  <data name="GenerateXlsxDocumentOfMWQMSitesAndSamples" xml:space="preserve">
+    <value>Generate Xlsx document of MWQM Sites and Samples</value>
   </data>
   <data name="IsOpenData" xml:space="preserve">
     <value>Is Open Data</value>

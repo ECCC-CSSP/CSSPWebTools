@@ -187,20 +187,11 @@ namespace CSSPWebTools.Views.OpenData.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Generate XLSX document of MWQM samples.
+        ///   Looks up a localized string similar to Generate Xlsx document of MWQM Sites and Samples.
         /// </summary>
-        public static string GenerateXlsxDocumentOfMWQMSamples {
+        public static string GenerateXlsxDocumentOfMWQMSitesAndSamples {
             get {
-                return ResourceManager.GetString("GenerateXlsxDocumentOfMWQMSamples", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Generate Xlsx document of MWQM Sites.
-        /// </summary>
-        public static string GenerateXlsxDocumentOfMWQMSites {
-            get {
-                return ResourceManager.GetString("GenerateXlsxDocumentOfMWQMSites", resourceCulture);
+                return ResourceManager.GetString("GenerateXlsxDocumentOfMWQMSitesAndSamples", resourceCulture);
             }
         }
         

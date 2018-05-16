@@ -961,14 +961,9 @@ var CSSP;
                                 cssp.OpenData.OpenDataGenerateCSVDocumentOfMWQMSamples($bjs);
                             }
                             break;
-                        case "jbOpenDataGenerateXlsxDocumentOfMWQMSamples":
+                        case "jbOpenDataGenerateXlsxDocumentOfMWQMSitesAndSamples":
                             {
-                                cssp.OpenData.OpenDataGenerateXlsxDocumentOfMWQMSamples($bjs);
-                            }
-                            break;
-                        case "jbOpenDataGenerateXlsxDocumentOfMWQMSites":
-                            {
-                                cssp.OpenData.OpenDataGenerateXlsxDocumentOfMWQMSites($bjs);
+                                cssp.OpenData.OpenDataGenerateXlsxDocumentOfMWQMSitesAndSamples($bjs);
                             }
                             break;
                         case "jbOpenDataReloadSubsector":
