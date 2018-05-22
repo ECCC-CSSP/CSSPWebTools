@@ -214,29 +214,11 @@ namespace CSSPWebTools.Views.OpenData.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Mark all routine sample for MWQM Site as.
+        ///   Looks up a localized string similar to Make all routine samples from selected dates above available for open data.
         /// </summary>
-        public static string MarkAllRoutineSamplesForMWQMSiteAs {
+        public static string MarkAllRoutineSamplesFromSelectedDatesAboveAvailableForOpenData {
             get {
-                return ResourceManager.GetString("MarkAllRoutineSamplesForMWQMSiteAs", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Mark all routine sample for province as.
-        /// </summary>
-        public static string MarkAllRoutineSamplesForProvinceAs {
-            get {
-                return ResourceManager.GetString("MarkAllRoutineSamplesForProvinceAs", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Mark all routine sample for subsector as.
-        /// </summary>
-        public static string MarkAllRoutineSamplesForSubsectorAs {
-            get {
-                return ResourceManager.GetString("MarkAllRoutineSamplesForSubsectorAs", resourceCulture);
+                return ResourceManager.GetString("MarkAllRoutineSamplesFromSelectedDatesAboveAvailableForOpenData", resourceCulture);
             }
         }
         
@@ -246,6 +228,15 @@ namespace CSSPWebTools.Views.OpenData.Resources {
         public static string Month {
             get {
                 return ResourceManager.GetString("Month", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MWQM site wide.
+        /// </summary>
+        public static string MWQMSiteWide {
+            get {
+                return ResourceManager.GetString("MWQMSiteWide", resourceCulture);
             }
         }
         
@@ -282,6 +273,15 @@ namespace CSSPWebTools.Views.OpenData.Resources {
         public static string pH {
             get {
                 return ResourceManager.GetString("pH", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to province wide.
+        /// </summary>
+        public static string ProvinceWide {
+            get {
+                return ResourceManager.GetString("ProvinceWide", resourceCulture);
             }
         }
         
@@ -345,6 +345,15 @@ namespace CSSPWebTools.Views.OpenData.Resources {
         public static string Stat {
             get {
                 return ResourceManager.GetString("Stat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to subsector wide.
+        /// </summary>
+        public static string SubsectorWide {
+            get {
+                return ResourceManager.GetString("SubsectorWide", resourceCulture);
             }
         }
         

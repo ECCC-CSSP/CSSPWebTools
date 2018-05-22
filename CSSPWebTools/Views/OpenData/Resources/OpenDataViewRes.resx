@@ -147,14 +147,8 @@
   <data name="LoadSetup" xml:space="preserve">
     <value>Load setup</value>
   </data>
-  <data name="MarkAllRoutineSamplesForMWQMSiteAs" xml:space="preserve">
-    <value>Mark all routine sample for MWQM Site as</value>
-  </data>
-  <data name="MarkAllRoutineSamplesForProvinceAs" xml:space="preserve">
-    <value>Mark all routine sample for province as</value>
-  </data>
-  <data name="MarkAllRoutineSamplesForSubsectorAs" xml:space="preserve">
-    <value>Mark all routine sample for subsector as</value>
+  <data name="MarkAllRoutineSamplesFromSelectedDatesAboveAvailableForOpenData" xml:space="preserve">
+    <value>Make all routine samples from selected dates above available for open data</value>
   </data>
   <data name="NotUseForOpenData" xml:space="preserve">
     <value>Not use for open data</value>
@@ -230,5 +224,14 @@
   </data>
   <data name="NotOpenData" xml:space="preserve">
     <value>Not Open Data</value>
+  </data>
+  <data name="MWQMSiteWide" xml:space="preserve">
+    <value>MWQM site wide</value>
+  </data>
+  <data name="ProvinceWide" xml:space="preserve">
+    <value>province wide</value>
+  </data>
+  <data name="SubsectorWide" xml:space="preserve">
+    <value>subsector wide</value>
   </data>
 </root>
