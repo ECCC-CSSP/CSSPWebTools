@@ -394,6 +394,41 @@ namespace CSSPWebTools.Controllers
 
         [HttpGet]
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public FileResult GetInfrastructuresForInputToolJSON(int MunicipalityTVItemID)
+        {
+            string Error = _TVFileService.GetInfrastructuresForInputToolDB(MunicipalityTVItemID);
+
+            string ServerFilePath = _TVFileService.GetServerFilePath(MunicipalityTVItemID);
+
+            FileInfo fi = new FileInfo(_TVFileService.ChoseEDriveOrCDrive(ServerFilePath) + "Error.txt");
+
+            string ContentType = _TVFileService.GetMimeType(fi.FullName);
+
+            TVItemModel tvItemModelMunicipality = _TVItemService.GetTVItemModelWithTVItemIDDB(MunicipalityTVItemID);
+            if (!string.IsNullOrWhiteSpace(tvItemModelMunicipality.Error))
+            {
+                byte[] bytes = Encoding.ASCII.GetBytes(tvItemModelMunicipality.Error);
+                return File(bytes, ContentType);
+            }
+
+            string TVText = tvItemModelMunicipality.TVText;
+            if (TVText.Contains(" "))
+            {
+                TVText = TVText.Substring(0, TVText.IndexOf(" ")).Trim();
+            }
+
+            fi = new FileInfo(_TVFileService.ChoseEDriveOrCDrive(ServerFilePath) + TVText + ".txt");
+
+            if (!string.IsNullOrWhiteSpace(Error))
+            {
+                byte[] bytes = Encoding.ASCII.GetBytes(Error);
+                return File(bytes, ContentType);
+            }
+
+            return File(fi.FullName, ContentType, fi.Name);
+        }
+        [HttpGet]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
         public FileResult GetPollutionSourceSitesForInputToolJSON(int SubsectorTVItemID)
         {
             string Error = _TVFileService.GetPollutionSourceSitesForInputToolDB(SubsectorTVItemID);
@@ -446,6 +481,14 @@ namespace CSSPWebTools.Controllers
         public JsonResult GetTVItemModelSubsectorListJSON(int ProvinceTVItemID)
         {
             List<TVItemModel> tvItemModelSubsectorList = _TVItemService.GetChildrenTVItemModelListWithTVItemIDAndTVTypeDB(ProvinceTVItemID, TVTypeEnum.Subsector);
+
+            return Json(tvItemModelSubsectorList.OrderBy(c => c.TVText), JsonRequestBehavior.AllowGet);
+        }
+        [HttpGet]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public JsonResult GetTVItemModelMunicipalityListJSON(int ProvinceTVItemID)
+        {
+            List<TVItemModel> tvItemModelSubsectorList = _TVItemService.GetChildrenTVItemModelListWithTVItemIDAndTVTypeDB(ProvinceTVItemID, TVTypeEnum.Municipality);
 
             return Json(tvItemModelSubsectorList.OrderBy(c => c.TVText), JsonRequestBehavior.AllowGet);
         }
