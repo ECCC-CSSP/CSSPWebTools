@@ -24,7 +24,8 @@ namespace CSSPWebTools.Controllers
         #endregion Variables
 
         #region Properties
-        public PolSourceSiteService _PolSourceSiteService { get; private set; }
+        public PolSourceSiteService _PolSourceSiteService { get; private set; } 
+        public PolSourceSiteInputToolService _PolSourceSiteInputToolService { get; private set; }
         public PolSourceController _PolSourceController { get; private set; }
         public MapInfoService _MapInfoService { get; private set; }
         public MapInfoPointService _MapInfoPointService { get; private set; }
@@ -45,6 +46,7 @@ namespace CSSPWebTools.Controllers
         {
             base.Initialize(requestContext);
             _PolSourceSiteService = new PolSourceSiteService(LanguageRequest, User);
+            _PolSourceSiteInputToolService = new PolSourceSiteInputToolService(LanguageRequest, User);
             _MapInfoService = new MapInfoService(LanguageRequest, User);
             _MapInfoPointService = new MapInfoPointService(LanguageRequest, User);
             _AddressService = new AddressService(LanguageRequest, User);
@@ -491,6 +493,30 @@ namespace CSSPWebTools.Controllers
             List<TVItemModel> tvItemModelSubsectorList = _TVItemService.GetChildrenTVItemModelListWithTVItemIDAndTVTypeDB(ProvinceTVItemID, TVTypeEnum.Municipality);
 
             return Json(tvItemModelSubsectorList.OrderBy(c => c.TVText), JsonRequestBehavior.AllowGet);
+        }
+        [HttpPost]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public JsonResult SavePSSAddressJSON(int SubsectorTVItemID, int TVItemID, string StreetNumber, string StreetName, int StreetType, string Municipality, string PostalCode)
+        {
+            TVItemModel tvItemModel = _PolSourceSiteInputToolService.SavePSSAddressDB(SubsectorTVItemID, TVItemID, StreetNumber, StreetName, StreetType, Municipality, PostalCode);
+
+            return Json(tvItemModel.Error, JsonRequestBehavior.AllowGet);
+        }
+        [HttpPost]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public JsonResult SavePSSLatLngJSON(int TVItemID, float Lat, float Lng)
+        {
+            TVItemModel tvItemModel = _PolSourceSiteInputToolService.SavePSSLatLngDB(TVItemID, Lat, Lng);
+
+            return Json(tvItemModel.Error, JsonRequestBehavior.AllowGet);
+        }
+        [HttpPost]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public JsonResult CreateNewPollutionSourceSiteJSON(int SubsectorTVItemID, int TVItemID, string TVText, int SiteNumber, float Lat, float Lng)
+        {
+            TVItemModel tvItemModel = _PolSourceSiteInputToolService.CreateNewPollutionSourceSiteDB(SubsectorTVItemID, TVItemID, TVText, SiteNumber, Lat, Lng);
+
+            return Json(tvItemModel.Error, JsonRequestBehavior.AllowGet);
         }
         #endregion Functions public
     }
