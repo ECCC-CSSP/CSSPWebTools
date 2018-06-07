@@ -496,28 +496,68 @@ namespace CSSPWebTools.Controllers
         }
         [HttpPost]
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
-        public JsonResult SavePSSAddressJSON(int SubsectorTVItemID, int TVItemID, string StreetNumber, string StreetName, int StreetType, string Municipality, string PostalCode)
+        public JsonResult CreateNewObsDateJSON(int PSSTVItemID, DateTime NewObsDate, string AdminEmail)
         {
-            TVItemModel tvItemModel = _PolSourceSiteInputToolService.SavePSSAddressDB(SubsectorTVItemID, TVItemID, StreetNumber, StreetName, StreetType, Municipality, PostalCode);
+            TVItemModel tvItemModel = _PolSourceSiteInputToolService.CreateNewObsDateDB(PSSTVItemID, NewObsDate, AdminEmail);
 
             return Json(tvItemModel.Error, JsonRequestBehavior.AllowGet);
         }
         [HttpPost]
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
-        public JsonResult SavePSSLatLngJSON(int TVItemID, float Lat, float Lng)
+        public JsonResult CreateNewPollutionSourceSiteJSON(int SubsectorTVItemID, int TVItemID, string TVText, int SiteNumber, float Lat, float Lng, string AdminEmail)
         {
-            TVItemModel tvItemModel = _PolSourceSiteInputToolService.SavePSSLatLngDB(TVItemID, Lat, Lng);
+            TVItemModel tvItemModel = _PolSourceSiteInputToolService.CreateNewPollutionSourceSiteDB(SubsectorTVItemID, TVItemID, TVText, SiteNumber, Lat, Lng, AdminEmail);
 
             return Json(tvItemModel.Error, JsonRequestBehavior.AllowGet);
         }
         [HttpPost]
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
-        public JsonResult CreateNewPollutionSourceSiteJSON(int SubsectorTVItemID, int TVItemID, string TVText, int SiteNumber, float Lat, float Lng)
+        public JsonResult SavePSSAddressJSON(int SubsectorTVItemID, int TVItemID, string StreetNumber, string StreetName, int StreetType, string Municipality, string PostalCode, bool CreateMunicipality, string AdminEmail)
         {
-            TVItemModel tvItemModel = _PolSourceSiteInputToolService.CreateNewPollutionSourceSiteDB(SubsectorTVItemID, TVItemID, TVText, SiteNumber, Lat, Lng);
+            TVItemModel tvItemModel = _PolSourceSiteInputToolService.SavePSSAddressDB(SubsectorTVItemID, TVItemID, StreetNumber, StreetName, StreetType, Municipality, PostalCode, CreateMunicipality, AdminEmail);
+
+            return Json(tvItemModel.Error, JsonRequestBehavior.AllowGet);
+        }
+        [HttpPost]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public JsonResult SavePSSLatLngJSON(int TVItemID, float Lat, float Lng, string AdminEmail)
+        {
+            TVItemModel tvItemModel = _PolSourceSiteInputToolService.SavePSSLatLngDB(TVItemID, Lat, Lng, AdminEmail);
+
+            return Json(tvItemModel.Error, JsonRequestBehavior.AllowGet);
+        }
+        [HttpPost]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public JsonResult UserExistJSON(string AdminEmail)
+        {
+            TVItemModel tvItemModel = _PolSourceSiteInputToolService.UserExistDB(AdminEmail);
+
+            return Json(tvItemModel.Error, JsonRequestBehavior.AllowGet);
+        }        
+       [HttpPost]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public JsonResult PSSExistJSON(int TVItemID, string AdminEmail)
+        {
+            TVItemModel tvItemModel = _PolSourceSiteInputToolService.PSSExistDB(TVItemID, AdminEmail);
+
+            return Json(tvItemModel.Error, JsonRequestBehavior.AllowGet);
+        }
+        [HttpPost]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public JsonResult SavePSSTVTextJSON(int TVItemID, string TVText, string AdminEmail)
+        {
+            TVItemModel tvItemModel = _PolSourceSiteInputToolService.SavePSSTVTextDB(TVItemID, TVText, AdminEmail);
+
+            return Json(tvItemModel.Error, JsonRequestBehavior.AllowGet);
+        }
+        [HttpPost]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public JsonResult SavePSSObsIssueJSON(int ObsID, int IssueID, int Ordinal, string ObservationInfo, string AdminEmail)
+        {
+            TVItemModel tvItemModel = _PolSourceSiteInputToolService.SavePSSObsIssueDB(ObsID, IssueID, Ordinal, ObservationInfo, AdminEmail);
 
             return Json(tvItemModel.Error, JsonRequestBehavior.AllowGet);
         }
         #endregion Functions public
-    }
+    }    
 }
