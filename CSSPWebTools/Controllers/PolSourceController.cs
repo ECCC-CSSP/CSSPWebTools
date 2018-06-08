@@ -24,7 +24,7 @@ namespace CSSPWebTools.Controllers
         #endregion Variables
 
         #region Properties
-        public PolSourceSiteService _PolSourceSiteService { get; private set; } 
+        public PolSourceSiteService _PolSourceSiteService { get; private set; }
         public PolSourceSiteInputToolService _PolSourceSiteInputToolService { get; private set; }
         public PolSourceController _PolSourceController { get; private set; }
         public MapInfoService _MapInfoService { get; private set; }
@@ -56,7 +56,7 @@ namespace CSSPWebTools.Controllers
         #endregion Overrides
 
         #region Functions public
-     
+
         [HttpGet]
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
         public ActionResult _polSourceIssueList(int PolSourceObservationID, int IssueOrdinal)
@@ -533,8 +533,16 @@ namespace CSSPWebTools.Controllers
             TVItemModel tvItemModel = _PolSourceSiteInputToolService.UserExistDB(AdminEmail);
 
             return Json(tvItemModel.Error, JsonRequestBehavior.AllowGet);
-        }        
-       [HttpPost]
+        }
+        [HttpPost]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public JsonResult MunicipalityExistJSON(int SubsectorTVItemID, string Municipality, string AdminEmail)
+        {
+            TVItemModel tvItemModel = _PolSourceSiteInputToolService.MunicipalityExistDB(SubsectorTVItemID, Municipality, AdminEmail);
+
+            return Json(tvItemModel.Error, JsonRequestBehavior.AllowGet);
+        }
+        [HttpPost]
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
         public JsonResult PSSExistJSON(int TVItemID, string AdminEmail)
         {
@@ -559,5 +567,5 @@ namespace CSSPWebTools.Controllers
             return Json(tvItemModel.Error, JsonRequestBehavior.AllowGet);
         }
         #endregion Functions public
-    }    
+    }
 }
