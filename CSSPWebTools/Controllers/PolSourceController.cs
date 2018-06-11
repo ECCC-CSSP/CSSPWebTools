@@ -15,6 +15,10 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.UI;
 using CSSPWebTools.Controllers.Resources;
+using System.Security.Principal;
+using CSSPWebToolsDBDLL.Services.Resources;
+using System.Transactions;
+using CSSPWebToolsDBDLL;
 
 namespace CSSPWebTools.Controllers
 {
@@ -565,6 +569,173 @@ namespace CSSPWebTools.Controllers
             TVItemModel tvItemModel = _PolSourceSiteInputToolService.SavePSSObsIssueDB(ObsID, IssueID, Ordinal, ObservationInfo, AdminEmail);
 
             return Json(tvItemModel.Error, JsonRequestBehavior.AllowGet);
+        }
+        [HttpPost]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public JsonResult RemoveIssueJSON(int ObsID, int IssueID, string AdminEmail)
+        {
+            TVItemModel tvItemModel = _PolSourceSiteInputToolService.RemoveIssueDB(ObsID, IssueID, AdminEmail);
+
+            return Json(tvItemModel.Error, JsonRequestBehavior.AllowGet);
+        }
+        [HttpPost]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public JsonResult SavePictureInfoJSON(int TVItemID, int PictureTVItemID, string FileName, string Description, string Extension, string AdminEmail)
+        {
+            TVItemModel tvItemModel = _PolSourceSiteInputToolService.SavePictureInfoDB(TVItemID, PictureTVItemID, FileName, Description, Extension, AdminEmail);
+
+            return Json(tvItemModel.Error, JsonRequestBehavior.AllowGet);
+        }
+        [HttpPost]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public JsonResult SavePSSPictureJSON()
+        {
+            TVItemModel tvItemModel = PictureFileUploadDB(Request);
+
+            return Json(tvItemModel.Error, JsonRequestBehavior.AllowGet);
+        }
+        [NonAction]
+        public TVItemModel PictureFileUploadDB(HttpRequestBase Request)
+        {
+            string AdminEmail = Request.QueryString["e"];
+            int TVItemID = int.Parse(Request.QueryString["t"]);
+
+            IPrincipal user = new GenericPrincipal(new GenericIdentity(AdminEmail, "Forms"), null);
+
+            ContactService contactService = new ContactService(LanguageRequest, user);
+            ContactModel contactModel = contactService.GetContactModelWithLoginEmailDB(AdminEmail);
+            if (!string.IsNullOrWhiteSpace(contactModel.Error))
+            {
+                return new TVItemModel() { Error = "ERROR: " + string.Format(ServiceRes.NoUserWithEmail_, AdminEmail) };
+            }
+
+            TVItemService tvItemService = new TVItemService(LanguageRequest, user);
+            TVFileService tvFileService = new TVFileService(LanguageRequest, user);
+
+            List<string> AllowableExt = tvFileService.GetAllowableExt();
+
+            TVFileModel tvFileModelRet = new TVFileModel();
+            using (TransactionScope ts = new TransactionScope())
+            {
+                string FileName = "";
+
+                if (Request.Files.Count != 1)
+                    return new TVItemModel() { Error = "ERROR: " + ServiceRes.CanOnlyLoadOneFileAtATime };
+
+                HttpPostedFileBase hpf = null;
+                foreach (string file in Request.Files)
+                {
+                    hpf = Request.Files[file];
+                }
+
+                if (hpf == null)
+                    return new TVItemModel() { Error = "ERROR: " + ServiceRes.PleaseSelectAFileToUpload };
+
+                FileName = hpf.FileName;
+
+                FileInfo fi = new FileInfo(FileName);
+
+                if (!AllowableExt.Contains(fi.Extension.ToLower()))
+                {
+                    string AllowableExtText = "";
+                    foreach (string s in AllowableExt)
+                    {
+                        AllowableExtText += s + " ";
+                    }
+                    return new TVItemModel() { Error = "ERROR: " + string.Format(ServiceRes.PleaseSelectAFileOfType_, AllowableExtText) };
+                }
+
+                string ServerFileName = "";
+                if (FileName.Contains(@"\"))
+                {
+                    ServerFileName = FileName.Substring(FileName.LastIndexOf(@"\") + 1);
+                }
+                else
+                {
+                    ServerFileName = FileName;
+                }
+
+                TVItemModel tvItemModelPSS = tvItemService.GetTVItemModelWithTVItemIDDB(TVItemID);
+                if (!string.IsNullOrWhiteSpace(tvItemModelPSS.Error))
+                {
+                    return new TVItemModel() { Error = "ERROR: " + tvItemModelPSS.Error };
+                }
+
+                TVItemModel tvItemModelExist = tvItemService.GetChildTVItemModelWithParentIDAndTVTextAndTVTypeDB(tvItemModelPSS.TVItemID, ServerFileName, TVTypeEnum.File);
+                if (string.IsNullOrEmpty(tvItemModelExist.Error))
+                {
+                    return new TVItemModel() { Error = "ERROR: " + string.Format(ServiceRes._AlreadyExists, ServerFileName) };
+                }
+
+                TVItemModel tvItemModelTVFileRet = tvItemService.PostAddChildTVItemDB(tvItemModelPSS.TVItemID, ServerFileName, TVTypeEnum.File);
+                if (!string.IsNullOrEmpty(tvItemModelTVFileRet.Error))
+                {
+                    return new TVItemModel() { Error = "ERROR: " + tvItemModelTVFileRet.Error };
+                }
+
+                string ServerFilePath = tvFileService.GetServerFilePath(tvItemModelPSS.TVItemID);
+
+                int FileLength = hpf.ContentLength;
+
+                DirectoryInfo di = new DirectoryInfo(ServerFilePath);
+                if (!di.Exists)
+                {
+                    di.Create();
+                }
+
+                fi = new FileInfo(ServerFilePath + ServerFileName);
+
+                if (fi.Exists)
+                {
+                    return new TVItemModel() { Error = "ERROR: " + string.Format(ServiceRes.File_AlreadyExist, ServerFileName) };
+                }
+
+                hpf.SaveAs(fi.FullName);
+
+                FileTypeEnum fileType = tvFileService.GetFileType(fi.Extension.ToUpper());
+
+                TVFileModel tvFileModelNew = new TVFileModel()
+                {
+                    TVFileTVItemID = tvItemModelTVFileRet.TVItemID,
+                    FilePurpose = FilePurposeEnum.Picture,
+                    FileDescription = "Temp description",
+                    FileType = fileType,
+                    FileSize_kb = Math.Max(hpf.ContentLength / 1024, 1),
+                    FileInfo = "Uploaded file",
+                    FileCreatedDate_UTC = DateTime.Now,
+                    FromWater = false,
+                    ClientFilePath = FileName,
+                    ServerFileName = ServerFileName,
+                    ServerFilePath = ServerFilePath,
+                    Language = LanguageEnum.en,
+                    Year = DateTime.Now.Year,
+                };
+
+                tvFileModelRet = tvFileService.PostAddTVFileDB(tvFileModelNew);
+                if (!string.IsNullOrWhiteSpace(tvFileModelRet.Error))
+                {
+                    DeleteFileFromServer(fi);
+                    {
+                        return new TVItemModel() { Error = "ERROR: " + tvFileModelRet.Error };
+                    }
+                }
+
+                ts.Complete();
+            }
+
+            return new TVItemModel() { Error = tvFileModelRet.TVFileTVItemID.ToString() };
+        }
+        [NonAction]
+        public void DeleteFileFromServer(FileInfo fi)
+        {
+            try
+            {
+                fi.Delete();
+            }
+            catch (Exception)
+            {
+                // nothing
+            }
         }
         #endregion Functions public
     }
