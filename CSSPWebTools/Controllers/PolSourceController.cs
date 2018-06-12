@@ -572,6 +572,14 @@ namespace CSSPWebTools.Controllers
         }
         [HttpPost]
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public JsonResult SavePSSObsIssueExtraCommentJSON(int ObsID, int IssueID, string ExtraComment, string AdminEmail)
+        {
+            TVItemModel tvItemModel = _PolSourceSiteInputToolService.SavePSSObsIssueExtraCommentDB(ObsID, IssueID, ExtraComment, AdminEmail);
+
+            return Json(tvItemModel.Error, JsonRequestBehavior.AllowGet);
+        }
+        [HttpPost]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
         public JsonResult RemoveIssueJSON(int ObsID, int IssueID, string AdminEmail)
         {
             TVItemModel tvItemModel = _PolSourceSiteInputToolService.RemoveIssueDB(ObsID, IssueID, AdminEmail);
@@ -583,6 +591,14 @@ namespace CSSPWebTools.Controllers
         public JsonResult SavePictureInfoJSON(int TVItemID, int PictureTVItemID, string FileName, string Description, string Extension, string AdminEmail)
         {
             TVItemModel tvItemModel = _PolSourceSiteInputToolService.SavePictureInfoDB(TVItemID, PictureTVItemID, FileName, Description, Extension, AdminEmail);
+
+            return Json(tvItemModel.Error, JsonRequestBehavior.AllowGet);
+        }
+        [HttpPost]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public JsonResult RemovePictureJSON(int TVItemID, int PictureTVItemID, string AdminEmail)
+        {
+            TVItemModel tvItemModel = _PolSourceSiteInputToolService.RemovePictureDB(TVItemID, PictureTVItemID, AdminEmail);
 
             return Json(tvItemModel.Error, JsonRequestBehavior.AllowGet);
         }
