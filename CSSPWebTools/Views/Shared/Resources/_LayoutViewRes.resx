@@ -495,4 +495,19 @@
   <data name="NotOpenData" xml:space="preserve">
     <value>Not Open Data</value>
   </data>
+  <data name="Approved" xml:space="preserve">
+    <value>Approved</value>
+  </data>
+  <data name="ConditionallyApproved" xml:space="preserve">
+    <value>Conditionally Approved</value>
+  </data>
+  <data name="ConditionallyRestricted" xml:space="preserve">
+    <value>Conditionally Restricted</value>
+  </data>
+  <data name="Prohibited" xml:space="preserve">
+    <value>Prohibited</value>
+  </data>
+  <data name="Restricted" xml:space="preserve">
+    <value>Restricted</value>
+  </data>
 </root>

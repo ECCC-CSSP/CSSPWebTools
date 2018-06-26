@@ -493,4 +493,19 @@
   <data name="NotOpenData" xml:space="preserve">
     <value>Not Open Data (fr)</value>
   </data>
+  <data name="Approved" xml:space="preserve">
+    <value>Agréé</value>
+  </data>
+  <data name="ConditionallyApproved" xml:space="preserve">
+    <value>Agréé sous condition</value>
+  </data>
+  <data name="ConditionallyRestricted" xml:space="preserve">
+    <value>Restreint sous condition</value>
+  </data>
+  <data name="Prohibited" xml:space="preserve">
+    <value>Interdit</value>
+  </data>
+  <data name="Restricted" xml:space="preserve">
+    <value>Restreint</value>
+  </data>
 </root>

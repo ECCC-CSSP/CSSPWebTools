@@ -867,45 +867,146 @@ module CSSP {
                             cssp.GoogleMap.MVCObjPolygons.push(polyg);
                         }
                         else if (cssp.GoogleMap.TVItemObjects[i].MapObjList[j].MapInfoDrawType == CSSP.DrawTypeEnum.Polyline) {
-                            var zIndex: number = cssp.GoogleMap.ZIndexPolylineBase + cssp.GoogleMap.TVItemObjects[i].MapObjList[j].MapInfoID;
-                            var polyl: google.maps.Polyline = new google.maps.Polyline({
-                                path: CoordList,
-                                strokeColor: '#00FF00',
-                                strokeOpacity: 1.0,
-                                strokeWeight: 2,
-                                map: cssp.GoogleMap.Map,
-                                icons: [{
-                                    icon: lineSymbol,
-                                    offset: '100%'
-                                }],
-                                zIndex: zIndex,
-                            });
+                            if (cssp.GoogleMap.TVItemObjects[i].TVType != TVTypeEnum.Classification) {
+                                var zIndex: number = cssp.GoogleMap.ZIndexPolylineBase + cssp.GoogleMap.TVItemObjects[i].MapObjList[j].MapInfoID;
+                                var polyl: google.maps.Polyline = new google.maps.Polyline({
+                                    path: CoordList,
+                                    strokeColor: '#00FF00',
+                                    strokeOpacity: 1.0,
+                                    strokeWeight: 2,
+                                    map: cssp.GoogleMap.Map,
+                                    icons: [{
+                                        icon: lineSymbol,
+                                        offset: '100%'
+                                    }],
+                                    zIndex: zIndex,
+                                });
 
-                            polyl.setMap(cssp.GoogleMap.Map);
+                                polyl.setMap(cssp.GoogleMap.Map);
 
-                            google.maps.event.addListener(polyl, 'click', () => {
-                                if (cssp.GoogleMap.Editing) {
-                                    cssp.GoogleMap.ClearEdit();
-                                    polyl.set("editable", true);
-                                    cssp.GoogleMap.EditingZIndex = polyl.zIndex;
-                                }
-                                else {
-                                    // nothing yet
-                                }
-                            });
-                            google.maps.event.addListener(polyl, 'mousemove', (evt: google.maps.MouseEvent) => {
-                                $("#CurrentLatLng").val(evt.latLng.lat().toString().substring(0, 8) + " " + evt.latLng.lng().toString().substring(0, 10));
-                            });
-                            google.maps.event.addListener(polyl, 'rightclick', function (event) {
-                                if (event.vertex != null) {
-                                    var path = polyl.getPath();
-                                    if (path.getLength() > 2) {
-                                        path.removeAt(event.vertex);
+                                google.maps.event.addListener(polyl, 'click', () => {
+                                    if (cssp.GoogleMap.Editing) {
+                                        cssp.GoogleMap.ClearEdit();
+                                        polyl.set("editable", true);
+                                        cssp.GoogleMap.EditingZIndex = polyl.zIndex;
                                     }
-                                    //$(".MapEditSave").show();
+                                    else {
+                                        // nothing yet
+                                    }
+                                });
+                                google.maps.event.addListener(polyl, 'mousemove', (evt: google.maps.MouseEvent) => {
+                                    $("#CurrentLatLng").val(evt.latLng.lat().toString().substring(0, 8) + " " + evt.latLng.lng().toString().substring(0, 10));
+                                });
+                                google.maps.event.addListener(polyl, 'rightclick', function (event) {
+                                    if (event.vertex != null) {
+                                        var path = polyl.getPath();
+                                        if (path.getLength() > 2) {
+                                            path.removeAt(event.vertex);
+                                        }
+                                        //$(".MapEditSave").show();
+                                    }
+                                });
+                                cssp.GoogleMap.MVCObjPolylines.push(polyl);
+                            }
+                            if (cssp.GoogleMap.TVItemObjects[i].TVType == TVTypeEnum.Classification) {
+                                var zIndex: number = cssp.GoogleMap.ZIndexPolylineBase + cssp.GoogleMap.TVItemObjects[i].MapObjList[j].MapInfoID;
+                                var polyl: google.maps.Polyline = new google.maps.Polyline({
+                                    path: CoordList,
+                                    strokeColor: '#ffffff',
+                                    strokeOpacity: 1.0,
+                                    strokeWeight: 1,
+                                    map: cssp.GoogleMap.Map,
+                                    zIndex: zIndex,
+                                });
+
+                                polyl.setMap(cssp.GoogleMap.Map);
+
+                                google.maps.event.addListener(polyl, 'click', () => {
+                                    if (cssp.GoogleMap.Editing) {
+                                        cssp.GoogleMap.ClearEdit();
+                                        polyl.set("editable", true);
+                                        cssp.GoogleMap.EditingZIndex = polyl.zIndex;
+                                    }
+                                    else {
+                                        // nothing yet
+                                    }
+                                });
+                                google.maps.event.addListener(polyl, 'mousemove', (evt: google.maps.MouseEvent) => {
+                                    $("#CurrentLatLng").val(evt.latLng.lat().toString().substring(0, 8) + " " + evt.latLng.lng().toString().substring(0, 10));
+                                });
+                                google.maps.event.addListener(polyl, 'rightclick', function (event) {
+                                    if (event.vertex != null) {
+                                        var path = polyl.getPath();
+                                        if (path.getLength() > 2) {
+                                            path.removeAt(event.vertex);
+                                        }
+                                        //$(".MapEditSave").show();
+                                    }
+                                });
+                                cssp.GoogleMap.MVCObjPolylines.push(polyl);
+
+                                let strokeColor: string = "#000000";
+
+                                switch (cssp.GoogleMap.TVItemObjects[i].SubTVType) {
+                                    case (TVTypeEnum.Approved):
+                                        {
+                                            strokeColor = "#00FF00";
+                                        }
+                                        break;
+                                    case (TVTypeEnum.Restricted):
+                                        {
+                                            strokeColor = "#FF0000";
+                                        }
+                                        break;
+                                    case (TVTypeEnum.Prohibited):
+                                        {
+                                            strokeColor = "#cccccc";
+                                        }
+                                        break;
+                                    case (TVTypeEnum.ConditionallyApproved):
+                                        {
+                                            strokeColor = "#e1bd00";
+                                        }
+                                        break;
+                                    case (TVTypeEnum.ConditionallyRestricted):
+                                        {
+                                            strokeColor = "#9932cc";
+                                        }
+                                        break;
+                                    default:
                                 }
-                            });
-                            cssp.GoogleMap.MVCObjPolylines.push(polyl);
+
+                                for (let i = 0, count = CoordList.length - 1; i < count; i++) {
+                                    var spherical = google.maps.geometry.spherical;
+                                    var F = new google.maps.LatLng(CoordList[i].lat(), CoordList[i].lng());
+                                    var T = new google.maps.LatLng(CoordList[i + 1].lat(), CoordList[i + 1].lng());
+                                    // M is the middle of [FT]
+                                    var latM = (CoordList[i].lat() + CoordList[i + 1].lat()) / 2;
+                                    var longM = (CoordList[i].lng() + CoordList[i + 1].lng()) / 2;
+                                    var M = new google.maps.LatLng(latM, longM);
+                                    // Get direction of the segment
+                                    var heading = spherical.computeHeading(F, T);
+                                    var dist = 50; // distance in meters
+                                    // Place point A that is oriented at 90° in a distance of dist from M
+                                    var A = spherical.computeOffset(M, dist, heading + 90);
+                                    var perpendicularCoordinates = [F, T, A, F];
+                                    var polyg: google.maps.Polygon = new google.maps.Polygon({
+                                        paths: perpendicularCoordinates,
+                                        strokeColor: strokeColor,
+                                        strokeOpacity: 1.0,
+                                        strokeWeight: 2,
+                                        fillColor: strokeColor,
+                                        fillOpacity: 1.0,
+                                        map: cssp.GoogleMap.Map,
+                                        zIndex: zIndex,
+                                    });
+
+                                    polyg.setMap(cssp.GoogleMap.Map);
+
+                                    cssp.GoogleMap.MVCObjPolygons.push(polyg);
+
+                                }
+                            }
                         }
                         else {
                             // this would be an error

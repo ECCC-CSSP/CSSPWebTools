@@ -614,7 +614,17 @@ module CSSP {
         TotalFile = 71,
         MikeSourceIsRiver = 72,
         MikeSourceIncluded = 73,
-        MikeSourceNotIncluded = 74
+        MikeSourceNotIncluded = 74,
+        RainExceedance = 75,
+        EmailDistributionList = 76,
+        OpenData = 77,
+        ProvinceTools = 78,
+        Classification = 79,
+        Approved = 80,
+        Restricted = 81,
+        Prohibited = 82,
+        ConditionallyApproved = 83,
+        ConditionallyRestricted = 84,
     }
 
 }

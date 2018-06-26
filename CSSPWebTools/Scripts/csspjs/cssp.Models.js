@@ -803,6 +803,16 @@ var CSSP;
         TVTypeEnum[TVTypeEnum["MikeSourceIsRiver"] = 72] = "MikeSourceIsRiver";
         TVTypeEnum[TVTypeEnum["MikeSourceIncluded"] = 73] = "MikeSourceIncluded";
         TVTypeEnum[TVTypeEnum["MikeSourceNotIncluded"] = 74] = "MikeSourceNotIncluded";
+        TVTypeEnum[TVTypeEnum["RainExceedance"] = 75] = "RainExceedance";
+        TVTypeEnum[TVTypeEnum["EmailDistributionList"] = 76] = "EmailDistributionList";
+        TVTypeEnum[TVTypeEnum["OpenData"] = 77] = "OpenData";
+        TVTypeEnum[TVTypeEnum["ProvinceTools"] = 78] = "ProvinceTools";
+        TVTypeEnum[TVTypeEnum["Classification"] = 79] = "Classification";
+        TVTypeEnum[TVTypeEnum["Approved"] = 80] = "Approved";
+        TVTypeEnum[TVTypeEnum["Restricted"] = 81] = "Restricted";
+        TVTypeEnum[TVTypeEnum["Prohibited"] = 82] = "Prohibited";
+        TVTypeEnum[TVTypeEnum["ConditionallyApproved"] = 83] = "ConditionallyApproved";
+        TVTypeEnum[TVTypeEnum["ConditionallyRestricted"] = 84] = "ConditionallyRestricted";
     })(TVTypeEnum = CSSP.TVTypeEnum || (CSSP.TVTypeEnum = {}));
 })(CSSP || (CSSP = {}));
 //# sourceMappingURL=cssp.Models.js.map

@@ -115,6 +115,15 @@ namespace CSSPWebTools.Views.Shared.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Approved.
+        /// </summary>
+        public static string Approved {
+            get {
+                return ResourceManager.GetString("Approved", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Areas.
         /// </summary>
         public static string Areas {
@@ -183,6 +192,24 @@ namespace CSSPWebTools.Views.Shared.Resources {
         public static string Completed {
             get {
                 return ResourceManager.GetString("Completed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Conditionally Approved.
+        /// </summary>
+        public static string ConditionallyApproved {
+            get {
+                return ResourceManager.GetString("ConditionallyApproved", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Conditionally Restricted.
+        /// </summary>
+        public static string ConditionallyRestricted {
+            get {
+                return ResourceManager.GetString("ConditionallyRestricted", resourceCulture);
             }
         }
         
@@ -799,6 +826,15 @@ namespace CSSPWebTools.Views.Shared.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Prohibited.
+        /// </summary>
+        public static string Prohibited {
+            get {
+                return ResourceManager.GetString("Prohibited", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Provinces.
         /// </summary>
         public static string Provinces {
@@ -831,6 +867,15 @@ namespace CSSPWebTools.Views.Shared.Resources {
         public static string ReplaceIDShouldNotBeEmpty {
             get {
                 return ResourceManager.GetString("ReplaceIDShouldNotBeEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Restricted.
+        /// </summary>
+        public static string Restricted {
+            get {
+                return ResourceManager.GetString("Restricted", resourceCulture);
             }
         }
         
