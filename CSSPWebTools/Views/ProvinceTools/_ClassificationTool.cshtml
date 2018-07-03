@@ -1,0 +1,76 @@
+﻿@using CSSPWebTools.Views.ProvinceTools.Resources;
+@using CSSPWebTools.Controllers;
+@using CSSPEnumsDLL.Enums;
+@using CSSPEnumsDLL.Services;
+@using CSSPModelsDLL.Models;
+@using System.Linq;
+
+@{
+    int ProvinceTVItemID = (int)ViewBag.ProvinceTVItemID;
+    TVFileModel tvFileModelClassificationPolygons = (TVFileModel)ViewBag.TVFileModelClassificationPolygons;
+    TVFileModel tvFileModelClassificationInputs = (TVFileModel)ViewBag.TVFileModelClassificationInputs;
+    string ClassificationPolygonsFileName = (string)ViewBag.ClassificationPolygonsFileName;
+    string ClassificationInputsFileName = (string)ViewBag.ClassificationInputsFileName;
+
+    bool MissingFile = false;
+    string disabled = "";
+    if (!string.IsNullOrWhiteSpace(tvFileModelClassificationPolygons.Error) || !string.IsNullOrWhiteSpace(tvFileModelClassificationInputs.Error))
+    {
+        MissingFile = true;
+        disabled = "disabled";
+    }
+}
+
+<div class="h4">@ProvinceToolsViewRes.SomeOfTheseTasksCanTakeALongTime</div>
+<p></p>
+@if (MissingFile)
+{
+    <h1>Missing file</h1>
+
+    if (!string.IsNullOrWhiteSpace(tvFileModelClassificationPolygons.Error))
+    {
+        <h4>@ClassificationPolygonsFileName</h4>
+    }
+
+    if (!string.IsNullOrWhiteSpace(tvFileModelClassificationInputs.Error))
+    {
+        <h4>@ClassificationInputsFileName</h4>
+    }
+}
+
+<h2>@ProvinceToolsViewRes.Steps</h2>
+<ul>
+    <li>@ProvinceToolsViewRes.MakeSureYouSaveYourClassificationPolygonsKMLFileUnderProvinceFileTab</li>
+    <li>
+        <ul>
+            <li>@ClassificationPolygonsFileName</li>
+        </ul>
+    </li>
+    <li>@ProvinceToolsViewRes.UsingTheClassificationInputsKMLFileFoundUnderProvinceFileTab</li>
+    <li>
+        <ul>
+            <li>@ClassificationInputsFileName</li>
+        </ul>
+    </li>
+    <li>
+        <ul>
+            <li>@ProvinceToolsViewRes.DownloadTheFileToYourComputer</li>
+            <li>@ProvinceToolsViewRes.DrawRequiredPathsUnderEachSubsectorToRepresentClassification</li>
+            <li>&nbsp;&nbsp;&nbsp;&nbsp;@ProvinceToolsViewRes.PForProhibited</li>
+            <li>&nbsp;&nbsp;&nbsp;&nbsp;@ProvinceToolsViewRes.AForApproved</li>
+            <li>&nbsp;&nbsp;&nbsp;&nbsp;@ProvinceToolsViewRes.RForRestricted</li>
+            <li>&nbsp;&nbsp;&nbsp;&nbsp;@ProvinceToolsViewRes.CAForConditionallyApproved</li>
+            <li>&nbsp;&nbsp;&nbsp;&nbsp;@ProvinceToolsViewRes.CRForConditionallyRestricted</li>
+            <li>@ProvinceToolsViewRes.ReplacedTheFileOnTheCSSPWebToolsWithTheChanges</li>
+            <li>@ProvinceToolsViewRes.ClickTheButtonBelowToGenerateClassificatonForCSSPWebToolsVisualization</li>
+        </ul>
+    </li>
+</ul>
+<button class="jbProvinceToolsGenerateClassificationForCSSPWebToolsVisualization btn btn-primary @disabled" data-provincetvitemid="@ProvinceTVItemID">
+    @ProvinceToolsViewRes.GenerateClassificatonForCSSPWebToolsVisualization
+    <span class="working hidden">
+        @ProvinceToolsViewRes.Working...
+        <span class="percent"></span>
+    </span>
+</button>
+

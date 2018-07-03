@@ -49,6 +49,30 @@ namespace CSSPWebTools.Controllers
 
             return PartialView();
         }
+        [HttpGet]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public PartialViewResult _ClassificationTool(int ProvinceTVItemID)
+        {
+            ViewBag.ProvinceTVItemID = ProvinceTVItemID;
+            ViewBag.TVFileModelClassificationPolygons = null;
+            ViewBag.TVFileModelClassificationInputs = null;
+            ViewBag.ClassificationPolygonsFileName = null;
+            ViewBag.ClassificationInputsFileName = null;
+
+            TVFileModel tvFileModelClassificationPolygons = _ProvinceToolsService.GetTVFileModelClassificationPolygons(ProvinceTVItemID);
+            ViewBag.TVFileModelClassificationPolygons = tvFileModelClassificationPolygons;
+
+            TVFileModel TVFileModelClassificationInputs = _ProvinceToolsService.GetTVFileModelClassificationInputs(ProvinceTVItemID);
+            ViewBag.TVFileModelClassificationInputs = TVFileModelClassificationInputs;
+
+            string classificationPolygonsFileName = $"ClassificationPolygons_{_ProvinceToolsService.GetInit(ProvinceTVItemID)}.kml"; ;
+            ViewBag.ClassificationPolygonsFileName = classificationPolygonsFileName;
+
+            string classificationInputsFileName = $"ClassificationInputs_{_ProvinceToolsService.GetInit(ProvinceTVItemID)}.kml"; ;
+            ViewBag.ClassificationInputsFileName = classificationInputsFileName;
+
+            return PartialView();
+        }
         #endregion Functions View/PartialViews 
 
         #region Functions JSON
@@ -75,7 +99,15 @@ namespace CSSPWebTools.Controllers
             AppTaskModel appTaskModel = _ProvinceToolsService.GetAllPrecipitationForYearDB(ProvinceTVItemID, Year);
 
             return Json(appTaskModel.Error, JsonRequestBehavior.AllowGet);
-        }      
+        }
+        [HttpPost]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public JsonResult GenerateClassificationForCSSPWebToolsVisualizationJSON(int ProvinceTVItemID)
+        {
+            AppTaskModel appTaskModel = _ProvinceToolsService.GenerateClassificationForCSSPWebToolsVisualizationDB(ProvinceTVItemID);
+
+            return Json(appTaskModel.Error, JsonRequestBehavior.AllowGet);
+        }
         #endregion Functions JSON
 
         #region Functions public Non Action

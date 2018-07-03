@@ -7,6 +7,8 @@
 
 @{
     int ProvinceTVItemID = (int)ViewBag.ProvinceTVItemID;
+    TVFileModel tvFileModelClassificationPolygons = (TVFileModel)ViewBag.TVFileModelClassificationPolygons;
+    TVFileModel tvFileModelClassificationInputs = (TVFileModel)ViewBag.TVFileModelClassificationInputs;
 }
 
 <div class="ProvinceToolsTopDiv">
@@ -27,9 +29,9 @@
                     <div class="h4">@ProvinceToolsViewRes.SomeOfTheseTasksCanTakeALongTime</div>
                     <select class="form-control" name="Year">
                         @for (int year = DateTime.Now.Year; year > 1979; year--)
-                    {
-                        <option value="@year">@year</option>
-                }
+                        {
+                            <option value="@year">@year</option>
+                        }
                     </select>
                     <p></p>
                     <button class="jbProvinceToolsGetAllPrecipitationForYear btn btn-primary" data-provincetvitemid="@ProvinceTVItemID">
@@ -57,6 +59,20 @@
                     </button>
                     <span>@ProvinceToolsViewRes.ADocumentWillBeCreatedShowingTheMissingPrecip</span>
                     <p></p>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-info">
+            <div class="panel-heading" role="tab" id="headingClassification">
+                <h4 class="panel-title">
+                    <a role="button" data-toggle="collapse" data-parent="#ProvinceToolsAccordion" href="#ClassificationCollapse" aria-expanded="true" aria-controls="ClassificationCollapse">
+                        @ProvinceToolsViewRes.ClassificationRelatedTools
+                    </a>
+                </h4>
+            </div>
+            <div id="ClassificationCollapse" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingClassification">
+                <div class="ProvinceToolsClassificationDiv panel-body">
+                    @Html.Action("_ClassificationTool", "ProvinceTools", new { ProvinceTVItemID = ProvinceTVItemID })
                 </div>
             </div>
         </div>

@@ -1109,6 +1109,11 @@ module CSSP {
                             cssp.ProvinceTools.GetAllPrecipitationForYear($bjs);
                         }
                         break;
+                    case "jbProvinceToolsGenerateClassificationForCSSPWebToolsVisualization":
+                        {
+                            cssp.ProvinceTools.GenerateClassificationForCSSPWebToolsVisualization($bjs);
+                        }
+                        break;
                     case "jbRainExceedanceAddOrModify":
                         {
                             cssp.RainExceedance.FormSubmit($bjs);

@@ -914,6 +914,7 @@
     <Content Include="Views\OpenData\_OpenDataTopPage.cshtml" />
     <Content Include="Views\OpenData\_OpenDataDocuments.cshtml" />
     <Content Include="Views\ProvinceTools\_ProvinceToolsTopPage.cshtml" />
+    <Content Include="Views\ProvinceTools\_ClassificationTool.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

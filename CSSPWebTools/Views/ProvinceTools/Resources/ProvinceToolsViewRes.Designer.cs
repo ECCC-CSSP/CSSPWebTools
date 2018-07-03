@@ -70,11 +70,74 @@ namespace CSSPWebTools.Views.ProvinceTools.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to A = Approved.
+        /// </summary>
+        public static string AForApproved {
+            get {
+                return ResourceManager.GetString("AForApproved", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CA = Conditionally Approved.
+        /// </summary>
+        public static string CAForConditionallyApproved {
+            get {
+                return ResourceManager.GetString("CAForConditionallyApproved", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Classification Related Tools.
+        /// </summary>
+        public static string ClassificationRelatedTools {
+            get {
+                return ResourceManager.GetString("ClassificationRelatedTools", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Click the button below to generate classification for CSSPWebTools visualization.
+        /// </summary>
+        public static string ClickTheButtonBelowToGenerateClassificatonForCSSPWebToolsVisualization {
+            get {
+                return ResourceManager.GetString("ClickTheButtonBelowToGenerateClassificatonForCSSPWebToolsVisualization", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Climate site precipitation related tools.
         /// </summary>
         public static string ClimateSitePrecipitationRelatedTools {
             get {
                 return ResourceManager.GetString("ClimateSitePrecipitationRelatedTools", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CR = Conditionally Restricted.
+        /// </summary>
+        public static string CRForConditionallyRestricted {
+            get {
+                return ResourceManager.GetString("CRForConditionallyRestricted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Download the file to your computer.
+        /// </summary>
+        public static string DownloadTheFileToYourComputer {
+            get {
+                return ResourceManager.GetString("DownloadTheFileToYourComputer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Draw required paths under each subsector to represent classification.
+        /// </summary>
+        public static string DrawRequiredPathsUnderEachSubsectorToRepresentClassification {
+            get {
+                return ResourceManager.GetString("DrawRequiredPathsUnderEachSubsectorToRepresentClassification", resourceCulture);
             }
         }
         
@@ -97,6 +160,15 @@ namespace CSSPWebTools.Views.ProvinceTools.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Generate classificaton for CSSPWebTools visualization.
+        /// </summary>
+        public static string GenerateClassificatonForCSSPWebToolsVisualization {
+            get {
+                return ResourceManager.GetString("GenerateClassificatonForCSSPWebToolsVisualization", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Generate Province Pollution Source Sites For Input Tool.
         /// </summary>
         public static string GenerateProvincePollutionSourceSitesForInputTool {
@@ -111,6 +183,24 @@ namespace CSSPWebTools.Views.ProvinceTools.Resources {
         public static string GetAllPrecipitationForYear {
             get {
                 return ResourceManager.GetString("GetAllPrecipitationForYear", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Make sure you save your classification polygons KML file under the province file tab.
+        /// </summary>
+        public static string MakeSureYouSaveYourClassificationPolygonsKMLFileUnderProvinceFileTab {
+            get {
+                return ResourceManager.GetString("MakeSureYouSaveYourClassificationPolygonsKMLFileUnderProvinceFileTab", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to P = Prohibited.
+        /// </summary>
+        public static string PForProhibited {
+            get {
+                return ResourceManager.GetString("PForProhibited", resourceCulture);
             }
         }
         
@@ -133,11 +223,47 @@ namespace CSSPWebTools.Views.ProvinceTools.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Replaced the file on the CSSPWebTools with the changes.
+        /// </summary>
+        public static string ReplacedTheFileOnTheCSSPWebToolsWithTheChanges {
+            get {
+                return ResourceManager.GetString("ReplacedTheFileOnTheCSSPWebToolsWithTheChanges", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to R = Restricted.
+        /// </summary>
+        public static string RForRestricted {
+            get {
+                return ResourceManager.GetString("RForRestricted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Some of these tasks can take a long time.
         /// </summary>
         public static string SomeOfTheseTasksCanTakeALongTime {
             get {
                 return ResourceManager.GetString("SomeOfTheseTasksCanTakeALongTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Steps.
+        /// </summary>
+        public static string Steps {
+            get {
+                return ResourceManager.GetString("Steps", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Using the classification inputs KML file found under province file tab.
+        /// </summary>
+        public static string UsingTheClassificationInputsKMLFileFoundUnderProvinceFileTab {
+            get {
+                return ResourceManager.GetString("UsingTheClassificationInputsKMLFileFoundUnderProvinceFileTab", resourceCulture);
             }
         }
         

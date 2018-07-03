@@ -120,8 +120,29 @@
   <data name="ADocumentWillBeCreatedShowingTheMissingPrecip" xml:space="preserve">
     <value>A document will be created showing the missing precipitation</value>
   </data>
+  <data name="AForApproved" xml:space="preserve">
+    <value>A = Approved</value>
+  </data>
+  <data name="CAForConditionallyApproved" xml:space="preserve">
+    <value>CA = Conditionally Approved</value>
+  </data>
+  <data name="ClassificationRelatedTools" xml:space="preserve">
+    <value>Classification Related Tools</value>
+  </data>
+  <data name="ClickTheButtonBelowToGenerateClassificatonForCSSPWebToolsVisualization" xml:space="preserve">
+    <value>Click the button below to generate classification for CSSPWebTools visualization</value>
+  </data>
   <data name="ClimateSitePrecipitationRelatedTools" xml:space="preserve">
     <value>Climate site precipitation related tools</value>
+  </data>
+  <data name="CRForConditionallyRestricted" xml:space="preserve">
+    <value>CR = Conditionally Restricted</value>
+  </data>
+  <data name="DownloadTheFileToYourComputer" xml:space="preserve">
+    <value>Download the file to your computer</value>
+  </data>
+  <data name="DrawRequiredPathsUnderEachSubsectorToRepresentClassification" xml:space="preserve">
+    <value>Draw required paths under each subsector to represent classification</value>
   </data>
   <data name="FillRunPrecipByClimateSitePriorityForYear" xml:space="preserve">
     <value>Fill run precip by climate site priority for year</value>
@@ -129,11 +150,20 @@
   <data name="FindMissingPrecipForProvince" xml:space="preserve">
     <value>Find missing precip for province</value>
   </data>
+  <data name="GenerateClassificatonForCSSPWebToolsVisualization" xml:space="preserve">
+    <value>Generate classificaton for CSSPWebTools visualization</value>
+  </data>
   <data name="GenerateProvincePollutionSourceSitesForInputTool" xml:space="preserve">
     <value>Generate Province Pollution Source Sites For Input Tool</value>
   </data>
   <data name="GetAllPrecipitationForYear" xml:space="preserve">
     <value>Get all precipitation for year</value>
+  </data>
+  <data name="MakeSureYouSaveYourClassificationPolygonsKMLFileUnderProvinceFileTab" xml:space="preserve">
+    <value>Make sure you save your classification polygons KML file under the province file tab</value>
+  </data>
+  <data name="PForProhibited" xml:space="preserve">
+    <value>P = Prohibited</value>
   </data>
   <data name="PlaceholderForMore" xml:space="preserve">
     <value>Placeholder for more</value>
@@ -141,8 +171,20 @@
   <data name="PollutionSourceSitesRelatedTools" xml:space="preserve">
     <value>Pollution Source Sites Related Tools</value>
   </data>
+  <data name="ReplacedTheFileOnTheCSSPWebToolsWithTheChanges" xml:space="preserve">
+    <value>Replaced the file on the CSSPWebTools with the changes</value>
+  </data>
+  <data name="RForRestricted" xml:space="preserve">
+    <value>R = Restricted</value>
+  </data>
   <data name="SomeOfTheseTasksCanTakeALongTime" xml:space="preserve">
     <value>Some of these tasks can take a long time</value>
+  </data>
+  <data name="Steps" xml:space="preserve">
+    <value>Steps</value>
+  </data>
+  <data name="UsingTheClassificationInputsKMLFileFoundUnderProvinceFileTab" xml:space="preserve">
+    <value>Using the classification inputs KML file found under province file tab</value>
   </data>
   <data name="Working" xml:space="preserve">
     <value>Working</value>
