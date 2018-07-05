@@ -73,6 +73,23 @@ module CSSP {
                 cssp.Dialog.ShowDialogErrorWithFail(command);
             });
         };
+        public OpenDataGenerateCSVDocumentNationalOfMWQMSites: Function = ($bjs: JQuery): void => {
+            //cssp.Dialog.ShowDialogMessage(cssp.GetHTMLVariable("#LayoutVariables", "varNotImplementedYet"));
+            let CountryTVItemID: number = parseInt($bjs.data("countrytvitemid"));
+            let command: string = "OpenData/GenerateCSVDocumentNationalOfMWQMSitesJSON";
+            $.post(cssp.BaseURL + command, {
+                CountryTVItemID: CountryTVItemID,
+            }).done((ret) => {
+                if (ret) {
+                    cssp.Dialog.ShowDialogError(ret);
+                }
+                else {
+                    cssp.Helper.PageRefresh();
+                }
+            }).fail(() => {
+                cssp.Dialog.ShowDialogErrorWithFail(command);
+            });
+        };
         public OpenDataGenerateKMZDocumentOfMWQMSites: Function = ($bjs: JQuery): void => {
             //cssp.Dialog.ShowDialogMessage(cssp.GetHTMLVariable("#LayoutVariables", "varNotImplementedYet"));
             let ProvinceTVItemID: number = parseInt($bjs.data("provincetvitemid"));
@@ -96,6 +113,23 @@ module CSSP {
             let command: string = "OpenData/GenerateCSVDocumentOfMWQMSamplesJSON";
             $.post(cssp.BaseURL + command, {
                 ProvinceTVItemID: ProvinceTVItemID,
+            }).done((ret) => {
+                if (ret) {
+                    cssp.Dialog.ShowDialogError(ret);
+                }
+                else {
+                    cssp.Helper.PageRefresh();
+                }
+            }).fail(() => {
+                cssp.Dialog.ShowDialogErrorWithFail(command);
+            });
+        };
+        public OpenDataGenerateCSVDocumentNationalOfMWQMSamples: Function = ($bjs: JQuery): void => {
+            //cssp.Dialog.ShowDialogMessage(cssp.GetHTMLVariable("#LayoutVariables", "varNotImplementedYet"));
+            let CountryTVItemID: number = parseInt($bjs.data("countrytvitemid"));
+            let command: string = "OpenData/GenerateCSVDocumentNationalOfMWQMSamplesJSON";
+            $.post(cssp.BaseURL + command, {
+                CountryTVItemID: CountryTVItemID,
             }).done((ret) => {
                 if (ret) {
                     cssp.Dialog.ShowDialogError(ret);

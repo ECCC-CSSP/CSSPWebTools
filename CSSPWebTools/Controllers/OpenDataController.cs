@@ -52,6 +52,15 @@ namespace CSSPWebTools.Controllers
         }
         [HttpGet]
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public PartialViewResult _OpenDataDocumentsNational(string Q)
+        {
+            SetArgs(Q);
+            ViewBag.CountryTVItemID = urlModel.TVItemIDList[0];
+
+            return PartialView();
+        }
+        [HttpGet]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
         public PartialViewResult _OpenDataTopPage(string Q)
         {
             SetArgs(Q);
@@ -123,6 +132,14 @@ namespace CSSPWebTools.Controllers
         }
         [HttpPost]
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public JsonResult GenerateCSVDocumentNationalOfMWQMSitesJSON(int CountryTVItemID)
+        {
+            TVItemModel tvItemModel = _OpenDataService.GenerateCSVDocumentNationalOfMWQMSitesDB(CountryTVItemID);
+
+            return Json(tvItemModel.Error, JsonRequestBehavior.AllowGet);
+        }
+        [HttpPost]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
         public JsonResult GenerateKMZDocumentOfMWQMSitesJSON(int ProvinceTVItemID)
         {
             TVItemModel tvItemModel = _OpenDataService.GenerateKMZDocumentOfMWQMSitesDB(ProvinceTVItemID);
@@ -134,6 +151,14 @@ namespace CSSPWebTools.Controllers
         public JsonResult GenerateCSVDocumentOfMWQMSamplesJSON(int ProvinceTVItemID)
         {
             TVItemModel tvItemModel = _OpenDataService.GenerateCSVDocumentOfMWQMSamplesDB(ProvinceTVItemID);
+
+            return Json(tvItemModel.Error, JsonRequestBehavior.AllowGet);
+        }
+        [HttpPost]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public JsonResult GenerateCSVDocumentNationalOfMWQMSamplesJSON(int CountryTVItemID)
+        {
+            TVItemModel tvItemModel = _OpenDataService.GenerateCSVDocumentNationalOfMWQMSamplesDB(CountryTVItemID);
 
             return Json(tvItemModel.Error, JsonRequestBehavior.AllowGet);
         }

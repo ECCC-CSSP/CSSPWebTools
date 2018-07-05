@@ -189,4 +189,19 @@
   <data name="Working" xml:space="preserve">
     <value>Working</value>
   </data>
+  <data name="ClickTheButtonBelowToGenerateGroupingsBewteenMWQMSitesAndPolSourceSitesForCSSPWebToolsVisualization" xml:space="preserve">
+    <value>Click the button below to generate groupings bewteen MWQM Sites and Pollution Source Sites for CSSPWebTools Visualization</value>
+  </data>
+  <data name="DrawRequiredPolygonsUnderEachSubsectorToGroupTheMWQMSitesAndPolSourceSites" xml:space="preserve">
+    <value>Draw required polygons under each subsector to group the MWQM Sites and Pollution Sources Sites</value>
+  </data>
+  <data name="GenerateLinksBetweenMWQMSitesAndPolSourceSitesForCSSPWebToolsVisualization" xml:space="preserve">
+    <value>Generate links bewteen MWQM Sites and Pollution Source Sites for CSSPWebTools Visualization</value>
+  </data>
+  <data name="MWQMSitePolSourceSiteGroupingRelatedTools" xml:space="preserve">
+    <value>MWQM Site and Pollution Source Site Grouping Related Tools</value>
+  </data>
+  <data name="YouCanDrawAsManyAsIsNeeded" xml:space="preserve">
+    <value>You can draw as many as is needed</value>
+  </data>
 </root>

@@ -77,6 +77,20 @@
             </div>
         </div>
         <div class="panel panel-info">
+            <div class="panel-heading" role="tab" id="headingMWQMSitePolSourceSiteGrouping">
+                <h4 class="panel-title">
+                    <a role="button" data-toggle="collapse" data-parent="#ProvinceToolsAccordion" href="#MWQMSitePolSourceSiteGroupingCollapse" aria-expanded="true" aria-controls="MWQMSitePolSourceSiteGroupingCollapse">
+                        @ProvinceToolsViewRes.MWQMSitePolSourceSiteGroupingRelatedTools
+                    </a>
+                </h4>
+            </div>
+            <div id="MWQMSitePolSourceSiteGroupingCollapse" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingMWQMSitePolSourceSiteGrouping">
+                <div class="ProvinceToolsMWQMSitePolSourceSiteGroupingDiv panel-body">
+                    @Html.Action("_MWQMSitePolSourceSiteGroupingTool", "ProvinceTools", new { ProvinceTVItemID = ProvinceTVItemID })
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-info">
             <div class="panel-heading" role="tab" id="headingPlaceholder">
                 <h4 class="panel-title">
                     <a class="collapsed" role="button" data-toggle="collapse" data-parent="#ProvinceToolsAccordion" href="#PlaceholderCollapse" aria-expanded="false" aria-controls="PlaceholderCollapse">

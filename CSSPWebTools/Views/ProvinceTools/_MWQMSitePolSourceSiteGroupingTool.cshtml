@@ -1,0 +1,72 @@
+﻿@using CSSPWebTools.Views.ProvinceTools.Resources;
+@using CSSPWebTools.Controllers;
+@using CSSPEnumsDLL.Enums;
+@using CSSPEnumsDLL.Services;
+@using CSSPModelsDLL.Models;
+@using System.Linq;
+
+@{
+    int ProvinceTVItemID = (int)ViewBag.ProvinceTVItemID;
+    TVFileModel tvFileModelMWQMSitesAndPolSourceSites = (TVFileModel)ViewBag.TVFileModelMWQMSitesAndPolSourceSites;
+    TVFileModel tvFileModelGroupingInputs = (TVFileModel)ViewBag.TVFileModelGroupingInputs;
+    string MWQMSitesAndPolSourceSitesFileName = (string)ViewBag.MWQMSitesAndPolSourceSitesFileName;
+    string GroupingInputsFileName = (string)ViewBag.GroupingInputsFileName;
+
+    bool MissingFile = false;
+    string disabled = "";
+    if (!string.IsNullOrWhiteSpace(tvFileModelMWQMSitesAndPolSourceSites.Error) || !string.IsNullOrWhiteSpace(tvFileModelGroupingInputs.Error))
+    {
+        MissingFile = true;
+        disabled = "disabled";
+    }
+}
+
+<div class="h4">@ProvinceToolsViewRes.SomeOfTheseTasksCanTakeALongTime</div>
+<p></p>
+@if (MissingFile)
+{
+    <h1>Missing file</h1>
+
+    if (!string.IsNullOrWhiteSpace(tvFileModelMWQMSitesAndPolSourceSites.Error))
+    {
+        <h4>@MWQMSitesAndPolSourceSitesFileName</h4>
+    }
+
+    if (!string.IsNullOrWhiteSpace(tvFileModelGroupingInputs.Error))
+    {
+        <h4>@GroupingInputsFileName</h4>
+    }
+}
+
+<h2>@ProvinceToolsViewRes.Steps</h2>
+<ul>
+    <li>@ProvinceToolsViewRes.MakeSureYouSaveYourClassificationPolygonsKMLFileUnderProvinceFileTab</li>
+    <li>
+        <ul>
+            <li>@MWQMSitesAndPolSourceSitesFileName</li>
+        </ul>
+    </li>
+    <li>@ProvinceToolsViewRes.UsingTheClassificationInputsKMLFileFoundUnderProvinceFileTab</li>
+    <li>
+        <ul>
+            <li>@GroupingInputsFileName</li>
+        </ul>
+    </li>
+    <li>
+        <ul>
+            <li>@ProvinceToolsViewRes.DownloadTheFileToYourComputer</li>
+            <li>@ProvinceToolsViewRes.DrawRequiredPolygonsUnderEachSubsectorToGroupTheMWQMSitesAndPolSourceSites</li>
+            <li>@ProvinceToolsViewRes.YouCanDrawAsManyAsIsNeeded</li>
+            <li>@ProvinceToolsViewRes.ReplacedTheFileOnTheCSSPWebToolsWithTheChanges</li>
+            <li>@ProvinceToolsViewRes.ClickTheButtonBelowToGenerateGroupingsBewteenMWQMSitesAndPolSourceSitesForCSSPWebToolsVisualization</li>
+        </ul>
+    </li>
+</ul>
+<button class="jbGenerateLinksBetweenMWQMSitesAndPolSourceSitesForCSSPWebToolsVisualization btn btn-primary @disabled" data-provincetvitemid="@ProvinceTVItemID">
+    @ProvinceToolsViewRes.GenerateLinksBetweenMWQMSitesAndPolSourceSitesForCSSPWebToolsVisualization
+    <span class="working hidden">
+        @ProvinceToolsViewRes.Working...
+        <span class="percent"></span>
+    </span>
+</button>
+

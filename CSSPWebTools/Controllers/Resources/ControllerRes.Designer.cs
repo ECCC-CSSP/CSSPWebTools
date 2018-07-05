@@ -601,6 +601,15 @@ namespace CSSPWebTools.Controllers.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Open Data National.
+        /// </summary>
+        public static string OpenDataNational {
+            get {
+                return ResourceManager.GetString("OpenDataNational", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Your password has been changed..
         /// </summary>
         public static string PasswordChanged {

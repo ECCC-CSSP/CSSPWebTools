@@ -160,6 +160,24 @@ namespace CSSPWebTools.Views.OpenData.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Generate CSV document national of MWQM Samples.
+        /// </summary>
+        public static string GenerateCSVDocumentNationalOfMWQMSamples {
+            get {
+                return ResourceManager.GetString("GenerateCSVDocumentNationalOfMWQMSamples", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Generate CSV document national of MWQM Sites.
+        /// </summary>
+        public static string GenerateCSVDocumentNationalOfMWQMSites {
+            get {
+                return ResourceManager.GetString("GenerateCSVDocumentNationalOfMWQMSites", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Generate CSV document of MWQM samples.
         /// </summary>
         public static string GenerateCSVDocumentOfMWQMSamples {
@@ -255,6 +273,15 @@ namespace CSSPWebTools.Views.OpenData.Resources {
         public static string NotUseForOpenData {
             get {
                 return ResourceManager.GetString("NotUseForOpenData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open Data Document National Production.
+        /// </summary>
+        public static string OpenDataDocumentNationalProduction {
+            get {
+                return ResourceManager.GetString("OpenDataDocumentNationalProduction", resourceCulture);
             }
         }
         

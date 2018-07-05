@@ -106,6 +106,16 @@ namespace CSSPWebTools.Views.ProvinceTools.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Click the button below to generate groupings bewteen MWQM Sites and Pollution Source Sites for CSSPWebTools Visualization.
+        /// </summary>
+        public static string ClickTheButtonBelowToGenerateGroupingsBewteenMWQMSitesAndPolSourceSitesForCSSPWebToolsVisualization {
+            get {
+                return ResourceManager.GetString("ClickTheButtonBelowToGenerateGroupingsBewteenMWQMSitesAndPolSourceSitesForCSSPWeb" +
+                        "ToolsVisualization", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Climate site precipitation related tools.
         /// </summary>
         public static string ClimateSitePrecipitationRelatedTools {
@@ -142,6 +152,15 @@ namespace CSSPWebTools.Views.ProvinceTools.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Draw required polygons under each subsector to group the MWQM Sites and Pollution Sources Sites.
+        /// </summary>
+        public static string DrawRequiredPolygonsUnderEachSubsectorToGroupTheMWQMSitesAndPolSourceSites {
+            get {
+                return ResourceManager.GetString("DrawRequiredPolygonsUnderEachSubsectorToGroupTheMWQMSitesAndPolSourceSites", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Fill run precip by climate site priority for year.
         /// </summary>
         public static string FillRunPrecipByClimateSitePriorityForYear {
@@ -169,6 +188,15 @@ namespace CSSPWebTools.Views.ProvinceTools.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Generate links bewteen MWQM Sites and Pollution Source Sites for CSSPWebTools Visualization.
+        /// </summary>
+        public static string GenerateLinksBetweenMWQMSitesAndPolSourceSitesForCSSPWebToolsVisualization {
+            get {
+                return ResourceManager.GetString("GenerateLinksBetweenMWQMSitesAndPolSourceSitesForCSSPWebToolsVisualization", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Generate Province Pollution Source Sites For Input Tool.
         /// </summary>
         public static string GenerateProvincePollutionSourceSitesForInputTool {
@@ -192,6 +220,15 @@ namespace CSSPWebTools.Views.ProvinceTools.Resources {
         public static string MakeSureYouSaveYourClassificationPolygonsKMLFileUnderProvinceFileTab {
             get {
                 return ResourceManager.GetString("MakeSureYouSaveYourClassificationPolygonsKMLFileUnderProvinceFileTab", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MWQM Site and Pollution Source Site Grouping Related Tools.
+        /// </summary>
+        public static string MWQMSitePolSourceSiteGroupingRelatedTools {
+            get {
+                return ResourceManager.GetString("MWQMSitePolSourceSiteGroupingRelatedTools", resourceCulture);
             }
         }
         
@@ -273,6 +310,15 @@ namespace CSSPWebTools.Views.ProvinceTools.Resources {
         public static string Working {
             get {
                 return ResourceManager.GetString("Working", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You can draw as many as is needed.
+        /// </summary>
+        public static string YouCanDrawAsManyAsIsNeeded {
+            get {
+                return ResourceManager.GetString("YouCanDrawAsManyAsIsNeeded", resourceCulture);
             }
         }
     }

@@ -954,6 +954,11 @@ module CSSP {
                             cssp.OpenData.OpenDataGenerateCSVDocumentOfMWQMSites($bjs);
                         }
                         break;
+                    case "jbOpenDataGenerateCSVDocumentNationalOfMWQMSites":
+                        {
+                            cssp.OpenData.OpenDataGenerateCSVDocumentNationalOfMWQMSites($bjs);
+                        }
+                        break;
                     case "jbOpenDataGenerateKMZDocumentOfMWQMSites":
                         {
                             cssp.OpenData.OpenDataGenerateKMZDocumentOfMWQMSites($bjs);
@@ -962,6 +967,11 @@ module CSSP {
                     case "jbOpenDataGenerateCSVDocumentOfMWQMSamples":
                         {
                             cssp.OpenData.OpenDataGenerateCSVDocumentOfMWQMSamples($bjs);
+                        }
+                        break;
+                    case "jbOpenDataGenerateCSVDocumentNationalOfMWQMSamples":
+                        {
+                            cssp.OpenData.OpenDataGenerateCSVDocumentNationalOfMWQMSamples($bjs);
                         }
                         break;
                     case "jbOpenDataGenerateXlsxDocumentOfMWQMSitesAndSamples":
@@ -1112,6 +1122,11 @@ module CSSP {
                     case "jbProvinceToolsGenerateClassificationForCSSPWebToolsVisualization":
                         {
                             cssp.ProvinceTools.GenerateClassificationForCSSPWebToolsVisualization($bjs);
+                        }
+                        break;
+                    case "jbGenerateLinksBetweenMWQMSitesAndPolSourceSitesForCSSPWebToolsVisualization":
+                        {
+                            cssp.ProvinceTools.GenerateLinksBetweenMWQMSitesAndPolSourceSitesForCSSPWebToolsVisualization($bjs);
                         }
                         break;
                     case "jbRainExceedanceAddOrModify":

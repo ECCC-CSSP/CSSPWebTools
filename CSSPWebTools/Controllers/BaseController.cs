@@ -1422,6 +1422,22 @@ namespace CSSPWebTools.Controllers
             return viewTVItemIconListList;
         }
         [NonAction]
+        public List<List<IconInfo>> FillTVItemOpenDataNationalIcons(TVAuthEnum TVAuth, TVItemModel tvItemModel)
+        {
+            List<List<IconInfo>> viewTVItemIconListList = new List<List<IconInfo>>();
+
+            //viewTVItemIconListList.Add(FillTVItemMoreInfoIcons(TVAuth));
+
+            //if (TVAuth >= TVAuthEnum.Write)
+            //{
+            //    viewTVItemIconListList.Add(FillOpenDataEditIcons(TVAuth));
+            //}
+
+            viewTVItemIconListList.Add(FillTVItemMapIcons(TVAuth, tvItemModel));
+
+            return viewTVItemIconListList;
+        }
+        [NonAction]
         public List<List<IconInfo>> FillTVItemProvinceToolsIcons(TVAuthEnum TVAuth, TVItemModel tvItemModel)
         {
             List<List<IconInfo>> viewTVItemIconListList = new List<List<IconInfo>>();
@@ -1697,11 +1713,15 @@ namespace CSSPWebTools.Controllers
                                 {
                                     return new ContentActionAndController() { Action = "_fileList", Controller = "File" };
                                 }
-                            case "2": // EmailDistributionList
+                            case "2": // Open Data National
+                                {
+                                    return new ContentActionAndController() { Action = "_OpenDataDocumentsNational", Controller = "OpenData" };
+                                }
+                            case "3": // EmailDistributionList
                                 {
                                     return new ContentActionAndController() { Action = "_emailDistributionList", Controller = "EmailDistributionList" };
                                 }
-                            case "3": // RainExceedance
+                            case "4": // RainExceedance
                                 {
                                     return new ContentActionAndController() { Action = "_rainExceedance", Controller = "RainExceedance" };
                                 }
@@ -2091,6 +2111,19 @@ namespace CSSPWebTools.Controllers
                         ViewTVItemInfoList.Add(new TabInfo()
                         {
                             URL = CreateVariableShowHashURL(URLVarShowEnum.ShowCountryTab, "2"),
+                            Text = ControllerRes.OpenDataNational,
+                            Icon = "",
+                            Active = tabActive,
+                            ToolTip = "",
+                            Action = "_content",
+                            Controller = "TVItem",
+                            ShowTVType = TVTypeEnum.OpenDataNational,
+                            Stat = 0,
+                            viewTVItemIconListList = FillTVItemOpenDataNationalIcons(TVAuth, tvItemModelLocationCurrent),
+                        });
+                        ViewTVItemInfoList.Add(new TabInfo()
+                        {
+                            URL = CreateVariableShowHashURL(URLVarShowEnum.ShowCountryTab, "3"),
                             Text = ControllerRes.EmailDistributionList,
                             Icon = "",
                             Active = tabActive,
@@ -2103,7 +2136,7 @@ namespace CSSPWebTools.Controllers
                         });
                         ViewTVItemInfoList.Add(new TabInfo()
                         {
-                            URL = CreateVariableShowHashURL(URLVarShowEnum.ShowCountryTab, "3"),
+                            URL = CreateVariableShowHashURL(URLVarShowEnum.ShowCountryTab, "4"),
                             Text = ControllerRes.RainExceedance,
                             Icon = "",
                             Active = tabActive,

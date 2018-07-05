@@ -234,4 +234,13 @@
   <data name="SubsectorWide" xml:space="preserve">
     <value>subsector wide (fr)</value>
   </data>
+  <data name="GenerateCSVDocumentNationalOfMWQMSamples" xml:space="preserve">
+    <value>Generate CSV document national of MWQM Samples (fr)</value>
+  </data>
+  <data name="GenerateCSVDocumentNationalOfMWQMSites" xml:space="preserve">
+    <value>Generate CSV document national of MWQM Sites (fr)</value>
+  </data>
+  <data name="OpenDataDocumentNationalProduction" xml:space="preserve">
+    <value>Open Data Document National Production (fr)</value>
+  </data>
 </root>

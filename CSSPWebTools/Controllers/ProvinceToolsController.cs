@@ -73,6 +73,30 @@ namespace CSSPWebTools.Controllers
 
             return PartialView();
         }
+        [HttpGet]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public PartialViewResult _MWQMSitePolSourceSiteGroupingTool(int ProvinceTVItemID)
+        {
+            ViewBag.ProvinceTVItemID = ProvinceTVItemID;
+            ViewBag.TVFileModelMWQMSitesAndPolSourceSites = null;
+            ViewBag.TVFileModelGroupingInputs = null;
+            ViewBag.MWQMSitesAndPolSourceSitesFileName = null;
+            ViewBag.GroupingInputsFileName = null;
+
+            TVFileModel tvFileModelMWQMSitesAndPolSourceSites = _ProvinceToolsService.GetTVFileModelMWQMSitesAndPolSourceSites(ProvinceTVItemID);
+            ViewBag.TVFileModelMWQMSitesAndPolSourceSites = tvFileModelMWQMSitesAndPolSourceSites;
+
+            TVFileModel tvFileModelGroupingInputs = _ProvinceToolsService.GetTVFileModelGroupingInputs(ProvinceTVItemID);
+            ViewBag.TVFileModelGroupingInputs = tvFileModelGroupingInputs;
+
+            string mwqmSitesAndPolSourceSitesFileName = $"MWQMSitesAndPolSourceSites_{_ProvinceToolsService.GetInit(ProvinceTVItemID)}.kml"; ;
+            ViewBag.MWQMSitesAndPolSourceSitesFileName = mwqmSitesAndPolSourceSitesFileName;
+
+            string groupingInputsFileName = $"GroupingInputs_{_ProvinceToolsService.GetInit(ProvinceTVItemID)}.kml"; ;
+            ViewBag.GroupingInputsFileName = groupingInputsFileName;
+
+            return PartialView();
+        }
         #endregion Functions View/PartialViews 
 
         #region Functions JSON
@@ -105,6 +129,14 @@ namespace CSSPWebTools.Controllers
         public JsonResult GenerateClassificationForCSSPWebToolsVisualizationJSON(int ProvinceTVItemID)
         {
             AppTaskModel appTaskModel = _ProvinceToolsService.GenerateClassificationForCSSPWebToolsVisualizationDB(ProvinceTVItemID);
+
+            return Json(appTaskModel.Error, JsonRequestBehavior.AllowGet);
+        }
+        [HttpPost]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public JsonResult GenerateLinksBetweenMWQMSitesAndPolSourceSitesForCSSPWebToolsVisualizationJSON(int ProvinceTVItemID)
+        {
+            AppTaskModel appTaskModel = _ProvinceToolsService.GenerateLinksBetweenMWQMSitesAndPolSourceSitesForCSSPWebToolsVisualizationDB(ProvinceTVItemID);
 
             return Json(appTaskModel.Error, JsonRequestBehavior.AllowGet);
         }

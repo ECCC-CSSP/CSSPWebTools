@@ -1,0 +1,33 @@
+﻿@using CSSPWebTools.Views.OpenData.Resources;
+@using CSSPWebTools.Controllers;
+@using CSSPEnumsDLL.Enums;
+@using CSSPEnumsDLL.Services;
+@using CSSPModelsDLL.Models;
+@using System.Linq;
+
+@{
+    int CountryTVItemID = (int)ViewBag.CountryTVItemID;
+}
+
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <div class="panel-title">
+            @OpenDataViewRes.OpenDataDocumentNationalProduction
+        </div>
+    </div>
+    <div class="panel-body">
+        <div class="AppTaskDiv">
+            @Html.Action("_appTask", "Home", new { TVItemID = CountryTVItemID, Seconds = 5 })
+        </div>
+        <p>
+            <button class="jbOpenDataGenerateCSVDocumentNationalOfMWQMSites btn btn-primary" data-countrytvitemid="@CountryTVItemID">
+                <span>@OpenDataViewRes.GenerateCSVDocumentNationalOfMWQMSites</span>
+            </button>
+        </p>
+        <p>
+            <button class="jbOpenDataGenerateCSVDocumentNationalOfMWQMSamples btn btn-primary" data-countrytvitemid="@CountryTVItemID">
+                <span>@OpenDataViewRes.GenerateCSVDocumentNationalOfMWQMSamples</span>
+            </button>
+        </p>
+    </div>
+</div>

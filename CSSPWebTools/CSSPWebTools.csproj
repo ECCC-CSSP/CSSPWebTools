@@ -915,6 +915,8 @@
     <Content Include="Views\OpenData\_OpenDataDocuments.cshtml" />
     <Content Include="Views\ProvinceTools\_ProvinceToolsTopPage.cshtml" />
     <Content Include="Views\ProvinceTools\_ClassificationTool.cshtml" />
+    <Content Include="Views\ProvinceTools\_MWQMSitePolSourceSiteGroupingTool.cshtml" />
+    <Content Include="Views\OpenData\_OpenDataDocumentsNational.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

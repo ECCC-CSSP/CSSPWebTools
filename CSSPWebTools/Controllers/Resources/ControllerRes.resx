@@ -409,4 +409,7 @@
   <data name="ProvinceTools" xml:space="preserve">
     <value>Province tools</value>
   </data>
+  <data name="OpenDataNational" xml:space="preserve">
+    <value>Open Data National</value>
+  </data>
 </root>
