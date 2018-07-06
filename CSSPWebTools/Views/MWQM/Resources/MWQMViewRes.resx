@@ -245,12 +245,12 @@
     <value>increase</value>
     <comment>MWQMSC</comment>
   </data>
-  <data name="PercentageOfP90gt260" xml:space="preserve">
-    <value>% of P90 &gt; 260 </value>
+  <data name="Percentagegt260" xml:space="preserve">
+    <value>% &gt; 260 </value>
     <comment>MWQMST MWQMSC</comment>
   </data>
-  <data name="PercentageOfP90gt43" xml:space="preserve">
-    <value>% of P90 &gt; 43 </value>
+  <data name="Percentagegt43" xml:space="preserve">
+    <value>% &gt; 43 </value>
     <comment>MWQMST MWQMSC</comment>
   </data>
   <data name="Percentile90_abbr" xml:space="preserve">

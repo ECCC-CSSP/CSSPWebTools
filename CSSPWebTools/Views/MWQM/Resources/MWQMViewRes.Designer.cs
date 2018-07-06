@@ -1213,20 +1213,20 @@ namespace CSSPWebTools.Views.MWQM.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to % of P90 &gt; 260 .
+        ///   Looks up a localized string similar to % &gt; 260 .
         /// </summary>
-        public static string PercentageOfP90gt260 {
+        public static string Percentagegt260 {
             get {
-                return ResourceManager.GetString("PercentageOfP90gt260", resourceCulture);
+                return ResourceManager.GetString("Percentagegt260", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to % of P90 &gt; 43 .
+        ///   Looks up a localized string similar to % &gt; 43 .
         /// </summary>
-        public static string PercentageOfP90gt43 {
+        public static string Percentagegt43 {
             get {
-                return ResourceManager.GetString("PercentageOfP90gt43", resourceCulture);
+                return ResourceManager.GetString("Percentagegt43", resourceCulture);
             }
         }
         
