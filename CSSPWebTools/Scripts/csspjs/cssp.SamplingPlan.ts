@@ -210,11 +210,11 @@
                     });
             });
 
-            $(".mwqmsitecount").each((ind: number, elem: Element) => {
-                if ($(elem).text() != "0") {
-                    $(elem).closest(".jbSamplingPlanShowMWQMSites").trigger("click");
-                }
-            });
+            //$(".mwqmsitecount").each((ind: number, elem: Element) => {
+            //    if ($(elem).text() != "0") {
+            //        $(elem).closest(".jbSamplingPlanShowMWQMSites").trigger("click");
+            //    }
+            //});
 
             window.setTimeout(() => {
                 $(".jbSamplingPlanEditSave").removeClass("hidden");

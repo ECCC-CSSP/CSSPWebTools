@@ -187,11 +187,11 @@ var CSSP;
                         }
                     });
                 });
-                $(".mwqmsitecount").each(function (ind, elem) {
-                    if ($(elem).text() != "0") {
-                        $(elem).closest(".jbSamplingPlanShowMWQMSites").trigger("click");
-                    }
-                });
+                //$(".mwqmsitecount").each((ind: number, elem: Element) => {
+                //    if ($(elem).text() != "0") {
+                //        $(elem).closest(".jbSamplingPlanShowMWQMSites").trigger("click");
+                //    }
+                //});
                 window.setTimeout(function () {
                     $(".jbSamplingPlanEditSave").removeClass("hidden");
                 }, 5000);
