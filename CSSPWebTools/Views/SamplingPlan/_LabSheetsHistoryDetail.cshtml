@@ -13,6 +13,7 @@
     SampleMatrixEnum sampleMatrix = (SampleMatrixEnum)ViewBag.SampleMatrix;
     LaboratoryEnum laboratory = (LaboratoryEnum)ViewBag.Laboratory;
     List<string> AllowableTideString = new List<string>() { "HR", "HT", "HF", "MR", "MT", "MF", "LR", "LT", "LF" };
+    List<MWQMSiteModel> mwqmSiteModelList = (List<MWQMSiteModel>)ViewBag.MWQMSiteModelList;
     BaseEnumService _BaseEnumService = new BaseEnumService(ViewBag.Language);
     string textColor = "text-default";
 }
@@ -698,7 +699,7 @@ else
                                             @labSheetModelAndA1Sheet.LabSheetA1Sheet.Bath2Blank44_5
                                         </td>
                                     </tr>
-                                            }
+                                }
                                 @if (labSheetModelAndA1Sheet.LabSheetA1Sheet.WaterBathCount > 2)
                                 {
                                     <tr>
@@ -737,7 +738,7 @@ else
                                             @labSheetModelAndA1Sheet.LabSheetA1Sheet.Bath3Blank44_5
                                         </td>
                                     </tr>
-                                            }
+                                }
                             </table>
                         </li>
                         <li style="vertical-align:top">
@@ -782,7 +783,7 @@ else
                                 </tr>
                             </table>
                         </li>
-                                    }
+                    }
                 </ul>
                 <span>
                     @SamplingPlanViewRes.RecordFactor
@@ -791,7 +792,7 @@ else
                 <h4>@SamplingPlanViewRes.Data (@(_BaseEnumService.GetEnumText_SampleTypeEnum(labSheetModelAndA1Sheet.LabSheetModel.SampleType)))</h4>
                 <table class="table table-bordered table-striped">
                     <tr>
-                        <th>@SamplingPlanViewRes.Site</th>
+                        <th colspan="2">@SamplingPlanViewRes.Site</th>
                         <th>@SamplingPlanViewRes.Time</th>
                         <th>@SamplingPlanViewRes.MPN</th>
                         <th>@SamplingPlanViewRes.T10</th>
@@ -807,6 +808,60 @@ else
                     </tr>
                     @foreach (LabSheetA1Measurement labSheetA1Measurement in labSheetModelAndA1Sheet.LabSheetA1Sheet.LabSheetA1MeasurementList)
                     {
+                        string bg = "";
+                        string textClass = "";
+
+                        MWQMSiteModel mwqmSiteModel = mwqmSiteModelList.Where(c => c.MWQMSiteNumber == labSheetA1Measurement.Site).FirstOrDefault();
+
+                        if (mwqmSiteModel != null)
+                        {
+                            switch (mwqmSiteModel.MWQMSiteLatestClassification)
+                            {
+                                case MWQMSiteLatestClassificationEnum.Approved:
+                                    {
+                                        bg = "bggreen";
+                                        textClass = "A";
+                                    }
+                                    break;
+                                case MWQMSiteLatestClassificationEnum.ConditionallyApproved:
+                                    {
+                                        bg = "bggreen";
+                                        textClass = "CA";
+                                    }
+                                    break;
+                                case MWQMSiteLatestClassificationEnum.Restricted:
+                                    {
+                                        bg = "bgred";
+                                        textClass = "R";
+                                    }
+                                    break;
+                                case MWQMSiteLatestClassificationEnum.ConditionallyRestricted:
+                                    {
+                                        bg = "bgred";
+                                        textClass = "CR";
+                                    }
+                                    break;
+                                case MWQMSiteLatestClassificationEnum.Prohibited:
+                                    {
+                                        bg = "bgblack";
+                                        textClass = "P";
+                                    }
+                                    break;
+                                case MWQMSiteLatestClassificationEnum.Unclassified:
+                                    {
+                                        bg = "bgwhite";
+                                        textClass = "";
+                                    }
+                                    break;
+                                default:
+                                    {
+                                        bg = "";
+                                        textClass = "";
+                                    }
+                                    break;
+                            }
+                        }
+
                         textColor = "text-default";
                         if (labSheetA1Measurement.MPN == -999)
                         {
@@ -814,6 +869,7 @@ else
                         }
                         <tr class="@(textColor + (labSheetA1Measurement.SampleType == SampleTypeEnum.DailyDuplicate ? "success" : ""))">
                             <td>@labSheetA1Measurement.Site</td>
+                            <td class="@bg"><strong>@textClass</strong></td>
                             <td>@(labSheetA1Measurement.Time != null ? ((DateTime)labSheetA1Measurement.Time).ToString("HH:mm") : "")</td>
                             <td @((labSheetA1Measurement.MPN == null) ? "" : (labSheetA1Measurement.MPN > 42 ? "class=danger" : ""))>
                                 @labSheetA1Measurement.MPN
@@ -835,7 +891,7 @@ else
                             if (labSheetA1Measurement.SampleType == SampleTypeEnum.DailyDuplicate)
                             {
                                 <tr>
-                                    <td colspan="10">
+                                    <td colspan="11">
                                         <h4>@SamplingPlanViewRes.DuplicateInformation</h4>
                                         <p>
                                             <b>@SamplingPlanViewRes.SiteNumber</b> &nbsp;&nbsp;&nbsp;
@@ -866,7 +922,7 @@ else
                             else if (labSheetA1Measurement.SampleType == SampleTypeEnum.IntertechDuplicate)
                             {
                                 <tr>
-                                    <td colspan="10">
+                                    <td colspan="11">
                                         <h4>@SamplingPlanViewRes.IntertechDuplicateInformation</h4>
                                         <p>
                                             <b>@SamplingPlanViewRes.SiteNumber</b> &nbsp;&nbsp;&nbsp;
@@ -897,7 +953,7 @@ else
                             else if (labSheetA1Measurement.SampleType == SampleTypeEnum.IntertechRead)
                             {
                                 <tr>
-                                    <td colspan="10">
+                                    <td colspan="11">
                                         <h4>@SamplingPlanViewRes.IntertechReadInformation</h4>
                                         <p>
                                             <b>@SamplingPlanViewRes.SiteNumber</b> &nbsp;&nbsp;&nbsp;
@@ -947,50 +1003,50 @@ else
                     <p>
                         @SamplingPlanViewRes.NotAllRequiredEtc
                     </p>
-                        <ul class="list-inline">
-                            <li style="vertical-align:top">
-                                <table class="table table-bordered">
-                                    <tr>
-                                        <td>
-                                            <b>@SamplingPlanViewRes.SampleBottleLotNumber</b>
-                                        </td>
-                                        <td>
-                                            @labSheetModelAndA1Sheet.LabSheetA1Sheet.SampleBottleLotNumber
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <b>@SamplingPlanViewRes.SalinityReadBy</b>
-                                        </td>
-                                        <td>
-                                            @labSheetModelAndA1Sheet.LabSheetA1Sheet.SalinitiesReadBy
-                                            &nbsp;
-                                            @(((DateTime)SalinityReadDate).ToString("yyyy MMM dd"))
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <b>@SamplingPlanViewRes.ResultsReadBy</b>
-                                        </td>
-                                        <td>
-                                            @labSheetModelAndA1Sheet.LabSheetA1Sheet.ResultsReadBy
-                                            &nbsp;
-                                            @(((DateTime)ReadDate).ToString("yyyy MMM dd"))
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <b>@SamplingPlanViewRes.ResultsRecordedBy</b>
-                                        </td>
-                                        <td>
-                                            @labSheetModelAndA1Sheet.LabSheetA1Sheet.ResultsRecordedBy
-                                            &nbsp;
-                                            @(((DateTime)RecordedDate).ToString("yyyy MMM dd"))
-                                        </td>
-                                    </tr>
-                                </table>
-                            </li>
-                        </ul>
+                    <ul class="list-inline">
+                        <li style="vertical-align:top">
+                            <table class="table table-bordered">
+                                <tr>
+                                    <td>
+                                        <b>@SamplingPlanViewRes.SampleBottleLotNumber</b>
+                                    </td>
+                                    <td>
+                                        @labSheetModelAndA1Sheet.LabSheetA1Sheet.SampleBottleLotNumber
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <b>@SamplingPlanViewRes.SalinityReadBy</b>
+                                    </td>
+                                    <td>
+                                        @labSheetModelAndA1Sheet.LabSheetA1Sheet.SalinitiesReadBy
+                                        &nbsp;
+                                        @(((DateTime)SalinityReadDate).ToString("yyyy MMM dd"))
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <b>@SamplingPlanViewRes.ResultsReadBy</b>
+                                    </td>
+                                    <td>
+                                        @labSheetModelAndA1Sheet.LabSheetA1Sheet.ResultsReadBy
+                                        &nbsp;
+                                        @(((DateTime)ReadDate).ToString("yyyy MMM dd"))
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <b>@SamplingPlanViewRes.ResultsRecordedBy</b>
+                                    </td>
+                                    <td>
+                                        @labSheetModelAndA1Sheet.LabSheetA1Sheet.ResultsRecordedBy
+                                        &nbsp;
+                                        @(((DateTime)RecordedDate).ToString("yyyy MMM dd"))
+                                    </td>
+                                </tr>
+                            </table>
+                        </li>
+                    </ul>
                 }
                 <div class="panel panel-default">
                     <p class="control-label">@SamplingPlanViewRes.AnalyzeMethod - @_BaseEnumService.GetEnumText_AnalyzeMethodEnum(analyzeMethod)</p>
@@ -1013,4 +1069,4 @@ else
             </div>
         }
     </div>
-                                    }
+}

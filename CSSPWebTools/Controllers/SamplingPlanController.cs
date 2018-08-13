@@ -313,10 +313,12 @@ namespace CSSPWebTools.Controllers
             ViewBag.AnalyzeMethod = AnalyzeMethodEnum.Error;
             ViewBag.SampleMatrix = SampleMatrixEnum.Error;
             ViewBag.Laboratory = LaboratoryEnum.Error;
+            ViewBag.MWQMSiteModelList = new List<MWQMSiteModel>();
 
             SamplingPlanService SamplingPlanService = new SamplingPlanService(_TVItemService.LanguageRequest, _TVItemService.User);
             LabSheetService labSheetService = new LabSheetService(_TVItemService.LanguageRequest, _TVItemService.User);
             MWQMRunService mwqmRunService = new MWQMRunService(_TVItemService.LanguageRequest, _TVItemService.User);
+            MWQMSiteService mwqmSiteService = new MWQMSiteService(_TVItemService.LanguageRequest, _TVItemService.User);
 
             ContactModel contactModel = _ContactService.GetContactLoggedInDB();
 
@@ -361,6 +363,10 @@ namespace CSSPWebTools.Controllers
                     }
                 }
 
+                List<MWQMSiteModel> mwqmSiteModelList = mwqmSiteService.GetMWQMSiteModelListWithSubsectorTVItemIDDB(labSheetModelAndA1Sheet.LabSheetA1Sheet.SubsectorTVItemID);
+
+                ViewBag.MWQMSiteModelList = mwqmSiteModelList;
+
             }
 
             return PartialView();
@@ -379,6 +385,7 @@ namespace CSSPWebTools.Controllers
             ViewBag.LastSampleMatrix = SampleMatrixEnum.Error;
             ViewBag.LastLaboratory = LaboratoryEnum.Error;
             ViewBag.MWQMSampleModelList = new List<MWQMSampleModel>();
+            ViewBag.MWQMSiteModelList = new List<MWQMSiteModel>();
             ViewBag.SamplingPlanModel = null;
 
             List<LabSheetModelAndA1Sheet> labSheetModelAndA1SheetList = new List<LabSheetModelAndA1Sheet>();
@@ -387,6 +394,7 @@ namespace CSSPWebTools.Controllers
             LabSheetService labSheetService = new LabSheetService(_TVItemService.LanguageRequest, _TVItemService.User);
             MWQMRunService mwqmRunService = new MWQMRunService(_TVItemService.LanguageRequest, _TVItemService.User);
             MWQMSampleService mwqmSampleService = new MWQMSampleService(_TVItemService.LanguageRequest, _TVItemService.User);
+            MWQMSiteService mwqmSiteService = new MWQMSiteService(_TVItemService.LanguageRequest, _TVItemService.User);
 
             ContactModel contactModel = _ContactService.GetContactLoggedInDB();
 
@@ -471,6 +479,13 @@ namespace CSSPWebTools.Controllers
                 }
                 ViewBag.MWQMSampleModelList = mwqmSampleModelList;
 
+
+                if (labSheetModelAndA1SheetList.Count > 0)
+                {
+                    List<MWQMSiteModel> mwqmSiteModelList = mwqmSiteService.GetMWQMSiteModelListWithSubsectorTVItemIDDB(labSheetModelAndA1SheetList[0].LabSheetA1Sheet.SubsectorTVItemID);
+
+                    ViewBag.MWQMSiteModelList = mwqmSiteModelList;
+                }
             }
 
             return PartialView();

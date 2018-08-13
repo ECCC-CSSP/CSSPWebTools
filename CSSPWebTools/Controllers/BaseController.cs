@@ -1074,6 +1074,14 @@ namespace CSSPWebTools.Controllers
                 {
                     URL = "",
                     IsVisible = true,
+                    jbClassName = "jbMWQMSiteShowSiteText btn btn-default",
+                    Icon = "glyphicon glyphicon-text-width",
+                    ToolTip = ControllerRes.ShowSiteText,
+                });
+                viewTVItemIconList.Add(new IconInfo()
+                {
+                    URL = "",
+                    IsVisible = true,
                     jbClassName = "jbMapSizeBigger btn btn-default",
                     Icon = "glyphicon glyphicon-circle-arrow-left",
                     ToolTip = ControllerRes.ShowBiggerMap,
