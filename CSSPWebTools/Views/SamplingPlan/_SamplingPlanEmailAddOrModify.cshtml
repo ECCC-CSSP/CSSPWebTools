@@ -24,7 +24,6 @@
                     <th>@SamplingPlanViewRes.LabSheet @SamplingPlanViewRes.Received</th>
                     <th>@SamplingPlanViewRes.LabSheet @SamplingPlanViewRes.Accepted</th>
                     <th>@SamplingPlanViewRes.LabSheet @SamplingPlanViewRes.Rejected</th>
-                    <th>@SamplingPlanViewRes.Friday @SamplingPlanViewRes.Reminder @SamplingPlanViewRes.At14h</th>
                 </tr>
             </thead>
             <tbody>
@@ -66,10 +65,6 @@
                             <input class="form-control" type="checkbox" name="LabSheetRejected" @(samplingPlanEmailModel != null && samplingPlanEmailModel.LabSheetRejected ? "checked='checked'" : "") />
                             <span class="help-block"></span>
                         </td>
-                        <td>
-                            <input class="form-control" type="checkbox" name="FridayReminderAt14h" @(samplingPlanEmailModel != null && samplingPlanEmailModel.FridayReminderAt14h ? "checked='checked'" : "") />
-                            <span class="help-block"></span>
-                        </td>
                     </tr>
                 }
                 @for (int i = 0; i < 10; i++)
@@ -104,10 +99,6 @@
                         </td>
                         <td>
                             <input class="form-control" type="checkbox" name="LabSheetRejected" />
-                            <span class="help-block"></span>
-                        </td>
-                        <td>
-                            <input class="form-control" type="checkbox" name="FridayReminderAt14h" />
                             <span class="help-block"></span>
                         </td>
                     </tr>

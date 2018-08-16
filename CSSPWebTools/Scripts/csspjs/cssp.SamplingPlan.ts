@@ -333,7 +333,6 @@
             let LabSheetReceived: boolean = $bjs.closest("tr").find("input[name='LabSheetReceived']").is(":checked") ? true : false;
             let LabSheetAccepted: boolean = $bjs.closest("tr").find("input[name='LabSheetAccepted']").is(":checked") ? true : false;
             let LabSheetRejected: boolean = $bjs.closest("tr").find("input[name='LabSheetRejected']").is(":checked") ? true : false;
-            let FridayReminderAt14h: boolean = $bjs.closest("tr").find("input[name='FridayReminderAt14h']").is(":checked") ? true : false;
             let command = "SamplingPlan/SamplingPlanEmailAddOrModifyJSON";
             $.post(cssp.BaseURL + command, {
                 SamplingPlanID: SamplingPlanID,
@@ -344,7 +343,6 @@
                 LabSheetReceived: LabSheetReceived,
                 LabSheetAccepted: LabSheetAccepted,
                 LabSheetRejected: LabSheetRejected,
-                FridayReminderAt14h: FridayReminderAt14h,
             }).done((ret) => {
                 if (ret) {
                     cssp.Dialog.ShowDialogError(ret);

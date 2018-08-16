@@ -274,7 +274,6 @@ var CSSP;
                 var LabSheetReceived = $bjs.closest("tr").find("input[name='LabSheetReceived']").is(":checked") ? true : false;
                 var LabSheetAccepted = $bjs.closest("tr").find("input[name='LabSheetAccepted']").is(":checked") ? true : false;
                 var LabSheetRejected = $bjs.closest("tr").find("input[name='LabSheetRejected']").is(":checked") ? true : false;
-                var FridayReminderAt14h = $bjs.closest("tr").find("input[name='FridayReminderAt14h']").is(":checked") ? true : false;
                 var command = "SamplingPlan/SamplingPlanEmailAddOrModifyJSON";
                 $.post(cssp.BaseURL + command, {
                     SamplingPlanID: SamplingPlanID,
@@ -285,7 +284,6 @@ var CSSP;
                     LabSheetReceived: LabSheetReceived,
                     LabSheetAccepted: LabSheetAccepted,
                     LabSheetRejected: LabSheetRejected,
-                    FridayReminderAt14h: FridayReminderAt14h,
                 }).done(function (ret) {
                     if (ret) {
                         cssp.Dialog.ShowDialogError(ret);
