@@ -245,7 +245,7 @@ module CSSP {
         public ReportSectionTextModify: Function = (tinymce: any): void => {
             let content = tinymce.activeEditor.getContent();
 
-            let $form: JQuery = $(tinymce.activeEditor.targetElm.closest("form"));
+            let $form: JQuery = $(tinymce.activeEditor.targetElm).closest("form");
             if ($form.length == 0) {
                 cssp.Dialog.ShowDialogErrorWithCouldNotFind_Within_(".ReportSectionTextForm", "Form tag");
                 return;
@@ -517,7 +517,8 @@ module CSSP {
                 .fail(() => {
                     cssp.Dialog.ShowDialogErrorWithFail(command);
                 });
-        }; public ReportTypeRelaod: Function = ($bjs: JQuery): void => {
+        };
+        public ReportTypeRelaod: Function = ($bjs: JQuery): void => {
             let TVType: number = parseInt($bjs.data("tvtype"));
 
             let command: string = "ReportType/_reportTypeList";
@@ -532,6 +533,21 @@ module CSSP {
                     cssp.Dialog.ShowDialogErrorWithFail(command);
                 });
 
+        };
+        public TinymceInit: Function = (): void => {
+            tinymce.init({
+                selector: ".ReportSectionTextArea",
+                height: 200,
+                menubar: true,
+                plugins: "fullpage searchreplace autolink visualblocks visualchars fullscreen table charmap hr insertdatetime advlist lists textcolor contextmenu colorpicker textpattern help save",
+                toolbar: "save undo redo | formatselect | bold italic strikethrough forecolor backcolor alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent  | removeformat",
+                spellchecker_language: 'en',
+                spellchecker_dialog: true,
+
+                save_onsavecallback: function () {
+                    cssp.ReportType.ReportSectionTextModify(tinymce);
+                }
+            });
         };
     }
 }

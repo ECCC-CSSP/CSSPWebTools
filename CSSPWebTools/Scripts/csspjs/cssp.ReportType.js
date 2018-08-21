@@ -213,7 +213,7 @@ var CSSP;
             };
             this.ReportSectionTextModify = function (tinymce) {
                 var content = tinymce.activeEditor.getContent();
-                var $form = $(tinymce.activeEditor.targetElm.closest("form"));
+                var $form = $(tinymce.activeEditor.targetElm).closest("form");
                 if ($form.length == 0) {
                     cssp.Dialog.ShowDialogErrorWithCouldNotFind_Within_(".ReportSectionTextForm", "Form tag");
                     return;
@@ -474,6 +474,20 @@ var CSSP;
                 })
                     .fail(function () {
                     cssp.Dialog.ShowDialogErrorWithFail(command);
+                });
+            };
+            this.TinymceInit = function () {
+                tinymce.init({
+                    selector: ".ReportSectionTextArea",
+                    height: 200,
+                    menubar: true,
+                    plugins: "fullpage searchreplace autolink visualblocks visualchars fullscreen table charmap hr insertdatetime advlist lists textcolor contextmenu colorpicker textpattern help save",
+                    toolbar: "save undo redo | formatselect | bold italic strikethrough forecolor backcolor alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent  | removeformat",
+                    spellchecker_language: 'en',
+                    spellchecker_dialog: true,
+                    save_onsavecallback: function () {
+                        cssp.ReportType.ReportSectionTextModify(tinymce);
+                    }
                 });
             };
         }
