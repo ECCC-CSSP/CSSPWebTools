@@ -184,7 +184,6 @@ var CSSP;
                 });
             };
             this.ReportSectionNameModify = function ($bjs) {
-                tinymce.triggerSave();
                 var $form = $bjs.closest("form.ReportSectionNameForm");
                 if ($form.length == 0) {
                     cssp.Dialog.ShowDialogErrorWithCouldNotFind_Within_(".ReportSectionNameForm", "Form tag");
@@ -212,36 +211,36 @@ var CSSP;
                     });
                 }
             };
-            this.ReportSectionTextModify = function ($bjs) {
-                tinymce.triggerSave();
-                tinymce.triggerSave();
-                tinymce.triggerSave();
-                var $form = $bjs.closest("form.ReportSectionTextForm");
+            this.ReportSectionTextModify = function (tinymce) {
+                var content = tinymce.activeEditor.getContent();
+                var $form = $(tinymce.activeEditor.targetElm.closest("form"));
                 if ($form.length == 0) {
                     cssp.Dialog.ShowDialogErrorWithCouldNotFind_Within_(".ReportSectionTextForm", "Form tag");
                     return;
                 }
-                if (!$form.valid || $form.valid()) {
-                    var command_2 = $form.attr("action");
-                    $.post(cssp.BaseURL + command_2, $form.serializeArray())
-                        .done(function (ret) {
-                        if (ret != "") {
-                            cssp.Dialog.ShowDialogErrorWithError(ret);
-                        }
-                        else {
-                            cssp.ReportType.ReportSectionReloadList($bjs);
-                            tinymce.remove();
-                            $(".jbReportSectionShowOrHideForm").each(function (ind, elem) {
-                                if ($(elem).hasClass("btn-success")) {
-                                    $(elem).trigger("click");
-                                }
-                            });
-                        }
-                    })
-                        .fail(function () {
-                        cssp.Dialog.ShowDialogErrorWithFail(command_2);
-                    });
-                }
+                var ReportSectionID = parseInt($form.find("input[name='ReportSectionID']").val());
+                var command = "ReportType/ReportSectionTextModifyJSON";
+                $.post(cssp.BaseURL + command, {
+                    ReportSectionID: ReportSectionID,
+                    ReportSectionText: content,
+                })
+                    .done(function (ret) {
+                    if (ret != "") {
+                        cssp.Dialog.ShowDialogErrorWithError(ret);
+                    }
+                    else {
+                        //cssp.ReportType.ReportSectionReloadList($bjs);
+                        //tinymce.remove();
+                        //$(".jbReportSectionShowOrHideForm").each((ind: number, elem: Element) => {
+                        //    if ($(elem).hasClass("btn-success")) {
+                        //        $(elem).trigger("click");
+                        //    }
+                        //});
+                    }
+                })
+                    .fail(function () {
+                    cssp.Dialog.ShowDialogErrorWithFail(command);
+                });
             };
             this.ReportSectionListShowHide = function ($bjs) {
                 if ($bjs.hasClass("btn-default")) {
@@ -263,14 +262,14 @@ var CSSP;
                     var TVItemID = parseInt($bjs.closest("#ViewDiv").data("tvitemid"));
                     var formDiv$_1 = $bjs.closest(".ReportSectionTop").find(".ReportSectionForm").eq(0);
                     formDiv$_1.html(cssp.GetHTMLVariable("#LayoutVariables", "varLoading"));
-                    var command_3 = "ReportType/_reportSectionForm";
-                    $.get(cssp.BaseURL + command_3, {
+                    var command_2 = "ReportType/_reportSectionForm";
+                    $.get(cssp.BaseURL + command_2, {
                         ReportSectionID: ReportSectionID,
                         TVItemID: TVItemID,
                     }).done(function (ret) {
                         formDiv$_1.html(ret);
                     }).fail(function () {
-                        cssp.Dialog.ShowDialogErrorWithFail(command_3);
+                        cssp.Dialog.ShowDialogErrorWithFail(command_2);
                     });
                 }
                 else {
@@ -312,8 +311,8 @@ var CSSP;
                     return;
                 }
                 if (!$form.valid || $form.valid()) {
-                    var command_4 = $form.attr("action");
-                    $.post(cssp.BaseURL + command_4, $form.serializeArray())
+                    var command_3 = $form.attr("action");
+                    $.post(cssp.BaseURL + command_3, $form.serializeArray())
                         .done(function (ret) {
                         if (ret.Error != "") {
                             cssp.Dialog.ShowDialogErrorWithError(ret.Error);
@@ -330,7 +329,7 @@ var CSSP;
                         }
                     })
                         .fail(function () {
-                        cssp.Dialog.ShowDialogErrorWithFail(command_4);
+                        cssp.Dialog.ShowDialogErrorWithFail(command_3);
                     });
                 }
             };
@@ -430,8 +429,8 @@ var CSSP;
                     var ReportTypeID = parseInt($bjs.data("reporttypeid"));
                     var TVItemID = parseInt($bjs.data("tvitemid"));
                     var TVFileTVItemID = parseInt($bjs.data("tvfiletvitemid"));
-                    var command_5 = "Document/_documentParameters";
-                    $.get(cssp.BaseURL + command_5, {
+                    var command_4 = "Document/_documentParameters";
+                    $.get(cssp.BaseURL + command_4, {
                         ReportTypeID: ReportTypeID,
                         TVItemID: TVItemID,
                         TVFileTVItemID: TVFileTVItemID,
@@ -440,7 +439,7 @@ var CSSP;
                         $bjs.closest(".ReportFileTopDiv").find(".ReportFileParametersDiv").html(ret);
                     })
                         .fail(function () {
-                        cssp.Dialog.ShowDialogErrorWithFail(command_5);
+                        cssp.Dialog.ShowDialogErrorWithFail(command_4);
                     });
                 }
                 else {

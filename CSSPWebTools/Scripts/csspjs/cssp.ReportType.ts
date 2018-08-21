@@ -65,7 +65,7 @@ module CSSP {
                 });
 
         };
-     public ReportSectionAddSibling: Function = ($bjs: JQuery): void => {
+        public ReportSectionAddSibling: Function = ($bjs: JQuery): void => {
             let ReportSectionID: number = parseInt($bjs.closest(".ReportSectionTop").data("reportsectionid"));
 
             let command: string = "ReportType/ReportSectionAddSiblingJSON";
@@ -213,7 +213,6 @@ module CSSP {
 
         };
         public ReportSectionNameModify: Function = ($bjs: JQuery): void => {
-            tinymce.triggerSave();
             let $form: JQuery = $bjs.closest("form.ReportSectionNameForm");
             if ($form.length == 0) {
                 cssp.Dialog.ShowDialogErrorWithCouldNotFind_Within_(".ReportSectionNameForm", "Form tag");
@@ -243,37 +242,39 @@ module CSSP {
             }
 
         };
-        public ReportSectionTextModify: Function = ($bjs: JQuery): void => {
-            tinymce.triggerSave();
-            tinymce.triggerSave();
-            tinymce.triggerSave();
-            let $form: JQuery = $bjs.closest("form.ReportSectionTextForm");
+        public ReportSectionTextModify: Function = (tinymce: any): void => {
+            let content = tinymce.activeEditor.getContent();
+
+            let $form: JQuery = $(tinymce.activeEditor.targetElm.closest("form"));
             if ($form.length == 0) {
                 cssp.Dialog.ShowDialogErrorWithCouldNotFind_Within_(".ReportSectionTextForm", "Form tag");
                 return;
             }
 
-            if (!$form.valid || $form.valid()) {
-                let command: string = $form.attr("action");
-                $.post(cssp.BaseURL + command, $form.serializeArray())
-                    .done((ret) => {
-                        if (ret != "") {
-                            cssp.Dialog.ShowDialogErrorWithError(ret);
-                        }
-                        else {
-                            cssp.ReportType.ReportSectionReloadList($bjs);
-                            tinymce.remove();
-                            $(".jbReportSectionShowOrHideForm").each((ind: number, elem: Element) => {
-                                if ($(elem).hasClass("btn-success")) {
-                                    $(elem).trigger("click");
-                                }
-                            });
-                        }
-                    })
-                    .fail(() => {
-                        cssp.Dialog.ShowDialogErrorWithFail(command);
-                    });
-            }
+            let ReportSectionID: number = parseInt($form.find("input[name='ReportSectionID']").val());
+            let command: string = "ReportType/ReportSectionTextModifyJSON";
+            $.post(cssp.BaseURL + command,
+                {
+                    ReportSectionID: ReportSectionID,
+                    ReportSectionText: content,
+                })
+                .done((ret) => {
+                    if (ret != "") {
+                        cssp.Dialog.ShowDialogErrorWithError(ret);
+                    }
+                    else {
+                        //cssp.ReportType.ReportSectionReloadList($bjs);
+                        //tinymce.remove();
+                        //$(".jbReportSectionShowOrHideForm").each((ind: number, elem: Element) => {
+                        //    if ($(elem).hasClass("btn-success")) {
+                        //        $(elem).trigger("click");
+                        //    }
+                        //});
+                    }
+                })
+                .fail(() => {
+                    cssp.Dialog.ShowDialogErrorWithFail(command);
+                });
 
         };
         public ReportSectionListShowHide: Function = ($bjs: JQuery): void => {
@@ -315,7 +316,7 @@ module CSSP {
                 $bjs.removeClass("btn-success").addClass("btn-default");
                 let formDiv$: JQuery = $bjs.closest(".ReportSectionTop").find(".ReportSectionForm").eq(0);
 
-                formDiv$.html(""); 
+                formDiv$.html("");
             }
         };
         public ReportSectionShowOrHideNameForm: Function = ($bjs: JQuery): void => {

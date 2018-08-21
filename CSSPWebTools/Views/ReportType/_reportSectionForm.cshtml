@@ -58,12 +58,12 @@ else
                             <span class="help-block"></span>
                         </div>
                     </div>
-                    <div class="form-group">
+                    @*<div class="form-group">
                         <button class="jbReportSectionTextModify btn btn-primary" type="submit">
                             <span class="glyphicon glyphicon-check"></span>
                             &nbsp;@ReportTypeViewRes.Save
                         </button>
-                    </div>
+                    </div>*@
                 </form>
             </div>
             @{
@@ -83,10 +83,10 @@ else
                             </div>
                         </div>
                         <div class="form-group">
-                            <button class="jbReportSectionTextModify btn btn-primary" type="submit">
+                            @*<button class="jbReportSectionTextModify btn btn-primary" type="submit">
                                 <span class="glyphicon glyphicon-check"></span>
                                 &nbsp;@ReportTypeViewRes.Save
-                            </button>
+                            </button>*@
                             <button class="jbAskToRemoveReportSectionYear btn btn-default" data-reportsectionid="@reportSectionModel.ReportSectionID" title="@ReportTypeViewRes.Delete">
                                 <span class="glyphicon glyphicon-trash"></span>
                                 &nbsp;@ReportTypeViewRes.Delete
@@ -125,9 +125,44 @@ else
     <script>
         tinymce.init({
             selector: ".ReportSectionTextArea",
-            plugins: "fullpage searchreplace autolink visualblocks visualchars fullscreen table charmap hr insertdatetime advlist lists textcolor contextmenu colorpicker textpattern help",
-            toolbar1: "formatselect | bold italic strikethrough forecolor backcolor alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent  | removeformat",
             height: 200,
+            menubar: true,
+            plugins: "fullpage searchreplace autolink visualblocks visualchars fullscreen table charmap hr insertdatetime advlist lists textcolor contextmenu colorpicker textpattern help save",
+            toolbar: "save undo redo | formatselect | bold italic strikethrough forecolor backcolor alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent  | removeformat",
+            //content_css: [
+            //    '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
+            //    '//www.tinymce.com/css/codepen.min.css'],
+
+            spellchecker_language: 'en',
+            spellchecker_dialog: true,
+
+            //Save button call back function
+            save_onsavecallback: function () {
+                cssp.ReportType.ReportSectionTextModify(tinymce);
+            }
         });
+        //tinymce.init({
+        //    selector: '.ReportSectionTextArea',
+        //    height: 200,
+        //    menubar: true,
+        //    plugins: [
+        //        'advlist autolink lists link image charmap print preview anchor',
+        //        'searchreplace visualblocks fullscreen',
+        //        'insertdatetime media table contextmenu save'
+        //    ],
+        //    toolbar: 'save undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | advcode spellchecker code a11ycheck',
+        //    content_css: [
+        //        '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
+        //        '//www.tinymce.com/css/codepen.min.css'],
+
+        //    spellchecker_language: 'en',
+        //    spellchecker_dialog: true,
+
+        //    //Save button call back function
+        //    save_onsavecallback: function () {
+        //        var content = tinymce.activeEditor.getContent();
+        //        console.log(content);
+        //    }
+        //});
     </script>
 }
