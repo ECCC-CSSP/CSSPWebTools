@@ -140,6 +140,30 @@ namespace CSSPWebTools.Controllers
 
             return Json(appTaskModel.Error, JsonRequestBehavior.AllowGet);
         }
+        [HttpPost]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public JsonResult ProvinceToolsCreateClassificationInputsKMLJSON(int ProvinceTVItemID)
+        {
+            AppTaskModel appTaskModel = _ProvinceToolsService.ProvinceToolsCreateClassificationInputsKMLDB(ProvinceTVItemID);
+
+            return Json(appTaskModel.Error, JsonRequestBehavior.AllowGet);
+        }
+        [HttpPost]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public JsonResult ProvinceToolsCreateGroupingInputsKMLJSON(int ProvinceTVItemID)
+        {
+            AppTaskModel appTaskModel = _ProvinceToolsService.ProvinceToolsCreateGroupingInputsKMLDB(ProvinceTVItemID);
+
+            return Json(appTaskModel.Error, JsonRequestBehavior.AllowGet);
+        }
+        [HttpPost]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public JsonResult ProvinceToolsCreateMWQMSitesAndPolSourceSitesKMLJSON(int ProvinceTVItemID)
+        {
+            AppTaskModel appTaskModel = _ProvinceToolsService.ProvinceToolsCreateMWQMSitesAndPolSourceSitesKMLDB(ProvinceTVItemID);
+
+            return Json(appTaskModel.Error, JsonRequestBehavior.AllowGet);
+        }
         #endregion Functions JSON
 
         #region Functions public Non Action

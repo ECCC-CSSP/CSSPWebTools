@@ -30,11 +30,21 @@
     if (!string.IsNullOrWhiteSpace(tvFileModelMWQMSitesAndPolSourceSites.Error))
     {
         <h4>@MWQMSitesAndPolSourceSitesFileName</h4>
+        <p>
+            <button class="jbProvinceToolsCreateMWQMSitesAndPolSourceSitesKML btn btn-primary" data-provincetvitemid="@ProvinceTVItemID">
+                <span>@ProvinceToolsViewRes.CreateMWQMSitesAndPolSourceSitesKML</span>
+            </button>
+        </p>
     }
 
     if (!string.IsNullOrWhiteSpace(tvFileModelGroupingInputs.Error))
     {
         <h4>@GroupingInputsFileName</h4>
+        <p>
+            <button class="jbProvinceToolsCreateGroupingInputsKML btn btn-primary" data-provincetvitemid="@ProvinceTVItemID">
+                <span>@ProvinceToolsViewRes.CreateShellOfGroupingInputsKML</span>
+            </button>
+        </p>
     }
 }
 

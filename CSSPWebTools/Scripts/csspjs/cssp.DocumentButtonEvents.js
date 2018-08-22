@@ -1126,6 +1126,21 @@ var CSSP;
                                 cssp.ProvinceTools.GenerateLinksBetweenMWQMSitesAndPolSourceSitesForCSSPWebToolsVisualization($bjs);
                             }
                             break;
+                        case "jbProvinceToolsCreateClassificationInputsKML":
+                            {
+                                cssp.ProvinceTools.ProvinceToolsCreateClassificationInputsKML($bjs);
+                            }
+                            break;
+                        case "jbProvinceToolsCreateGroupingInputsKML":
+                            {
+                                cssp.ProvinceTools.ProvinceToolsCreateGroupingInputsKML($bjs);
+                            }
+                            break;
+                        case "jbProvinceToolsCreateMWQMSitesAndPolSourceSitesKML":
+                            {
+                                cssp.ProvinceTools.ProvinceToolsCreateMWQMSitesAndPolSourceSitesKML($bjs);
+                            }
+                            break;
                         case "jbRainExceedanceAddOrModify":
                             {
                                 cssp.RainExceedance.FormSubmit($bjs);

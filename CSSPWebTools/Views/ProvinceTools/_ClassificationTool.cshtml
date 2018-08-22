@@ -30,11 +30,17 @@
     if (!string.IsNullOrWhiteSpace(tvFileModelClassificationPolygons.Error))
     {
         <h4>@ClassificationPolygonsFileName</h4>
+        <p>@ProvinceToolsViewRes.TheFileAboveIsAnExportAsKMLFromArcGISProvincialClassificationPolygons</p>
     }
 
     if (!string.IsNullOrWhiteSpace(tvFileModelClassificationInputs.Error))
     {
         <h4>@ClassificationInputsFileName</h4>
+        <p>
+            <button class="jbProvinceToolsCreateClassificationInputsKML btn btn-primary" data-provincetvitemid="@ProvinceTVItemID">
+                <span>@ProvinceToolsViewRes.CreateShellOfClassificationInputsKML</span>
+            </button>
+        </p>
     }
 }
 

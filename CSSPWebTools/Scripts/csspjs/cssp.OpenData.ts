@@ -57,7 +57,6 @@ module CSSP {
             });
         };
         public OpenDataGenerateCSVDocumentOfMWQMSites: Function = ($bjs: JQuery): void => {
-            //cssp.Dialog.ShowDialogMessage(cssp.GetHTMLVariable("#LayoutVariables", "varNotImplementedYet"));
             let ProvinceTVItemID: number = parseInt($bjs.data("provincetvitemid"));
             let command: string = "OpenData/GenerateCSVDocumentOfMWQMSitesJSON";
             $.post(cssp.BaseURL + command, {
@@ -74,7 +73,6 @@ module CSSP {
             });
         };
         public OpenDataGenerateCSVDocumentNationalOfMWQMSites: Function = ($bjs: JQuery): void => {
-            //cssp.Dialog.ShowDialogMessage(cssp.GetHTMLVariable("#LayoutVariables", "varNotImplementedYet"));
             let CountryTVItemID: number = parseInt($bjs.data("countrytvitemid"));
             let command: string = "OpenData/GenerateCSVDocumentNationalOfMWQMSitesJSON";
             $.post(cssp.BaseURL + command, {
@@ -91,7 +89,6 @@ module CSSP {
             });
         };
         public OpenDataGenerateKMZDocumentOfMWQMSites: Function = ($bjs: JQuery): void => {
-            //cssp.Dialog.ShowDialogMessage(cssp.GetHTMLVariable("#LayoutVariables", "varNotImplementedYet"));
             let ProvinceTVItemID: number = parseInt($bjs.data("provincetvitemid"));
             let command: string = "OpenData/GenerateKMZDocumentOfMWQMSitesJSON";
             $.post(cssp.BaseURL + command, {
@@ -108,7 +105,6 @@ module CSSP {
             });
         };
         public OpenDataGenerateCSVDocumentOfMWQMSamples: Function = ($bjs: JQuery): void => {
-            //cssp.Dialog.ShowDialogMessage(cssp.GetHTMLVariable("#LayoutVariables", "varNotImplementedYet"));
             let ProvinceTVItemID: number = parseInt($bjs.data("provincetvitemid"));
             let command: string = "OpenData/GenerateCSVDocumentOfMWQMSamplesJSON";
             $.post(cssp.BaseURL + command, {
@@ -125,7 +121,6 @@ module CSSP {
             });
         };
         public OpenDataGenerateCSVDocumentNationalOfMWQMSamples: Function = ($bjs: JQuery): void => {
-            //cssp.Dialog.ShowDialogMessage(cssp.GetHTMLVariable("#LayoutVariables", "varNotImplementedYet"));
             let CountryTVItemID: number = parseInt($bjs.data("countrytvitemid"));
             let command: string = "OpenData/GenerateCSVDocumentNationalOfMWQMSamplesJSON";
             $.post(cssp.BaseURL + command, {
@@ -142,7 +137,6 @@ module CSSP {
             });
         };
         public OpenDataGenerateXlsxDocumentOfMWQMSitesAndSamples: Function = ($bjs: JQuery): void => {
-            //cssp.Dialog.ShowDialogMessage(cssp.GetHTMLVariable("#LayoutVariables", "varNotImplementedYet"));
             let ProvinceTVItemID: number = parseInt($bjs.data("provincetvitemid"));
             let command: string = "OpenData/GenerateXlsxDocumentOfMWQMSitesAndSamplesJSON";
             $.post(cssp.BaseURL + command, {

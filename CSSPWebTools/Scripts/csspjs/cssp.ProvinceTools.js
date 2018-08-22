@@ -138,6 +138,54 @@ var CSSP;
                     cssp.ProvinceTools.ReenableButton($bjs);
                 }
             };
+            this.ProvinceToolsCreateClassificationInputsKML = function ($bjs) {
+                var ProvinceTVItemID = parseInt($bjs.data("provincetvitemid"));
+                var command = "ProvinceTools/ProvinceToolsCreateClassificationInputsKMLJSON";
+                $.post(cssp.BaseURL + command, {
+                    ProvinceTVItemID: ProvinceTVItemID,
+                }).done(function (ret) {
+                    if (ret) {
+                        cssp.Dialog.ShowDialogError(ret);
+                    }
+                    else {
+                        cssp.Helper.PageRefresh();
+                    }
+                }).fail(function () {
+                    cssp.Dialog.ShowDialogErrorWithFail(command);
+                });
+            };
+            this.ProvinceToolsCreateGroupingInputsKML = function ($bjs) {
+                var ProvinceTVItemID = parseInt($bjs.data("provincetvitemid"));
+                var command = "ProvinceTools/ProvinceToolsCreateGroupingInputsKMLJSON";
+                $.post(cssp.BaseURL + command, {
+                    ProvinceTVItemID: ProvinceTVItemID,
+                }).done(function (ret) {
+                    if (ret) {
+                        cssp.Dialog.ShowDialogError(ret);
+                    }
+                    else {
+                        cssp.Helper.PageRefresh();
+                    }
+                }).fail(function () {
+                    cssp.Dialog.ShowDialogErrorWithFail(command);
+                });
+            };
+            this.ProvinceToolsCreateMWQMSitesAndPolSourceSitesKML = function ($bjs) {
+                var ProvinceTVItemID = parseInt($bjs.data("provincetvitemid"));
+                var command = "ProvinceTools/ProvinceToolsCreateMWQMSitesAndPolSourceSitesKMLJSON";
+                $.post(cssp.BaseURL + command, {
+                    ProvinceTVItemID: ProvinceTVItemID,
+                }).done(function (ret) {
+                    if (ret) {
+                        cssp.Dialog.ShowDialogError(ret);
+                    }
+                    else {
+                        cssp.Helper.PageRefresh();
+                    }
+                }).fail(function () {
+                    cssp.Dialog.ShowDialogErrorWithFail(command);
+                });
+            };
         }
         return ProvinceTools;
     }());

@@ -204,4 +204,16 @@
   <data name="YouCanDrawAsManyAsIsNeeded" xml:space="preserve">
     <value>You can draw as many as is needed</value>
   </data>
+  <data name="CreateShellOfClassificationInputsKML" xml:space="preserve">
+    <value>Create shell of Classification Inputs KML</value>
+  </data>
+  <data name="CreateShellOfGroupingInputsKML" xml:space="preserve">
+    <value>Create shell of Grouping Inputs KML</value>
+  </data>
+  <data name="CreateMWQMSitesAndPolSourceSitesKML" xml:space="preserve">
+    <value>Create MWQM Sites and PolSourceSites KML</value>
+  </data>
+  <data name="TheFileAboveIsAnExportAsKMLFromArcGISProvincialClassificationPolygons" xml:space="preserve">
+    <value>The file above is an export as KML from Arc GIS provincial classification polygons</value>
+  </data>
 </root>

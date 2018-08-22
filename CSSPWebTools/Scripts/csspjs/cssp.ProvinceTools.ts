@@ -142,5 +142,53 @@ module CSSP {
                 cssp.ProvinceTools.ReenableButton($bjs);
             }
         };
+        public ProvinceToolsCreateClassificationInputsKML: Function = ($bjs: JQuery): void => {
+            let ProvinceTVItemID: number = parseInt($bjs.data("provincetvitemid"));
+            let command: string = "ProvinceTools/ProvinceToolsCreateClassificationInputsKMLJSON";
+            $.post(cssp.BaseURL + command, {
+                ProvinceTVItemID: ProvinceTVItemID,
+            }).done((ret) => {
+                if (ret) {
+                    cssp.Dialog.ShowDialogError(ret);
+                }
+                else {
+                    cssp.Helper.PageRefresh();
+                }
+            }).fail(() => {
+                cssp.Dialog.ShowDialogErrorWithFail(command);
+            });
+        };
+        public ProvinceToolsCreateGroupingInputsKML: Function = ($bjs: JQuery): void => {
+            let ProvinceTVItemID: number = parseInt($bjs.data("provincetvitemid"));
+            let command: string = "ProvinceTools/ProvinceToolsCreateGroupingInputsKMLJSON";
+            $.post(cssp.BaseURL + command, {
+                ProvinceTVItemID: ProvinceTVItemID,
+            }).done((ret) => {
+                if (ret) {
+                    cssp.Dialog.ShowDialogError(ret);
+                }
+                else {
+                    cssp.Helper.PageRefresh();
+                }
+            }).fail(() => {
+                cssp.Dialog.ShowDialogErrorWithFail(command);
+            });
+        };
+        public ProvinceToolsCreateMWQMSitesAndPolSourceSitesKML: Function = ($bjs: JQuery): void => {
+            let ProvinceTVItemID: number = parseInt($bjs.data("provincetvitemid"));
+            let command: string = "ProvinceTools/ProvinceToolsCreateMWQMSitesAndPolSourceSitesKMLJSON";
+            $.post(cssp.BaseURL + command, {
+                ProvinceTVItemID: ProvinceTVItemID,
+            }).done((ret) => {
+                if (ret) {
+                    cssp.Dialog.ShowDialogError(ret);
+                }
+                else {
+                    cssp.Helper.PageRefresh();
+                }
+            }).fail(() => {
+                cssp.Dialog.ShowDialogErrorWithFail(command);
+            });
+        };
     }
 }

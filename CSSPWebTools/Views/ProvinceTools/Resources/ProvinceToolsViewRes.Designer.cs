@@ -125,6 +125,33 @@ namespace CSSPWebTools.Views.ProvinceTools.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Create MWQM Sites and PolSourceSites KML.
+        /// </summary>
+        public static string CreateMWQMSitesAndPolSourceSitesKML {
+            get {
+                return ResourceManager.GetString("CreateMWQMSitesAndPolSourceSitesKML", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create shell of Classification Inputs KML.
+        /// </summary>
+        public static string CreateShellOfClassificationInputsKML {
+            get {
+                return ResourceManager.GetString("CreateShellOfClassificationInputsKML", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create shell of Grouping Inputs KML.
+        /// </summary>
+        public static string CreateShellOfGroupingInputsKML {
+            get {
+                return ResourceManager.GetString("CreateShellOfGroupingInputsKML", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to CR = Conditionally Restricted.
         /// </summary>
         public static string CRForConditionallyRestricted {
@@ -292,6 +319,15 @@ namespace CSSPWebTools.Views.ProvinceTools.Resources {
         public static string Steps {
             get {
                 return ResourceManager.GetString("Steps", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The file above is an export as KML from Arc GIS provincial classification polygons.
+        /// </summary>
+        public static string TheFileAboveIsAnExportAsKMLFromArcGISProvincialClassificationPolygons {
+            get {
+                return ResourceManager.GetString("TheFileAboveIsAnExportAsKMLFromArcGISProvincialClassificationPolygons", resourceCulture);
             }
         }
         
