@@ -14,7 +14,7 @@
     SampleMatrixEnum lastSampleMatrix = (SampleMatrixEnum)ViewBag.LastSampleMatrix;
     LaboratoryEnum lastLaboratory = (LaboratoryEnum)ViewBag.LastLaboratory;
     List<MWQMSampleModel> mwqmSampleModelList = (List<MWQMSampleModel>)ViewBag.MWQMSampleModelList;
-    List<MWQMSiteModel> mwqmSiteModelList = (List<MWQMSiteModel>)ViewBag.MWQMSiteModelList;
+    List<SubsectorMWQMSiteModel> subsectorMWQMSiteModelList = (List<SubsectorMWQMSiteModel>)ViewBag.SubsectorMWQMSiteModelList;
     List<string> AllowableTideString = new List<string>() { "HR", "HT", "HF", "MR", "MT", "MF", "LR", "LT", "LF" };
     BaseEnumService _BaseEnumService = new BaseEnumService(ViewBag.Language);
     string textColor = "text-default";
@@ -54,12 +54,12 @@ else
         @foreach (LabSheetModelAndA1Sheet labSheetModelAndA1Sheet in labSheetModelAndA1SheetList)
         {
             string SiteNameDup = "";
-            LabSheetA1Measurement labSheetA1Measurment = labSheetModelAndA1Sheet.LabSheetA1Sheet.LabSheetA1MeasurementList.Where(c => c.SampleType == SampleTypeEnum.DailyDuplicate).FirstOrDefault();
-            if (labSheetA1Measurment != null)
+            LabSheetA1Measurement labSheetA1Measurement2 = labSheetModelAndA1Sheet.LabSheetA1Sheet.LabSheetA1MeasurementList.Where(c => c.SampleType == SampleTypeEnum.DailyDuplicate).FirstOrDefault();
+            if (labSheetA1Measurement2 != null)
             {
-                if (labSheetA1Measurment.MPN != null)
+                if (labSheetA1Measurement2.MPN != null)
                 {
-                    SiteNameDup = labSheetA1Measurment.Site;
+                    SiteNameDup = labSheetA1Measurement2.Site;
                 }
             }
 
@@ -834,57 +834,62 @@ else
                                 string bg = "";
                                 string textClass = "";
 
-                                MWQMSiteModel mwqmSiteModel = mwqmSiteModelList.Where(c => c.MWQMSiteNumber == labSheetA1Measurement.Site).FirstOrDefault();
+                                SubsectorMWQMSiteModel subsectorMWQMSiteModel = subsectorMWQMSiteModelList.Where(c => c.Subsector == labSheetModelAndA1Sheet.LabSheetA1Sheet.SubsectorName).FirstOrDefault();
 
-                                if (mwqmSiteModel != null)
+                                if (subsectorMWQMSiteModel != null)
                                 {
-                                    switch (mwqmSiteModel.MWQMSiteLatestClassification)
+
+                                    MWQMSiteModel mwqmSiteModel = subsectorMWQMSiteModel.MWQMSiteModelList.Where(c => c.MWQMSiteNumber == labSheetA1Measurement.Site).FirstOrDefault();
+
+                                    if (mwqmSiteModel != null)
                                     {
-                                        case MWQMSiteLatestClassificationEnum.Approved:
-                                            {
-                                                bg = "bggreen";
-                                                textClass = "A";
-                                            }
-                                            break;
-                                        case MWQMSiteLatestClassificationEnum.ConditionallyApproved:
-                                            {
-                                                bg = "bggreen";
-                                                textClass = "CA";
-                                            }
-                                            break;
-                                        case MWQMSiteLatestClassificationEnum.Restricted:
-                                            {
-                                                bg = "bgred";
-                                                textClass = "R";
-                                            }
-                                            break;
-                                        case MWQMSiteLatestClassificationEnum.ConditionallyRestricted:
-                                            {
-                                                bg = "bgred";
-                                                textClass = "CR";
-                                            }
-                                            break;
-                                        case MWQMSiteLatestClassificationEnum.Prohibited:
-                                            {
-                                                bg = "bgblack";
-                                                textClass = "P";
-                                            }
-                                            break;
-                                        case MWQMSiteLatestClassificationEnum.Unclassified:
-                                            {
-                                                bg = "bgwhite";
-                                                textClass = "";
-                                            }
-                                            break;
-                                        default:
-                                            {
-                                                bg = "";
-                                                textClass = "";
-                                            }
-                                            break;
+                                        switch (mwqmSiteModel.MWQMSiteLatestClassification)
+                                        {
+                                            case MWQMSiteLatestClassificationEnum.Approved:
+                                                {
+                                                    bg = "bggreen";
+                                                    textClass = "A";
+                                                }
+                                                break;
+                                            case MWQMSiteLatestClassificationEnum.ConditionallyApproved:
+                                                {
+                                                    bg = "bggreen";
+                                                    textClass = "CA";
+                                                }
+                                                break;
+                                            case MWQMSiteLatestClassificationEnum.Restricted:
+                                                {
+                                                    bg = "bgred";
+                                                    textClass = "R";
+                                                }
+                                                break;
+                                            case MWQMSiteLatestClassificationEnum.ConditionallyRestricted:
+                                                {
+                                                    bg = "bgred";
+                                                    textClass = "CR";
+                                                }
+                                                break;
+                                            case MWQMSiteLatestClassificationEnum.Prohibited:
+                                                {
+                                                    bg = "bgblack";
+                                                    textClass = "P";
+                                                }
+                                                break;
+                                            case MWQMSiteLatestClassificationEnum.Unclassified:
+                                                {
+                                                    bg = "bgwhite";
+                                                    textClass = "";
+                                                }
+                                                break;
+                                            default:
+                                                {
+                                                    bg = "";
+                                                    textClass = "";
+                                                }
+                                                break;
+                                        }
                                     }
                                 }
-
 
                                 textColor = "text-default";
                                 if (labSheetA1Measurement.MPN == -999)

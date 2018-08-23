@@ -385,7 +385,7 @@ namespace CSSPWebTools.Controllers
             ViewBag.LastSampleMatrix = SampleMatrixEnum.Error;
             ViewBag.LastLaboratory = LaboratoryEnum.Error;
             ViewBag.MWQMSampleModelList = new List<MWQMSampleModel>();
-            ViewBag.MWQMSiteModelList = new List<MWQMSiteModel>();
+            ViewBag.SubsectorMWQMSiteModelList = new List<SubsectorMWQMSiteModel>();
             ViewBag.SamplingPlanModel = null;
 
             List<LabSheetModelAndA1Sheet> labSheetModelAndA1SheetList = new List<LabSheetModelAndA1Sheet>();
@@ -482,14 +482,22 @@ namespace CSSPWebTools.Controllers
 
                 if (labSheetModelAndA1SheetList.Count > 0)
                 {
-                    List<MWQMSiteModel> mwqmSiteModelList = mwqmSiteService.GetMWQMSiteModelListWithSubsectorTVItemIDDB(labSheetModelAndA1SheetList[0].LabSheetA1Sheet.SubsectorTVItemID);
+                    List<SubsectorMWQMSiteModel> subsectorMWQMSiteModelList = new List<SubsectorMWQMSiteModel>();
 
-                    ViewBag.MWQMSiteModelList = mwqmSiteModelList;
+                    foreach (LabSheetModelAndA1Sheet labSheetModelAndA1Sheet in labSheetModelAndA1SheetList)
+                    {
+                        List<MWQMSiteModel> mwqmSiteModelList = mwqmSiteService.GetMWQMSiteModelListWithSubsectorTVItemIDDB(labSheetModelAndA1Sheet.LabSheetA1Sheet.SubsectorTVItemID);
+                        subsectorMWQMSiteModelList.Add(new SubsectorMWQMSiteModel() { Subsector = labSheetModelAndA1Sheet.LabSheetA1Sheet.SubsectorName, MWQMSiteModelList = mwqmSiteModelList });
+
+                    }
+
+                    ViewBag.SubsectorMWQMSiteModelList = subsectorMWQMSiteModelList;
                 }
             }
 
             return PartialView();
         }
+
 
         #endregion Functions View/PartialViews 
 
@@ -591,6 +599,12 @@ namespace CSSPWebTools.Controllers
 
         #region Functions public Non Action
         #endregion Functions public Non Action
+    }
+
+    public class SubsectorMWQMSiteModel
+    {
+        public string Subsector { get; set; }
+        public List<MWQMSiteModel> MWQMSiteModelList { get; set; }
     }
 
 }
