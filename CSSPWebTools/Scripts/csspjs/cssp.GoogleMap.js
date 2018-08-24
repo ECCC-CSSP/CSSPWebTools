@@ -703,6 +703,26 @@ var CSSP;
                                                     legendElem = cssp.GoogleMap.LegendSetup(new CSSP.LegendElem(CSSP.TVTypeEnum.NoData, "cccccc", cssp.GetHTMLVariable("#LayoutVariables", "varNoData")));
                                                 }
                                                 break;
+                                            case CSSP.TVTypeEnum.PolSourceSite:
+                                                {
+                                                    legendElem = cssp.GoogleMap.LegendSetup(new CSSP.LegendElem(CSSP.TVTypeEnum.PolSourceSite, "FFFFFF", cssp.GetHTMLVariable("#LayoutVariables", "varPollutionSourceSites")));
+                                                }
+                                                break;
+                                            case CSSP.TVTypeEnum.WasteWaterTreatmentPlant:
+                                                {
+                                                    legendElem = cssp.GoogleMap.LegendSetup(new CSSP.LegendElem(CSSP.TVTypeEnum.WasteWaterTreatmentPlant, "0000FF", cssp.GetHTMLVariable("#LayoutVariables", "varWWTP")));
+                                                }
+                                                break;
+                                            case CSSP.TVTypeEnum.LiftStation:
+                                                {
+                                                    legendElem = cssp.GoogleMap.LegendSetup(new CSSP.LegendElem(CSSP.TVTypeEnum.LiftStation, "0000FF", cssp.GetHTMLVariable("#LayoutVariables", "varLiftStation")));
+                                                }
+                                                break;
+                                            case CSSP.TVTypeEnum.LineOverflow:
+                                                {
+                                                    legendElem = cssp.GoogleMap.LegendSetup(new CSSP.LegendElem(CSSP.TVTypeEnum.LineOverflow, "0000FF", cssp.GetHTMLVariable("#LayoutVariables", "varLineOverflow")));
+                                                }
+                                                break;
                                             default:
                                                 break;
                                         }
@@ -710,7 +730,40 @@ var CSSP;
                                     break;
                                 case CSSP.TVTypeEnum.PolSourceSite:
                                     {
-                                        legendElem = cssp.GoogleMap.LegendSetup(new CSSP.LegendElem(CSSP.TVTypeEnum.PolSourceSite, "CCCCCC", cssp.GetHTMLVariable("#LayoutVariables", "varPollutionSourceSites")));
+                                        switch (cssp.GoogleMap.TVItemObjects[i].SubTVType) {
+                                            case CSSP.TVTypeEnum.Passed:
+                                                {
+                                                    legendElem = cssp.GoogleMap.LegendSetup(new CSSP.LegendElem(CSSP.TVTypeEnum.Passed, "00FF00", cssp.GetHTMLVariable("#LayoutVariables", "varMWQMMeetStandard")));
+                                                }
+                                                break;
+                                            case CSSP.TVTypeEnum.Failed:
+                                                {
+                                                    legendElem = cssp.GoogleMap.LegendSetup(new CSSP.LegendElem(CSSP.TVTypeEnum.Failed, "FF0000", cssp.GetHTMLVariable("#LayoutVariables", "varMWQMStandardViolation")));
+                                                }
+                                                break;
+                                            case CSSP.TVTypeEnum.NoDepuration:
+                                                {
+                                                    legendElem = cssp.GoogleMap.LegendSetup(new CSSP.LegendElem(CSSP.TVTypeEnum.NoDepuration, "800080", cssp.GetHTMLVariable("#LayoutVariables", "varMWQMStandardViolationDepuration")));
+                                                }
+                                                break;
+                                            case CSSP.TVTypeEnum.LessThan10:
+                                                {
+                                                    legendElem = cssp.GoogleMap.LegendSetup(new CSSP.LegendElem(CSSP.TVTypeEnum.LessThan10, "FF00FF", cssp.GetHTMLVariable("#LayoutVariables", "varMWQMNotEnoughData")));
+                                                }
+                                                break;
+                                            case CSSP.TVTypeEnum.NoData:
+                                                {
+                                                    legendElem = cssp.GoogleMap.LegendSetup(new CSSP.LegendElem(CSSP.TVTypeEnum.NoData, "DDDDDD", cssp.GetHTMLVariable("#LayoutVariables", "varNoData")));
+                                                }
+                                                break;
+                                            case CSSP.TVTypeEnum.PolSourceSite:
+                                                {
+                                                    legendElem = cssp.GoogleMap.LegendSetup(new CSSP.LegendElem(CSSP.TVTypeEnum.PolSourceSite, "CCCCCC", cssp.GetHTMLVariable("#LayoutVariables", "varPollutionSourceSites")));
+                                                }
+                                                break;
+                                            default:
+                                                break;
+                                        }
                                     }
                                     break;
                                 default:

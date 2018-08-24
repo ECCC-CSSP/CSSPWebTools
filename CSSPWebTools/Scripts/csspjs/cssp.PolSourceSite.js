@@ -168,9 +168,9 @@ var CSSP;
                 $(".FileEditButtons").removeClass("hidden");
                 $(".FileEditButtons").find(".jbFileEditShowHide").addClass("hidden");
                 $(".FileEditButtons").find(".jbFileAskToDelete").addClass("hidden");
-                setTimeout(function () {
-                    cssp.PolSourceSite.PolSourceSiteShowHideOnMap();
-                }, 1000);
+                //setTimeout(() => {
+                //    cssp.PolSourceSite.PolSourceSiteShowHideOnMap();
+                //}, 1000);
             };
             this.InitAddOrModify = function () {
                 $(cssp.PolSourceSite.FormName).each(function (ind, elem) {
