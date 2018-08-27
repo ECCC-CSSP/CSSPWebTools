@@ -234,9 +234,9 @@ namespace CSSPWebTools.Controllers
 
         [HttpGet]
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
-        public PartialViewResult _mikeScenarioAdd(int MunicipalityTVItemID)
+        public PartialViewResult _mikeScenarioAdd(int TVItemID)
         {
-            ViewBag.MunicipalityTVItemID = MunicipalityTVItemID;
+            ViewBag.TVItemID = TVItemID;
 
             return PartialView();
         }
@@ -298,14 +298,14 @@ namespace CSSPWebTools.Controllers
         }
 
         [NonAction]
-        public AppTaskModel MikeScenarioImportDB(int MunicipalityTVItemID, string UploadClientPath, HttpRequestBase Request)
+        public AppTaskModel MikeScenarioImportDB(int TVItemID, string UploadClientPath, HttpRequestBase Request)
         {
             ContactOK contactOK = _MikeScenarioService.IsContactOK();
             if (!string.IsNullOrWhiteSpace(contactOK.Error))
                 return ReturnAppTaskError(contactOK.Error);
 
-            if (MunicipalityTVItemID == 0)
-                return ReturnAppTaskError(string.Format(ControllerRes._IsRequired, ServiceRes.MunicipalityTVItemID));
+            if (TVItemID == 0)
+                return ReturnAppTaskError(string.Format(ControllerRes._IsRequired, ServiceRes.TVItemID));
 
             if (string.IsNullOrEmpty(UploadClientPath))
                 return ReturnAppTaskError(string.Format(ControllerRes._IsRequired, ServiceRes.UploadClientPath));
@@ -372,10 +372,10 @@ namespace CSSPWebTools.Controllers
 
                 string TVText = (ShortFileName.Substring(0, ShortFileName.LastIndexOf("."))).Trim();
 
-                if (_MikeScenarioService._TVItemService.GetChildrenTVItemModelAndChildCountListWithTVItemIDAndTVTypeDB(MunicipalityTVItemID, TVTypeEnum.MikeScenario).Where(c => c.TVText == TVText).Any())
+                if (_MikeScenarioService._TVItemService.GetChildrenTVItemModelAndChildCountListWithTVItemIDAndTVTypeDB(TVItemID, TVTypeEnum.MikeScenario).Where(c => c.TVText == TVText).Any())
                     return ReturnAppTaskError(string.Format(ServiceRes._AlreadyExists, ServiceRes.AppTask));
 
-                tvItemNewMikeScenario = _MikeScenarioService._TVItemService.PostAddChildTVItemDB(MunicipalityTVItemID, TVText, TVTypeEnum.MikeScenario);
+                tvItemNewMikeScenario = _MikeScenarioService._TVItemService.PostAddChildTVItemDB(TVItemID, TVText, TVTypeEnum.MikeScenario);
                 if (!string.IsNullOrWhiteSpace(tvItemNewMikeScenario.Error))
                     return ReturnAppTaskError(tvItemNewMikeScenario.Error);
 
@@ -467,7 +467,7 @@ namespace CSSPWebTools.Controllers
 
             // ----------------------------------------------------------------------------
             List<AppTaskParameter> appTaskParameterList = new List<AppTaskParameter>();
-            appTaskParameterList.Add(new AppTaskParameter() { Name = "TVItemID", Value = MunicipalityTVItemID.ToString() });
+            appTaskParameterList.Add(new AppTaskParameter() { Name = "TVItemID", Value = TVItemID.ToString() });
             appTaskParameterList.Add(new AppTaskParameter() { Name = "UploadClientPath", Value = UploadClientPath });
 
             StringBuilder sbParameters = new StringBuilder();
@@ -517,9 +517,9 @@ namespace CSSPWebTools.Controllers
 
         [HttpPost]
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
-        public void _mikeScenarioImport(int MunicipalityTVItemID, string UploadClientPath)
+        public void _mikeScenarioImport(int TVItemID, string UploadClientPath)
         {
-            AppTaskModel appTaskModel = MikeScenarioImportDB(MunicipalityTVItemID, UploadClientPath, Request);
+            AppTaskModel appTaskModel = MikeScenarioImportDB(TVItemID, UploadClientPath, Request);
 
             return;
         }

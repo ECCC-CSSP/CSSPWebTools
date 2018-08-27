@@ -404,4 +404,7 @@
   <data name="OpenDataNational" xml:space="preserve">
     <value>Open Data National (fr)</value>
   </data>
+  <data name="PolSourceSiteMikeScenarios" xml:space="preserve">
+    <value>Pollution Source Site Mike Scenarios (fr)</value>
+  </data>
 </root>

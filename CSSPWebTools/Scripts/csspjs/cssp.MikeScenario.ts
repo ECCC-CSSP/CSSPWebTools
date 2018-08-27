@@ -720,11 +720,11 @@ module CSSP {
             if ($bjs.hasClass("btn-default")) {
                 $bjs.removeClass("btn-default").addClass("btn-success");
                 $(".TVItemAdd").html(cssp.GetHTMLVariable("#LayoutVariables", "varInProgress"));
-                var MunicipalityTVItemID: number = parseInt($("#ViewDiv").data("tvitemid"));
+                var TVItemID: number = parseInt($("#ViewDiv").data("tvitemid"));
                 var command: string = "MikeScenario/_mikeScenarioAdd";
                 $.get(cssp.BaseURL + command,
                     {
-                        MunicipalityTVItemID: MunicipalityTVItemID,
+                        TVItemID: TVItemID,
                     }).done((ret) => {
                         $(".TVItemAdd").html(ret);
                     }).fail(() => {

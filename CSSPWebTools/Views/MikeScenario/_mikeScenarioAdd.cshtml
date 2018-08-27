@@ -1,7 +1,7 @@
 ﻿@using CSSPWebTools.Views.MikeScenario.Resources;
 
 @{
-    int MunicipalityTVItemID = (int)ViewBag.MunicipalityTVItemID;
+    int TVItemID = (int)ViewBag.TVItemID;
 }
 <div class="ImportNewMikeScenarioDiv">
     <form class="MikeScenarioImportForm" action="MikeScenario/_mikeScenarioImport" method="post" enctype="multipart/form-data">
@@ -9,7 +9,7 @@
         <fieldset>
             <div class="panel panel-default">
                
-                    <input type="hidden" name="MunicipalityTVItemID" value="@MunicipalityTVItemID" />
+                    <input type="hidden" name="TVItemID" value="@TVItemID" />
                 <div class="panel-heading">
                     <h4 class="panel-title">@MikeScenarioViewRes.AddNewMikeScenario</h4>
                 </div>

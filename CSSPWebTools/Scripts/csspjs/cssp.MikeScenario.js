@@ -665,10 +665,10 @@ var CSSP;
                 if ($bjs.hasClass("btn-default")) {
                     $bjs.removeClass("btn-default").addClass("btn-success");
                     $(".TVItemAdd").html(cssp.GetHTMLVariable("#LayoutVariables", "varInProgress"));
-                    var MunicipalityTVItemID = parseInt($("#ViewDiv").data("tvitemid"));
+                    var TVItemID = parseInt($("#ViewDiv").data("tvitemid"));
                     var command = "MikeScenario/_mikeScenarioAdd";
                     $.get(cssp.BaseURL + command, {
-                        MunicipalityTVItemID: MunicipalityTVItemID,
+                        TVItemID: TVItemID,
                     }).done(function (ret) {
                         $(".TVItemAdd").html(ret);
                     }).fail(function () {

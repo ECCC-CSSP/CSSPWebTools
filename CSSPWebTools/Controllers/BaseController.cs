@@ -1651,7 +1651,18 @@ namespace CSSPWebTools.Controllers
                 case TVTypeEnum.MWQMSite:
                     return tvItemModelParentList.Where(c => c.TVType == TVTypeEnum.Subsector).FirstOrDefault().TVText + " - " + tvItemModel.TVText;
                 case TVTypeEnum.MikeScenario:
-                    return tvItemModelParentList.Where(c => c.TVType == TVTypeEnum.Municipality).FirstOrDefault().TVText + " - " + tvItemModel.TVText;
+                    if (tvItemModelParentList[1].TVType == TVTypeEnum.Municipality)
+                    {
+                        return tvItemModelParentList.Where(c => c.TVType == TVTypeEnum.Municipality).FirstOrDefault().TVText + " - " + tvItemModel.TVText;
+                    }
+                    else if (tvItemModelParentList[1].TVType == TVTypeEnum.Sector)
+                    {
+                        return tvItemModel.TVText;
+                    }
+                    else
+                    {
+                        return "EEEEEEEEEEEEE";
+                    }
                 case TVTypeEnum.Municipality:
                     return tvItemModelParentList.Where(c => c.TVType == TVTypeEnum.Province).FirstOrDefault().TVText + " - " + tvItemModel.TVText;
                 case TVTypeEnum.PolSourceSite:
@@ -1971,6 +1982,10 @@ namespace CSSPWebTools.Controllers
                             case "2": // Sector Files
                                 {
                                     return new ContentActionAndController() { Action = "_fileList", Controller = "File" };
+                                }
+                            case "3": // Mike Scenarios
+                                {
+                                    return new ContentActionAndController() { Action = "_content", Controller = "TVItem" };
                                 }
                             default:
                                 {
@@ -2653,6 +2668,19 @@ namespace CSSPWebTools.Controllers
                             Stat = _TVItemStatService.GetTVItemStatModelWithTVItemIDAndTVTypeDB(tvItemModelLocationCurrent.TVItemID, TVTypeEnum.File).ChildCount,
                             Stat2 = _TVItemStatService.GetTVItemStatModelWithTVItemIDAndTVTypeDB(tvItemModelLocationCurrent.TVItemID, TVTypeEnum.TotalFile).ChildCount,
                             viewTVItemIconListList = FillTVItemFileIcons(TVAuth, tvItemModelLocationCurrent),
+                        });
+                        ViewTVItemInfoList.Add(new TabInfo()
+                        {
+                            URL = CreateVariableShowHashURL(URLVarShowEnum.ShowSectorTab, "3"),
+                            Text = ControllerRes.MikeScenarios,
+                            Icon = "",
+                            Active = tabActive,
+                            ToolTip = "",
+                            Action = "_content",
+                            Controller = "TVItem",
+                            ShowTVType = TVTypeEnum.MikeScenario,
+                            Stat = _TVItemStatService.GetTVItemStatModelWithTVItemIDAndTVTypeDB(tvItemModelLocationCurrent.TVItemID, TVTypeEnum.MikeScenario).ChildCount,
+                            viewTVItemIconListList = FillTVItemMikeScenarioIcons(TVAuth, tvItemModelLocationCurrent),
                         });
                     }
                     break;

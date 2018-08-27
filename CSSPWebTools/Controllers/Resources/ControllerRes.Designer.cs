@@ -628,6 +628,15 @@ namespace CSSPWebTools.Controllers.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Pollution Source Site Mike Scenarios.
+        /// </summary>
+        public static string PolSourceSiteMikeScenarios {
+            get {
+                return ResourceManager.GetString("PolSourceSiteMikeScenarios", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Pollution Source Sites.
         /// </summary>
         public static string PolSourceSites {

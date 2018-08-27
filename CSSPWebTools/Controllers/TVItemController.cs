@@ -167,6 +167,11 @@ namespace CSSPWebTools.Controllers
                 tvItemModelLocationChildrenList = _TVItemService.GetChildrenTVItemModelAndChildCountListWithTVItemIDAndTVTypeDB(urlModel.TVItemIDList[0], TVTypeEnum.MikeScenario);
                 tvType = TVTypeEnum.MikeScenario;
             }
+            else if (tvItemModelLocationCurrent.TVType == TVTypeEnum.Sector && tabInfoList.FirstOrDefault().Active == "3")
+            {
+                tvItemModelLocationChildrenList = _TVItemService.GetChildrenTVItemModelAndChildCountListWithTVItemIDAndTVTypeOnlyOneLevelDownDB(urlModel.TVItemIDList[0], TVTypeEnum.MikeScenario);
+                tvType = TVTypeEnum.MikeScenario;
+            }
             else if (tvItemModelLocationCurrent.TVType == TVTypeEnum.MWQMSite && tabInfoList.FirstOrDefault().Active == "0")
             {
                 tvItemModelLocationChildrenList = _TVItemService.GetChildrenTVItemModelAndChildCountListWithTVItemIDAndTVTypeDB(urlModel.TVItemIDList[0], TVTypeEnum.MWQMSiteSample);
