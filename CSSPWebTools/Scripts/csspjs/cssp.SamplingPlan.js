@@ -1,6 +1,6 @@
 var CSSP;
 (function (CSSP) {
-    var SamplingPlan = (function () {
+    var SamplingPlan = /** @class */ (function () {
         // Constructor
         function SamplingPlan() {
             // Variables
