@@ -1,6 +1,6 @@
 var CSSP;
 (function (CSSP) {
-    var Tel = /** @class */ (function () {
+    var Tel = (function () {
         // Constructors
         function Tel() {
             // Variables

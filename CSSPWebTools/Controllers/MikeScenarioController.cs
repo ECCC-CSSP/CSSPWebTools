@@ -565,10 +565,68 @@ namespace CSSPWebTools.Controllers
             ViewBag.URLModel = urlModel;
             ViewBag.MikeScenarioModel = null;
             ViewBag.MikeBoundaryConditionModelWL = null;
+            ViewBag.UseSalinityAndTemperatureInitialConditionFromFileName = "";
+            ViewBag.MWQMRunTVText = "";
+            ViewBag.IsSectorMikeScenario = false;
+            ViewBag.HasDecouplingFiles = false;
 
             MikeScenarioModel mikeScenarioModel = _MikeScenarioService.GetMikeScenarioModelWithMikeScenarioTVItemIDDB(urlModel.TVItemIDList[0]);
-
             ViewBag.MikeScenarioModel = mikeScenarioModel;
+
+            if (mikeScenarioModel != null)
+            {
+                TVItemModel tvItemModelMikeScenario = _TVItemService.GetTVItemModelWithTVItemIDDB(urlModel.TVItemIDList[0]);
+                if (string.IsNullOrWhiteSpace(tvItemModelMikeScenario.Error))
+                {
+                    List<TVItemModel> tvItemModelParents = _TVItemService.GetParentsTVItemModelList(tvItemModelMikeScenario.TVPath);
+
+                    if (tvItemModelParents.Count > 0)
+                    {
+                        if (tvItemModelParents[tvItemModelParents.Count - 2].TVType == TVTypeEnum.Sector)
+                        {
+                            ViewBag.IsSectorMikeScenario = true;
+
+                            List<TVFileModel> tvFileModelList = _TVFileService.GetTVFileModelListWithParentTVItemIDDB(urlModel.TVItemIDList[0]);
+                            ViewBag.HasDecouplingFiles = tvFileModelList.Where(c => c.ServerFileName.EndsWith("_Decoupled.m21fm") || c.ServerFileName.EndsWith("_Decoupled.m3fm")).Any();
+
+                            if (mikeScenarioModel.UseSalinityAndTemperatureInitialConditionFromTVFileTVItemID != null && mikeScenarioModel.UseSalinityAndTemperatureInitialConditionFromTVFileTVItemID > 0)
+                            {
+                                TVFileModel tvFileModel = _TVFileService.GetTVFileModelWithTVFileTVItemIDDB((int)mikeScenarioModel.UseSalinityAndTemperatureInitialConditionFromTVFileTVItemID);
+                                if (string.IsNullOrWhiteSpace(tvFileModel.Error))
+                                {
+                                    ViewBag.UseSalinityAndTemperatureInitialConditionFromFileName = tvFileModel.ServerFileName;
+                                }
+                            }
+
+                            if (mikeScenarioModel.ForSimulatingMWQMRunTVItemID != null && mikeScenarioModel.ForSimulatingMWQMRunTVItemID > 0)
+                            {
+                                TVItemModel tvItemModelMWQMRun = _TVItemService.GetTVItemModelWithTVItemIDDB((int)mikeScenarioModel.ForSimulatingMWQMRunTVItemID);
+                                if (string.IsNullOrWhiteSpace(tvItemModelMWQMRun.Error))
+                                {
+                                    TVItemModel tvItemModelSubsector = _TVItemService.GetTVItemModelWithTVItemIDDB((int)tvItemModelMWQMRun.ParentID);
+                                    if (string.IsNullOrWhiteSpace(tvItemModelSubsector.Error))
+                                    {
+                                        string TVTextSS = tvItemModelSubsector.TVText;
+                                        if (TVTextSS.Contains(" "))
+                                        {
+                                            TVTextSS = TVTextSS.Substring(0, TVTextSS.IndexOf(" "));
+                                        }
+
+                                        ViewBag.MWQMRunTVText = TVTextSS + " --- " + tvItemModelMWQMRun.TVText;
+                                    }
+                                }
+                            }
+                        }
+                        else
+                        {
+                            ViewBag.IsSectorMikeScenario = false;
+                        }
+                    }
+
+                }
+
+
+            }
 
             List<MikeBoundaryConditionModel> mikeBoundaryConditionModelList = _MikeScenarioService._MikeBoundaryConditionService.GetMikeBoundaryConditionModelListWithMikeScenarioTVItemIDAndTVTypeDB(urlModel.TVItemIDList[0], TVTypeEnum.MikeBoundaryConditionWebTide);
 
@@ -585,9 +643,63 @@ namespace CSSPWebTools.Controllers
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
         public PartialViewResult _mikeScenarioGeneralParametersEdit(int MikeScenarioTVItemID)
         {
-            MikeScenarioModel mikeScenarioModel = _MikeScenarioService.GetMikeScenarioModelWithMikeScenarioTVItemIDDB(MikeScenarioTVItemID);
+            ViewBag.MikeScenarioModel = null;
+            ViewBag.TVFileModelList = new List<TVFileModel>();
+            ViewBag.TVItemModelMWQMRunList = new List<TVItemModel>();
+            ViewBag.IsSectorMikeScenario = false;
+            ViewBag.HasDecouplingFiles = false;
 
+            MikeScenarioModel mikeScenarioModel = _MikeScenarioService.GetMikeScenarioModelWithMikeScenarioTVItemIDDB(MikeScenarioTVItemID);
             ViewBag.MikeScenarioModel = mikeScenarioModel;
+            if (mikeScenarioModel != null)
+            {
+                TVItemModel tvItemModelMikeScenario = _TVItemService.GetTVItemModelWithTVItemIDDB(MikeScenarioTVItemID);
+                if (string.IsNullOrWhiteSpace(tvItemModelMikeScenario.Error))
+                {
+                    List<TVItemModel> tvItemModelParents = _TVItemService.GetParentsTVItemModelList(tvItemModelMikeScenario.TVPath);
+
+                    if (tvItemModelParents.Count > 0)
+                    {
+                        if (tvItemModelParents[tvItemModelParents.Count - 2].TVType == TVTypeEnum.Sector)
+                        {
+                            ViewBag.IsSectorMikeScenario = true;
+
+                            List<TVFileModel> tvFileModelList = _TVFileService.GetTVFileModelListWithParentTVItemIDDB(MikeScenarioTVItemID);
+                            ViewBag.TVFileModelList = tvFileModelList.Where(c => c.FileType == FileTypeEnum.DFSU && c.FilePurpose == FilePurposeEnum.MikeResultDFSU).OrderBy(c => c.ServerFileName).ToList();
+                            ViewBag.HasDecouplingFiles = tvFileModelList.Where(c => c.ServerFileName.EndsWith("_Decoupled.m21fm") || c.ServerFileName.EndsWith("_Decoupled.m3fm")).Any();
+
+                            List<TVItemModel> tvItemModelSubsectorList = _TVItemService.GetChildrenTVItemModelListWithTVItemIDAndTVTypeDB(tvItemModelParents[tvItemModelParents.Count - 2].TVItemID, TVTypeEnum.Subsector);
+
+                            List<TVItemModel> TVItemModelMWQMRunList = new List<TVItemModel>();
+                            foreach (TVItemModel tvItemModelSubsector in tvItemModelSubsectorList)
+                            {
+                                List<TVItemModel> tvItemModelMWQMRunList = _TVItemService.GetChildrenTVItemModelListWithTVItemIDAndTVTypeDB(tvItemModelSubsector.TVItemID, TVTypeEnum.MWQMRun);
+
+                                foreach (TVItemModel tvItemModelMWQMRun in tvItemModelMWQMRunList)
+                                {
+                                    if (tvItemModelSubsector.TVText.Contains(" "))
+                                    {
+                                        tvItemModelMWQMRun.TVText = tvItemModelSubsector.TVText.Substring(0, tvItemModelSubsector.TVText.IndexOf(" ")) + " --- " + tvItemModelMWQMRun.TVText;
+                                    }
+                                    else
+                                    {
+                                        tvItemModelMWQMRun.TVText = tvItemModelSubsector.TVText + " --- " + tvItemModelMWQMRun.TVText;
+                                    }
+                                    TVItemModelMWQMRunList.Add(tvItemModelMWQMRun);
+                                }
+                            }
+                            ViewBag.TVItemModelMWQMRunList = TVItemModelMWQMRunList.OrderByDescending(c => c.TVText).ToList();
+                        }
+                        else
+                        {
+                            ViewBag.IsSectorMikeScenario = false;
+                        }
+                    }
+
+                }
+
+
+            }
 
             return PartialView();
         }
@@ -785,12 +897,12 @@ namespace CSSPWebTools.Controllers
 
             ViewBag.MikeScenarioModel = mikeScenarioModel;
 
-            List<MikeSourceModel> mikeSourceModelList = _MikeScenarioService._MikeSourceService.GetMikeSourceModelListWithMikeScenarioTVItemIDDB(urlModel.TVItemIDList[0]);
+            List<MikeSourceModel> mikeSourceModelList = _MikeScenarioService._MikeSourceService.GetMikeSourceModelAndMikeSourceStartEndModelListWithMikeScenarioTVItemIDDB(urlModel.TVItemIDList[0]);
 
-            foreach (MikeSourceModel mikeSourceModel in mikeSourceModelList)
-            {
-                mikeSourceModel.MikeSourceStartEndModelList = _MikeScenarioService._MikeSourceService._MikeSourceStartEndService.GetMikeSourceStartEndModelListWithMikeSourceIDDB(mikeSourceModel.MikeSourceID);
-            }
+            //foreach (MikeSourceModel mikeSourceModel in mikeSourceModelList)
+            //{
+            //    mikeSourceModel.MikeSourceStartEndModelList = _MikeScenarioService._MikeSourceService._MikeSourceStartEndService.GetMikeSourceStartEndModelListWithMikeSourceIDDB(mikeSourceModel.MikeSourceID);
+            //}
 
             ViewBag.MikeSourceModelList = mikeSourceModelList;
 

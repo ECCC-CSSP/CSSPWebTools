@@ -19,7 +19,7 @@ namespace CSSPWebTools.Views.MikeScenario.Resources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class MikeScenarioViewRes {
@@ -520,6 +520,15 @@ namespace CSSPWebTools.Views.MikeScenario.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Empty.
+        /// </summary>
+        public static string Empty {
+            get {
+                return ResourceManager.GetString("Empty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to End.
         /// </summary>
         public static string End {
@@ -655,6 +664,15 @@ namespace CSSPWebTools.Views.MikeScenario.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to For simulating MWQM Run.
+        /// </summary>
+        public static string ForSimulatingMWQMRun {
+            get {
+                return ResourceManager.GetString("ForSimulatingMWQMRun", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to General Parameters.
         /// </summary>
         public static string GeneralParameters {
@@ -669,6 +687,15 @@ namespace CSSPWebTools.Views.MikeScenario.Resources {
         public static string Generate {
             get {
                 return ResourceManager.GetString("Generate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Generate decoupling files.
+        /// </summary>
+        public static string GenerateDecouplingFiles {
+            get {
+                return ResourceManager.GetString("GenerateDecouplingFiles", resourceCulture);
             }
         }
         
@@ -1002,6 +1029,15 @@ namespace CSSPWebTools.Views.MikeScenario.Resources {
         public static string MostProbableNumber_abr {
             get {
                 return ResourceManager.GetString("MostProbableNumber_abr", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MWQM run dates.
+        /// </summary>
+        public static string MWQMRunDates {
+            get {
+                return ResourceManager.GetString("MWQMRunDates", resourceCulture);
             }
         }
         
@@ -1393,6 +1429,15 @@ namespace CSSPWebTools.Views.MikeScenario.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Server files.
+        /// </summary>
+        public static string ServerFiles {
+            get {
+                return ResourceManager.GetString("ServerFiles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Setup WebTide.
         /// </summary>
         public static string SetupWebTide {
@@ -1596,6 +1641,24 @@ namespace CSSPWebTools.Views.MikeScenario.Resources {
         public static string Upload {
             get {
                 return ResourceManager.GetString("Upload", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use decoupling files.
+        /// </summary>
+        public static string UseDecouplingFiles {
+            get {
+                return ResourceManager.GetString("UseDecouplingFiles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use salinity and temperature initial condition from result file.
+        /// </summary>
+        public static string UseSalinityAndTemperatureInitialConditionFromResultFile {
+            get {
+                return ResourceManager.GetString("UseSalinityAndTemperatureInitialConditionFromResultFile", resourceCulture);
             }
         }
         

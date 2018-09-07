@@ -8,6 +8,10 @@
 
     MikeScenarioModel mikeScenarioModel = (MikeScenarioModel)ViewBag.MikeScenarioModel;
     MikeBoundaryConditionModel mikeBoundaryConditionModel = (MikeBoundaryConditionModel)ViewBag.MikeBoundaryConditionModelWL;
+    string UseSalinityAndTemperatureInitialConditionFromFileName = (string)ViewBag.UseSalinityAndTemperatureInitialConditionFromFileName;
+    string MWQMRunTVText = (string)ViewBag.MWQMRunTVText;
+    bool IsSectorMikeScenario = (bool)ViewBag.IsSectorMikeScenario;
+    bool HasDecouplingFiles = (bool)ViewBag.HasDecouplingFiles;
 
     URLModel urlModel = (URLModel)ViewBag.URLModel;
 
@@ -51,6 +55,39 @@ else
                 DateTime StartDateTime = (DateTime)mikeScenarioModel.MikeScenarioStartDateTime_Local;
                 DateTime EndDateTime = (DateTime)mikeScenarioModel.MikeScenarioEndDateTime_Local;
 
+                if (ViewBag.IsSectorMikeScenario)
+                {
+                    if (!HasDecouplingFiles)
+                    {
+                        <div>
+                            <label>@MikeScenarioViewRes.GenerateDecouplingFiles</label>
+                        </div>
+                        <div>
+                            <span class="elementSpacing text-nowrap">@(mikeScenarioModel.GenerateDecouplingFiles == null ? MikeScenarioViewRes.Empty : mikeScenarioModel.GenerateDecouplingFiles.ToString())</span>
+                        </div>
+                    }
+                    else
+                    {
+                        <div>
+                            <label>@MikeScenarioViewRes.UseDecouplingFiles</label>
+                        </div>
+                        <div>
+                            <span class="elementSpacing text-nowrap">@(mikeScenarioModel.UseDecouplingFiles == null ? MikeScenarioViewRes.Empty : mikeScenarioModel.UseDecouplingFiles.ToString())</span>
+                        </div>
+                    }
+                    <div>
+                        <label>@MikeScenarioViewRes.UseSalinityAndTemperatureInitialConditionFromResultFile</label>
+                    </div>
+                    <div>
+                        <span class="elementSpacing text-nowrap">@(string.IsNullOrWhiteSpace(UseSalinityAndTemperatureInitialConditionFromFileName) ? MikeScenarioViewRes.Empty : UseSalinityAndTemperatureInitialConditionFromFileName)</span>
+                    </div>
+                    <div>
+                        <label>@MikeScenarioViewRes.ForSimulatingMWQMRun</label>
+                    </div>
+                    <div>
+                        <span class="elementSpacing text-nowrap">@(string.IsNullOrWhiteSpace(MWQMRunTVText) ? MikeScenarioViewRes.Empty : MWQMRunTVText)</span>
+                    </div>
+                }
                 <div>
                     <div>
                         <div>

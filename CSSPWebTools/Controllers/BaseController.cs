@@ -1651,16 +1651,18 @@ namespace CSSPWebTools.Controllers
                 case TVTypeEnum.MWQMSite:
                     return tvItemModelParentList.Where(c => c.TVType == TVTypeEnum.Subsector).FirstOrDefault().TVText + " - " + tvItemModel.TVText;
                 case TVTypeEnum.MikeScenario:
-                    if (tvItemModelParentList[1].TVType == TVTypeEnum.Municipality)
                     {
-                        return tvItemModelParentList.Where(c => c.TVType == TVTypeEnum.Municipality).FirstOrDefault().TVText + " - " + tvItemModel.TVText;
-                    }
-                    else if (tvItemModelParentList[1].TVType == TVTypeEnum.Sector)
-                    {
-                        return tvItemModel.TVText;
-                    }
-                    else
-                    {
+                        foreach (TVItemModel tvItemModelParent in tvItemModelParentList)
+                        {
+                            if (tvItemModelParent.TVType == TVTypeEnum.Municipality)
+                            {
+                                return tvItemModelParentList.Where(c => c.TVType == TVTypeEnum.Municipality).FirstOrDefault().TVText + " - " + tvItemModel.TVText;
+                            }
+                            else if (tvItemModelParent.TVType == TVTypeEnum.Sector)
+                            {
+                                return tvItemModel.TVText;
+                            }
+                        }
                         return "EEEEEEEEEEEEE";
                     }
                 case TVTypeEnum.Municipality:

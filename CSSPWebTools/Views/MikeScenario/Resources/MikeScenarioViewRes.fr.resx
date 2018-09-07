@@ -827,4 +827,25 @@
   <data name="ShowStudyArea" xml:space="preserve">
     <value>Afficher la zone d'étude</value>
   </data>
+  <data name="Empty" xml:space="preserve">
+    <value>Vide</value>
+  </data>
+  <data name="ForSimulatingMWQMRun" xml:space="preserve">
+    <value>For simulating MWQM Run (fr)</value>
+  </data>
+  <data name="GenerateDecouplingFiles" xml:space="preserve">
+    <value>Generate decoupling files (fr)</value>
+  </data>
+  <data name="MWQMRunDates" xml:space="preserve">
+    <value>MWQM run dates (fr)</value>
+  </data>
+  <data name="ServerFiles" xml:space="preserve">
+    <value>Server files (fr)</value>
+  </data>
+  <data name="UseDecouplingFiles" xml:space="preserve">
+    <value>Use decoupling files (fr)</value>
+  </data>
+  <data name="UseSalinityAndTemperatureInitialConditionFromResultFile" xml:space="preserve">
+    <value>Use salinity and temperature initial condition from result file (fr)</value>
+  </data>
 </root>
