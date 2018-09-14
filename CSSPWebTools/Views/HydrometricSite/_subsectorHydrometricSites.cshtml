@@ -1,0 +1,138 @@
+﻿@using CSSPWebTools.Models;
+@using CSSPWebTools.Views.Shared.Resources;
+@using CSSPWebTools.Views.HydrometricSite.Resources;
+@using CSSPWebTools.Controllers;
+@using CSSPEnumsDLL.Enums;
+@using CSSPModelsDLL.Models;
+
+@{
+    MWQMSubsectorHydrometricSites mwqmSubsectorHydrometricSites = (MWQMSubsectorHydrometricSites)ViewBag.MWQMSubsectorHydrometricSites;
+    List<TVItemModel> tvItemModelList = (List<TVItemModel>)ViewBag.TVItemModelList;
+    bool hasSiteAlreadySelected = (bool)ViewBag.HasSiteAlreadySelected;
+    int Radius_km = (int)ViewBag.Radius_km;
+    int SubsectorTVItemID = (int)ViewBag.SubsectorTVItemID;
+    TVAuthEnum tvAuth = (TVAuthEnum)ViewBag.TVAuth;
+
+}
+
+<div class="HydrometricSiteSetupDiv">
+    <div>
+        <ul class="nav nav-tabs">
+            <li role="presentation" class="active"><a href="#HydrometricSitesYearsOfUse" role="tab" data-toggle="tab">@HydrometricSiteViewRes.HydrometricSitesAndYearsOfUse</a></li>
+            <li role="presentation"><a href="#HydrometricSitesPriorities" class="HydrometricSitePrioritiesLink" role="tab" data-toggle="tab">@HydrometricSiteViewRes.HydrometricSitesPriorities</a></li>
+            <li role="presentation"><a href="#HydrometricSitesRuns" class="HydrometricSiteRunsLink" role="tab" data-toggle="tab">@HydrometricSiteViewRes.HydrometricSitesDataForEachRun</a></li>
+        </ul>
+
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="HydrometricSitesYearsOfUse" aria-expanded="true">
+                <br />
+                @if (!hasSiteAlreadySelected)
+                {
+                    <ul class="list-inline">
+                        <li>
+                            <select class="form-control" name="AdjacentSubsectors">
+                                <option value="0" selected="selected">@HydrometricSiteViewRes.SelectAnAdjacentSubsector</option>
+                                @foreach (TVItemModel tvItemModel in tvItemModelList)
+                                {
+                                    <option value="@tvItemModel.TVItemID">@tvItemModel.TVText</option>
+                                }
+                            </select>
+                        </li>
+                        <li>
+                            <button class="jbHydrometricSitesUseSameAsSelectedSubsector btn btn-default">@HydrometricSiteViewRes.UseSameHydrometricSitesAsSelectedSubsector</button>
+                        </li>
+                    </ul>
+                }
+                <ul class="list-inline">
+                    <li>
+                        @HydrometricSiteViewRes.FindHydrometricSitesWithinDistanceOfSubsector:
+                    </li>
+                    <li>
+                        <input class="form-control isnumber" type="text" name="Radius_km" value="@Radius_km" />
+                    </li>
+                    <li>
+                        Km
+                    </li>
+                    <li>
+                        <button class="jbHydrometricSitesFindWithinDistance btn btn-default">@HydrometricSiteViewRes.Find</button>
+                    </li>
+                </ul>
+                <ul class="ClickGlobeToViewOnMap list-inline hidden">
+                    <li>
+                        @HydrometricSiteViewRes.ClickOnGlobeIconToViewOnMap
+                    </li>
+                </ul>
+                <h3>@HydrometricSiteViewRes.HydrometricSitesUsedAndWithinDistance <button class="jbHydrometricSitesShowOnMap btn btn-default hidden">@HydrometricSiteViewRes.ShowHydrometricSitesOnMap</button></h3>
+                <div class="HydrometricSitesUsedAndWithinDistanceDiv">
+                    @{
+                        int HydrometricSiteCount = 99;
+                    }
+                    <span class="h5">@HydrometricSiteViewRes.SaveButtonAtBottomOfPage</span>
+                    @foreach (HydrometricSiteWithLatLngAndOrdinalModel HydrometricSiteWithLatLngAndOrdinalModel in mwqmSubsectorHydrometricSites.HydrometricSiteModelUsedAndWithinDistanceModelList)
+                    {
+                        HydrometricSiteCount += 1;
+                        bool IsInUse = HydrometricSiteWithLatLngAndOrdinalModel.YearsOfUseText.Length > 0 ? true : false;
+
+                        <div class="HydrometricSiteUsedAndWithinDistance"
+                             data-HydrometricSitetvitemid="@HydrometricSiteWithLatLngAndOrdinalModel.HydrometricSiteTVItemID"
+                             data-mapinfoid="@HydrometricSiteWithLatLngAndOrdinalModel.MapInfoID"
+                             data-lat="@HydrometricSiteWithLatLngAndOrdinalModel.Lat"
+                             data-lng="@HydrometricSiteWithLatLngAndOrdinalModel.Lng"
+                             data-ordinal="@HydrometricSiteWithLatLngAndOrdinalModel.Ordinal">
+                            <span class="HydrometricSiteCount">@(HydrometricSiteCount) - </span>
+                            <button class="jbMapShowItem btn btn-default hidden"
+                                    data-tvitemid="@HydrometricSiteWithLatLngAndOrdinalModel.HydrometricSiteTVItemID"
+                                    title="@HydrometricSiteViewRes.IdentifyOnMap">
+                                <span class="glyphicon glyphicon-map-marker"></span>
+                            </button>
+                            <button class="jbHydrometricSiteAddToUse btn btn-@(IsInUse ? "success" : "default")"
+                                    data-startyear="@(HydrometricSiteWithLatLngAndOrdinalModel.DailyStartDate_Local.HasValue ? HydrometricSiteWithLatLngAndOrdinalModel.DailyStartDate_Local.Value.Year.ToString() : "")"
+                                    data-endyear="@(HydrometricSiteWithLatLngAndOrdinalModel.DailyEndDate_Local.HasValue ? ((HydrometricSiteWithLatLngAndOrdinalModel.DailyNow != null && (bool)HydrometricSiteWithLatLngAndOrdinalModel.DailyNow) ? "" : HydrometricSiteWithLatLngAndOrdinalModel.DailyEndDate_Local.Value.Year.ToString()) : "")">
+                                @HydrometricSiteWithLatLngAndOrdinalModel.HydrometricSiteTVText
+                                </button>
+                                <span class="HydrometricSiteMoreInfo">
+                                    @if (HydrometricSiteWithLatLngAndOrdinalModel.DailyStartDate_Local != null && HydrometricSiteWithLatLngAndOrdinalModel.DailyEndDate_Local != null)
+                                    {
+                                        <span>@(((DateTime)HydrometricSiteWithLatLngAndOrdinalModel.DailyStartDate_Local).ToString("yyyy MMM dd")) - </span>
+                                        if (HydrometricSiteWithLatLngAndOrdinalModel.DailyNow != null && HydrometricSiteWithLatLngAndOrdinalModel.DailyNow == true)
+                                        {
+                                            <span class="h2">@HydrometricSiteViewRes.Now</span>
+                                        }
+                                        else
+                                        {
+                                            <span>@(((DateTime)HydrometricSiteWithLatLngAndOrdinalModel.DailyEndDate_Local).ToString("yyyy MMM dd"))</span>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        @HydrometricSiteViewRes.Empty
+                                    }
+                                    <span>(@HydrometricSiteWithLatLngAndOrdinalModel.Distance_km.ToString("F0") Km)</span>
+                                </span>
+                                <div class="ShowYearsOfUse form-inline @(IsInUse ? "" : "hidden")">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@HydrometricSiteViewRes.YearsOfUse :
+                                    <input type="text" class="form-control" size="50" name="UseForYears" value="@HydrometricSiteWithLatLngAndOrdinalModel.YearsOfUseText" />
+                                    <button class="jbHydrometricSiteOpenDialogToShowExOfYearsToEnter btn btn-link"><span class="glyphicon glyphicon-info-sign"></span></button>
+                                </div>
+                            </div>
+                    }
+                </div>
+                <div>
+                    <br />
+                    <button class="jbHydrometricSitesToUseForSubsectorVerifyAndSave btn btn-default">@HydrometricSiteViewRes.HydrometricSitesToUseForSubsectorVerifyAndSave</button>
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="HydrometricSitesPriorities">
+            </div>
+            <div role="tabpanel" class="tab-pane" id="HydrometricSitesRuns">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    $(function () {
+        cssp.HydrometricSite.Init();
+    });
+</script>

@@ -1,0 +1,125 @@
+﻿@using CSSPWebTools.Models;
+@using CSSPWebTools.Views.Shared.Resources;
+@using CSSPWebTools.Views.HydrometricSite.Resources;
+@using CSSPWebTools.Controllers;
+@using CSSPEnumsDLL.Enums;
+@using CSSPModelsDLL.Models;
+
+@{
+    int SmallestYearOfSampling = (int)ViewBag.SmallestYearOfSampling;
+    int CurrentYear = DateTime.Now.Year;
+    int SubsectorTVItemID = (int)ViewBag.SubsectorTVItemID;
+    TVAuthEnum tvAuth = (TVAuthEnum)ViewBag.TVAuth;
+    List<HydrometricSiteUseOfSiteModel> HydrometricSiteUseOfSiteModelList = (List<HydrometricSiteUseOfSiteModel>)ViewBag.HydrometricSiteUseOfSiteModelList;
+    MWQMSubsectorHydrometricSites mwqmSubsectorHydrometricSites = (MWQMSubsectorHydrometricSites)ViewBag.MWQMSubsectorHydrometricSites;
+    List<int> runYears = (List<int>)ViewBag.RunYears;
+    List<bool> runYearsHasHydrometricSites = new List<bool>();
+
+    for (int year = SmallestYearOfSampling; year <= CurrentYear; year++)
+    {
+        bool runYearsHasHydrometricSite = false;
+        foreach (HydrometricSiteUseOfSiteModel HydrometricSiteUseOfSiteModel in HydrometricSiteUseOfSiteModelList)
+        {
+            bool TempCheck = (from c in HydrometricSiteUseOfSiteModel.UseOfSiteModelList
+                              where c.StartYear <= year
+                              && (c.EndYear >= year
+                              || c.EndYear == null)
+                              select c).Any();
+
+            if (TempCheck)
+            {
+                runYearsHasHydrometricSite = true;
+            }
+        }
+        runYearsHasHydrometricSites.Add(runYearsHasHydrometricSite);
+    }
+}
+
+<div class="HydrometricSitePrioritiesTabDiv">
+    <div>
+        <h4>@HydrometricSiteViewRes.SettingHydrometricSitePriorities</h4>
+    </div>
+    <table class="table table-bordered">
+        <tr>
+            <th>@HydrometricSiteViewRes.HydrometricSite</th>
+            @for (int i = SmallestYearOfSampling; i <= CurrentYear; i++)
+            {
+                <th>@i</th>
+            }
+        </tr>
+        <tr>
+            <td>@HydrometricSiteViewRes.HasRuns</td>
+            @for (int i = SmallestYearOfSampling; i <= CurrentYear; i++)
+            {
+                <th class="HydrometricSiteStatus">
+                    <span class="@(runYears.Contains(i) 
+                    ? (runYearsHasHydrometricSites[i-SmallestYearOfSampling] == true 
+                    ? "glyphicon glyphicon-ok text-success" 
+                    : "glyphicon glyphicon-ok text-danger") 
+                    : "")"></span>
+            </th>
+            }
+        </tr>
+        @for (int i = 0, count = HydrometricSiteUseOfSiteModelList.Count(); i < count; i++)
+        {
+            int HydrometricSiteTVItemID = 0;
+            float Distance_km = -1;
+            if (HydrometricSiteUseOfSiteModelList[i].UseOfSiteModelList.Count() > 0)
+            {
+                HydrometricSiteTVItemID = HydrometricSiteUseOfSiteModelList[i].UseOfSiteModelList[0].SiteTVItemID;
+                Distance_km = mwqmSubsectorHydrometricSites.HydrometricSiteModelUsedAndWithinDistanceModelList.Where(c => c.HydrometricSiteTVItemID == HydrometricSiteTVItemID).FirstOrDefault().Distance_km;
+            }
+
+            <tr class="HydrometricSitePriorityRow" data-HydrometricSitetvitemid="@HydrometricSiteTVItemID" data-HydrometricSitedistance="@Distance_km.ToString("F0")">
+                <td><span class="text-nowrap">@HydrometricSiteUseOfSiteModelList[i].HydrometricSiteText <span>(@Distance_km.ToString("F0") Km)</span></span></td>
+                @{
+                    int YearCount = SmallestYearOfSampling;
+                }
+                @for (int j = 0, countj = HydrometricSiteUseOfSiteModelList[i].UseOfSiteModelList.Count(); j < countj; j++)
+                {
+                    int UseOfSiteID = HydrometricSiteUseOfSiteModelList[i].UseOfSiteModelList[j].UseOfSiteID;
+                    int StartYear = HydrometricSiteUseOfSiteModelList[i].UseOfSiteModelList[j].StartYear;
+                    int? EndYear = HydrometricSiteUseOfSiteModelList[i].UseOfSiteModelList[j].EndYear;
+                    if (EndYear != null && EndYear < SmallestYearOfSampling)
+                    {
+                        continue;
+                    }
+                    else if (StartYear < SmallestYearOfSampling && (EndYear == null || EndYear >= SmallestYearOfSampling))
+                    {
+                        StartYear = SmallestYearOfSampling;
+                    }
+                    while (YearCount <= CurrentYear)
+                    {
+                        if (StartYear > YearCount)
+                        {
+                            <td>&nbsp;</td>
+                            YearCount += 1;
+                        }
+                        else if (StartYear == YearCount)
+                        {
+                            int ColSpan = (int)((1 + (EndYear == null ? CurrentYear : EndYear) - StartYear));
+                            <td style="border: solid green 2px" colspan="@(ColSpan)">
+                                <input data-useofsiteid="@(UseOfSiteID)" name="UseOfSite" type="text" size="1" value="@HydrometricSiteUseOfSiteModelList[i].UseOfSiteModelList[j].Ordinal" />
+                            </td>
+                            YearCount = YearCount + ColSpan;
+                            if (j != countj - 1)
+                            {
+                                break;
+                            }
+                        }
+                        else
+                        {
+                            <td>&nbsp;</td>
+                            YearCount += 1;
+                        }
+                    }
+                }
+            </tr>
+                    }
+    </table>
+    <div>
+        <button class="jbHydrometricSitePrioritiesSetPriorityByDistance btn btn-button">@HydrometricSiteViewRes.SetHydrometricSitePriorityByDistance</button>
+        <button class="jbHydrometricSitePrioritiesSave btn btn-button">@HydrometricSiteViewRes.SaveHydrometricSitePriorities</button>
+    </div>
+
+</div>

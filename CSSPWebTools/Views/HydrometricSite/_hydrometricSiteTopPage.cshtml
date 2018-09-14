@@ -1,0 +1,23 @@
+﻿@using CSSPWebTools.Models;
+@using CSSPWebTools.Views.Shared.Resources;
+@using CSSPWebTools.Views.HydrometricSite.Resources;
+@using CSSPWebTools.Controllers;
+@using CSSPEnumsDLL.Enums;
+@using CSSPModelsDLL.Models;
+
+@{
+    URLModel urlModel = (URLModel)ViewBag.URLModel;
+    TVAuthEnum tvAuth = (TVAuthEnum)ViewBag.TVAuth;
+}
+
+<div id="HydrometricSiteDiv">
+    <div class="HydrometricSiteInfoDiv">
+        @Html.Action("_subsectorHydrometricSites", "HydrometricSite", new { SubsectorTVItemID = urlModel.TVItemIDList[0], Radius_km = 50.0f })
+    </div>
+
+    <script type="text/javascript">
+        $(function () {
+            cssp.HydrometricSite.Init();
+        });
+    </script>
+</div>

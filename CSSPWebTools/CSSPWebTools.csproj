@@ -811,7 +811,6 @@
     <Content Include="Views\Home\_appTask.cshtml" />
     <Content Include="Views\TideSite\_tideSiteList.cshtml" />
     <Content Include="Views\ClimateSite\_climateSiteTopPage.cshtml" />
-    <Content Include="Views\HydrometricSite\_hydrometricSiteList.cshtml" />
     <Content Include="Views\Address\_addressEditPolSourceSite.cshtml" />
     <Content Include="Views\Address\_addressEditInfrastructure.cshtml" />
     <Content Include="Views\SamplingPlan\_LabSheetsTranferred.cshtml" />
@@ -913,6 +912,12 @@
     <Content Include="Views\ProvinceTools\_ClassificationTool.cshtml" />
     <Content Include="Views\ProvinceTools\_MWQMSitePolSourceSiteGroupingTool.cshtml" />
     <Content Include="Views\OpenData\_OpenDataDocumentsNational.cshtml" />
+    <Content Include="Views\HydrometricSite\_hydrometricSitePriorities.cshtml" />
+    <Content Include="Views\HydrometricSite\_hydrometricSiteTopPage.cshtml" />
+    <Content Include="Views\HydrometricSite\_dialogToShowExOfYearsToEnter.cshtml" />
+    <Content Include="Views\HydrometricSite\_runsAndHydrometricSitePrecipitation.cshtml" />
+    <Content Include="Views\HydrometricSite\_selectedRunFlow.cshtml" />
+    <Content Include="Views\HydrometricSite\_subsectorHydrometricSites.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
