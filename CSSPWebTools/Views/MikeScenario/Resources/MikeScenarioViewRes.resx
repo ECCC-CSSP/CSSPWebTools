@@ -847,4 +847,31 @@
   <data name="UseSalinityAndTemperatureInitialConditionFromResultFile" xml:space="preserve">
     <value>Use salinity and temperature initial condition from result file</value>
   </data>
+  <data name="UseHydrometric" xml:space="preserve">
+    <value>Use hydrometric</value>
+  </data>
+  <data name="DrainageArea_km2" xml:space="preserve">
+    <value>Drainage area (km2)</value>
+  </data>
+  <data name="Factor" xml:space="preserve">
+    <value>Factor</value>
+  </data>
+  <data name="IncludedPollutionSource" xml:space="preserve">
+    <value>Included Pollution Source</value>
+  </data>
+  <data name="NoHydrometricSiteAvailableForSelection" xml:space="preserve">
+    <value>No hydrometric site available for selection</value>
+  </data>
+  <data name="SelectAHydrometricSite" xml:space="preserve">
+    <value>Select a hydrometric site</value>
+  </data>
+  <data name="YouWillNeedToGoToASubsectorBelowThisSectorAndAddHydrometricSites" xml:space="preserve">
+    <value>You will need to go to a subsector below this sector and add hydrometric sites</value>
+  </data>
+  <data name="GetDrainageArea" xml:space="preserve">
+    <value>Get drainage area</value>
+  </data>
+  <data name="GetFactor" xml:space="preserve">
+    <value>Get factor</value>
+  </data>
 </root>

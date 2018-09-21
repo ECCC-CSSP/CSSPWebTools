@@ -2029,7 +2029,7 @@ namespace CSSPWebTools.Controllers
                                 }
                             case "7": // Subsector HydrometricSite
                                 {
-                                    return new ContentActionAndController() { Action = "_hydrometricSiteList", Controller = "HydrometricSite" };
+                                    return new ContentActionAndController() { Action = "_hydrometricSiteTopPage", Controller = "HydrometricSite" };
                                 }
                             case "8": // Subsector TideSite
                                 {

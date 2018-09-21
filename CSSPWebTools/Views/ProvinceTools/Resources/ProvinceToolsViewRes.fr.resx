@@ -216,4 +216,19 @@
   <data name="TheFileAboveIsAnExportAsKMLFromArcGISProvincialClassificationPolygons" xml:space="preserve">
     <value>The file above is an export as KML from Arc GIS provincial classification polygons (fr)</value>
   </data>
+  <data name="ADocumentWillBeCreatedShowingTheMissingDischarge" xml:space="preserve">
+    <value>A document will be created showing the missing discharge (fr)</value>
+  </data>
+  <data name="FillRunDischargeByHydrometricSitePriorityForYear" xml:space="preserve">
+    <value>Fill run discharge by hydrometric site priority for year (fr)</value>
+  </data>
+  <data name="FindMissingDischargeForProvince" xml:space="preserve">
+    <value>Find missing discharge for province (fr)</value>
+  </data>
+  <data name="GetAllDischargeForYear" xml:space="preserve">
+    <value>Get all discharges for year (fr)</value>
+  </data>
+  <data name="HydrometricSiteDischargeRelatedTools" xml:space="preserve">
+    <value>Hydrometric site discharge related tools (fr)</value>
+  </data>
 </root>

@@ -261,6 +261,26 @@ module CSSP {
                 }
             });
 
+            $(document).off("click", "input[name='IsRiver']");
+            $(document).on("click", "input[name='IsRiver']", (evt: Event) => {
+                if ($(evt.target).is(":checked")) {
+                    $(evt.target).closest(".MikeScenarioSourceEdit").find(".UseHydrometricCheckbox").removeClass("hidden");
+                }
+                else {
+                    $(evt.target).closest(".MikeScenarioSourceEdit").find(".UseHydrometricCheckbox").removeClass("hidden").addClass("hidden");
+                }
+            });
+
+            $(document).off("click", "input[name='UseHydrometric']");
+            $(document).on("click", "input[name='UseHydrometric']", (evt: Event) => {
+                if ($(evt.target).is(":checked")) {
+                    $(evt.target).closest(".MikeScenarioSourceEdit").find(".UseHydrometric").removeClass("hidden");
+                }
+                else {
+                    $(evt.target).closest(".MikeScenarioSourceEdit").find(".UseHydrometric").removeClass("hidden").addClass("hidden");
+                }
+            });
+
             $(document).off("change keyup paste", "input[name='SourceFlowStart_m3_day']");
             $(document).on("change keyup paste", "input[name='SourceFlowStart_m3_day']", (evt: Event) => {
                 var Flow_m3_d: number = parseFloat($(evt.target).val());
@@ -349,6 +369,13 @@ module CSSP {
                     $(".SourceStartEndMinutes").text(parseInt(Minutes.toString()));
                 }
 
+            });
+
+            $(document).off("change keyup paste", "input[name='SourceFlowEnd_m3_s']");
+            $(document).on("change keyup paste", "input[name='SourceFlowEnd_m3_s']", (evt: Event) => {
+                var Flow_m3_s: number = parseFloat($(evt.target).val());
+                var Flow_m3_d: number = Flow_m3_s * 3600 * 24;
+                $(evt.target).closest(".MikeScenarioSourceStartEndForm").find("input[name='SourceFlowEnd_m3_day']").val(Flow_m3_d.toString());
             });
         };
         public MikeScenarioCreateWebTideDataWLFromStartToEndDate: Function = (): void => {
@@ -525,6 +552,28 @@ module CSSP {
                     return;
                 });
             $bjs.removeClass("hidden").addClass("hidden");
+        };
+        public MikeScenarioGetDrainageArea: Function = ($bjs: JQuery): void => {
+            let MikeSourceTVItemID: number = parseInt($bjs.data("tvitemid"));
+            let DrainageAreaValue: JQuery = $bjs.closest("form").find(".DrainageAreaValue");
+            let command: string = "MikeScenario/GetDrainageAreaWithTVItemIDJSON";
+            $.get(cssp.BaseURL + command,
+                {
+                    MikeSourceTVItemID: MikeSourceTVItemID,
+                }).done((ret) => {
+                    DrainageAreaValue.html(ret);
+                    cssp.GoogleMap.ReadAndShowObjects();
+                }).fail(() => {
+                    cssp.Dialog.ShowDialogErrorWithFail(command);
+                    return;
+                });
+        };
+        public MikeScenarioCalculateFactor: Function = ($bjs: JQuery): void => {
+            let MikeSourceTVItemID: number = parseInt($bjs.data("tvitemid"));
+            let FactorValue: JQuery = $bjs.closest("form").find(".FactorValue");
+            let SourceDrainageArea: number = parseFloat($bjs.closest("form").find("input[name='DrainageArea_km2']").val());
+            let HydrometricDrainageArea: number = parseFloat($bjs.closest("form").find(".HydrometricDrainageArea").text());
+            FactorValue.html("" + (SourceDrainageArea / HydrometricDrainageArea));
         };
         public MikeScenarioGenerateWebTideNodes: Function = ($bjs: JQuery): void => {
             var BoundaryConditionName = $(".MikeScenarioBoundaryConditionDiv").first().find(".BoundaryConditionName").first().text();

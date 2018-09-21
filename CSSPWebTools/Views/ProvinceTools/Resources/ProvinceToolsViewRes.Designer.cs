@@ -61,6 +61,15 @@ namespace CSSPWebTools.Views.ProvinceTools.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to A document will be created showing the missing discharge.
+        /// </summary>
+        public static string ADocumentWillBeCreatedShowingTheMissingDischarge {
+            get {
+                return ResourceManager.GetString("ADocumentWillBeCreatedShowingTheMissingDischarge", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to A document will be created showing the missing precipitation.
         /// </summary>
         public static string ADocumentWillBeCreatedShowingTheMissingPrecip {
@@ -188,11 +197,29 @@ namespace CSSPWebTools.Views.ProvinceTools.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Fill run discharge by hydrometric site priority for year.
+        /// </summary>
+        public static string FillRunDischargeByHydrometricSitePriorityForYear {
+            get {
+                return ResourceManager.GetString("FillRunDischargeByHydrometricSitePriorityForYear", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Fill run precip by climate site priority for year.
         /// </summary>
         public static string FillRunPrecipByClimateSitePriorityForYear {
             get {
                 return ResourceManager.GetString("FillRunPrecipByClimateSitePriorityForYear", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Find missing discharge for province.
+        /// </summary>
+        public static string FindMissingDischargeForProvince {
+            get {
+                return ResourceManager.GetString("FindMissingDischargeForProvince", resourceCulture);
             }
         }
         
@@ -233,11 +260,29 @@ namespace CSSPWebTools.Views.ProvinceTools.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Get all discharges for year.
+        /// </summary>
+        public static string GetAllDischargeForYear {
+            get {
+                return ResourceManager.GetString("GetAllDischargeForYear", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Get all precipitation for year.
         /// </summary>
         public static string GetAllPrecipitationForYear {
             get {
                 return ResourceManager.GetString("GetAllPrecipitationForYear", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hydrometric site discharge related tools.
+        /// </summary>
+        public static string HydrometricSiteDischargeRelatedTools {
+            get {
+                return ResourceManager.GetString("HydrometricSiteDischargeRelatedTools", resourceCulture);
             }
         }
         

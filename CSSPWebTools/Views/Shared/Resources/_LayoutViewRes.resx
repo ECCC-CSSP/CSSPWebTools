@@ -510,4 +510,10 @@
   <data name="Restricted" xml:space="preserve">
     <value>Restricted</value>
   </data>
+  <data name="CheckUnderHydrometricSitePrioritiesTab" xml:space="preserve">
+    <value>Check under hydrometric site priorities tab</value>
+  </data>
+  <data name="HydrometricSitePrioritiesMightNeedResetting" xml:space="preserve">
+    <value>Hydrometric site priorities might need resetting</value>
+  </data>
 </root>

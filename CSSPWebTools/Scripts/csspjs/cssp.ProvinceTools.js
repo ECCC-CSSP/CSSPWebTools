@@ -88,6 +88,83 @@ var CSSP;
                     cssp.ProvinceTools.ReenableButton($bjs);
                 }
             };
+            this.FillRunDischargeByHydrometricSitePriorityForYear = function ($bjs) {
+                if ($bjs.hasClass("btn-primary")) {
+                    $bjs.removeClass("btn-primary").addClass("btn-success");
+                    $bjs.removeAttr("disabled").attr("disabled", "disabled");
+                    $bjs.find(".working").removeClass("hidden");
+                    $bjs.find(".percent").html("3 %");
+                    var ProvinceTVItemID = parseInt($bjs.data("provincetvitemid"));
+                    var Year = parseInt($bjs.closest(".ProvinceToolsHydrometricSiteDiv").find("select[name='Year']").val());
+                    var command_4 = "ProvinceTools/FillRunPrecipByHydrometricSitePriorityForYearJSON";
+                    $.post(cssp.BaseURL + command_4, {
+                        ProvinceTVItemID: ProvinceTVItemID,
+                        Year: Year,
+                    }).done(function (ret) {
+                        if (ret) {
+                            cssp.Dialog.ShowDialogErrorWithError(ret);
+                        }
+                        cssp.ProvinceTools.ReenableButton($bjs);
+                        window.location.href = window.location.href.replace("050", "020");
+                    }).fail(function () {
+                        cssp.Dialog.ShowDialogErrorWithFail(command_4);
+                    });
+                }
+                else {
+                    cssp.ProvinceTools.ReenableButton($bjs);
+                }
+            };
+            this.FindMissingDischargeForProvince = function ($bjs) {
+                if ($bjs.hasClass("btn-primary")) {
+                    $bjs.removeClass("btn-primary").addClass("btn-success");
+                    $bjs.removeAttr("disabled").attr("disabled", "disabled");
+                    $bjs.find(".working").removeClass("hidden");
+                    $bjs.find(".percent").html("3 %");
+                    var ProvinceTVItemID = parseInt($bjs.data("provincetvitemid"));
+                    var command_5 = "ProvinceTools/FindMissingDischargeForProvinceJSON";
+                    $.post(cssp.BaseURL + command_5, {
+                        ProvinceTVItemID: ProvinceTVItemID,
+                    }).done(function (ret) {
+                        if (ret) {
+                            cssp.Dialog.ShowDialogErrorWithError(ret);
+                        }
+                        cssp.ProvinceTools.ReenableButton($bjs);
+                        window.location.href = window.location.href.replace("050", "020");
+                    }).fail(function () {
+                        cssp.Dialog.ShowDialogErrorWithFail(command_5);
+                    });
+                }
+                else {
+                    cssp.ProvinceTools.ReenableButton($bjs);
+                }
+            };
+            this.GetAllDischargeForYear = function ($bjs) {
+                if ($bjs.hasClass("btn-primary")) {
+                    $bjs.removeClass("btn-primary").addClass("btn-success");
+                    $bjs.removeAttr("disabled").attr("disabled", "disabled");
+                    $bjs.find(".working").removeClass("hidden");
+                    $bjs.find(".percent").html("3 %");
+                    var ProvinceTVItemID = parseInt($bjs.data("provincetvitemid"));
+                    var Year = parseInt($bjs.closest(".ProvinceToolsHydrometricSiteDiv").find("select[name='Year']").val());
+                    var command_6 = "ProvinceTools/GetAllDischargeForYearJSON";
+                    $.post(cssp.BaseURL + command_6, {
+                        ProvinceTVItemID: ProvinceTVItemID,
+                        Year: Year,
+                    }).done(function (ret) {
+                        if (ret) {
+                            cssp.Dialog.ShowDialogErrorWithError(ret);
+                        }
+                        cssp.ProvinceTools.ReenableButton($bjs);
+                        window.location.href = window.location.href.replace("050", "020");
+                        cssp.Helper.PageRefresh();
+                    }).fail(function () {
+                        cssp.Dialog.ShowDialogErrorWithFail(command_6);
+                    });
+                }
+                else {
+                    cssp.ProvinceTools.ReenableButton($bjs);
+                }
+            };
             this.GenerateClassificationForCSSPWebToolsVisualization = function ($bjs) {
                 if ($bjs.hasClass("btn-primary")) {
                     $bjs.removeClass("btn-primary").addClass("btn-success");
@@ -95,8 +172,8 @@ var CSSP;
                     $bjs.find(".working").removeClass("hidden");
                     $bjs.find(".percent").html("3 %");
                     var ProvinceTVItemID = parseInt($bjs.data("provincetvitemid"));
-                    var command_4 = "ProvinceTools/GenerateClassificationForCSSPWebToolsVisualizationJSON";
-                    $.post(cssp.BaseURL + command_4, {
+                    var command_7 = "ProvinceTools/GenerateClassificationForCSSPWebToolsVisualizationJSON";
+                    $.post(cssp.BaseURL + command_7, {
                         ProvinceTVItemID: ProvinceTVItemID,
                     }).done(function (ret) {
                         if (ret) {
@@ -106,7 +183,7 @@ var CSSP;
                         window.location.href = window.location.href.replace("050", "020");
                         cssp.Helper.PageRefresh();
                     }).fail(function () {
-                        cssp.Dialog.ShowDialogErrorWithFail(command_4);
+                        cssp.Dialog.ShowDialogErrorWithFail(command_7);
                     });
                 }
                 else {
@@ -120,8 +197,8 @@ var CSSP;
                     $bjs.find(".working").removeClass("hidden");
                     $bjs.find(".percent").html("3 %");
                     var ProvinceTVItemID = parseInt($bjs.data("provincetvitemid"));
-                    var command_5 = "ProvinceTools/GenerateLinksBetweenMWQMSitesAndPolSourceSitesForCSSPWebToolsVisualizationJSON";
-                    $.post(cssp.BaseURL + command_5, {
+                    var command_8 = "ProvinceTools/GenerateLinksBetweenMWQMSitesAndPolSourceSitesForCSSPWebToolsVisualizationJSON";
+                    $.post(cssp.BaseURL + command_8, {
                         ProvinceTVItemID: ProvinceTVItemID,
                     }).done(function (ret) {
                         if (ret) {
@@ -131,7 +208,7 @@ var CSSP;
                         window.location.href = window.location.href.replace("050", "020");
                         cssp.Helper.PageRefresh();
                     }).fail(function () {
-                        cssp.Dialog.ShowDialogErrorWithFail(command_5);
+                        cssp.Dialog.ShowDialogErrorWithFail(command_8);
                     });
                 }
                 else {

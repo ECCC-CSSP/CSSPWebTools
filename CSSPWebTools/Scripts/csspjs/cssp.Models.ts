@@ -4,8 +4,19 @@ module CSSP {
         constructor(public UseOfSiteID: number, public Ordinal: number) {
         }
     }
+
     export class ClimateSiteTVItemIDYearsText {
         constructor(public ClimateSiteTVItemID: number, public YearsText: string) {
+        }
+    }
+
+    export class HydrometricSiteUseOfSiteOrdinal {
+        constructor(public UseOfSiteID: number, public Ordinal: number) {
+        }
+    }
+
+    export class HydrometricSiteTVItemIDYearsText {
+        constructor(public HydrometricSiteTVItemID: number, public YearsText: string) {
         }
     }
 

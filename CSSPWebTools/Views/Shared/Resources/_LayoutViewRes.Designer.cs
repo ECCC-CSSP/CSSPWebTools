@@ -169,6 +169,15 @@ namespace CSSPWebTools.Views.Shared.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Check under hydrometric site priorities tab.
+        /// </summary>
+        public static string CheckUnderHydrometricSitePrioritiesTab {
+            get {
+                return ResourceManager.GetString("CheckUnderHydrometricSitePrioritiesTab", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Climate Site.
         /// </summary>
         public static string ClimateSite {
@@ -453,6 +462,15 @@ namespace CSSPWebTools.Views.Shared.Resources {
         public static string HydrometricSite {
             get {
                 return ResourceManager.GetString("HydrometricSite", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hydrometric site priorities might need resetting.
+        /// </summary>
+        public static string HydrometricSitePrioritiesMightNeedResetting {
+            get {
+                return ResourceManager.GetString("HydrometricSitePrioritiesMightNeedResetting", resourceCulture);
             }
         }
         

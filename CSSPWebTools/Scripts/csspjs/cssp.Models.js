@@ -16,6 +16,22 @@ var CSSP;
         return ClimateSiteTVItemIDYearsText;
     }());
     CSSP.ClimateSiteTVItemIDYearsText = ClimateSiteTVItemIDYearsText;
+    var HydrometricSiteUseOfSiteOrdinal = (function () {
+        function HydrometricSiteUseOfSiteOrdinal(UseOfSiteID, Ordinal) {
+            this.UseOfSiteID = UseOfSiteID;
+            this.Ordinal = Ordinal;
+        }
+        return HydrometricSiteUseOfSiteOrdinal;
+    }());
+    CSSP.HydrometricSiteUseOfSiteOrdinal = HydrometricSiteUseOfSiteOrdinal;
+    var HydrometricSiteTVItemIDYearsText = (function () {
+        function HydrometricSiteTVItemIDYearsText(HydrometricSiteTVItemID, YearsText) {
+            this.HydrometricSiteTVItemID = HydrometricSiteTVItemID;
+            this.YearsText = YearsText;
+        }
+        return HydrometricSiteTVItemIDYearsText;
+    }());
+    CSSP.HydrometricSiteTVItemIDYearsText = HydrometricSiteTVItemIDYearsText;
     var MWQMSubsectorAnalysisModel = (function () {
         function MWQMSubsectorAnalysisModel(mwqmSubsectorModel, mwqmSiteAnalysisModelList, mwqmRunAnalysisModelList) {
             this.mwqmSubsectorModel = mwqmSubsectorModel;

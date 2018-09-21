@@ -115,83 +115,29 @@ namespace CSSPWebTools.Views.HydrometricSite.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Climate site.
-        /// </summary>
-        public static string ClimateSite {
-            get {
-                return ResourceManager.GetString("ClimateSite", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Climate Site Name.
-        /// </summary>
-        public static string ClimateSiteName {
-            get {
-                return ResourceManager.GetString("ClimateSiteName", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Climate sites and years of use.
-        /// </summary>
-        public static string ClimateSitesAndYearsOfUse {
-            get {
-                return ResourceManager.GetString("ClimateSitesAndYearsOfUse", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Climate sites data for each run.
-        /// </summary>
-        public static string ClimateSitesDataForEachRun {
-            get {
-                return ResourceManager.GetString("ClimateSitesDataForEachRun", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Climate sites priorities.
-        /// </summary>
-        public static string ClimateSitesPriorities {
-            get {
-                return ResourceManager.GetString("ClimateSitesPriorities", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Climate sites to use for subsector.
-        /// </summary>
-        public static string ClimateSitesToUseForSubsector {
-            get {
-                return ResourceManager.GetString("ClimateSitesToUseForSubsector", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Climate sites to use for subsector verify and save.
-        /// </summary>
-        public static string ClimateSitesToUseForSubsectorVerifyAndSave {
-            get {
-                return ResourceManager.GetString("ClimateSitesToUseForSubsectorVerifyAndSave", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Climate sites used and within distance.
-        /// </summary>
-        public static string ClimateSitesUsedAndWithinDistance {
-            get {
-                return ResourceManager.GetString("ClimateSitesUsedAndWithinDistance", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Day.
         /// </summary>
         public static string Day {
             get {
                 return ResourceManager.GetString("Day", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Discharge (m3/s).
+        /// </summary>
+        public static string Discharge_m3_s {
+            get {
+                return ResourceManager.GetString("Discharge_m3_s", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Discharges Manually Entered (m3/s).
+        /// </summary>
+        public static string DischargesEntered_m3_s {
+            get {
+                return ResourceManager.GetString("DischargesEntered_m3_s", resourceCulture);
             }
         }
         
@@ -268,20 +214,20 @@ namespace CSSPWebTools.Views.HydrometricSite.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Find climate sites within distance of subsector.
+        ///   Looks up a localized string similar to Find hydrometric sites within distance of subsector.
         /// </summary>
-        public static string FindClimateSitesWithinDistanceOfSubsector {
+        public static string FindHydrometricSitesWithinDistanceOfSubsector {
             get {
-                return ResourceManager.GetString("FindClimateSitesWithinDistanceOfSubsector", resourceCulture);
+                return ResourceManager.GetString("FindHydrometricSitesWithinDistanceOfSubsector", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Get climate data for runs of year {0}.
+        ///   Looks up a localized string similar to Get hydrometric data for runs of year {0}.
         /// </summary>
-        public static string GetClimateDataForRunsOfYear_ {
+        public static string GetHydrometricDataForRunsOfYear_ {
             get {
-                return ResourceManager.GetString("GetClimateDataForRunsOfYear_", resourceCulture);
+                return ResourceManager.GetString("GetHydrometricDataForRunsOfYear_", resourceCulture);
             }
         }
         
@@ -295,6 +241,78 @@ namespace CSSPWebTools.Views.HydrometricSite.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Hydrometric site.
+        /// </summary>
+        public static string HydrometricSite {
+            get {
+                return ResourceManager.GetString("HydrometricSite", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hydrometric Site Name.
+        /// </summary>
+        public static string HydrometricSiteName {
+            get {
+                return ResourceManager.GetString("HydrometricSiteName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hydrometric sites and years of use.
+        /// </summary>
+        public static string HydrometricSitesAndYearsOfUse {
+            get {
+                return ResourceManager.GetString("HydrometricSitesAndYearsOfUse", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hydrometric sites data for each run.
+        /// </summary>
+        public static string HydrometricSitesDataForEachRun {
+            get {
+                return ResourceManager.GetString("HydrometricSitesDataForEachRun", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hydrometric sites priorities.
+        /// </summary>
+        public static string HydrometricSitesPriorities {
+            get {
+                return ResourceManager.GetString("HydrometricSitesPriorities", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hydrometric sites to use for subsector.
+        /// </summary>
+        public static string HydrometricSitesToUseForSubsector {
+            get {
+                return ResourceManager.GetString("HydrometricSitesToUseForSubsector", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hydrometric sites to use for subsector verify and save.
+        /// </summary>
+        public static string HydrometricSitesToUseForSubsectorVerifyAndSave {
+            get {
+                return ResourceManager.GetString("HydrometricSitesToUseForSubsectorVerifyAndSave", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hydrometric sites used and within distance.
+        /// </summary>
+        public static string HydrometricSitesUsedAndWithinDistance {
+            get {
+                return ResourceManager.GetString("HydrometricSitesUsedAndWithinDistance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Identify on map.
         /// </summary>
         public static string IdentifyOnMap {
@@ -304,11 +322,11 @@ namespace CSSPWebTools.Views.HydrometricSite.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Maximum Temperature (˚C).
+        ///   Looks up a localized string similar to Level (m).
         /// </summary>
-        public static string MaxTemp_C {
+        public static string Level_m {
             get {
-                return ResourceManager.GetString("MaxTemp_C", resourceCulture);
+                return ResourceManager.GetString("Level_m", resourceCulture);
             }
         }
         
@@ -322,15 +340,6 @@ namespace CSSPWebTools.Views.HydrometricSite.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Minimum Temperature (˚C).
-        /// </summary>
-        public static string MinTemp_C {
-            get {
-                return ResourceManager.GetString("MinTemp_C", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to More info.
         /// </summary>
         public static string MoreInfo {
@@ -340,11 +349,11 @@ namespace CSSPWebTools.Views.HydrometricSite.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to No data on MSC historical site.
+        ///   Looks up a localized string similar to No data on HSC historical site.
         /// </summary>
-        public static string NoDataOnMSCHistoricalSite {
+        public static string NoDataOnHSCHistoricalSite {
             get {
-                return ResourceManager.GetString("NoDataOnMSCHistoricalSite", resourceCulture);
+                return ResourceManager.GetString("NoDataOnHSCHistoricalSite", resourceCulture);
             }
         }
         
@@ -394,24 +403,6 @@ namespace CSSPWebTools.Views.HydrometricSite.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Rainfall (mm).
-        /// </summary>
-        public static string Rainfall_mm {
-            get {
-                return ResourceManager.GetString("Rainfall_mm", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Rainfall Manually Entered (mm).
-        /// </summary>
-        public static string RainfallEntered_mm {
-            get {
-                return ResourceManager.GetString("RainfallEntered_mm", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Remove.
         /// </summary>
         public static string Remove {
@@ -448,20 +439,20 @@ namespace CSSPWebTools.Views.HydrometricSite.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Save climate site priorities.
+        ///   Looks up a localized string similar to Save entered discharge.
         /// </summary>
-        public static string SaveClimateSitePriorities {
+        public static string SaveEnteredDischarge {
             get {
-                return ResourceManager.GetString("SaveClimateSitePriorities", resourceCulture);
+                return ResourceManager.GetString("SaveEnteredDischarge", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Save entered precipitation.
+        ///   Looks up a localized string similar to Save hydrometric site priorities.
         /// </summary>
-        public static string SaveEnteredPrecipitation {
+        public static string SaveHydrometricSitePriorities {
             get {
-                return ResourceManager.GetString("SaveEnteredPrecipitation", resourceCulture);
+                return ResourceManager.GetString("SaveHydrometricSitePriorities", resourceCulture);
             }
         }
         
@@ -484,11 +475,11 @@ namespace CSSPWebTools.Views.HydrometricSite.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Select a run above to see precipitation.
+        ///   Looks up a localized string similar to Select a run above to see discharge.
         /// </summary>
-        public static string SelectARunAboveToSeePrecipitation {
+        public static string SelectARunAboveToSeeDischarge {
             get {
-                return ResourceManager.GetString("SelectARunAboveToSeePrecipitation", resourceCulture);
+                return ResourceManager.GetString("SelectARunAboveToSeeDischarge", resourceCulture);
             }
         }
         
@@ -498,15 +489,6 @@ namespace CSSPWebTools.Views.HydrometricSite.Resources {
         public static string Selected {
             get {
                 return ResourceManager.GetString("Selected", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Set climate site priority by distance.
-        /// </summary>
-        public static string SetClimateSitePriorityByDistance {
-            get {
-                return ResourceManager.GetString("SetClimateSitePriorityByDistance", resourceCulture);
             }
         }
         
@@ -529,38 +511,29 @@ namespace CSSPWebTools.Views.HydrometricSite.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Setting climate site priorities.
+        ///   Looks up a localized string similar to Set hydrometric site priority by distance.
         /// </summary>
-        public static string SettingClimateSitePriorities {
+        public static string SetHydrometricSitePriorityByDistance {
             get {
-                return ResourceManager.GetString("SettingClimateSitePriorities", resourceCulture);
+                return ResourceManager.GetString("SetHydrometricSitePriorityByDistance", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Show climate sites on map.
+        ///   Looks up a localized string similar to Setting hydrometric site priorities.
         /// </summary>
-        public static string ShowClimateSitesOnMap {
+        public static string SettingHydrometricSitePriorities {
             get {
-                return ResourceManager.GetString("ShowClimateSitesOnMap", resourceCulture);
+                return ResourceManager.GetString("SettingHydrometricSitePriorities", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Snow (cm).
+        ///   Looks up a localized string similar to Show hydrometric sites on map.
         /// </summary>
-        public static string Snow_cm {
+        public static string ShowHydrometricSitesOnMap {
             get {
-                return ResourceManager.GetString("Snow_cm", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Snow On Ground (cm).
-        /// </summary>
-        public static string SnowOnGround_cm {
-            get {
-                return ResourceManager.GetString("SnowOnGround_cm", resourceCulture);
+                return ResourceManager.GetString("ShowHydrometricSitesOnMap", resourceCulture);
             }
         }
         
@@ -570,15 +543,6 @@ namespace CSSPWebTools.Views.HydrometricSite.Resources {
         public static string SubsectorRuns {
             get {
                 return ResourceManager.GetString("SubsectorRuns", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Total Precipitation (rain[mm] and/or snow[cm]).
-        /// </summary>
-        public static string TotalPrecip_mm_cm {
-            get {
-                return ResourceManager.GetString("TotalPrecip_mm_cm", resourceCulture);
             }
         }
         
@@ -601,11 +565,11 @@ namespace CSSPWebTools.Views.HydrometricSite.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Use same climate sites as selected subsector.
+        ///   Looks up a localized string similar to Use same hydrometric sites as selected subsector.
         /// </summary>
-        public static string UseSameClimateSitesAsSelectedSubsector {
+        public static string UseSameHydrometricSitesAsSelectedSubsector {
             get {
-                return ResourceManager.GetString("UseSameClimateSitesAsSelectedSubsector", resourceCulture);
+                return ResourceManager.GetString("UseSameHydrometricSitesAsSelectedSubsector", resourceCulture);
             }
         }
         

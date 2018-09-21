@@ -247,6 +247,24 @@ var CSSP;
                         $(evt.target).closest(".MikeScenarioSourceEdit").find(".IsNotContinuous").removeClass("hidden");
                     }
                 });
+                $(document).off("click", "input[name='IsRiver']");
+                $(document).on("click", "input[name='IsRiver']", function (evt) {
+                    if ($(evt.target).is(":checked")) {
+                        $(evt.target).closest(".MikeScenarioSourceEdit").find(".UseHydrometricCheckbox").removeClass("hidden");
+                    }
+                    else {
+                        $(evt.target).closest(".MikeScenarioSourceEdit").find(".UseHydrometricCheckbox").removeClass("hidden").addClass("hidden");
+                    }
+                });
+                $(document).off("click", "input[name='UseHydrometric']");
+                $(document).on("click", "input[name='UseHydrometric']", function (evt) {
+                    if ($(evt.target).is(":checked")) {
+                        $(evt.target).closest(".MikeScenarioSourceEdit").find(".UseHydrometric").removeClass("hidden");
+                    }
+                    else {
+                        $(evt.target).closest(".MikeScenarioSourceEdit").find(".UseHydrometric").removeClass("hidden").addClass("hidden");
+                    }
+                });
                 $(document).off("change keyup paste", "input[name='SourceFlowStart_m3_day']");
                 $(document).on("change keyup paste", "input[name='SourceFlowStart_m3_day']", function (evt) {
                     var Flow_m3_d = parseFloat($(evt.target).val());
@@ -322,6 +340,12 @@ var CSSP;
                         $(".SourceStartEndHours").text(parseInt(Hours.toString()));
                         $(".SourceStartEndMinutes").text(parseInt(Minutes.toString()));
                     }
+                });
+                $(document).off("change keyup paste", "input[name='SourceFlowEnd_m3_s']");
+                $(document).on("change keyup paste", "input[name='SourceFlowEnd_m3_s']", function (evt) {
+                    var Flow_m3_s = parseFloat($(evt.target).val());
+                    var Flow_m3_d = Flow_m3_s * 3600 * 24;
+                    $(evt.target).closest(".MikeScenarioSourceStartEndForm").find("input[name='SourceFlowEnd_m3_day']").val(Flow_m3_d.toString());
                 });
             };
             this.MikeScenarioCreateWebTideDataWLFromStartToEndDate = function () {
@@ -488,6 +512,27 @@ var CSSP;
                     return;
                 });
                 $bjs.removeClass("hidden").addClass("hidden");
+            };
+            this.MikeScenarioGetDrainageArea = function ($bjs) {
+                var MikeSourceTVItemID = parseInt($bjs.data("tvitemid"));
+                var DrainageAreaValue = $bjs.closest("form").find(".DrainageAreaValue");
+                var command = "MikeScenario/GetDrainageAreaWithTVItemIDJSON";
+                $.get(cssp.BaseURL + command, {
+                    MikeSourceTVItemID: MikeSourceTVItemID,
+                }).done(function (ret) {
+                    DrainageAreaValue.html(ret);
+                    cssp.GoogleMap.ReadAndShowObjects();
+                }).fail(function () {
+                    cssp.Dialog.ShowDialogErrorWithFail(command);
+                    return;
+                });
+            };
+            this.MikeScenarioCalculateFactor = function ($bjs) {
+                var MikeSourceTVItemID = parseInt($bjs.data("tvitemid"));
+                var FactorValue = $bjs.closest("form").find(".FactorValue");
+                var SourceDrainageArea = parseFloat($bjs.closest("form").find("input[name='DrainageArea_km2']").val());
+                var HydrometricDrainageArea = parseFloat($bjs.closest("form").find(".HydrometricDrainageArea").text());
+                FactorValue.html("" + (SourceDrainageArea / HydrometricDrainageArea));
             };
             this.MikeScenarioGenerateWebTideNodes = function ($bjs) {
                 var BoundaryConditionName = $(".MikeScenarioBoundaryConditionDiv").first().find(".BoundaryConditionName").first().text();

@@ -63,6 +63,52 @@
             </div>
         </div>
         <div class="panel panel-info">
+            <div class="panel-heading" role="tab" id="headingHydrometricData">
+                <h4 class="panel-title">
+                    <a role="button" data-toggle="collapse" data-parent="#ProvinceToolsAccordion" href="#HydrometricDataCollapse" aria-expanded="true" aria-controls="HydrometricDataCollapse">
+                        @ProvinceToolsViewRes.HydrometricSiteDischargeRelatedTools
+                    </a>
+                </h4>
+            </div>
+            <div id="HydrometricDataCollapse" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingHydrometricData">
+                <div class="ProvinceToolsHydrometricSiteDiv panel-body">
+                    <div class="h4">@ProvinceToolsViewRes.SomeOfTheseTasksCanTakeALongTime</div>
+                    <select class="form-control" name="Year">
+                        @for (int year = DateTime.Now.Year; year > 1979; year--)
+                        {
+                            <option value="@year">@year</option>
+                        }
+                    </select>
+                    <p></p>
+                    <button class="jbProvinceToolsGetAllDischargeForYear btn btn-primary" data-provincetvitemid="@ProvinceTVItemID">
+                        @ProvinceToolsViewRes.GetAllDischargeForYear
+                        <span class="working hidden">
+                            @ProvinceToolsViewRes.Working...
+                            <span class="percent"></span>
+                        </span>
+                    </button>
+                    <p></p>
+                    <button class="jbProvinceToolsFillRunDischargeByHydrometricSitePriorityForYear btn btn-primary" data-provincetvitemid="@ProvinceTVItemID">
+                        @ProvinceToolsViewRes.FillRunDischargeByHydrometricSitePriorityForYear
+                        <span class="working hidden">
+                            @ProvinceToolsViewRes.Working...
+                            <span class="percent"></span>
+                        </span>
+                    </button>
+                    <p></p>
+                    <button class="jbProvinceToolsFindMissingDischargeForProvince btn btn-primary" data-provincetvitemid="@ProvinceTVItemID">
+                        @ProvinceToolsViewRes.FindMissingDischargeForProvince
+                        <span class="working hidden">
+                            @ProvinceToolsViewRes.Working...
+                            <span class="percent"></span>
+                        </span>
+                    </button>
+                    <span>@ProvinceToolsViewRes.ADocumentWillBeCreatedShowingTheMissingDischarge</span>
+                    <p></p>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-info">
             <div class="panel-heading" role="tab" id="headingClassification">
                 <h4 class="panel-title">
                     <a role="button" data-toggle="collapse" data-parent="#ProvinceToolsAccordion" href="#ClassificationCollapse" aria-expanded="true" aria-controls="ClassificationCollapse">

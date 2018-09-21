@@ -135,29 +135,29 @@
   <data name="ClickOnGlobeIconToViewOnMap" xml:space="preserve">
     <value>Cliquez sur l'icône du globe pour voir sur la carte</value>
   </data>
-  <data name="ClimateSite" xml:space="preserve">
-    <value>Site climatique</value>
+  <data name="HydrometricSite" xml:space="preserve">
+    <value>Site hydrométrique</value>
   </data>
-  <data name="ClimateSiteName" xml:space="preserve">
-    <value>Nom du site climatique</value>
+  <data name="HydrometricSiteName" xml:space="preserve">
+    <value>Nom du site hydrométrique</value>
   </data>
-  <data name="ClimateSitesAndYearsOfUse" xml:space="preserve">
-    <value>Sites climatiques et années d'utilisation</value>
+  <data name="HydrometricSitesAndYearsOfUse" xml:space="preserve">
+    <value>Sites hydrométriques et années d'utilisation</value>
   </data>
-  <data name="ClimateSitesDataForEachRun" xml:space="preserve">
-    <value>Données sur les sites climatiques pour chaque tournée</value>
+  <data name="HydrometricSitesDataForEachRun" xml:space="preserve">
+    <value>Données sur les sites hydrométriques pour chaque tournée</value>
   </data>
-  <data name="ClimateSitesPriorities" xml:space="preserve">
-    <value>Priorités des sites climatiques</value>
+  <data name="HydrometricSitesPriorities" xml:space="preserve">
+    <value>Priorités des sites hydrométriques</value>
   </data>
-  <data name="ClimateSitesToUseForSubsector" xml:space="preserve">
-    <value>Sites climatiques à utiliser pour le sous-secteur</value>
+  <data name="HydrometricSitesToUseForSubsector" xml:space="preserve">
+    <value>Sites hydrométriques à utiliser pour le sous-secteur</value>
   </data>
-  <data name="ClimateSitesToUseForSubsectorVerifyAndSave" xml:space="preserve">
-    <value>Les sites climatiques à utiliser pour le sous-secteur - (vérifier et enregistrer)</value>
+  <data name="HydrometricSitesToUseForSubsectorVerifyAndSave" xml:space="preserve">
+    <value>Les sites hydrométriques à utiliser pour le sous-secteur - (vérifier et enregistrer)</value>
   </data>
-  <data name="ClimateSitesUsedAndWithinDistance" xml:space="preserve">
-    <value>Sites climatiques utilisés et à distance</value>
+  <data name="HydrometricSitesUsedAndWithinDistance" xml:space="preserve">
+    <value>Sites hydrométriques utilisés et à distance</value>
   </data>
   <data name="Day" xml:space="preserve">
     <value>Jour</value>
@@ -186,11 +186,11 @@
   <data name="Find" xml:space="preserve">
     <value>Trouver</value>
   </data>
-  <data name="FindClimateSitesWithinDistanceOfSubsector" xml:space="preserve">
-    <value>Trouver des sites climatiques à distance du sous-secteur</value>
+  <data name="FindHydrometricSitesWithinDistanceOfSubsector" xml:space="preserve">
+    <value>Trouver des sites hydrométriques à distance du sous-secteur</value>
   </data>
-  <data name="GetClimateDataForRunsOfYear_" xml:space="preserve">
-    <value>Obtenir des données climatiques pour l'année {0}</value>
+  <data name="GetHydrometricDataForRunsOfYear_" xml:space="preserve">
+    <value>Obtenir des données hydrométriques pour l'année {0}</value>
   </data>
   <data name="HasRuns" xml:space="preserve">
     <value>A une tournée</value>
@@ -198,20 +198,14 @@
   <data name="IdentifyOnMap" xml:space="preserve">
     <value>Identifier sur la carte</value>
   </data>
-  <data name="MaxTemp_C" xml:space="preserve">
-    <value>Température maximale (˚C)</value>
-  </data>
   <data name="Meters" xml:space="preserve">
     <value>Mètres</value>
-  </data>
-  <data name="MinTemp_C" xml:space="preserve">
-    <value>Température minimale (˚C)</value>
   </data>
   <data name="MoreInfo" xml:space="preserve">
     <value>Plus d'informations</value>
   </data>
-  <data name="NoDataOnMSCHistoricalSite" xml:space="preserve">
-    <value>Aucune donnée sur le site historique MSC</value>
+  <data name="NoDataOnHSCHistoricalSite" xml:space="preserve">
+    <value>Aucune donnée sur le site historique HSC</value>
   </data>
   <data name="Note" xml:space="preserve">
     <value>Remarque</value>
@@ -228,11 +222,11 @@
   <data name="Radar" xml:space="preserve">
     <value>Radar</value>
   </data>
-  <data name="RainfallEntered_mm" xml:space="preserve">
-    <value>Précipitations saisies manuellement (mm)</value>
+  <data name="DischargesEntered_m3_s" xml:space="preserve">
+    <value>Débits saisies manuellement (m3/s)</value>
   </data>
-  <data name="Rainfall_mm" xml:space="preserve">
-    <value>Précipitations (mm)</value>
+  <data name="Discharge_m3_s" xml:space="preserve">
+    <value>Débit (m3/s)</value>
   </data>
   <data name="Remove" xml:space="preserve">
     <value>Effacer</value>
@@ -246,11 +240,11 @@
   <data name="SaveButtonAtBottomOfPage" xml:space="preserve">
     <value>Bouton Enregistrer au bas de la page</value>
   </data>
-  <data name="SaveClimateSitePriorities" xml:space="preserve">
-    <value>Sauvegarder les priorités du site climatique</value>
+  <data name="SaveHydrometricSitePriorities" xml:space="preserve">
+    <value>Sauvegarder les priorités du site hydrométrique</value>
   </data>
-  <data name="SaveEnteredPrecipitation" xml:space="preserve">
-    <value>Enregistrer les précipitations inscrites</value>
+  <data name="SaveEnteredDischarge" xml:space="preserve">
+    <value>Enregistrer les discharges inscrites</value>
   </data>
   <data name="Saving" xml:space="preserve">
     <value>Sauvegarder ...</value>
@@ -258,14 +252,14 @@
   <data name="SelectAnAdjacentSubsector" xml:space="preserve">
     <value>Sélectionnez un sous-secteur adjacent</value>
   </data>
-  <data name="SelectARunAboveToSeePrecipitation" xml:space="preserve">
-    <value>Sélectionnez une course ci-dessus pour voir les précipitations</value>
+  <data name="SelectARunAboveToSeeDischarge" xml:space="preserve">
+    <value>Sélectionnez une course ci-dessus pour voir les débits</value>
   </data>
   <data name="Selected" xml:space="preserve">
     <value>Choisi</value>
   </data>
-  <data name="SetClimateSitePriorityByDistance" xml:space="preserve">
-    <value>Définir la priorité du site climatique par distance</value>
+  <data name="SetHydrometricSitePriorityByDistance" xml:space="preserve">
+    <value>Définir la priorité du site hydrométrique par distance</value>
   </data>
   <data name="SetDataToUseByAverageForYear_" xml:space="preserve">
     <value>Définir les données à utiliser par moyenne pour l'année {0}</value>
@@ -273,23 +267,14 @@
   <data name="SetDataToUseByPriorityForYear_" xml:space="preserve">
     <value>Définir les données à utiliser par priorité pour l'année {0}</value>
   </data>
-  <data name="SettingClimateSitePriorities" xml:space="preserve">
-    <value>Définir les priorités du site climatique</value>
+  <data name="SettingHydrometricSitePriorities" xml:space="preserve">
+    <value>Définir les priorités du site hydrométrique</value>
   </data>
-  <data name="ShowClimateSitesOnMap" xml:space="preserve">
-    <value>Afficher les sites climatiques sur la carte</value>
-  </data>
-  <data name="SnowOnGround_cm" xml:space="preserve">
-    <value>Neige au sol (cm)</value>
-  </data>
-  <data name="Snow_cm" xml:space="preserve">
-    <value>Neige (cm)</value>
+  <data name="ShowHydrometricSitesOnMap" xml:space="preserve">
+    <value>Afficher les sites hydrométriques sur la carte</value>
   </data>
   <data name="SubsectorRuns" xml:space="preserve">
     <value>tournée du sous-secteur</value>
-  </data>
-  <data name="TotalPrecip_mm_cm" xml:space="preserve">
-    <value>Précipitation totale (pluie [mm] et / ou neige [cm])</value>
   </data>
   <data name="Up" xml:space="preserve">
     <value>En haut</value>
@@ -297,8 +282,8 @@
   <data name="Use" xml:space="preserve">
     <value>Utilise</value>
   </data>
-  <data name="UseSameClimateSiteAsSelectedSubsector" xml:space="preserve">
-    <value>Utilisez les mêmes sites climatiques que le sous-secteur sélectionné</value>
+  <data name="UseSameHydrometricSiteAsSelectedSubsector" xml:space="preserve">
+    <value>Utilisez les mêmes sites hydrométriques que le sous-secteur sélectionné</value>
   </data>
   <data name="ValuesToBeUsed" xml:space="preserve">
     <value>Valeurs à utiliser</value>
@@ -314,5 +299,8 @@
   </data>
   <data name="YearsOfUse" xml:space="preserve">
     <value>Années d'utilisation</value>
+  </data>
+  <data name="Level_m" xml:space="preserve">
+    <value>Niveau (m)</value>
   </data>
 </root>

@@ -200,6 +200,31 @@ module CSSP {
                             cssp.ClimateSite.ClimateSitesUseSameAsSelectedSubsector($bjs);
                         }
                         break;
+                    case "jbHydrometricSiteAddToUse":
+                        {
+                            cssp.HydrometricSite.HydrometricSitesAddToUse($bjs);
+                        }
+                        break;
+                    case "jbHydrometricSitesShowOnMap":
+                        {
+                            cssp.HydrometricSite.HydrometricSitesShowOnMap();
+                        }
+                        break;
+                    case "jbHydrometricSitesFindWithinDistance":
+                        {
+                            cssp.HydrometricSite.HydrometricSitesFindWithinDistance();
+                        }
+                        break;
+                    case "jbHydrometricSiteOpenDialogToShowExOfYearsToEnter":
+                        {
+                            cssp.HydrometricSite.HydrometricSiteOpenDialogToShowExOfYearsToEnter();
+                        }
+                        break;
+                    case "jbHydrometricSitesToUseForSubsectorVerifyAndSave":
+                        {
+                            cssp.HydrometricSite.HydrometricSitesToUseForSubsectorVerifyAndSave();
+                        }
+                        break;
                     case "jbContactAddOrModify":
                         {
                             cssp.Contact.FormSubmit();
@@ -729,6 +754,16 @@ module CSSP {
                             cssp.MikeScenario.MikeScenarioGenerateResultsShowStudyArea($bjs);
                         }
                         break;
+                    case "jbMikeScenarioGetDrainageArea":
+                        {
+                            cssp.MikeScenario.MikeScenarioGetDrainageArea($bjs);
+                        }
+                        break;
+                    case "jbMikeScenarioCalculateFactor":
+                        {
+                            cssp.MikeScenario.MikeScenarioCalculateFactor($bjs);
+                        }
+                        break;
                     case "jbRainExceedanceShowHideEditButtons":
                         {
                             cssp.RainExceedance.RainExceedanceShowHideEditButtons($bjs);
@@ -1117,6 +1152,21 @@ module CSSP {
                     case "jbProvinceToolsGetAllPrecipitationForYear":
                         {
                             cssp.ProvinceTools.GetAllPrecipitationForYear($bjs);
+                        }
+                        break;
+                    case "jbProvinceToolsFillRunDischargeByHydrometricSitePriorityForYear":
+                        {
+                            cssp.ProvinceTools.FillRunDischargeByHydrometricSitePriorityForYear($bjs);
+                        }
+                        break;
+                    case "jbProvinceToolsFindMissingDischargeForProvince":
+                        {
+                            cssp.ProvinceTools.FindMissingDischargeForProvince($bjs);
+                        }
+                        break;
+                    case "jbProvinceToolsGetAllDischargeForYear":
+                        {
+                            cssp.ProvinceTools.GetAllDischargeForYear($bjs);
                         }
                         break;
                     case "jbProvinceToolsGenerateClassificationForCSSPWebToolsVisualization":

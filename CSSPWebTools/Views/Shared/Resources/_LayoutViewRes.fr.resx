@@ -508,4 +508,10 @@
   <data name="Restricted" xml:space="preserve">
     <value>Restreint</value>
   </data>
+  <data name="CheckUnderHydrometricSitePrioritiesTab" xml:space="preserve">
+    <value>Vérifiez sous l'onglet Priorités du site hydrométrique</value>
+  </data>
+  <data name="HydrometricSitePrioritiesMightNeedResetting" xml:space="preserve">
+    <value>Les priorités du site hydrométrique pourraient nécessiter une réinitialisation</value>
+  </data>
 </root>

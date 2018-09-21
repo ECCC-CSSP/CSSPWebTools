@@ -135,29 +135,29 @@
   <data name="ClickOnGlobeIconToViewOnMap" xml:space="preserve">
     <value>Click on globe icon to view on map</value>
   </data>
-  <data name="ClimateSite" xml:space="preserve">
-    <value>Climate site</value>
+  <data name="HydrometricSite" xml:space="preserve">
+    <value>Hydrometric site</value>
   </data>
-  <data name="ClimateSiteName" xml:space="preserve">
-    <value>Climate Site Name</value>
+  <data name="HydrometricSiteName" xml:space="preserve">
+    <value>Hydrometric Site Name</value>
   </data>
-  <data name="ClimateSitesAndYearsOfUse" xml:space="preserve">
-    <value>Climate sites and years of use</value>
+  <data name="HydrometricSitesAndYearsOfUse" xml:space="preserve">
+    <value>Hydrometric sites and years of use</value>
   </data>
-  <data name="ClimateSitesDataForEachRun" xml:space="preserve">
-    <value>Climate sites data for each run</value>
+  <data name="HydrometricSitesDataForEachRun" xml:space="preserve">
+    <value>Hydrometric sites data for each run</value>
   </data>
-  <data name="ClimateSitesPriorities" xml:space="preserve">
-    <value>Climate sites priorities</value>
+  <data name="HydrometricSitesPriorities" xml:space="preserve">
+    <value>Hydrometric sites priorities</value>
   </data>
-  <data name="ClimateSitesToUseForSubsector" xml:space="preserve">
-    <value>Climate sites to use for subsector</value>
+  <data name="HydrometricSitesToUseForSubsector" xml:space="preserve">
+    <value>Hydrometric sites to use for subsector</value>
   </data>
-  <data name="ClimateSitesToUseForSubsectorVerifyAndSave" xml:space="preserve">
-    <value>Climate sites to use for subsector verify and save</value>
+  <data name="HydrometricSitesToUseForSubsectorVerifyAndSave" xml:space="preserve">
+    <value>Hydrometric sites to use for subsector verify and save</value>
   </data>
-  <data name="ClimateSitesUsedAndWithinDistance" xml:space="preserve">
-    <value>Climate sites used and within distance</value>
+  <data name="HydrometricSitesUsedAndWithinDistance" xml:space="preserve">
+    <value>Hydrometric sites used and within distance</value>
   </data>
   <data name="Day" xml:space="preserve">
     <value>Day</value>
@@ -186,11 +186,11 @@
   <data name="Find" xml:space="preserve">
     <value>Find</value>
   </data>
-  <data name="FindClimateSitesWithinDistanceOfSubsector" xml:space="preserve">
-    <value>Find climate sites within distance of subsector</value>
+  <data name="FindHydrometricSitesWithinDistanceOfSubsector" xml:space="preserve">
+    <value>Find hydrometric sites within distance of subsector</value>
   </data>
-  <data name="GetClimateDataForRunsOfYear_" xml:space="preserve">
-    <value>Get climate data for runs of year {0}</value>
+  <data name="GetHydrometricDataForRunsOfYear_" xml:space="preserve">
+    <value>Get hydrometric data for runs of year {0}</value>
   </data>
   <data name="HasRuns" xml:space="preserve">
     <value>Has runs</value>
@@ -198,20 +198,14 @@
   <data name="IdentifyOnMap" xml:space="preserve">
     <value>Identify on map</value>
   </data>
-  <data name="MaxTemp_C" xml:space="preserve">
-    <value>Maximum Temperature (˚C)</value>
-  </data>
   <data name="Meters" xml:space="preserve">
     <value>Meters</value>
-  </data>
-  <data name="MinTemp_C" xml:space="preserve">
-    <value>Minimum Temperature (˚C)</value>
   </data>
   <data name="MoreInfo" xml:space="preserve">
     <value>More info</value>
   </data>
-  <data name="NoDataOnMSCHistoricalSite" xml:space="preserve">
-    <value>No data on MSC historical site</value>
+  <data name="NoDataOnHSCHistoricalSite" xml:space="preserve">
+    <value>No data on HSC historical site</value>
   </data>
   <data name="Note" xml:space="preserve">
     <value>Note</value>
@@ -228,11 +222,8 @@
   <data name="Radar" xml:space="preserve">
     <value>Radar</value>
   </data>
-  <data name="RainfallEntered_mm" xml:space="preserve">
-    <value>Rainfall Manually Entered (mm)</value>
-  </data>
-  <data name="Rainfall_mm" xml:space="preserve">
-    <value>Rainfall (mm)</value>
+  <data name="Discharge_m3_s" xml:space="preserve">
+    <value>Discharge (m3/s)</value>
   </data>
   <data name="Remove" xml:space="preserve">
     <value>Remove</value>
@@ -246,11 +237,11 @@
   <data name="SaveButtonAtBottomOfPage" xml:space="preserve">
     <value>Save button at bottom of page</value>
   </data>
-  <data name="SaveClimateSitePriorities" xml:space="preserve">
-    <value>Save climate site priorities</value>
+  <data name="SaveHydrometricSitePriorities" xml:space="preserve">
+    <value>Save hydrometric site priorities</value>
   </data>
-  <data name="SaveEnteredPrecipitation" xml:space="preserve">
-    <value>Save entered precipitation</value>
+  <data name="SaveEnteredDischarge" xml:space="preserve">
+    <value>Save entered discharge</value>
   </data>
   <data name="Saving" xml:space="preserve">
     <value>Saving ...</value>
@@ -258,14 +249,14 @@
   <data name="SelectAnAdjacentSubsector" xml:space="preserve">
     <value>Select an adjacent subsector</value>
   </data>
-  <data name="SelectARunAboveToSeePrecipitation" xml:space="preserve">
-    <value>Select a run above to see precipitation</value>
+  <data name="SelectARunAboveToSeeDischarge" xml:space="preserve">
+    <value>Select a run above to see discharge</value>
   </data>
   <data name="Selected" xml:space="preserve">
     <value>Selected</value>
   </data>
-  <data name="SetClimateSitePriorityByDistance" xml:space="preserve">
-    <value>Set climate site priority by distance</value>
+  <data name="SetHydrometricSitePriorityByDistance" xml:space="preserve">
+    <value>Set hydrometric site priority by distance</value>
   </data>
   <data name="SetDataToUseByAverageForYear_" xml:space="preserve">
     <value>Set data to use by average for year {0}</value>
@@ -273,23 +264,14 @@
   <data name="SetDataToUseByPriorityForYear_" xml:space="preserve">
     <value>Set data to use by priority for year {0}</value>
   </data>
-  <data name="SettingClimateSitePriorities" xml:space="preserve">
-    <value>Setting climate site priorities</value>
+  <data name="SettingHydrometricSitePriorities" xml:space="preserve">
+    <value>Setting hydrometric site priorities</value>
   </data>
-  <data name="ShowClimateSitesOnMap" xml:space="preserve">
-    <value>Show climate sites on map</value>
-  </data>
-  <data name="SnowOnGround_cm" xml:space="preserve">
-    <value>Snow On Ground (cm)</value>
-  </data>
-  <data name="Snow_cm" xml:space="preserve">
-    <value>Snow (cm)</value>
+  <data name="ShowHydrometricSitesOnMap" xml:space="preserve">
+    <value>Show hydrometric sites on map</value>
   </data>
   <data name="SubsectorRuns" xml:space="preserve">
     <value>Subsector runs</value>
-  </data>
-  <data name="TotalPrecip_mm_cm" xml:space="preserve">
-    <value>Total Precipitation (rain[mm] and/or snow[cm])</value>
   </data>
   <data name="Up" xml:space="preserve">
     <value>Up</value>
@@ -297,8 +279,8 @@
   <data name="Use" xml:space="preserve">
     <value>Use</value>
   </data>
-  <data name="UseSameClimateSitesAsSelectedSubsector" xml:space="preserve">
-    <value>Use same climate sites as selected subsector</value>
+  <data name="UseSameHydrometricSitesAsSelectedSubsector" xml:space="preserve">
+    <value>Use same hydrometric sites as selected subsector</value>
   </data>
   <data name="ValuesToBeUsed" xml:space="preserve">
     <value>Values to be used</value>
@@ -314,5 +296,11 @@
   </data>
   <data name="YearsOfUse" xml:space="preserve">
     <value>Years of use</value>
+  </data>
+  <data name="DischargesEntered_m3_s" xml:space="preserve">
+    <value>Discharges Manually Entered (m3/s)</value>
+  </data>
+  <data name="Level_m" xml:space="preserve">
+    <value>Level (m)</value>
   </data>
 </root>

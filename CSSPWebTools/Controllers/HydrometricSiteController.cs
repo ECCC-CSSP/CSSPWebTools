@@ -45,59 +45,6 @@ namespace CSSPWebTools.Controllers
         #region Functions (public)
         [HttpGet]
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
-        public PartialViewResult _hydrometricSitePriorities(int SubsectorTVItemID)
-        {
-            ViewBag.SubsectorTVItemID = SubsectorTVItemID;
-            ViewBag.SmallestYearOfSampling = null;
-            ViewBag.HydrometricSiteYearsOrderList = null;
-            ViewBag.SmallestYearOfSampling = null;
-            ViewBag.HydrometricSiteUseOfSiteModelList = null;
-            ViewBag.RunYears = null;
-            ViewBag.MWQMSubsectorHydrometricSites = null;
-
-            TVAuthEnum tvAuth = _TVItemService.GetTVAuthWithTVItemIDAndLoggedInUser(SubsectorTVItemID, null, null, null);
-
-            ViewBag.TVAuth = tvAuth;
-
-            int SmallestYearOfSampling = DateTime.Now.Year;
-            ViewBag.SmallestYearOfSampling = SmallestYearOfSampling;
-            List<MWQMRunModel> mwqmRunModelList = _MWQMRunService.GetMWQMRunModelListWithSubsectorTVItemIDDB(SubsectorTVItemID);
-            if (mwqmRunModelList.Count > 0)
-            {
-                SmallestYearOfSampling = mwqmRunModelList.OrderBy(c => c.DateTime_Local).FirstOrDefault().DateTime_Local.Year;
-                ViewBag.SmallestYearOfSampling = SmallestYearOfSampling;
-                int CurrentYear = DateTime.Now.Year;
-            }
-
-            List<HydrometricSiteUseOfSiteModel> HydrometricSiteUseOfSiteModelList = _MWQMSubsectorService.GetHydrometricSiteUseOfSiteModelList(SubsectorTVItemID, SmallestYearOfSampling);
-            ViewBag.HydrometricSiteUseOfSiteModelList = HydrometricSiteUseOfSiteModelList;
-
-            List<int> runYears = _MWQMSubsectorService.GetMWQMSubsectorRunsYears(SubsectorTVItemID);
-            ViewBag.RunYears = runYears;
-
-            MWQMSubsectorHydrometricSites mwqmSubsectorHydrometricSites = _MWQMSubsectorService.GetMWQMSubsectorHydrometricSitesDB(SubsectorTVItemID, 1);
-            ViewBag.MWQMSubsectorHydrometricSites = mwqmSubsectorHydrometricSites;
-
-            return PartialView();
-        }
-        [HttpGet]
-        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
-        public PartialViewResult _runsAndHydrometricSitePrecipitation(int SubsectorTVItemID)
-        {
-            ViewBag.SubsectorTVItemID = SubsectorTVItemID;
-            ViewBag.MWQMMRunModelList = null;
-
-            TVAuthEnum tvAuth = _TVItemService.GetTVAuthWithTVItemIDAndLoggedInUser(SubsectorTVItemID, null, null, null);
-
-            ViewBag.TVAuth = tvAuth;
-
-            List<MWQMRunModel> mwqmRunModelList = _MWQMRunService.GetMWQMRunModelListWithSubsectorTVItemIDDB(SubsectorTVItemID).OrderByDescending(c => c.DateTime_Local).ToList();
-            ViewBag.MWQMRunModelList = mwqmRunModelList;
-
-            return PartialView();
-        }
-        [HttpGet]
-        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
         public PartialViewResult _subsectorHydrometricSites(int SubsectorTVItemID, float Radius_km)
         {
             ViewBag.MWQMSubsectorHydrometricSites = null;
@@ -142,67 +89,11 @@ namespace CSSPWebTools.Controllers
 
             return PartialView();
         }
-        [HttpGet]
-        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
-        public PartialViewResult _selectedRunDischarge(int SubsectorTVItemID, int MWQMRunTVItemID)
-        {
-            ViewBag.HydrometricSitesAndRainsList = null;
-            ViewBag.MWQMRunModel = null;
-            ViewBag.SubsectorTVItemID = SubsectorTVItemID;
-            ViewBag.MWQMRunTVItemID = MWQMRunTVItemID;
-            ViewBag.UseOfSiteModelList = null;
-            ViewBag.ATL_PYR = "";
-            ViewBag.MWQMSubsectorHydrometricSites = null;
-
-            TVAuthEnum tvAuth = _TVItemService.GetTVAuthWithTVItemIDAndLoggedInUser(urlModel.TVItemIDList[0], null, null, null);
-
-            ViewBag.TVAuth = tvAuth;
-
-            ViewBag.IsShowMap = (GetURLVarShowEnumStr(URLVarShowEnum.ShowMap) == "0" ? false : true);
-
-            MWQMRunModel mwqmRunModel = _MWQMSubsectorService._MWQMRunService.GetMWQMRunModelWithMWQMRunTVItemIDDB(MWQMRunTVItemID);
-            ViewBag.MWQMRunModel = mwqmRunModel;
-
-            List<HydrometricSitesAndDischarges> HydrometricSiteAndDischargesList = _MWQMSubsectorService.GetMWQMSubsectorHydrometricSitesAndValuesForAParicularRunsDB(SubsectorTVItemID, MWQMRunTVItemID);
-            ViewBag.HydrometricSitesAndRainsList = HydrometricSiteAndDischargesList;
-
-            List<UseOfSiteModel> useOfSiteModelList = _UseOfSiteService.GetUseOfSiteModelListWithSiteTypeAndSubsectorTVItemIDDB(SiteTypeEnum.Hydrometric, SubsectorTVItemID);
-            ViewBag.UseOfSiteModelList = useOfSiteModelList;
-
-            if (useOfSiteModelList.Count > 0)
-            {
-                List<MapInfoPointModel> mapInfoPointModelList = _MapInfoService._MapInfoPointService.GetMapInfoPointModelListWithTVItemIDAndTVTypeAndMapInfoDrawTypeDB(useOfSiteModelList[0].SiteTVItemID, TVTypeEnum.HydrometricSite, MapInfoDrawTypeEnum.Point);
-                if (mapInfoPointModelList.Count > 0)
-                {
-                    if (mapInfoPointModelList[0].Lng < -100)
-                    {
-                        ViewBag.ATL_PYR = "PYR";
-                    }
-                    else
-                    {
-                        ViewBag.ATL_PYR = "ATL";
-                    }
-                }
-            }
-
-            MWQMSubsectorHydrometricSites mwqmSubsectorHydrometricSites = _MWQMSubsectorService.GetMWQMSubsectorHydrometricSitesDB(SubsectorTVItemID, 1);
-            ViewBag.MWQMSubsectorHydrometricSites = mwqmSubsectorHydrometricSites;
-
-            return PartialView();
-        }
         [HttpPost]
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
         public JsonResult HydrometricSitesToUseForSubsectorVerifyAndSaveJSON(FormCollection fc)
         {
             MWQMSubsectorModel mwqmSubsectorModel = _MWQMSubsectorService.HydrometricSitesToUseForSubsectorVerifyAndSaveDB(fc);
-
-            return Json(mwqmSubsectorModel.Error, JsonRequestBehavior.AllowGet);
-        }
-        [HttpPost]
-        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
-        public JsonResult HydrometricSitePrioritiesSaveJSON(FormCollection fc)
-        {
-            MWQMSubsectorModel mwqmSubsectorModel = _MWQMSubsectorService.HydrometricSitePrioritiesSaveDB(fc);
 
             return Json(mwqmSubsectorModel.Error, JsonRequestBehavior.AllowGet);
         }
@@ -216,35 +107,11 @@ namespace CSSPWebTools.Controllers
         }
         [HttpPost]
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
-        public JsonResult HydrometricSiteSetDataToUseByAverageOrPriorityJSON(int SubsectorTVItemID, int Year, string AverageOrPriority)
-        {
-            MWQMSubsectorModel mwqmSubsectorModel = _MWQMSubsectorService.HydrometricSiteSetDataToUseByAverageOrPriorityDB(SubsectorTVItemID, Year, AverageOrPriority);
-
-            return Json(mwqmSubsectorModel.Error, JsonRequestBehavior.AllowGet);
-        }
-        [HttpPost]
-        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
         public JsonResult CheckPercentCompletedJSON(int AppTaskID)
         {
             int PercentCompleted = _MWQMSubsectorService.CheckPercentCompletedDB(AppTaskID);
 
             return Json(PercentCompleted, JsonRequestBehavior.AllowGet);
-        }
-        [HttpPost]
-        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
-        public JsonResult HydrometricSitePrecipitationEnteredSaveJSON(FormCollection fc)
-        {
-            MWQMSubsectorModel mwqmSubsectorModel = _MWQMSubsectorService.HydrometricSiteDischargeEnteredSaveDB(fc);
-
-            return Json(mwqmSubsectorModel.Error, JsonRequestBehavior.AllowGet);
-        }
-        [HttpPost]
-        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
-        public JsonResult HydrometricSitesUseSameAsSelectedSubsectorJSON(int SubsectorTVItemID, int UseSubsectorTVItemID)
-        {
-            MWQMSubsectorModel mwqmSubsectorModel = _MWQMSubsectorService.HydrometricSitesUseSameAsSelectedSubsectorDB(SubsectorTVItemID, UseSubsectorTVItemID);
-
-            return Json(mwqmSubsectorModel.Error, JsonRequestBehavior.AllowGet);
         }
         #endregion Functions (public)
     }

@@ -27,6 +27,8 @@ namespace CSSPWebTools.Controllers
         public MikeScenarioService _MikeScenarioService { get; private set; }
         public MikeScenarioController _MikeScenarioController { get; private set; }
         public TVFileService _TVFileService { get; private set; }
+        public HydrometricSiteService _HydrometricSiteService { get; private set; }
+        public MapInfoService _MapInfoService { get; private set; }
 
         #endregion Properties
 
@@ -43,6 +45,8 @@ namespace CSSPWebTools.Controllers
             base.Initialize(requestContext);
             _MikeScenarioService = new MikeScenarioService(LanguageRequest, User);
             _TVFileService = new TVFileService(LanguageRequest, User);
+            _HydrometricSiteService = new HydrometricSiteService(LanguageRequest, User);
+            _MapInfoService = new MapInfoService(LanguageRequest, User);
         }
         #endregion Overrides
 
@@ -892,19 +896,52 @@ namespace CSSPWebTools.Controllers
             ViewBag.URLModel = urlModel;
             ViewBag.MikeScenarioModel = null;
             ViewBag.MikeSourceModelList = null;
+            ViewBag.IsUnderSubsector = false;
+            ViewBag.SubsectorTVItemID = 0;
+            ViewBag.SectorTVItemID = 0;
+            ViewBag.HydrometricSiteModelList = null;
+
+            int TVItemIDSector = 0;
+
+            bool IsUnderSubsector = false;
 
             MikeScenarioModel mikeScenarioModel = _MikeScenarioService.GetMikeScenarioModelWithMikeScenarioTVItemIDDB(urlModel.TVItemIDList[0]);
-
             ViewBag.MikeScenarioModel = mikeScenarioModel;
 
             List<MikeSourceModel> mikeSourceModelList = _MikeScenarioService._MikeSourceService.GetMikeSourceModelAndMikeSourceStartEndModelListWithMikeScenarioTVItemIDDB(urlModel.TVItemIDList[0]);
-
-            //foreach (MikeSourceModel mikeSourceModel in mikeSourceModelList)
-            //{
-            //    mikeSourceModel.MikeSourceStartEndModelList = _MikeScenarioService._MikeSourceService._MikeSourceStartEndService.GetMikeSourceStartEndModelListWithMikeSourceIDDB(mikeSourceModel.MikeSourceID);
-            //}
-
             ViewBag.MikeSourceModelList = mikeSourceModelList;
+
+            TVItemModel tvItemModelSource = _TVItemService.GetTVItemModelWithTVItemIDDB(urlModel.TVItemIDList[0]);
+            if (string.IsNullOrWhiteSpace(tvItemModelSource.Error))
+            {
+                List<TVItemModel> tvItemModelParentList = _TVItemService.GetParentsTVItemModelList(tvItemModelSource.TVPath);
+
+                foreach (TVItemModel tvItemModelParent in tvItemModelParentList)
+                {
+                    if (tvItemModelParent.TVType == TVTypeEnum.Subsector)
+                    {
+                        ViewBag.IsUnderSubsector = true;
+                        IsUnderSubsector = true;
+                        ViewBag.SubsectorTVItemID = tvItemModelParent.TVItemID;
+                    }
+
+                    if (tvItemModelParent.TVType == TVTypeEnum.Sector)
+                    {
+                        ViewBag.SectorTVItemID = tvItemModelParent.TVItemID;
+                        TVItemIDSector = tvItemModelParent.TVItemID;
+                    }
+                }
+            }
+
+            if (IsUnderSubsector)
+            {
+                ViewBag.TVItemHydrometricList = new List<TVItemModel>();
+            }
+            else
+            {
+                List<HydrometricSiteModel> hydrometriSiteModelList = _HydrometricSiteService.GetHydrometricSiteModelListWithSectorTVItemIDAndSiteType(TVItemIDSector, SiteTypeEnum.Hydrometric);
+                ViewBag.HydrometricSiteModelList = hydrometriSiteModelList;
+            }
 
             return PartialView();
         }
@@ -922,10 +959,14 @@ namespace CSSPWebTools.Controllers
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
         public PartialViewResult _mikeScenarioSourceEdit(int MikeSourceTVItemID)
         {
+            ViewBag.MikeScenarioModel = null;
             ViewBag.MikeSourceModel = null;
+            ViewBag.IsUnderSubsector = false;
+            ViewBag.SubsectorTVItemID = 0;
+            ViewBag.SectorTVItemID = 0;
+            ViewBag.HydrometricSiteModelList = null;
 
             MikeSourceModel mikeSourceModel = _MikeScenarioService._MikeSourceService.GetMikeSourceModelWithMikeSourceTVItemIDDB(MikeSourceTVItemID);
-
             ViewBag.MikeSourceModel = mikeSourceModel;
 
             if (string.IsNullOrWhiteSpace(mikeSourceModel.Error))
@@ -936,9 +977,44 @@ namespace CSSPWebTools.Controllers
                 if (string.IsNullOrWhiteSpace(tvItemModelMikeSource.Error))
                 {
                     MikeScenarioModel mikeScenarioModel = _MikeScenarioService.GetMikeScenarioModelWithMikeScenarioTVItemIDDB(tvItemModelMikeSource.ParentID);
-
                     ViewBag.MikeScenarioModel = mikeScenarioModel;
                 }
+            }
+
+            int TVItemIDSector = 0;
+
+            bool IsUnderSubsector = false;
+
+            TVItemModel tvItemModelSource = _TVItemService.GetTVItemModelWithTVItemIDDB(MikeSourceTVItemID);
+            if (string.IsNullOrWhiteSpace(tvItemModelSource.Error))
+            {
+                List<TVItemModel> tvItemModelParentList = _TVItemService.GetParentsTVItemModelList(tvItemModelSource.TVPath);
+
+                foreach (TVItemModel tvItemModelParent in tvItemModelParentList)
+                {
+                    if (tvItemModelParent.TVType == TVTypeEnum.Subsector)
+                    {
+                        ViewBag.IsUnderSubsector = true;
+                        IsUnderSubsector = true;
+                        ViewBag.SubsectorTVItemID = tvItemModelParent.TVItemID;
+                    }
+
+                    if (tvItemModelParent.TVType == TVTypeEnum.Sector)
+                    {
+                        ViewBag.SectorTVItemID = tvItemModelParent.TVItemID;
+                        TVItemIDSector = tvItemModelParent.TVItemID;
+                    }
+                }
+            }
+
+            if (IsUnderSubsector)
+            {
+                ViewBag.TVItemHydrometricList = new List<TVItemModel>();
+            }
+            else
+            {
+                List<HydrometricSiteModel> hydrometriSiteModelList = _HydrometricSiteService.GetHydrometricSiteModelListWithSectorTVItemIDAndSiteType(TVItemIDSector, SiteTypeEnum.Hydrometric);
+                ViewBag.HydrometricSiteModelList = hydrometriSiteModelList;
             }
 
             return PartialView();
@@ -1221,6 +1297,14 @@ namespace CSSPWebTools.Controllers
             ViewBag.AppTaskModel = appTaskModelSetupWebTide;
 
             return PartialView();
+        }
+        [HttpGet]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public JsonResult GetDrainageAreaWithTVItemIDJSON(int MikeSourceTVItemID)
+        {
+            float value = _MapInfoService.GetDrainageAreaWithTVItemIDWillCreatePolygonIfItDoesNotExistDB(MikeSourceTVItemID);
+
+            return Json(value, JsonRequestBehavior.AllowGet);
         }
         #endregion public
 
