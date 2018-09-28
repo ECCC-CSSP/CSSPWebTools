@@ -761,6 +761,26 @@ var CSSP;
                                 cssp.MikeScenario.MikeScenarioCalculateFactor($bjs);
                             }
                             break;
+                        case "jbMikeScenarioResetDrainageArea":
+                            {
+                                cssp.MikeScenario.MikeScenarioResetDrainageArea($bjs);
+                            }
+                            break;
+                        case "jbMikeScenarioViewHydrometricData":
+                            {
+                                cssp.MikeScenario.MikeScenarioViewHydrometricData($bjs);
+                            }
+                            break;
+                        case "jbMikeScenarioLoadHydrometricData":
+                            {
+                                cssp.MikeScenario.MikeScenarioLoadHydrometricData($bjs);
+                            }
+                            break;
+                        case "jbMikeScenarioLoadHydrometricDataRefresh":
+                            {
+                                cssp.MikeScenario.MikeScenarioLoadHydrometricDataRefresh($bjs);
+                            }
+                            break;
                         case "jbRainExceedanceShowHideEditButtons":
                             {
                                 cssp.RainExceedance.RainExceedanceShowHideEditButtons($bjs);

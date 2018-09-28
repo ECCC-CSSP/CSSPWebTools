@@ -568,6 +568,71 @@ module CSSP {
                     return;
                 });
         };
+        public MikeScenarioResetDrainageArea: Function = ($bjs: JQuery): void => {
+            let MikeSourceTVItemID: number = parseInt($bjs.data("tvitemid"));
+            let KMLDrainageArea: string = $bjs.closest("form").find("textarea[name='KMLDrainageArea']").val();
+            KMLDrainageArea = KMLDrainageArea.replace(/</g, "|||");
+            let command: string = "MikeScenario/ResetDrainageAreaWithTVItemIDJSON";
+            $.post(cssp.BaseURL + command,
+                {
+                    MikeSourceTVItemID: MikeSourceTVItemID,
+                    KMLDrainageArea: KMLDrainageArea,
+                }).done((ret) => {
+                    if (ret) {
+                        cssp.Dialog.ShowDialogErrorWithFail(ret);
+                    }
+                    else
+                    {
+                        cssp.Dialog.ShowDialogSuccess(cssp.GetHTMLVariable("#LayoutVariables", "varSuccess"));
+                        cssp.GoogleMap.ReadAndShowObjects();
+                    }
+                }).fail(() => {
+                    cssp.Dialog.ShowDialogErrorWithFail(command);
+                    return;
+                });
+        };
+        public MikeScenarioViewHydrometricData: Function = ($bjs: JQuery): void => {
+            let MikeSourceTVItemID: number = parseInt($bjs.data("mikesourcetvitemid"));
+            let MikeScenarioTVItemID: number = parseInt($bjs.data("mikescenariotvitemid"));
+            let HydrometricDataP: JQuery = $bjs.closest(".HydrometricDataDiv").find(".HydrometricData");
+            HydrometricDataP.html(cssp.GetHTMLVariable("#LayoutVariables", "varInProgress"));
+            let command: string = "MikeScenario/_mikeScenarioSourceHydrometricData";
+            $.get(cssp.BaseURL + command,
+                {
+                    MikeScenarioTVItemID: MikeScenarioTVItemID,
+                    MikeSourceTVItemID: MikeSourceTVItemID,
+                }).done((ret) => {
+                    HydrometricDataP.html(ret);
+                }).fail(() => {
+                    cssp.Dialog.ShowDialogErrorWithFail(command);
+                    return;
+                });
+        };
+        public MikeScenarioLoadHydrometricData: Function = ($bjs: JQuery): void => {
+            let MikeSourceTVItemID: number = parseInt($bjs.data("mikesourcetvitemid"));
+            let MikeScenarioTVItemID: number = parseInt($bjs.data("mikescenariotvitemid"));
+            let LoadHydrometricDataWorking: JQuery = $bjs.closest(".HydrometricDataDiv").find(".MikeScenarioLoadHydrometricDataWorkingDiv");
+            LoadHydrometricDataWorking.html(cssp.GetHTMLVariable("#LayoutVariables", "varInProgress"));
+            let command: string = "MikeScenario/LoadHydrometricDataValueJSON";
+            $.post(cssp.BaseURL + command,
+                {
+                    MikeScenarioTVItemID: MikeScenarioTVItemID,
+                    MikeSourceTVItemID: MikeSourceTVItemID,
+                }).done((ret) => {
+                    if (ret) {
+                        cssp.Dialog.ShowDialogErrorWithError(ret);
+                    }
+                    else {
+                        $bjs.closest(".HydrometricDataDiv").find(".jbMikeScenarioViewHydrometricData").trigger("click");
+                    }
+                }).fail(() => {
+                    cssp.Dialog.ShowDialogErrorWithFail(command);
+                    return;
+                });
+        };
+        public MikeScenarioLoadHydrometricDataRefresh: Function = ($bjs: JQuery): void => {
+            $bjs.closest(".HydrometricDataDiv").find(".jbMikeScenarioViewHydrometricData").trigger("click");
+        };
         public MikeScenarioCalculateFactor: Function = ($bjs: JQuery): void => {
             let MikeSourceTVItemID: number = parseInt($bjs.data("tvitemid"));
             let FactorValue: JQuery = $bjs.closest("form").find(".FactorValue");
@@ -861,6 +926,7 @@ module CSSP {
         public MikeScenarioSourceEditSave: Function = ($bjs: JQuery): void => {
             let $form: JQuery = $bjs.closest(".MikeScenarioSourceAddOrModifyForm");
             let MikeSourceName: string = $bjs.closest(".MikeScenarioSourceTop").find(".MikeSourceName").text();
+            $bjs.closest("form").find("textarea[name='KMLDrainageArea']").val("");
             if ($form.length == 0) {
                 cssp.Dialog.ShowDialogErrorWithCouldNotFind_Within_("MikeScenarioSourceAddOrModifyForm", "MikeScenarioSourceEdit");
                 return;

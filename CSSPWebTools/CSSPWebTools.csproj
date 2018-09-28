@@ -915,6 +915,7 @@
     <Content Include="Views\HydrometricSite\_hydrometricSiteTopPage.cshtml" />
     <Content Include="Views\HydrometricSite\_dialogToShowExOfYearsToEnter.cshtml" />
     <Content Include="Views\HydrometricSite\_subsectorHydrometricSites.cshtml" />
+    <Content Include="Views\MikeScenario\_mikeScenarioSourceHydrometricData.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

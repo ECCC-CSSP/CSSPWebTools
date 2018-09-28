@@ -135,6 +135,34 @@
                                                 </span>
                                                 <span class="help-block"></span>
                                             </div>
+                                            <div class="HydrometricDataDiv">
+                                                @if (mikeSourceModel.UseHydrometric == true && mikeSourceModel.HydrometricTVItemID != null && mikeSourceModel.HydrometricTVItemID > 0)
+                                                {
+                                                    <button class="jbMikeScenarioViewHydrometricData btn btn-default" 
+                                                            data-mikesourcetvitemid="@mikeSourceModel.MikeSourceTVItemID"
+                                                            data-mikescenariotvitemid="@mikeScenarioModel.MikeScenarioTVItemID"
+                                                            >@MikeScenarioViewRes.ViewHydrometricData</button>
+                                                    <p class="HydrometricData">
+
+                                                    </p>
+                                                }
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label">
+                                                @MikeScenarioViewRes.ToHelpDrawDrainageAreaInGoogleEarth
+                                                &nbsp;&nbsp;&nbsp;
+                                                <a target="_blank" href="http://ftp.geogratis.gc.ca/pub/nrcan_rncan/vector/geobase_nhn_rhn/kml_en/">ftp.geogratis.gc.ca</a>
+                                                &nbsp;&nbsp;&nbsp;<a target="_blank" href="https://open.canada.ca/data/en/fgpv_vpgf/a4b190fe-e090-4e6d-881e-b87956c07977">Open Map Data Viewer</a>
+                                                <br /><br />
+                                                @MikeScenarioViewRes.ImportKMLPolygonRepresentingTheDrainageArea
+                                            </label>
+                                            <div>
+                                            </div>
+                                            <div>
+                                                <textarea name="KMLDrainageArea" style="width: 100%">@MikeScenarioViewRes.CopyPasteAKMLPolygon</textarea>
+                                                <button class="jbMikeScenarioResetDrainageArea btn btn-default" data-tvitemid="@mikeSourceModel.MikeSourceTVItemID">@MikeScenarioViewRes.ResetDrainageArea</button>
+                                            </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label">

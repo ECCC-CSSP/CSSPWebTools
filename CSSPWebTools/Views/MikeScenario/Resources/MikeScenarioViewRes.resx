@@ -874,4 +874,34 @@
   <data name="GetFactor" xml:space="preserve">
     <value>Get factor</value>
   </data>
+  <data name="CopyPasteAKMLPolygon" xml:space="preserve">
+    <value>Copy paste a KML polygon</value>
+  </data>
+  <data name="HydrometricDataNotYetLoadedForRun" xml:space="preserve">
+    <value>Hydrometric data not yet loaded for run</value>
+  </data>
+  <data name="HydrometricSite" xml:space="preserve">
+    <value>Hydrometric site</value>
+  </data>
+  <data name="ImportKMLPolygonRepresentingTheDrainageArea" xml:space="preserve">
+    <value>Import KML polygon representing the drainage area</value>
+  </data>
+  <data name="LoadHydrometricData" xml:space="preserve">
+    <value>Load hydrometric data</value>
+  </data>
+  <data name="NoData" xml:space="preserve">
+    <value>No data</value>
+  </data>
+  <data name="ResetDrainageArea" xml:space="preserve">
+    <value>Reset drainage area</value>
+  </data>
+  <data name="River" xml:space="preserve">
+    <value>River</value>
+  </data>
+  <data name="ToHelpDrawDrainageAreaInGoogleEarth" xml:space="preserve">
+    <value>To help draw drainage area in google earth</value>
+  </data>
+  <data name="ViewHydrometricData" xml:space="preserve">
+    <value>View hydrometric data</value>
+  </data>
 </root>

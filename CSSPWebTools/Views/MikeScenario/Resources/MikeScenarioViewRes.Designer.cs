@@ -286,6 +286,15 @@ namespace CSSPWebTools.Views.MikeScenario.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Copy paste a KML polygon.
+        /// </summary>
+        public static string CopyPasteAKMLPolygon {
+            get {
+                return ResourceManager.GetString("CopyPasteAKMLPolygon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Created.
         /// </summary>
         public static string Created {
@@ -781,6 +790,33 @@ namespace CSSPWebTools.Views.MikeScenario.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Hydrometric data not yet loaded for run.
+        /// </summary>
+        public static string HydrometricDataNotYetLoadedForRun {
+            get {
+                return ResourceManager.GetString("HydrometricDataNotYetLoadedForRun", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hydrometric site.
+        /// </summary>
+        public static string HydrometricSite {
+            get {
+                return ResourceManager.GetString("HydrometricSite", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Import KML polygon representing the drainage area.
+        /// </summary>
+        public static string ImportKMLPolygonRepresentingTheDrainageArea {
+            get {
+                return ResourceManager.GetString("ImportKMLPolygonRepresentingTheDrainageArea", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Include in scenario.
         /// </summary>
         public static string Include {
@@ -970,6 +1006,15 @@ namespace CSSPWebTools.Views.MikeScenario.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Load hydrometric data.
+        /// </summary>
+        public static string LoadHydrometricData {
+            get {
+                return ResourceManager.GetString("LoadHydrometricData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to local time.
         /// </summary>
         public static string LocalTime {
@@ -1101,6 +1146,15 @@ namespace CSSPWebTools.Views.MikeScenario.Resources {
         public static string No {
             get {
                 return ResourceManager.GetString("No", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No data.
+        /// </summary>
+        public static string NoData {
+            get {
+                return ResourceManager.GetString("NoData", resourceCulture);
             }
         }
         
@@ -1276,6 +1330,15 @@ namespace CSSPWebTools.Views.MikeScenario.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Reset drainage area.
+        /// </summary>
+        public static string ResetDrainageArea {
+            get {
+                return ResourceManager.GetString("ResetDrainageArea", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Reset WebTide.
         /// </summary>
         public static string ResetWebTide {
@@ -1308,6 +1371,15 @@ namespace CSSPWebTools.Views.MikeScenario.Resources {
         public static string Retry {
             get {
                 return ResourceManager.GetString("Retry", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to River.
+        /// </summary>
+        public static string River {
+            get {
+                return ResourceManager.GetString("River", resourceCulture);
             }
         }
         
@@ -1690,6 +1762,15 @@ namespace CSSPWebTools.Views.MikeScenario.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to To help draw drainage area in google earth.
+        /// </summary>
+        public static string ToHelpDrawDrainageAreaInGoogleEarth {
+            get {
+                return ResourceManager.GetString("ToHelpDrawDrainageAreaInGoogleEarth", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Tools.
         /// </summary>
         public static string Tools {
@@ -1731,6 +1812,15 @@ namespace CSSPWebTools.Views.MikeScenario.Resources {
         public static string UseSalinityAndTemperatureInitialConditionFromResultFile {
             get {
                 return ResourceManager.GetString("UseSalinityAndTemperatureInitialConditionFromResultFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to View hydrometric data.
+        /// </summary>
+        public static string ViewHydrometricData {
+            get {
+                return ResourceManager.GetString("ViewHydrometricData", resourceCulture);
             }
         }
         

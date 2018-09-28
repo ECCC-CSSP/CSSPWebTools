@@ -1,0 +1,61 @@
+﻿@using CSSPWebTools.Models;
+@using CSSPWebTools.Views.MikeScenario.Resources;
+@using CSSPEnumsDLL.Enums;
+@using CSSPModelsDLL.Models;
+@using CSSPWebTools.Views.Shared.Resources;
+
+@{
+    List<HydrometricDataValueModel> hydrometricDataValueModelList = (List<HydrometricDataValueModel>)ViewBag.HydrometricDataValueModelList;
+    List<HydrometricDataValueModel> hydrometricDataValueModelSourceCalculatedList = (List<HydrometricDataValueModel>)ViewBag.HydrometricDataValueModelSourceCalculatedList;
+    HydrometricSiteModel hydrometricSiteModel = (HydrometricSiteModel)ViewBag.HydrometricSiteModel;
+    MWQMRunModel mwqmRunModel = (MWQMRunModel)ViewBag.MWQMRunModel;
+    MikeSourceModel mikeSourceModel = (MikeSourceModel)ViewBag.MikeSourceModel;
+    MikeScenarioModel mikeScenarioModel = (MikeScenarioModel)ViewBag.MikeScenarioModel;
+    AppTaskModel appTaskModel = (AppTaskModel)ViewBag.AppTaskModel;
+}
+
+@if (hydrometricDataValueModelList == null || hydrometricDataValueModelList.Count == 0)
+{
+    <h4>@MikeScenarioViewRes.HydrometricDataNotYetLoadedForRun</h4>
+    <button class="jbMikeScenarioLoadHydrometricData btn btn-default"
+            data-mikesourcetvitemid="@mikeSourceModel.MikeSourceTVItemID"
+            data-mikescenariotvitemid="@mikeScenarioModel.MikeScenarioTVItemID">
+        @MikeScenarioViewRes.LoadHydrometricData
+    </button>
+    if (appTaskModel != null)
+    {
+        <div class="MikeScenarioLoadHydrometricDataWorkingDiv">
+            <button class="jbMikeScenarioLoadHydrometricDataRefresh btn btn-default">
+                @MikeScenarioViewRes.Refresh
+            </button>
+        </div>
+    }
+}
+
+<h3>@hydrometricSiteModel.HydrometricSiteTVText</h3>
+<table class="table table-condensed">
+    <thead>
+        <tr>
+            <th>@MikeScenarioViewRes.Date</th>
+            <th>@MikeScenarioViewRes.HydrometricSite</th>
+            <th>@MikeScenarioViewRes.River</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            @if (hydrometricDataValueModelList == null || hydrometricDataValueModelList.Count == 0)
+            {
+                <td colspan="3">@MikeScenarioViewRes.NoData</td>
+            }
+            else
+            {
+                for (int i = 0, count = hydrometricDataValueModelList.Count; i < count; i++)
+                {
+                    <td>@hydrometricDataValueModelList[i].DateTime_Local.ToString("yyyy MMMM dd")</td>
+                    <td>@((double)hydrometricDataValueModelList[i].Discharge_m3_s).ToString("F3")</td>
+                    <td>@((double)hydrometricDataValueModelSourceCalculatedList[i].Discharge_m3_s).ToString("F3")</td>
+                }
+            }
+        </tr>
+    </tbody>
+</table>

@@ -28,7 +28,10 @@ namespace CSSPWebTools.Controllers
         public MikeScenarioController _MikeScenarioController { get; private set; }
         public TVFileService _TVFileService { get; private set; }
         public HydrometricSiteService _HydrometricSiteService { get; private set; }
+        public HydrometricDataValueService _HydrometricDataValueService { get; private set; }
         public MapInfoService _MapInfoService { get; private set; }
+        public MWQMRunService _MWQMRunService { get; private set; }
+        public AppTaskService _AppTaskService { get; private set; }
 
         #endregion Properties
 
@@ -46,7 +49,10 @@ namespace CSSPWebTools.Controllers
             _MikeScenarioService = new MikeScenarioService(LanguageRequest, User);
             _TVFileService = new TVFileService(LanguageRequest, User);
             _HydrometricSiteService = new HydrometricSiteService(LanguageRequest, User);
+            _HydrometricDataValueService = new HydrometricDataValueService(LanguageRequest, User);
             _MapInfoService = new MapInfoService(LanguageRequest, User);
+            _MWQMRunService = new MWQMRunService(LanguageRequest, User);
+            _AppTaskService = new AppTaskService(LanguageRequest, User);
         }
         #endregion Overrides
 
@@ -948,6 +954,102 @@ namespace CSSPWebTools.Controllers
 
         [HttpGet]
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public PartialViewResult _mikeScenarioSourceHydrometricData(int MikeScenarioTVItemID, int MikeSourceTVItemID)
+        {
+            ViewBag.HydrometricDataValueModelList = null;
+            ViewBag.HydrometricDataValueModelSourceCalculatedList = null;
+            ViewBag.HydrometricSiteModel = null;
+            ViewBag.MWQMRunModel = null;
+            ViewBag.MikeSourceModel = null;
+            ViewBag.MikeScenarioModel = null;
+            ViewBag.AppTaskModel = null;
+
+            MikeSourceModel mikeSourceModel = _MikeScenarioService._MikeSourceService.GetMikeSourceModelWithMikeSourceTVItemIDDB(MikeSourceTVItemID);
+            if (!string.IsNullOrWhiteSpace(mikeSourceModel.Error))
+            {
+                return PartialView();
+            }
+
+            ViewBag.MikeSourceModel = mikeSourceModel;
+
+            if (!mikeSourceModel.UseHydrometric)
+            {
+                return PartialView();
+            }
+
+            if (mikeSourceModel.HydrometricTVItemID == null)
+            {
+                return PartialView();
+            }
+
+            if (mikeSourceModel.HydrometricTVItemID == 0)
+            {
+                return PartialView();
+            }
+
+            HydrometricSiteModel hydrometricSiteModel = _HydrometricSiteService.GetHydrometricSiteModelWithHydrometricSiteTVItemIDDB((int)mikeSourceModel.HydrometricTVItemID);
+            if (!string.IsNullOrWhiteSpace(hydrometricSiteModel.Error))
+            {
+                return PartialView();
+            }
+
+            ViewBag.HydrometricSiteModel = hydrometricSiteModel;
+
+            MikeScenarioModel mikeScenarioModel = _MikeScenarioService.GetMikeScenarioModelWithMikeScenarioTVItemIDDB(MikeScenarioTVItemID);
+            if (!string.IsNullOrWhiteSpace(mikeScenarioModel.Error))
+            {
+                return PartialView();
+            }
+
+            ViewBag.MikeScenarioModel = mikeScenarioModel;
+
+            if (mikeScenarioModel.ForSimulatingMWQMRunTVItemID == null)
+            {
+                return PartialView();
+            }
+
+            if (mikeScenarioModel.ForSimulatingMWQMRunTVItemID == 0)
+            {
+                return PartialView();
+            }
+
+            MWQMRunModel mwqmRunModel = _MWQMRunService.GetMWQMRunModelWithMWQMRunTVItemIDDB((int)mikeScenarioModel.ForSimulatingMWQMRunTVItemID);
+            if (!string.IsNullOrWhiteSpace(mwqmRunModel.Error))
+            {
+                return PartialView();
+            }
+
+            ViewBag.MWQMRunModel = mwqmRunModel;
+
+            List<HydrometricDataValueModel> hydrometricDataValueModelList = _HydrometricDataValueService.GetHydrometricDataValueModelListWithHydrometricDataValueIDBack10DaysFromDateDB(hydrometricSiteModel.HydrometricSiteID, mwqmRunModel.DateTime_Local);
+
+            List<HydrometricDataValueModel> hydrometricDataValueModelSourceCalculatedList = new List<HydrometricDataValueModel>();
+            foreach (HydrometricDataValueModel hydrometricDataValueModel in hydrometricDataValueModelList)
+            {
+                HydrometricDataValueModel hydrometricDataValueModelAdd = new HydrometricDataValueModel()
+                {
+                    HydrometricDataValueID = hydrometricDataValueModel.HydrometricDataValueID,
+                    DateTime_Local = hydrometricDataValueModel.DateTime_Local,
+                    Discharge_m3_s = hydrometricDataValueModel.Discharge_m3_s * mikeSourceModel.Factor,
+                };
+
+                hydrometricDataValueModelSourceCalculatedList.Add(hydrometricDataValueModelAdd);
+            }
+
+            ViewBag.HydrometricDataValueModelSourceCalculatedList = hydrometricDataValueModelSourceCalculatedList;
+
+            AppTaskModel appTaskModel = _AppTaskService.GetAppTaskModelWithTVItemIDTVItemID2AndCommandDB(MikeSourceTVItemID, MikeSourceTVItemID, AppTaskCommandEnum.LoadHydrometricDataValue);
+
+            if (string.IsNullOrWhiteSpace(appTaskModel.Error))
+            {
+                ViewBag.AppTaskModel = appTaskModel;
+            }
+
+            return PartialView();
+        }
+
+        [HttpGet]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
         public PartialViewResult _mikeScenarioSourceAdd(int MikeScenarioTVItemID)
         {
             ViewBag.MikeScenarioTVItemID = MikeScenarioTVItemID;
@@ -1305,6 +1407,22 @@ namespace CSSPWebTools.Controllers
             float value = _MapInfoService.GetDrainageAreaWithTVItemIDWillCreatePolygonIfItDoesNotExistDB(MikeSourceTVItemID);
 
             return Json(value, JsonRequestBehavior.AllowGet);
+        }
+        [HttpPost]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public JsonResult ResetDrainageAreaWithTVItemIDJSON(FormCollection fc)
+        {
+            MapInfoModel mapInfoModel = _MapInfoService.ResetDrainageAreaWithTVItemIDWillCreatePolygonIfItDoesNotExistDB(fc);
+
+            return Json(mapInfoModel.Error, JsonRequestBehavior.AllowGet);
+        }
+        [HttpPost]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public JsonResult LoadHydrometricDataValueJSON(int MikeScenarioTVItemID, int MikeSourceTVItemID)
+        {
+            AppTaskModel appTaskModel = _MikeScenarioService.LoadHydrometricDataValueDB(MikeScenarioTVItemID, MikeSourceTVItemID);
+
+            return Json(appTaskModel.Error, JsonRequestBehavior.AllowGet);
         }
         #endregion public
 

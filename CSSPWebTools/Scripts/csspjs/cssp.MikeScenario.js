@@ -527,6 +527,67 @@ var CSSP;
                     return;
                 });
             };
+            this.MikeScenarioResetDrainageArea = function ($bjs) {
+                var MikeSourceTVItemID = parseInt($bjs.data("tvitemid"));
+                var KMLDrainageArea = $bjs.closest("form").find("textarea[name='KMLDrainageArea']").val();
+                KMLDrainageArea = KMLDrainageArea.replace(/</g, "|||");
+                var command = "MikeScenario/ResetDrainageAreaWithTVItemIDJSON";
+                $.post(cssp.BaseURL + command, {
+                    MikeSourceTVItemID: MikeSourceTVItemID,
+                    KMLDrainageArea: KMLDrainageArea,
+                }).done(function (ret) {
+                    if (ret) {
+                        cssp.Dialog.ShowDialogErrorWithFail(ret);
+                    }
+                    else {
+                        cssp.Dialog.ShowDialogSuccess(cssp.GetHTMLVariable("#LayoutVariables", "varSuccess"));
+                        cssp.GoogleMap.ReadAndShowObjects();
+                    }
+                }).fail(function () {
+                    cssp.Dialog.ShowDialogErrorWithFail(command);
+                    return;
+                });
+            };
+            this.MikeScenarioViewHydrometricData = function ($bjs) {
+                var MikeSourceTVItemID = parseInt($bjs.data("mikesourcetvitemid"));
+                var MikeScenarioTVItemID = parseInt($bjs.data("mikescenariotvitemid"));
+                var HydrometricDataP = $bjs.closest(".HydrometricDataDiv").find(".HydrometricData");
+                HydrometricDataP.html(cssp.GetHTMLVariable("#LayoutVariables", "varInProgress"));
+                var command = "MikeScenario/_mikeScenarioSourceHydrometricData";
+                $.get(cssp.BaseURL + command, {
+                    MikeScenarioTVItemID: MikeScenarioTVItemID,
+                    MikeSourceTVItemID: MikeSourceTVItemID,
+                }).done(function (ret) {
+                    HydrometricDataP.html(ret);
+                }).fail(function () {
+                    cssp.Dialog.ShowDialogErrorWithFail(command);
+                    return;
+                });
+            };
+            this.MikeScenarioLoadHydrometricData = function ($bjs) {
+                var MikeSourceTVItemID = parseInt($bjs.data("mikesourcetvitemid"));
+                var MikeScenarioTVItemID = parseInt($bjs.data("mikescenariotvitemid"));
+                var LoadHydrometricDataWorking = $bjs.closest(".HydrometricDataDiv").find(".MikeScenarioLoadHydrometricDataWorkingDiv");
+                LoadHydrometricDataWorking.html(cssp.GetHTMLVariable("#LayoutVariables", "varInProgress"));
+                var command = "MikeScenario/LoadHydrometricDataValueJSON";
+                $.post(cssp.BaseURL + command, {
+                    MikeScenarioTVItemID: MikeScenarioTVItemID,
+                    MikeSourceTVItemID: MikeSourceTVItemID,
+                }).done(function (ret) {
+                    if (ret) {
+                        cssp.Dialog.ShowDialogErrorWithError(ret);
+                    }
+                    else {
+                        $bjs.closest(".HydrometricDataDiv").find(".jbMikeScenarioViewHydrometricData").trigger("click");
+                    }
+                }).fail(function () {
+                    cssp.Dialog.ShowDialogErrorWithFail(command);
+                    return;
+                });
+            };
+            this.MikeScenarioLoadHydrometricDataRefresh = function ($bjs) {
+                $bjs.closest(".HydrometricDataDiv").find(".jbMikeScenarioViewHydrometricData").trigger("click");
+            };
             this.MikeScenarioCalculateFactor = function ($bjs) {
                 var MikeSourceTVItemID = parseInt($bjs.data("tvitemid"));
                 var FactorValue = $bjs.closest("form").find(".FactorValue");
@@ -797,6 +858,7 @@ var CSSP;
             this.MikeScenarioSourceEditSave = function ($bjs) {
                 var $form = $bjs.closest(".MikeScenarioSourceAddOrModifyForm");
                 var MikeSourceName = $bjs.closest(".MikeScenarioSourceTop").find(".MikeSourceName").text();
+                $bjs.closest("form").find("textarea[name='KMLDrainageArea']").val("");
                 if ($form.length == 0) {
                     cssp.Dialog.ShowDialogErrorWithCouldNotFind_Within_("MikeScenarioSourceAddOrModifyForm", "MikeScenarioSourceEdit");
                     return;
