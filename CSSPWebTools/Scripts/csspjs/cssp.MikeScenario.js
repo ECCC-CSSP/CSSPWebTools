@@ -549,20 +549,28 @@ var CSSP;
                 });
             };
             this.MikeScenarioViewHydrometricData = function ($bjs) {
-                var MikeSourceTVItemID = parseInt($bjs.data("mikesourcetvitemid"));
-                var MikeScenarioTVItemID = parseInt($bjs.data("mikescenariotvitemid"));
-                var HydrometricDataP = $bjs.closest(".HydrometricDataDiv").find(".HydrometricData");
-                HydrometricDataP.html(cssp.GetHTMLVariable("#LayoutVariables", "varInProgress"));
-                var command = "MikeScenario/_mikeScenarioSourceHydrometricData";
-                $.get(cssp.BaseURL + command, {
-                    MikeScenarioTVItemID: MikeScenarioTVItemID,
-                    MikeSourceTVItemID: MikeSourceTVItemID,
-                }).done(function (ret) {
-                    HydrometricDataP.html(ret);
-                }).fail(function () {
-                    cssp.Dialog.ShowDialogErrorWithFail(command);
-                    return;
-                });
+                if ($bjs.hasClass("btn-default")) {
+                    $bjs.removeClass("btn-default").addClass("btn-success");
+                    var MikeSourceTVItemID = parseInt($bjs.data("mikesourcetvitemid"));
+                    var MikeScenarioTVItemID = parseInt($bjs.data("mikescenariotvitemid"));
+                    var HydrometricDataP_1 = $bjs.closest(".HydrometricDataDiv").find(".HydrometricData");
+                    HydrometricDataP_1.html(cssp.GetHTMLVariable("#LayoutVariables", "varInProgress"));
+                    var command_1 = "MikeScenario/_mikeScenarioSourceHydrometricData";
+                    $.get(cssp.BaseURL + command_1, {
+                        MikeScenarioTVItemID: MikeScenarioTVItemID,
+                        MikeSourceTVItemID: MikeSourceTVItemID,
+                    }).done(function (ret) {
+                        HydrometricDataP_1.html(ret);
+                    }).fail(function () {
+                        cssp.Dialog.ShowDialogErrorWithFail(command_1);
+                        return;
+                    });
+                }
+                else {
+                    $bjs.removeClass("btn-success").addClass("btn-default");
+                    var HydrometricDataP = $bjs.closest(".HydrometricDataDiv").find(".HydrometricData");
+                    HydrometricDataP.html("");
+                }
             };
             this.MikeScenarioLoadHydrometricData = function ($bjs) {
                 var MikeSourceTVItemID = parseInt($bjs.data("mikesourcetvitemid"));

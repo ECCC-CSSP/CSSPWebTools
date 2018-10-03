@@ -1021,7 +1021,9 @@ namespace CSSPWebTools.Controllers
 
             ViewBag.MWQMRunModel = mwqmRunModel;
 
-            List<HydrometricDataValueModel> hydrometricDataValueModelList = _HydrometricDataValueService.GetHydrometricDataValueModelListWithHydrometricDataValueIDBack10DaysFromDateDB(hydrometricSiteModel.HydrometricSiteID, mwqmRunModel.DateTime_Local);
+            List<HydrometricDataValueModel> hydrometricDataValueModelList = _HydrometricDataValueService.GetHydrometricDataValueModelListWithHydrometricSiteIDBack10DaysFromDateDB(hydrometricSiteModel.HydrometricSiteID, mwqmRunModel.DateTime_Local);
+
+            ViewBag.HydrometricDataValueModelList = hydrometricDataValueModelList;
 
             List<HydrometricDataValueModel> hydrometricDataValueModelSourceCalculatedList = new List<HydrometricDataValueModel>();
             foreach (HydrometricDataValueModel hydrometricDataValueModel in hydrometricDataValueModelList)

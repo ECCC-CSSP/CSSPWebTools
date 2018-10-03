@@ -12,6 +12,8 @@
     MikeSourceModel mikeSourceModel = (MikeSourceModel)ViewBag.MikeSourceModel;
     MikeScenarioModel mikeScenarioModel = (MikeScenarioModel)ViewBag.MikeScenarioModel;
     AppTaskModel appTaskModel = (AppTaskModel)ViewBag.AppTaskModel;
+
+    string href = "https://wateroffice.ec.gc.ca/report/historical_e.html?stn=" + hydrometricSiteModel.FedSiteNumber + "&mode=Table&type=h2oArc&results_type=historical&dataType=Daily&parameterType=Flow&year=" + mwqmRunModel.DateTime_Local.Year.ToString();
 }
 
 @if (hydrometricDataValueModelList == null || hydrometricDataValueModelList.Count == 0)
@@ -26,7 +28,7 @@
     {
         <div class="MikeScenarioLoadHydrometricDataWorkingDiv">
             <button class="jbMikeScenarioLoadHydrometricDataRefresh btn btn-default">
-                @MikeScenarioViewRes.Refresh
+                @MikeScenarioViewRes.Refresh (@appTaskModel.PercentCompleted %)
             </button>
         </div>
     }
@@ -37,25 +39,33 @@
     <thead>
         <tr>
             <th>@MikeScenarioViewRes.Date</th>
-            <th>@MikeScenarioViewRes.HydrometricSite</th>
-            <th>@MikeScenarioViewRes.River</th>
+            <th>
+                <a href="@href" target="_blank">
+                    <span class="glyphicon glyphicon-export"></span>
+                    &nbsp;&nbsp;@MikeScenarioViewRes.HydrometricSite
+                </a>
+                (@Html.Raw(UnitViewRes.m3PerSecond))
+            </th>
+            <th>@MikeScenarioViewRes.River (@Html.Raw(UnitViewRes.m3PerSecond))</th>
         </tr>
     </thead>
     <tbody>
-        <tr>
-            @if (hydrometricDataValueModelList == null || hydrometricDataValueModelList.Count == 0)
-            {
+        @if (hydrometricDataValueModelList == null || hydrometricDataValueModelList.Count == 0)
+        {
+            <tr>
                 <td colspan="3">@MikeScenarioViewRes.NoData</td>
-            }
-            else
+            </tr>
+        }
+        else
+        {
+            for (int i = 0, count = hydrometricDataValueModelList.Count; i < count; i++)
             {
-                for (int i = 0, count = hydrometricDataValueModelList.Count; i < count; i++)
-                {
+                <tr>
                     <td>@hydrometricDataValueModelList[i].DateTime_Local.ToString("yyyy MMMM dd")</td>
-                    <td>@((double)hydrometricDataValueModelList[i].Discharge_m3_s).ToString("F3")</td>
-                    <td>@((double)hydrometricDataValueModelSourceCalculatedList[i].Discharge_m3_s).ToString("F3")</td>
-                }
+                    <td>@(((double)hydrometricDataValueModelList[i].Discharge_m3_s).ToString("F3"))</td>
+                    <td>@(((double)hydrometricDataValueModelSourceCalculatedList[i].Discharge_m3_s).ToString("F3"))</td>
+                </tr>
             }
-        </tr>
+        }
     </tbody>
 </table>
