@@ -231,4 +231,7 @@
   <data name="HydrometricSiteDischargeRelatedTools" xml:space="preserve">
     <value>Hydrometric site discharge related tools</value>
   </data>
+  <data name="GenerateClassificatonKMLFileForQuickChecking" xml:space="preserve">
+    <value>Generate classificaton KML file for quick checking</value>
+  </data>
 </root>

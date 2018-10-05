@@ -194,6 +194,31 @@ module CSSP {
                 cssp.ProvinceTools.ReenableButton($bjs);
             }
         };
+        public GenerateKMLFileClassificationForCSSPWebToolsVisualization: Function = ($bjs: JQuery): void => {
+            if ($bjs.hasClass("btn-primary")) {
+                $bjs.removeClass("btn-primary").addClass("btn-success");
+                $bjs.removeAttr("disabled").attr("disabled", "disabled");
+                $bjs.find(".working").removeClass("hidden");
+                $bjs.find(".percent").html("3 %");
+                let ProvinceTVItemID: number = parseInt($bjs.data("provincetvitemid"));
+                let command: string = "ProvinceTools/GenerateKMLFileClassificationForCSSPWebToolsVisualizationJSON";
+                $.post(cssp.BaseURL + command, {
+                    ProvinceTVItemID: ProvinceTVItemID,
+                }).done((ret) => {
+                    if (ret) {
+                        cssp.Dialog.ShowDialogErrorWithError(ret);
+                    }
+                    cssp.ProvinceTools.ReenableButton($bjs);
+                    window.location.href = window.location.href.replace("050", "020");
+                    cssp.Helper.PageRefresh();
+                }).fail(() => {
+                    cssp.Dialog.ShowDialogErrorWithFail(command);
+                });
+            }
+            else {
+                cssp.ProvinceTools.ReenableButton($bjs);
+            }
+        };
         public GenerateLinksBetweenMWQMSitesAndPolSourceSitesForCSSPWebToolsVisualization: Function = ($bjs: JQuery): void => {
             if ($bjs.hasClass("btn-primary")) {
                 $bjs.removeClass("btn-primary").addClass("btn-success");

@@ -190,14 +190,14 @@ var CSSP;
                     cssp.ProvinceTools.ReenableButton($bjs);
                 }
             };
-            this.GenerateLinksBetweenMWQMSitesAndPolSourceSitesForCSSPWebToolsVisualization = function ($bjs) {
+            this.GenerateKMLFileClassificationForCSSPWebToolsVisualization = function ($bjs) {
                 if ($bjs.hasClass("btn-primary")) {
                     $bjs.removeClass("btn-primary").addClass("btn-success");
                     $bjs.removeAttr("disabled").attr("disabled", "disabled");
                     $bjs.find(".working").removeClass("hidden");
                     $bjs.find(".percent").html("3 %");
                     var ProvinceTVItemID = parseInt($bjs.data("provincetvitemid"));
-                    var command_8 = "ProvinceTools/GenerateLinksBetweenMWQMSitesAndPolSourceSitesForCSSPWebToolsVisualizationJSON";
+                    var command_8 = "ProvinceTools/GenerateKMLFileClassificationForCSSPWebToolsVisualizationJSON";
                     $.post(cssp.BaseURL + command_8, {
                         ProvinceTVItemID: ProvinceTVItemID,
                     }).done(function (ret) {
@@ -209,6 +209,31 @@ var CSSP;
                         cssp.Helper.PageRefresh();
                     }).fail(function () {
                         cssp.Dialog.ShowDialogErrorWithFail(command_8);
+                    });
+                }
+                else {
+                    cssp.ProvinceTools.ReenableButton($bjs);
+                }
+            };
+            this.GenerateLinksBetweenMWQMSitesAndPolSourceSitesForCSSPWebToolsVisualization = function ($bjs) {
+                if ($bjs.hasClass("btn-primary")) {
+                    $bjs.removeClass("btn-primary").addClass("btn-success");
+                    $bjs.removeAttr("disabled").attr("disabled", "disabled");
+                    $bjs.find(".working").removeClass("hidden");
+                    $bjs.find(".percent").html("3 %");
+                    var ProvinceTVItemID = parseInt($bjs.data("provincetvitemid"));
+                    var command_9 = "ProvinceTools/GenerateLinksBetweenMWQMSitesAndPolSourceSitesForCSSPWebToolsVisualizationJSON";
+                    $.post(cssp.BaseURL + command_9, {
+                        ProvinceTVItemID: ProvinceTVItemID,
+                    }).done(function (ret) {
+                        if (ret) {
+                            cssp.Dialog.ShowDialogErrorWithError(ret);
+                        }
+                        cssp.ProvinceTools.ReenableButton($bjs);
+                        window.location.href = window.location.href.replace("050", "020");
+                        cssp.Helper.PageRefresh();
+                    }).fail(function () {
+                        cssp.Dialog.ShowDialogErrorWithFail(command_9);
                     });
                 }
                 else {

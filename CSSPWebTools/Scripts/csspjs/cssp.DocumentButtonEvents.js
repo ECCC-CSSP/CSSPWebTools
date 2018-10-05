@@ -1191,6 +1191,11 @@ var CSSP;
                                 cssp.ProvinceTools.GenerateClassificationForCSSPWebToolsVisualization($bjs);
                             }
                             break;
+                        case "jbProvinceToolsGenerateKMLFileClassificationForCSSPWebToolsVisualization":
+                            {
+                                cssp.ProvinceTools.GenerateKMLFileClassificationForCSSPWebToolsVisualization($bjs);
+                            }
+                            break;
                         case "jbGenerateLinksBetweenMWQMSitesAndPolSourceSitesForCSSPWebToolsVisualization":
                             {
                                 cssp.ProvinceTools.GenerateLinksBetweenMWQMSitesAndPolSourceSitesForCSSPWebToolsVisualization($bjs);

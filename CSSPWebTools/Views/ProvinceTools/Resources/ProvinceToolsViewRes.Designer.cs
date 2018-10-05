@@ -242,6 +242,15 @@ namespace CSSPWebTools.Views.ProvinceTools.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Generate classificaton KML file for quick checking.
+        /// </summary>
+        public static string GenerateClassificatonKMLFileForQuickChecking {
+            get {
+                return ResourceManager.GetString("GenerateClassificatonKMLFileForQuickChecking", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Generate links bewteen MWQM Sites and Pollution Source Sites for CSSPWebTools Visualization.
         /// </summary>
         public static string GenerateLinksBetweenMWQMSitesAndPolSourceSitesForCSSPWebToolsVisualization {
