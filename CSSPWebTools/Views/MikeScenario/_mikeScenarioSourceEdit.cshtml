@@ -100,7 +100,7 @@
                                     </div>
                                 </div>
                                 <div class="UseHydrometric @(mikeSourceModel.UseHydrometric == true ? "" : "hidden") form-group">
-                                    @if (hydrometricSiteModelList.Count == 0)
+                                    @if (hydrometricSiteModelList == null || hydrometricSiteModelList.Count == 0)
                                     {
                                         <h3>@MikeScenarioViewRes.NoHydrometricSiteAvailableForSelection</h3>
                                         <h4>@MikeScenarioViewRes.YouWillNeedToGoToASubsectorBelowThisSectorAndAddHydrometricSites</h4>
