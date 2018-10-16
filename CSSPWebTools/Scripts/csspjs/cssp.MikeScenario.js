@@ -305,28 +305,39 @@ var CSSP;
                     var EndHour = parseInt(EndTime.substring(0, 2));
                     var EndMinute = parseInt(EndTime.substring(3, 5));
                     var StartDate = new Date(StartYear, StartMonth, StartDay, StartHour, StartMinute);
-                    var MikeScenarioStartYear = parseInt($form.find(".MikeScenarioStartYear").text());
-                    var MikeScenarioStartMonth = parseInt($form.find(".MikeScenarioStartMonth").text());
-                    var MikeScenarioStartDay = parseInt($form.find(".MikeScenarioStartDay").text());
-                    var MikeScenarioStartHour = parseInt($form.find(".MikeScenarioStartHour").text());
-                    var MikeScenarioStartMinute = parseInt($form.find(".MikeScenarioStartMinute").text());
-                    if (StartDate < new Date(MikeScenarioStartYear, MikeScenarioStartMonth, MikeScenarioStartDay, MikeScenarioStartHour, MikeScenarioStartMinute)) {
-                        cssp.Dialog.ShowDialogErrorWithError(cssp.GetHTMLVariable("#LayoutVariables", "varEffluentStartDateIsSmallerThanMikeScenarioStartDate"));
+                    var MikeScenarioStartDate = new Date(parseInt($form.data("mikescenariostartdateyear")), parseInt($form.data("mikescenariostartdatemonth")), parseInt($form.data("mikescenariostartdateday")));
+                    if (StartDate < MikeScenarioStartDate) {
+                        $form.find(".DateOK").each(function (ind, elem) {
+                            $(elem).removeClass("text-success").addClass("text-danger");
+                        });
+                        //cssp.Dialog.ShowDialogErrorWithError(cssp.GetHTMLVariable("#LayoutVariables", "varEffluentStartDateIsSmallerThanMikeScenarioStartDate"));
                         return;
                     }
+                    else {
+                        $form.find(".DateOK").each(function (ind, elem) {
+                            $(elem).removeClass("text-danger").addClass("text-success");
+                        });
+                    }
                     var EndDate = new Date(EndYear, EndMonth, EndDay, EndHour, EndMinute);
-                    var MikeScenarioEndYear = parseInt($form.find(".MikeScenarioEndYear").text());
-                    var MikeScenarioEndMonth = parseInt($form.find(".MikeScenarioEndMonth").text());
-                    var MikeScenarioEndDay = parseInt($form.find(".MikeScenarioEndDay").text());
-                    var MikeScenarioEndHour = parseInt($form.find(".MikeScenarioEndHour").text());
-                    var MikeScenarioEndMinute = parseInt($form.find(".MikeScenarioEndMinute").text());
-                    if (EndDate > new Date(MikeScenarioEndYear, MikeScenarioEndMonth, MikeScenarioEndDay, MikeScenarioEndHour, MikeScenarioEndMinute)) {
-                        cssp.Dialog.ShowDialogErrorWithError(cssp.GetHTMLVariable("#LayoutVariables", "varEffluentEndDateIsBiggerThanMikeScenarioEndDate"));
+                    var MikeScenarioEndDate = new Date(parseInt($form.data("mikescenarioenddateyear")), parseInt($form.data("mikescenarioenddatemonth")), parseInt($form.data("mikescenarioenddateday")));
+                    if (EndDate > MikeScenarioEndDate) {
+                        $form.find(".DateOK").each(function (ind, elem) {
+                            $(elem).removeClass("text-success").addClass("text-danger");
+                        });
+                        //cssp.Dialog.ShowDialogErrorWithError(cssp.GetHTMLVariable("#LayoutVariables", "varEffluentEndDateIsBiggerThanMikeScenarioEndDate"));
                         return;
+                    }
+                    else {
+                        $form.find(".DateOK").each(function (ind, elem) {
+                            $(elem).removeClass("text-danger").addClass("text-success");
+                        });
                     }
                     var dif = EndDate.getTime() - StartDate.getTime(); // number of seconds between the two dates
                     if (dif < 0) {
-                        cssp.Dialog.ShowDialogErrorWithError(cssp.GetHTMLVariable("#LayoutVariables", "varStartDateIsBiggerThanEndDate"));
+                        $form.find(".DateOK").each(function (ind, elem) {
+                            $(elem).removeClass("text-success").addClass("text-danger");
+                        });
+                        //cssp.Dialog.ShowDialogErrorWithError(cssp.GetHTMLVariable("#LayoutVariables", "varStartDateIsBiggerThanEndDate"));
                         $(".SourceStartEndDays").text("-1");
                         $(".SourceStartEndHours").text("-1");
                         $(".SourceStartEndMinutes").text("-1");
@@ -879,8 +890,8 @@ var CSSP;
                             cssp.Dialog.ShowDialogErrorWithError(ret);
                         }
                         else {
-                            //cssp.Dialog.ShowDialogSuccess(cssp.GetHTMLVariable("#LayoutVariables", "varModified") + " " + MikeSourceName);
-                            cssp.MikeScenario.MikeScenarioSourceReLoad($bjs.closest(".MikeScenarioSourceTop"));
+                            cssp.Dialog.ShowDialogSuccess(cssp.GetHTMLVariable("#LayoutVariables", "varModified") + " " + MikeSourceName);
+                            //cssp.MikeScenario.MikeScenarioSourceReLoad($bjs.closest(".MikeScenarioSourceTop"));
                         }
                     })
                         .fail(function () {
@@ -936,8 +947,8 @@ var CSSP;
                             cssp.Dialog.ShowDialogErrorWithError(ret);
                         }
                         else {
-                            //cssp.Dialog.ShowDialogSuccess(cssp.GetHTMLVariable("#LayoutVariables", "varSuccess") + " " + MikeSourceName + " " + Effluent);
-                            cssp.MikeScenario.MikeScenarioSourceReLoad($bjs.closest(".MikeScenarioSourceTop"));
+                            cssp.Dialog.ShowDialogSuccess(cssp.GetHTMLVariable("#LayoutVariables", "varSuccess") + " " + MikeSourceName + " " + Effluent);
+                            //cssp.MikeScenario.MikeScenarioSourceReLoad($bjs.closest(".MikeScenarioSourceTop"));
                         }
                     })
                         .fail(function () {

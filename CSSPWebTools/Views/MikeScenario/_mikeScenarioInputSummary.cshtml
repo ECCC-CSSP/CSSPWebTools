@@ -10,8 +10,9 @@
     InputSummary inputSummary = (InputSummary)ViewBag.InputSummary;
     MikeScenarioModel mikeScenarioModel = (MikeScenarioModel)ViewBag.MikeScenarioModel;
     List<MikeSourceModel> mikeSourceModelList = (List<MikeSourceModel>)ViewBag.MikeSourceModelList;
+    bool IsUnderSubsector = (bool)ViewBag.IsUnderSubsector;
 
-    TimeSpan ts = new TimeSpan(mikeScenarioModel.MikeScenarioStartDateTime_Local.Ticks - mikeScenarioModel.MikeScenarioStartDateTime_Local.Ticks);
+    TimeSpan ts = new TimeSpan(mikeScenarioModel.MikeScenarioEndDateTime_Local.Ticks - mikeScenarioModel.MikeScenarioStartDateTime_Local.Ticks);
 
     int SourceCount = 0;
 
@@ -52,7 +53,14 @@
                                 @MikeScenarioViewRes.ScenarioLength:
                             </label>
                             <span>
-                                @ts.Days @UnitViewRes.Days @ts.Hours @MikeScenarioViewRes.hours @ts.Minutes @UnitViewRes.Minutes
+                                @if (IsUnderSubsector)
+                                {
+                                    <span>@ts.Days &nbsp;&nbsp; @UnitViewRes.Days &nbsp;&nbsp;&nbsp; @ts.Hours &nbsp;&nbsp;@MikeScenarioViewRes.hours &nbsp;&nbsp;&nbsp; @ts.Minutes &nbsp;&nbsp; @UnitViewRes.Minutes</span>
+                                }
+                                else
+                                {
+                                    <span>@(string.Format(MikeScenarioViewRes.Approximately_Days, "10"))</span>
+                                }
                             </span>
                         </li>
                         <li>
@@ -164,7 +172,7 @@
 
                     <div>
                         <div class="@BorderClass">
-                            <h4>@MikeScenarioViewRes.Source (@SourceCount)</h4>
+                            <h4>@MikeScenarioViewRes.Source (@SourceCount) --- <span class="elementSpacing"> @mikeSourceModel.MikeSourceTVText</span></h4>
                             <div class="blockMargin">
                                 <ul class="list-unstyled">
                                     <li>

@@ -60,7 +60,7 @@
         {
             for (int i = 0, count = hydrometricDataValueModelList.Count; i < count; i++)
             {
-                <tr>
+                <tr @(mwqmRunModel.DateTime_Local.Day == hydrometricDataValueModelList[i].DateTime_Local.Day ? "class=success" : "")>
                     <td>@hydrometricDataValueModelList[i].DateTime_Local.ToString("yyyy MMMM dd")</td>
                     <td>@(((double)hydrometricDataValueModelList[i].Discharge_m3_s).ToString("F3"))</td>
                     <td>@(((double)hydrometricDataValueModelSourceCalculatedList[i].Discharge_m3_s).ToString("F3"))</td>

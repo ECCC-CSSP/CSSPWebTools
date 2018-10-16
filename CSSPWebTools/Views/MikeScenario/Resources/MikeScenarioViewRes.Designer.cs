@@ -115,6 +115,15 @@ namespace CSSPWebTools.Views.MikeScenario.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to after run day.
+        /// </summary>
+        public static string AfterRunDay {
+            get {
+                return ResourceManager.GetString("AfterRunDay", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to All web tides below need to be generated accordingly.
         /// </summary>
         public static string AllWebTidesBelowToGenerate {
@@ -151,6 +160,15 @@ namespace CSSPWebTools.Views.MikeScenario.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Approximately {0} days.
+        /// </summary>
+        public static string Approximately_Days {
+            get {
+                return ResourceManager.GetString("Approximately_Days", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to April.
         /// </summary>
         public static string April {
@@ -183,6 +201,15 @@ namespace CSSPWebTools.Views.MikeScenario.Resources {
         public static string AuthorizationNeeded {
             get {
                 return ResourceManager.GetString("AuthorizationNeeded", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to before run day.
+        /// </summary>
+        public static string BeforeRunDay {
+            get {
+                return ResourceManager.GetString("BeforeRunDay", resourceCulture);
             }
         }
         
@@ -561,6 +588,15 @@ namespace CSSPWebTools.Views.MikeScenario.Resources {
         public static string EndDateTime {
             get {
                 return ResourceManager.GetString("EndDateTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to End date will be automatically set.
+        /// </summary>
+        public static string EndDateWillBeAutomaticallySet {
+            get {
+                return ResourceManager.GetString("EndDateWillBeAutomaticallySet", resourceCulture);
             }
         }
         
@@ -1690,6 +1726,15 @@ namespace CSSPWebTools.Views.MikeScenario.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Start date will be automatically set.
+        /// </summary>
+        public static string StartDateWillBeAutomaticallySet {
+            get {
+                return ResourceManager.GetString("StartDateWillBeAutomaticallySet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Start Flow.
         /// </summary>
         public static string StartFlow {
@@ -1866,6 +1911,15 @@ namespace CSSPWebTools.Views.MikeScenario.Resources {
         public static string WebTideNodes {
             get {
                 return ResourceManager.GetString("WebTideNodes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Will use hydrometric.
+        /// </summary>
+        public static string WillUseHydrometric {
+            get {
+                return ResourceManager.GetString("WillUseHydrometric", resourceCulture);
             }
         }
         

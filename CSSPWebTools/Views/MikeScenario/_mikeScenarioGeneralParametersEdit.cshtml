@@ -150,100 +150,20 @@ else
         <div class="form-group">
             <label class="control-label">@MikeScenarioViewRes.StartDateTime (@MikeScenarioViewRes.LocalTime)</label>
             <div>
-                <ul class="list-inline">
-                    <li>
-
-                        <span>@MikeScenarioViewRes.Year: </span>
-                        <select name="MikeScenarioStartYear" class="form-control">
-                            @for (int i = 1975; i < CurrentDate.Year + 10; i++)
-                            {
-                                if (i == StartDate.Year)
-                                {
-                                    <option value="@i" selected="selected">@i</option>
-                                }
-                                else
-                                {
-                                    <option value="@i">@i</option>
-                                }
-                            }
-                        </select>
-                    </li>
-                    <li>
-                        <span>@MikeScenarioViewRes.Month: </span>
-                        <select name="MikeScenarioStartMonth" class="form-control">
-                            @for (int i = 1; i < 13; i++)
-                            {
-                                if (i == StartDate.Month)
-                                {
-                                    <option value="@i" selected="selected">@MonthList[i]</option>
-                                }
-                                else
-                                {
-                                    <option value="@i">@MonthList[i]</option>
-                                }
-                            }
-                        </select>
-                    </li>
-                    <li>
-                        <span>@MikeScenarioViewRes.Day: </span>
-                        <select name="MikeScenarioStartDay" class="form-control">
-                            @for (int i = 1; i < 32; i++)
-                            {
-                                if (i == StartDate.Day)
-                                {
-                                    <option value="@i" selected="selected">@i</option>
-                                }
-                                else
-                                {
-                                    <option value="@i">@i</option>
-                                }
-                            }
-                        </select>
-                    </li>
-                    <li>
-                        <span>@MikeScenarioViewRes.Time:</span>
-                        <select name="MikeScenarioStartTime" class="form-control">
-                            @for (int i = 0; i < 24; i++)
-                            {
-                                for (int j = 0; j < 60; j += 30)
-                                {
-                                    if (i == StartDateHour)
-                                    {
-                                        if (StartDateMinute < 30 && j == 0)
-                                        {
-                                            <option value="@string.Format("{0:D2}", i):@string.Format("{0:D2}", j)" selected="selected">@string.Format("{0:D2}", i):@string.Format("{0:D2}", j)</option>
-                                        }
-                                        else if (StartDateMinute >= 30 && j == 30)
-                                        {
-                                            <option value="@string.Format("{0:D2}", i):@string.Format("{0:D2}", j)" selected="selected">@string.Format("{0:D2}", i):@string.Format("{0:D2}", j)</option>
-                                        }
-                                        else
-                                        {
-                                            <option value="@string.Format("{0:D2}", i):@string.Format("{0:D2}", j)">@string.Format("{0:D2}", i):@string.Format("{0:D2}", j)</option>
-                                        }
-                                    }
-                                    else
-                                    {
-                                        <option value="@string.Format("{0:D2}", i):@string.Format("{0:D2}", j)">@string.Format("{0:D2}", i):@string.Format("{0:D2}", j)</option>
-                                    }
-                                }
-                            }
-                        </select>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="form-group">
-            <section>
-                <label class="control-label">@MikeScenarioViewRes.EndDateTime (@MikeScenarioViewRes.LocalTime)</label>
-                <div>
+                @if (mikeScenarioModel.ForSimulatingMWQMRunTVItemID != null)
+                {
+                    <span>&nbsp;&nbsp;&nbsp;@MikeScenarioViewRes.StartDateWillBeAutomaticallySet</span>
+                }
+                else
+                {
                     <ul class="list-inline">
                         <li>
-                            <label class="control-label">@MikeScenarioViewRes.Year: </label>
-                            <select name="MikeScenarioEndYear" class="form-control">
+
+                            <span>@MikeScenarioViewRes.Year: </span>
+                            <select name="MikeScenarioStartYear" class="form-control">
                                 @for (int i = 1975; i < CurrentDate.Year + 10; i++)
                                 {
-                                    if (i == EndDate.Year)
+                                    if (i == StartDate.Year)
                                     {
                                         <option value="@i" selected="selected">@i</option>
                                     }
@@ -255,11 +175,11 @@ else
                             </select>
                         </li>
                         <li>
-                            <label class="control-label">@MikeScenarioViewRes.Month: </label>
-                            <select name="MikeScenarioEndMonth" class="form-control">
+                            <span>@MikeScenarioViewRes.Month: </span>
+                            <select name="MikeScenarioStartMonth" class="form-control">
                                 @for (int i = 1; i < 13; i++)
                                 {
-                                    if (i == EndDate.Month)
+                                    if (i == StartDate.Month)
                                     {
                                         <option value="@i" selected="selected">@MonthList[i]</option>
                                     }
@@ -271,11 +191,11 @@ else
                             </select>
                         </li>
                         <li>
-                            <label class="control-label">@MikeScenarioViewRes.Day: </label>
-                            <select name="MikeScenarioEndDay" class="form-control">
+                            <span>@MikeScenarioViewRes.Day: </span>
+                            <select name="MikeScenarioStartDay" class="form-control">
                                 @for (int i = 1; i < 32; i++)
                                 {
-                                    if (i == EndDate.Day)
+                                    if (i == StartDate.Day)
                                     {
                                         <option value="@i" selected="selected">@i</option>
                                     }
@@ -287,19 +207,19 @@ else
                             </select>
                         </li>
                         <li>
-                            <label class="control-label">@MikeScenarioViewRes.Time:</label>
-                            <select name="MikeScenarioEndTime" class="form-control">
+                            <span>@MikeScenarioViewRes.Time:</span>
+                            <select name="MikeScenarioStartTime" class="form-control">
                                 @for (int i = 0; i < 24; i++)
                                 {
                                     for (int j = 0; j < 60; j += 30)
                                     {
-                                        if (i == EndDateHour)
+                                        if (i == StartDateHour)
                                         {
-                                            if (EndDateMinute < 30 && j == 0)
+                                            if (StartDateMinute < 30 && j == 0)
                                             {
                                                 <option value="@string.Format("{0:D2}", i):@string.Format("{0:D2}", j)" selected="selected">@string.Format("{0:D2}", i):@string.Format("{0:D2}", j)</option>
                                             }
-                                            else if (EndDateMinute >= 30 && j == 30)
+                                            else if (StartDateMinute >= 30 && j == 30)
                                             {
                                                 <option value="@string.Format("{0:D2}", i):@string.Format("{0:D2}", j)" selected="selected">@string.Format("{0:D2}", i):@string.Format("{0:D2}", j)</option>
                                             }
@@ -316,17 +236,120 @@ else
                                 }
                             </select>
                         </li>
-
                     </ul>
+                }
+            </div>
+        </div>
+        <div class="form-group">
+            <section>
+                <label class="control-label">@MikeScenarioViewRes.EndDateTime (@MikeScenarioViewRes.LocalTime)</label>
+                <div>
+                    @if (mikeScenarioModel.ForSimulatingMWQMRunTVItemID != null)
+                    {
+                        <span>&nbsp;&nbsp;&nbsp;@MikeScenarioViewRes.EndDateWillBeAutomaticallySet</span>
+                    }
+                    else
+                    {
+                        <ul class="list-inline">
+                            <li>
+                                <label class="control-label">@MikeScenarioViewRes.Year: </label>
+                                <select name="MikeScenarioEndYear" class="form-control">
+                                    @for (int i = 1975; i < CurrentDate.Year + 10; i++)
+                                    {
+                                        if (i == EndDate.Year)
+                                        {
+                                            <option value="@i" selected="selected">@i</option>
+                                        }
+                                        else
+                                        {
+                                            <option value="@i">@i</option>
+                                        }
+                                    }
+                                </select>
+                            </li>
+                            <li>
+                                <label class="control-label">@MikeScenarioViewRes.Month: </label>
+                                <select name="MikeScenarioEndMonth" class="form-control">
+                                    @for (int i = 1; i < 13; i++)
+                                    {
+                                        if (i == EndDate.Month)
+                                        {
+                                            <option value="@i" selected="selected">@MonthList[i]</option>
+                                        }
+                                        else
+                                        {
+                                            <option value="@i">@MonthList[i]</option>
+                                        }
+                                    }
+                                </select>
+                            </li>
+                            <li>
+                                <label class="control-label">@MikeScenarioViewRes.Day: </label>
+                                <select name="MikeScenarioEndDay" class="form-control">
+                                    @for (int i = 1; i < 32; i++)
+                                    {
+                                        if (i == EndDate.Day)
+                                        {
+                                            <option value="@i" selected="selected">@i</option>
+                                        }
+                                        else
+                                        {
+                                            <option value="@i">@i</option>
+                                        }
+                                    }
+                                </select>
+                            </li>
+                            <li>
+                                <label class="control-label">@MikeScenarioViewRes.Time:</label>
+                                <select name="MikeScenarioEndTime" class="form-control">
+                                    @for (int i = 0; i < 24; i++)
+                                    {
+                                        for (int j = 0; j < 60; j += 30)
+                                        {
+                                            if (i == EndDateHour)
+                                            {
+                                                if (EndDateMinute < 30 && j == 0)
+                                                {
+                                                    <option value="@string.Format("{0:D2}", i):@string.Format("{0:D2}", j)" selected="selected">@string.Format("{0:D2}", i):@string.Format("{0:D2}", j)</option>
+                                                }
+                                                else if (EndDateMinute >= 30 && j == 30)
+                                                {
+                                                    <option value="@string.Format("{0:D2}", i):@string.Format("{0:D2}", j)" selected="selected">@string.Format("{0:D2}", i):@string.Format("{0:D2}", j)</option>
+                                                }
+                                                else
+                                                {
+                                                    <option value="@string.Format("{0:D2}", i):@string.Format("{0:D2}", j)">@string.Format("{0:D2}", i):@string.Format("{0:D2}", j)</option>
+                                                }
+                                            }
+                                            else
+                                            {
+                                                <option value="@string.Format("{0:D2}", i):@string.Format("{0:D2}", j)">@string.Format("{0:D2}", i):@string.Format("{0:D2}", j)</option>
+                                            }
+                                        }
+                                    }
+                                </select>
+                            </li>
+
+                        </ul>
+                    }
                 </div>
             </section>
         </div>
         <div class="form-group">
             <label class="control-label">@MikeScenarioViewRes.ScenarioLength</label>
             <div>
-                <span><b class="ScenarioLengthDays">@days</b><span> @UnitViewRes.Days</span></span>
-                <span class="elementSpacing"><b class="ScenarioLengthHours">@hours</b><span> @UnitViewRes.Hours</span></span>
-                <span class="elementSpacing"><b class="ScenarioLengthMinutes">@minutes</b><span> @UnitViewRes.Minutes</span></span>
+                @if (mikeScenarioModel.ForSimulatingMWQMRunTVItemID != null)
+                {
+                <span>&nbsp;&nbsp;&nbsp;@(string.Format(MikeScenarioViewRes.Approximately_Days, "7")) @MikeScenarioViewRes.BeforeRunDay</span>
+                    <span> --- </span>
+                    <span>@(string.Format(MikeScenarioViewRes.Approximately_Days, "2")) @MikeScenarioViewRes.AfterRunDay</span>
+                }
+                else
+                {
+                    <span><b class="ScenarioLengthDays">@days</b><span> @UnitViewRes.Days</span></span>
+                    <span class="elementSpacing"><b class="ScenarioLengthHours">@hours</b><span> @UnitViewRes.Hours</span></span>
+                    <span class="elementSpacing"><b class="ScenarioLengthMinutes">@minutes</b><span> @UnitViewRes.Minutes</span></span>
+                }
             </div>
         </div>
         <div class="form-group">

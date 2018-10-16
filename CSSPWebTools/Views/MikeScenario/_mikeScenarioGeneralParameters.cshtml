@@ -102,7 +102,14 @@ else
                             <label>@MikeScenarioViewRes.StartDateTime (@MikeScenarioViewRes.LocalTime)</label>
                         </div>
                         <div>
-                            <span class="elementSpacing text-nowrap">@StartDateTime.ToString("f")</span>
+                            @if (mikeScenarioModel.ForSimulatingMWQMRunTVItemID == null)
+                            {
+                                <span class="elementSpacing text-nowrap">@StartDateTime.ToString("f")</span>
+                            }
+                            else
+                            {
+                                <span>&nbsp;&nbsp;&nbsp;@(string.Format(MikeScenarioViewRes.Approximately_Days, "7")) @MikeScenarioViewRes.BeforeRunDay</span>
+                            }
                         </div>
                     </div>
                     <div>
@@ -110,7 +117,14 @@ else
                             <label>@MikeScenarioViewRes.EndDateTime (@MikeScenarioViewRes.LocalTime)</label>
                         </div>
                         <div>
-                            <span class="elementSpacing text-nowrap">@EndDateTime.ToString("f")</span>
+                            @if (mikeScenarioModel.ForSimulatingMWQMRunTVItemID == null)
+                            {
+                                <span class="elementSpacing text-nowrap">@EndDateTime.ToString("f")</span>
+                            }
+                            else
+                            {
+                                <span>&nbsp;&nbsp;&nbsp;@(string.Format(MikeScenarioViewRes.Approximately_Days, "2")) @MikeScenarioViewRes.AfterRunDay</span>
+                            }
                         </div>
                     </div>
                     <div>
@@ -136,9 +150,18 @@ else
                         </div>
                         <div>
                             <span class="elementSpacing text-nowrap">
-                                <span class="elementSpacing"><b>@days</b><span> @UnitViewRes.Days</span></span>
-                                <span class="elementSpacing"><b>@hours</b><span> @UnitViewRes.Hours</span></span>
-                                <span class="elementSpacing"><b>@minutes</b><span> @UnitViewRes.Minutes</span></span>
+                                @if (mikeScenarioModel.ForSimulatingMWQMRunTVItemID == null)
+                                {
+                                    <span class="elementSpacing"><b>@days</b><span> @UnitViewRes.Days</span></span>
+                                    <span class="elementSpacing"><b>@hours</b><span> @UnitViewRes.Hours</span></span>
+                                    <span class="elementSpacing"><b>@minutes</b><span> @UnitViewRes.Minutes</span></span>
+                                }
+                                else
+                                {
+                                    <span class="elementSpacing"><b>10</b><span> @UnitViewRes.Days</span></span>
+                                    <span class="elementSpacing"><b>0</b><span> @UnitViewRes.Hours</span></span>
+                                    <span class="elementSpacing"><b>0</b><span> @UnitViewRes.Minutes</span></span>
+                                }
                             </span>
                         </div>
                     </div>

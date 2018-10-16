@@ -723,6 +723,9 @@ namespace CSSPWebTools.Controllers
             ViewBag.InputSummary = null;
             ViewBag.MikeScenarioModel = null;
             ViewBag.MikeSourceModelList = null;
+            ViewBag.IsUnderSubsector = false;
+            ViewBag.SubsectorTVItemID = 0;
+            ViewBag.SectorTVItemID = 0;
 
             InputSummary inputSummary = _MikeScenarioService.GetMikeScenarioInputSummaryDB(urlModel.TVItemIDList[0]);
 
@@ -740,6 +743,26 @@ namespace CSSPWebTools.Controllers
             }
 
             ViewBag.MikeSourceModelList = mikeSourceModelList;
+
+            TVItemModel tvItemModelSource = _TVItemService.GetTVItemModelWithTVItemIDDB(urlModel.TVItemIDList[0]);
+            if (string.IsNullOrWhiteSpace(tvItemModelSource.Error))
+            {
+                List<TVItemModel> tvItemModelParentList = _TVItemService.GetParentsTVItemModelList(tvItemModelSource.TVPath);
+
+                foreach (TVItemModel tvItemModelParent in tvItemModelParentList)
+                {
+                    if (tvItemModelParent.TVType == TVTypeEnum.Subsector)
+                    {
+                        ViewBag.IsUnderSubsector = true;
+                        ViewBag.SubsectorTVItemID = tvItemModelParent.TVItemID;
+                    }
+
+                    if (tvItemModelParent.TVType == TVTypeEnum.Sector)
+                    {
+                        ViewBag.SectorTVItemID = tvItemModelParent.TVItemID;
+                    }
+                }
+            }
 
             return PartialView();
         }
@@ -1021,7 +1044,7 @@ namespace CSSPWebTools.Controllers
 
             ViewBag.MWQMRunModel = mwqmRunModel;
 
-            List<HydrometricDataValueModel> hydrometricDataValueModelList = _HydrometricDataValueService.GetHydrometricDataValueModelListWithHydrometricSiteIDBack10DaysFromDateDB(hydrometricSiteModel.HydrometricSiteID, mwqmRunModel.DateTime_Local);
+            List<HydrometricDataValueModel> hydrometricDataValueModelList = _HydrometricDataValueService.GetHydrometricDataValueModelListWithHydrometricSiteIDAroundRunDateDB(hydrometricSiteModel.HydrometricSiteID, mwqmRunModel.DateTime_Local);
 
             ViewBag.HydrometricDataValueModelList = hydrometricDataValueModelList;
 

@@ -905,4 +905,22 @@
   <data name="ViewHydrometricData" xml:space="preserve">
     <value>View hydrometric data (fr)</value>
   </data>
+  <data name="AfterRunDay" xml:space="preserve">
+    <value>after run day (fr)</value>
+  </data>
+  <data name="Approximately_Days" xml:space="preserve">
+    <value>Approximately {0} days (fr)</value>
+  </data>
+  <data name="BeforeRunDay" xml:space="preserve">
+    <value>before run day (fr)</value>
+  </data>
+  <data name="EndDateWillBeAutomaticallySet" xml:space="preserve">
+    <value>End date will be automatically set (fr)</value>
+  </data>
+  <data name="StartDateWillBeAutomaticallySet" xml:space="preserve">
+    <value>Start date will be automatically set (fr)</value>
+  </data>
+  <data name="WillUseHydrometric" xml:space="preserve">
+    <value>Will use hydrometric (fr)</value>
+  </data>
 </root>

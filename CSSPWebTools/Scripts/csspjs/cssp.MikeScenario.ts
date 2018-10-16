@@ -311,59 +311,68 @@ module CSSP {
 
             $(document).off("change", ".MikeScenarioSourceStartForm select");
             $(document).on("change", $(".MikeScenarioSourceStartEndForm").find("select"), (evt: Event) => {
-                var $form: JQuery = $(evt.target).closest(".MikeScenarioSourceStartEndForm");
-                var StartYear: number = parseInt($form.find("select[name='MikeSourceStartYear']").val());
-                var StartMonth: number = parseInt($form.find("select[name='MikeSourceStartMonth']").val());
-                var StartDay: number = parseInt($form.find("select[name='MikeSourceStartDay']").val());
-                var StartTime: string = $form.find("select[name='MikeSourceStartTime']").val();
-                var StartHour: number = parseInt(StartTime.substring(0, 2));
-                var StartMinute: number = parseInt(StartTime.substring(3, 5));
+                let $form: JQuery = $(evt.target).closest(".MikeScenarioSourceStartEndForm");
+                let StartYear: number = parseInt($form.find("select[name='MikeSourceStartYear']").val());
+                let StartMonth: number = parseInt($form.find("select[name='MikeSourceStartMonth']").val());
+                let StartDay: number = parseInt($form.find("select[name='MikeSourceStartDay']").val());
+                let StartTime: string = $form.find("select[name='MikeSourceStartTime']").val();
+                let StartHour: number = parseInt(StartTime.substring(0, 2));
+                let StartMinute: number = parseInt(StartTime.substring(3, 5));
 
-                var EndYear: number = parseInt($form.find("select[name='MikeSourceEndYear']").val());
-                var EndMonth: number = parseInt($form.find("select[name='MikeSourceEndMonth']").val());
-                var EndDay: number = parseInt($form.find("select[name='MikeSourceEndDay']").val());
-                var EndTime: string = $form.find("select[name='MikeSourceEndTime']").val();
-                var EndHour: number = parseInt(EndTime.substring(0, 2));
-                var EndMinute: number = parseInt(EndTime.substring(3, 5));
+                let EndYear: number = parseInt($form.find("select[name='MikeSourceEndYear']").val());
+                let EndMonth: number = parseInt($form.find("select[name='MikeSourceEndMonth']").val());
+                let EndDay: number = parseInt($form.find("select[name='MikeSourceEndDay']").val());
+                let EndTime: string = $form.find("select[name='MikeSourceEndTime']").val();
+                let EndHour: number = parseInt(EndTime.substring(0, 2));
+                let EndMinute: number = parseInt(EndTime.substring(3, 5));
 
-                var StartDate: Date = new Date(StartYear, StartMonth, StartDay, StartHour, StartMinute);
+                let StartDate: Date = new Date(StartYear, StartMonth, StartDay, StartHour, StartMinute);
 
-                var MikeScenarioStartYear: number = parseInt($form.find(".MikeScenarioStartYear").text());
-                var MikeScenarioStartMonth: number = parseInt($form.find(".MikeScenarioStartMonth").text());
-                var MikeScenarioStartDay: number = parseInt($form.find(".MikeScenarioStartDay").text());
-                var MikeScenarioStartHour: number = parseInt($form.find(".MikeScenarioStartHour").text());
-                var MikeScenarioStartMinute: number = parseInt($form.find(".MikeScenarioStartMinute").text());
-                if (StartDate < new Date(MikeScenarioStartYear, MikeScenarioStartMonth, MikeScenarioStartDay, MikeScenarioStartHour, MikeScenarioStartMinute)) {
-                    cssp.Dialog.ShowDialogErrorWithError(cssp.GetHTMLVariable("#LayoutVariables", "varEffluentStartDateIsSmallerThanMikeScenarioStartDate"));
+                let MikeScenarioStartDate: Date = new Date(parseInt($form.data("mikescenariostartdateyear")), parseInt($form.data("mikescenariostartdatemonth")), parseInt($form.data("mikescenariostartdateday")));
+                if (StartDate < MikeScenarioStartDate) {
+                    $form.find(".DateOK").each((ind: number, elem: Element) => {
+                        $(elem).removeClass("text-success").addClass("text-danger");
+                    });
+                    //cssp.Dialog.ShowDialogErrorWithError(cssp.GetHTMLVariable("#LayoutVariables", "varEffluentStartDateIsSmallerThanMikeScenarioStartDate"));
                     return;
                 }
+                else {
+                    $form.find(".DateOK").each((ind: number, elem: Element) => {
+                        $(elem).removeClass("text-danger").addClass("text-success");
+                    });
+                }
+                let EndDate: Date = new Date(EndYear, EndMonth, EndDay, EndHour, EndMinute);
 
-                var EndDate: Date = new Date(EndYear, EndMonth, EndDay, EndHour, EndMinute);
-
-                var MikeScenarioEndYear: number = parseInt($form.find(".MikeScenarioEndYear").text());
-                var MikeScenarioEndMonth: number = parseInt($form.find(".MikeScenarioEndMonth").text());
-                var MikeScenarioEndDay: number = parseInt($form.find(".MikeScenarioEndDay").text());
-                var MikeScenarioEndHour: number = parseInt($form.find(".MikeScenarioEndHour").text());
-                var MikeScenarioEndMinute: number = parseInt($form.find(".MikeScenarioEndMinute").text());
-
-                if (EndDate > new Date(MikeScenarioEndYear, MikeScenarioEndMonth, MikeScenarioEndDay, MikeScenarioEndHour, MikeScenarioEndMinute)) {
-                    cssp.Dialog.ShowDialogErrorWithError(cssp.GetHTMLVariable("#LayoutVariables", "varEffluentEndDateIsBiggerThanMikeScenarioEndDate"));
+                let MikeScenarioEndDate: Date = new Date(parseInt($form.data("mikescenarioenddateyear")), parseInt($form.data("mikescenarioenddatemonth")), parseInt($form.data("mikescenarioenddateday")));
+                if (EndDate > MikeScenarioEndDate) {
+                    $form.find(".DateOK").each((ind: number, elem: Element) => {
+                        $(elem).removeClass("text-success").addClass("text-danger");
+                    });
+                    //cssp.Dialog.ShowDialogErrorWithError(cssp.GetHTMLVariable("#LayoutVariables", "varEffluentEndDateIsBiggerThanMikeScenarioEndDate"));
                     return;
+                }
+                else {
+                    $form.find(".DateOK").each((ind: number, elem: Element) => {
+                        $(elem).removeClass("text-danger").addClass("text-success");
+                    });
                 }
 
                 var dif: number = EndDate.getTime() - StartDate.getTime(); // number of seconds between the two dates
 
                 if (dif < 0) {
-                    cssp.Dialog.ShowDialogErrorWithError(cssp.GetHTMLVariable("#LayoutVariables", "varStartDateIsBiggerThanEndDate"));
+                    $form.find(".DateOK").each((ind: number, elem: Element) => {
+                        $(elem).removeClass("text-success").addClass("text-danger");
+                    });
+                    //cssp.Dialog.ShowDialogErrorWithError(cssp.GetHTMLVariable("#LayoutVariables", "varStartDateIsBiggerThanEndDate"));
                     $(".SourceStartEndDays").text("-1");
                     $(".SourceStartEndHours").text("-1");
                     $(".SourceStartEndMinutes").text("-1");
                     return;
                 }
                 else {
-                    var Days: number = parseInt((dif / 24 / 60 / 60 / 1000).toString());
-                    var Hours: number = parseInt(((dif - (Days * 24 * 60 * 60 * 1000)) / 60 / 60 / 1000).toString());
-                    var Minutes: number = parseInt(((dif - (Days * 24 * 60 * 60 * 1000) - (Hours * 60 * 60 * 1000)) / 60 / 1000).toString());
+                    let Days: number = parseInt((dif / 24 / 60 / 60 / 1000).toString());
+                    let Hours: number = parseInt(((dif - (Days * 24 * 60 * 60 * 1000)) / 60 / 60 / 1000).toString());
+                    let Minutes: number = parseInt(((dif - (Days * 24 * 60 * 60 * 1000) - (Hours * 60 * 60 * 1000)) / 60 / 1000).toString());
                     $(".SourceStartEndDays").text(parseInt(Days.toString()));
                     $(".SourceStartEndHours").text(parseInt(Hours.toString()));
                     $(".SourceStartEndMinutes").text(parseInt(Minutes.toString()));
@@ -949,8 +958,8 @@ module CSSP {
                             cssp.Dialog.ShowDialogErrorWithError(ret);
                         }
                         else {
-                            //cssp.Dialog.ShowDialogSuccess(cssp.GetHTMLVariable("#LayoutVariables", "varModified") + " " + MikeSourceName);
-                            cssp.MikeScenario.MikeScenarioSourceReLoad($bjs.closest(".MikeScenarioSourceTop"));
+                            cssp.Dialog.ShowDialogSuccess(cssp.GetHTMLVariable("#LayoutVariables", "varModified") + " " + MikeSourceName);
+                            //cssp.MikeScenario.MikeScenarioSourceReLoad($bjs.closest(".MikeScenarioSourceTop"));
                         }
                     })
                     .fail(() => {
@@ -1011,8 +1020,8 @@ module CSSP {
                             cssp.Dialog.ShowDialogErrorWithError(ret);
                         }
                         else {
-                            //cssp.Dialog.ShowDialogSuccess(cssp.GetHTMLVariable("#LayoutVariables", "varSuccess") + " " + MikeSourceName + " " + Effluent);
-                            cssp.MikeScenario.MikeScenarioSourceReLoad($bjs.closest(".MikeScenarioSourceTop"));
+                            cssp.Dialog.ShowDialogSuccess(cssp.GetHTMLVariable("#LayoutVariables", "varSuccess") + " " + MikeSourceName + " " + Effluent);
+                            //cssp.MikeScenario.MikeScenarioSourceReLoad($bjs.closest(".MikeScenarioSourceTop"));
                         }
                     })
                     .fail(() => {

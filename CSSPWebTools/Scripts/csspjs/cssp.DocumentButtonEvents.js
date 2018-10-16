@@ -601,11 +601,6 @@ var CSSP;
                                 cssp.MikeScenario.MikeScenarioCopy($bjs);
                             }
                             break;
-                        case "jbMikeScenarioCreateWebTideDataWLFromStartToEndDate":
-                            {
-                                cssp.MikeScenario.MikeScenarioCreateWebTideDataWLFromStartToEndDate($bjs);
-                            }
-                            break;
                         case "jbMikeScenarioDelete":
                             {
                                 cssp.MikeScenario.AskToRemoveMikeScenario($bjs);
