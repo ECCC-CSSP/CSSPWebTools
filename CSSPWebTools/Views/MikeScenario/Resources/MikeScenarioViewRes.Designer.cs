@@ -466,6 +466,15 @@ namespace CSSPWebTools.Views.MikeScenario.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Discharge.
+        /// </summary>
+        public static string Discharge {
+            get {
+                return ResourceManager.GetString("Discharge", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Doc.
         /// </summary>
         public static string Doc {
@@ -714,15 +723,6 @@ namespace CSSPWebTools.Views.MikeScenario.Resources {
         public static string FileNameLabel {
             get {
                 return ResourceManager.GetString("FileNameLabel", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Flow.
-        /// </summary>
-        public static string Flow {
-            get {
-                return ResourceManager.GetString("Flow", resourceCulture);
             }
         }
         

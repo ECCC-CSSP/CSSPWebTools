@@ -375,20 +375,17 @@
   <data name="EndDateAndTimeOfPollution" xml:space="preserve">
     <value>End Date And Time Of Pollution</value>
   </data>
-  <data name="FC_MPN_100ml" xml:space="preserve">
-    <value>FC (MPN /100ml)</value>
+  <data name="FC" xml:space="preserve">
+    <value>FC</value>
   </data>
-  <data name="Flow_m3_day" xml:space="preserve">
-    <value>Flow (m3/day)</value>
-  </data>
-  <data name="Flow_m3_s" xml:space="preserve">
-    <value>Flow (m3/s)</value>
+  <data name="Discharge" xml:space="preserve">
+    <value>Discharge</value>
   </data>
   <data name="IsContinuous" xml:space="preserve">
     <value>Is Continuous</value>
   </data>
-  <data name="Salinity_PSU" xml:space="preserve">
-    <value>Salinity (PSU)</value>
+  <data name="Salinity" xml:space="preserve">
+    <value>Salinity</value>
   </data>
   <data name="SourceName" xml:space="preserve">
     <value>Source Name</value>
@@ -396,8 +393,8 @@
   <data name="PollutionDateAndTime" xml:space="preserve">
     <value>Pollution Date and Time</value>
   </data>
-  <data name="Temperature_C" xml:space="preserve">
-    <value>Temperature (ºC)</value>
+  <data name="Temperature" xml:space="preserve">
+    <value>Temperature</value>
   </data>
   <data name="SelectedDescription" xml:space="preserve">
     <value>Selected Description</value>

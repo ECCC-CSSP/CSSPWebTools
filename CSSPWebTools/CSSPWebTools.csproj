@@ -804,10 +804,6 @@
     <Content Include="Views\MikeScenario\_mikeScenarioSourceAdd.cshtml" />
     <Content Include="Views\MikeScenario\_mikeScenarioSourceInfo.cshtml" />
     <Content Include="Views\MikeScenario\_mikeScenarioSourceEdit.cshtml" />
-    <Content Include="Views\MikeScenario\_mikeScenarioSourceStartEndInfoContinuous.cshtml" />
-    <Content Include="Views\MikeScenario\_mikeScenarioSourceStartEndInfoNotContinuous.cshtml" />
-    <Content Include="Views\MikeScenario\_mikeScenarioSourceStartEndEditContinuous.cshtml" />
-    <Content Include="Views\MikeScenario\_mikeScenarioSourceStartEndEditNotContinuous.cshtml" />
     <Content Include="Views\Home\_appTask.cshtml" />
     <Content Include="Views\TideSite\_tideSiteList.cshtml" />
     <Content Include="Views\ClimateSite\_climateSiteTopPage.cshtml" />

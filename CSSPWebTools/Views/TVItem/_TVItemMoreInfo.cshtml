@@ -204,31 +204,29 @@
         case TVTypeEnum.MikeScenario:
             {
                 <span class="moreInfo-NamesValues">
-                    <span>@TVItemViewRes.StartDateAndTime (<b>@tvItemMoreInfoMikeScenarioModel.MikeScenarioStartDateTime_Local</b>)</span>
-                    <span>@TVItemViewRes.EndDateAndTime (<b>@tvItemMoreInfoMikeScenarioModel.MikeScenarioEndDateTime_Local</b>)</span>
-                    <span>@TVItemViewRes.WindSpeed_km_h (<b>@tvItemMoreInfoMikeScenarioModel.WindSpeed_km_h</b>)</span>
-                    <span>@TVItemViewRes.WindDirection_deg (<b>@tvItemMoreInfoMikeScenarioModel.WindDirection_deg</b>)</span>
-                    <span>@TVItemViewRes.DecayFactor_per_day (<b>@tvItemMoreInfoMikeScenarioModel.DecayFactor_per_day</b>)</span>
-                    <span>@TVItemViewRes.DecayIsConstant (<b>@tvItemMoreInfoMikeScenarioModel.DecayIsConstant</b>)</span>
-                    <span>@TVItemViewRes.DecayFactorAmplitude (<b>@tvItemMoreInfoMikeScenarioModel.DecayFactorAmplitude</b>)</span>
-                    <span>@TVItemViewRes.ResultFrequency_min (<b>@tvItemMoreInfoMikeScenarioModel.ResultFrequency_min</b>)</span>
-                    <span>@TVItemViewRes.AmbientTemperature_C (<b>@tvItemMoreInfoMikeScenarioModel.AmbientTemperature_C</b>)</span>
-                    <span>@TVItemViewRes.AmbientSalinity_PSU (<b>@tvItemMoreInfoMikeScenarioModel.AmbientSalinity_PSU</b>)</span>
-                    <span>@TVItemViewRes.ManningNumber (<b>@tvItemMoreInfoMikeScenarioModel.ManningNumber</b>)</span>
-                    <span>@TVItemViewRes.HydroFileSize (<b>@tvItemMoreInfoMikeScenarioModel.HydroFileSize</b>)</span>
-                    <span>@TVItemViewRes.TransFileSize (<b>@tvItemMoreInfoMikeScenarioModel.TransFileSize</b>)</span>
+                    <span><b>@TVItemViewRes.StartDateAndTime</b> (@tvItemMoreInfoMikeScenarioModel.MikeScenarioStartDateTime_Local.ToString("yyyy MMMM dd - HH:mm"))</span>
+                    <span><b>@TVItemViewRes.EndDateAndTime</b> (@tvItemMoreInfoMikeScenarioModel.MikeScenarioEndDateTime_Local.ToString("yyyy MMMM dd - HH:mm"))</span>
+                    <span><b>@TVItemViewRes.WindSpeed_km_h</b> (@tvItemMoreInfoMikeScenarioModel.WindSpeed_km_h)</span>
+                    <span><b>@TVItemViewRes.WindDirection_deg</b> (@tvItemMoreInfoMikeScenarioModel.WindDirection_deg)</span>
+                    <span><b>@TVItemViewRes.DecayFactor_per_day</b> (@tvItemMoreInfoMikeScenarioModel.DecayFactor_per_day)</span>
+                    <span><b>@TVItemViewRes.DecayIsConstant</b> (@tvItemMoreInfoMikeScenarioModel.DecayIsConstant)</span>
+                    <span><b>@TVItemViewRes.DecayFactorAmplitude</b> (@tvItemMoreInfoMikeScenarioModel.DecayFactorAmplitude)</span>
+                    <span><b>@TVItemViewRes.ResultFrequency_min</b> (@tvItemMoreInfoMikeScenarioModel.ResultFrequency_min)</span>
+                    <span><b>@TVItemViewRes.AmbientTemperature_C</b> (@tvItemMoreInfoMikeScenarioModel.AmbientTemperature_C)</span>
+                    <span><b>@TVItemViewRes.AmbientSalinity_PSU</b> (@tvItemMoreInfoMikeScenarioModel.AmbientSalinity_PSU)</span>
+                    <span><b>@TVItemViewRes.ManningNumber</b> (@tvItemMoreInfoMikeScenarioModel.ManningNumber)</span>
                 </span>
 
                 <div class="paraBlock">
-                    <span><b>@TVItemViewRes.PollutionSourceIncluded</b></span><br />
+                    <span class="h4">@TVItemViewRes.PollutionSourceIncluded</span><br />
                     @foreach (TVItemMikeSourceModel tvItemMikeSourceModel in tvItemMoreInfoMikeScenarioModel.TVItemMikeSourceModelList)
-                        {
+                    {
                         <ul class="list-unstyled">
                             <li>
                                 <ul class="list-unstyled blockMargin">
                                     <li>
                                         <span class="glyphicon glyphicon-triangle-right"></span><span>@TVItemViewRes.SourceName (<b>@tvItemMikeSourceModel.MikeSourceTVText</b>)</span>
-                                        <span>@TVItemViewRes.IsContinuous (<b>@tvItemMikeSourceModel.IsContinuous</b>)</span>
+                                        <span><b>@TVItemViewRes.IsContinuous</b> (@tvItemMikeSourceModel.IsContinuous)</span>
                                     </li>
                                     <li>
                                         @if (tvItemMikeSourceModel.MikeSourceStartEndModelList != null)
@@ -243,14 +241,14 @@
 
                                                             {
 
-                                                                <span>@TVItemViewRes.Start</span>
-                                                                <span>(<b> @mikeSourceStartEndModel.StartDateAndTime_Local </b>)</span>
+                                                                <span><b>@TVItemViewRes.Start</b></span>
+                                                                <span> (@mikeSourceStartEndModel.StartDateAndTime_Local.ToString("yyyy MMMM dd - HH:mm"))</span>
                                                             }
-                                                            <span>@TVItemViewRes.Flow_m3_day (<b>@mikeSourceStartEndModel.SourceFlowStart_m3_day.ToString("F1")</b>)</span>
-                                                            <span>@TVItemViewRes.Flow_m3_s (<b>@((mikeSourceStartEndModel.SourceFlowStart_m3_day / 3600 / 24).ToString("F5"))</b>)</span>
-                                                            <span>@TVItemViewRes.FC_MPN_100ml (<b>@mikeSourceStartEndModel.SourcePollutionStart_MPN_100ml</b>)</span>
-                                                            <span>@TVItemViewRes.Salinity_PSU (<b>@mikeSourceStartEndModel.SourceSalinityStart_PSU.ToString("F1")</b>)</span>
-                                                            <span>@TVItemViewRes.Temperature_C (<b>@mikeSourceStartEndModel.SourceTemperatureStart_C.ToString("F1")</b>)</span>
+                                                            <span><b>@TVItemViewRes.Discharge @Html.Raw(UnitViewRes.m3PerDay)</b> (@mikeSourceStartEndModel.SourceFlowStart_m3_day.ToString("F1"))</span>
+                                                            <span><b>@TVItemViewRes.Discharge @Html.Raw(UnitViewRes.m3PerSecond)</b> (@((mikeSourceStartEndModel.SourceFlowStart_m3_day / 3600 / 24).ToString("F5")))</span>
+                                                            <span><b>@TVItemViewRes.FC @UnitViewRes.FCPer100ml</b> (@mikeSourceStartEndModel.SourcePollutionStart_MPN_100ml)</span>
+                                                            <span><b>@TVItemViewRes.Salinity @UnitViewRes.PSU</b> (@mikeSourceStartEndModel.SourceSalinityStart_PSU.ToString("F1"))</span>
+                                                            <span><b>@TVItemViewRes.Temperature @UnitViewRes.Celcius_abbr</b> (@mikeSourceStartEndModel.SourceTemperatureStart_C.ToString("F1"))</span>
                                                         </li>
 
 
@@ -259,12 +257,12 @@
                                                         {
                                                             <li>
                                                                 <div>
-                                                                    <span>@TVItemViewRes.End</span> <span>(<b>@mikeSourceStartEndModel.EndDateAndTime_Local</b>)</span>
-                                                                    <span>@TVItemViewRes.Flow_m3_day (<b>@mikeSourceStartEndModel.SourceFlowEnd_m3_day.ToString("F1")</b>)</span>
-                                                                    <span>@TVItemViewRes.Flow_m3_s (<b>@((mikeSourceStartEndModel.SourceFlowEnd_m3_day / 3600 / 24).ToString("F5"))</b>)</span>
-                                                                    <span>@TVItemViewRes.FC_MPN_100ml (<b>@mikeSourceStartEndModel.SourcePollutionEnd_MPN_100ml</b>)</span>
-                                                                    <span>@TVItemViewRes.Salinity_PSU (<b>@mikeSourceStartEndModel.SourceSalinityEnd_PSU.ToString("F1")</b>)</span>
-                                                                    <span>@TVItemViewRes.Temperature_C (<b>@mikeSourceStartEndModel.SourceTemperatureEnd_C.ToString("F1")</b>)</span>
+                                                                    <span><b>@TVItemViewRes.End</b></span> <span>(@mikeSourceStartEndModel.EndDateAndTime_Local.ToString("yyyy MMMM dd - HH:mm"))</span>
+                                                                    <span><b>@TVItemViewRes.Discharge @Html.Raw(UnitViewRes.m3PerDay)</b> (@mikeSourceStartEndModel.SourceFlowEnd_m3_day.ToString("F1"))</span>
+                                                                    <span><b>@TVItemViewRes.Discharge @Html.Raw(UnitViewRes.m3PerSecond)</b> (@((mikeSourceStartEndModel.SourceFlowEnd_m3_day / 3600 / 24).ToString("F5")))</span>
+                                                                    <span><b>@TVItemViewRes.FC @UnitViewRes.FCPer100ml</b> (@mikeSourceStartEndModel.SourcePollutionEnd_MPN_100ml)</span>
+                                                                    <span><b>@TVItemViewRes.Salinity @UnitViewRes.PSU</b> (@mikeSourceStartEndModel.SourceSalinityEnd_PSU.ToString("F1"))</span>
+                                                                    <span><b>@TVItemViewRes.Temperature @UnitViewRes.Celcius_abbr</b> (@mikeSourceStartEndModel.SourceTemperatureEnd_C.ToString("F1"))</span>
                                                                 </div>
                                                             </li>
                                                         }

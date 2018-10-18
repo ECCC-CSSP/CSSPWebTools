@@ -341,8 +341,8 @@
     <value>Nom du fichier</value>
     <comment>à faire</comment>
   </data>
-  <data name="Flow" xml:space="preserve">
-    <value>Écoulement</value>
+  <data name="Discharge" xml:space="preserve">
+    <value>Débit</value>
     <comment>à faire</comment>
   </data>
   <data name="GeneralParameters" xml:space="preserve">

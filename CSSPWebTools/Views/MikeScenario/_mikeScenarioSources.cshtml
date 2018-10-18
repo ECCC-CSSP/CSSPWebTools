@@ -130,15 +130,15 @@ MikeScenarioViewRes.December,
                                                     <ul class="list-unstyled">
                                                         <li>
                                                             <label>@MikeScenarioViewRes.Start:</label>
-                                                            <span class="elementSpacing">@TempStartDate.ToString("f")</span>
+                                                            <span class="elementSpacing">@TempStartDate.ToString("yyyy MMMM dd - HH:mm")</span>
                                                         </li>
                                                         <li>
-                                                            <label>@MikeScenarioViewRes.Flow:</label>
+                                                            <label>@MikeScenarioViewRes.Discharge:</label>
                                                             <span class="elementSpacing">@string.Format("{0:F2}", mikeSourceStartEndModel.SourceFlowStart_m3_day) @Html.Raw(UnitViewRes.m3PerDay)</span>
                                                         </li>
                                                         <li>
                                                             <label>
-                                                                @MikeScenarioViewRes.Flow:
+                                                                @MikeScenarioViewRes.Discharge:
                                                             </label>
                                                             <span class="elementSpacing">@string.Format("{0:F6}", SourceFlowStart_m3_s) @Html.Raw(UnitViewRes.m3PerSecond)</span>
                                                         </li>
@@ -193,15 +193,15 @@ MikeScenarioViewRes.December,
                                                     <tr>
                                                         <th>@MikeScenarioViewRes.Date</th>
                                                         <td>
-                                                            <span>@TempStartDate.ToString("f")</span>
+                                                            <span>@TempStartDate.ToString("yyyy MMMM dd - HH:mm")</span>
                                                         </td>
                                                         <td>
-                                                            <span>@TempEndDate.ToString("f")</span>
+                                                            <span>@TempEndDate.ToString("yyyy MMMM dd - HH:mm")</span>
                                                         </td>
                                                     </tr>
                                                     <tr>
                                                         <th>
-                                                            @MikeScenarioViewRes.Flow (@Html.Raw(UnitViewRes.m3PerDay))
+                                                            @MikeScenarioViewRes.Discharge (@Html.Raw(UnitViewRes.m3PerDay))
                                                         </th>
                                                         <td>
                                                             <span>@string.Format("{0:F2}", mikeSourceStartEndModel.SourceFlowStart_m3_day)</span>
@@ -212,7 +212,7 @@ MikeScenarioViewRes.December,
                                                     </tr>
                                                     <tr>
                                                         <th>
-                                                            @MikeScenarioViewRes.Flow <span>(@Html.Raw(UnitViewRes.m3PerSecond))</span>
+                                                            @MikeScenarioViewRes.Discharge <span>(@Html.Raw(UnitViewRes.m3PerSecond))</span>
                                                         </th>
                                                         <td>
                                                             <span>@string.Format("{0:F6}", SourceFlowStart_m3_s)</span>
@@ -472,7 +472,7 @@ MikeScenarioViewRes.December,
                                     </div>
                                 </div>
 
-                                @if (mikeSourceModel.IsContinuous)
+                                @if (mikeSourceModel.IsContinuous && !mikeSourceModel.UseHydrometric)
                                 {
                                     DateTime CurrentDate = DateTime.Now;
 
@@ -492,7 +492,7 @@ MikeScenarioViewRes.December,
                                                         @MikeScenarioViewRes.Properties:
                                                         <span>
                                                             [
-                                                            <span class="sr-only">@MikeScenarioViewRes.Flow:</span>
+                                                            <span class="sr-only">@MikeScenarioViewRes.Discharge:</span>
                                                             @if (mikeSourceModel.UseHydrometric == false)
                                                             {
                                                                 <b>@mikeSourceModel.MikeSourceStartEndModelList[0].SourceFlowStart_m3_day.ToString("F2") @Html.Raw(UnitViewRes.m3PerDay),</b>
@@ -543,7 +543,7 @@ MikeScenarioViewRes.December,
                                                             <input type="hidden" name="MikeSourceTVItemID" value="@mikeSourceModel.MikeSourceTVItemID" />
                                                             <div class="form-group">
                                                                 <label class="control-label ">
-                                                                    @MikeScenarioViewRes.Flow &nbsp;<span class="text-lighter text-nowrap">(@Html.Raw(UnitViewRes.m3PerDay))</span>
+                                                                    @MikeScenarioViewRes.Discharge &nbsp;<span class="text-lighter text-nowrap">(@Html.Raw(UnitViewRes.m3PerDay))</span>
                                                                 </label>
                                                                 <div>
                                                                     <input class="isnumber form-control" name="SourceFlowStart_m3_day" type="text" value="@string.Format("{0:F2}", mikeSourceStartEndModel.SourceFlowStart_m3_day)" />
@@ -552,7 +552,7 @@ MikeScenarioViewRes.December,
                                                             </div>
                                                             <div class="form-group">
                                                                 <label class="control-label ">
-                                                                    @MikeScenarioViewRes.Flow &nbsp;
+                                                                    @MikeScenarioViewRes.Discharge &nbsp;
                                                                     <span class="text-lighter text-nowrap">(@Html.Raw(UnitViewRes.m3PerSecond))</span>
                                                                 </label>
                                                                 <div>
@@ -612,7 +612,10 @@ MikeScenarioViewRes.December,
                                     <div class="panel-heading" role="tab" id="@panelHeadingID2">
                                         <h4 class="panel-title">
                                             <a role="button" data-toggle="collapse" data-parent="#@panelGroupID2" href="#@panelCollapseID2" aria-expanded="false" aria-controls="@panelCollapseID2" title="@MikeScenarioViewRes.Edit">
-                                                <span class="glyphicon glyphicon-pencil"></span>  <span class="elementSpacing">@MikeScenarioViewRes.Effluents (@(mikeSourceModel.MikeSourceStartEndModelList.Count))</span> @MikeScenarioViewRes.IsNotContinuous
+                                                <span class="glyphicon glyphicon-pencil"></span>
+                                                <span class="elementSpacing">@MikeScenarioViewRes.Effluents (@(mikeSourceModel.MikeSourceStartEndModelList.Count))</span>
+                                                <span class="elementSpacing">@(mikeSourceModel.IsContinuous ? MikeScenarioViewRes.IsContinuous : MikeScenarioViewRes.IsNotContinuous)</span>
+                                                <span class="elementSpacing">@(mikeSourceModel.UseHydrometric ? MikeScenarioViewRes.UseHydrometric : "")</span>
                                             </a>
                                         </h4>
                                     </div>
@@ -661,19 +664,19 @@ MikeScenarioViewRes.December,
                                                                             </i>
 
                                                                             <span>
-                                                                                <span>@MikeScenarioViewRes.Start:</span> [ @StartDate.ToString("yyyy-MMM-dd HH:mm") ]
+                                                                                <span>@MikeScenarioViewRes.Start:</span> [ @StartDate.ToString("yyyy MMMM dd - HH:mm") ]
                                                                             </span>
                                                                             &nbsp;&nbsp;
                                                                             <span>
                                                                                 @MikeScenarioViewRes.Properties: [
-                                                                                <span class="sr-only">@MikeScenarioViewRes.Flow:</span>
+                                                                                <span class="sr-only">@MikeScenarioViewRes.Discharge:</span>
                                                                                 @if (mikeSourceModel.UseHydrometric == false)
                                                                                 {
-                                                                                    <b>@mikeSourceModel.MikeSourceStartEndModelList[0].SourceFlowStart_m3_day.ToString("F2") @Html.Raw(UnitViewRes.m3PerDay),</b>                                        
+                                                                                    <b>@mikeSourceModel.MikeSourceStartEndModelList[0].SourceFlowStart_m3_day.ToString("F2") @Html.Raw(UnitViewRes.m3PerDay),</b>
                                                                                 }
                                                                                 else
                                                                                 {
-                                                                                <span>@MikeScenarioViewRes.WillUseHydrometric,</span>
+                                                                                    <span>@MikeScenarioViewRes.WillUseHydrometric,</span>
                                                                                 }
                                                                                 <span class="sr-only">@MikeScenarioViewRes.Pollution:</span> @mikeSourceStartEndModel.SourcePollutionStart_MPN_100ml.ToString("F0") @Html.Raw(UnitViewRes.MPN_Per100ml_abr),
                                                                                 <span class="sr-only">@MikeScenarioViewRes.Temperature:</span> @mikeSourceStartEndModel.SourceTemperatureStart_C.ToString("F1") @Html.Raw(UnitViewRes.Celcius_abbr),
@@ -703,7 +706,7 @@ MikeScenarioViewRes.December,
                                                                                                 <h4 class="panel-title">@MikeScenarioViewRes.EffluentStart</h4>
                                                                                             </div>
                                                                                             <div class="panel-body">
-                                                                                                <div class="DateOK @DateClass h4">@MikeScenarioViewRes.ScenarioLength (@mikeScenarioModel.MikeScenarioStartDateTime_Local.ToString("f") --- @mikeScenarioModel.MikeScenarioEndDateTime_Local.ToString("f"))</div>
+                                                                                                <div class="DateOK @DateClass h4">@MikeScenarioViewRes.ScenarioLength (@mikeScenarioModel.MikeScenarioStartDateTime_Local.ToString("yyyy MMMM dd") --- @mikeScenarioModel.MikeScenarioEndDateTime_Local.ToString("yyyy MMMM dd"))</div>
                                                                                                 <div class="form-group">
                                                                                                     <label class="control-label">@MikeScenarioViewRes.Date</label>
                                                                                                     <div>
@@ -792,11 +795,11 @@ MikeScenarioViewRes.December,
                                                                                                 </div>
                                                                                                 <div class="form-group clearfix">
                                                                                                     <label class="control-label">
-                                                                                                        @MikeScenarioViewRes.Flow
+                                                                                                        @MikeScenarioViewRes.Discharge
                                                                                                         <em class="text-lighter">(@Html.Raw(UnitViewRes.m3PerDay))</em>
                                                                                                     </label>
                                                                                                     <div>
-                                                                                                        @if (mikeScenarioModel.ForSimulatingMWQMRunTVItemID == null)
+                                                                                                        @if (mikeSourceModel.UseHydrometric == false)
                                                                                                         {
                                                                                                             <input class="isnumber form-control" name="SourceFlowStart_m3_day" type="text" value="@string.Format("{0:F2}", mikeSourceStartEndModel.SourceFlowStart_m3_day)" />
                                                                                                             <span class="help-block"></span>
@@ -809,11 +812,11 @@ MikeScenarioViewRes.December,
                                                                                                 </div>
                                                                                                 <div class="form-group">
                                                                                                     <label class="control-label">
-                                                                                                        @MikeScenarioViewRes.Flow
+                                                                                                        @MikeScenarioViewRes.Discharge
                                                                                                         <span class="text-lighter">(@Html.Raw(UnitViewRes.m3PerSecond))</span>
                                                                                                     </label>
                                                                                                     <div>
-                                                                                                        @if (mikeScenarioModel.ForSimulatingMWQMRunTVItemID == null)
+                                                                                                        @if (mikeSourceModel.UseHydrometric == false)
                                                                                                         {
                                                                                                             <input class="isnumber form-control" name="SourceFlowStart_m3_s" type="text" value="@string.Format("{0:F6}", SourceFlowStart_m3_s)" />
                                                                                                             <span class="help-block"></span>
@@ -857,7 +860,7 @@ MikeScenarioViewRes.December,
                                                                                                 <h4 class="panel-title">@MikeScenarioViewRes.EffluentFinish</h4>
                                                                                             </div>
                                                                                             <div class="panel-body">
-                                                                                                <div class="DateOK @DateClass h4">@MikeScenarioViewRes.ScenarioLength (@mikeScenarioModel.MikeScenarioStartDateTime_Local.ToString("f") --- @mikeScenarioModel.MikeScenarioEndDateTime_Local.ToString("f"))</div>
+                                                                                                <div class="DateOK @DateClass h4">@MikeScenarioViewRes.ScenarioLength (@mikeScenarioModel.MikeScenarioStartDateTime_Local.ToString("yyyy MMMM dd") --- @mikeScenarioModel.MikeScenarioEndDateTime_Local.ToString("yyyy MMMM dd"))</div>
                                                                                                 <div class="form-group">
                                                                                                     <label class="control-label">@MikeScenarioViewRes.Date</label>
                                                                                                     <div>
@@ -949,11 +952,11 @@ MikeScenarioViewRes.December,
 
                                                                                                 <div class="form-group">
                                                                                                     <label class="control-label">
-                                                                                                        @MikeScenarioViewRes.Flow
+                                                                                                        @MikeScenarioViewRes.Discharge
                                                                                                         <em class="text-lighter">(@Html.Raw(UnitViewRes.m3PerDay))</em>
                                                                                                     </label>
                                                                                                     <div>
-                                                                                                        @if (mikeScenarioModel.ForSimulatingMWQMRunTVItemID == null)
+                                                                                                        @if (mikeSourceModel.UseHydrometric == false)
                                                                                                         {
                                                                                                             <input class="isnumber  form-control" name="SourceFlowEnd_m3_day" type="text" value="@string.Format("{0:F2}", mikeSourceStartEndModel.SourceFlowEnd_m3_day)" />
                                                                                                             <span class="help-block"></span>
@@ -966,11 +969,11 @@ MikeScenarioViewRes.December,
                                                                                                 </div>
                                                                                                 <div class="form-group">
                                                                                                     <label class="control-label">
-                                                                                                        @MikeScenarioViewRes.Flow
+                                                                                                        @MikeScenarioViewRes.Discharge
                                                                                                         <span class="text-lighter">(@Html.Raw(UnitViewRes.m3PerSecond))</span>
                                                                                                     </label>
                                                                                                     <div>
-                                                                                                        @if (mikeScenarioModel.ForSimulatingMWQMRunTVItemID == null)
+                                                                                                        @if (mikeSourceModel.UseHydrometric == false)
                                                                                                         {
                                                                                                             <input class="isnumber form-control" name="SourceFlowEnd_m3_s" type="text" value="@string.Format("{0:F6}", SourceFlowEnd_m3_s)" />
                                                                                                             <span class="help-block"></span>

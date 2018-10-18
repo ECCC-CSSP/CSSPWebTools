@@ -1,9 +1,14 @@
 ﻿@using CSSPWebTools.Models;
 @using CSSPWebTools.Views.MikeScenario.Resources;
 @using CSSPModelsDLL.Models;
+@using CSSPWebTools.Views.Shared.Resources;
 
 @{
     MikeSourceModel mikeSourceModel = (MikeSourceModel)ViewBag.MikeSourceModel;
+    List<MikeSourceStartEndModel> mikeSourceStartEndModelList = (List<MikeSourceStartEndModel>)ViewBag.MikeSourceStartEndModelList;
+    int MikeSourceTVItemID = (int)ViewBag.MikeSourceTVItemID;
+
+    int CountEff = 0;
 
     string BorderClass = "BorderLighterSilver";
     if (mikeSourceModel.Include == true && mikeSourceModel.IsRiver == false)
@@ -40,13 +45,148 @@
                 </li>
             </ul>
         </div>
-        @if (mikeSourceModel.IsContinuous)
+        @if (mikeSourceModel.IsContinuous && !mikeSourceModel.UseHydrometric)
         {
-           @Html.Action("_mikeScenarioSourceStartEndInfoContinuous", "MikeScenario", new { MikeSourceTVItemID = mikeSourceModel.MikeSourceTVItemID })
+            <div class="MikeSourceStartEndsDiv container-fluid">
+                @foreach (MikeSourceStartEndModel mikeSourceStartEndModel in mikeSourceStartEndModelList)
+                {
+                    var SourceFlowStart_m3_s = @mikeSourceStartEndModel.SourceFlowStart_m3_day / 3600 / 24;
+                    DateTime TempStartDate = (DateTime)mikeSourceStartEndModel.StartDateAndTime_Local;
+                    DateTime TempEndDate = (DateTime)mikeSourceStartEndModel.EndDateAndTime_Local;
+
+                    CountEff += 1;
+                    <div class="MikeSourceStartEndDiv blockMargin" data-mikesourcestartendid="@mikeSourceStartEndModel.MikeSourceStartEndID">
+                        <h4>@MikeScenarioViewRes.Effluent (@CountEff)</h4>
+                        <div class="blockMargin">
+                            <ul class="list-unstyled">
+                                <li>
+                                    <label>@MikeScenarioViewRes.Start:</label>
+                                    <span class="elementSpacing">@TempStartDate.ToString("yyyy MMMM dd - HH:mm")</span>
+                                </li>
+                                <li>
+                                    <label>@MikeScenarioViewRes.Discharge:</label>
+                                    <span class="elementSpacing">@string.Format("{0:F2}", mikeSourceStartEndModel.SourceFlowStart_m3_day) @Html.Raw(UnitViewRes.m3PerDay)</span>
+                                </li>
+                                <li>
+                                    <label>
+                                        @MikeScenarioViewRes.Discharge:
+                                    </label>
+                                    <span class="elementSpacing">@string.Format("{0:F6}", SourceFlowStart_m3_s) @Html.Raw(UnitViewRes.m3PerSecond)</span>
+                                </li>
+                                <li>
+                                    <label>
+                                        @MikeScenarioViewRes.FecalColiform:
+                                    </label>
+                                    <span class="elementSpacing">@string.Format("{0:F0}", mikeSourceStartEndModel.SourcePollutionStart_MPN_100ml) @Html.Raw(UnitViewRes.MPN_Per100ml_abr)</span>
+                                </li>
+                                <li>
+                                    <label>
+                                        @MikeScenarioViewRes.Temperature:
+                                    </label>
+                                    <span class="elementSpacing">@string.Format("{0:F1}", mikeSourceStartEndModel.SourceTemperatureStart_C) @Html.Raw(UnitViewRes.Celcius_abbr)</span>
+                                </li>
+                                <li>
+                                    <label>
+                                        @MikeScenarioViewRes.Salinity:
+                                    </label>
+                                    <span class="elementSpacing">@string.Format("{0:F1}", mikeSourceStartEndModel.SourceSalinityStart_PSU) @Html.Raw(UnitViewRes.PSU)</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                }
+            </div>
         }
         else
         {
-            @Html.Action("_mikeScenarioSourceStartEndInfoNotContinuous", "MikeScenario", new { MikeSourceTVItemID = mikeSourceModel.MikeSourceTVItemID })
+            <div class="MikeSourceStartEndsDiv container-fluid">
+                @foreach (MikeSourceStartEndModel mikeSourceStartEndModel in mikeSourceStartEndModelList)
+                {
+                    var SourceFlowStart_m3_s = mikeSourceStartEndModel.SourceFlowStart_m3_day / 3600 / 24;
+                    var SourceFlowEnd_m3_s = mikeSourceStartEndModel.SourceFlowEnd_m3_day / 3600 / 24;
+
+                    DateTime TempStartDate = (DateTime)mikeSourceStartEndModel.StartDateAndTime_Local;
+                    DateTime TempEndDate = (DateTime)mikeSourceStartEndModel.EndDateAndTime_Local;
+
+                    CountEff += 1;
+                    <div class="MikeSourceStartEndDiv blockMargin" data-mikesourcestartendid="@mikeSourceStartEndModel.MikeSourceStartEndID">
+                        <h4>@MikeScenarioViewRes.Effluent (@CountEff)</h4>
+                        <table class="table table-striped">
+                            <tr>
+                                <th>&nbsp;</th>
+                                <th>
+                                    <h4>@MikeScenarioViewRes.Start</h4>
+                                </th>
+                                <th><h4>@MikeScenarioViewRes.End</h4></th>
+                            </tr>
+                            <tr>
+                                <th>@MikeScenarioViewRes.Date</th>
+                                <td>
+                                    <span>@TempStartDate.ToString("yyyy MMMM dd - HH:mm")</span>
+                                </td>
+                                <td>
+                                    <span>@TempEndDate.ToString("yyyy MMMM dd - HH:mm")</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    @MikeScenarioViewRes.Discharge (@Html.Raw(UnitViewRes.m3PerDay))
+                                </th>
+                                <td>
+                                    <span>@string.Format("{0:F2}", mikeSourceStartEndModel.SourceFlowStart_m3_day)</span>
+                                </td>
+                                <td>
+                                    <span>@string.Format("{0:F2}", mikeSourceStartEndModel.SourceFlowEnd_m3_day)</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    @MikeScenarioViewRes.Discharge <span>(@Html.Raw(UnitViewRes.m3PerSecond))</span>
+                                </th>
+                                <td>
+                                    <span>@string.Format("{0:F6}", SourceFlowStart_m3_s)</span>
+                                </td>
+                                <td>
+                                    <span>@string.Format("{0:F6}", SourceFlowEnd_m3_s)</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    @MikeScenarioViewRes.FecalColiform (@Html.Raw(UnitViewRes.MPN_Per100ml_abr))
+                                </th>
+                                <td>
+                                    <span>@string.Format("{0:F0}", mikeSourceStartEndModel.SourcePollutionStart_MPN_100ml)</span>
+                                </td>
+                                <td>
+                                    <span>@string.Format("{0:F0}", mikeSourceStartEndModel.SourcePollutionEnd_MPN_100ml)</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    @MikeScenarioViewRes.Temperature (@Html.Raw(UnitViewRes.Celcius_abbr))
+                                </th>
+                                <td>
+                                    <span>@string.Format("{0:F1}", mikeSourceStartEndModel.SourceTemperatureStart_C)</span>
+                                </td>
+                                <td>
+                                    <span>@string.Format("{0:F1}", mikeSourceStartEndModel.SourceTemperatureEnd_C)</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    @MikeScenarioViewRes.Salinity (@Html.Raw(UnitViewRes.PSU))
+                                </th>
+                                <td>
+                                    <span>@string.Format("{0:F1}", mikeSourceStartEndModel.SourceSalinityStart_PSU)</span>
+                                </td>
+                                <td>
+                                    <span>@string.Format("{0:F1}", mikeSourceStartEndModel.SourceSalinityEnd_PSU)</span>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                }
+            </div>
         }
     </div>
 </div>

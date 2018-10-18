@@ -223,6 +223,15 @@ namespace CSSPWebTools.Views.TVItem.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Discharge.
+        /// </summary>
+        public static string Discharge {
+            get {
+                return ResourceManager.GetString("Discharge", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to empty.
         /// </summary>
         public static string Empty {
@@ -268,11 +277,11 @@ namespace CSSPWebTools.Views.TVItem.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to FC (MPN /100ml).
+        ///   Looks up a localized string similar to FC.
         /// </summary>
-        public static string FC_MPN_100ml {
+        public static string FC {
             get {
-                return ResourceManager.GetString("FC_MPN_100ml", resourceCulture);
+                return ResourceManager.GetString("FC", resourceCulture);
             }
         }
         
@@ -282,24 +291,6 @@ namespace CSSPWebTools.Views.TVItem.Resources {
         public static string FileSize {
             get {
                 return ResourceManager.GetString("FileSize", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Flow (m3/day).
-        /// </summary>
-        public static string Flow_m3_day {
-            get {
-                return ResourceManager.GetString("Flow_m3_day", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Flow (m3/s).
-        /// </summary>
-        public static string Flow_m3_s {
-            get {
-                return ResourceManager.GetString("Flow_m3_s", resourceCulture);
             }
         }
         
@@ -754,11 +745,11 @@ namespace CSSPWebTools.Views.TVItem.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Salinity (PSU).
+        ///   Looks up a localized string similar to Salinity.
         /// </summary>
-        public static string Salinity_PSU {
+        public static string Salinity {
             get {
-                return ResourceManager.GetString("Salinity_PSU", resourceCulture);
+                return ResourceManager.GetString("Salinity", resourceCulture);
             }
         }
         
@@ -880,11 +871,11 @@ namespace CSSPWebTools.Views.TVItem.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Temperature (ºC).
+        ///   Looks up a localized string similar to Temperature.
         /// </summary>
-        public static string Temperature_C {
+        public static string Temperature {
             get {
-                return ResourceManager.GetString("Temperature_C", resourceCulture);
+                return ResourceManager.GetString("Temperature", resourceCulture);
             }
         }
         

@@ -1147,31 +1147,33 @@ namespace CSSPWebTools.Controllers
             return PartialView();
         }
 
-        [HttpGet]
-        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
-        public PartialViewResult _mikeScenarioSourceStartEndEditContinuous(int MikeSourceTVItemID)
-        {
-            ViewBag.MikeSourceTVItemID = MikeSourceTVItemID;
-            ViewBag.MikeSourceStartEndModelList = _MikeScenarioService._MikeSourceService._MikeSourceStartEndService.GetMikeSourceStartEndModelListWithMikeSourceTVItemIDDB(MikeSourceTVItemID);
+        //[HttpGet]
+        //[OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        //public PartialViewResult _mikeScenarioSourceStartEndEditContinuous(int MikeSourceTVItemID)
+        //{
+        //    ViewBag.MikeSourceTVItemID = MikeSourceTVItemID;
+        //    ViewBag.MikeSourceStartEndModelList = _MikeScenarioService._MikeSourceService._MikeSourceStartEndService.GetMikeSourceStartEndModelListWithMikeSourceTVItemIDDB(MikeSourceTVItemID);
 
-            return PartialView();
-        }
+        //    return PartialView();
+        //}
 
-        [HttpGet]
-        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
-        public PartialViewResult _mikeScenarioSourceStartEndEditNotContinuous(int MikeSourceTVItemID)
-        {
-            ViewBag.MikeSourceTVItemID = MikeSourceTVItemID;
-            ViewBag.MikeSourceStartEndModelList = _MikeScenarioService._MikeSourceService._MikeSourceStartEndService.GetMikeSourceStartEndModelListWithMikeSourceTVItemIDDB(MikeSourceTVItemID);
+        //[HttpGet]
+        //[OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        //public PartialViewResult _mikeScenarioSourceStartEndEditNotContinuous(int MikeSourceTVItemID)
+        //{
+        //    ViewBag.MikeSourceTVItemID = MikeSourceTVItemID;
+        //    ViewBag.MikeSourceStartEndModelList = _MikeScenarioService._MikeSourceService._MikeSourceStartEndService.GetMikeSourceStartEndModelListWithMikeSourceTVItemIDDB(MikeSourceTVItemID);
 
-            return PartialView();
-        }
+        //    return PartialView();
+        //}
 
         [HttpGet]
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
         public PartialViewResult _mikeScenarioSourceInfo(int MikeSourceTVItemID)
         {
             ViewBag.MikeSourceModel = null;
+            ViewBag.MikeSourceTVItemID = MikeSourceTVItemID;
+            ViewBag.MikeSourceStartEndModelList = null;
 
             MikeSourceModel mikeSourceModel = _MikeScenarioService._MikeSourceService.GetMikeSourceModelWithMikeSourceTVItemIDDB(MikeSourceTVItemID);
 
@@ -1182,28 +1184,32 @@ namespace CSSPWebTools.Controllers
                 mikeSourceModel.MikeSourceStartEndModelList = _MikeScenarioService._MikeSourceService._MikeSourceStartEndService.GetMikeSourceStartEndModelListWithMikeSourceTVItemIDDB(MikeSourceTVItemID);
             }
 
-            return PartialView();
-        }
+            List<MikeSourceStartEndModel> mikeSourceStartEndModelList = _MikeScenarioService._MikeSourceService._MikeSourceStartEndService.GetMikeSourceStartEndModelListWithMikeSourceTVItemIDDB(MikeSourceTVItemID);
 
-        [HttpGet]
-        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
-        public PartialViewResult _mikeScenarioSourceStartEndInfoContinuous(int MikeSourceTVItemID)
-        {
-            ViewBag.MikeSourceTVItemID = MikeSourceTVItemID;
-            ViewBag.MikeSourceStartEndModelList = _MikeScenarioService._MikeSourceService._MikeSourceStartEndService.GetMikeSourceStartEndModelListWithMikeSourceTVItemIDDB(MikeSourceTVItemID);
+            ViewBag.MikeSourceStartEndModelList = mikeSourceStartEndModelList;
 
             return PartialView();
         }
 
-        [HttpGet]
-        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
-        public PartialViewResult _mikeScenarioSourceStartEndInfoNotContinuous(int MikeSourceTVItemID)
-        {
-            ViewBag.MikeSourceTVItemID = MikeSourceTVItemID;
-            ViewBag.MikeSourceStartEndModelList = _MikeScenarioService._MikeSourceService._MikeSourceStartEndService.GetMikeSourceStartEndModelListWithMikeSourceTVItemIDDB(MikeSourceTVItemID);
+        //[HttpGet]
+        //[OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        //public PartialViewResult _mikeScenarioSourceStartEndInfoContinuous(int MikeSourceTVItemID)
+        //{
+        //    ViewBag.MikeSourceTVItemID = MikeSourceTVItemID;
+        //    ViewBag.MikeSourceStartEndModelList = _MikeScenarioService._MikeSourceService._MikeSourceStartEndService.GetMikeSourceStartEndModelListWithMikeSourceTVItemIDDB(MikeSourceTVItemID);
 
-            return PartialView();
-        }
+        //    return PartialView();
+        //}
+
+        //[HttpGet]
+        //[OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        //public PartialViewResult _mikeScenarioSourceStartEndInfoNotContinuous(int MikeSourceTVItemID)
+        //{
+        //    ViewBag.MikeSourceTVItemID = MikeSourceTVItemID;
+        //    ViewBag.MikeSourceStartEndModelList = _MikeScenarioService._MikeSourceService._MikeSourceStartEndService.GetMikeSourceStartEndModelListWithMikeSourceTVItemIDDB(MikeSourceTVItemID);
+
+        //    return PartialView();
+        //}
 
         [HttpPost]
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]

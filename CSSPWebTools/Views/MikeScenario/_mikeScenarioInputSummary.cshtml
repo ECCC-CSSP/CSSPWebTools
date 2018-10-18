@@ -46,7 +46,7 @@
                     <ul class="list-unstyled">
                         <li>
                             <label>@MikeScenarioViewRes.ScenarioStart (@MikeScenarioViewRes.DateTime):</label>
-                            <span>@MikeScenarioStartDate.ToString("f") (@MikeScenarioViewRes.LocalTime)</span>
+                            <span>@MikeScenarioStartDate.ToString("yyyy MMMM dd - HH:mm") (@MikeScenarioViewRes.LocalTime)</span>
                         </li>
                         <li>
                             <label>
@@ -196,7 +196,7 @@
                                     </li>
 
                                 </ul>
-                                @if (mikeSourceModel.IsContinuous)
+                                @if (mikeSourceModel.IsContinuous && !mikeSourceModel.UseHydrometric)
                                 {
                                     int EffluentCount = 0;
                                     foreach (MikeSourceStartEndModel mssese in mikeSourceModel.MikeSourceStartEndModelList)
@@ -207,7 +207,7 @@
                                                 @if (mikeSourceModel.IsRiver == true)
                                                 {
 
-                                                    <h4 class="panel-title">@MikeScenarioViewRes.Flow (@EffluentCount)</h4>
+                                                    <h4 class="panel-title">@MikeScenarioViewRes.Discharge (@EffluentCount)</h4>
                                                 }
                                                 else
                                                 {
@@ -218,7 +218,7 @@
                                                 <div class="blockMargin">
                                                     <ul class="list-unstyled">
                                                         <li>
-                                                            <label>@MikeScenarioViewRes.Flow:</label>
+                                                            <label>@MikeScenarioViewRes.Discharge:</label>
                                                             <span class="elementSpacing">
                                                                 @string.Format("{0:F2}", mssese.SourceFlowStart_m3_day) (@Html.Raw(UnitViewRes.m3PerDay))
                                                                 <span class="text-lighter elementSpacing">&mdash;&nbsp; &nbsp;(@string.Format("{0:F6}", mssese.SourceFlowStart_m3_day / 24 / 3600) (@Html.Raw(UnitViewRes.m3PerSecond)))</span>
@@ -256,7 +256,7 @@
 
                                                 @if (mikeSourceModel.IsRiver == true)
                                                 {
-                                                    <h4 class="panel-title">@MikeScenarioViewRes.Flow (@EffluentCount)</h4>
+                                                    <h4 class="panel-title">@MikeScenarioViewRes.Discharge (@EffluentCount)</h4>
                                                 }
                                                 else
                                                 {
@@ -272,37 +272,66 @@
                                                     </tr>
                                                     <tr>
                                                         <th>@MikeScenarioViewRes.Date</th>
-                                                        <td>@TempStartDate.ToString("D")</td>
-                                                        <td>@TempEndDate.ToString("D")</td>
+                                                        <td>@TempStartDate.ToString("yyyy MMMM dd")</td>
+                                                        <td>@TempEndDate.ToString("yyyy MMMM dd")</td>
                                                     </tr>
                                                     <tr>
                                                         <th>@MikeScenarioViewRes.Time (@MikeScenarioViewRes.LocalTime)</th>
-                                                        <td>@TempStartDate.ToString("t")</td>
-                                                        <td>@TempEndDate.ToString("t")</td>
+                                                        <td>@TempStartDate.ToString("HH:mm")</td>
+                                                        <td>@TempEndDate.ToString("HH:mm")</td>
                                                     </tr>
-                                                    <tr>
-                                                        <th>@MikeScenarioViewRes.Flow (@Html.Raw(UnitViewRes.m3PerDay))</th>
-                                                        <td>
-                                                            <span>@string.Format("{0:F2}", mssese.SourceFlowStart_m3_day) </span>
-                                                        </td>
-                                                        <td>
-                                                            <span>
-                                                                @string.Format("{0:F2}", mssese.SourceFlowEnd_m3_day)
-                                                            </span>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>@MikeScenarioViewRes.Flow (@Html.Raw(UnitViewRes.m3PerSecond))</th>
-                                                        <td>
-                                                            <span>
-                                                                @string.Format("{0:F6}", mssese.SourceFlowStart_m3_day / 24 / 3600)
-                                                            </span>
+                                                    @if (mikeSourceModel.UseHydrometric)
+                                                    {
+                                                        <tr>
+                                                            <th>@MikeScenarioViewRes.Discharge (@Html.Raw(UnitViewRes.m3PerDay))</th>
+                                                            <td>
+                                                                <span>@MikeScenarioViewRes.WillUseHydrometric</span>
+                                                            </td>
+                                                            <td>
+                                                                <span>
+                                                                    <span>@MikeScenarioViewRes.WillUseHydrometric</span>
+                                                                </span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>@MikeScenarioViewRes.Discharge (@Html.Raw(UnitViewRes.m3PerSecond))</th>
+                                                            <td>
+                                                                <span>
+                                                                    <span>@MikeScenarioViewRes.WillUseHydrometric</span>
+                                                                </span>
 
-                                                        </td>
-                                                        <td>
-                                                            <span>@string.Format("{0:F6}", mssese.SourceFlowEnd_m3_day / 24 / 3600) </span>
-                                                        </td>
-                                                    </tr>
+                                                            </td>
+                                                            <td>
+                                                                <span>@MikeScenarioViewRes.WillUseHydrometric</span>
+                                                            </td>
+                                                        </tr>
+                                                    }
+                                                    else
+                                                    {
+                                                        <tr>
+                                                            <th>@MikeScenarioViewRes.Discharge (@Html.Raw(UnitViewRes.m3PerDay))</th>
+                                                            <td>
+                                                                <span>@string.Format("{0:F2}", mssese.SourceFlowStart_m3_day) </span>
+                                                            </td>
+                                                            <td>
+                                                                <span>
+                                                                    @string.Format("{0:F2}", mssese.SourceFlowEnd_m3_day)
+                                                                </span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>@MikeScenarioViewRes.Discharge (@Html.Raw(UnitViewRes.m3PerSecond))</th>
+                                                            <td>
+                                                                <span>
+                                                                    @string.Format("{0:F6}", mssese.SourceFlowStart_m3_day / 24 / 3600)
+                                                                </span>
+
+                                                            </td>
+                                                            <td>
+                                                                <span>@string.Format("{0:F6}", mssese.SourceFlowEnd_m3_day / 24 / 3600) </span>
+                                                            </td>
+                                                        </tr>
+                                                    }
                                                     <tr>
                                                         <th>@MikeScenarioViewRes.Pollution (@MikeScenarioViewRes.MostProbableNumber_abr) </th>
                                                         <td>
