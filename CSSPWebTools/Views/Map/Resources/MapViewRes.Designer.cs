@@ -196,6 +196,15 @@ namespace CSSPWebTools.Views.Map.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to DFO CSSP.
+        /// </summary>
+        public static string DFOCSSP {
+            get {
+                return ResourceManager.GetString("DFOCSSP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Distance.
         /// </summary>
         public static string Distance {

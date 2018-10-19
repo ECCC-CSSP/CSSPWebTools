@@ -372,4 +372,7 @@
   <data name="OnlyActive" xml:space="preserve">
     <value>Only active</value>
   </data>
+  <data name="DFOCSSP" xml:space="preserve">
+    <value>DFO CSSP</value>
+  </data>
 </root>

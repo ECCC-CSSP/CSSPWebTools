@@ -372,4 +372,7 @@
   <data name="OnlyActive" xml:space="preserve">
     <value>Only active (fr)</value>
   </data>
+  <data name="DFOCSSP" xml:space="preserve">
+    <value>PCCSM MPO</value>
+  </data>
 </root>
