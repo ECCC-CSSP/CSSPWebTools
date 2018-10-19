@@ -2,8 +2,8 @@
 using CSSPModelsDLL.Models;
 using CSSPWebTools.Controllers.Resources;
 using CSSPWebTools.Models;
-using CSSPWebToolsDBDLL.Models;
-using CSSPWebToolsDBDLL.Services;
+using CSSPDBDLL.Models;
+using CSSPDBDLL.Services;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System;

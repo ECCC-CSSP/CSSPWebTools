@@ -2,8 +2,8 @@
 using CSSPEnumsDLL.Services;
 using CSSPModelsDLL.Models;
 using CSSPWebTools.Models;
-using CSSPWebToolsDBDLL.Models;
-using CSSPWebToolsDBDLL.Services;
+using CSSPDBDLL.Models;
+using CSSPDBDLL.Services;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -16,9 +16,9 @@ using System.Web.Mvc;
 using System.Web.UI;
 using CSSPWebTools.Controllers.Resources;
 using System.Security.Principal;
-using CSSPWebToolsDBDLL.Services.Resources;
+using CSSPDBDLL.Services.Resources;
 using System.Transactions;
-using CSSPWebToolsDBDLL;
+using CSSPDBDLL;
 
 namespace CSSPWebTools.Controllers
 {

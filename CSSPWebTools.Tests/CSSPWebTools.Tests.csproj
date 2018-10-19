@@ -37,26 +37,14 @@
     <Reference Include="Castle.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
       <HintPath>..\packages\Castle.Core.4.3.1\lib\net45\Castle.Core.dll</HintPath>
     </Reference>
+    <Reference Include="CSSPDBDLL">
+      <HintPath>..\..\CSSPDBDLL\CSSPDBDLL\bin\Debug\CSSPDBDLL.dll</HintPath>
+    </Reference>
     <Reference Include="CSSPEnumsDLL">
       <HintPath>..\..\CSSPEnumsDLL\CSSPEnumsDLL\bin\Debug\CSSPEnumsDLL.dll</HintPath>
     </Reference>
-    <Reference Include="CSSPEnumsDLL.1.0.0.0.Fakes">
-      <HintPath>FakesAssemblies\CSSPEnumsDLL.1.0.0.0.Fakes.dll</HintPath>
-    </Reference>
     <Reference Include="CSSPModelsDLL">
       <HintPath>..\..\CSSPModelsDLL\CSSPModelsDLL\bin\Debug\CSSPModelsDLL.dll</HintPath>
-    </Reference>
-    <Reference Include="CSSPModelsDLL.1.0.0.0.Fakes">
-      <HintPath>FakesAssemblies\CSSPModelsDLL.1.0.0.0.Fakes.dll</HintPath>
-    </Reference>
-    <Reference Include="CSSPWebTools.Fakes">
-      <HintPath>FakesAssemblies\CSSPWebTools.Fakes.dll</HintPath>
-    </Reference>
-    <Reference Include="CSSPWebToolsDBDLL">
-      <HintPath>..\..\CSSPWebToolsDBDLL\CSSPWebToolsDBDLL\bin\Debug\CSSPWebToolsDBDLL.dll</HintPath>
-    </Reference>
-    <Reference Include="CSSPWebToolsDBDLL.1.0.0.0.Fakes">
-      <HintPath>FakesAssemblies\CSSPWebToolsDBDLL.1.0.0.0.Fakes.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
@@ -213,11 +201,6 @@
     <None Include="Blacks Harbour\Model\Model Inputs\MEInterpolation.output" />
     <None Include="Blacks Harbour\Result\Blacks Harbour.m21fm - Result Files\Hydro.dfsu" />
     <None Include="Blacks Harbour\Result\Blacks Harbour.m21fm - Result Files\Trans.dfsu" />
-    <Fakes Include="Fakes\System.Web.fakes" />
-    <Fakes Include="Fakes\CSSPEnumsDLL.fakes" />
-    <Fakes Include="Fakes\CSSPModelsDLL.fakes" />
-    <Fakes Include="Fakes\CSSPWebToolsDBDLL.fakes" />
-    <Fakes Include="Fakes\CSSPWebTools.fakes" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

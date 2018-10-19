@@ -1,8 +1,8 @@
 ﻿using CSSPEnumsDLL.Enums;
 using CSSPModelsDLL.Models;
 using CSSPWebTools.Controllers.Resources;
-using CSSPWebToolsDBDLL.Models;
-using CSSPWebToolsDBDLL.Services;
+using CSSPDBDLL.Models;
+using CSSPDBDLL.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
