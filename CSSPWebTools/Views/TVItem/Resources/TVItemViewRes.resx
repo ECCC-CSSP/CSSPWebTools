@@ -471,4 +471,7 @@
   <data name="Parameters" xml:space="preserve">
     <value>Parameters</value>
   </data>
+  <data name="LastSampleDate" xml:space="preserve">
+    <value>Last sample date</value>
+  </data>
 </root>

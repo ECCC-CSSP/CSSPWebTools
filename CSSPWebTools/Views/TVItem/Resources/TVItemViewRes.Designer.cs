@@ -376,6 +376,15 @@ namespace CSSPWebTools.Views.TVItem.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Last sample date.
+        /// </summary>
+        public static string LastSampleDate {
+            get {
+                return ResourceManager.GetString("LastSampleDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Latest Classification.
         /// </summary>
         public static string LatestClassification {

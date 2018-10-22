@@ -464,6 +464,11 @@
                             @string.Format("{0:F0}", tvItemMoreInfoMWQMSiteModel.StatMaxYear)
                         </b>)
                     </span>
+                    <span>
+                        @TVItemViewRes.LastSampleDate (<b>
+                            @(tvItemMoreInfoMWQMSiteModel.LastSampleDate != null ? ((DateTime)tvItemMoreInfoMWQMSiteModel.LastSampleDate).ToString("yyyy MMMM dd HH:mm") : "")
+                        </b>)
+                    </span>
                     <span>@TVItemViewRes.UNSS (<b>@string.Format("{0:F0}", tvItemMoreInfoMWQMSiteModel.SampCount)</b>)</span>
                     <span>@TVItemViewRes.MinFC (<b>@(tvItemMoreInfoMWQMSiteModel.MinFC < 2.0f ? "<2" : string.Format("{0:F0}", tvItemMoreInfoMWQMSiteModel.MinFC))</b>)</span>
                     <span>@TVItemViewRes.MaxFC (<b>@(tvItemMoreInfoMWQMSiteModel.MaxFC < 2.0f ? "<2" : string.Format("{0:F0}", tvItemMoreInfoMWQMSiteModel.MaxFC))</b>)</span>

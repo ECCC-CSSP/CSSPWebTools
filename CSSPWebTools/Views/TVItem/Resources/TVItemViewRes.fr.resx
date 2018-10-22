@@ -465,4 +465,7 @@
   <data name="Parameters" xml:space="preserve">
     <value>Paramètres</value>
   </data>
+  <data name="LastSampleDate" xml:space="preserve">
+    <value>Date du dernier échantillon</value>
+  </data>
 </root>
