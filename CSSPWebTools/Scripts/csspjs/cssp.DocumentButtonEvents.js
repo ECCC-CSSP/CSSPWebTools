@@ -1211,6 +1211,11 @@ var CSSP;
                                 cssp.ProvinceTools.ProvinceToolsCreateMWQMSitesAndPolSourceSitesKML($bjs);
                             }
                             break;
+                        case "jbProvinceToolsGenerateStats":
+                            {
+                                cssp.ProvinceTools.ProvinceToolsGenerateStats($bjs);
+                            }
+                            break;
                         case "jbRainExceedanceAddOrModify":
                             {
                                 cssp.RainExceedance.FormSubmit($bjs);

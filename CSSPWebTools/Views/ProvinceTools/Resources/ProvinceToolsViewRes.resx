@@ -234,4 +234,10 @@
   <data name="GenerateClassificatonKMLFileForQuickChecking" xml:space="preserve">
     <value>Generate classificaton KML file for quick checking</value>
   </data>
+  <data name="GenerateStatisticsNormalDryWetKMLAndCSV" xml:space="preserve">
+    <value>Generate statistics (Normal, Dry, Wet) (KML and CSV)</value>
+  </data>
+  <data name="StatisticsNormalDryWetKMLAndCSV" xml:space="preserve">
+    <value>Statistics (Normal, Dry, Wet) (KML and CSV)</value>
+  </data>
 </root>

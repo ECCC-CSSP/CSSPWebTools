@@ -150,14 +150,6 @@ namespace CSSPWebTools.Controllers
         }
         [HttpPost]
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
-        public JsonResult ProvinceToolsCreateClassificationInputsKMLJSON(int ProvinceTVItemID)
-        {
-            AppTaskModel appTaskModel = _ProvinceToolsService.ProvinceToolsCreateClassificationInputsKMLDB(ProvinceTVItemID);
-
-            return Json(appTaskModel.Error, JsonRequestBehavior.AllowGet);
-        }
-        [HttpPost]
-        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
         public JsonResult ProvinceToolsCreateGroupingInputsKMLJSON(int ProvinceTVItemID)
         {
             AppTaskModel appTaskModel = _ProvinceToolsService.ProvinceToolsCreateGroupingInputsKMLDB(ProvinceTVItemID);
@@ -169,6 +161,22 @@ namespace CSSPWebTools.Controllers
         public JsonResult ProvinceToolsCreateMWQMSitesAndPolSourceSitesKMLJSON(int ProvinceTVItemID)
         {
             AppTaskModel appTaskModel = _ProvinceToolsService.ProvinceToolsCreateMWQMSitesAndPolSourceSitesKMLDB(ProvinceTVItemID);
+
+            return Json(appTaskModel.Error, JsonRequestBehavior.AllowGet);
+        }
+        [HttpPost]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public JsonResult ProvinceToolsCreateClassificationInputsKMLJSON(int ProvinceTVItemID)
+        {
+            AppTaskModel appTaskModel = _ProvinceToolsService.ProvinceToolsCreateClassificationInputsKMLDB(ProvinceTVItemID);
+
+            return Json(appTaskModel.Error, JsonRequestBehavior.AllowGet);
+        }
+        [HttpPost]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public JsonResult ProvinceToolsGenerateStatsJSON(int ProvinceTVItemID)
+        {
+            AppTaskModel appTaskModel = _ProvinceToolsService.ProvinceToolsGenerateStatsDB(ProvinceTVItemID);
 
             return Json(appTaskModel.Error, JsonRequestBehavior.AllowGet);
         }

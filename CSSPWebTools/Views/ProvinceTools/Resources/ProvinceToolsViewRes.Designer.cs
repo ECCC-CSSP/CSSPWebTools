@@ -269,6 +269,15 @@ namespace CSSPWebTools.Views.ProvinceTools.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Generate statistics (Normal, Dry, Wet) (KML and CSV).
+        /// </summary>
+        public static string GenerateStatisticsNormalDryWetKMLAndCSV {
+            get {
+                return ResourceManager.GetString("GenerateStatisticsNormalDryWetKMLAndCSV", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Get all discharges for year.
         /// </summary>
         public static string GetAllDischargeForYear {
@@ -364,6 +373,15 @@ namespace CSSPWebTools.Views.ProvinceTools.Resources {
         public static string SomeOfTheseTasksCanTakeALongTime {
             get {
                 return ResourceManager.GetString("SomeOfTheseTasksCanTakeALongTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Statistics (Normal, Dry, Wet) (KML and CSV).
+        /// </summary>
+        public static string StatisticsNormalDryWetKMLAndCSV {
+            get {
+                return ResourceManager.GetString("StatisticsNormalDryWetKMLAndCSV", resourceCulture);
             }
         }
         

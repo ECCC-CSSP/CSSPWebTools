@@ -17,6 +17,28 @@
     </div>
     <div class="panel-group" id="ProvinceToolsAccordion" role="tablist" aria-multiselectable="true">
         <div class="panel panel-info">
+            <div class="panel-heading" role="tab" id="headingStat">
+                <h4 class="panel-title">
+                    <a role="button" data-toggle="collapse" data-parent="#ProvinceToolsAccordion" href="#StatCollapse" aria-expanded="true" aria-controls="StatCollapse">
+                        @ProvinceToolsViewRes.StatisticsNormalDryWetKMLAndCSV
+                    </a>
+                </h4>
+            </div>
+            <div id="StatCollapse" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingStat">
+                <div class="ProvinceToolsStatDiv panel-body">
+                    <div class="h4">@ProvinceToolsViewRes.SomeOfTheseTasksCanTakeALongTime</div>
+                    <button class="jbProvinceToolsGenerateStats btn btn-primary" data-provincetvitemid="@ProvinceTVItemID">
+                        @ProvinceToolsViewRes.GenerateStatisticsNormalDryWetKMLAndCSV  
+                        <span class="working hidden">
+                            @ProvinceToolsViewRes.Working...
+                            <span class="percent"></span>
+                        </span>
+                    </button>
+                    <p></p>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-info">
             <div class="panel-heading" role="tab" id="headingClimateData">
                 <h4 class="panel-title">
                     <a role="button" data-toggle="collapse" data-parent="#ProvinceToolsAccordion" href="#ClimateDataCollapse" aria-expanded="true" aria-controls="ClimateDataCollapse">

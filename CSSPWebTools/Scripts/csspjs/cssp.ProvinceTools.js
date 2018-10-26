@@ -240,6 +240,31 @@ var CSSP;
                     cssp.ProvinceTools.ReenableButton($bjs);
                 }
             };
+            this.ProvinceToolsGenerateStats = function ($bjs) {
+                if ($bjs.hasClass("btn-primary")) {
+                    $bjs.removeClass("btn-primary").addClass("btn-success");
+                    $bjs.removeAttr("disabled").attr("disabled", "disabled");
+                    $bjs.find(".working").removeClass("hidden");
+                    $bjs.find(".percent").html("3 %");
+                    var ProvinceTVItemID = parseInt($bjs.data("provincetvitemid"));
+                    var command_10 = "ProvinceTools/ProvinceToolsGenerateStatsJSON";
+                    $.post(cssp.BaseURL + command_10, {
+                        ProvinceTVItemID: ProvinceTVItemID,
+                    }).done(function (ret) {
+                        if (ret) {
+                            cssp.Dialog.ShowDialogErrorWithError(ret);
+                        }
+                        cssp.ProvinceTools.ReenableButton($bjs);
+                        window.location.href = window.location.href.replace("050", "020");
+                        cssp.Helper.PageRefresh();
+                    }).fail(function () {
+                        cssp.Dialog.ShowDialogErrorWithFail(command_10);
+                    });
+                }
+                else {
+                    cssp.ProvinceTools.ReenableButton($bjs);
+                }
+            };
             this.ProvinceToolsCreateClassificationInputsKML = function ($bjs) {
                 var ProvinceTVItemID = parseInt($bjs.data("provincetvitemid"));
                 var command = "ProvinceTools/ProvinceToolsCreateClassificationInputsKMLJSON";
