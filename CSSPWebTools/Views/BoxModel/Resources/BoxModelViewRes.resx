@@ -173,12 +173,12 @@
     <value>Untreated</value>
     <comment>BML, BME</comment>
   </data>
-  <data name="Flow" xml:space="preserve">
-    <value>Flow</value>
+  <data name="Discharge" xml:space="preserve">
+    <value>Discharge</value>
     <comment>BML, BME</comment>
   </data>
-  <data name="FlowDuration" xml:space="preserve">
-    <value>Flow duration</value>
+  <data name="DischargeDuration" xml:space="preserve">
+    <value>Discharge duration</value>
     <comment>BML, BME</comment>
   </data>
   <data name="InputInformation" xml:space="preserve">

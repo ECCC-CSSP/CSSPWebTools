@@ -19,7 +19,7 @@ namespace CSSPWebTools.Views.BoxModel.Resources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class BoxModelViewRes {
@@ -178,6 +178,24 @@ namespace CSSPWebTools.Views.BoxModel.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Discharge.
+        /// </summary>
+        public static string Discharge {
+            get {
+                return ResourceManager.GetString("Discharge", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Discharge duration.
+        /// </summary>
+        public static string DischargeDuration {
+            get {
+                return ResourceManager.GetString("DischargeDuration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to edit.
         /// </summary>
         public static string Edit {
@@ -228,24 +246,6 @@ namespace CSSPWebTools.Views.BoxModel.Resources {
         public static string FixLengthAndFixWidthAreSelected {
             get {
                 return ResourceManager.GetString("FixLengthAndFixWidthAreSelected", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Flow.
-        /// </summary>
-        public static string Flow {
-            get {
-                return ResourceManager.GetString("Flow", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Flow duration.
-        /// </summary>
-        public static string FlowDuration {
-            get {
-                return ResourceManager.GetString("FlowDuration", resourceCulture);
             }
         }
         

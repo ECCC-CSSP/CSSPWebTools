@@ -169,7 +169,7 @@
     <value>CF</value>
     <comment>fecal coliforms BML, BME</comment>
   </data>
-  <data name="Flow" xml:space="preserve">
+  <data name="Discharge" xml:space="preserve">
     <value>Écoulement</value>
     <comment>BML, BME</comment>
   </data>
@@ -261,7 +261,7 @@
     <value>Largeur fixe</value>
     <comment>BME</comment>
   </data>
-  <data name="FlowDuration" xml:space="preserve">
+  <data name="DischargeDuration" xml:space="preserve">
     <value>Durée de l'écoulement</value>
     <comment>BML, BME</comment>
   </data>

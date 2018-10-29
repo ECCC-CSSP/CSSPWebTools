@@ -55,20 +55,20 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label col-sm-4" for="Flow_m3_day">
-                @BoxModelViewRes.Flow &nbsp;&nbsp;<span class="text-info">(m<sup>3</sup>@BoxModelViewRes.unitPerDay)</span>
+            <label class="control-label col-sm-4" for="Discharge_m3_day">
+                @BoxModelViewRes.Discharge &nbsp;&nbsp;<span class="text-info">(m<sup>3</sup>@BoxModelViewRes.unitPerDay)</span>
             </label>
             <div class="col-sm-8">
-                <input class="isnumber form-control" type="text" name="Flow_m3_day" id="Flow_m3_day" value="@(string.Format("{0:f3}", boxModelModel.Flow_m3_day))" />
+                <input class="isnumber form-control" type="text" name="Discharge_m3_day" id="Discharge_m3_day" value="@(string.Format("{0:f3}", boxModelModel.Discharge_m3_day))" />
                 <span class="help-block"></span>
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label col-sm-4" for="FlowDuration_hour">
-                @BoxModelViewRes.FlowDuration &nbsp;&nbsp;<span class="text-info">(@BoxModelViewRes.hours_abbr)</span>
+            <label class="control-label col-sm-4" for="DischargeDuration_hour">
+                @BoxModelViewRes.DischargeDuration &nbsp;&nbsp;<span class="text-info">(@BoxModelViewRes.hours_abbr)</span>
             </label>
             <div class="col-sm-8">
-                <input class="isnumber form-control" type="text" name="FlowDuration_hour" id="FlowDuration_hour" value="@(string.Format("{0:f0}", boxModelModel.FlowDuration_hour))" />
+                <input class="isnumber form-control" type="text" name="DischargeDuration_hour" id="DischargeDuration_hour" value="@(string.Format("{0:f0}", boxModelModel.DischargeDuration_hour))" />
                 <span class="help-block"></span>
             </div>
         </div>
