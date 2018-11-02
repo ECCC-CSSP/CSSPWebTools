@@ -187,6 +187,15 @@ namespace CSSPWebTools.Views.MikeScenario.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ask To Run Decoupled.
+        /// </summary>
+        public static string AskToRunDecoupled {
+            get {
+                return ResourceManager.GetString("AskToRunDecoupled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to August.
         /// </summary>
         public static string August {
@@ -417,6 +426,15 @@ namespace CSSPWebTools.Views.MikeScenario.Resources {
         public static string December {
             get {
                 return ResourceManager.GetString("December", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Decoupling.
+        /// </summary>
+        public static string Decoupling {
+            get {
+                return ResourceManager.GetString("Decoupling", resourceCulture);
             }
         }
         
@@ -754,15 +772,6 @@ namespace CSSPWebTools.Views.MikeScenario.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Generate decoupling files.
-        /// </summary>
-        public static string GenerateDecouplingFiles {
-            get {
-                return ResourceManager.GetString("GenerateDecouplingFiles", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Generate Web Tide Nodes.
         /// </summary>
         public static string GenerateWebTideNodes {
@@ -795,6 +804,15 @@ namespace CSSPWebTools.Views.MikeScenario.Resources {
         public static string GettingOtherFilesToUpload {
             get {
                 return ResourceManager.GetString("GettingOtherFilesToUpload", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hourly wind speeds and directions.
+        /// </summary>
+        public static string HourlyWindSpeedsAndDirections {
+            get {
+                return ResourceManager.GetString("HourlyWindSpeedsAndDirections", resourceCulture);
             }
         }
         
@@ -1348,6 +1366,15 @@ namespace CSSPWebTools.Views.MikeScenario.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Reestablish editing.
+        /// </summary>
+        public static string ReestablishEditing {
+            get {
+                return ResourceManager.GetString("ReestablishEditing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Refresh.
         /// </summary>
         public static string Refresh {
@@ -1834,11 +1861,11 @@ namespace CSSPWebTools.Views.MikeScenario.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Use decoupling files.
+        ///   Looks up a localized string similar to Use.
         /// </summary>
-        public static string UseDecouplingFiles {
+        public static string Use {
             get {
-                return ResourceManager.GetString("UseDecouplingFiles", resourceCulture);
+                return ResourceManager.GetString("Use", resourceCulture);
             }
         }
         
@@ -1974,6 +2001,15 @@ namespace CSSPWebTools.Views.MikeScenario.Resources {
         public static string YouWillNeedToGoToASubsectorBelowThisSectorAndAddHydrometricSites {
             get {
                 return ResourceManager.GetString("YouWillNeedToGoToASubsectorBelowThisSectorAndAddHydrometricSites", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You will need to save it first before being able to select.
+        /// </summary>
+        public static string YouWillNeedToSaveItFirstBeforeBeingAbleToSelect {
+            get {
+                return ResourceManager.GetString("YouWillNeedToSaveItFirstBeforeBeingAbleToSelect", resourceCulture);
             }
         }
     }

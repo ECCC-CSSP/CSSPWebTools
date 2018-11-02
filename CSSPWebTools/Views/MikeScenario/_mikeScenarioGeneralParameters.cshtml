@@ -55,26 +55,38 @@ else
                 DateTime StartDateTime = (DateTime)mikeScenarioModel.MikeScenarioStartDateTime_Local;
                 DateTime EndDateTime = (DateTime)mikeScenarioModel.MikeScenarioEndDateTime_Local;
 
-                if (ViewBag.IsSectorMikeScenario)
+                if (IsSectorMikeScenario)
                 {
-                    if (!HasDecouplingFiles)
+                    if (mikeScenarioModel.ScenarioStatus == ScenarioStatusEnum.Changed)
                     {
                         <div>
-                            <label>@MikeScenarioViewRes.GenerateDecouplingFiles</label>
+                            <button class="jbMikeScenarioAskToRun2 btn btn-default">@MikeScenarioViewRes.AskToRun</button>
                         </div>
+                        if (HasDecouplingFiles)
+                        {
+                            <div>
+                                <button class="jbMikeScenarioAskToRunDecoupled btn btn-default">@MikeScenarioViewRes.AskToRunDecoupled</button>
+                            </div>
+                        }
+                    }
+                    if (mikeScenarioModel.ScenarioStatus == ScenarioStatusEnum.Completed)
+                    {
                         <div>
-                            <span class="elementSpacing text-nowrap">@(mikeScenarioModel.GenerateDecouplingFiles == null ? MikeScenarioViewRes.Empty : mikeScenarioModel.GenerateDecouplingFiles.ToString())</span>
+                            <button class="jbMikeScenarioReestablishEditing btn btn-default">@MikeScenarioViewRes.ReestablishEditing</button>
                         </div>
                     }
-                    else
-                    {
-                        <div>
-                            <label>@MikeScenarioViewRes.UseDecouplingFiles</label>
-                        </div>
-                        <div>
+                    <div>
+                        <br />
+                        <span class="h4">@MikeScenarioViewRes.Decoupling ------ </span>
+                        <label>@MikeScenarioViewRes.Generate</label>
+                        <span class="elementSpacing text-nowrap">@(mikeScenarioModel.GenerateDecouplingFiles == null ? MikeScenarioViewRes.Empty : mikeScenarioModel.GenerateDecouplingFiles.ToString())</span>
+                        @if (HasDecouplingFiles)
+                        {
+                            <label>@MikeScenarioViewRes.Use</label>
                             <span class="elementSpacing text-nowrap">@(mikeScenarioModel.UseDecouplingFiles == null ? MikeScenarioViewRes.Empty : mikeScenarioModel.UseDecouplingFiles.ToString())</span>
-                        </div>
-                    }
+                        }
+                    </div>
+                    <br />
                     <div>
                         <label>@MikeScenarioViewRes.UseSalinityAndTemperatureInitialConditionFromResultFile</label>
                     </div>
@@ -240,6 +252,10 @@ else
                             </span>
                         </div>
                     </div>
+                    @if (IsSectorMikeScenario)
+                    {
+                        <div class="h4">@MikeScenarioViewRes.HourlyWindSpeedsAndDirections @MikeScenarioViewRes.NotImplementedYet</div>
+                    }
 
                 </div>
 
@@ -255,4 +271,13 @@ else
         }
 
     </div>
+}
+
+@if (IsSectorMikeScenario)
+{
+    <script type="text/javascript">
+        $(function () {
+            cssp.MikeScenario.InitHideAskToRun();
+        });
+    </script>
 }

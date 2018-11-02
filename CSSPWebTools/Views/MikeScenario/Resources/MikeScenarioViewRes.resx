@@ -832,17 +832,14 @@
   <data name="ForSimulatingMWQMRun" xml:space="preserve">
     <value>For simulating MWQM Run</value>
   </data>
-  <data name="GenerateDecouplingFiles" xml:space="preserve">
-    <value>Generate decoupling files</value>
+  <data name="Decoupling" xml:space="preserve">
+    <value>Decoupling</value>
   </data>
   <data name="MWQMRunDates" xml:space="preserve">
     <value>MWQM run dates</value>
   </data>
   <data name="ServerFiles" xml:space="preserve">
     <value>Server files</value>
-  </data>
-  <data name="UseDecouplingFiles" xml:space="preserve">
-    <value>Use decoupling files</value>
   </data>
   <data name="UseSalinityAndTemperatureInitialConditionFromResultFile" xml:space="preserve">
     <value>Use salinity and temperature initial condition from result file</value>
@@ -921,5 +918,20 @@
   </data>
   <data name="WillUseHydrometric" xml:space="preserve">
     <value>Will use hydrometric</value>
+  </data>
+  <data name="HourlyWindSpeedsAndDirections" xml:space="preserve">
+    <value>Hourly wind speeds and directions</value>
+  </data>
+  <data name="AskToRunDecoupled" xml:space="preserve">
+    <value>Ask To Run Decoupled</value>
+  </data>
+  <data name="ReestablishEditing" xml:space="preserve">
+    <value>Reestablish editing</value>
+  </data>
+  <data name="Use" xml:space="preserve">
+    <value>Use</value>
+  </data>
+  <data name="YouWillNeedToSaveItFirstBeforeBeingAbleToSelect" xml:space="preserve">
+    <value>You will need to save it first before being able to select</value>
   </data>
 </root>

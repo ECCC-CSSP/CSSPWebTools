@@ -1455,6 +1455,14 @@ namespace CSSPWebTools.Controllers
 
             return Json(appTaskModel.Error, JsonRequestBehavior.AllowGet);
         }
+        [HttpPost]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public JsonResult MikeScenarioReestablishEditing(int MikeScenarioTVItemID)
+        {
+            MikeScenarioModel mikeScenarioModel = _MikeScenarioService.PostMikeScenarioReestablishEditingDB(MikeScenarioTVItemID);
+
+            return Json(mikeScenarioModel.Error, JsonRequestBehavior.AllowGet);
+        }
         #endregion public
 
     }

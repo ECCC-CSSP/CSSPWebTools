@@ -67,9 +67,16 @@
                                                 }
                                                 @if (tvAuth >= TVAuthEnum.Delete)
                                                 {
-                                                    if (!fpat.FilePurpose.ToString().StartsWith("Mike") || fpat.FilePurpose.ToString().Contains("KMZ"))
+                                                    if (tvAuth == TVAuthEnum.Admin)
                                                     {
                                                         <button class="jbFileAskToDelete btn btn-default" data-tvfiletvitemid="@tvFileModel.TVFileTVItemID" title="@FileViewRes.Delete"><span class="glyphicon glyphicon-trash"></span></button>
+                                                    }
+                                                    else
+                                                    {
+                                                        if (!fpat.FilePurpose.ToString().StartsWith("Mike") || fpat.FilePurpose.ToString().Contains("KMZ"))
+                                                        {
+                                                            <button class="jbFileAskToDelete btn btn-default" data-tvfiletvitemid="@tvFileModel.TVFileTVItemID" title="@FileViewRes.Delete"><span class="glyphicon glyphicon-trash"></span></button>
+                                                        }
                                                     }
                                                 }
                                                 @if (fpat.FilePurpose == FilePurposeEnum.ReportGenerated)

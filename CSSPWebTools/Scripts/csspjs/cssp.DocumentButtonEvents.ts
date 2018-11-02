@@ -594,6 +594,16 @@ module CSSP {
                             cssp.MikeScenario.MikeScenarioAskToRun();
                         }
                         break;
+                    case "jbMikeScenarioAskToRun2":
+                        {
+                            cssp.MikeScenario.MikeScenarioAskToRun();
+                        }
+                        break;
+                    case "jbMikeScenarioAskToRunDecoupled":
+                        {
+                            cssp.MikeScenario.MikeScenarioAskToRunDecoupled();
+                        }
+                        break;
                     case "jbMikeScenarioBCDeleteNode":
                         {
                             cssp.MikeScenario.MikeScenarioBCDeleteNode($bjs);
@@ -647,6 +657,11 @@ module CSSP {
                     case "jbMikeScenarioOtherFileNotImport":
                         {
                             cssp.MikeScenario.MikeScenarioOtherFileNotImport($bjs);
+                        }
+                        break;
+                    case "jbMikeScenarioReestablishEditing":
+                        {
+                            cssp.MikeScenario.MikeScenarioReestablishEditing();
                         }
                         break;
                     case "jbMikeScenarioResetWebTide":

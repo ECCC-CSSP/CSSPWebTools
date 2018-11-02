@@ -22,6 +22,11 @@ module CSSP {
             cssp.Dialog.ShowDialogAreYouSure(MikeScenarioSourceStartEndName);
             cssp.Dialog.CheckDialogAndButtonsExist(["#DialogBasic", "#DialogBasicYes"], 5, "cssp.MikeScenario.SetDialogEventsSourceStartEnd", $bjs);
         };
+        public InitHideAskToRun: Function = (): void => {
+            $(".jbMikeScenarioAskToRun").removeClass("hidden").addClass("hidden");
+            $(".jbMikeScenarioCopy").removeClass("hidden").addClass("hidden");
+            $(".jbMikeScenarioDelete").removeClass("hidden").addClass("hidden");
+        };
         public InitMikeScenarioImport: Function = (): void => {
             $(".MikeScenarioOtherFileImportForm, .MikeScenarioImportForm").validate(
                 {
@@ -408,6 +413,24 @@ module CSSP {
         public MikeScenarioAskToRun: Function = (): void => {
             var MikeScenarioTVItemID: number = parseInt($("#ViewDiv").data("tvitemid"));
             var command: string = "MikeScenario/MikeScenarioAskToRunJSON";
+            $.post(cssp.BaseURL + command,
+                {
+                    MikeScenarioTVItemID: MikeScenarioTVItemID,
+                }).done((ret) => {
+                    if (ret) {
+                        cssp.Dialog.ShowDialogErrorWithError(ret);
+                    }
+                    else {
+                        cssp.Helper.PageRefresh();
+                    }
+                }).fail(() => {
+                    cssp.Dialog.ShowDialogErrorWithFail(command);
+                    return;
+                });
+        };
+        public MikeScenarioAskToRunDecoupled: Function = (): void => {
+            var MikeScenarioTVItemID: number = parseInt($("#ViewDiv").data("tvitemid"));
+            var command: string = "MikeScenario/MikeScenarioAskToRunDecoupledJSON";
             $.post(cssp.BaseURL + command,
                 {
                     MikeScenarioTVItemID: MikeScenarioTVItemID,
@@ -868,6 +891,24 @@ module CSSP {
                 $bjs.removeClass("btn-success").addClass("btn-default");
                 $(".TVItemAdd").html("");
             }
+        };
+        public MikeScenarioReestablishEditing: Function = (): void => {
+            var MikeScenarioTVItemID: number = parseInt($("#ViewDiv").data("tvitemid"));
+            var command: string = "MikeScenario/MikeScenarioReestablishEditing";
+            $.post(cssp.BaseURL + command,
+                {
+                    MikeScenarioTVItemID: MikeScenarioTVItemID,
+                }).done((ret) => {
+                    if (ret) {
+                        cssp.Dialog.ShowDialogErrorWithError(ret);
+                    }
+                    else {
+                        cssp.Helper.PageRefresh();
+                    }
+                }).fail(() => {
+                    cssp.Dialog.ShowDialogErrorWithFail(command);
+                    return;
+                });
         };
         public MikeScenarioResetWebTide: Function = ($bjs): void => {
             var MikeScenarioTVItemID: number = parseInt($("#ViewDiv").data("tvitemid"));
