@@ -207,7 +207,7 @@ else
                                         {*@
                                     @*string href = tvItemController.CreateHashURL(tvim.TVItemID);*@
                                     <a href="@(tvItemController.CreateHashURL(tvim.TVItemID))" class="text-noUnderline">
-                                        <span class="TVText @(!tvim.IsActive ? "text-strikeThrough" : "")">@tvim.TVText</span> &nbsp; &nbsp;<span class="badge">&nbsp;@tvim.ChildCount&nbsp;</span>
+                                        <span class="TVText @(!tvim.IsActive ? "text-strikeThrough" : "")" title="@((tvim.TVText.Contains("(NC)") || tvim.TVText.Contains("(PC)")) ?  (ViewBag.Language == LanguageEnum.fr ? "Pas complet" : "Not complete") : "")" >@tvim.TVText</span> &nbsp; &nbsp;<span class="badge">&nbsp;@tvim.ChildCount&nbsp;</span>
                                     </a>
                                     @*}*@
                                 </div>
