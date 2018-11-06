@@ -57,24 +57,6 @@ else
 
                 if (IsSectorMikeScenario)
                 {
-                    if (mikeScenarioModel.ScenarioStatus == ScenarioStatusEnum.Changed)
-                    {
-                        <div>
-                            <button class="jbMikeScenarioAskToRun2 btn btn-default">@MikeScenarioViewRes.AskToRun</button>
-                        </div>
-                        if (HasDecouplingFiles)
-                        {
-                            <div>
-                                <button class="jbMikeScenarioAskToRunDecoupled btn btn-default">@MikeScenarioViewRes.AskToRunDecoupled</button>
-                            </div>
-                        }
-                    }
-                    if (mikeScenarioModel.ScenarioStatus == ScenarioStatusEnum.Completed)
-                    {
-                        <div>
-                            <button class="jbMikeScenarioReestablishEditing btn btn-default">@MikeScenarioViewRes.ReestablishEditing</button>
-                        </div>
-                    }
                     <div>
                         <br />
                         <span class="h4">@MikeScenarioViewRes.Decoupling ------ </span>
@@ -87,6 +69,18 @@ else
                         }
                     </div>
                     <br />
+                    if (mikeScenarioModel.ScenarioStatus == ScenarioStatusEnum.Changed)
+                    {
+                        <div>
+                            <button class="jbMikeScenarioAskToRun2 btn btn-default">@MikeScenarioViewRes.AskToRun</button>
+                        </div>
+                    }
+                    if (mikeScenarioModel.ScenarioStatus == ScenarioStatusEnum.Completed)
+                    {
+                        <div>
+                            <button class="jbMikeScenarioReestablishEditing btn btn-default">@MikeScenarioViewRes.ReestablishEditing</button>
+                        </div>
+                    }
                     <div>
                         <label>@MikeScenarioViewRes.UseSalinityAndTemperatureInitialConditionFromResultFile</label>
                     </div>

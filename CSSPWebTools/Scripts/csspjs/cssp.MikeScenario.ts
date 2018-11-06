@@ -26,6 +26,20 @@ module CSSP {
             $(".jbMikeScenarioAskToRun").removeClass("hidden").addClass("hidden");
             $(".jbMikeScenarioCopy").removeClass("hidden").addClass("hidden");
             $(".jbMikeScenarioDelete").removeClass("hidden").addClass("hidden");
+
+            $(document).off("change", "input.CheckUseDecouplingFiles");
+            $(document).on("change", $("input.CheckUseDecouplingFiles"), (evt: Event) => {
+                if ($("input.CheckUseDecouplingFiles").is(":checked")) {
+                    $("input.CheckGenerateDecouplingFiles").removeAttr("checked");
+                }
+            });
+
+            $(document).off("change", "input.CheckGenerateDecouplingFiles");
+            $(document).on("change", $("input.CheckGenerateDecouplingFiles"), (evt: Event) => {
+                if ($("input.CheckGenerateDecouplingFiles").is(":checked")) {
+                    $("input.CheckUseDecouplingFiles").removeAttr("checked");
+                }
+            });
         };
         public InitMikeScenarioImport: Function = (): void => {
             $(".MikeScenarioOtherFileImportForm, .MikeScenarioImportForm").validate(
@@ -141,24 +155,33 @@ module CSSP {
 
             $(document).off("change", "#MikeScenarioGeneralParameterForm select");
             $(document).on("change", $("#MikeScenarioGeneralParameterForm").find("select"), (evt: Event) => {
-                var StartYear: number = parseInt($("#MikeScenarioGeneralParameterForm select[name='MikeScenarioStartYear']").val());
-                var StartMonth: number = parseInt($("#MikeScenarioGeneralParameterForm select[name='MikeScenarioStartMonth']").val());
-                var StartDay: number = parseInt($("#MikeScenarioGeneralParameterForm select[name='MikeScenarioStartDay']").val());
-                var StartTime: string = $("#MikeScenarioGeneralParameterForm select[name='MikeScenarioStartTime']").val();
-                var StartHour: number = parseInt(StartTime.substring(0, 2));
-                var StartMinute: number = parseInt(StartTime.substring(3, 5));
+                let StartYear: number = parseInt($("#MikeScenarioGeneralParameterForm select[name='MikeScenarioStartYear']").val());
+                let StartMonth: number = parseInt($("#MikeScenarioGeneralParameterForm select[name='MikeScenarioStartMonth']").val());
+                let StartDay: number = parseInt($("#MikeScenarioGeneralParameterForm select[name='MikeScenarioStartDay']").val());
+                let StartTime: string = $("#MikeScenarioGeneralParameterForm select[name='MikeScenarioStartTime']").val();
+                let StartHour: number = 0;
+                let StartMinute: number = 0;
+                if (StartTime) {
+                    StartHour = parseInt(StartTime.substring(0, 2));
+                    StartMinute = parseInt(StartTime.substring(3, 5));
+                }
+               
 
-                var EndYear: number = parseInt($("#MikeScenarioGeneralParameterForm select[name='MikeScenarioEndYear']").val());
-                var EndMonth: number = parseInt($("#MikeScenarioGeneralParameterForm select[name='MikeScenarioEndMonth']").val());
-                var EndDay: number = parseInt($("#MikeScenarioGeneralParameterForm select[name='MikeScenarioEndDay']").val());
-                var EndTime: string = $("#MikeScenarioGeneralParameterForm select[name='MikeScenarioEndTime']").val();
-                var EndHour: number = parseInt(EndTime.substring(0, 2));
-                var EndMinute: number = parseInt(EndTime.substring(3, 5));
+                let EndYear: number = parseInt($("#MikeScenarioGeneralParameterForm select[name='MikeScenarioEndYear']").val());
+                let EndMonth: number = parseInt($("#MikeScenarioGeneralParameterForm select[name='MikeScenarioEndMonth']").val());
+                let EndDay: number = parseInt($("#MikeScenarioGeneralParameterForm select[name='MikeScenarioEndDay']").val());
+                let EndTime: string = $("#MikeScenarioGeneralParameterForm select[name='MikeScenarioEndTime']").val();
+                let EndHour: number = 0;
+                let EndMinute: number = 0;
+                if (EndTime) {
+                    EndHour = parseInt(EndTime.substring(0, 2));
+                    EndMinute = parseInt(EndTime.substring(3, 5));
+                }
 
-                var StartDate: Date = new Date(StartYear, StartMonth, StartDay, StartHour, StartMinute);
-                var EndDate: Date = new Date(EndYear, EndMonth, EndDay, EndHour, EndMinute);
+                let StartDate: Date = new Date(StartYear, StartMonth, StartDay, StartHour, StartMinute);
+                let EndDate: Date = new Date(EndYear, EndMonth, EndDay, EndHour, EndMinute);
 
-                var dif: number = EndDate.getTime() - StartDate.getTime(); // number of seconds between the two dates
+                let dif: number = EndDate.getTime() - StartDate.getTime(); // number of seconds between the two dates
 
                 if (dif < 0) {
                     cssp.Dialog.ShowDialogErrorWithError(cssp.GetHTMLVariable("LayoutVariables", "varStartDateIsBiggerThanEndDate"));
@@ -168,9 +191,9 @@ module CSSP {
                     return;
                 }
                 else {
-                    var Days: number = parseInt((dif / 24 / 60 / 60 / 1000).toString());
-                    var Hours: number = parseInt(((dif - (Days * 24 * 60 * 60 * 1000)) / 60 / 60 / 1000).toString());
-                    var Minutes: number = parseInt(((dif - (Days * 24 * 60 * 60 * 1000) - (Hours * 60 * 60 * 1000)) / 60 / 1000).toString());
+                    let Days: number = parseInt((dif / 24 / 60 / 60 / 1000).toString());
+                    let Hours: number = parseInt(((dif - (Days * 24 * 60 * 60 * 1000)) / 60 / 60 / 1000).toString());
+                    let Minutes: number = parseInt(((dif - (Days * 24 * 60 * 60 * 1000) - (Hours * 60 * 60 * 1000)) / 60 / 1000).toString());
                     $(".ScenarioLengthDays").text(parseInt(Days.toString()));
                     $(".ScenarioLengthHours").text(parseInt(Hours.toString()));
                     $(".ScenarioLengthMinutes").text(parseInt(Minutes.toString()));
@@ -428,24 +451,6 @@ module CSSP {
                     return;
                 });
         };
-        public MikeScenarioAskToRunDecoupled: Function = (): void => {
-            var MikeScenarioTVItemID: number = parseInt($("#ViewDiv").data("tvitemid"));
-            var command: string = "MikeScenario/MikeScenarioAskToRunDecoupledJSON";
-            $.post(cssp.BaseURL + command,
-                {
-                    MikeScenarioTVItemID: MikeScenarioTVItemID,
-                }).done((ret) => {
-                    if (ret) {
-                        cssp.Dialog.ShowDialogErrorWithError(ret);
-                    }
-                    else {
-                        cssp.Helper.PageRefresh();
-                    }
-                }).fail(() => {
-                    cssp.Dialog.ShowDialogErrorWithFail(command);
-                    return;
-                });
-        };
         public MikeScenarioAcceptWebTide: Function = ($bjs): void => {
             var MikeScenarioTVItemID: number = parseInt($("#ViewDiv").data("tvitemid"));
             var command: string = "MikeScenario/AcceptWebTideJSON";
@@ -613,8 +618,7 @@ module CSSP {
                     if (ret) {
                         cssp.Dialog.ShowDialogErrorWithFail(ret);
                     }
-                    else
-                    {
+                    else {
                         cssp.Dialog.ShowDialogSuccess(cssp.GetHTMLVariable("#LayoutVariables", "varSuccess"));
                         cssp.GoogleMap.ReadAndShowObjects();
                     }

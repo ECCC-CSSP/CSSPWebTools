@@ -599,11 +599,6 @@ module CSSP {
                             cssp.MikeScenario.MikeScenarioAskToRun();
                         }
                         break;
-                    case "jbMikeScenarioAskToRunDecoupled":
-                        {
-                            cssp.MikeScenario.MikeScenarioAskToRunDecoupled();
-                        }
-                        break;
                     case "jbMikeScenarioBCDeleteNode":
                         {
                             cssp.MikeScenario.MikeScenarioBCDeleteNode($bjs);

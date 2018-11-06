@@ -10,6 +10,9 @@
     bool IsSectorMikeScenario = (bool)ViewBag.IsSectorMikeScenario;
     bool HasDecouplingFiles = (bool)ViewBag.HasDecouplingFiles;
 
+    bool? GenerateDecouplingFiles = mikeScenarioModel.GenerateDecouplingFiles;
+    bool? UseDecouplingFiles = mikeScenarioModel.UseDecouplingFiles;
+
     DateTime StartDate = (DateTime)mikeScenarioModel.MikeScenarioStartDateTime_Local;
     DateTime EndDate = (DateTime)mikeScenarioModel.MikeScenarioEndDateTime_Local;
     TimeSpan ts = new TimeSpan(EndDate.Ticks - StartDate.Ticks);
@@ -80,12 +83,15 @@ else
             <div class="form-group">
                 <label class="control-label">
                     @MikeScenarioViewRes.Decoupling ----- &nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" class="checkbox-inline" name="GenerateDecouplingFiles" value="@(mikeScenarioModel.GenerateDecouplingFiles == null || mikeScenarioModel.GenerateDecouplingFiles == false ? false : true) " @(mikeScenarioModel.GenerateDecouplingFiles == null || mikeScenarioModel.GenerateDecouplingFiles == false ? "" : "checked='checked'") />
+                    <input type="radio" class="checkbox-inline" name="DecouplingAction" value="Empty" @((GenerateDecouplingFiles == null || GenerateDecouplingFiles == false) && (UseDecouplingFiles == null || UseDecouplingFiles == false) ? "checked='checked'" : "") />
+                    <span>@MikeScenarioViewRes.Nothing</span>
+                    <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                    <input type="radio" class="checkbox-inline" name="DecouplingAction" value="GenerateDecouplingFiles" @(GenerateDecouplingFiles != null && GenerateDecouplingFiles == true ? "checked='checked'" : "") />
                     <span>@MikeScenarioViewRes.Generate</span>
                     @if (HasDecouplingFiles)
                     {
-                    <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                        <input type="checkbox" class="checkbox-inline" name="UseDecouplingFiles" value="@(mikeScenarioModel.UseDecouplingFiles == null || mikeScenarioModel.UseDecouplingFiles == false ? false : true)" @(mikeScenarioModel.UseDecouplingFiles == null || mikeScenarioModel.UseDecouplingFiles == false ? "" : "checked='checked'") />
+                        <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        <input type="radio" class="checkbox-inline" name="DecouplingAction" value="UseDecouplingFiles"  @(UseDecouplingFiles != null && UseDecouplingFiles == true ? "checked='checked'" : "") />
                         <span>@MikeScenarioViewRes.Use</span>
 
                     }

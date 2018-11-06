@@ -25,6 +25,18 @@ var CSSP;
                 $(".jbMikeScenarioAskToRun").removeClass("hidden").addClass("hidden");
                 $(".jbMikeScenarioCopy").removeClass("hidden").addClass("hidden");
                 $(".jbMikeScenarioDelete").removeClass("hidden").addClass("hidden");
+                $(document).off("change", "input.CheckUseDecouplingFiles");
+                $(document).on("change", $("input.CheckUseDecouplingFiles"), function (evt) {
+                    if ($("input.CheckUseDecouplingFiles").is(":checked")) {
+                        $("input.CheckGenerateDecouplingFiles").removeAttr("checked");
+                    }
+                });
+                $(document).off("change", "input.CheckGenerateDecouplingFiles");
+                $(document).on("change", $("input.CheckGenerateDecouplingFiles"), function (evt) {
+                    if ($("input.CheckGenerateDecouplingFiles").is(":checked")) {
+                        $("input.CheckUseDecouplingFiles").removeAttr("checked");
+                    }
+                });
             };
             this.InitMikeScenarioImport = function () {
                 $(".MikeScenarioOtherFileImportForm, .MikeScenarioImportForm").validate({
@@ -141,14 +153,22 @@ var CSSP;
                     var StartMonth = parseInt($("#MikeScenarioGeneralParameterForm select[name='MikeScenarioStartMonth']").val());
                     var StartDay = parseInt($("#MikeScenarioGeneralParameterForm select[name='MikeScenarioStartDay']").val());
                     var StartTime = $("#MikeScenarioGeneralParameterForm select[name='MikeScenarioStartTime']").val();
-                    var StartHour = parseInt(StartTime.substring(0, 2));
-                    var StartMinute = parseInt(StartTime.substring(3, 5));
+                    var StartHour = 0;
+                    var StartMinute = 0;
+                    if (StartTime) {
+                        StartHour = parseInt(StartTime.substring(0, 2));
+                        StartMinute = parseInt(StartTime.substring(3, 5));
+                    }
                     var EndYear = parseInt($("#MikeScenarioGeneralParameterForm select[name='MikeScenarioEndYear']").val());
                     var EndMonth = parseInt($("#MikeScenarioGeneralParameterForm select[name='MikeScenarioEndMonth']").val());
                     var EndDay = parseInt($("#MikeScenarioGeneralParameterForm select[name='MikeScenarioEndDay']").val());
                     var EndTime = $("#MikeScenarioGeneralParameterForm select[name='MikeScenarioEndTime']").val();
-                    var EndHour = parseInt(EndTime.substring(0, 2));
-                    var EndMinute = parseInt(EndTime.substring(3, 5));
+                    var EndHour = 0;
+                    var EndMinute = 0;
+                    if (EndTime) {
+                        EndHour = parseInt(EndTime.substring(0, 2));
+                        EndMinute = parseInt(EndTime.substring(3, 5));
+                    }
                     var StartDate = new Date(StartYear, StartMonth, StartDay, StartHour, StartMinute);
                     var EndDate = new Date(EndYear, EndMonth, EndDay, EndHour, EndMinute);
                     var dif = EndDate.getTime() - StartDate.getTime(); // number of seconds between the two dates
@@ -384,23 +404,6 @@ var CSSP;
             this.MikeScenarioAskToRun = function () {
                 var MikeScenarioTVItemID = parseInt($("#ViewDiv").data("tvitemid"));
                 var command = "MikeScenario/MikeScenarioAskToRunJSON";
-                $.post(cssp.BaseURL + command, {
-                    MikeScenarioTVItemID: MikeScenarioTVItemID,
-                }).done(function (ret) {
-                    if (ret) {
-                        cssp.Dialog.ShowDialogErrorWithError(ret);
-                    }
-                    else {
-                        cssp.Helper.PageRefresh();
-                    }
-                }).fail(function () {
-                    cssp.Dialog.ShowDialogErrorWithFail(command);
-                    return;
-                });
-            };
-            this.MikeScenarioAskToRunDecoupled = function () {
-                var MikeScenarioTVItemID = parseInt($("#ViewDiv").data("tvitemid"));
-                var command = "MikeScenario/MikeScenarioAskToRunDecoupledJSON";
                 $.post(cssp.BaseURL + command, {
                     MikeScenarioTVItemID: MikeScenarioTVItemID,
                 }).done(function (ret) {
