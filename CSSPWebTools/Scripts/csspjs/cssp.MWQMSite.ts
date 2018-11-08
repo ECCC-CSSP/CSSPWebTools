@@ -1203,8 +1203,8 @@ module CSSP {
         public ShowSiteText: Function = ($bjs: JQuery): void => {
             if ($bjs.hasClass("btn-default")) {
                 $bjs.removeClass("btn-default").addClass("btn-success");
-                if (cssp.GoogleMap.MarkerTextLength < 8) {
-                    cssp.GoogleMap.MarkerTextLength = 8;
+                if (cssp.GoogleMap.MarkerTextLength < 11) {
+                    cssp.GoogleMap.MarkerTextLength = 11;
                     cssp.GoogleMap.DrawObjects();
                 }
             }
@@ -1527,9 +1527,6 @@ module CSSP {
                     }
                     if (DataTypeTemp.length > 0) {
                         let Temp: number = cssp.MWQMSite.mwqmSubsectorAnalysisModel.mwqmSiteAnalysisModelList[i].mwqmSampleAnalysisModel[j].Temp;
-                        if (i == 3 && j == 108) {
-                            let aselfij = 34;
-                        }
                         cssp.MWQMSite.MWQMSampleList$[i].eq(j).html(cssp.MWQMSite.MWQMSampleList$[i].eq(j).html() + "<br />" + (Temp == -99 ? ((i == 0 && j == 0) ? "T --" : "--") : ((i == 0 && j == 0) ? "T " + Number(Temp).toFixed(1).toString() : Number(Temp).toFixed(1).toString())));
                         if (Temp == -99) {
                             cssp.MWQMSite.MWQMSampleList$[i].eq(j).addClass("");
@@ -2605,8 +2602,10 @@ module CSSP {
                         cssp.MWQMSite.mwqmSubsectorAnalysisModel.mwqmSiteAnalysisModelList[j].mwqmSampleAnalysisModel[FirstWithCalculation].PercOver260
                     );
 
-                    let clearClasses: string[] = ["bggreena", "bggreenb", "bggreenc", "bggreend", "bggreene", "bggreenf", "bgreda", "bgredb", "bgredc", "bgredd", "bgrede", "bgredf", "bgbluea", "bgblueb", "bgbluec", "bgblued", "bgbluee", "bgbluef"];
-                    if (SampleCount < 10) {
+
+                    let clearClasses: string[] = ["bggreena", "bggreenb", "bggreenc", "bggreend", "bggreene", "bggreenf", "bgreda", "bgredb", "bgredc", "bgredd", "bgrede", "bgredf", "bgbluea", "bgblueb", "bgbluec", "bgblued", "bgbluee", "bgbluef", "notEnoughData"];
+                    if (SampleCount < 4) {
+                        colorAndLetter = new ColorAndLetter("notEnoughData", SampleCount.toString());
                         cssp.MWQMSite.MWQMColorAndLetter$.eq(j).removeClass("notEnoughData");
                         for (let i = 0, count = clearClasses.length; i < count; i++) {
                             cssp.MWQMSite.MWQMColorAndLetter$.eq(j).removeClass(clearClasses[i]);
@@ -2620,8 +2619,41 @@ module CSSP {
                         }
                         cssp.MWQMSite.MWQMColorAndLetter$.eq(j).addClass(colorAndLetter.color).html(colorAndLetter.letter);
                     }
+
+                    cssp.MWQMSite.mwqmSubsectorAnalysisModel.mwqmSiteAnalysisModelList[j].colorAndLetter = colorAndLetter;
+
                 }
             }
+
+            for (let i = 0, CountObj = cssp.GoogleMap.TVItemObjects.length; i < CountObj; i++) {
+                for (let j = 0, count = cssp.MWQMSite.mwqmSubsectorAnalysisModel.mwqmSiteAnalysisModelList.length; j < count; j++)
+                {
+                    if (cssp.GoogleMap.TVItemObjects[i].TVItemID == cssp.MWQMSite.mwqmSubsectorAnalysisModel.mwqmSiteAnalysisModelList[j].MWQMSiteTVItemID) {
+
+                        if (cssp.MWQMSite.mwqmSubsectorAnalysisModel.mwqmSiteAnalysisModelList[j].mwqmSampleAnalysisModel.length < 4) {
+                        }
+                        else {
+                            let TVText = cssp.GoogleMap.TVItemObjects[i].TVText;
+                            cssp.GoogleMap.TVItemObjects[i].TVText = cssp.MWQMSite.mwqmSubsectorAnalysisModel.mwqmSiteAnalysisModelList[j].colorAndLetter.letter;
+                            cssp.GoogleMap.TVItemObjects[i].TVText = cssp.GoogleMap.TVItemObjects[i].TVText + TVText.substring(1);
+                            if (cssp.MWQMSite.mwqmSubsectorAnalysisModel.mwqmSiteAnalysisModelList[j].colorAndLetter.color.substring(0, 5) == "bgblu") {
+                                cssp.GoogleMap.TVItemObjects[i].SubTVType = TVTypeEnum.NoDepuration;
+                            }
+                            else if (cssp.MWQMSite.mwqmSubsectorAnalysisModel.mwqmSiteAnalysisModelList[j].colorAndLetter.color.substring(0, 5) == "bgred") {
+                                cssp.GoogleMap.TVItemObjects[i].SubTVType = TVTypeEnum.Failed;
+                            }
+                            else if (cssp.MWQMSite.mwqmSubsectorAnalysisModel.mwqmSiteAnalysisModelList[j].colorAndLetter.color.substring(0, 5) == "bggre") {
+                                cssp.GoogleMap.TVItemObjects[i].SubTVType = TVTypeEnum.Passed;
+                            }
+                            else if (cssp.MWQMSite.mwqmSubsectorAnalysisModel.mwqmSiteAnalysisModelList[j].colorAndLetter.color.substring(0, 5) == "notEn") {
+                                cssp.GoogleMap.TVItemObjects[i].SubTVType = TVTypeEnum.NoData;
+                            }
+                        }
+                    }
+                }
+            }
+
+            cssp.GoogleMap.DrawObjects();
 
             cssp.MWQMSite.MWQMSubsectorAnalysisShowUpdateTable();
 
@@ -2703,7 +2735,7 @@ module CSSP {
                 ValRunLocalList.push(val);
             }
 
-            while (ValRunLocalList.length > 9) {
+            while (ValRunLocalList.length > 3) {
                 let PercOver43: number = -1;
                 let dataOver43: number[] = [];
                 for (let d of ValRunLocalList) {
@@ -2729,7 +2761,7 @@ module CSSP {
                 ValRunLocalList.push(val);
             }
 
-            while (ValRunLocalList.length > 9) {
+            while (ValRunLocalList.length > 3) {
                 let PercOver260: number = -1;
                 let dataOver260: number[] = [];
                 for (let d of ValRunLocalList) {
@@ -2854,7 +2886,7 @@ module CSSP {
                 ValRunLocalList.push(val);
             }
 
-            while (ValRunLocalList.length > 9) {
+            while (ValRunLocalList.length > 3) {
 
                 let GMean: number = 0;
                 let prod: number = 0;
@@ -3005,7 +3037,7 @@ module CSSP {
                 ValRunForSortList.push(val);
             }
 
-            while (ValRunLocalList.length > 9) {
+            while (ValRunLocalList.length > 3) {
                 let median: number = -1;
 
                 let sortedData: ValRun[] = ValRunForSortList.sort((n1, n2) => n1.val - n2.val);
@@ -3029,7 +3061,7 @@ module CSSP {
                 ValRunLocalList.push(val);
             }
 
-            while (ValRunLocalList.length > 9) {
+            while (ValRunLocalList.length > 3) {
                 let P90: number = -1.0;
                 let fcLogList: number[] = [];
                 for (let d of ValRunLocalList) {

@@ -1117,8 +1117,8 @@ var CSSP;
             this.ShowSiteText = function ($bjs) {
                 if ($bjs.hasClass("btn-default")) {
                     $bjs.removeClass("btn-default").addClass("btn-success");
-                    if (cssp.GoogleMap.MarkerTextLength < 8) {
-                        cssp.GoogleMap.MarkerTextLength = 8;
+                    if (cssp.GoogleMap.MarkerTextLength < 11) {
+                        cssp.GoogleMap.MarkerTextLength = 11;
                         cssp.GoogleMap.DrawObjects();
                     }
                 }
@@ -1426,9 +1426,6 @@ var CSSP;
                         }
                         if (DataTypeTemp.length > 0) {
                             var Temp = cssp.MWQMSite.mwqmSubsectorAnalysisModel.mwqmSiteAnalysisModelList[i].mwqmSampleAnalysisModel[j].Temp;
-                            if (i == 3 && j == 108) {
-                                var aselfij = 34;
-                            }
                             cssp.MWQMSite.MWQMSampleList$[i].eq(j).html(cssp.MWQMSite.MWQMSampleList$[i].eq(j).html() + "<br />" + (Temp == -99 ? ((i == 0 && j == 0) ? "T --" : "--") : ((i == 0 && j == 0) ? "T " + Number(Temp).toFixed(1).toString() : Number(Temp).toFixed(1).toString())));
                             if (Temp == -99) {
                                 cssp.MWQMSite.MWQMSampleList$[i].eq(j).addClass("");
@@ -2425,8 +2422,9 @@ var CSSP;
                             }
                         }
                         var colorAndLetter = cssp.MWQMSite.MWQMSubsectorAnalysisGetColorAndLetter(cssp.MWQMSite.mwqmSubsectorAnalysisModel.mwqmSiteAnalysisModelList[j].mwqmSampleAnalysisModel[FirstWithCalculation].P90, cssp.MWQMSite.mwqmSubsectorAnalysisModel.mwqmSiteAnalysisModelList[j].mwqmSampleAnalysisModel[FirstWithCalculation].GeoMean, cssp.MWQMSite.mwqmSubsectorAnalysisModel.mwqmSiteAnalysisModelList[j].mwqmSampleAnalysisModel[FirstWithCalculation].Median, cssp.MWQMSite.mwqmSubsectorAnalysisModel.mwqmSiteAnalysisModelList[j].mwqmSampleAnalysisModel[FirstWithCalculation].PercOver43, cssp.MWQMSite.mwqmSubsectorAnalysisModel.mwqmSiteAnalysisModelList[j].mwqmSampleAnalysisModel[FirstWithCalculation].PercOver260);
-                        var clearClasses = ["bggreena", "bggreenb", "bggreenc", "bggreend", "bggreene", "bggreenf", "bgreda", "bgredb", "bgredc", "bgredd", "bgrede", "bgredf", "bgbluea", "bgblueb", "bgbluec", "bgblued", "bgbluee", "bgbluef"];
-                        if (SampleCount < 10) {
+                        var clearClasses = ["bggreena", "bggreenb", "bggreenc", "bggreend", "bggreene", "bggreenf", "bgreda", "bgredb", "bgredc", "bgredd", "bgrede", "bgredf", "bgbluea", "bgblueb", "bgbluec", "bgblued", "bgbluee", "bgbluef", "notEnoughData"];
+                        if (SampleCount < 4) {
+                            colorAndLetter = new CSSP.ColorAndLetter("notEnoughData", SampleCount.toString());
                             cssp.MWQMSite.MWQMColorAndLetter$.eq(j).removeClass("notEnoughData");
                             for (var i = 0, count_9 = clearClasses.length; i < count_9; i++) {
                                 cssp.MWQMSite.MWQMColorAndLetter$.eq(j).removeClass(clearClasses[i]);
@@ -2440,8 +2438,35 @@ var CSSP;
                             }
                             cssp.MWQMSite.MWQMColorAndLetter$.eq(j).addClass(colorAndLetter.color).html(colorAndLetter.letter);
                         }
+                        cssp.MWQMSite.mwqmSubsectorAnalysisModel.mwqmSiteAnalysisModelList[j].colorAndLetter = colorAndLetter;
                     }
                 }
+                for (var i = 0, CountObj = cssp.GoogleMap.TVItemObjects.length; i < CountObj; i++) {
+                    for (var j = 0, count = cssp.MWQMSite.mwqmSubsectorAnalysisModel.mwqmSiteAnalysisModelList.length; j < count; j++) {
+                        if (cssp.GoogleMap.TVItemObjects[i].TVItemID == cssp.MWQMSite.mwqmSubsectorAnalysisModel.mwqmSiteAnalysisModelList[j].MWQMSiteTVItemID) {
+                            if (cssp.MWQMSite.mwqmSubsectorAnalysisModel.mwqmSiteAnalysisModelList[j].mwqmSampleAnalysisModel.length < 4) {
+                            }
+                            else {
+                                var TVText = cssp.GoogleMap.TVItemObjects[i].TVText;
+                                cssp.GoogleMap.TVItemObjects[i].TVText = cssp.MWQMSite.mwqmSubsectorAnalysisModel.mwqmSiteAnalysisModelList[j].colorAndLetter.letter;
+                                cssp.GoogleMap.TVItemObjects[i].TVText = cssp.GoogleMap.TVItemObjects[i].TVText + TVText.substring(1);
+                                if (cssp.MWQMSite.mwqmSubsectorAnalysisModel.mwqmSiteAnalysisModelList[j].colorAndLetter.color.substring(0, 5) == "bgblu") {
+                                    cssp.GoogleMap.TVItemObjects[i].SubTVType = CSSP.TVTypeEnum.NoDepuration;
+                                }
+                                else if (cssp.MWQMSite.mwqmSubsectorAnalysisModel.mwqmSiteAnalysisModelList[j].colorAndLetter.color.substring(0, 5) == "bgred") {
+                                    cssp.GoogleMap.TVItemObjects[i].SubTVType = CSSP.TVTypeEnum.Failed;
+                                }
+                                else if (cssp.MWQMSite.mwqmSubsectorAnalysisModel.mwqmSiteAnalysisModelList[j].colorAndLetter.color.substring(0, 5) == "bggre") {
+                                    cssp.GoogleMap.TVItemObjects[i].SubTVType = CSSP.TVTypeEnum.Passed;
+                                }
+                                else if (cssp.MWQMSite.mwqmSubsectorAnalysisModel.mwqmSiteAnalysisModelList[j].colorAndLetter.color.substring(0, 5) == "notEn") {
+                                    cssp.GoogleMap.TVItemObjects[i].SubTVType = CSSP.TVTypeEnum.NoData;
+                                }
+                            }
+                        }
+                    }
+                }
+                cssp.GoogleMap.DrawObjects();
                 cssp.MWQMSite.MWQMSubsectorAnalysisShowUpdateTable();
                 NeedRecal$.text(NeedRecal$.data("completed"));
                 window.setTimeout(function () {
@@ -2516,7 +2541,7 @@ var CSSP;
                     var val = ValRunList_1[_i];
                     ValRunLocalList.push(val);
                 }
-                while (ValRunLocalList.length > 9) {
+                while (ValRunLocalList.length > 3) {
                     var PercOver43 = -1;
                     var dataOver43 = [];
                     for (var _a = 0, ValRunLocalList_1 = ValRunLocalList; _a < ValRunLocalList_1.length; _a++) {
@@ -2538,7 +2563,7 @@ var CSSP;
                     var val = ValRunList_2[_i];
                     ValRunLocalList.push(val);
                 }
-                while (ValRunLocalList.length > 9) {
+                while (ValRunLocalList.length > 3) {
                     var PercOver260 = -1;
                     var dataOver260 = [];
                     for (var _a = 0, ValRunLocalList_2 = ValRunLocalList; _a < ValRunLocalList_2.length; _a++) {
@@ -2652,7 +2677,7 @@ var CSSP;
                     var val = ValRunList_3[_i];
                     ValRunLocalList.push(val);
                 }
-                while (ValRunLocalList.length > 9) {
+                while (ValRunLocalList.length > 3) {
                     var GMean = 0;
                     var prod = 0;
                     prod = 1.0;
@@ -2796,7 +2821,7 @@ var CSSP;
                     ValRunLocalList.push(val);
                     ValRunForSortList.push(val);
                 }
-                while (ValRunLocalList.length > 9) {
+                while (ValRunLocalList.length > 3) {
                     var median = -1;
                     var sortedData = ValRunForSortList.sort(function (n1, n2) { return n1.val - n2.val; });
                     var size = sortedData.length;
@@ -2814,7 +2839,7 @@ var CSSP;
                     var val = ValRunList_5[_i];
                     ValRunLocalList.push(val);
                 }
-                while (ValRunLocalList.length > 9) {
+                while (ValRunLocalList.length > 3) {
                     var P90 = -1.0;
                     var fcLogList = [];
                     for (var _a = 0, ValRunLocalList_4 = ValRunLocalList; _a < ValRunLocalList_4.length; _a++) {
