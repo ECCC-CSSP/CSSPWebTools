@@ -830,5 +830,78 @@ var CSSP;
         TVTypeEnum[TVTypeEnum["ConditionallyApproved"] = 83] = "ConditionallyApproved";
         TVTypeEnum[TVTypeEnum["ConditionallyRestricted"] = 84] = "ConditionallyRestricted";
     })(TVTypeEnum = CSSP.TVTypeEnum || (CSSP.TVTypeEnum = {}));
+    var MIKEResult = (function () {
+        function MIKEResult(MikeScenarioTVItemID, MikeScenarioTVText, StartTime, EndTime, ResultFrequency_Min, NumberOfTimeSteps, TimeStepDateTimeList, MIKEMWQMSiteResultList, MIKESourceResultList) {
+            this.MikeScenarioTVItemID = MikeScenarioTVItemID;
+            this.MikeScenarioTVText = MikeScenarioTVText;
+            this.StartTime = StartTime;
+            this.EndTime = EndTime;
+            this.ResultFrequency_Min = ResultFrequency_Min;
+            this.NumberOfTimeSteps = NumberOfTimeSteps;
+            this.TimeStepDateTimeList = TimeStepDateTimeList;
+            this.MIKEMWQMSiteResultList = MIKEMWQMSiteResultList;
+            this.MIKESourceResultList = MIKESourceResultList;
+        }
+        return MIKEResult;
+    }());
+    CSSP.MIKEResult = MIKEResult;
+    var MIKEMWQMSiteResult = (function () {
+        function MIKEMWQMSiteResult(MWQMSiteTVItemID, MWQMSiteTVText, Lat, Lng, ElementLat, ElementLng, SampleDateTime, FC, Salinity, Temperature, MIKEHydroResult, MIKETransResult) {
+            this.MWQMSiteTVItemID = MWQMSiteTVItemID;
+            this.MWQMSiteTVText = MWQMSiteTVText;
+            this.Lat = Lat;
+            this.Lng = Lng;
+            this.ElementLat = ElementLat;
+            this.ElementLng = ElementLng;
+            this.SampleDateTime = SampleDateTime;
+            this.FC = FC;
+            this.Salinity = Salinity;
+            this.Temperature = Temperature;
+            this.MIKEHydroResult = MIKEHydroResult;
+            this.MIKETransResult = MIKETransResult;
+        }
+        return MIKEMWQMSiteResult;
+    }());
+    CSSP.MIKEMWQMSiteResult = MIKEMWQMSiteResult;
+    var MIKEHydroResult = (function () {
+        function MIKEHydroResult(SurfaceElevationList, StillWaterDepthList, TotalWaterDepthList, UVelocityList, VVelocityList, DensityList, TemperatureList, SalinityList, CurrentSpeedList, CurrentDirectionList, WindUVelocityList, WindVVelocityList, PrecipitationList) {
+            this.SurfaceElevationList = SurfaceElevationList;
+            this.StillWaterDepthList = StillWaterDepthList;
+            this.TotalWaterDepthList = TotalWaterDepthList;
+            this.UVelocityList = UVelocityList;
+            this.VVelocityList = VVelocityList;
+            this.DensityList = DensityList;
+            this.TemperatureList = TemperatureList;
+            this.SalinityList = SalinityList;
+            this.CurrentSpeedList = CurrentSpeedList;
+            this.CurrentDirectionList = CurrentDirectionList;
+            this.WindUVelocityList = WindUVelocityList;
+            this.WindVVelocityList = WindVVelocityList;
+            this.PrecipitationList = PrecipitationList;
+        }
+        return MIKEHydroResult;
+    }());
+    CSSP.MIKEHydroResult = MIKEHydroResult;
+    var MIKETransResult = (function () {
+        function MIKETransResult(FCList, UVelocityList, VVelocityList) {
+            this.FCList = FCList;
+            this.UVelocityList = UVelocityList;
+            this.VVelocityList = VVelocityList;
+        }
+        return MIKETransResult;
+    }());
+    CSSP.MIKETransResult = MIKETransResult;
+    var MIKESourceResult = (function () {
+        function MIKESourceResult(MWQMSourceTVItemID, MWQMSourceTVText, Lat, Lng, DischargeList, FCList) {
+            this.MWQMSourceTVItemID = MWQMSourceTVItemID;
+            this.MWQMSourceTVText = MWQMSourceTVText;
+            this.Lat = Lat;
+            this.Lng = Lng;
+            this.DischargeList = DischargeList;
+            this.FCList = FCList;
+        }
+        return MIKESourceResult;
+    }());
+    CSSP.MIKESourceResult = MIKESourceResult;
 })(CSSP || (CSSP = {}));
 //# sourceMappingURL=cssp.Models.js.map

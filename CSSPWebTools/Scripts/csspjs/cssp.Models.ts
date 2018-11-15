@@ -638,4 +638,63 @@ module CSSP {
         ConditionallyRestricted = 84,
     }
 
+    export class MIKEResult {
+        constructor(public MikeScenarioTVItemID: number,
+            public MikeScenarioTVText: string,
+            public StartTime: Date,
+            public EndTime: Date,
+            public ResultFrequency_Min: number,
+            public NumberOfTimeSteps: number,
+            public TimeStepDateTimeList: Date[],
+            public MIKEMWQMSiteResultList: MIKEMWQMSiteResult[],
+            public MIKESourceResultList: MIKESourceResult[]) {
+        }
+    }
+    export class MIKEMWQMSiteResult {
+        constructor(public MWQMSiteTVItemID: number,
+            public MWQMSiteTVText: string,
+            public Lat: number,
+            public Lng: number,
+            public ElementLat: number,
+            public ElementLng: number,
+            public SampleDateTime: Date,
+            public FC: number,
+            public Salinity: number,
+            public Temperature: number,
+            public MIKEHydroResult: MIKEHydroResult,
+            public MIKETransResult: MIKETransResult) {
+        }
+    }
+    export class MIKEHydroResult {
+        constructor(public SurfaceElevationList: number[],
+            public StillWaterDepthList: number[],
+            public TotalWaterDepthList: number[],
+            public UVelocityList: number[],
+            public VVelocityList: number[],
+            public DensityList: number[],
+            public TemperatureList: number[],
+            public SalinityList: number[],
+            public CurrentSpeedList: number[],
+            public CurrentDirectionList: number[],
+            public WindUVelocityList: number[],
+            public WindVVelocityList: number[],
+            public PrecipitationList: number[]) {
+        }
+    }
+    export class MIKETransResult {
+        constructor(public FCList: number[],
+            public UVelocityList: number[],
+            public VVelocityList: number[]) {
+        }
+    }
+    export class MIKESourceResult {
+        constructor(public MWQMSourceTVItemID: number,
+            public MWQMSourceTVText: string,
+            public Lat: number,
+            public Lng: number,
+            public DischargeList: number[],
+            public FCList: number[]) {
+        }
+    }
+
 }

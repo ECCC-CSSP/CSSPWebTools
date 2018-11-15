@@ -1681,6 +1681,15 @@ namespace CSSPWebTools.Views.MikeScenario.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Show Results.
+        /// </summary>
+        public static string ShowResults {
+            get {
+                return ResourceManager.GetString("ShowResults", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Show study area.
         /// </summary>
         public static string ShowStudyArea {

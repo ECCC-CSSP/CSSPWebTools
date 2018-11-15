@@ -12,6 +12,7 @@
     string MWQMRunTVText = (string)ViewBag.MWQMRunTVText;
     bool IsSectorMikeScenario = (bool)ViewBag.IsSectorMikeScenario;
     bool HasDecouplingFiles = (bool)ViewBag.HasDecouplingFiles;
+    bool HasMikeScenarioResults = (bool)ViewBag.HasMikeScenarioResults;
 
     URLModel urlModel = (URLModel)ViewBag.URLModel;
 
@@ -57,6 +58,15 @@ else
 
                 if (IsSectorMikeScenario)
                 {
+                    if (HasMikeScenarioResults)
+                    {
+                        <div>
+                            <button class="jbMikeScenarioGetResults btn btn-default">@MikeScenarioViewRes.ShowResults</button>
+                        </div>
+                        <div class="MikeScenarioResultsDiv hidden">
+
+                        </div>
+                    }
                     <div>
                         <br />
                         <span class="h4">@MikeScenarioViewRes.Decoupling ------ </span>

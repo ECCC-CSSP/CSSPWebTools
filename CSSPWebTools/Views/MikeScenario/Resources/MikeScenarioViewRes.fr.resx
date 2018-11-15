@@ -938,4 +938,7 @@
   <data name="Nothing" xml:space="preserve">
     <value>Nothing (fr)</value>
   </data>
+  <data name="ShowResults" xml:space="preserve">
+    <value>Show Results (fr)</value>
+  </data>
 </root>

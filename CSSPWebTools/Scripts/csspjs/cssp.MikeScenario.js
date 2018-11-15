@@ -563,6 +563,29 @@ var CSSP;
                     return;
                 });
             };
+            this.MikeScenarioGetResults = function ($bjs) {
+                var MikeScenarioResultsDiv$ = $bjs.closest("#MikeScenarioGeneralParametersDiv").find(".MikeScenarioResultsDiv");
+                if ($bjs.hasClass("btn-default")) {
+                    $bjs.removeClass("btn-default").addClass("btn-success");
+                    var MikeScenarioTVItemID = parseInt($("#ViewDiv").data("tvitemid"));
+                    MikeScenarioResultsDiv$.removeClass("hidden");
+                    MikeScenarioResultsDiv$.html(cssp.GetHTMLVariable("#LayoutVariables", "varInProgress"));
+                    var command_1 = "MikeScenario/MikeScenarioGetResultsJSON";
+                    $.get(cssp.BaseURL + command_1, {
+                        MikeScenarioTVItemID: MikeScenarioTVItemID,
+                    }).done(function (ret) {
+                        cssp.MikeScenario.MIKEResult = ret;
+                        MikeScenarioResultsDiv$.html(JSON.stringify(ret));
+                    }).fail(function () {
+                        cssp.Dialog.ShowDialogErrorWithFail(command_1);
+                        return;
+                    });
+                }
+                else {
+                    $bjs.removeClass("btn-success").addClass("btn-default");
+                    MikeScenarioResultsDiv$.removeClass("hidden").addClass("hidden");
+                }
+            };
             this.MikeScenarioResetDrainageArea = function ($bjs) {
                 var MikeSourceTVItemID = parseInt($bjs.data("tvitemid"));
                 var KMLDrainageArea = $bjs.closest("form").find("textarea[name='KMLDrainageArea']").val();
@@ -591,14 +614,14 @@ var CSSP;
                     var MikeScenarioTVItemID = parseInt($bjs.data("mikescenariotvitemid"));
                     var HydrometricDataP_1 = $bjs.closest(".HydrometricDataDiv").find(".HydrometricData");
                     HydrometricDataP_1.html(cssp.GetHTMLVariable("#LayoutVariables", "varInProgress"));
-                    var command_1 = "MikeScenario/_mikeScenarioSourceHydrometricData";
-                    $.get(cssp.BaseURL + command_1, {
+                    var command_2 = "MikeScenario/_mikeScenarioSourceHydrometricData";
+                    $.get(cssp.BaseURL + command_2, {
                         MikeScenarioTVItemID: MikeScenarioTVItemID,
                         MikeSourceTVItemID: MikeSourceTVItemID,
                     }).done(function (ret) {
                         HydrometricDataP_1.html(ret);
                     }).fail(function () {
-                        cssp.Dialog.ShowDialogErrorWithFail(command_1);
+                        cssp.Dialog.ShowDialogErrorWithFail(command_2);
                         return;
                     });
                 }

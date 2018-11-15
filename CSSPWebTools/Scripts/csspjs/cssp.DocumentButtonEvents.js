@@ -761,6 +761,11 @@ var CSSP;
                                 cssp.MikeScenario.MikeScenarioGetDrainageArea($bjs);
                             }
                             break;
+                        case "jbMikeScenarioGetResults":
+                            {
+                                cssp.MikeScenario.MikeScenarioGetResults($bjs);
+                            }
+                            break;
                         case "jbMikeScenarioCalculateFactor":
                             {
                                 cssp.MikeScenario.MikeScenarioCalculateFactor($bjs);

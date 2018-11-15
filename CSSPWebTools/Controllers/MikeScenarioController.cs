@@ -25,6 +25,7 @@ namespace CSSPWebTools.Controllers
 
         #region Properties
         public MikeScenarioService _MikeScenarioService { get; private set; }
+        public MikeScenarioResultService _MikeScenarioResultService { get; private set; }
         public MikeScenarioController _MikeScenarioController { get; private set; }
         public TVFileService _TVFileService { get; private set; }
         public HydrometricSiteService _HydrometricSiteService { get; private set; }
@@ -47,6 +48,7 @@ namespace CSSPWebTools.Controllers
         {
             base.Initialize(requestContext);
             _MikeScenarioService = new MikeScenarioService(LanguageRequest, User);
+            _MikeScenarioResultService = new MikeScenarioResultService(LanguageRequest, User);
             _TVFileService = new TVFileService(LanguageRequest, User);
             _HydrometricSiteService = new HydrometricSiteService(LanguageRequest, User);
             _HydrometricDataValueService = new HydrometricDataValueService(LanguageRequest, User);
@@ -579,12 +581,20 @@ namespace CSSPWebTools.Controllers
             ViewBag.MWQMRunTVText = "";
             ViewBag.IsSectorMikeScenario = false;
             ViewBag.HasDecouplingFiles = false;
+            ViewBag.HasMikeScenarioResults = false;
 
             MikeScenarioModel mikeScenarioModel = _MikeScenarioService.GetMikeScenarioModelWithMikeScenarioTVItemIDDB(urlModel.TVItemIDList[0]);
             ViewBag.MikeScenarioModel = mikeScenarioModel;
 
             if (mikeScenarioModel != null)
             {
+                MikeScenarioResultModel mikeScenarioResultModel = _MikeScenarioResultService.GetMikeScenarioResultModelWithMikeScenarioTVItemIDDB(urlModel.TVItemIDList[0]);
+
+                if (mikeScenarioResultModel != null)
+                {
+                    ViewBag.HasMikeScenarioResults = true;
+                }
+
                 TVItemModel tvItemModelMikeScenario = _TVItemService.GetTVItemModelWithTVItemIDDB(urlModel.TVItemIDList[0]);
                 if (string.IsNullOrWhiteSpace(tvItemModelMikeScenario.Error))
                 {
@@ -1431,6 +1441,7 @@ namespace CSSPWebTools.Controllers
 
             return PartialView();
         }
+
         [HttpGet]
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
         public JsonResult GetDrainageAreaWithTVItemIDJSON(int MikeSourceTVItemID)
@@ -1439,6 +1450,16 @@ namespace CSSPWebTools.Controllers
 
             return Json(value, JsonRequestBehavior.AllowGet);
         }
+
+        [HttpGet]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public JsonResult MikeScenarioGetResultsJSON(int MikeScenarioTVItemID)
+        {
+            MIKEResult mikeResult = _MikeScenarioResultService.GetMikeScenarioMIKEResultJSONWithMikeScenarioTVItemIDDB(MikeScenarioTVItemID);
+
+            return Json(mikeResult, JsonRequestBehavior.AllowGet);
+        }
+        
         [HttpPost]
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
         public JsonResult ResetDrainageAreaWithTVItemIDJSON(FormCollection fc)
@@ -1462,6 +1483,14 @@ namespace CSSPWebTools.Controllers
             MikeScenarioModel mikeScenarioModel = _MikeScenarioService.PostMikeScenarioReestablishEditingDB(MikeScenarioTVItemID);
 
             return Json(mikeScenarioModel.Error, JsonRequestBehavior.AllowGet);
+        }
+        [HttpPost]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public JsonResult PostMikeScenarioResultCreateAndSaveJSON(int MikeScenarioTVItemID)
+        {
+            AppTaskModel appTaskModel = _MikeScenarioResultService.PostMikeScenarioResultCreateAndSaveDB(MikeScenarioTVItemID);
+
+            return Json(appTaskModel.Error, JsonRequestBehavior.AllowGet);
         }
         #endregion public
 

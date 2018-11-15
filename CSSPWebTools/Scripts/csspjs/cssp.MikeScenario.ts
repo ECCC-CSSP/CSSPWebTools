@@ -3,6 +3,7 @@ module CSSP {
     export class MikeScenario {
         // Variables
         public mapItems: Array<CSSP.tvLocation> = new Array<CSSP.tvLocation>();
+        public MIKEResult: MIKEResult;
 
         // Constructors
         constructor() {
@@ -604,6 +605,30 @@ module CSSP {
                     cssp.Dialog.ShowDialogErrorWithFail(command);
                     return;
                 });
+        };
+        public MikeScenarioGetResults: Function = ($bjs: JQuery): void => {
+            let MikeScenarioResultsDiv$: JQuery = $bjs.closest("#MikeScenarioGeneralParametersDiv").find(".MikeScenarioResultsDiv");
+            if ($bjs.hasClass("btn-default")) {
+                $bjs.removeClass("btn-default").addClass("btn-success");
+                let MikeScenarioTVItemID: number = parseInt($("#ViewDiv").data("tvitemid"));
+                MikeScenarioResultsDiv$.removeClass("hidden");
+                MikeScenarioResultsDiv$.html(cssp.GetHTMLVariable("#LayoutVariables", "varInProgress"));
+                let command: string = "MikeScenario/MikeScenarioGetResultsJSON";
+                $.get(cssp.BaseURL + command,
+                    {
+                        MikeScenarioTVItemID: MikeScenarioTVItemID,
+                    }).done((ret) => {
+                        cssp.MikeScenario.MIKEResult = ret;
+                        MikeScenarioResultsDiv$.html(JSON.stringify(ret));
+                    }).fail(() => {
+                        cssp.Dialog.ShowDialogErrorWithFail(command);
+                        return;
+                    });
+            }
+            else {
+                $bjs.removeClass("btn-success").addClass("btn-default");
+                MikeScenarioResultsDiv$.removeClass("hidden").addClass("hidden");
+            }
         };
         public MikeScenarioResetDrainageArea: Function = ($bjs: JQuery): void => {
             let MikeSourceTVItemID: number = parseInt($bjs.data("tvitemid"));
