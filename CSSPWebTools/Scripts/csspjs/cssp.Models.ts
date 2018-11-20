@@ -661,6 +661,7 @@ module CSSP {
             public FC: number,
             public Salinity: number,
             public Temperature: number,
+            public TVLocation: tvLocation,
             public MIKEHydroResult: MIKEHydroResult,
             public MIKETransResult: MIKETransResult) {
         }

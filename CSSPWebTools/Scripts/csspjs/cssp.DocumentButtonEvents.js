@@ -661,6 +661,36 @@ var CSSP;
                                 cssp.MikeScenario.MikeScenarioResetWebTide($bjs);
                             }
                             break;
+                        case "jbMikeScenarioResizeSmallerHeight":
+                            {
+                                cssp.MikeScenario.MikeScenarioResizeSmallerHeight();
+                            }
+                            break;
+                        case "jbMikeScenarioResizeBiggerHeight":
+                            {
+                                cssp.MikeScenario.MikeScenarioResizeBiggerHeight();
+                            }
+                            break;
+                        case "jbMikeScenarioResizeSmallerWidth":
+                            {
+                                cssp.MikeScenario.MikeScenarioResizeSmallerWidth();
+                            }
+                            break;
+                        case "jbMikeScenarioResizeBiggerWidth":
+                            {
+                                cssp.MikeScenario.MikeScenarioResizeBiggerWidth();
+                            }
+                            break;
+                        case "jbMikeScenarioShowMWQMSitesOnMap":
+                            {
+                                cssp.MikeScenario.MikeScenarioShowMWQMSitesOnMap($bjs);
+                            }
+                            break;
+                        case "jbMikeScenarioResetTextSizeOnMap":
+                            {
+                                cssp.MikeScenario.MikeScenarioResetTextSizeOnMap($bjs);
+                            }
+                            break;
                         case "jbMikeScenarioSelectPreviousInput":
                             {
                                 cssp.MikeScenario.MikeScenarioSelectPreviousInput($bjs);
@@ -764,6 +794,11 @@ var CSSP;
                         case "jbMikeScenarioGetResults":
                             {
                                 cssp.MikeScenario.MikeScenarioGetResults($bjs);
+                            }
+                            break;
+                        case "jbMikeScenarioPrepareResults":
+                            {
+                                cssp.MikeScenario.MikeScenarioPrepareResults($bjs);
                             }
                             break;
                         case "jbMikeScenarioCalculateFactor":

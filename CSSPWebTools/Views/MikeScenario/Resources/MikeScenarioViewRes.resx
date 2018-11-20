@@ -940,4 +940,7 @@
   <data name="ShowResults" xml:space="preserve">
     <value>Show Results</value>
   </data>
+  <data name="PrepareResults" xml:space="preserve">
+    <value>Prepare results</value>
+  </data>
 </root>

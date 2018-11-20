@@ -1366,6 +1366,15 @@ namespace CSSPWebTools.Views.MikeScenario.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Prepare results.
+        /// </summary>
+        public static string PrepareResults {
+            get {
+                return ResourceManager.GetString("PrepareResults", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Properties.
         /// </summary>
         public static string Properties {

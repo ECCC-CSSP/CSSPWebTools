@@ -6,6 +6,8 @@ var CSSP;
             var _this = this;
             // Variables
             this.mapItems = new Array();
+            this.ChartHeight = 500;
+            this.ChartWidth = 800;
             this.AskToRemoveMikeScenario = function ($bjs) {
                 var MikeScenarioName = $bjs.closest("#ViewDiv").find(".TVText").text();
                 cssp.Dialog.ShowDialogAreYouSure(MikeScenarioName);
@@ -20,6 +22,182 @@ var CSSP;
                 var MikeScenarioSourceStartEndName = $bjs.closest(".MikeScenarioSourceEdit").find(".StartEndName").text();
                 cssp.Dialog.ShowDialogAreYouSure(MikeScenarioSourceStartEndName);
                 cssp.Dialog.CheckDialogAndButtonsExist(["#DialogBasic", "#DialogBasicYes"], 5, "cssp.MikeScenario.SetDialogEventsSourceStartEnd", $bjs);
+            };
+            this.MikeScenarioShowMWQMSitesOnMap = function ($bjs) {
+                if ($bjs.hasClass("btn-default")) {
+                    $bjs.removeClass("btn-default").addClass("btn-success");
+                    var mapItems = [];
+                    for (var i = 0, count = cssp.MikeScenario.MIKEResult.MIKEMWQMSiteResultList.length; i < count; i++) {
+                        var tvLoc = cssp.MikeScenario.MIKEResult.MIKEMWQMSiteResultList[i].TVLocation;
+                        mapItems.push(tvLoc);
+                    }
+                    cssp.GoogleMap.FillTVItemObjects(mapItems, true);
+                    cssp.GoogleMap.DrawObjects();
+                }
+                else {
+                    for (var i = 0, count = cssp.MikeScenario.MIKEResult.MIKEMWQMSiteResultList.length; i < count; i++) {
+                        for (var j = 0, count_1 = cssp.GoogleMap.TVItemObjects.length; j < count_1; j++) {
+                            if (cssp.MikeScenario.MIKEResult.MIKEMWQMSiteResultList[i].MWQMSiteTVItemID == cssp.GoogleMap.TVItemObjects[j].TVItemID) {
+                                var index = cssp.GoogleMap.TVItemObjects.indexOf(cssp.GoogleMap.TVItemObjects[j], 0);
+                                if (index > -1) {
+                                    cssp.GoogleMap.TVItemObjects.splice(index, 1);
+                                }
+                                break;
+                            }
+                        }
+                    }
+                    cssp.GoogleMap.DrawObjects();
+                    $bjs.removeClass("btn-success").addClass("btn-default");
+                }
+            };
+            this.MikeScenarioResetTextSizeOnMap = function ($bjs) {
+                if ($bjs.hasClass("btn-default")) {
+                    $bjs.removeClass("btn-default").addClass("btn-success");
+                    cssp.GoogleMap.MarkerTextLength = 10;
+                }
+                else {
+                    $bjs.removeClass("btn-success").addClass("btn-default");
+                    cssp.GoogleMap.MarkerTextLength = 1;
+                }
+                cssp.GoogleMap.DrawObjects();
+            };
+            this.DrawCharts = function () {
+                var dataMWQMSite = new google.visualization.DataTable();
+                var dataMikeSource = new google.visualization.DataTable();
+                var dateArr = [];
+                var FC = [];
+                var Sal = [];
+                var Temp = [];
+                var Prec = [];
+                var WL = [];
+                var FCValue = [];
+                var SalValue = [];
+                var TempValue = [];
+                var selectedMWQMSite = parseInt($("#MIKEScenarioSelectMWQMSiteID").val());
+                var selectedMikeSource = parseInt($("#MIKEScenarioSelectMikeSourceID").val());
+                var SampleDate = "Date";
+                var hAxisTitle = SampleDate;
+                var ValueOfFC;
+                var ValueOfSal;
+                var ValueOfTemp;
+                var GotValue = false;
+                var DateTimeOfSample;
+                var DoFC = $("input[name='FC']").is(":checked");
+                var DoSal = $("input[name='Sal']").is(":checked");
+                var DoTemp = $("input[name='Temp']").is(":checked");
+                var DoPrec = $("input[name='Prec']").is(":checked");
+                var DoWL = $("input[name='WL']").is(":checked");
+                var ShowArr = [];
+                var Discharge = [];
+                var Concentration = [];
+                ShowArr.push(0); // for Date
+                if (DoFC) {
+                    ShowArr.push(1);
+                    ShowArr.push(6);
+                }
+                if (DoSal) {
+                    ShowArr.push(2);
+                    ShowArr.push(7);
+                }
+                if (DoTemp) {
+                    ShowArr.push(3);
+                    ShowArr.push(8);
+                }
+                if (DoPrec) {
+                    ShowArr.push(4);
+                }
+                if (DoWL) {
+                    ShowArr.push(5);
+                }
+                var MWQMSiteIndex = -1;
+                for (var i = 0; i < cssp.MikeScenario.MIKEResult.MIKEMWQMSiteResultList.length; i++) {
+                    if (cssp.MikeScenario.MIKEResult.MIKEMWQMSiteResultList[i].MWQMSiteTVItemID == selectedMWQMSite) {
+                        MWQMSiteIndex = i;
+                        break;
+                    }
+                }
+                if (MWQMSiteIndex != -1) {
+                    dataMWQMSite.addColumn("date", SampleDate);
+                    dataMWQMSite.addColumn("number", "FC");
+                    dataMWQMSite.addColumn("number", "Sal");
+                    dataMWQMSite.addColumn("number", "Temp");
+                    dataMWQMSite.addColumn("number", "Prec");
+                    dataMWQMSite.addColumn("number", "WL(X10)");
+                    dataMWQMSite.addColumn("number", "FCValue");
+                    dataMWQMSite.addColumn("number", "SalValue");
+                    dataMWQMSite.addColumn("number", "TempValue");
+                    for (var i = 0; i < cssp.MikeScenario.MIKEResult.TimeStepDateTimeList.length; i++) {
+                        dateArr.push(new Date(parseInt(cssp.MikeScenario.MIKEResult.TimeStepDateTimeList[i].toString().substr(6))));
+                    }
+                    FC = cssp.MikeScenario.MIKEResult.MIKEMWQMSiteResultList[MWQMSiteIndex].MIKETransResult.FCList;
+                    Sal = cssp.MikeScenario.MIKEResult.MIKEMWQMSiteResultList[MWQMSiteIndex].MIKEHydroResult.SalinityList;
+                    Temp = cssp.MikeScenario.MIKEResult.MIKEMWQMSiteResultList[MWQMSiteIndex].MIKEHydroResult.TemperatureList;
+                    Prec = cssp.MikeScenario.MIKEResult.MIKEMWQMSiteResultList[MWQMSiteIndex].MIKEHydroResult.PrecipitationList;
+                    WL = cssp.MikeScenario.MIKEResult.MIKEMWQMSiteResultList[MWQMSiteIndex].MIKEHydroResult.SurfaceElevationList;
+                    DateTimeOfSample = new Date(parseInt(cssp.MikeScenario.MIKEResult.MIKEMWQMSiteResultList[MWQMSiteIndex].SampleDateTime.toString().substr(6)));
+                    for (var i = 0; i < cssp.MikeScenario.MIKEResult.TimeStepDateTimeList.length; i++) {
+                        if (i > 0 && dateArr[i] >= DateTimeOfSample && GotValue == false) {
+                            GotValue = true;
+                            ValueOfFC = cssp.MikeScenario.MIKEResult.MIKEMWQMSiteResultList[MWQMSiteIndex].FC;
+                            ValueOfSal = cssp.MikeScenario.MIKEResult.MIKEMWQMSiteResultList[MWQMSiteIndex].Salinity;
+                            ValueOfTemp = cssp.MikeScenario.MIKEResult.MIKEMWQMSiteResultList[MWQMSiteIndex].Temperature;
+                        }
+                        else {
+                            ValueOfFC = null;
+                            ValueOfSal = null;
+                            ValueOfTemp = null;
+                        }
+                        dataMWQMSite.addRow([dateArr[i], FC[i], Sal[i], Temp[i], Prec[i], WL[i] * 10, ValueOfFC, ValueOfSal, ValueOfTemp]);
+                    }
+                    cssp.MikeScenario.DataViewMWQMSite = new google.visualization.DataView(dataMWQMSite);
+                    cssp.MikeScenario.DataViewMWQMSite.setColumns(ShowArr);
+                    var chart = new google.visualization.LineChart($('.MIKEScenarioHydroResultDiv')[0]);
+                    chart.draw(cssp.MikeScenario.DataViewMWQMSite, {
+                        hAxis: { title: hAxisTitle, titleTextStyle: { bold: false, italic: false } },
+                        pointSize: 4,
+                        legend: { position: 'top', maxLines: 2 },
+                        colors: ['#008800', '#aa0000', '#0000aa', '#00ffaa', '#cccccc', '#ffff33', '#0000ff', '#00bbbb'],
+                        width: cssp.MikeScenario.ChartWidth,
+                        height: cssp.MikeScenario.ChartHeight,
+                    });
+                }
+                // ----------------------------------------------------------
+                // source
+                // ----------------------------------------------------------
+                var MikeSourceIndex = -1;
+                for (var i = 0; i < cssp.MikeScenario.MIKEResult.MIKESourceResultList.length; i++) {
+                    if (cssp.MikeScenario.MIKEResult.MIKESourceResultList[i].MWQMSourceTVItemID == selectedMikeSource) {
+                        MikeSourceIndex = i;
+                        break;
+                    }
+                }
+                if (MikeSourceIndex != -1) {
+                    dataMikeSource.addColumn("date", SampleDate);
+                    dataMikeSource.addColumn("number", "Discharge (m3/d)");
+                    dataMikeSource.addColumn("number", "FC (MPN/100 mL)");
+                    Discharge = cssp.MikeScenario.MIKEResult.MIKESourceResultList[MikeSourceIndex].DischargeList;
+                    Concentration = cssp.MikeScenario.MIKEResult.MIKESourceResultList[MikeSourceIndex].FCList;
+                    DateTimeOfSample = new Date(parseInt(cssp.MikeScenario.MIKEResult.MIKEMWQMSiteResultList[MWQMSiteIndex].SampleDateTime.toString().substr(6)));
+                    for (var i = 0; i < cssp.MikeScenario.MIKEResult.TimeStepDateTimeList.length; i++) {
+                        dataMikeSource.addRow([dateArr[i], Discharge[i] * 3600 * 24, Concentration[i]]);
+                    }
+                }
+                cssp.MikeScenario.DataViewMikeSource = new google.visualization.DataView(dataMikeSource);
+                var chart2 = new google.visualization.LineChart($('.MIKEScenarioTransResultDiv')[0]);
+                chart2.draw(cssp.MikeScenario.DataViewMikeSource, {
+                    hAxis: { title: hAxisTitle, titleTextStyle: { bold: false, italic: false } },
+                    pointSize: 4,
+                    legend: { position: 'top', maxLines: 2 },
+                    colors: ['#008800', '#aa0000', '#0000aa'],
+                    width: cssp.MikeScenario.ChartWidth,
+                    height: cssp.MikeScenario.ChartHeight,
+                });
+                //google.visualization.events.addListener(chart, "select", () => {
+                //    if (cssp.MikeScenario.MIKEResult.TimeStepDateTimeList) {
+                //        var RunDate = cssp.MWQMSite.FCView.getValue(chart.getSelection()[0].row, 0);
+                //        cssp.MWQMSite.GetMWQMRunTVItemIDWithDate(RunDate);
+                //    }
+                //});
             };
             this.InitHideAskToRun = function () {
                 $(".jbMikeScenarioAskToRun").removeClass("hidden").addClass("hidden");
@@ -384,6 +562,51 @@ var CSSP;
                     $(evt.target).closest(".MikeScenarioSourceStartEndForm").find("input[name='SourceFlowEnd_m3_day']").val(Flow_m3_d.toString());
                 });
             };
+            this.InitMikeScenarioResultsHTML = function () {
+                var AllMWQMSiteList = [];
+                var AllMWQMSourceList = [];
+                for (var i = 0, count = cssp.MikeScenario.MIKEResult.MIKEMWQMSiteResultList.length; i < count; i++) {
+                    var mikeMWQMSiteResult = cssp.MikeScenario.MIKEResult.MIKEMWQMSiteResultList[i];
+                    var optionText = "<option value=\"" + mikeMWQMSiteResult.MWQMSiteTVItemID + "\">" + mikeMWQMSiteResult.MWQMSiteTVText + "</option>";
+                    AllMWQMSiteList.push(optionText);
+                }
+                for (var i = 0, count = cssp.MikeScenario.MIKEResult.MIKESourceResultList.length; i < count; i++) {
+                    var mikeSourceResult = cssp.MikeScenario.MIKEResult.MIKESourceResultList[i];
+                    var optionText = "<option value=\"" + mikeSourceResult.MWQMSourceTVItemID + "\">" + mikeSourceResult.MWQMSourceTVText + "</option>";
+                    AllMWQMSourceList.push(optionText);
+                }
+                $("#MIKEScenarioSelectMWQMSiteID").html(AllMWQMSiteList.join(" "));
+                $("#MIKEScenarioSelectMikeSourceID").html(AllMWQMSourceList.join(" "));
+                $(document).off("change", "#MIKEScenarioSelectMWQMSiteID");
+                $(document).on("change", $("#MIKEScenarioSelectMWQMSiteID"), function (evt) {
+                    cssp.MikeScenario.DrawCharts();
+                });
+                $(document).off("change", "#MIKEScenarioSelectMikeSourceID");
+                $(document).on("change", $("#MIKEScenarioSelectMikeSourceID"), function (evt) {
+                    cssp.MikeScenario.DrawCharts();
+                });
+                $(document).off("change", ".ParamShow");
+                $(document).on("change", $(".ParamShow"), function (evt) {
+                    cssp.MikeScenario.DrawCharts();
+                });
+                cssp.MikeScenario.DrawCharts();
+            };
+            this.MikeScenarioResizeBiggerWidth = function () {
+                cssp.MikeScenario.ChartWidth += 100;
+                cssp.MikeScenario.DrawCharts();
+            };
+            this.MikeScenarioResizeSmallerWidth = function () {
+                cssp.MikeScenario.ChartWidth -= 100;
+                cssp.MikeScenario.DrawCharts();
+            };
+            this.MikeScenarioResizeBiggerHeight = function () {
+                cssp.MikeScenario.ChartHeight += 100;
+                cssp.MikeScenario.DrawCharts();
+            };
+            this.MikeScenarioResizeSmallerHeight = function () {
+                cssp.MikeScenario.ChartHeight -= 100;
+                cssp.MikeScenario.DrawCharts();
+            };
             this.MikeScenarioCreateWebTideDataWLFromStartToEndDate = function () {
                 var MikeScenarioTVItemID = parseInt($("#ViewDiv").data("tvitemid"));
                 var command = "MikeScenario/MikeScenarioCreateWebTideDataWLFromStartToEndDateJSON";
@@ -575,7 +798,7 @@ var CSSP;
                         MikeScenarioTVItemID: MikeScenarioTVItemID,
                     }).done(function (ret) {
                         cssp.MikeScenario.MIKEResult = ret;
-                        MikeScenarioResultsDiv$.html(JSON.stringify(ret));
+                        cssp.MikeScenario.MikeScenarioGetResultsHTML($bjs);
                     }).fail(function () {
                         cssp.Dialog.ShowDialogErrorWithFail(command_1);
                         return;
@@ -585,6 +808,42 @@ var CSSP;
                     $bjs.removeClass("btn-success").addClass("btn-default");
                     MikeScenarioResultsDiv$.removeClass("hidden").addClass("hidden");
                 }
+            };
+            this.MikeScenarioGetResultsHTML = function ($bjs) {
+                var MikeScenarioResultsDiv$ = $bjs.closest("#MikeScenarioGeneralParametersDiv").find(".MikeScenarioResultsDiv");
+                var MikeScenarioTVItemID = parseInt($("#ViewDiv").data("tvitemid"));
+                var command = "MikeScenario/_mikeScenarioResultsHTML";
+                $.get(cssp.BaseURL + command, {
+                    MikeScenarioTVItemID: MikeScenarioTVItemID,
+                }).done(function (ret) {
+                    MikeScenarioResultsDiv$.html(ret);
+                }).fail(function () {
+                    cssp.Dialog.ShowDialogErrorWithFail(command);
+                    return;
+                });
+            };
+            this.MikeScenarioPrepareResults = function ($bjs) {
+                var MikeScenarioResultsDiv$ = $bjs.closest("#MikeScenarioGeneralParametersDiv").find(".MikeScenarioResultsDiv");
+                var MikeScenarioTVItemID = parseInt($("#ViewDiv").data("tvitemid"));
+                MikeScenarioResultsDiv$.removeClass("hidden");
+                MikeScenarioResultsDiv$.html(cssp.GetHTMLVariable("#LayoutVariables", "varInProgress"));
+                var command = "MikeScenario/MikeScenarioPrepareResultsJSON";
+                $.post(cssp.BaseURL + command, {
+                    MikeScenarioTVItemID: MikeScenarioTVItemID,
+                }).done(function (ret) {
+                    if (ret == "") {
+                        cssp.Helper.PageRefresh();
+                    }
+                    else {
+                        cssp.Dialog.ShowDialogErrorWithError(ret);
+                        MikeScenarioResultsDiv$.removeClass("hidden").addClass("hidden");
+                        cssp.Helper.PageRefresh();
+                    }
+                }).fail(function () {
+                    cssp.Dialog.ShowDialogErrorWithFail(command);
+                    MikeScenarioResultsDiv$.removeClass("hidden").addClass("hidden");
+                    return;
+                });
             };
             this.MikeScenarioResetDrainageArea = function ($bjs) {
                 var MikeSourceTVItemID = parseInt($bjs.data("tvitemid"));

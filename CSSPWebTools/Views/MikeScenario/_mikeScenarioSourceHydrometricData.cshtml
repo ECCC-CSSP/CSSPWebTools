@@ -44,9 +44,9 @@
                     <span class="glyphicon glyphicon-export"></span>
                     &nbsp;&nbsp;@MikeScenarioViewRes.HydrometricSite
                 </a>
-                (@Html.Raw(UnitViewRes.m3PerSecond))
+                (@Html.Raw(UnitViewRes.m3PerSecond)) [@Html.Raw(UnitViewRes.m3PerDay)]
             </th>
-            <th>@MikeScenarioViewRes.River (@Html.Raw(UnitViewRes.m3PerSecond))</th>
+            <th>@MikeScenarioViewRes.River (@Html.Raw(UnitViewRes.m3PerSecond)) [@Html.Raw(UnitViewRes.m3PerDay)]</th>
         </tr>
     </thead>
     <tbody>
@@ -62,8 +62,8 @@
             {
                 <tr @(mwqmRunModel.DateTime_Local.Day == hydrometricDataValueModelList[i].DateTime_Local.Day ? "class=success" : "")>
                     <td>@hydrometricDataValueModelList[i].DateTime_Local.ToString("yyyy MMMM dd")</td>
-                    <td>@(((double)hydrometricDataValueModelList[i].Discharge_m3_s).ToString("F3"))</td>
-                    <td>@(((double)hydrometricDataValueModelSourceCalculatedList[i].Discharge_m3_s).ToString("F3"))</td>
+                    <td>@(((double)hydrometricDataValueModelList[i].Discharge_m3_s).ToString("F3")) [@(((double)hydrometricDataValueModelList[i].Discharge_m3_s*3600*24).ToString("F0"))]</td>
+                    <td>@(((double)hydrometricDataValueModelSourceCalculatedList[i].Discharge_m3_s).ToString("F3")) [@(((double)hydrometricDataValueModelSourceCalculatedList[i].Discharge_m3_s*3600*24).ToString("F0"))]</td>
                 </tr>
             }
         }

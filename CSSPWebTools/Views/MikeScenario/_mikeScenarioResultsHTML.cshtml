@@ -1,0 +1,51 @@
+﻿@using CSSPWebTools.Models;
+@using CSSPWebTools.Views.Shared.Resources;
+@using CSSPWebTools.Views.MikeScenario.Resources;
+@using CSSPEnumsDLL.Enums;
+@using CSSPModelsDLL.Models;
+
+@{
+
+}
+
+<div>
+    <ul class="list-inline">
+        <li>
+            <span>Sites</span><br />
+            <select class="form-control" id="MIKEScenarioSelectMWQMSiteID"></select>
+        </li>
+        <li>
+            <button class="jbMikeScenarioResizeSmallerHeight btn btn-default" title="decrease chart height"><span class="glyphicon glyphicon-resize-small flip-315"></span></button>
+            <button class="jbMikeScenarioResizeBiggerHeight btn btn-default" title="increase chart height"><span class="glyphicon glyphicon-resize-full flip-315"></span></button>
+            <button class="jbMikeScenarioResizeSmallerWidth btn btn-default" title="decrease chart width"><span class="glyphicon glyphicon-resize-small flip-45"></span></button>
+            <button class="jbMikeScenarioResizeBiggerWidth btn btn-default" title="increase chart width"><span class="glyphicon glyphicon-resize-full flip-45"></span></button>
+            <button class="jbMikeScenarioShowMWQMSitesOnMap btn btn-default" title="increase chart width"><span class="glyphicon glyphicon-map-marker"></span></button>
+            <button class="jbMikeScenarioResetTextSizeOnMap btn btn-default" title="increase chart width"><span class="glyphicon glyphicon-text-width"></span></button>
+        </li>
+    </ul>
+    <ul class="list-inline">
+        <li>
+            <input class="ParamShow" type="checkbox" name="FC" checked="checked" /> FC&nbsp;&nbsp;&nbsp;
+            <input class="ParamShow" type="checkbox" name="Sal" checked="checked" /> Sal&nbsp;&nbsp;&nbsp;
+            <input class="ParamShow" type="checkbox" name="Temp" checked="checked" /> Temp&nbsp;&nbsp;&nbsp;
+            <input class="ParamShow" type="checkbox" name="Prec" checked="checked" /> Prec&nbsp;&nbsp;&nbsp;
+            <input class="ParamShow" type="checkbox" name="WL" checked="checked" /> WL(X10)&nbsp;&nbsp;&nbsp;
+        </li>
+    </ul>
+    <br />
+    <div class="MIKEScenarioHydroResultDiv"></div>
+    <ul class="list-inline">
+        <li>
+            <span>Sources</span><br />
+            <select class="form-control" id="MIKEScenarioSelectMikeSourceID"></select>
+        </li>
+    </ul>
+    <div class="MIKEScenarioTransResultDiv"></div>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        cssp.MikeScenario.InitMikeScenarioResultsHTML();
+    });
+</script>
+

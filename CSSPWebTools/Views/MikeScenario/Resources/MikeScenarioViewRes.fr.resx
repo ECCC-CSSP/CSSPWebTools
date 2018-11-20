@@ -941,4 +941,7 @@
   <data name="ShowResults" xml:space="preserve">
     <value>Show Results (fr)</value>
   </data>
+  <data name="PrepareResults" xml:space="preserve">
+    <value>Prepare results (fr)</value>
+  </data>
 </root>

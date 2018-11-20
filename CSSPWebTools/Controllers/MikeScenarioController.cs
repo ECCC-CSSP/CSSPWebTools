@@ -592,7 +592,10 @@ namespace CSSPWebTools.Controllers
 
                 if (mikeScenarioResultModel != null)
                 {
-                    ViewBag.HasMikeScenarioResults = true;
+                    if (!string.IsNullOrWhiteSpace(mikeScenarioResultModel.MikeResultsJSON))
+                    {
+                        ViewBag.HasMikeScenarioResults = true;
+                    }
                 }
 
                 TVItemModel tvItemModelMikeScenario = _TVItemService.GetTVItemModelWithTVItemIDDB(urlModel.TVItemIDList[0]);
@@ -655,6 +658,15 @@ namespace CSSPWebTools.Controllers
                 MikeBoundaryConditionModel mikeBoundaryConditionModelWL = mikeBoundaryConditionModelList.Where(c => c.MikeBoundaryConditionLevelOrVelocity == MikeBoundaryConditionLevelOrVelocityEnum.Level).FirstOrDefault();
                 ViewBag.MikeBoundaryConditionModelWL = mikeBoundaryConditionModelWL;
             }
+
+            return PartialView();
+        }
+
+        [HttpGet]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public PartialViewResult _mikeScenarioResultsHTML(int MikeScenarioTVItemID)
+        {
+            // nothing for now
 
             return PartialView();
         }
@@ -1486,9 +1498,9 @@ namespace CSSPWebTools.Controllers
         }
         [HttpPost]
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
-        public JsonResult PostMikeScenarioResultCreateAndSaveJSON(int MikeScenarioTVItemID)
+        public JsonResult MikeScenarioPrepareResultsJSON(int MikeScenarioTVItemID)
         {
-            AppTaskModel appTaskModel = _MikeScenarioResultService.PostMikeScenarioResultCreateAndSaveDB(MikeScenarioTVItemID);
+            AppTaskModel appTaskModel = _MikeScenarioService.MikeScenarioPrepareResultsDB(MikeScenarioTVItemID);
 
             return Json(appTaskModel.Error, JsonRequestBehavior.AllowGet);
         }

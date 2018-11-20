@@ -846,7 +846,7 @@ var CSSP;
     }());
     CSSP.MIKEResult = MIKEResult;
     var MIKEMWQMSiteResult = (function () {
-        function MIKEMWQMSiteResult(MWQMSiteTVItemID, MWQMSiteTVText, Lat, Lng, ElementLat, ElementLng, SampleDateTime, FC, Salinity, Temperature, MIKEHydroResult, MIKETransResult) {
+        function MIKEMWQMSiteResult(MWQMSiteTVItemID, MWQMSiteTVText, Lat, Lng, ElementLat, ElementLng, SampleDateTime, FC, Salinity, Temperature, TVLocation, MIKEHydroResult, MIKETransResult) {
             this.MWQMSiteTVItemID = MWQMSiteTVItemID;
             this.MWQMSiteTVText = MWQMSiteTVText;
             this.Lat = Lat;
@@ -857,6 +857,7 @@ var CSSP;
             this.FC = FC;
             this.Salinity = Salinity;
             this.Temperature = Temperature;
+            this.TVLocation = TVLocation;
             this.MIKEHydroResult = MIKEHydroResult;
             this.MIKETransResult = MIKETransResult;
         }

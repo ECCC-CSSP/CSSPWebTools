@@ -71,214 +71,9 @@ module CSSP {
             });
         };
         public CreateMarker: Function = (i: number, j: number, k: number, color: string, TVType: CSSP.TVTypeEnum, LatAverage: number, LngAverage: number): void => {
-            //let LineLengthLat: number = 0.001;
-            //let LineLengthLng: number = 0.001;
             let zIndex: number = cssp.GoogleMap.ZIndexPointBase + cssp.GoogleMap.TVItemObjects[i].MapObjList[j].MapInfoID;
             let mark: google.maps.Marker = new google.maps.Marker();
 
-            //if (cssp.GoogleMap.TVItemObjects[i].MapObjList[j].CoordList.length == 2) {
-
-            //    if (cssp.GoogleMap.TVItemObjects[i].TVType == TVTypeEnum.MWQMSite || cssp.GoogleMap.TVItemObjects[i].TVType == TVTypeEnum.PolSourceSite) {
-            //        let AnchorNumber: number = 0;
-            //        if (cssp.GoogleMap.TVItemObjects[i].MapObjList[j].CoordList[k].Lat >= LatAverage && cssp.GoogleMap.TVItemObjects[i].MapObjList[j].CoordList[k].Lng >= LngAverage) {
-            //            AnchorNumber = 7; //BOTTOM_LEFT
-            //            LineLengthLat = LineLengthLat * 1;
-            //            LineLengthLng = LineLengthLng * 1;
-            //        }
-            //        else if (cssp.GoogleMap.TVItemObjects[i].MapObjList[j].CoordList[k].Lat < LatAverage && cssp.GoogleMap.TVItemObjects[i].MapObjList[j].CoordList[k].Lng >= LngAverage) {
-            //            AnchorNumber = 1; //TOP_LEFT
-            //            LineLengthLat = LineLengthLat * -1;
-            //            LineLengthLng = LineLengthLng * 1;
-            //        }
-            //        else if (cssp.GoogleMap.TVItemObjects[i].MapObjList[j].CoordList[k].Lat < LatAverage && cssp.GoogleMap.TVItemObjects[i].MapObjList[j].CoordList[k].Lng < LngAverage) {
-            //            AnchorNumber = 3; //TOP_RIGHT
-            //            LineLengthLat = LineLengthLat * -1;
-            //            LineLengthLng = LineLengthLng * -1;
-            //        }
-            //        else if (cssp.GoogleMap.TVItemObjects[i].MapObjList[j].CoordList[k].Lat > LatAverage && cssp.GoogleMap.TVItemObjects[i].MapObjList[j].CoordList[k].Lng < LngAverage) {
-            //            AnchorNumber = 9; //BOTTOM_RIGHT
-            //            LineLengthLat = LineLengthLat * 1;
-            //            LineLengthLng = LineLengthLng * -1;
-            //        }
-            //        else {
-            //            AnchorNumber = 7; //BOTTOM_LEFT
-            //        }
-
-            //        var CoordList = [];
-            //        CoordList.push(new google.maps.LatLng(cssp.GoogleMap.TVItemObjects[i].MapObjList[j].CoordList[k].Lat, cssp.GoogleMap.TVItemObjects[i].MapObjList[j].CoordList[k].Lng));
-            //        CoordList.push(new google.maps.LatLng(cssp.GoogleMap.TVItemObjects[i].MapObjList[j].CoordList[k].Lat + LineLengthLat, cssp.GoogleMap.TVItemObjects[i].MapObjList[j].CoordList[k].Lng + LineLengthLng));
-            //        let polyl: google.maps.Polyline = new google.maps.Polyline({
-            //            path: CoordList,
-            //            strokeColor: '#9F9',
-            //            strokeOpacity: 1,
-            //            strokeWeight: 1,
-            //            map: cssp.GoogleMap.Map,
-            //            zIndex: zIndex,
-            //        });
-            //        cssp.GoogleMap.MVCObjPolylines.push(polyl);
-            //        let div = document.createElement('div');
-            //        let text = (cssp.GoogleMap.TVItemObjects[i].TVText.length > 0 ?
-            //            (cssp.GoogleMap.TVItemObjects[i].TVText.length <= cssp.GoogleMap.MarkerTextLength
-            //                ? cssp.GoogleMap.TVItemObjects[i].TVText
-            //                : cssp.GoogleMap.TVItemObjects[i].TVText.substring(0, cssp.GoogleMap.MarkerTextLength))
-            //            : "");
-
-            //        div.innerHTML = '<div class="my-other-marker" style="background-color:#' + color + '">' + text + '</div>';
-            //        mark = new RichMarker(
-            //            {
-            //                map: cssp.GoogleMap.Map,
-            //                position: new google.maps.LatLng(cssp.GoogleMap.TVItemObjects[i].MapObjList[j].CoordList[k].Lat + LineLengthLat, cssp.GoogleMap.TVItemObjects[i].MapObjList[j].CoordList[k].Lng + LineLengthLng),
-            //                draggable: true,
-            //                flat: true,
-            //                anchor: AnchorNumber,
-            //                content: div
-            //            });
-            //    }
-            //    else {
-            //        let div = document.createElement('div');
-            //        let text = (cssp.GoogleMap.TVItemObjects[i].TVText.length > 0 ?
-            //            (cssp.GoogleMap.TVItemObjects[i].TVText.length <= cssp.GoogleMap.MarkerTextLength
-            //                ? cssp.GoogleMap.TVItemObjects[i].TVText
-            //                : cssp.GoogleMap.TVItemObjects[i].TVText.substring(0, cssp.GoogleMap.MarkerTextLength))
-            //            : "");
-
-            //        div.innerHTML = '<div class="my-other-marker" style="background-color:#' + color + '">' + text + '</div>';
-            //        mark = new RichMarker(
-            //            {
-            //                map: cssp.GoogleMap.Map,
-            //                position: new google.maps.LatLng(cssp.GoogleMap.TVItemObjects[i].MapObjList[j].CoordList[k].Lat, cssp.GoogleMap.TVItemObjects[i].MapObjList[j].CoordList[k].Lng),
-            //                draggable: true,
-            //                flat: true,
-            //                anchor: 5, //MIDDLE
-            //                content: div
-            //            });
-            //    }
-            //    //var CoordList = [];
-            //    //CoordList.push(new google.maps.LatLng(cssp.GoogleMap.TVItemObjects[i].MapObjList[j].CoordList[k].Lat, cssp.GoogleMap.TVItemObjects[i].MapObjList[j].CoordList[k].Lng));
-            //    //CoordList.push(new google.maps.LatLng(cssp.GoogleMap.TVItemObjects[i].MapObjList[j].CoordList[k + 1].Lat, cssp.GoogleMap.TVItemObjects[i].MapObjList[j].CoordList[k + 1].Lng));
-            //    //let polyl: google.maps.Polyline = new google.maps.Polyline({
-            //    //    path: CoordList,
-            //    //    strokeColor: '#9F9',
-            //    //    strokeOpacity: 1,
-            //    //    strokeWeight: 1,
-            //    //    map: cssp.GoogleMap.Map,
-            //    //    zIndex: zIndex,
-            //    //});
-            //    //cssp.GoogleMap.MVCObjPolylines.push(polyl);
-            //    //mark = new StyledMarker(
-            //    //    {
-            //    //        styleIcon: (new StyledIcon(
-            //    //            StyledIconTypes.BUBBLE,
-            //    //            {
-            //    //                color: color,
-            //    //                text: (cssp.GoogleMap.TVItemObjects[i].TVText.length > 0 ?
-            //    //                    (cssp.GoogleMap.TVItemObjects[i].TVText.length <= cssp.GoogleMap.MarkerTextLength
-            //    //                        ? encodeURIComponent(cssp.GoogleMap.TVItemObjects[i].TVText)
-            //    //                        : encodeURIComponent(cssp.GoogleMap.TVItemObjects[i].TVText.substring(0, cssp.GoogleMap.MarkerTextLength)))
-            //    //                    : ""),
-            //    //            })),
-            //    //        position: new google.maps.LatLng(cssp.GoogleMap.TVItemObjects[i].MapObjList[j].CoordList[k + 1].Lat, cssp.GoogleMap.TVItemObjects[i].MapObjList[j].CoordList[k + 1].Lng),
-            //    //        map: cssp.GoogleMap.Map,
-            //    //        draggable: cssp.GoogleMap.Editing,
-            //    //        raiseOnDrag: true,
-            //    //        zIndex: zIndex,
-            //    //    });
-            //}
-            //else {
-            //    if (cssp.GoogleMap.TVItemObjects[i].TVType == TVTypeEnum.MWQMSite || cssp.GoogleMap.TVItemObjects[i].TVType == TVTypeEnum.PolSourceSite) {
-            //        let AnchorNumber: number = 0;
-            //        if (cssp.GoogleMap.TVItemObjects[i].MapObjList[j].CoordList[k].Lat >= LatAverage && cssp.GoogleMap.TVItemObjects[i].MapObjList[j].CoordList[k].Lng >= LngAverage) {
-            //            AnchorNumber = 7; //BOTTOM_LEFT
-            //            LineLengthLat = LineLengthLat * 1;
-            //            LineLengthLng = LineLengthLng * 1;
-            //        }
-            //        else if (cssp.GoogleMap.TVItemObjects[i].MapObjList[j].CoordList[k].Lat < LatAverage && cssp.GoogleMap.TVItemObjects[i].MapObjList[j].CoordList[k].Lng >= LngAverage) {
-            //            AnchorNumber = 1; //TOP_LEFT
-            //            LineLengthLat = LineLengthLat * -1;
-            //            LineLengthLng = LineLengthLng * 1;
-            //        }
-            //        else if (cssp.GoogleMap.TVItemObjects[i].MapObjList[j].CoordList[k].Lat < LatAverage && cssp.GoogleMap.TVItemObjects[i].MapObjList[j].CoordList[k].Lng < LngAverage) {
-            //            AnchorNumber = 3; //TOP_RIGHT
-            //            LineLengthLat = LineLengthLat * -1;
-            //            LineLengthLng = LineLengthLng * -1;
-            //        }
-            //        else if (cssp.GoogleMap.TVItemObjects[i].MapObjList[j].CoordList[k].Lat > LatAverage && cssp.GoogleMap.TVItemObjects[i].MapObjList[j].CoordList[k].Lng < LngAverage) {
-            //            AnchorNumber = 9; //BOTTOM_RIGHT
-            //            LineLengthLat = LineLengthLat * 1;
-            //            LineLengthLng = LineLengthLng * -1;
-            //        }
-            //        else {
-            //            AnchorNumber = 7; //BOTTOM_LEFT
-            //        }
-
-            //        var CoordList = [];
-            //        CoordList.push(new google.maps.LatLng(cssp.GoogleMap.TVItemObjects[i].MapObjList[j].CoordList[k].Lat, cssp.GoogleMap.TVItemObjects[i].MapObjList[j].CoordList[k].Lng));
-            //        CoordList.push(new google.maps.LatLng(cssp.GoogleMap.TVItemObjects[i].MapObjList[j].CoordList[k].Lat + LineLengthLat, cssp.GoogleMap.TVItemObjects[i].MapObjList[j].CoordList[k].Lng + LineLengthLng));
-            //        let polyl: google.maps.Polyline = new google.maps.Polyline({
-            //            path: CoordList,
-            //            strokeColor: '#9F9',
-            //            strokeOpacity: 1,
-            //            strokeWeight: 1,
-            //            map: cssp.GoogleMap.Map,
-            //            zIndex: zIndex,
-            //        });
-            //        cssp.GoogleMap.MVCObjPolylines.push(polyl);
-            //        let div = document.createElement('div');
-            //        let text = (cssp.GoogleMap.TVItemObjects[i].TVText.length > 0 ?
-            //            (cssp.GoogleMap.TVItemObjects[i].TVText.length <= cssp.GoogleMap.MarkerTextLength
-            //                ? cssp.GoogleMap.TVItemObjects[i].TVText
-            //                : cssp.GoogleMap.TVItemObjects[i].TVText.substring(0, cssp.GoogleMap.MarkerTextLength))
-            //            : "");
-
-            //        div.innerHTML = '<div class="my-other-marker" style="background-color:#' + color + '">' + text + '</div>';
-            //        mark = new RichMarker(
-            //            {
-            //                map: cssp.GoogleMap.Map,
-            //                position: new google.maps.LatLng(cssp.GoogleMap.TVItemObjects[i].MapObjList[j].CoordList[k].Lat + LineLengthLat, cssp.GoogleMap.TVItemObjects[i].MapObjList[j].CoordList[k].Lng + LineLengthLng),
-            //                draggable: true,
-            //                flat: true,
-            //                anchor: AnchorNumber,
-            //                content: div
-            //            });
-            //    }
-            //    else {
-            //        let div = document.createElement('div');
-            //        let text = (cssp.GoogleMap.TVItemObjects[i].TVText.length > 0 ?
-            //            (cssp.GoogleMap.TVItemObjects[i].TVText.length <= cssp.GoogleMap.MarkerTextLength
-            //                ? cssp.GoogleMap.TVItemObjects[i].TVText
-            //                : cssp.GoogleMap.TVItemObjects[i].TVText.substring(0, cssp.GoogleMap.MarkerTextLength))
-            //            : "");
-
-            //        div.innerHTML = '<div class="my-other-marker" style="background-color:#' + color + '">' + text + '</div>';
-            //        mark = new RichMarker(
-            //            {
-            //                map: cssp.GoogleMap.Map,
-            //                position: new google.maps.LatLng(cssp.GoogleMap.TVItemObjects[i].MapObjList[j].CoordList[k].Lat, cssp.GoogleMap.TVItemObjects[i].MapObjList[j].CoordList[k].Lng),
-            //                draggable: true,
-            //                flat: true,
-            //                anchor: 5, //MIDDLE
-            //                content: div
-            //            });
-            //    }
-            //    //mark = new StyledMarker(
-            //    //    {
-            //    //        styleIcon: (new StyledIcon(
-            //    //            StyledIconTypes.BUBBLE,
-            //    //            {
-            //    //                color: color,
-            //    //                text: (cssp.GoogleMap.TVItemObjects[i].TVText.length > 0 ?
-            //    //                    (cssp.GoogleMap.TVItemObjects[i].TVText.length <= cssp.GoogleMap.MarkerTextLength
-            //    //                        ? encodeURIComponent(cssp.GoogleMap.TVItemObjects[i].TVText)
-            //    //                        : encodeURIComponent(cssp.GoogleMap.TVItemObjects[i].TVText.substring(0, cssp.GoogleMap.MarkerTextLength)))
-            //    //                    : ""),
-            //    //            })),
-            //    //        position: new google.maps.LatLng(cssp.GoogleMap.TVItemObjects[i].MapObjList[j].CoordList[k].Lat, cssp.GoogleMap.TVItemObjects[i].MapObjList[j].CoordList[k].Lng),
-            //    //        map: cssp.GoogleMap.Map,
-            //    //        draggable: cssp.GoogleMap.Editing,
-            //    //        raiseOnDrag: true,
-            //    //        zIndex: zIndex,
-            //    //    });
-            //}
             mark = new StyledMarker(
                 {
                     styleIcon: (new StyledIcon(
@@ -1648,13 +1443,13 @@ module CSSP {
 
             cssp.GoogleMap.LegendArr = [];
             cssp.GoogleMap.TVItemObjects = [];
-            var mapItems: Array<CSSP.tvLocation> = [];
-            var command: string = "Map/GetMapInfoJSON";
+            let mapItems: Array<CSSP.tvLocation> = [];
+            let command: string = "Map/GetMapInfoJSON";
             $.get(cssp.BaseURL + command, {
                 Q: cssp.Variables.URL,
             }).done((ret: Array<CSSP.tvLocation>) => {
                 $.map(ret, (item) => {
-                    var tvLoc: CSSP.tvLocation = new CSSP.tvLocation(item.TVItemID, item.TVText, item.TVType, item.SubTVType, item.MapObjList);
+                    let tvLoc: CSSP.tvLocation = new CSSP.tvLocation(item.TVItemID, item.TVText, item.TVType, item.SubTVType, item.MapObjList);
                     mapItems.push(tvLoc);
                 });
                 cssp.GoogleMap.FillTVItemObjects(mapItems, Recenter);
