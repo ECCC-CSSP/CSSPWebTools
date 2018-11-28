@@ -32,59 +32,60 @@
 
 @helper ShowReportSectionRecursive(ReportSectionModel reportSectionModel, List<ReportSectionModel> reportSectionModelList)
     {
-        string IsStaticjbCommand = reportSectionModel.IsStatic ? "jbReportSectionIsNotStatic" : "jbReportSectionIsStatic";
-        string IsStaticText = ReportTypeViewRes.ClickHereToChangeTo + " " + (reportSectionModel.IsStatic ? ReportTypeViewRes.IsNotStatic : ReportTypeViewRes.IsStatic);
-        string IsStaticButtonText = reportSectionModel.IsStatic ? ReportTypeViewRes.IsStatic : ReportTypeViewRes.IsNotStatic;
-        bool ShowConvertToSubSection = true;  // only visible if it has a sibling just above this ReportSection
-        bool ShowConvertToParent = true; // only visible if it has a parent just above this ReportSection
-        bool ShowMoveDown = true; // only visible if it has a sibling just below this ReportSection
-        bool ShowMoveUp = true; // only visible if it has a sibling just above this ReportSection
-        bool ShowDelete = true; // only visible if there are no child, will also be visible if there are some TemplateReportSectionID link to it
-        string DisableText = "";  // is set to true if there are some TemplateReportSectionID link to it
+string IsStaticjbCommand = reportSectionModel.IsStatic ? "jbReportSectionIsNotStatic" : "jbReportSectionIsStatic";
+string IsStaticButtonClass = reportSectionModel.IsStatic ? "default" : "success";
+string IsStaticText = ReportTypeViewRes.ClickHereToChangeTo + " " + (reportSectionModel.IsStatic ? ReportTypeViewRes.IsNotStatic : ReportTypeViewRes.IsStatic);
+string IsStaticButtonText = reportSectionModel.IsStatic ? ReportTypeViewRes.IsStatic : ReportTypeViewRes.IsNotStatic;
+bool ShowConvertToSubSection = true;  // only visible if it has a sibling just above this ReportSection
+bool ShowConvertToParent = true; // only visible if it has a parent just above this ReportSection
+bool ShowMoveDown = true; // only visible if it has a sibling just below this ReportSection
+bool ShowMoveUp = true; // only visible if it has a sibling just above this ReportSection
+bool ShowDelete = true; // only visible if there are no child, will also be visible if there are some TemplateReportSectionID link to it
+string DisableText = "";  // is set to true if there are some TemplateReportSectionID link to it
 
-        if (reportSectionModelList.Where(c => c.ParentReportSectionID == reportSectionModel.ReportSectionID).Any())
-        {
-            ShowDelete = false;
-        }
+if (reportSectionModelList.Where(c => c.ParentReportSectionID == reportSectionModel.ReportSectionID).Any())
+{
+    ShowDelete = false;
+}
 
-        if (reportSectionModelList.Where(c => c.TemplateReportSectionID == reportSectionModel.ReportSectionID).Any())
-        {
-            DisableText = "disabled='disabled'";
-        }
+if (reportSectionModelList.Where(c => c.TemplateReportSectionID == reportSectionModel.ReportSectionID).Any())
+{
+    DisableText = "disabled='disabled'";
+}
 
-        // checking if sibling exist just above
-        List<ReportSectionModel> reportSectionSibling = reportSectionModelList.Where(c => c.ParentReportSectionID == reportSectionModel.ParentReportSectionID).OrderBy(c => c.Ordinal).ToList();
-        for (int i = 0, count = reportSectionSibling.Count; i < count; i++)
+// checking if sibling exist just above
+List<ReportSectionModel> reportSectionSibling = reportSectionModelList.Where(c => c.ParentReportSectionID == reportSectionModel.ParentReportSectionID).OrderBy(c => c.Ordinal).ToList();
+for (int i = 0, count = reportSectionSibling.Count; i < count; i++)
+{
+    if (reportSectionSibling[i].ReportSectionID == reportSectionModel.ReportSectionID)
+    {
+        if (i == 0)
         {
-            if (reportSectionSibling[i].ReportSectionID == reportSectionModel.ReportSectionID)
-            {
-                if (i == 0)
-                {
-                    ShowConvertToSubSection = false;
-                    ShowMoveUp = false;
-                    break;
-                }
-            }
+            ShowConvertToSubSection = false;
+            ShowMoveUp = false;
+            break;
         }
-        for (int i = 0, count = reportSectionSibling.Count; i < count; i++)
+    }
+}
+for (int i = 0, count = reportSectionSibling.Count; i < count; i++)
+{
+    if (reportSectionSibling[i].ParentReportSectionID == null)
+    {
+        ShowConvertToParent = false;
+        break;
+    }
+}
+for (int i = 0, count = reportSectionSibling.Count; i < count; i++)
+{
+    if (reportSectionSibling[i].ReportSectionID == reportSectionModel.ReportSectionID)
+    {
+        if (i == count - 1)
         {
-            if (reportSectionSibling[i].ParentReportSectionID == null)
-            {
-                ShowConvertToParent = false;
-                break;
-            }
+            ShowMoveDown = false;
+            break;
         }
-        for (int i = 0, count = reportSectionSibling.Count; i < count; i++)
-        {
-            if (reportSectionSibling[i].ReportSectionID == reportSectionModel.ReportSectionID)
-            {
-                if (i == count - 1)
-                {
-                    ShowMoveDown = false;
-                    break;
-                }
-            }
-        }
+    }
+}
 
         <div class="ReportSectionTop panel panel-info" data-reportsectionid="@reportSectionModel.ReportSectionID">
             <div class="panel-heading">
@@ -121,7 +122,7 @@
                                 <span class="glyphicon glyphicon-arrow-left"></span>
                             </button><span>&nbsp;&nbsp;&nbsp;</span>
                         }
-                        <button class="@(IsStaticjbCommand) btn btn-default" title="@(IsStaticText)">
+                        <button class="@(IsStaticjbCommand) btn btn-@(IsStaticButtonClass)" title="@(IsStaticText)">
                             @IsStaticButtonText
                         </button>&nbsp;&nbsp;&nbsp;
                         @if (ShowMoveDown)
