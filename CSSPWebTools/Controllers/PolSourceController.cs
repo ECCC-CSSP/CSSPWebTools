@@ -556,9 +556,9 @@ namespace CSSPWebTools.Controllers
         }
         [HttpPost]
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
-        public JsonResult SavePSSTVTextJSON(int TVItemID, string TVText, string AdminEmail)
+        public JsonResult SavePSSTVTextAndIsActiveJSON(int TVItemID, string TVText, bool IsActive, string AdminEmail)
         {
-            TVItemModel tvItemModel = _PolSourceSiteInputToolService.SavePSSTVTextDB(TVItemID, TVText, AdminEmail);
+            TVItemModel tvItemModel = _PolSourceSiteInputToolService.SavePSSTVTextAndIsActiveDB(TVItemID, TVText, IsActive, AdminEmail);
 
             return Json(tvItemModel.Error, JsonRequestBehavior.AllowGet);
         }
