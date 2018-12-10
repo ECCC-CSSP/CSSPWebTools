@@ -1,6 +1,6 @@
 var CSSP;
 (function (CSSP) {
-    var MWQMRun = (function () {
+    var MWQMRun = /** @class */ (function () {
         // Constructors
         function MWQMRun() {
             var _this = this;
@@ -142,7 +142,9 @@ var CSSP;
                                 min: -1,
                                 max: 2000,
                             },
-                            LabValidateDateYear: {},
+                            LabValidateDateYear: {
+                            //required: true,
+                            },
                             LabValidateDateMonth: {
                                 min: 1,
                                 max: 12,

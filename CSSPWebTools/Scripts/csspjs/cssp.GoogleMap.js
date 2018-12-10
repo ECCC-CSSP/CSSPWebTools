@@ -1,6 +1,6 @@
 var CSSP;
 (function (CSSP) {
-    var GoogleMap = (function () {
+    var GoogleMap = /** @class */ (function () {
         // Function
         function GoogleMap() {
             // Variables
@@ -761,7 +761,7 @@ var CSSP;
                                         // Get direction of the segment
                                         var heading = spherical.computeHeading(F, T);
                                         var dist = 50; // distance in meters
-                                        // Place point A that is oriented at 90° in a distance of dist from M
+                                        // Place point A that is oriented at 90� in a distance of dist from M
                                         var A = spherical.computeOffset(M, dist, heading + 90);
                                         var perpendicularCoordinates = [F, T, A, F];
                                         var polyg = new google.maps.Polygon({

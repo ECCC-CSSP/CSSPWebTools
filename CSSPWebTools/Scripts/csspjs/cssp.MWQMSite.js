@@ -1,6 +1,6 @@
 var CSSP;
 (function (CSSP) {
-    var MWQMSite = (function () {
+    var MWQMSite = /** @class */ (function () {
         // Constructors
         function MWQMSite() {
             var _this = this;
@@ -347,6 +347,10 @@ var CSSP;
                         cssp.Dialog.ShowDialogErrorWithFail(command_1);
                     });
                 }
+                //else if (value == "View") {
+                //    cssp.Dialog.ShowDialogMessage("Export to Excel not implemented yet");
+                //    return;
+                //}
                 else {
                     //let MWQMAnalysisReportParameterID: number = parseInt(value);
                     //$(".jbMWQMSubsectorAnalysisSaveCreateOrExportToExcel").html(cssp.GetHTMLVariable("#LayoutVariables", "varView"));
@@ -432,6 +436,10 @@ var CSSP;
                         cssp.Dialog.ShowDialogErrorWithFail(command_2);
                     });
                 }
+                //else if (value == "View") {
+                //    cssp.Dialog.ShowDialogMessage("Export to Excel not implemented yet");
+                //    return;
+                //}
                 else {
                     var MWQMAnalysisReportParameterID_1 = parseInt(value);
                     $(".jbMWQMSubsectorAnalysisSaveCreateOrExportToExcel").html(cssp.GetHTMLVariable("#LayoutVariables", "varView"));
