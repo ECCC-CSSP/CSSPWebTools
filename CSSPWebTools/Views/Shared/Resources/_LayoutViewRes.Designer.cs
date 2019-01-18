@@ -970,6 +970,15 @@ namespace CSSPWebTools.Views.Shared.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to See Other.
+        /// </summary>
+        public static string SeeOther {
+            get {
+                return ResourceManager.GetString("SeeOther", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Start Date Is Bigger Than End Date.
         /// </summary>
         public static string StartDateIsBiggerThanEndDate {

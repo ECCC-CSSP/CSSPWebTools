@@ -1,6 +1,6 @@
 var CSSP;
 (function (CSSP) {
-    var ClimateSiteUseOfSiteOrdinal = /** @class */ (function () {
+    var ClimateSiteUseOfSiteOrdinal = (function () {
         function ClimateSiteUseOfSiteOrdinal(UseOfSiteID, Ordinal) {
             this.UseOfSiteID = UseOfSiteID;
             this.Ordinal = Ordinal;
@@ -8,7 +8,7 @@ var CSSP;
         return ClimateSiteUseOfSiteOrdinal;
     }());
     CSSP.ClimateSiteUseOfSiteOrdinal = ClimateSiteUseOfSiteOrdinal;
-    var ClimateSiteTVItemIDYearsText = /** @class */ (function () {
+    var ClimateSiteTVItemIDYearsText = (function () {
         function ClimateSiteTVItemIDYearsText(ClimateSiteTVItemID, YearsText) {
             this.ClimateSiteTVItemID = ClimateSiteTVItemID;
             this.YearsText = YearsText;
@@ -16,7 +16,7 @@ var CSSP;
         return ClimateSiteTVItemIDYearsText;
     }());
     CSSP.ClimateSiteTVItemIDYearsText = ClimateSiteTVItemIDYearsText;
-    var HydrometricSiteUseOfSiteOrdinal = /** @class */ (function () {
+    var HydrometricSiteUseOfSiteOrdinal = (function () {
         function HydrometricSiteUseOfSiteOrdinal(UseOfSiteID, Ordinal) {
             this.UseOfSiteID = UseOfSiteID;
             this.Ordinal = Ordinal;
@@ -24,7 +24,7 @@ var CSSP;
         return HydrometricSiteUseOfSiteOrdinal;
     }());
     CSSP.HydrometricSiteUseOfSiteOrdinal = HydrometricSiteUseOfSiteOrdinal;
-    var HydrometricSiteTVItemIDYearsText = /** @class */ (function () {
+    var HydrometricSiteTVItemIDYearsText = (function () {
         function HydrometricSiteTVItemIDYearsText(HydrometricSiteTVItemID, YearsText) {
             this.HydrometricSiteTVItemID = HydrometricSiteTVItemID;
             this.YearsText = YearsText;
@@ -32,7 +32,7 @@ var CSSP;
         return HydrometricSiteTVItemIDYearsText;
     }());
     CSSP.HydrometricSiteTVItemIDYearsText = HydrometricSiteTVItemIDYearsText;
-    var MWQMSubsectorAnalysisModel = /** @class */ (function () {
+    var MWQMSubsectorAnalysisModel = (function () {
         function MWQMSubsectorAnalysisModel(mwqmSubsectorModel, mwqmSiteAnalysisModelList, mwqmRunAnalysisModelList) {
             this.mwqmSubsectorModel = mwqmSubsectorModel;
             this.mwqmSiteAnalysisModelList = mwqmSiteAnalysisModelList;
@@ -42,7 +42,7 @@ var CSSP;
         return MWQMSubsectorAnalysisModel;
     }());
     CSSP.MWQMSubsectorAnalysisModel = MWQMSubsectorAnalysisModel;
-    var MWQMSubsectorModel = /** @class */ (function () {
+    var MWQMSubsectorModel = (function () {
         function MWQMSubsectorModel(MWQMSubsectorTVItemID, ShortRangeEnd, MidRangeEnd, UpperRainLimitStillConsideredDry1, UpperRainLimitStillConsideredDry2, UpperRainLimitStillConsideredDry3, UpperRainLimitStillConsideredDry4, LowerRainLimitConsideredRain1, LowerRainLimitConsideredRain2, LowerRainLimitConsideredRain3, LowerRainLimitConsideredRain4, StartDate, EndDate, Runs, CalculationDataType, SelectFullYear, StartYear, EndYear) {
             this.MWQMSubsectorTVItemID = MWQMSubsectorTVItemID;
             this.ShortRangeEnd = ShortRangeEnd;
@@ -67,7 +67,7 @@ var CSSP;
         return MWQMSubsectorModel;
     }());
     CSSP.MWQMSubsectorModel = MWQMSubsectorModel;
-    var MWQMSiteAnalysisModel = /** @class */ (function () {
+    var MWQMSiteAnalysisModel = (function () {
         function MWQMSiteAnalysisModel(SiteIndex, MWQMSiteTVItemID, Samples, StartYear, EndYear, MinFC, MaxFC, GMean, Median, P90, PercOver43, PercOver260, mwqmSampleAnalysisModel, colorAndLetter, isActive) {
             this.SiteIndex = SiteIndex;
             this.MWQMSiteTVItemID = MWQMSiteTVItemID;
@@ -89,7 +89,7 @@ var CSSP;
         return MWQMSiteAnalysisModel;
     }());
     CSSP.MWQMSiteAnalysisModel = MWQMSiteAnalysisModel;
-    var MWQMRunAnalysisModel = /** @class */ (function () {
+    var MWQMRunAnalysisModel = (function () {
         function MWQMRunAnalysisModel(RunIndex, MWQMRunTVItemID, IsOKRun, RemoveFromStat, RunDate, RainDay0, RainDay1, RainDay2, RainDay3, RainDay4, RainDay5, RainDay6, RainDay7, RainDay8, RainDay9, RainDay10, StartTide, EndTide, UseInStat, RunYear) {
             this.RunIndex = RunIndex;
             this.MWQMRunTVItemID = MWQMRunTVItemID;
@@ -116,7 +116,7 @@ var CSSP;
         return MWQMRunAnalysisModel;
     }());
     CSSP.MWQMRunAnalysisModel = MWQMRunAnalysisModel;
-    var MWQMSampleAnalysisModel = /** @class */ (function () {
+    var MWQMSampleAnalysisModel = (function () {
         function MWQMSampleAnalysisModel(SiteIndex, RunIndex, MWQMRunTVItemID, RunSampleTypeText, FC, Temp, Sal, GeoMean, Median, P90, PercOver43, PercOver260, SampleDate, UseInStat, SampleYear) {
             this.SiteIndex = SiteIndex;
             this.RunIndex = RunIndex;
@@ -138,7 +138,7 @@ var CSSP;
         return MWQMSampleAnalysisModel;
     }());
     CSSP.MWQMSampleAnalysisModel = MWQMSampleAnalysisModel;
-    var ValRun = /** @class */ (function () {
+    var ValRun = (function () {
         function ValRun(val, run) {
             this.val = val;
             this.run = run;
@@ -146,7 +146,7 @@ var CSSP;
         return ValRun;
     }());
     CSSP.ValRun = ValRun;
-    var ColorAndLetter = /** @class */ (function () {
+    var ColorAndLetter = (function () {
         function ColorAndLetter(color, letter) {
             this.color = color;
             this.letter = letter;
@@ -154,7 +154,7 @@ var CSSP;
         return ColorAndLetter;
     }());
     CSSP.ColorAndLetter = ColorAndLetter;
-    var RunsToRemoveFromStat = /** @class */ (function () {
+    var RunsToRemoveFromStat = (function () {
         function RunsToRemoveFromStat(RemoveFromStat, MWQMRunTVItemID) {
             this.RemoveFromStat = RemoveFromStat;
             this.MWQMRunTVItemID = MWQMRunTVItemID;
@@ -162,7 +162,7 @@ var CSSP;
         return RunsToRemoveFromStat;
     }());
     CSSP.RunsToRemoveFromStat = RunsToRemoveFromStat;
-    var UseRunAndRainValue = /** @class */ (function () {
+    var UseRunAndRainValue = (function () {
         function UseRunAndRainValue(UseRun, RainValue) {
             this.UseRun = UseRun;
             this.RainValue = RainValue;
@@ -200,7 +200,7 @@ var CSSP;
     //    UnderWhereYouAre,  // u:
     //    NoTag,             // no tag
     //}                      
-    var LegendElem = /** @class */ (function () {
+    var LegendElem = (function () {
         function LegendElem(TVType, Color, LegendText) {
             this.TVType = TVType;
             this.Color = Color;
@@ -209,7 +209,7 @@ var CSSP;
         return LegendElem;
     }());
     CSSP.LegendElem = LegendElem;
-    var TVTypeTVAuth = /** @class */ (function () {
+    var TVTypeTVAuth = (function () {
         function TVTypeTVAuth(TVTypeUserAuthID, TVType, TVPath, TVAuth, Level) {
             this.TVTypeUserAuthID = TVTypeUserAuthID;
             this.TVType = TVType;
@@ -220,7 +220,7 @@ var CSSP;
         return TVTypeTVAuth;
     }());
     CSSP.TVTypeTVAuth = TVTypeTVAuth;
-    var TVItemTVAuth = /** @class */ (function () {
+    var TVItemTVAuth = (function () {
         function TVItemTVAuth(TVItemUserAuthID, TVText, TVItemID1, TVTypeStr, TVAuth) {
             this.TVItemUserAuthID = TVItemUserAuthID;
             this.TVText = TVText;
@@ -231,7 +231,7 @@ var CSSP;
         return TVItemTVAuth;
     }());
     CSSP.TVItemTVAuth = TVItemTVAuth;
-    var TVTypeNamesAndTVPath = /** @class */ (function () {
+    var TVTypeNamesAndTVPath = (function () {
         function TVTypeNamesAndTVPath(TVTypeName, Index, TVPath, ParentIndex) {
             this.TVTypeName = TVTypeName;
             this.Index = Index;
@@ -241,7 +241,7 @@ var CSSP;
         return TVTypeNamesAndTVPath;
     }());
     CSSP.TVTypeNamesAndTVPath = TVTypeNamesAndTVPath;
-    var ContactModel = /** @class */ (function () {
+    var ContactModel = (function () {
         function ContactModel(ContactTVItemID, Disabled, LoginEmail) {
             this.ContactTVItemID = ContactTVItemID;
             this.Disabled = Disabled;
@@ -250,7 +250,7 @@ var CSSP;
         return ContactModel;
     }());
     CSSP.ContactModel = ContactModel;
-    var ContactSearchModel = /** @class */ (function () {
+    var ContactSearchModel = (function () {
         function ContactSearchModel(ContactTVItemID, FullName) {
             this.ContactTVItemID = ContactTVItemID;
             this.FullName = FullName;
@@ -258,7 +258,7 @@ var CSSP;
         return ContactSearchModel;
     }());
     CSSP.ContactSearchModel = ContactSearchModel;
-    var LoginModel = /** @class */ (function () {
+    var LoginModel = (function () {
         function LoginModel(Error, Email, ReturnURL) {
             this.Error = Error;
             this.Email = Email;
@@ -267,7 +267,7 @@ var CSSP;
         return LoginModel;
     }());
     CSSP.LoginModel = LoginModel;
-    var DialogModel = /** @class */ (function () {
+    var DialogModel = (function () {
         function DialogModel(DialogModelType, Title, Message) {
             this.DialogModelType = DialogModelType;
             this.Title = Title;
@@ -304,7 +304,7 @@ var CSSP;
         InfrastructureTypeEnum[InfrastructureTypeEnum["Other"] = 3] = "Other";
         InfrastructureTypeEnum[InfrastructureTypeEnum["SeeOther"] = 4] = "SeeOther";
     })(InfrastructureTypeEnum = CSSP.InfrastructureTypeEnum || (CSSP.InfrastructureTypeEnum = {}));
-    var Variables = /** @class */ (function () {
+    var Variables = (function () {
         function Variables() {
             this.URL = "";
             this.LoginEmail = "";
@@ -354,7 +354,7 @@ var CSSP;
         URLVarYearEnum[URLVarYearEnum["ShowMWQMSiteWithDataAfterYear"] = 0] = "ShowMWQMSiteWithDataAfterYear";
         URLVarYearEnum[URLVarYearEnum["ShowMWQMSiteChartFromYear"] = 1] = "ShowMWQMSiteChartFromYear";
     })(URLVarYearEnum = CSSP.URLVarYearEnum || (CSSP.URLVarYearEnum = {}));
-    var ButtonCreationModel = /** @class */ (function () {
+    var ButtonCreationModel = (function () {
         function ButtonCreationModel(className, iconNamePrimary, iconNameSecondary, keepText) {
             this.className = className;
             this.iconNamePrimary = iconNamePrimary;
@@ -364,7 +364,7 @@ var CSSP;
         return ButtonCreationModel;
     }());
     CSSP.ButtonCreationModel = ButtonCreationModel;
-    var PinObjectModel = /** @class */ (function () {
+    var PinObjectModel = (function () {
         function PinObjectModel(ImageSrc, LegendText, TVType, SubTVText, IsUsed) {
             this.ImageSrc = ImageSrc;
             this.LegendText = LegendText;
@@ -382,7 +382,7 @@ var CSSP;
         DrawTypeEnum[DrawTypeEnum["Polyline"] = 2] = "Polyline";
         DrawTypeEnum[DrawTypeEnum["Polygon"] = 3] = "Polygon";
     })(DrawTypeEnum = CSSP.DrawTypeEnum || (CSSP.DrawTypeEnum = {}));
-    var Coord = /** @class */ (function () {
+    var Coord = (function () {
         function Coord(Lat, Lng, Ordinal) {
             this.Lat = Lat;
             this.Lng = Lng;
@@ -391,7 +391,7 @@ var CSSP;
         return Coord;
     }());
     CSSP.Coord = Coord;
-    var MapObj = /** @class */ (function () {
+    var MapObj = (function () {
         function MapObj(MapInfoID, MapInfoDrawType, CoordList) {
             this.MapInfoID = MapInfoID;
             this.MapInfoDrawType = MapInfoDrawType;
@@ -400,7 +400,7 @@ var CSSP;
         return MapObj;
     }());
     CSSP.MapObj = MapObj;
-    var tvLocation = /** @class */ (function () {
+    var tvLocation = (function () {
         function tvLocation(TVItemID, TVText, TVType, SubTVType, MapObjList) {
             this.TVItemID = TVItemID;
             this.TVText = TVText;
@@ -411,7 +411,7 @@ var CSSP;
         return tvLocation;
     }());
     CSSP.tvLocation = tvLocation;
-    var polSourceSiteObsModel = /** @class */ (function () {
+    var polSourceSiteObsModel = (function () {
         // Constructor
         function polSourceSiteObsModel(PolSourceObservationID, Error, PolSourceSiteID, siteid, ObservationDate, InspectorName, PolTypeText, PolTypeAcronym, PolStatusText, PolStatusAcronym, PolRiskText, PolRiskAcronym, ObservationText, IsPointSource, IsActive) {
             this.PolSourceObservationID = PolSourceObservationID;
@@ -443,7 +443,7 @@ var CSSP;
         return polSourceSiteObsModel;
     }());
     CSSP.polSourceSiteObsModel = polSourceSiteObsModel;
-    var polSourceSiteModel = /** @class */ (function () {
+    var polSourceSiteModel = (function () {
         function polSourceSiteModel(PolSourceSiteID, TVText, TypeText, TVPath, Error, BCKey, QCKey, Site, ActiveStartDate, ActiveEndDate, Latitude, Longitude) {
             this.PolSourceSiteID = PolSourceSiteID;
             this.TVText = TVText;
@@ -473,7 +473,7 @@ var CSSP;
         return polSourceSiteModel;
     }());
     CSSP.polSourceSiteModel = polSourceSiteModel;
-    var mwqmSampleModel = /** @class */ (function () {
+    var mwqmSampleModel = (function () {
         function mwqmSampleModel(MWQMSampleID, Error, MWQMRunID, MWQMSiteID, SampleDateTime, DO_mg_L, FecCol_MPN_100ml, Salinity_PPT, WaterTemp_C) {
             this.MWQMSampleID = MWQMSampleID;
             this.Error = Error;
@@ -498,7 +498,7 @@ var CSSP;
         return mwqmSampleModel;
     }());
     CSSP.mwqmSampleModel = mwqmSampleModel;
-    var mwqmSiteModel = /** @class */ (function () {
+    var mwqmSiteModel = (function () {
         function mwqmSiteModel(MWQMSiteID, TVText, TypeText, TVPath, Error, SiteNumber, SiteName, ActiveStartDate, ActiveEndDate, Latitude, Longitude) {
             this.MWQMSiteID = MWQMSiteID;
             this.TVText = TVText;
@@ -527,7 +527,7 @@ var CSSP;
         return mwqmSiteModel;
     }());
     CSSP.mwqmSiteModel = mwqmSiteModel;
-    var mwqmRunModel = /** @class */ (function () {
+    var mwqmRunModel = (function () {
         function mwqmRunModel(MWQMRunID, TVText, TypeText, TVPath, Error, RunNumber, StartDate, EndDate, TideStart, TideEnd, Note, RainDay1, RainDay2, RainDay3) {
             this.MWQMRunID = MWQMRunID;
             this.TVText = TVText;
@@ -559,7 +559,7 @@ var CSSP;
         return mwqmRunModel;
     }());
     CSSP.mwqmRunModel = mwqmRunModel;
-    var StatareaModel = /** @class */ (function () {
+    var StatareaModel = (function () {
         function StatareaModel(Error, SectorCount, SubSectorCount, MWQMRunCount, MWQMSampleCount, MWQMSiteCount, PolSourceSiteCount) {
             this.Error = Error;
             this.SectorCount = SectorCount;
@@ -572,7 +572,7 @@ var CSSP;
         return StatareaModel;
     }());
     CSSP.StatareaModel = StatareaModel;
-    var StatliftstationModel = /** @class */ (function () {
+    var StatliftstationModel = (function () {
         function StatliftstationModel(Error, SpillCount, BoxModelCount, VPScenarioCount) {
             this.Error = Error;
             this.SpillCount = SpillCount;
@@ -582,7 +582,7 @@ var CSSP;
         return StatliftstationModel;
     }());
     CSSP.StatliftstationModel = StatliftstationModel;
-    var StatmikescenarioModel = /** @class */ (function () {
+    var StatmikescenarioModel = (function () {
         function StatmikescenarioModel(Error, HydroFileSize, TransFileSize) {
             this.Error = Error;
             this.HydroFileSize = HydroFileSize;
@@ -591,7 +591,7 @@ var CSSP;
         return StatmikescenarioModel;
     }());
     CSSP.StatmikescenarioModel = StatmikescenarioModel;
-    var StatmunicipalityModel = /** @class */ (function () {
+    var StatmunicipalityModel = (function () {
         function StatmunicipalityModel(Error, WWTPCount, LiftSiteCount, MikeScenarioCount, BoxModelCount, VPScenarioCount) {
             this.Error = Error;
             this.WWTPCount = WWTPCount;
@@ -603,7 +603,7 @@ var CSSP;
         return StatmunicipalityModel;
     }());
     CSSP.StatmunicipalityModel = StatmunicipalityModel;
-    var StatpolsourcesiteModel = /** @class */ (function () {
+    var StatpolsourcesiteModel = (function () {
         function StatpolsourcesiteModel(Error, FullDesc) {
             this.Error = Error;
             this.FullDesc = FullDesc;
@@ -611,7 +611,7 @@ var CSSP;
         return StatpolsourcesiteModel;
     }());
     CSSP.StatpolsourcesiteModel = StatpolsourcesiteModel;
-    var StatprovinceModel = /** @class */ (function () {
+    var StatprovinceModel = (function () {
         function StatprovinceModel(Error, MunicipalityCount, WWTPCount, LiftSiteCount, AreaCount, SectorCount, SubSectorCount, MWQMRunCount, MWQMSampleCount, MWQMSiteCount, PolSourceSiteCount, MikeScenarioCount, BoxModelCount, VPScenarioCount) {
             this.Error = Error;
             this.MunicipalityCount = MunicipalityCount;
@@ -631,7 +631,7 @@ var CSSP;
         return StatprovinceModel;
     }());
     CSSP.StatprovinceModel = StatprovinceModel;
-    var StatsectorModel = /** @class */ (function () {
+    var StatsectorModel = (function () {
         function StatsectorModel(Error, SubSectorCount, MWQMRunCount, MWQMSampleCount, MWQMSiteCount, PolSourceSiteCount) {
             this.Error = Error;
             this.SubSectorCount = SubSectorCount;
@@ -643,7 +643,7 @@ var CSSP;
         return StatsectorModel;
     }());
     CSSP.StatsectorModel = StatsectorModel;
-    var StatsubsectorModel = /** @class */ (function () {
+    var StatsubsectorModel = (function () {
         function StatsubsectorModel(Error, MWQMRunCount, MWQMSampleCount, MWQMSiteCount, PolSourceSiteCount) {
             this.Error = Error;
             this.MWQMRunCount = MWQMRunCount;
@@ -654,7 +654,7 @@ var CSSP;
         return StatsubsectorModel;
     }());
     CSSP.StatsubsectorModel = StatsubsectorModel;
-    var StatmwqmrunModel = /** @class */ (function () {
+    var StatmwqmrunModel = (function () {
         function StatmwqmrunModel(Error, MWQMSampleCount) {
             this.Error = Error;
             this.MWQMSampleCount = MWQMSampleCount;
@@ -662,7 +662,7 @@ var CSSP;
         return StatmwqmrunModel;
     }());
     CSSP.StatmwqmrunModel = StatmwqmrunModel;
-    var StatmwqmsiteModel = /** @class */ (function () {
+    var StatmwqmsiteModel = (function () {
         function StatmwqmsiteModel(Error, MWQMSampleCount) {
             this.Error = Error;
             this.MWQMSampleCount = MWQMSampleCount;
@@ -670,7 +670,7 @@ var CSSP;
         return StatmwqmsiteModel;
     }());
     CSSP.StatmwqmsiteModel = StatmwqmsiteModel;
-    var StatwwtpModel = /** @class */ (function () {
+    var StatwwtpModel = (function () {
         function StatwwtpModel(Error, SpillCount, LiftSiteCount, BoxModelCount, VPScenarioCount) {
             this.Error = Error;
             this.SpillCount = SpillCount;
@@ -681,7 +681,7 @@ var CSSP;
         return StatwwtpModel;
     }());
     CSSP.StatwwtpModel = StatwwtpModel;
-    var TVItemModel = /** @class */ (function () {
+    var TVItemModel = (function () {
         function TVItemModel(TVItemID, TVText) {
             this.TVItemID = TVItemID;
             this.TVText = TVText;
@@ -689,7 +689,7 @@ var CSSP;
         return TVItemModel;
     }());
     CSSP.TVItemModel = TVItemModel;
-    var TVItemModelInfLink = /** @class */ (function () {
+    var TVItemModelInfLink = (function () {
         function TVItemModelInfLink(TVPath, TVText, TVType, TVAuth, InfrastructureTVTypeEN, ParentTVPath) {
             this.TVPath = TVPath;
             this.TVText = TVText;
@@ -701,7 +701,7 @@ var CSSP;
         return TVItemModelInfLink;
     }());
     CSSP.TVItemModelInfLink = TVItemModelInfLink;
-    var tvAuth = /** @class */ (function () {
+    var tvAuth = (function () {
         function tvAuth(TVPath, AuthorizeLevel) {
             this.TVPath = TVPath;
             this.AuthorizeLevel = AuthorizeLevel;
@@ -709,7 +709,7 @@ var CSSP;
         return tvAuth;
     }());
     CSSP.tvAuth = tvAuth;
-    var tvFullText = /** @class */ (function () {
+    var tvFullText = (function () {
         function tvFullText(TVPath, FullText) {
             this.TVPath = TVPath;
             this.FullText = FullText;
@@ -717,7 +717,7 @@ var CSSP;
         return tvFullText;
     }());
     CSSP.tvFullText = tvFullText;
-    var userModel = /** @class */ (function () {
+    var userModel = (function () {
         function userModel(FirstName, Initial, IsDisabled, LastName, LoginEmail, UserInfoID) {
             var _this = this;
             this.FirstName = FirstName;
@@ -830,7 +830,7 @@ var CSSP;
         TVTypeEnum[TVTypeEnum["ConditionallyApproved"] = 83] = "ConditionallyApproved";
         TVTypeEnum[TVTypeEnum["ConditionallyRestricted"] = 84] = "ConditionallyRestricted";
     })(TVTypeEnum = CSSP.TVTypeEnum || (CSSP.TVTypeEnum = {}));
-    var MIKEResult = /** @class */ (function () {
+    var MIKEResult = (function () {
         function MIKEResult(MikeScenarioTVItemID, MikeScenarioTVText, StartTime, EndTime, ResultFrequency_Min, NumberOfTimeSteps, TimeStepDateTimeList, MIKEMWQMSiteResultList, MIKESourceResultList) {
             this.MikeScenarioTVItemID = MikeScenarioTVItemID;
             this.MikeScenarioTVText = MikeScenarioTVText;
@@ -845,7 +845,7 @@ var CSSP;
         return MIKEResult;
     }());
     CSSP.MIKEResult = MIKEResult;
-    var MIKEMWQMSiteResult = /** @class */ (function () {
+    var MIKEMWQMSiteResult = (function () {
         function MIKEMWQMSiteResult(MWQMSiteTVItemID, MWQMSiteTVText, Lat, Lng, ElementLat, ElementLng, SampleDateTime, FC, Salinity, Temperature, TVLocation, MIKEHydroResult, MIKETransResult) {
             this.MWQMSiteTVItemID = MWQMSiteTVItemID;
             this.MWQMSiteTVText = MWQMSiteTVText;
@@ -864,7 +864,7 @@ var CSSP;
         return MIKEMWQMSiteResult;
     }());
     CSSP.MIKEMWQMSiteResult = MIKEMWQMSiteResult;
-    var MIKEHydroResult = /** @class */ (function () {
+    var MIKEHydroResult = (function () {
         function MIKEHydroResult(SurfaceElevationList, StillWaterDepthList, TotalWaterDepthList, UVelocityList, VVelocityList, DensityList, TemperatureList, SalinityList, CurrentSpeedList, CurrentDirectionList, WindUVelocityList, WindVVelocityList, PrecipitationList) {
             this.SurfaceElevationList = SurfaceElevationList;
             this.StillWaterDepthList = StillWaterDepthList;
@@ -883,7 +883,7 @@ var CSSP;
         return MIKEHydroResult;
     }());
     CSSP.MIKEHydroResult = MIKEHydroResult;
-    var MIKETransResult = /** @class */ (function () {
+    var MIKETransResult = (function () {
         function MIKETransResult(FCList, UVelocityList, VVelocityList) {
             this.FCList = FCList;
             this.UVelocityList = UVelocityList;
@@ -892,7 +892,7 @@ var CSSP;
         return MIKETransResult;
     }());
     CSSP.MIKETransResult = MIKETransResult;
-    var MIKESourceResult = /** @class */ (function () {
+    var MIKESourceResult = (function () {
         function MIKESourceResult(MWQMSourceTVItemID, MWQMSourceTVText, Lat, Lng, DischargeList, FCList) {
             this.MWQMSourceTVItemID = MWQMSourceTVItemID;
             this.MWQMSourceTVText = MWQMSourceTVText;

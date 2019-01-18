@@ -1,6 +1,6 @@
 var CSSP;
 (function (CSSP) {
-    var ClimateSite = /** @class */ (function () {
+    var ClimateSite = (function () {
         // Variables
         // Constructors
         function ClimateSite() {

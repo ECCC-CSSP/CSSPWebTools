@@ -1024,6 +1024,97 @@ else
                                         </tr>
                                     }
                                 }
+                                else
+                                {
+                                    if (labSheetModelAndA1Sheet.LabSheetA1Sheet.Version > 1)
+                                    {
+                                        if (labSheetA1Measurement.SampleType == SampleTypeEnum.DailyDuplicate)
+                                        {
+                                            <tr>
+                                                <td colspan="11">
+                                                    <h4>@SamplingPlanViewRes.DuplicateInformation</h4>
+                                                    <p>
+                                                        <b>@SamplingPlanViewRes.SiteNumber</b> &nbsp;&nbsp;&nbsp;
+                                                        @labSheetA1Measurement.Site
+                                                    </p>
+                                                    <p>
+                                                        <b>@SamplingPlanViewRes.Analyst</b> &nbsp; &nbsp; &nbsp;
+                                                        @labSheetModelAndA1Sheet.LabSheetA1Sheet.ResultsReadBy
+                                                        &nbsp;
+                                                        @RecordedDate.ToString("yyyy MMM dd")
+                                                    </p>
+                                                    <p>
+                                                        <b>@SamplingPlanViewRes.RLogs</b> &nbsp; &nbsp; &nbsp;
+                                                        @labSheetModelAndA1Sheet.LabSheetA1Sheet.DailyDuplicateRLog
+                                                    </p>
+                                                    <p>
+                                                        <b>@SamplingPlanViewRes.PrecisionCriteria</b> &nbsp; &nbsp; &nbsp;
+                                                        @labSheetModelAndA1Sheet.LabSheetA1Sheet.DailyDuplicatePrecisionCriteria
+                                                    </p>
+                                                    <p>
+                                                        <b class="@(labSheetModelAndA1Sheet.LabSheetA1Sheet.DailyDuplicateAcceptableOrUnacceptable == "Acceptable" ? "text-success" : "text-danger")">
+                                                            @labSheetModelAndA1Sheet.LabSheetA1Sheet.DailyDuplicateAcceptableOrUnacceptable
+                                                        </b>
+                                                    </p>
+                                                </td>
+                                            </tr>
+                                        }
+                                        else if (labSheetA1Measurement.SampleType == SampleTypeEnum.IntertechDuplicate)
+                                        {
+                                            <tr>
+                                                <td colspan="11">
+                                                    <h4>@SamplingPlanViewRes.IntertechDuplicateInformation</h4>
+                                                    <p>
+                                                        <b>@SamplingPlanViewRes.SiteNumber</b> &nbsp;&nbsp;&nbsp;
+                                                        @labSheetA1Measurement.Site
+                                                    </p>
+                                                    <p>
+                                                        <b>@SamplingPlanViewRes.Analyst</b> &nbsp; &nbsp; &nbsp;
+                                                        @labSheetModelAndA1Sheet.LabSheetA1Sheet.ResultsReadBy
+                                                        &nbsp;
+                                                        @RecordedDate.ToString("yyyy MMM dd")
+                                                    </p>
+                                                    <p>
+                                                        <b>@SamplingPlanViewRes.RLogs</b> &nbsp; &nbsp; &nbsp;
+                                                        @labSheetModelAndA1Sheet.LabSheetA1Sheet.IntertechDuplicateRLog
+                                                    </p>
+                                                    <p>
+                                                        <b>@SamplingPlanViewRes.PrecisionCriteria</b> &nbsp; &nbsp; &nbsp;
+                                                        @labSheetModelAndA1Sheet.LabSheetA1Sheet.IntertechDuplicatePrecisionCriteria
+                                                    </p>
+                                                    <p>
+                                                        <b class="@(labSheetModelAndA1Sheet.LabSheetA1Sheet.IntertechDuplicateAcceptableOrUnacceptable == "Acceptable" ? "text-success" : "text-danger")">
+                                                            @labSheetModelAndA1Sheet.LabSheetA1Sheet.IntertechDuplicateAcceptableOrUnacceptable
+                                                        </b>
+                                                    </p>
+                                                </td>
+                                            </tr>
+                                        }
+                                        else if (labSheetA1Measurement.SampleType == SampleTypeEnum.IntertechRead)
+                                        {
+                                            <tr>
+                                                <td colspan="11">
+                                                    <h4>@SamplingPlanViewRes.IntertechReadInformation</h4>
+                                                    <p>
+                                                        <b>@SamplingPlanViewRes.SiteNumber</b> &nbsp;&nbsp;&nbsp;
+                                                        @labSheetA1Measurement.Site
+                                                    </p>
+                                                    <p>
+                                                        <b>@SamplingPlanViewRes.Analyst</b> &nbsp; &nbsp; &nbsp;
+                                                        @labSheetModelAndA1Sheet.LabSheetA1Sheet.ResultsReadBy
+                                                        &nbsp;
+                                                        @RecordedDate.ToString("yyyy MMM dd")
+                                                    </p>
+                                                    <p>
+                                                        <b class="@(labSheetModelAndA1Sheet.LabSheetA1Sheet.IntertechReadAcceptableOrUnacceptable == "Acceptable" ? "text-success" : "text-danger")">
+                                                            @labSheetModelAndA1Sheet.LabSheetA1Sheet.IntertechReadAcceptableOrUnacceptable
+                                                        </b>
+                                                    </p>
+                                                </td>
+                                            </tr>
+                                        }
+                                    }
+                                }
                             }
                         </table>
                         @if (!string.IsNullOrWhiteSpace(SiteNameDup))

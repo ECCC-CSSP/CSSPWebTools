@@ -166,6 +166,21 @@ namespace CSSPWebTools.Controllers
                 mapInfoPointModelInfrastructure = _MapInfoPointService.GetMapInfoPointModelListWithTVItemIDAndTVTypeAndMapInfoDrawTypeDB(InfrastructureTVItemID, TVTypeEnum.LiftStation, MapInfoDrawTypeEnum.Point).FirstOrDefault();
                 mapInfoPointModelOutfall = _MapInfoPointService.GetMapInfoPointModelListWithTVItemIDAndTVTypeAndMapInfoDrawTypeDB(InfrastructureTVItemID, TVTypeEnum.Outfall, MapInfoDrawTypeEnum.Point).FirstOrDefault();
             }
+            else if (infrastructureModel.InfrastructureType == InfrastructureTypeEnum.LineOverflow)
+            {
+                mapInfoPointModelInfrastructure = _MapInfoPointService.GetMapInfoPointModelListWithTVItemIDAndTVTypeAndMapInfoDrawTypeDB(InfrastructureTVItemID, TVTypeEnum.LineOverflow, MapInfoDrawTypeEnum.Point).FirstOrDefault();
+                mapInfoPointModelOutfall = _MapInfoPointService.GetMapInfoPointModelListWithTVItemIDAndTVTypeAndMapInfoDrawTypeDB(InfrastructureTVItemID, TVTypeEnum.Outfall, MapInfoDrawTypeEnum.Point).FirstOrDefault();
+            }
+            else if (infrastructureModel.InfrastructureType == InfrastructureTypeEnum.Other)
+            {
+                mapInfoPointModelInfrastructure = _MapInfoPointService.GetMapInfoPointModelListWithTVItemIDAndTVTypeAndMapInfoDrawTypeDB(InfrastructureTVItemID, TVTypeEnum.OtherInfrastructure, MapInfoDrawTypeEnum.Point).FirstOrDefault();
+                mapInfoPointModelOutfall = _MapInfoPointService.GetMapInfoPointModelListWithTVItemIDAndTVTypeAndMapInfoDrawTypeDB(InfrastructureTVItemID, TVTypeEnum.Outfall, MapInfoDrawTypeEnum.Point).FirstOrDefault();
+            }
+            else if (infrastructureModel.InfrastructureType == InfrastructureTypeEnum.SeeOther)
+            {
+                mapInfoPointModelInfrastructure = _MapInfoPointService.GetMapInfoPointModelListWithTVItemIDAndTVTypeAndMapInfoDrawTypeDB(InfrastructureTVItemID, TVTypeEnum.SeeOther, MapInfoDrawTypeEnum.Point).FirstOrDefault();
+                mapInfoPointModelOutfall = _MapInfoPointService.GetMapInfoPointModelListWithTVItemIDAndTVTypeAndMapInfoDrawTypeDB(InfrastructureTVItemID, TVTypeEnum.Outfall, MapInfoDrawTypeEnum.Point).FirstOrDefault();
+            }
 
             ViewBag.MapInfoPointModelInfrastructure = mapInfoPointModelInfrastructure;
             ViewBag.MapInfoPointModelOutfall = mapInfoPointModelOutfall;

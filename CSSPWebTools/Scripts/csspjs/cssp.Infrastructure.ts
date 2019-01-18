@@ -284,6 +284,20 @@ module CSSP {
                     $(".notlagoonorplant").removeClass("hidden").addClass("hidden");
                 }
             });
+
+            $(document).off("change", "input[name='IsMechanicallyAerated']");
+            $(document).on("change", "input[name='IsMechanicallyAerated']", (evt: Event) => {
+                if ($(evt.target).is(":checked")) {
+                    $(".AerationType").removeClass("hidden");
+                }
+                else {
+                    $(".AerationType").removeClass("hidden").addClass("hidden");
+                }
+            });
+
+            if ($("input[name='IsMechanicallyAerated']").is(":checked")) {
+                $(".AerationType").removeClass("hidden");
+             }
         };
         public MoveCancel: Function = ($bjs: JQuery): void => {
             var $AllItems = $bjs.closest("#InfrastructureTopDiv");

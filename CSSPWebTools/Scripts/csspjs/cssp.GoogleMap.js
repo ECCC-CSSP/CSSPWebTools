@@ -1,6 +1,6 @@
 var CSSP;
 (function (CSSP) {
-    var GoogleMap = /** @class */ (function () {
+    var GoogleMap = (function () {
         // Function
         function GoogleMap() {
             // Variables
@@ -433,6 +433,11 @@ var CSSP;
                                             case CSSP.TVTypeEnum.OtherInfrastructure:
                                                 {
                                                     legendElem = cssp.GoogleMap.LegendSetup(new CSSP.LegendElem(CSSP.TVTypeEnum.LineOverflow, "888800", cssp.GetHTMLVariable("#LayoutVariables", "varLineOverflow")));
+                                                }
+                                                break;
+                                            case CSSP.TVTypeEnum.SeeOther:
+                                                {
+                                                    legendElem = cssp.GoogleMap.LegendSetup(new CSSP.LegendElem(CSSP.TVTypeEnum.LineOverflow, "ffffff", cssp.GetHTMLVariable("#LayoutVariables", "varSeeOther")));
                                                 }
                                                 break;
                                             default:

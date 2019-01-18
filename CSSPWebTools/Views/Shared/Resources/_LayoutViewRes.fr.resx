@@ -514,4 +514,7 @@
   <data name="HydrometricSitePrioritiesMightNeedResetting" xml:space="preserve">
     <value>Les priorités du site hydrométrique pourraient nécessiter une réinitialisation</value>
   </data>
+  <data name="SeeOther" xml:space="preserve">
+    <value>See Other (fr)</value>
+  </data>
 </root>

@@ -1,6 +1,6 @@
 var CSSP;
 (function (CSSP) {
-    var File = /** @class */ (function () {
+    var File = (function () {
         // Constructors
         function File() {
             // Variables 

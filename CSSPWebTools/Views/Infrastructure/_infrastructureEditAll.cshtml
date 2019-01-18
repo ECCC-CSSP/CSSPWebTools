@@ -80,16 +80,36 @@ else
                             <ul class="list-unstyled">
                                 @*IsMechanicallyAerated*@
                                 <li>
-                                    <div class="form-group">
-                                        <label for="IsMechanicallyAerated" class="control-label">@InfrastructureViewRes.IsMechanicallyAerated</label>
-                                        <div>
-                                            <span>
-                                                <input name="IsMechanicallyAerated" type="checkbox" @((infrastructureModel.IsMechanicallyAerated != null && infrastructureModel.IsMechanicallyAerated == true) ? "checked=checked" : "") />
-                                                @InfrastructureViewRes.IsMechanicallyAerated
-                                                <span class="help-block"></span>
-                                            </span>
+                                    <blockquote>
+                                        <div class="form-group">
+                                            <label for="IsMechanicallyAerated" class="control-label">@InfrastructureViewRes.IsMechanicallyAerated</label>
+                                            <div>
+                                                <span>
+                                                    <input name="IsMechanicallyAerated" type="checkbox" @((infrastructureModel.IsMechanicallyAerated != null && infrastructureModel.IsMechanicallyAerated == true) ? "checked=checked" : "") />
+                                                    @InfrastructureViewRes.IsMechanicallyAerated
+                                                    <span class="help-block"></span>
+                                                </span>
+                                            </div>
                                         </div>
-                                    </div>
+                                        @*AerationType*@
+                                        <div class="AerationType form-group hidden">
+                                            <label for="AerationType" class="control-label">@InfrastructureViewRes.AerationType</label>
+                                            <div>
+                                                <span>
+                                                    <select name="AerationType" class="form-control">
+                                                        <option value="0" @(infrastructureModel.AerationType == null ? "selected=selected" : "")>@InfrastructureViewRes.Select @InfrastructureViewRes.AerationType</option>
+                                                        @foreach (AerationTypeEnumTextOrdered aerationTypeEnumTextOrdered in _BaseEnumService.GetAerationTypeEnumTextOrderedList())
+                                                        {
+                                                            <option value="@((int)aerationTypeEnumTextOrdered.AerationType)" @(infrastructureModel.AerationType == aerationTypeEnumTextOrdered.AerationType ? "selected=selected" : "")>
+                                                                @(aerationTypeEnumTextOrdered.AerationTypeText)
+                                                            </option>
+                                                        }
+                                                    </select>
+                                                    <span class="help-block"></span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </blockquote>
                                 </li>
                                 @*NumberOfCells*@
                                 <li>
@@ -121,26 +141,7 @@ else
                                         </div>
                                     </div>
                                 </li>
-                                @*AerationType*@
-                                <li>
-                                    <div class="form-group">
-                                        <label for="AerationType" class="control-label">@InfrastructureViewRes.AerationType</label>
-                                        <div>
-                                            <span>
-                                                <select name="AerationType" class="form-control">
-                                                    <option value="0" @(infrastructureModel.AerationType == null ? "selected=selected" : "")>@InfrastructureViewRes.Select @InfrastructureViewRes.AerationType</option>
-                                                    @foreach (AerationTypeEnumTextOrdered aerationTypeEnumTextOrdered in _BaseEnumService.GetAerationTypeEnumTextOrderedList())
-                                                    {
-                                                        <option value="@((int)aerationTypeEnumTextOrdered.AerationType)" @(infrastructureModel.AerationType == aerationTypeEnumTextOrdered.AerationType ? "selected=selected" : "")>
-                                                            @(aerationTypeEnumTextOrdered.AerationTypeText)
-                                                        </option>
-                                                    }
-                                                </select>
-                                                <span class="help-block"></span>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </li>
+
                             </ul>
                         </li>
                         <li class="plant @(infrastructureModel.FacilityType == FacilityTypeEnum.Plant ? "" : "hidden")">
@@ -216,7 +217,7 @@ else
                                                     @foreach (TertiaryTreatmentTypeEnumTextOrdered tertiaryTreatmentTypeEnumTextOrdered in _BaseEnumService.GetTertiaryTreatmentTypeEnumTextOrderedList())
                                                     {
                                                         <option value="@((int)tertiaryTreatmentTypeEnumTextOrdered.TertiaryTreatmentType)" @(infrastructureModel.TertiaryTreatmentType == tertiaryTreatmentTypeEnumTextOrdered.TertiaryTreatmentType ? "selected=selected" : "")>
-                                                            @tertiaryTreatmentTypeEnumTextOrdered.TertiaryTreatmentTypeText)
+                                                            @tertiaryTreatmentTypeEnumTextOrdered.TertiaryTreatmentTypeText
                                                         </option>
                                                     }
                                                 </select>
@@ -308,7 +309,8 @@ else
                             <div class="form-group">
                                 <label for="PercFlowOfTotal" class="control-label">@InfrastructureViewRes.PercentFlowTotal (%)</label>
                                 <div>
-                                    <input id="PercFlowOfTotal" class="isnumber form-control" type="text" name="PercFlowOfTotal" value="@infrastructureModel.PercFlowOfTotal" />
+                                    <input id="PercFlowOfTotal" class="isnumber form-control" type="hidden" name="PercFlowOfTotal" value="100" />
+                                    100
                                     <span class="help-block"></span>
                                 </div>
                             </div>
@@ -409,7 +411,7 @@ else
                         <li>
                             <div>
                                 <p></p>
-                                <h1>@InfrastructureViewRes.InformationBelowWillBeRemovedInTheFuture</h1>
+                                <h3>@InfrastructureViewRes.InformationBelowWillBeRemovedInTheFuture</h3>
                                 <p></p>
                                 <label class="control-label">@InfrastructureViewRes.TempCatchRemoveLater</label>
                                 <pre>@infrastructureModel.TempCatchAllRemoveLater
@@ -558,10 +560,11 @@ else
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h4 class="panel-title">
-                                <a href="#Outfall" data-toggle="collapse" aria-expanded="false" aria-controls="Outfall">@InfrastructureViewRes.Outfall</a>
+                                <a href="#Outfall" data-toggle="collapse" aria-expanded="false" aria-controls="Outfall">@InfrastructureViewRes.Outfall info for Visual Plumes Modelling</a>
                             </h4>
                         </div>
                         <div class="panel-body collapse" id="Outfall">
+                            <h3>Mainly information used for Visual Plumes modelling</h3>
                             <div class="blockMargin">
                                 <ul class="list-unstyled">
                                     @*AverageDepth*@

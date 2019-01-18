@@ -76,17 +76,17 @@ else
                             <span class="form-control-static"></span>
                             <select class="form-control" name="SamplingPlanType">
                                 @if (true)
-                {
-                    int count = 0;
-                    foreach (SamplingPlanTypeEnumTextOrdered samplingPlanTypeEnumTextOrdered in samplingPlanTypeEnumTextOrderedList)
-                    {
-                        <option @(((SamplingPlanModel != null && SamplingPlanModel.SamplingPlanType == samplingPlanTypeEnumTextOrdered.SamplingPlanType)) || (SamplingPlanID == 0 && count == 1) ? "selected=selected" : "")
-                                value="@((int)samplingPlanTypeEnumTextOrdered.SamplingPlanType)">
-                            @samplingPlanTypeEnumTextOrdered.SamplingPlanTypeText
-                        </option>
-        count += 1;
-    }
-}
+                                {
+                                    int count = 0;
+                                    foreach (SamplingPlanTypeEnumTextOrdered samplingPlanTypeEnumTextOrdered in samplingPlanTypeEnumTextOrderedList)
+                                    {
+                                        <option @(((SamplingPlanModel != null && SamplingPlanModel.SamplingPlanType == samplingPlanTypeEnumTextOrdered.SamplingPlanType)) || (SamplingPlanID == 0 && count == 1) ? "selected=selected" : "")
+                                                value="@((int)samplingPlanTypeEnumTextOrdered.SamplingPlanType)">
+                                            @samplingPlanTypeEnumTextOrdered.SamplingPlanTypeText
+                                        </option>
+                                        count += 1;
+                                    }
+                                }
                             </select>
                             <span class="help-block"></span>
                         </div>
@@ -101,18 +101,18 @@ else
                                     @sampleTypeEnumTextOrderedFirst.SampleTypeText
                                 </option>
                                 @foreach (SampleTypeEnumTextOrdered sampleTypeEnumTextOrdered in sampleTypeEnumTextOrderedList)
-                {
-                    if (!(sampleTypeEnumTextOrdered.SampleType == SampleTypeEnum.DailyDuplicate
-                        || sampleTypeEnumTextOrdered.SampleType == SampleTypeEnum.IntertechDuplicate
-                        || sampleTypeEnumTextOrdered.SampleType == SampleTypeEnum.IntertechRead
-                        || sampleTypeEnumTextOrdered.SampleType == SampleTypeEnum.Routine))
-                    {
-                        <option @(SamplingPlanModel != null && SamplingPlanModel.SampleType == sampleTypeEnumTextOrdered.SampleType ? "selected=selected" : "")
-                                value="@((int)sampleTypeEnumTextOrdered.SampleType)">
-                            @sampleTypeEnumTextOrdered.SampleTypeText
-                        </option>
-    }
-}
+                                {
+                                    if (!(sampleTypeEnumTextOrdered.SampleType == SampleTypeEnum.DailyDuplicate
+                                        || sampleTypeEnumTextOrdered.SampleType == SampleTypeEnum.IntertechDuplicate
+                                        || sampleTypeEnumTextOrdered.SampleType == SampleTypeEnum.IntertechRead
+                                        || sampleTypeEnumTextOrdered.SampleType == SampleTypeEnum.Routine))
+                                    {
+                                        <option @(SamplingPlanModel != null && SamplingPlanModel.SampleType == sampleTypeEnumTextOrdered.SampleType ? "selected=selected" : "")
+                                                value="@((int)sampleTypeEnumTextOrdered.SampleType)">
+                                            @sampleTypeEnumTextOrdered.SampleTypeText
+                                        </option>
+                                    }
+                                }
                             </select>
                             <span class="help-block"></span>
                         </div>
@@ -123,18 +123,18 @@ else
                             <span class="form-control-static"></span>
                             <select class="form-control" name="LabSheetType">
                                 @if (true)
-                {
-                    int count = 0;
-                    foreach (LabSheetTypeEnumTextOrdered labSheetTypeEnumTextOrdered in labSheetTypeEnumTextOrderedList)
-                    {
-                        <option @(((SamplingPlanModel != null && SamplingPlanModel.LabSheetType == labSheetTypeEnumTextOrdered.LabSheetType)) || (SamplingPlanID == 0 && count == 0) ? "selected=selected" : "")
-                                value="@((int)labSheetTypeEnumTextOrdered.LabSheetType)">
-                            @labSheetTypeEnumTextOrdered.LabSheetTypeText
-                        </option>
+                                {
+                                    int count = 0;
+                                    foreach (LabSheetTypeEnumTextOrdered labSheetTypeEnumTextOrdered in labSheetTypeEnumTextOrderedList)
+                                    {
+                                        <option @(((SamplingPlanModel != null && SamplingPlanModel.LabSheetType == labSheetTypeEnumTextOrdered.LabSheetType)) || (SamplingPlanID == 0 && count == 0) ? "selected=selected" : "")
+                                                value="@((int)labSheetTypeEnumTextOrdered.LabSheetType)">
+                                            @labSheetTypeEnumTextOrdered.LabSheetTypeText
+                                        </option>
 
-        count += 1;
-    }
-}
+                                        count += 1;
+                                    }
+                                }
                             </select>
                             <span class="help-block"></span>
                         </div>
@@ -190,23 +190,23 @@ else
                                 <span class="help-block"></span>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label class="control-label" for="DuplicatePrecisionCriteria">@SamplingPlanViewRes.DailyDuplicatePrecisionCriteria</label>
-                            <i class="text-lighter elementSpacing">ex: 0.6872</i>
-                            <div class="form-inline elementSpacing">
-                                <span class="form-control-static"></span>
-                                <input class="form-control isnumber" name="DailyDuplicatePrecisionCriteria" type="text" id="DailyDuplicatePrecisionCriteria" value="@(SamplingPlanModel == null ? "" : SamplingPlanModel.DailyDuplicatePrecisionCriteria.ToString())" />
-                                <span class="help-block"></span>
-                            </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="DuplicatePrecisionCriteria">@SamplingPlanViewRes.DailyDuplicatePrecisionCriteria</label>
+                        <i class="text-lighter elementSpacing">ex: 0.6872</i>
+                        <div class="form-inline elementSpacing">
+                            <span class="form-control-static"></span>
+                            <input class="form-control isnumber" name="DailyDuplicatePrecisionCriteria" type="text" id="DailyDuplicatePrecisionCriteria" value="@(SamplingPlanModel == null ? "" : SamplingPlanModel.DailyDuplicatePrecisionCriteria.ToString())" />
+                            <span class="help-block"></span>
                         </div>
-                        <div class="form-group">
-                            <label class="control-label" for="IntertechDuplicatePrecisionCriteria">@SamplingPlanViewRes.IntertechDuplicatePrecisionCriteria</label>
-                            <i class="text-lighter elementSpacing">ex: 0.093</i>
-                            <div class="form-inline elementSpacing">
-                                <span class="form-control-static"></span>
-                                <input class="form-control isnumber" name="IntertechDuplicatePrecisionCriteria" type="text" id="IntertechDuplicatePrecisionCriteria" value="@(SamplingPlanModel == null ? "" : SamplingPlanModel.IntertechDuplicatePrecisionCriteria.ToString())" />
-                                <span class="help-block"></span>
-                            </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="IntertechDuplicatePrecisionCriteria">@SamplingPlanViewRes.IntertechDuplicatePrecisionCriteria</label>
+                        <i class="text-lighter elementSpacing">ex: 0.093</i>
+                        <div class="form-inline elementSpacing">
+                            <span class="form-control-static"></span>
+                            <input class="form-control isnumber" name="IntertechDuplicatePrecisionCriteria" type="text" id="IntertechDuplicatePrecisionCriteria" value="@(SamplingPlanModel == null ? "" : SamplingPlanModel.IntertechDuplicatePrecisionCriteria.ToString())" />
+                            <span class="help-block"></span>
                         </div>
                     </div>
                     <div class="panel panel-default">
@@ -219,12 +219,12 @@ else
                                         @SamplingPlanViewRes.SelectTheAnalyzeMethod
                                     </option>
                                     @foreach (AnalyzeMethodEnumTextOrdered analyzeMethodEnumTextOrdered in _BaseEnumService.GetAnalyzeMethodEnumTextOrderedList())
-                    {
-                        <option value="@((int)analyzeMethodEnumTextOrdered.AnalyzeMethod)"
-                                @(SamplingPlanModel != null && SamplingPlanModel.AnalyzeMethodDefault != null && analyzeMethodEnumTextOrdered.AnalyzeMethod == (AnalyzeMethodEnum)SamplingPlanModel.AnalyzeMethodDefault ? "selected=selected" : "")>
-                            @(analyzeMethodEnumTextOrdered.AnalyzeMethodText)
-                        </option>
-    }
+                                    {
+                                        <option value="@((int)analyzeMethodEnumTextOrdered.AnalyzeMethod)"
+                                                @(SamplingPlanModel != null && SamplingPlanModel.AnalyzeMethodDefault != null && analyzeMethodEnumTextOrdered.AnalyzeMethod == (AnalyzeMethodEnum)SamplingPlanModel.AnalyzeMethodDefault ? "selected=selected" : "")>
+                                            @(analyzeMethodEnumTextOrdered.AnalyzeMethodText)
+                                        </option>
+                                    }
                                 </select>
                                 <span class="help-block"></span>
                             </div>
@@ -239,12 +239,12 @@ else
                                         @SamplingPlanViewRes.SelectTheSampleMatrix
                                     </option>
                                     @foreach (SampleMatrixEnumTextOrdered sampleMatrixEnumTextOrdered in _BaseEnumService.GetSampleMatrixEnumTextOrderedList())
-                    {
-                        <option value="@((int)sampleMatrixEnumTextOrdered.SampleMatrix)"
-                                @(SamplingPlanModel != null && SamplingPlanModel.SampleMatrixDefault != null && sampleMatrixEnumTextOrdered.SampleMatrix == (SampleMatrixEnum)SamplingPlanModel.SampleMatrixDefault ? "selected=selected" : "")>
-                            @(sampleMatrixEnumTextOrdered.SampleMatrixText)
-                        </option>
-    }
+                                    {
+                                        <option value="@((int)sampleMatrixEnumTextOrdered.SampleMatrix)"
+                                                @(SamplingPlanModel != null && SamplingPlanModel.SampleMatrixDefault != null && sampleMatrixEnumTextOrdered.SampleMatrix == (SampleMatrixEnum)SamplingPlanModel.SampleMatrixDefault ? "selected=selected" : "")>
+                                            @(sampleMatrixEnumTextOrdered.SampleMatrixText)
+                                        </option>
+                                    }
                                 </select>
                                 <span class="help-block"></span>
                             </div>
@@ -259,12 +259,12 @@ else
                                         @SamplingPlanViewRes.SelectTheLaboratory
                                     </option>
                                     @foreach (LaboratoryEnumTextOrdered laboratoryEnumTextOrdered in _BaseEnumService.GetLaboratoryEnumTextOrderedList())
-                    {
-                        <option value="@((int)laboratoryEnumTextOrdered.Laboratory)"
-                                @(SamplingPlanModel != null && SamplingPlanModel.LaboratoryDefault != null && laboratoryEnumTextOrdered.Laboratory == (LaboratoryEnum)SamplingPlanModel.LaboratoryDefault ? "selected=selected" : "")>
-                            @(laboratoryEnumTextOrdered.LaboratoryText)
-                        </option>
-    }
+                                    {
+                                        <option value="@((int)laboratoryEnumTextOrdered.Laboratory)"
+                                                @(SamplingPlanModel != null && SamplingPlanModel.LaboratoryDefault != null && laboratoryEnumTextOrdered.Laboratory == (LaboratoryEnum)SamplingPlanModel.LaboratoryDefault ? "selected=selected" : "")>
+                                            @(laboratoryEnumTextOrdered.LaboratoryText)
+                                        </option>
+                                    }
                                 </select>
                                 <span class="help-block"></span>
                             </div>

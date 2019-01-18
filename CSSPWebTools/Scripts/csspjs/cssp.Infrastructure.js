@@ -1,6 +1,6 @@
 var CSSP;
 (function (CSSP) {
-    var Infrastructure = /** @class */ (function () {
+    var Infrastructure = (function () {
         // constructor
         function Infrastructure() {
             // variables
@@ -255,12 +255,12 @@ var CSSP;
                 });
                 $(document).off("change", "select[name='FacilityType']");
                 $(document).on("change", "select[name='FacilityType']", function (evt) {
-                    if ($(evt.target).val() == "0") { // 0 == not lagoon or plant, 1 == Lagoon, 2 == Plant
+                    if ($(evt.target).val() == "0") {
                         $(".lagoon").removeClass("hidden").addClass("hidden");
                         $(".plant").removeClass("hidden").addClass("hidden");
                         $(".notlagoonorplant").removeClass("hidden");
                     }
-                    else if ($(evt.target).val() == "1") { // 1 == Lagoon, 2 == Plant
+                    else if ($(evt.target).val() == "1") {
                         $(".lagoon").removeClass("hidden");
                         $(".plant").removeClass("hidden").addClass("hidden");
                         $(".notlagoonorplant").removeClass("hidden").addClass("hidden");
@@ -271,6 +271,18 @@ var CSSP;
                         $(".notlagoonorplant").removeClass("hidden").addClass("hidden");
                     }
                 });
+                $(document).off("change", "input[name='IsMechanicallyAerated']");
+                $(document).on("change", "input[name='IsMechanicallyAerated']", function (evt) {
+                    if ($(evt.target).is(":checked")) {
+                        $(".AerationType").removeClass("hidden");
+                    }
+                    else {
+                        $(".AerationType").removeClass("hidden").addClass("hidden");
+                    }
+                });
+                if ($("input[name='IsMechanicallyAerated']").is(":checked")) {
+                    $(".AerationType").removeClass("hidden");
+                }
             };
             this.MoveCancel = function ($bjs) {
                 var $AllItems = $bjs.closest("#InfrastructureTopDiv");
