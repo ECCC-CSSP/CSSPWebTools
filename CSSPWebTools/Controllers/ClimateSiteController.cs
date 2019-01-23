@@ -127,13 +127,11 @@ namespace CSSPWebTools.Controllers
         }
         [HttpGet]
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
-        public PartialViewResult _climateSiteTopPage(string Q)
+        public PartialViewResult _climateSiteTopPage(int SubsectorTVItemID)
         {
-            SetArgs(Q);
-            ViewBag.URLModel = urlModel;
-            ViewBag.SubsectorTVItemID = urlModel.TVItemIDList[0];
+            ViewBag.SubsectorTVItemID = SubsectorTVItemID;
 
-            TVAuthEnum tvAuth = _TVItemService.GetTVAuthWithTVItemIDAndLoggedInUser(urlModel.TVItemIDList[0], null, null, null);
+            TVAuthEnum tvAuth = _TVItemService.GetTVAuthWithTVItemIDAndLoggedInUser(SubsectorTVItemID, null, null, null);
 
             ViewBag.TVAuth = tvAuth;
 
@@ -165,7 +163,7 @@ namespace CSSPWebTools.Controllers
             List<ClimateSitesAndRains> climateSiteAndRainsList = _MWQMSubsectorService.GetMWQMSubsectorClimateSitesAndValuesForAParicularRunsDB(SubsectorTVItemID, MWQMRunTVItemID);
             ViewBag.ClimateSitesAndRainsList = climateSiteAndRainsList;
 
-            List<UseOfSiteModel> useOfSiteModelList = _UseOfSiteService.GetUseOfSiteModelListWithSiteTypeAndSubsectorTVItemIDDB(SiteTypeEnum.Climate, SubsectorTVItemID);
+            List<UseOfSiteModel> useOfSiteModelList = _UseOfSiteService.GetUseOfSiteModelListWithTVTypeAndSubsectorTVItemIDDB(TVTypeEnum.ClimateSite, SubsectorTVItemID);
             ViewBag.UseOfSiteModelList = useOfSiteModelList;
 
             if (useOfSiteModelList.Count > 0)

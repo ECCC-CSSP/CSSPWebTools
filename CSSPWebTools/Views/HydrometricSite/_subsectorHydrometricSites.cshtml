@@ -8,7 +8,6 @@
 @{
     MWQMSubsectorHydrometricSites mwqmSubsectorHydrometricSites = (MWQMSubsectorHydrometricSites)ViewBag.MWQMSubsectorHydrometricSites;
     List<TVItemModel> tvItemModelList = (List<TVItemModel>)ViewBag.TVItemModelList;
-    bool hasSiteAlreadySelected = (bool)ViewBag.HasSiteAlreadySelected;
     int Radius_km = (int)ViewBag.Radius_km;
     int SubsectorTVItemID = (int)ViewBag.SubsectorTVItemID;
     TVAuthEnum tvAuth = (TVAuthEnum)ViewBag.TVAuth;
@@ -16,23 +15,6 @@
 }
 
 <div class="HydrometricSiteSetupDiv">
-    @if (!hasSiteAlreadySelected)
-    {
-        <ul class="list-inline">
-            <li>
-                <select class="form-control" name="AdjacentSubsectors">
-                    <option value="0" selected="selected">@HydrometricSiteViewRes.SelectAnAdjacentSubsector</option>
-                    @foreach (TVItemModel tvItemModel in tvItemModelList)
-                    {
-                        <option value="@tvItemModel.TVItemID">@tvItemModel.TVText</option>
-                    }
-                </select>
-            </li>
-            <li>
-                <button class="jbHydrometricSitesUseSameAsSelectedSubsector btn btn-default">@HydrometricSiteViewRes.UseSameHydrometricSitesAsSelectedSubsector</button>
-            </li>
-        </ul>
-    }
     <ul class="list-inline">
         <li>
             @HydrometricSiteViewRes.FindHydrometricSitesWithinDistanceOfSubsector:

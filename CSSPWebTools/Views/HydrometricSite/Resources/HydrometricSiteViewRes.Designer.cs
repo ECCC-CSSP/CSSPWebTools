@@ -88,15 +88,6 @@ namespace CSSPWebTools.Views.HydrometricSite.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Average.
-        /// </summary>
-        public static string Average {
-            get {
-                return ResourceManager.GetString("Average", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to A year between two commas represent that year.
         /// </summary>
         public static string AYearBetweenTwoCommasRepresentThatYear {
@@ -111,51 +102,6 @@ namespace CSSPWebTools.Views.HydrometricSite.Resources {
         public static string ClickOnGlobeIconToViewOnMap {
             get {
                 return ResourceManager.GetString("ClickOnGlobeIconToViewOnMap", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Day.
-        /// </summary>
-        public static string Day {
-            get {
-                return ResourceManager.GetString("Day", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Discharge (m3/s).
-        /// </summary>
-        public static string Discharge_m3_s {
-            get {
-                return ResourceManager.GetString("Discharge_m3_s", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Discharges Manually Entered (m3/s).
-        /// </summary>
-        public static string DischargesEntered_m3_s {
-            get {
-                return ResourceManager.GetString("DischargesEntered_m3_s", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Down.
-        /// </summary>
-        public static string Down {
-            get {
-                return ResourceManager.GetString("Down", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Edit.
-        /// </summary>
-        public static string Edit {
-            get {
-                return ResourceManager.GetString("Edit", resourceCulture);
             }
         }
         
@@ -178,33 +124,6 @@ namespace CSSPWebTools.Views.HydrometricSite.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Entered.
-        /// </summary>
-        public static string Entered {
-            get {
-                return ResourceManager.GetString("Entered", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Fill.
-        /// </summary>
-        public static string Fill {
-            get {
-                return ResourceManager.GetString("Fill", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Fill using.
-        /// </summary>
-        public static string FillUsing {
-            get {
-                return ResourceManager.GetString("FillUsing", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Find.
         /// </summary>
         public static string Find {
@@ -219,78 +138,6 @@ namespace CSSPWebTools.Views.HydrometricSite.Resources {
         public static string FindHydrometricSitesWithinDistanceOfSubsector {
             get {
                 return ResourceManager.GetString("FindHydrometricSitesWithinDistanceOfSubsector", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Get hydrometric data for runs of year {0}.
-        /// </summary>
-        public static string GetHydrometricDataForRunsOfYear_ {
-            get {
-                return ResourceManager.GetString("GetHydrometricDataForRunsOfYear_", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Has runs.
-        /// </summary>
-        public static string HasRuns {
-            get {
-                return ResourceManager.GetString("HasRuns", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Hydrometric site.
-        /// </summary>
-        public static string HydrometricSite {
-            get {
-                return ResourceManager.GetString("HydrometricSite", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Hydrometric Site Name.
-        /// </summary>
-        public static string HydrometricSiteName {
-            get {
-                return ResourceManager.GetString("HydrometricSiteName", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Hydrometric sites and years of use.
-        /// </summary>
-        public static string HydrometricSitesAndYearsOfUse {
-            get {
-                return ResourceManager.GetString("HydrometricSitesAndYearsOfUse", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Hydrometric sites data for each run.
-        /// </summary>
-        public static string HydrometricSitesDataForEachRun {
-            get {
-                return ResourceManager.GetString("HydrometricSitesDataForEachRun", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Hydrometric sites priorities.
-        /// </summary>
-        public static string HydrometricSitesPriorities {
-            get {
-                return ResourceManager.GetString("HydrometricSitesPriorities", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Hydrometric sites to use for subsector.
-        /// </summary>
-        public static string HydrometricSitesToUseForSubsector {
-            get {
-                return ResourceManager.GetString("HydrometricSitesToUseForSubsector", resourceCulture);
             }
         }
         
@@ -322,110 +169,11 @@ namespace CSSPWebTools.Views.HydrometricSite.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Level (m).
-        /// </summary>
-        public static string Level_m {
-            get {
-                return ResourceManager.GetString("Level_m", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Meters.
-        /// </summary>
-        public static string Meters {
-            get {
-                return ResourceManager.GetString("Meters", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to More info.
-        /// </summary>
-        public static string MoreInfo {
-            get {
-                return ResourceManager.GetString("MoreInfo", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to No data on HSC historical site.
-        /// </summary>
-        public static string NoDataOnHSCHistoricalSite {
-            get {
-                return ResourceManager.GetString("NoDataOnHSCHistoricalSite", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Note.
-        /// </summary>
-        public static string Note {
-            get {
-                return ResourceManager.GetString("Note", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Now.
         /// </summary>
         public static string Now {
             get {
                 return ResourceManager.GetString("Now", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Period with daily data.
-        /// </summary>
-        public static string PeriodWithDailyData {
-            get {
-                return ResourceManager.GetString("PeriodWithDailyData", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Priority.
-        /// </summary>
-        public static string Priority {
-            get {
-                return ResourceManager.GetString("Priority", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Radar.
-        /// </summary>
-        public static string Radar {
-            get {
-                return ResourceManager.GetString("Radar", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Remove.
-        /// </summary>
-        public static string Remove {
-            get {
-                return ResourceManager.GetString("Remove", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Run.
-        /// </summary>
-        public static string Run {
-            get {
-                return ResourceManager.GetString("Run", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Save.
-        /// </summary>
-        public static string Save {
-            get {
-                return ResourceManager.GetString("Save", resourceCulture);
             }
         }
         
@@ -439,92 +187,11 @@ namespace CSSPWebTools.Views.HydrometricSite.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Save entered discharge.
-        /// </summary>
-        public static string SaveEnteredDischarge {
-            get {
-                return ResourceManager.GetString("SaveEnteredDischarge", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Save hydrometric site priorities.
-        /// </summary>
-        public static string SaveHydrometricSitePriorities {
-            get {
-                return ResourceManager.GetString("SaveHydrometricSitePriorities", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Saving ....
-        /// </summary>
-        public static string Saving {
-            get {
-                return ResourceManager.GetString("Saving", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Select an adjacent subsector.
         /// </summary>
         public static string SelectAnAdjacentSubsector {
             get {
                 return ResourceManager.GetString("SelectAnAdjacentSubsector", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Select a run above to see discharge.
-        /// </summary>
-        public static string SelectARunAboveToSeeDischarge {
-            get {
-                return ResourceManager.GetString("SelectARunAboveToSeeDischarge", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Selected.
-        /// </summary>
-        public static string Selected {
-            get {
-                return ResourceManager.GetString("Selected", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Set data to use by average for year {0}.
-        /// </summary>
-        public static string SetDataToUseByAverageForYear_ {
-            get {
-                return ResourceManager.GetString("SetDataToUseByAverageForYear_", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Set data to use by priority for year {0}.
-        /// </summary>
-        public static string SetDataToUseByPriorityForYear_ {
-            get {
-                return ResourceManager.GetString("SetDataToUseByPriorityForYear_", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Set hydrometric site priority by distance.
-        /// </summary>
-        public static string SetHydrometricSitePriorityByDistance {
-            get {
-                return ResourceManager.GetString("SetHydrometricSitePriorityByDistance", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Setting hydrometric site priorities.
-        /// </summary>
-        public static string SettingHydrometricSitePriorities {
-            get {
-                return ResourceManager.GetString("SettingHydrometricSitePriorities", resourceCulture);
             }
         }
         
@@ -538,74 +205,11 @@ namespace CSSPWebTools.Views.HydrometricSite.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Subsector runs.
-        /// </summary>
-        public static string SubsectorRuns {
-            get {
-                return ResourceManager.GetString("SubsectorRuns", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Up.
-        /// </summary>
-        public static string Up {
-            get {
-                return ResourceManager.GetString("Up", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Use.
-        /// </summary>
-        public static string Use {
-            get {
-                return ResourceManager.GetString("Use", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Use same hydrometric sites as selected subsector.
         /// </summary>
         public static string UseSameHydrometricSitesAsSelectedSubsector {
             get {
                 return ResourceManager.GetString("UseSameHydrometricSitesAsSelectedSubsector", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Values to be used.
-        /// </summary>
-        public static string ValuesToBeUsed {
-            get {
-                return ResourceManager.GetString("ValuesToBeUsed", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to View Data Type.
-        /// </summary>
-        public static string ViewDataType {
-            get {
-                return ResourceManager.GetString("ViewDataType", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Weight.
-        /// </summary>
-        public static string Weight {
-            get {
-                return ResourceManager.GetString("Weight", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Weighted.
-        /// </summary>
-        public static string Weighted {
-            get {
-                return ResourceManager.GetString("Weighted", resourceCulture);
             }
         }
         

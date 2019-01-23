@@ -174,7 +174,7 @@
                             bool HasData = (climateSitesAndRains.ClimateSiteModel.DailyStartDate_Local <= mwqmRunModel.DateTime_Local && climateSitesAndRains.ClimateSiteModel.DailyEndDate_Local >= mwqmRunModel.DateTime_Local);
                             int Ordinal = (from c in useOfSiteModelList
                                            where c.SiteTVItemID == climateSitesAndRains.ClimateSiteModel.ClimateSiteTVItemID
-                                           && c.SiteType == SiteTypeEnum.Climate
+                                           && c.TVType == TVTypeEnum.ClimateSite
                                            select c.Ordinal).FirstOrDefault();
 
                             if (HasData)

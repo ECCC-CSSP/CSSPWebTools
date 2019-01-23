@@ -117,7 +117,43 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Test" xml:space="preserve">
-    <value>Testing</value>
+  <data name="ClickOnGlobeIconToViewOnMap" xml:space="preserve">
+    <value>Click on globe icon to view on map</value>
+  </data>
+  <data name="Empty" xml:space="preserve">
+    <value>Empty</value>
+  </data>
+  <data name="Find" xml:space="preserve">
+    <value>Find</value>
+  </data>
+  <data name="FindTideSitesWithinDistanceOfSubsector" xml:space="preserve">
+    <value>Find tide sites within distance of subsector</value>
+  </data>
+  <data name="GetTideDataForRunsOfYear_" xml:space="preserve">
+    <value>Get tide data for runs of year {0}</value>
+  </data>
+  <data name="IdentifyOnMap" xml:space="preserve">
+    <value>Identify on map</value>
+  </data>
+  <data name="Now" xml:space="preserve">
+    <value>Now</value>
+  </data>
+  <data name="SaveButtonAtBottomOfPage" xml:space="preserve">
+    <value>Save button at bottom of page</value>
+  </data>
+  <data name="SelectAnAdjacentSubsector" xml:space="preserve">
+    <value>Select an adjacent subsector</value>
+  </data>
+  <data name="ShowTideSitesOnMap" xml:space="preserve">
+    <value>Show tide sites on map</value>
+  </data>
+  <data name="TideSitesToUseForSubsectorVerifyAndSave" xml:space="preserve">
+    <value>Tide sites to use for subsector verify and save</value>
+  </data>
+  <data name="TideSitesUsedAndWithinDistance" xml:space="preserve">
+    <value>Tide sites used and within distance</value>
+  </data>
+  <data name="UseSameTideSitesAsSelectedSubsector" xml:space="preserve">
+    <value>Use same tide sites as selected subsector</value>
   </data>
 </root>

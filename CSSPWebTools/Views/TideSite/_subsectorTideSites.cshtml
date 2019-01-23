@@ -1,0 +1,78 @@
+﻿@using CSSPWebTools.Models;
+@using CSSPWebTools.Views.Shared.Resources;
+@using CSSPWebTools.Views.TideSite.Resources;
+@using CSSPWebTools.Controllers;
+@using CSSPEnumsDLL.Enums;
+@using CSSPModelsDLL.Models;
+
+@{
+    MWQMSubsectorTideSites mwqmSubsectorTideSites = (MWQMSubsectorTideSites)ViewBag.MWQMSubsectorTideSites;
+    List<TVItemModel> tvItemModelList = (List<TVItemModel>)ViewBag.TVItemModelList;
+    int Radius_km = (int)ViewBag.Radius_km;
+    int SubsectorTVItemID = (int)ViewBag.SubsectorTVItemID;
+    TVAuthEnum tvAuth = (TVAuthEnum)ViewBag.TVAuth;
+
+}
+
+<div class="TideSiteSetupDiv">
+    <ul class="list-inline">
+        <li>
+            @TideSiteViewRes.FindTideSitesWithinDistanceOfSubsector:
+        </li>
+        <li>
+            <input class="form-control isnumber" type="text" name="Radius_km" value="@Radius_km" />
+        </li>
+        <li>
+            Km
+        </li>
+        <li>
+            <button class="jbTideSitesFindWithinDistance btn btn-default">@TideSiteViewRes.Find</button>
+        </li>
+    </ul>
+    <ul class="ClickGlobeToViewOnMap list-inline hidden">
+        <li>
+            @TideSiteViewRes.ClickOnGlobeIconToViewOnMap
+        </li>
+    </ul>
+    <h3>@TideSiteViewRes.TideSitesUsedAndWithinDistance <button class="jbTideSitesShowOnMap btn btn-default hidden">@TideSiteViewRes.ShowTideSitesOnMap</button></h3>
+    <div class="TideSitesUsedAndWithinDistanceDiv">
+        @{
+            int TideSiteCount = 99;
+        }
+        <span class="h5">@TideSiteViewRes.SaveButtonAtBottomOfPage</span>
+        @foreach (TideSiteWithLatLngAndOrdinalModel TideSiteWithLatLngAndOrdinalModel in mwqmSubsectorTideSites.TideSiteModelUsedAndWithinDistanceModelList)
+        {
+            TideSiteCount += 1;
+            bool IsInUse = TideSiteWithLatLngAndOrdinalModel.IsUsed;
+
+            <div class="TideSiteUsedAndWithinDistance"
+                 data-tidesitetvitemid="@TideSiteWithLatLngAndOrdinalModel.TideSiteTVItemID"
+                 data-mapinfoid="@TideSiteWithLatLngAndOrdinalModel.MapInfoID"
+                 data-lat="@TideSiteWithLatLngAndOrdinalModel.Lat"
+                 data-lng="@TideSiteWithLatLngAndOrdinalModel.Lng"
+                 data-ordinal="@TideSiteWithLatLngAndOrdinalModel.Ordinal">
+                <span class="TideSiteCount">@(TideSiteCount) - </span>
+                <button class="jbMapShowItem btn btn-default hidden"
+                        data-tvitemid="@TideSiteWithLatLngAndOrdinalModel.TideSiteTVItemID"
+                        title="@TideSiteViewRes.IdentifyOnMap">
+                    <span class="glyphicon glyphicon-map-marker"></span>
+                </button>
+                <button class="jbTideSiteAddToUse btn btn-@(IsInUse ? "success" : "default")">
+                    @TideSiteWithLatLngAndOrdinalModel.TideSiteName
+                </button>
+                <span>(@TideSiteWithLatLngAndOrdinalModel.Distance_km.ToString("F0") Km)</span>
+            </div>
+        }
+    </div>
+    <div>
+        <br />
+        <button class="jbTideSitesToUseForSubsectorVerifyAndSave btn btn-default">@TideSiteViewRes.TideSitesToUseForSubsectorVerifyAndSave</button>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    $(function () {
+        cssp.TideSite.Init();
+    });
+</script>

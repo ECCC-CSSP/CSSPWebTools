@@ -199,6 +199,7 @@
     <Compile Include="Controllers\MapController.cs" />
     <Compile Include="Controllers\MikeScenarioController.cs" />
     <Compile Include="Controllers\MWQMController.cs" />
+    <Compile Include="Controllers\SubsectorToolsController.cs" />
     <Compile Include="Controllers\ProvinceToolsController.cs" />
     <Compile Include="Controllers\PolSourceController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
@@ -513,6 +514,16 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>_LayoutViewRes.fr.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SubsectorTools\Resources\SubsectorToolsViewRes.fr.Designer.cs">
+      <DependentUpon>SubsectorToolsViewRes.fr.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Views\SubsectorTools\Resources\SubsectorToolsViewRes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SubsectorToolsViewRes.resx</DependentUpon>
     </Compile>
     <Compile Include="Views\Tel\Resources\TelViewRes.fr.Designer.cs">
       <DependentUpon>TelViewRes.fr.resx</DependentUpon>
@@ -829,7 +840,7 @@
     <Content Include="Views\MikeScenario\_mikeScenarioSourceInfo.cshtml" />
     <Content Include="Views\MikeScenario\_mikeScenarioSourceEdit.cshtml" />
     <Content Include="Views\Home\_appTask.cshtml" />
-    <Content Include="Views\TideSite\_tideSiteList.cshtml" />
+    <Content Include="Views\TideSite\_tideSiteTopPage.cshtml" />
     <Content Include="Views\ClimateSite\_climateSiteTopPage.cshtml" />
     <Content Include="Views\Address\_addressEditPolSourceSite.cshtml" />
     <Content Include="Views\Address\_addressEditInfrastructure.cshtml" />
@@ -937,6 +948,10 @@
     <Content Include="Views\HydrometricSite\_subsectorHydrometricSites.cshtml" />
     <Content Include="Views\MikeScenario\_mikeScenarioSourceHydrometricData.cshtml" />
     <Content Include="Views\MikeScenario\_mikeScenarioResultsHTML.cshtml" />
+    <Content Include="Views\SubsectorTools\_SubsectorToolsTopPage.cshtml" />
+    <Content Include="Views\SubsectorTools\_municipalityTopPage.cshtml" />
+    <Content Include="Views\TideSite\_subsectorTideSites.cshtml" />
+    <Content Include="Views\SubsectorTools\_subsectorMunicipalities.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -947,6 +962,7 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="Scripts\csspjs\cssp.SubsectorTools.ts" />
     <TypeScriptCompile Include="Scripts\csspjs\cssp.ProvinceTools.ts" />
     <TypeScriptCompile Include="Scripts\csspjs\cssp.OpenData.ts" />
     <TypeScriptCompile Include="Scripts\csspjs\cssp.ReportType.ts" />
@@ -1315,6 +1331,14 @@
     <EmbeddedResource Include="Views\Shared\Resources\_LayoutViewRes.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>_LayoutViewRes.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\SubsectorTools\Resources\SubsectorToolsViewRes.fr.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>SubsectorToolsViewRes.fr.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\SubsectorTools\Resources\SubsectorToolsViewRes.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>SubsectorToolsViewRes.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Tel\Resources\TelViewRes.fr.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

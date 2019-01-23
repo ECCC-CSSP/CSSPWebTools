@@ -1,0 +1,44 @@
+﻿@using CSSPWebTools.Views.SubsectorTools.Resources;
+@using CSSPWebTools.Controllers;
+@using CSSPEnumsDLL.Enums;
+@using CSSPEnumsDLL.Services;
+@using CSSPModelsDLL.Models;
+@using System.Linq;
+
+@{
+    int SubsectorTVItemID = (int)ViewBag.SubsectorTVItemID;
+}
+
+<div class="SubsectorToolsTopDiv">
+    <div class="AppTaskDiv">
+        @Html.Action("_appTask", "Home", new { TVItemID = SubsectorTVItemID, Seconds = 5 })
+    </div>
+    <div>
+        <button class="jbSubsectorToolsLoadSubPage btn btn-default"
+                data-page="/ClimateSite/_climateSiteTopPage?SubsectorTVItemID=@SubsectorTVItemID">
+            @SubsectorToolsViewRes.Climate
+        </button>&nbsp;
+        <button class="jbSubsectorToolsLoadSubPage btn btn-default"
+                data-page="/HydrometricSite/_hydrometricSiteTopPage?SubsectorTVItemID=@SubsectorTVItemID">
+            @SubsectorToolsViewRes.Hydrometric
+        </button>&nbsp;
+        <button class="jbSubsectorToolsLoadSubPage btn btn-default"
+                data-page="/TideSite/_tideSiteTopPage?SubsectorTVItemID=@SubsectorTVItemID">
+            @SubsectorToolsViewRes.Tide
+        </button>&nbsp;
+        <button class="jbSubsectorToolsLoadSubPage btn btn-default"
+                data-page="/SubsectorTools/_municipalityTopPage?SubsectorTVItemID=@SubsectorTVItemID">
+            @SubsectorToolsViewRes.Municipality
+        </button>&nbsp;
+        <p>&nbsp;</p>
+        <div class="SubsectorToolsSubDiv">
+
+        </div>
+
+    </div>
+</div>
+<script type="text/javascript">
+    $(function () {
+        //cssp.SubsectorTools.SubsectorToolsInit();
+    });
+</script>

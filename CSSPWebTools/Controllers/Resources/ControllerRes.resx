@@ -415,4 +415,7 @@
   <data name="PolSourceSiteMikeScenarios" xml:space="preserve">
     <value>Pollution Source Site Mike Scenarios</value>
   </data>
+  <data name="SubsectorTools" xml:space="preserve">
+    <value>Subsector Tools</value>
+  </data>
 </root>

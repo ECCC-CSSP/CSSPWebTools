@@ -289,10 +289,10 @@
             cssp.Dialog.CheckDialogAndButtonsExist(["#DialogBasic", "#DialogBasicYes"], 5, "cssp.ClimateSite.ClimateSiteRainEnteredSave", $bjs);
         };
         public ClimateSitesShowOnMap: Function = (): void => {
-            let mapItems: CSSP.tvLocation[] = [];
-            cssp.GoogleMap.FillTVItemObjects(mapItems, true);
             let ClimateSiteDiv$: JQuery = $("#ClimateSiteDiv");
             if ($("a.GlobeIcon").hasClass("btn-success")) {
+                let mapItems: CSSP.tvLocation[] = [];
+                cssp.GoogleMap.FillTVItemObjects(mapItems, true);
                 ClimateSiteDiv$.find("button.jbMapShowItem").removeClass("hidden");
                 ClimateSiteDiv$.find("div.ClimateSiteUsedAndWithinDistance").each((ind: number, elem: Element) => {
                     let TVItemID: number = parseInt($(elem).data("climatesitetvitemid"));

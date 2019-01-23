@@ -1,5 +1,8 @@
 ﻿using CSSPEnumsDLL.Enums;
+using CSSPEnumsDLL.Services;
 using CSSPModelsDLL.Models;
+using CSSPWebTools.Controllers.Resources;
+using CSSPWebTools.Models;
 using CSSPDBDLL.Models;
 using CSSPDBDLL.Services;
 using System;
@@ -8,23 +11,23 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.UI;
-using CSSPWebTools.Models;
 
 namespace CSSPWebTools.Controllers
 {
-    public class TideSiteController : BaseController
+    public class SubsectorToolsController : BaseController
     {
         #region Variables
         #endregion Variables
 
         #region Properties
+        public SubsectorToolsController _SubsectorToolsController { get; private set; }
         public MWQMSubsectorService _MWQMSubsectorService { get; private set; }
         #endregion Properties
 
         #region Constructors
-        public TideSiteController()
+        public SubsectorToolsController()
         {
-
+            _SubsectorToolsController = this;
         }
         #endregion Constructors
 
@@ -36,10 +39,20 @@ namespace CSSPWebTools.Controllers
         }
         #endregion Overrides
 
-        #region Functions (public)
+        #region Views/PartialViews
         [HttpGet]
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
-        public PartialViewResult _tideSiteTopPage(int SubsectorTVItemID)
+        public PartialViewResult _SubsectorToolsTopPage(string Q)
+        {
+            SetArgs(Q);
+
+            ViewBag.SubsectorTVItemID = urlModel.TVItemIDList[0];
+
+            return PartialView();
+        }
+        [HttpGet]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public PartialViewResult _municipalityTopPage(int SubsectorTVItemID)
         {
             ViewBag.SubsectorTVItemID = SubsectorTVItemID;
 
@@ -53,9 +66,9 @@ namespace CSSPWebTools.Controllers
         }
         [HttpGet]
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
-        public PartialViewResult _subsectorTideSites(int SubsectorTVItemID, float Radius_km)
+        public PartialViewResult _subsectorMunicipalities(int SubsectorTVItemID, float Radius_km)
         {
-            ViewBag.MWQMSubsectorTideSites = null;
+            ViewBag.MWQMSubsectorMunicipalities = null;
             ViewBag.Radius_km = Radius_km;
             ViewBag.SubsectorTVItemID = SubsectorTVItemID;
             ViewBag.TVItemModelList = null;
@@ -64,25 +77,28 @@ namespace CSSPWebTools.Controllers
 
             ViewBag.TVAuth = tvAuth;
 
-            MWQMSubsectorTideSites mwqmSubsectorTideSites = _MWQMSubsectorService.GetMWQMSubsectorTideSitesDB(SubsectorTVItemID, Radius_km * 1000);
-            ViewBag.MWQMSubsectorTideSites = mwqmSubsectorTideSites;
+            MWQMSubsectorMunicipalities mwqmSubsectorMunicipalities = _MWQMSubsectorService.GetMWQMSubsectorMunicipalitiesDB(SubsectorTVItemID, Radius_km * 1000);
+            ViewBag.MWQMSubsectorMunicipalities = mwqmSubsectorMunicipalities;
 
             List<TVItemModel> tvItemModelList = _MWQMSubsectorService.GetAdjacentSubsectors(SubsectorTVItemID, 2);
             ViewBag.TVItemModelList = tvItemModelList;
-
             return PartialView();
         }
+        #endregion Functions View/PartialViews 
+
+        #region Functions JSON
         [HttpPost]
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
-        public JsonResult TideSitesToUseForSubsectorVerifyAndSaveJSON(FormCollection fc)
+        public JsonResult MunicipalitiesToUseForSubsectorVerifyAndSaveJSON(FormCollection fc)
         {
-            MWQMSubsectorModel mwqmSubsectorModel = _MWQMSubsectorService.TideSitesToUseForSubsectorVerifyAndSaveDB(fc);
+            MWQMSubsectorModel mwqmSubsectorModel = _MWQMSubsectorService.MunicipalitiesToUseForSubsectorVerifyAndSaveDB(fc);
 
             return Json(mwqmSubsectorModel.Error, JsonRequestBehavior.AllowGet);
         }
+        #endregion Functions JSON
 
-
-        #endregion Functions (public)
+        #region Functions public Non Action
+        #endregion Functions public Non Action
     }
 
 }

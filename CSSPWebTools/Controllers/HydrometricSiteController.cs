@@ -51,7 +51,6 @@ namespace CSSPWebTools.Controllers
             ViewBag.Radius_km = Radius_km;
             ViewBag.SubsectorTVItemID = SubsectorTVItemID;
             ViewBag.TVItemModelList = null;
-            ViewBag.HasSiteAlreadySelected = null;
 
             TVAuthEnum tvAuth = _TVItemService.GetTVAuthWithTVItemIDAndLoggedInUser(SubsectorTVItemID, null, null, null);
 
@@ -59,9 +58,6 @@ namespace CSSPWebTools.Controllers
 
             MWQMSubsectorHydrometricSites mwqmSubsectorHydrometricSites = _MWQMSubsectorService.GetMWQMSubsectorHydrometricSitesDB(SubsectorTVItemID, Radius_km * 1000);
             ViewBag.MWQMSubsectorHydrometricSites = mwqmSubsectorHydrometricSites;
-
-            bool hasSiteAlreadySelected = mwqmSubsectorHydrometricSites.HydrometricSiteModelUsedAndWithinDistanceModelList.Where(c => c.YearsOfUseText != "").Any();
-            ViewBag.HasSiteAlreadySelected = hasSiteAlreadySelected;
 
             List<TVItemModel> tvItemModelList = _MWQMSubsectorService.GetAdjacentSubsectors(SubsectorTVItemID, 2);
             ViewBag.TVItemModelList = tvItemModelList;
@@ -75,13 +71,11 @@ namespace CSSPWebTools.Controllers
         }
         [HttpGet]
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
-        public PartialViewResult _HydrometricSiteTopPage(string Q)
+        public PartialViewResult _HydrometricSiteTopPage(int SubsectorTVItemID)
         {
-            SetArgs(Q);
-            ViewBag.URLModel = urlModel;
-            ViewBag.SubsectorTVItemID = urlModel.TVItemIDList[0];
+            ViewBag.SubsectorTVItemID = SubsectorTVItemID;
 
-            TVAuthEnum tvAuth = _TVItemService.GetTVAuthWithTVItemIDAndLoggedInUser(urlModel.TVItemIDList[0], null, null, null);
+            TVAuthEnum tvAuth = _TVItemService.GetTVAuthWithTVItemIDAndLoggedInUser(SubsectorTVItemID, null, null, null);
 
             ViewBag.TVAuth = tvAuth;
 

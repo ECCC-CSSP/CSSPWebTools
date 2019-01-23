@@ -39,6 +39,7 @@ module CSSP {
         public Register: CSSP.Register;
         public ReportType: CSSP.ReportType;
         public Sammy: CSSP.Sammy;
+        public SubsectorTools: CSSP.SubsectorTools;
         public Tel: CSSP.Tel;
         public Testing: CSSP.Testing;
         public TideSite: CSSP.TideSite;
@@ -269,8 +270,8 @@ module CSSP {
     
 var cssp = new CSSP.app();
 
-cssp.StartDir = "";
-//cssp.StartDir = "/csspwebtools"; 
+//cssp.StartDir = "";
+cssp.StartDir = "/csspwebtools"; 
 //cssp.StartDir = "/csspwebtoolsjoe"; 
 cssp.BaseURL = cssp.StartDir + "/" + Globalize.culture.name + "/";
 
@@ -306,6 +307,7 @@ cssp.Register = new CSSP.Register();
 cssp.ReportType = new CSSP.ReportType();
 cssp.Sammy = new CSSP.Sammy();
 cssp.SamplingPlan = new CSSP.SamplingPlan();
+cssp.SubsectorTools = new CSSP.SubsectorTools();
 cssp.Tel = new CSSP.Tel();
 cssp.Testing = new CSSP.Testing();
 cssp.TideSite = new CSSP.TideSite();

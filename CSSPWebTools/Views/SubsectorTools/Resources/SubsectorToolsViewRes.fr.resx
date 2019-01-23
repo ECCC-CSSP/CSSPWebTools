@@ -135,6 +135,9 @@
   <data name="ClickOnGlobeIconToViewOnMap" xml:space="preserve">
     <value>Cliquez sur l'icône du globe pour voir sur la carte</value>
   </data>
+  <data name="Climate" xml:space="preserve">
+    <value>Climate</value>
+  </data>
   <data name="Day" xml:space="preserve">
     <value>Jour</value>
   </data>
@@ -168,14 +171,17 @@
   <data name="Find" xml:space="preserve">
     <value>Trouver</value>
   </data>
-  <data name="FindTideSitesWithinDistanceOfSubsector" xml:space="preserve">
-    <value>Trouver des sites de marées à distance du sous-secteur</value>
+  <data name="FindMunicipalitiesWithinDistanceOfSubsector" xml:space="preserve">
+    <value>Trouver des municipalités à distance du sous-secteur</value>
   </data>
-  <data name="GetTideDataForRunsOfYear_" xml:space="preserve">
-    <value>Obtenir des données marées pour l'année {0}</value>
+  <data name="GetMunicipalityDataForRunsOfYear_" xml:space="preserve">
+    <value>Obtenir des données municipal pour l'année {0}</value>
   </data>
   <data name="HasRuns" xml:space="preserve">
     <value>A une tournée</value>
+  </data>
+  <data name="Hydrometric" xml:space="preserve">
+    <value>Hydrometrique</value>
   </data>
   <data name="IdentifyOnMap" xml:space="preserve">
     <value>Identifier sur la carte</value>
@@ -188,6 +194,30 @@
   </data>
   <data name="MoreInfo" xml:space="preserve">
     <value>Plus d'informations</value>
+  </data>
+  <data name="MunicipalitiesAndYearsOfUse" xml:space="preserve">
+    <value>Municipalités et années d'utilisation</value>
+  </data>
+  <data name="MunicipalitiesDataForEachRun" xml:space="preserve">
+    <value>Données sur les municipalités pour chaque tournée</value>
+  </data>
+  <data name="MunicipalitiesPriorities" xml:space="preserve">
+    <value>Priorités des municipalités</value>
+  </data>
+  <data name="MunicipalitiesToUseForSubsector" xml:space="preserve">
+    <value>Municipalités à utiliser pour le sous-secteur</value>
+  </data>
+  <data name="MunicipalitiesToUseForSubsectorVerifyAndSave" xml:space="preserve">
+    <value>Les municipalités à utiliser pour le sous-secteur - (vérifier et enregistrer)</value>
+  </data>
+  <data name="MunicipalitiesUsedAndWithinDistance" xml:space="preserve">
+    <value>Municipalités utilisés et à distance</value>
+  </data>
+  <data name="Municipality" xml:space="preserve">
+    <value>Municipalité</value>
+  </data>
+  <data name="MunicipalityName" xml:space="preserve">
+    <value>Nom du site municipalité</value>
   </data>
   <data name="NoDataOnHSCHistoricalSite" xml:space="preserve">
     <value>Aucune donnée sur le site historique HSC</value>
@@ -222,8 +252,8 @@
   <data name="SaveEnteredDischarge" xml:space="preserve">
     <value>Enregistrer les discharges inscrites</value>
   </data>
-  <data name="SaveTideSitePriorities" xml:space="preserve">
-    <value>Sauvegarder les priorités du site de marée</value>
+  <data name="SaveMunicipalityPriorities" xml:space="preserve">
+    <value>Sauvegarder les priorités de la municipalité</value>
   </data>
   <data name="Saving" xml:space="preserve">
     <value>Sauvegarder ...</value>
@@ -243,41 +273,20 @@
   <data name="SetDataToUseByPriorityForYear_" xml:space="preserve">
     <value>Définir les données à utiliser par priorité pour l'année {0}</value>
   </data>
-  <data name="SetTideSitePriorityByDistance" xml:space="preserve">
-    <value>Définir la priorité du site de marée par distance</value>
+  <data name="SetMunicipalityPriorityByDistance" xml:space="preserve">
+    <value>Définir la priorité de la municipalité par distance</value>
   </data>
-  <data name="SettingTideSitePriorities" xml:space="preserve">
-    <value>Définir les priorités du site de marée</value>
+  <data name="SettingMunicipalityPriorities" xml:space="preserve">
+    <value>Définir les priorités de la municipalité</value>
   </data>
-  <data name="ShowTideSitesOnMap" xml:space="preserve">
-    <value>Afficher les sites de marées sur la carte</value>
+  <data name="ShowMunicipalitiesOnMap" xml:space="preserve">
+    <value>Afficher les municipalités sur la carte</value>
   </data>
   <data name="SubsectorRuns" xml:space="preserve">
     <value>tournée du sous-secteur</value>
   </data>
-  <data name="TideSite" xml:space="preserve">
-    <value>Site de marée</value>
-  </data>
-  <data name="TideSiteName" xml:space="preserve">
-    <value>Nom du site de marée</value>
-  </data>
-  <data name="TideSitesAndYearsOfUse" xml:space="preserve">
-    <value>Sites de marées et années d'utilisation</value>
-  </data>
-  <data name="TideSitesDataForEachRun" xml:space="preserve">
-    <value>Données sur les sites de marées pour chaque tournée</value>
-  </data>
-  <data name="TideSitesPriorities" xml:space="preserve">
-    <value>Priorités des sites marées</value>
-  </data>
-  <data name="TideSitesToUseForSubsector" xml:space="preserve">
-    <value>Sites marées à utiliser pour le sous-secteur</value>
-  </data>
-  <data name="TideSitesToUseForSubsectorVerifyAndSave" xml:space="preserve">
-    <value>Les sites marées à utiliser pour le sous-secteur - (vérifier et enregistrer)</value>
-  </data>
-  <data name="TideSitesUsedAndWithinDistance" xml:space="preserve">
-    <value>Sites marées utilisés et à distance</value>
+  <data name="Tide" xml:space="preserve">
+    <value>Marée</value>
   </data>
   <data name="Up" xml:space="preserve">
     <value>En haut</value>
@@ -285,8 +294,8 @@
   <data name="Use" xml:space="preserve">
     <value>Utilise</value>
   </data>
-  <data name="UseSameTideSiteAsSelectedSubsector" xml:space="preserve">
-    <value>Utilisez les mêmes sites de marées que le sous-secteur sélectionné</value>
+  <data name="UseSameMunicipalityAsSelectedSubsector" xml:space="preserve">
+    <value>Utilisez les mêmes municipalités que le sous-secteur sélectionné</value>
   </data>
   <data name="ValuesToBeUsed" xml:space="preserve">
     <value>Valeurs à utiliser</value>

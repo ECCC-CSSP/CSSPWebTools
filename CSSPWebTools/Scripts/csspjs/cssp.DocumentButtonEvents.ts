@@ -839,6 +839,26 @@ module CSSP {
                             cssp.RainExceedance.RainExceedanceShowHideAdd($bjs);
                         }
                         break;
+                    case "jbMunicipalitiesAddToUse":
+                        {
+                            cssp.SubsectorTools.MunicipalitiesAddToUse($bjs);
+                        }
+                        break;
+                    case "jbMunicipalitiesShowOnMap":
+                        {
+                            cssp.SubsectorTools.MunicipalitiesShowOnMap();
+                        }
+                        break;
+                    case "jbMunicipalitiesFindWithinDistance":
+                        {
+                            cssp.SubsectorTools.MunicipalitiesFindWithinDistance();
+                        }
+                        break;
+                    case "jbMunicipalitiesToUseForSubsectorVerifyAndSave":
+                        {
+                            cssp.SubsectorTools.MunicipalitiesToUseForSubsectorVerifyAndSave();
+                        }
+                        break;
                     case "jbMWQMRunAddOrModify":
                         {
                             cssp.MWQMRun.MWQMRunAddOrModify($bjs);
@@ -1494,6 +1514,11 @@ module CSSP {
                             cssp.View.Permissions($bjs);
                         }
                         break;
+                    case "jbSubsectorToolsLoadSubPage":
+                        {
+                            cssp.SubsectorTools.SubsectorToolsLoadSubPage($bjs);
+                        }
+                        break;
                     case "jbTelAdd":
                         {
                             cssp.Tel.FormSubmitAddOrUpdate($bjs);
@@ -1509,7 +1534,27 @@ module CSSP {
                             cssp.Tel.FormSubmitAddOrUpdate($bjs);
                         }
                         break;
-                    case "jbTVTypeAuthRemove":
+                    case "jbTideSiteAddToUse":
+                        {
+                            cssp.TideSite.TideSitesAddToUse($bjs);
+                        }
+                        break;
+                    case "jbTideSitesShowOnMap":
+                        {
+                            cssp.TideSite.TideSitesShowOnMap();
+                        }
+                        break;
+                    case "jbTideSitesFindWithinDistance":
+                        {
+                            cssp.TideSite.TideSitesFindWithinDistance();
+                        }
+                        break;
+                    case "jbTideSitesToUseForSubsectorVerifyAndSave":
+                        {
+                            cssp.TideSite.TideSitesToUseForSubsectorVerifyAndSave();
+                        }
+                        break;
+                  case "jbTVTypeAuthRemove":
                         {
                             cssp.Admin.RemoveUserTVTypeAuth($bjs);
                         }

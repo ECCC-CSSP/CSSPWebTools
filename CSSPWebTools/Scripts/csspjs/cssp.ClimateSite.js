@@ -283,10 +283,10 @@ var CSSP;
                 cssp.Dialog.CheckDialogAndButtonsExist(["#DialogBasic", "#DialogBasicYes"], 5, "cssp.ClimateSite.ClimateSiteRainEnteredSave", $bjs);
             };
             this.ClimateSitesShowOnMap = function () {
-                var mapItems = [];
-                cssp.GoogleMap.FillTVItemObjects(mapItems, true);
                 var ClimateSiteDiv$ = $("#ClimateSiteDiv");
                 if ($("a.GlobeIcon").hasClass("btn-success")) {
+                    var mapItems_1 = [];
+                    cssp.GoogleMap.FillTVItemObjects(mapItems_1, true);
                     ClimateSiteDiv$.find("button.jbMapShowItem").removeClass("hidden");
                     ClimateSiteDiv$.find("div.ClimateSiteUsedAndWithinDistance").each(function (ind, elem) {
                         var TVItemID = parseInt($(elem).data("climatesitetvitemid"));
@@ -301,12 +301,12 @@ var CSSP;
                         var MapObjList = [];
                         MapObjList.push(new CSSP.MapObj(MapInfoID, CSSP.DrawTypeEnum.Point, coordList));
                         var tvLoc = new CSSP.tvLocation(TVItemID, TVText, TVType, SubTVType, MapObjList);
-                        mapItems.push(tvLoc);
+                        mapItems_1.push(tvLoc);
                     });
                     if (cssp.GoogleMap.MarkerTextLength < 3) {
                         cssp.GoogleMap.MarkerTextLength = 3;
                     }
-                    cssp.GoogleMap.FillTVItemObjects(mapItems, true);
+                    cssp.GoogleMap.FillTVItemObjects(mapItems_1, true);
                     $("#ClimateSiteDiv").find(".jbMapShowItem").removeClass("hidden");
                 }
             };

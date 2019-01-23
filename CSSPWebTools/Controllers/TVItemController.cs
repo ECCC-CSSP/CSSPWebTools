@@ -154,7 +154,7 @@ namespace CSSPWebTools.Controllers
 
             ViewBag.OrderByDateModified = false;
 
-            List<TVTypeEnum> tvTypeWithMunicipalityList = new List<TVTypeEnum>() { TVTypeEnum.Province, TVTypeEnum.Area, TVTypeEnum.Sector };
+            List<TVTypeEnum> tvTypeWithMunicipalityList = new List<TVTypeEnum>() { TVTypeEnum.Province };
 
             List<TVItemModelAndChildCount> tvItemModelLocationChildrenList = new List<TVItemModelAndChildCount>();
             if (tvTypeWithMunicipalityList.Contains(tvItemModelLocationCurrent.TVType) && tabInfoList.FirstOrDefault().Active == "1")
@@ -167,7 +167,7 @@ namespace CSSPWebTools.Controllers
                 tvItemModelLocationChildrenList = _TVItemService.GetChildrenTVItemModelAndChildCountListWithTVItemIDAndTVTypeDB(urlModel.TVItemIDList[0], TVTypeEnum.MikeScenario);
                 tvType = TVTypeEnum.MikeScenario;
             }
-            else if (tvItemModelLocationCurrent.TVType == TVTypeEnum.Sector && tabInfoList.FirstOrDefault().Active == "3")
+            else if (tvItemModelLocationCurrent.TVType == TVTypeEnum.Sector && tabInfoList.FirstOrDefault().Active == "2")
             {
                 tvItemModelLocationChildrenList = _TVItemService.GetChildrenTVItemModelAndChildCountListWithTVItemIDAndTVTypeOnlyOneLevelDownDB(urlModel.TVItemIDList[0], TVTypeEnum.MikeScenario);
                 tvType = TVTypeEnum.MikeScenario;
@@ -204,11 +204,11 @@ namespace CSSPWebTools.Controllers
                 }
 
             }
-            else if (tvItemModelLocationCurrent.TVType == TVTypeEnum.Subsector && tabInfoList.FirstOrDefault().Active == "4")
-            {
-                tvItemModelLocationChildrenList = _TVItemService.GetChildrenTVItemModelAndChildCountListWithTVItemIDAndTVTypeDB(urlModel.TVItemIDList[0], TVTypeEnum.Municipality);
-                tvType = TVTypeEnum.Municipality;
-            }
+            //else if (tvItemModelLocationCurrent.TVType == TVTypeEnum.Subsector && tabInfoList.FirstOrDefault().Active == "4")
+            //{
+            //    tvItemModelLocationChildrenList = _TVItemService.GetChildrenTVItemModelAndChildCountListWithTVItemIDAndTVTypeDB(urlModel.TVItemIDList[0], TVTypeEnum.Municipality);
+            //    tvType = TVTypeEnum.Municipality;
+            //}
             else
             {
                 tvItemModelLocationChildrenList = _TVItemService.GetChildrenTVItemModelAndChildCountListWithTVItemIDAndTVTypeDB(urlModel.TVItemIDList[0], GetChildLocation(tvItemModelLocationCurrent.TVType));

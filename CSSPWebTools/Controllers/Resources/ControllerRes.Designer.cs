@@ -826,6 +826,15 @@ namespace CSSPWebTools.Controllers.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Subsector Tools.
+        /// </summary>
+        public static string SubsectorTools {
+            get {
+                return ResourceManager.GetString("SubsectorTools", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Table.
         /// </summary>
         public static string Table {

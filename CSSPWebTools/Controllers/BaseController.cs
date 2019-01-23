@@ -1708,11 +1708,11 @@ namespace CSSPWebTools.Controllers
                                 {
                                     return new ContentActionAndController() { Action = "_content", Controller = "TVItem" };
                                 }
-                            case "1": // Area Municipalities 
-                                {
-                                    return new ContentActionAndController() { Action = "_content", Controller = "TVItem" };
-                                }
-                            case "2": // Area Files
+                            //case "1": // Area Municipalities 
+                            //    {
+                            //        return new ContentActionAndController() { Action = "_content", Controller = "TVItem" };
+                            //    }
+                            case "1": // Area Files
                                 {
                                     return new ContentActionAndController() { Action = "_fileList", Controller = "File" };
                                 }
@@ -1977,15 +1977,15 @@ namespace CSSPWebTools.Controllers
                                 {
                                     return new ContentActionAndController() { Action = "_content", Controller = "TVItem" };
                                 }
-                            case "1": // Sector Municipalities
-                                {
-                                    return new ContentActionAndController() { Action = "_content", Controller = "TVItem" };
-                                }
-                            case "2": // Sector Files
+                            //case "1": // Sector Municipalities
+                            //    {
+                            //        return new ContentActionAndController() { Action = "_content", Controller = "TVItem" };
+                            //    }
+                            case "1": // Sector Files
                                 {
                                     return new ContentActionAndController() { Action = "_fileList", Controller = "File" };
                                 }
-                            case "3": // Mike Scenarios
+                            case "2": // Mike Scenarios
                                 {
                                     return new ContentActionAndController() { Action = "_content", Controller = "TVItem" };
                                 }
@@ -2011,30 +2011,34 @@ namespace CSSPWebTools.Controllers
                                 {
                                     return new ContentActionAndController() { Action = "_content", Controller = "TVItem" };
                                 }
-                            case "3": // Subsector Municipalities
+                            //case "3": // Subsector Municipalities
+                            //    {
+                            //        return new ContentActionAndController() { Action = "_content", Controller = "TVItem" };
+                            //    }
+                            case "3": // Subsector PolSourceSites
                                 {
                                     return new ContentActionAndController() { Action = "_content", Controller = "TVItem" };
                                 }
-                            case "4": // Subsector PolSourceSites
-                                {
-                                    return new ContentActionAndController() { Action = "_content", Controller = "TVItem" };
-                                }
-                            case "5": // Subsector Files
+                            case "4": // Subsector Files
                                 {
                                     return new ContentActionAndController() { Action = "_fileList", Controller = "File" };
                                 }
-                            case "6": // Subsector ClimateSite
+                            case "5": // Subsector Tools
                                 {
-                                    return new ContentActionAndController() { Action = "_climateSiteTopPage", Controller = "ClimateSite" };
+                                    return new ContentActionAndController() { Action = "_SubsectorToolsTopPage", Controller = "SubsectorTools" };
                                 }
-                            case "7": // Subsector HydrometricSite
-                                {
-                                    return new ContentActionAndController() { Action = "_hydrometricSiteTopPage", Controller = "HydrometricSite" };
-                                }
-                            case "8": // Subsector TideSite
-                                {
-                                    return new ContentActionAndController() { Action = "_tideSiteList", Controller = "TideSite" };
-                                }
+                            //case "6": // Subsector ClimateSite
+                            //    {
+                            //        return new ContentActionAndController() { Action = "_climateSiteTopPage", Controller = "ClimateSite" };
+                            //    }
+                            //case "7": // Subsector HydrometricSite
+                            //    {
+                            //        return new ContentActionAndController() { Action = "_hydrometricSiteTopPage", Controller = "HydrometricSite" };
+                            //    }
+                            //case "8": // Subsector TideSite
+                            //    {
+                            //        return new ContentActionAndController() { Action = "_tideSiteList", Controller = "TideSite" };
+                            //    }
                             case "9": // Subsector LogBook
                                 {
                                     return new ContentActionAndController() { Action = "_mwqmSubsector", Controller = "MWQM" };
@@ -2074,22 +2078,22 @@ namespace CSSPWebTools.Controllers
                             Stat = _TVItemStatService.GetTVItemStatModelWithTVItemIDAndTVTypeDB(tvItemModelLocationCurrent.TVItemID, TVTypeEnum.Sector).ChildCount,
                             viewTVItemIconListList = FillTVItemIcons(TVAuth, tvItemModelLocationCurrent),
                         });
+                        //ViewTVItemInfoList.Add(new TabInfo()
+                        //{
+                        //    URL = CreateVariableShowHashURL(URLVarShowEnum.ShowAreaTab, "1"),
+                        //    Text = ControllerRes.Municipalities,
+                        //    Icon = "",
+                        //    Active = tabActive,
+                        //    ToolTip = "",
+                        //    Action = "_content",
+                        //    Controller = "TVItem",
+                        //    ShowTVType = TVTypeEnum.Municipality,
+                        //    Stat = _TVItemStatService.GetTVItemStatModelWithTVItemIDAndTVTypeDB(tvItemModelLocationCurrent.TVItemID, TVTypeEnum.Municipality).ChildCount,
+                        //    viewTVItemIconListList = FillTVItemMunicipalityIcons(TVAuth, tvItemModelLocationCurrent),
+                        //});
                         ViewTVItemInfoList.Add(new TabInfo()
                         {
                             URL = CreateVariableShowHashURL(URLVarShowEnum.ShowAreaTab, "1"),
-                            Text = ControllerRes.Municipalities,
-                            Icon = "",
-                            Active = tabActive,
-                            ToolTip = "",
-                            Action = "_content",
-                            Controller = "TVItem",
-                            ShowTVType = TVTypeEnum.Municipality,
-                            Stat = _TVItemStatService.GetTVItemStatModelWithTVItemIDAndTVTypeDB(tvItemModelLocationCurrent.TVItemID, TVTypeEnum.Municipality).ChildCount,
-                            viewTVItemIconListList = FillTVItemMunicipalityIcons(TVAuth, tvItemModelLocationCurrent),
-                        });
-                        ViewTVItemInfoList.Add(new TabInfo()
-                        {
-                            URL = CreateVariableShowHashURL(URLVarShowEnum.ShowAreaTab, "2"),
                             Text = ControllerRes.Files,
                             Icon = "",
                             Active = tabActive,
@@ -2644,22 +2648,22 @@ namespace CSSPWebTools.Controllers
                             Stat = _TVItemStatService.GetTVItemStatModelWithTVItemIDAndTVTypeDB(tvItemModelLocationCurrent.TVItemID, TVTypeEnum.Subsector).ChildCount,
                             viewTVItemIconListList = FillTVItemIcons(TVAuth, tvItemModelLocationCurrent),
                         });
+                        //ViewTVItemInfoList.Add(new TabInfo()
+                        //{
+                        //    URL = CreateVariableShowHashURL(URLVarShowEnum.ShowSectorTab, "1"),
+                        //    Text = ControllerRes.Municipalities,
+                        //    Icon = "",
+                        //    Active = tabActive,
+                        //    ToolTip = "",
+                        //    Action = "_content",
+                        //    Controller = "TVItem",
+                        //    ShowTVType = TVTypeEnum.Municipality,
+                        //    Stat = _TVItemStatService.GetTVItemStatModelWithTVItemIDAndTVTypeDB(tvItemModelLocationCurrent.TVItemID, TVTypeEnum.Municipality).ChildCount,
+                        //    viewTVItemIconListList = FillTVItemMunicipalityIcons(TVAuth, tvItemModelLocationCurrent),
+                        //});
                         ViewTVItemInfoList.Add(new TabInfo()
                         {
                             URL = CreateVariableShowHashURL(URLVarShowEnum.ShowSectorTab, "1"),
-                            Text = ControllerRes.Municipalities,
-                            Icon = "",
-                            Active = tabActive,
-                            ToolTip = "",
-                            Action = "_content",
-                            Controller = "TVItem",
-                            ShowTVType = TVTypeEnum.Municipality,
-                            Stat = _TVItemStatService.GetTVItemStatModelWithTVItemIDAndTVTypeDB(tvItemModelLocationCurrent.TVItemID, TVTypeEnum.Municipality).ChildCount,
-                            viewTVItemIconListList = FillTVItemMunicipalityIcons(TVAuth, tvItemModelLocationCurrent),
-                        });
-                        ViewTVItemInfoList.Add(new TabInfo()
-                        {
-                            URL = CreateVariableShowHashURL(URLVarShowEnum.ShowSectorTab, "2"),
                             Text = ControllerRes.Files,
                             Icon = "",
                             Active = tabActive,
@@ -2673,7 +2677,7 @@ namespace CSSPWebTools.Controllers
                         });
                         ViewTVItemInfoList.Add(new TabInfo()
                         {
-                            URL = CreateVariableShowHashURL(URLVarShowEnum.ShowSectorTab, "3"),
+                            URL = CreateVariableShowHashURL(URLVarShowEnum.ShowSectorTab, "2"),
                             Text = ControllerRes.MikeScenarios,
                             Icon = "",
                             Active = tabActive,
@@ -2741,22 +2745,22 @@ namespace CSSPWebTools.Controllers
                             Stat = _TVItemStatService.GetTVItemStatModelWithTVItemIDAndTVTypeDB(tvItemModelLocationCurrent.TVItemID, TVTypeEnum.PolSourceSite).ChildCount,
                             viewTVItemIconListList = FillTVItemPolSourceSiteIcons(TVAuth, tvItemModelLocationCurrent),
                         });
+                        //ViewTVItemInfoList.Add(new TabInfo()
+                        //{
+                        //    URL = CreateVariableShowHashURL(URLVarShowEnum.ShowSubsectorTab, "4"),
+                        //    Text = ControllerRes.Municipalities,
+                        //    Icon = "",
+                        //    Active = tabActive,
+                        //    ToolTip = "",
+                        //    Action = "_content",
+                        //    Controller = "TVItem",
+                        //    ShowTVType = TVTypeEnum.Municipality,
+                        //    Stat = _TVItemStatService.GetTVItemStatModelWithTVItemIDAndTVTypeDB(tvItemModelLocationCurrent.TVItemID, TVTypeEnum.Municipality).ChildCount,
+                        //    viewTVItemIconListList = FillTVItemMunicipalityIcons(TVAuth, tvItemModelLocationCurrent),
+                        //});
                         ViewTVItemInfoList.Add(new TabInfo()
                         {
                             URL = CreateVariableShowHashURL(URLVarShowEnum.ShowSubsectorTab, "4"),
-                            Text = ControllerRes.Municipalities,
-                            Icon = "",
-                            Active = tabActive,
-                            ToolTip = "",
-                            Action = "_content",
-                            Controller = "TVItem",
-                            ShowTVType = TVTypeEnum.Municipality,
-                            Stat = _TVItemStatService.GetTVItemStatModelWithTVItemIDAndTVTypeDB(tvItemModelLocationCurrent.TVItemID, TVTypeEnum.Municipality).ChildCount,
-                            viewTVItemIconListList = FillTVItemMunicipalityIcons(TVAuth, tvItemModelLocationCurrent),
-                        });
-                        ViewTVItemInfoList.Add(new TabInfo()
-                        {
-                            URL = CreateVariableShowHashURL(URLVarShowEnum.ShowSubsectorTab, "5"),
                             Text = ControllerRes.Files,
                             Icon = "",
                             Active = tabActive,
@@ -2770,46 +2774,59 @@ namespace CSSPWebTools.Controllers
                         });
                         ViewTVItemInfoList.Add(new TabInfo()
                         {
-                            URL = CreateVariableShowHashURL(URLVarShowEnum.ShowSubsectorTab, "6"),
-                            Text = ControllerRes.ClimateSites,
+                            URL = CreateVariableShowHashURL(URLVarShowEnum.ShowSubsectorTab, "5"),
+                            Text = ControllerRes.SubsectorTools,
                             Icon = "",
                             Active = tabActive,
                             ToolTip = "",
                             Action = "_content",
                             Controller = "TVItem",
-                            ShowTVType = TVTypeEnum.ClimateSite,
+                            ShowTVType = TVTypeEnum.SubsectorTools,
                             Stat = _TVItemStatService.GetTVItemStatModelWithTVItemIDAndTVTypeDB(tvItemModelLocationCurrent.TVItemID, TVTypeEnum.ClimateSite).ChildCount,
                             viewTVItemIconListList = FillClimateSiteIcons(TVAuth, tvItemModelLocationCurrent),
                         });
+                        //ViewTVItemInfoList.Add(new TabInfo()
+                        //{
+                        //    URL = CreateVariableShowHashURL(URLVarShowEnum.ShowSubsectorTab, "6"),
+                        //    Text = ControllerRes.ClimateSites,
+                        //    Icon = "",
+                        //    Active = tabActive,
+                        //    ToolTip = "",
+                        //    Action = "_content",
+                        //    Controller = "TVItem",
+                        //    ShowTVType = TVTypeEnum.ClimateSite,
+                        //    Stat = _TVItemStatService.GetTVItemStatModelWithTVItemIDAndTVTypeDB(tvItemModelLocationCurrent.TVItemID, TVTypeEnum.ClimateSite).ChildCount,
+                        //    viewTVItemIconListList = FillClimateSiteIcons(TVAuth, tvItemModelLocationCurrent),
+                        //});
+                        //ViewTVItemInfoList.Add(new TabInfo()
+                        //{
+                        //    URL = CreateVariableShowHashURL(URLVarShowEnum.ShowSubsectorTab, "7"),
+                        //    Text = ControllerRes.HydrometricSites,
+                        //    Icon = "",
+                        //    Active = tabActive,
+                        //    ToolTip = "",
+                        //    Action = "_content",
+                        //    Controller = "TVItem",
+                        //    ShowTVType = TVTypeEnum.HydrometricSite,
+                        //    Stat = _TVItemStatService.GetTVItemStatModelWithTVItemIDAndTVTypeDB(tvItemModelLocationCurrent.TVItemID, TVTypeEnum.HydrometricSite).ChildCount,
+                        //    viewTVItemIconListList = FillHydrometricSiteIcons(TVAuth, tvItemModelLocationCurrent),
+                        //});
+                        //ViewTVItemInfoList.Add(new TabInfo()
+                        //{
+                        //    URL = CreateVariableShowHashURL(URLVarShowEnum.ShowSubsectorTab, "8"),
+                        //    Text = ControllerRes.TideSites,
+                        //    Icon = "",
+                        //    Active = tabActive,
+                        //    ToolTip = "",
+                        //    Action = "_content",
+                        //    Controller = "TVItem",
+                        //    ShowTVType = TVTypeEnum.TideSite,
+                        //    Stat = _TVItemStatService.GetTVItemStatModelWithTVItemIDAndTVTypeDB(tvItemModelLocationCurrent.TVItemID, TVTypeEnum.TideSite).ChildCount,
+                        //    viewTVItemIconListList = FillTideSiteIcons(TVAuth, tvItemModelLocationCurrent),
+                        //});
                         ViewTVItemInfoList.Add(new TabInfo()
                         {
-                            URL = CreateVariableShowHashURL(URLVarShowEnum.ShowSubsectorTab, "7"),
-                            Text = ControllerRes.HydrometricSites,
-                            Icon = "",
-                            Active = tabActive,
-                            ToolTip = "",
-                            Action = "_content",
-                            Controller = "TVItem",
-                            ShowTVType = TVTypeEnum.HydrometricSite,
-                            Stat = _TVItemStatService.GetTVItemStatModelWithTVItemIDAndTVTypeDB(tvItemModelLocationCurrent.TVItemID, TVTypeEnum.HydrometricSite).ChildCount,
-                            viewTVItemIconListList = FillHydrometricSiteIcons(TVAuth, tvItemModelLocationCurrent),
-                        });
-                        ViewTVItemInfoList.Add(new TabInfo()
-                        {
-                            URL = CreateVariableShowHashURL(URLVarShowEnum.ShowSubsectorTab, "8"),
-                            Text = ControllerRes.TideSites,
-                            Icon = "",
-                            Active = tabActive,
-                            ToolTip = "",
-                            Action = "_content",
-                            Controller = "TVItem",
-                            ShowTVType = TVTypeEnum.TideSite,
-                            Stat = _TVItemStatService.GetTVItemStatModelWithTVItemIDAndTVTypeDB(tvItemModelLocationCurrent.TVItemID, TVTypeEnum.TideSite).ChildCount,
-                            viewTVItemIconListList = FillTideSiteIcons(TVAuth, tvItemModelLocationCurrent),
-                        });
-                        ViewTVItemInfoList.Add(new TabInfo()
-                        {
-                            URL = CreateVariableShowHashURL(URLVarShowEnum.ShowSubsectorTab, "9"),
+                            URL = CreateVariableShowHashURL(URLVarShowEnum.ShowSubsectorTab, "6"),
                             Text = ControllerRes.LogBook,
                             Icon = "",
                             Active = tabActive,

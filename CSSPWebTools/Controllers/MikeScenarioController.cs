@@ -990,7 +990,7 @@ namespace CSSPWebTools.Controllers
             }
             else
             {
-                List<HydrometricSiteModel> hydrometriSiteModelList = _HydrometricSiteService.GetHydrometricSiteModelListWithSectorTVItemIDAndSiteType(TVItemIDSector, SiteTypeEnum.Hydrometric);
+                List<HydrometricSiteModel> hydrometriSiteModelList = _HydrometricSiteService.GetHydrometricSiteModelListWithSectorTVItemIDAndTVType(TVItemIDSector, TVTypeEnum.HydrometricSite);
                 ViewBag.HydrometricSiteModelList = hydrometriSiteModelList;
             }
 
@@ -1162,7 +1162,7 @@ namespace CSSPWebTools.Controllers
             }
             else
             {
-                List<HydrometricSiteModel> hydrometriSiteModelList = _HydrometricSiteService.GetHydrometricSiteModelListWithSectorTVItemIDAndSiteType(TVItemIDSector, SiteTypeEnum.Hydrometric);
+                List<HydrometricSiteModel> hydrometriSiteModelList = _HydrometricSiteService.GetHydrometricSiteModelListWithSectorTVItemIDAndTVType(TVItemIDSector, TVTypeEnum.HydrometricSite);
                 ViewBag.HydrometricSiteModelList = hydrometriSiteModelList;
             }
 

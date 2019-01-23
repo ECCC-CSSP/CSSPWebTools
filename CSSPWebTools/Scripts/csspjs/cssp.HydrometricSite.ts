@@ -16,10 +16,10 @@
             }
         };
         public HydrometricSitesShowOnMap: Function = (): void => {
-            let mapItems: CSSP.tvLocation[] = [];
-            cssp.GoogleMap.FillTVItemObjects(mapItems, true);
             let HydrometricSiteDiv$: JQuery = $("#HydrometricSiteDiv");
             if ($("a.GlobeIcon").hasClass("btn-success")) {
+                let mapItems: CSSP.tvLocation[] = [];
+                cssp.GoogleMap.FillTVItemObjects(mapItems, true);
                 HydrometricSiteDiv$.find("button.jbMapShowItem").removeClass("hidden");
                 HydrometricSiteDiv$.find("div.HydrometricSiteUsedAndWithinDistance").each((ind: number, elem: Element) => {
                     let TVItemID: number = parseInt($(elem).data("hydrometricsitetvitemid"));

@@ -6,13 +6,13 @@
 @using CSSPModelsDLL.Models;
 
 @{
-    URLModel urlModel = (URLModel)ViewBag.URLModel;
+    int SubsectorTVItemID = (int)ViewBag.SubsectorTVItemID;
     TVAuthEnum tvAuth = (TVAuthEnum)ViewBag.TVAuth;
 }
 
 <div id="HydrometricSiteDiv">
     <div class="HydrometricSiteInfoDiv">
-        @Html.Action("_subsectorHydrometricSites", "HydrometricSite", new { SubsectorTVItemID = urlModel.TVItemIDList[0], Radius_km = 50.0f })
+        @Html.Action("_subsectorHydrometricSites", "HydrometricSite", new { SubsectorTVItemID = SubsectorTVItemID, Radius_km = 50.0f })
     </div>
 
     <script type="text/javascript">

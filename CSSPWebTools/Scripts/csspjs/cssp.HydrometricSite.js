@@ -14,10 +14,10 @@ var CSSP;
                 }
             };
             this.HydrometricSitesShowOnMap = function () {
-                var mapItems = [];
-                cssp.GoogleMap.FillTVItemObjects(mapItems, true);
                 var HydrometricSiteDiv$ = $("#HydrometricSiteDiv");
                 if ($("a.GlobeIcon").hasClass("btn-success")) {
+                    var mapItems_1 = [];
+                    cssp.GoogleMap.FillTVItemObjects(mapItems_1, true);
                     HydrometricSiteDiv$.find("button.jbMapShowItem").removeClass("hidden");
                     HydrometricSiteDiv$.find("div.HydrometricSiteUsedAndWithinDistance").each(function (ind, elem) {
                         var TVItemID = parseInt($(elem).data("hydrometricsitetvitemid"));
@@ -32,12 +32,12 @@ var CSSP;
                         var MapObjList = [];
                         MapObjList.push(new CSSP.MapObj(MapInfoID, CSSP.DrawTypeEnum.Point, coordList));
                         var tvLoc = new CSSP.tvLocation(TVItemID, TVText, TVType, SubTVType, MapObjList);
-                        mapItems.push(tvLoc);
+                        mapItems_1.push(tvLoc);
                     });
                     if (cssp.GoogleMap.MarkerTextLength < 3) {
                         cssp.GoogleMap.MarkerTextLength = 3;
                     }
-                    cssp.GoogleMap.FillTVItemObjects(mapItems, true);
+                    cssp.GoogleMap.FillTVItemObjects(mapItems_1, true);
                     $("#HydrometricSiteDiv").find(".jbMapShowItem").removeClass("hidden");
                 }
             };

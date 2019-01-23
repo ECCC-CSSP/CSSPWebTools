@@ -1,6 +1,6 @@
 ﻿@using CSSPWebTools.Models;
 @using CSSPWebTools.Views.Shared.Resources;
-@using CSSPWebTools.Views.ClimateSite.Resources;
+@using CSSPWebTools.Views.HydrometricSite.Resources;
 @using CSSPWebTools.Controllers;
 @using CSSPEnumsDLL.Enums;
 @using CSSPModelsDLL.Models;
@@ -10,14 +10,14 @@
     TVAuthEnum tvAuth = (TVAuthEnum)ViewBag.TVAuth;
 }
 
-<div id="ClimateSiteDiv">
-    <div class="ClimateSiteInfoDiv">
-        @Html.Action("_subsectorClimateSites", "ClimateSite", new { SubsectorTVItemID = SubsectorTVItemID, Radius_km = 50.0f })
+<div id="TideSiteDiv">
+    <div class="TideSiteInfoDiv">
+        @Html.Action("_subsectorTideSites", "TideSite", new { SubsectorTVItemID = SubsectorTVItemID, Radius_km = 50.0f })
     </div>
 
     <script type="text/javascript">
         $(function () {
-            cssp.ClimateSite.Init();
+            cssp.TideSite.Init();
         });
     </script>
 </div>

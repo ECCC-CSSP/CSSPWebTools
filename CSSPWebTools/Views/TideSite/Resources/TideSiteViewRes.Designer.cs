@@ -19,7 +19,7 @@ namespace CSSPWebTools.Views.TideSite.Resources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class TideSiteViewRes {
@@ -61,11 +61,119 @@ namespace CSSPWebTools.Views.TideSite.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Testing.
+        ///   Looks up a localized string similar to Click on globe icon to view on map.
         /// </summary>
-        public static string Test {
+        public static string ClickOnGlobeIconToViewOnMap {
             get {
-                return ResourceManager.GetString("Test", resourceCulture);
+                return ResourceManager.GetString("ClickOnGlobeIconToViewOnMap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Empty.
+        /// </summary>
+        public static string Empty {
+            get {
+                return ResourceManager.GetString("Empty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Find.
+        /// </summary>
+        public static string Find {
+            get {
+                return ResourceManager.GetString("Find", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Find tide sites within distance of subsector.
+        /// </summary>
+        public static string FindTideSitesWithinDistanceOfSubsector {
+            get {
+                return ResourceManager.GetString("FindTideSitesWithinDistanceOfSubsector", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Get tide data for runs of year {0}.
+        /// </summary>
+        public static string GetTideDataForRunsOfYear_ {
+            get {
+                return ResourceManager.GetString("GetTideDataForRunsOfYear_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Identify on map.
+        /// </summary>
+        public static string IdentifyOnMap {
+            get {
+                return ResourceManager.GetString("IdentifyOnMap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Now.
+        /// </summary>
+        public static string Now {
+            get {
+                return ResourceManager.GetString("Now", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save button at bottom of page.
+        /// </summary>
+        public static string SaveButtonAtBottomOfPage {
+            get {
+                return ResourceManager.GetString("SaveButtonAtBottomOfPage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select an adjacent subsector.
+        /// </summary>
+        public static string SelectAnAdjacentSubsector {
+            get {
+                return ResourceManager.GetString("SelectAnAdjacentSubsector", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show tide sites on map.
+        /// </summary>
+        public static string ShowTideSitesOnMap {
+            get {
+                return ResourceManager.GetString("ShowTideSitesOnMap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tide sites to use for subsector verify and save.
+        /// </summary>
+        public static string TideSitesToUseForSubsectorVerifyAndSave {
+            get {
+                return ResourceManager.GetString("TideSitesToUseForSubsectorVerifyAndSave", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tide sites used and within distance.
+        /// </summary>
+        public static string TideSitesUsedAndWithinDistance {
+            get {
+                return ResourceManager.GetString("TideSitesUsedAndWithinDistance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use same tide sites as selected subsector.
+        /// </summary>
+        public static string UseSameTideSitesAsSelectedSubsector {
+            get {
+                return ResourceManager.GetString("UseSameTideSitesAsSelectedSubsector", resourceCulture);
             }
         }
     }

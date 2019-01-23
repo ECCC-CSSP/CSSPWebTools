@@ -1,0 +1,79 @@
+﻿@using CSSPWebTools.Models;
+@using CSSPWebTools.Views.Shared.Resources;
+@using CSSPWebTools.Views.SubsectorTools.Resources;
+@using CSSPWebTools.Controllers;
+@using CSSPEnumsDLL.Enums;
+@using CSSPModelsDLL.Models;
+
+@{
+    MWQMSubsectorMunicipalities mwqmSubsectorMunicipalities = (MWQMSubsectorMunicipalities)ViewBag.MWQMSubsectorMunicipalities;
+    List<TVItemModel> tvItemModelList = (List<TVItemModel>)ViewBag.TVItemModelList;
+    int Radius_km = (int)ViewBag.Radius_km;
+    int SubsectorTVItemID = (int)ViewBag.SubsectorTVItemID;
+    TVAuthEnum tvAuth = (TVAuthEnum)ViewBag.TVAuth;
+
+}
+
+<div class="MunicipalitySetupDiv">
+    <ul class="list-inline">
+        <li>
+            @SubsectorToolsViewRes.FindMunicipalitiesWithinDistanceOfSubsector:
+        </li>
+        <li>
+            <input class="form-control isnumber" type="text" name="Radius_km" value="@Radius_km" />
+        </li>
+        <li>
+            Km
+        </li>
+        <li>
+            <button class="jbMunicipalitiesFindWithinDistance btn btn-default">@SubsectorToolsViewRes.Find</button>
+        </li>
+    </ul>
+    <ul class="ClickGlobeToViewOnMap list-inline hidden">
+        <li>
+            @SubsectorToolsViewRes.ClickOnGlobeIconToViewOnMap
+        </li>
+    </ul>
+    <h3>@SubsectorToolsViewRes.MunicipalitiesUsedAndWithinDistance <button class="jbMunicipalitiesShowOnMap btn btn-default hidden">@SubsectorToolsViewRes.ShowMunicipalitiesOnMap</button></h3>
+    <div class="MunicipalityUsedAndWithinDistanceDiv">
+        @{
+            int MunicipalityCount = 99;
+        }
+        <span class="h5">@SubsectorToolsViewRes.SaveButtonAtBottomOfPage</span>
+        @foreach (MunicipalityWithLatLngAndOrdinalModel MunicipalityWithLatLngAndOrdinalModel in mwqmSubsectorMunicipalities.MunicipalityModelUsedAndWithinDistanceModelList)
+        {
+            MunicipalityCount += 1;
+            bool IsInUse = MunicipalityWithLatLngAndOrdinalModel.IsUsed;
+
+            <div class="MunicipalityUsedAndWithinDistance"
+                 data-municipalitytvitemid="@MunicipalityWithLatLngAndOrdinalModel.TVItemID"
+                 data-mapinfoid="@MunicipalityWithLatLngAndOrdinalModel.MapInfoID"
+                 data-lat="@MunicipalityWithLatLngAndOrdinalModel.Lat"
+                 data-lng="@MunicipalityWithLatLngAndOrdinalModel.Lng"
+                 data-ordinal="@MunicipalityWithLatLngAndOrdinalModel.Ordinal">
+                <span class="MunicipalityCount">@(MunicipalityCount) - </span>
+                <button class="jbMapShowItem btn btn-default hidden"
+                        data-tvitemid="@MunicipalityWithLatLngAndOrdinalModel.TVItemID"
+                        title="@SubsectorToolsViewRes.IdentifyOnMap">
+                    <span class="glyphicon glyphicon-map-marker"></span>
+                </button>
+                <button class="jbMunicipalitiesAddToUse btn btn-@(IsInUse ? "success" : "default")">
+                    @MunicipalityWithLatLngAndOrdinalModel.TVText
+                </button>
+                <span>(@MunicipalityWithLatLngAndOrdinalModel.Distance_km.ToString("F0") Km)</span>
+            </div>
+
+        }
+    </div>
+    <div>
+        <br />
+        <button class="jbMunicipalitiesToUseForSubsectorVerifyAndSave btn btn-default">@SubsectorToolsViewRes.MunicipalitiesToUseForSubsectorVerifyAndSave</button>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    $(function () {
+        cssp.SubsectorTools.Init();
+    });
+</script>
