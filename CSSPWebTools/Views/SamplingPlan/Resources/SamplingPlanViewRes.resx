@@ -571,4 +571,7 @@
   <data name="RejectReason" xml:space="preserve">
     <value>Reject reason</value>
   </data>
+  <data name="OrZeroIfNotUsed" xml:space="preserve">
+    <value>or 0 if not used</value>
+  </data>
 </root>

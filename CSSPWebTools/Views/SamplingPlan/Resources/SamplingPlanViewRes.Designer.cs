@@ -799,6 +799,15 @@ namespace CSSPWebTools.Views.SamplingPlan.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to or 0 if not used.
+        /// </summary>
+        public static string OrZeroIfNotUsed {
+            get {
+                return ResourceManager.GetString("OrZeroIfNotUsed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Over 500.
         /// </summary>
         public static string Over500 {

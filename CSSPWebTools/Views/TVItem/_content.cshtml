@@ -8,6 +8,7 @@
     URLModel urlModel = (URLModel)ViewBag.URLModel;
     TVItemModel tvItemModelLocationCurrent = (TVItemModel)ViewBag.TVItemModelLocationCurrent;
     List<TVItemModelAndChildCount> tvItemModelLocationChildrenList = (List<TVItemModelAndChildCount>)ViewBag.TVItemModelLocationChildrenList;
+    List<int> TVItemIDWithInfrastructureList = (List<int>)ViewBag.TVItemIDWithInfrastructureList;
     List<TabInfo> TabInfoList = (List<TabInfo>)ViewBag.TabInfoList;
     List<List<IconInfo>> viewTVItemIconListList = (List<List<IconInfo>>)TabInfoList[int.Parse(TabInfoList[0].Active)].viewTVItemIconListList;
     bool IsShowMoreInfo = (bool)ViewBag.IsShowMoreInfo;
@@ -64,7 +65,7 @@ else
                     @if ((TabInfoList != null && TabInfoList.Count > 0
                         && TabInfoList[0].Active == "0"
                         && tvItemModelLocationCurrent.TVType == TVTypeEnum.Subsector)
-                        || (TabInfoList != null && TabInfoList.Count > 0 && TabInfoList[0].Active == "0" 
+                        || (TabInfoList != null && TabInfoList.Count > 0 && TabInfoList[0].Active == "0"
                         && tvItemModelLocationCurrent.TVType == TVTypeEnum.MWQMSite))
                     {
                         <li class="MovingStats" style="color:green">
@@ -77,19 +78,10 @@ else
                             }
                         </li>
                     }
-                    @*@if ((TabInfoList != null && TabInfoList.Count > 0 && TabInfoList[0].Active == "0" 
-                        && tvItemModelLocationCurrent.TVType == TVTypeEnum.Subsector))
-                    {
-                        <li>
-                            <button class="jbMWQMSubsectorAnalysisShowHide btn btn-default">
-                                <span class="glyphicon glyphicon-equalizer" title="@TVItemViewRes.Analysis"></span>
-                            </button>
-                        </li>
-                    }*@
-                    @if ((TabInfoList != null && TabInfoList.Count > 0 
-                        && TabInfoList[0].Active == "3" 
+                    @if ((TabInfoList != null && TabInfoList.Count > 0
+                        && TabInfoList[0].Active == "3"
                         && tvItemModelLocationCurrent.TVType == TVTypeEnum.Subsector)
-                        || (TabInfoList != null && TabInfoList.Count > 0 && TabInfoList[0].Active == "0" 
+                        || (TabInfoList != null && TabInfoList.Count > 0 && TabInfoList[0].Active == "0"
                         && tvItemModelLocationCurrent.TVType == TVTypeEnum.PolSourceSite))
                     {
                         <li>
@@ -118,109 +110,304 @@ else
                     <div class="MWQMSiteAnalysis"></div>
                     <div class="TVItemAdd"></div>
                     <ul class="list-group">
-                        @foreach (TVItemModelAndChildCount tvim in tvItemModelLocationChildrenList)
+                        @if (tvType == TVTypeEnum.Municipality)
                         {
-                            <li class="TVItem list-group-item" data-tvitemid="@tvim.TVItemID">
+                            <li class="list-group-item"><h3>@TVItemViewRes.WithInfrastructure</h3></li>
 
-                                <div class="list-group-item-heading">
-                                    <div class="LastUpdateAndTVText" data-table="TVItemLanguage" data-id="@tvim.TVItemID"></div>
-                                    <span class="TVItemEditButtons hidden">
-                                        @if (tvim.TVType == TVTypeEnum.MikeScenario)
-                                        {
-                                            // nothing for now
-                                        }
-                                        else if (tvim.TVType == TVTypeEnum.MWQMRun)
-                                        {
-                                            // nothing for now
-                                        }
-                                        else
-                                        {
-                                            if (tvim.TVAuth >= TVAuthEnum.Write)
+                            foreach (TVItemModelAndChildCount tvim in (from c in tvItemModelLocationChildrenList
+                                                                       from cc in TVItemIDWithInfrastructureList
+                                                                       where c.TVItemID == cc
+                                                                       select c).ToList())
+                            {
+                                <li class="TVItem list-group-item" data-tvitemid="@tvim.TVItemID">
+
+                                    <div class="list-group-item-heading">
+                                        <div class="LastUpdateAndTVText" data-table="TVItemLanguage" data-id="@tvim.TVItemID"></div>
+                                        <span class="TVItemEditButtons hidden">
+                                            @if (tvim.TVType == TVTypeEnum.MikeScenario)
                                             {
-                                                if (tvim.TVType == TVTypeEnum.PolSourceSite)
+                                                // nothing for now
+                                            }
+                                            else if (tvim.TVType == TVTypeEnum.MWQMRun)
+                                            {
+                                                // nothing for now
+                                            }
+                                            else
+                                            {
+                                                if (tvim.TVAuth >= TVAuthEnum.Write)
                                                 {
-                                                    if (tvim.TVAuth >= TVAuthEnum.Write)
+                                                    if (tvim.TVType == TVTypeEnum.PolSourceSite)
                                                     {
-                                                        <button class="jbPolSourceSiteToggleActive btn btn-@(tvim.IsActive ? "success" : "default")"
-                                                                title="@(tvim.IsActive ? TVItemViewRes.IsActive : TVItemViewRes.IsNotActive)"
-                                                                data-isactive="@TVItemViewRes.IsActive"
-                                                                data-isnotactive="@TVItemViewRes.IsNotActive"
-                                                                data-working="@TVItemViewRes.Working"
-                                                                data-tvitemid="@tvim.TVItemID">
-                                                            <span>@(tvim.IsActive ? TVItemViewRes.IsActive : TVItemViewRes.IsNotActive)</span>
-                                                        </button>
-                                                        <button class="jbPolSourceSiteModifyShowHide btn btn-default" title="@TVItemViewRes.ViewDetails">
-                                                            <span class="glyphicon glyphicon-pencil"></span>
-                                                        </button>
+                                                        if (tvim.TVAuth >= TVAuthEnum.Write)
+                                                        {
+                                                            <button class="jbPolSourceSiteToggleActive btn btn-@(tvim.IsActive ? "success" : "default")"
+                                                                    title="@(tvim.IsActive ? TVItemViewRes.IsActive : TVItemViewRes.IsNotActive)"
+                                                                    data-isactive="@TVItemViewRes.IsActive"
+                                                                    data-isnotactive="@TVItemViewRes.IsNotActive"
+                                                                    data-working="@TVItemViewRes.Working"
+                                                                    data-tvitemid="@tvim.TVItemID">
+                                                                <span>@(tvim.IsActive ? TVItemViewRes.IsActive : TVItemViewRes.IsNotActive)</span>
+                                                            </button>
+                                                            <button class="jbPolSourceSiteModifyShowHide btn btn-default" title="@TVItemViewRes.ViewDetails">
+                                                                <span class="glyphicon glyphicon-pencil"></span>
+                                                            </button>
+                                                        }
+                                                    }
+                                                    else if (tvim.TVType == TVTypeEnum.MWQMSite)
+                                                    {
+                                                        if (tvim.TVAuth >= TVAuthEnum.Write)
+                                                        {
+                                                            <button class="jbMWQMSiteModifyShowHide btn btn-default" title="@TVItemViewRes.ViewDetails">
+                                                                <span class="glyphicon glyphicon-pencil"></span>
+                                                            </button>
+                                                        }
+                                                    }
+                                                    else
+                                                    {
+                                                        <button class="jbTVItemShowModify btn btn-default " type="button" title="@TVItemViewRes.Modify"><span class="glyphicon glyphicon-pencil"></span></button>
                                                     }
                                                 }
-                                                else if (tvim.TVType == TVTypeEnum.MWQMSite)
+                                                if (tvim.TVAuth >= TVAuthEnum.Delete)
                                                 {
-                                                    if (tvim.TVAuth >= TVAuthEnum.Write)
-                                                    {
-                                                        <button class="jbMWQMSiteModifyShowHide btn btn-default" title="@TVItemViewRes.ViewDetails">
-                                                            <span class="glyphicon glyphicon-pencil"></span>
-                                                        </button>
-                                                    }
-                                                }
-                                                else
-                                                {
-                                                    <button class="jbTVItemShowModify btn btn-default " type="button" title="@TVItemViewRes.Modify"><span class="glyphicon glyphicon-pencil"></span></button>
+                                                    <button class="jbTVItemAskToDelete btn btn-default " type="button" title="@TVItemViewRes.Delete"><span class="glyphicon glyphicon-trash"></span></button>
                                                 }
                                             }
-                                            if (tvim.TVAuth >= TVAuthEnum.Delete)
+                                        </span>
+                                        @if (IsShowMap)
+                                        {
+                                            if (tvim.TVType == TVTypeEnum.MWQMRun)
                                             {
-                                                <button class="jbTVItemAskToDelete btn btn-default " type="button" title="@TVItemViewRes.Delete"><span class="glyphicon glyphicon-trash"></span></button>
+                                                <button class="jbMWQMRunShowOnMap btn btn-default" href="#" title="@TVItemViewRes.ShowRunSampleOnMap">
+                                                    <span class="glyphicon glyphicon-map-marker"></span>
+                                                </button>
+                                            }
+                                            else
+                                            {
+                                                <button class="jbMapShowItem btn btn-default" href="#" title="@TVItemViewRes.LocateOnMap" data-tvitemid="@tvim.TVItemID">
+                                                    <span class="glyphicon glyphicon-map-marker"></span>
+                                                </button>
                                             }
                                         }
-                                    </span>
-                                    @if (IsShowMap)
+
+                                        <a href="@(tvItemController.CreateHashURL(tvim.TVItemID))" class="text-noUnderline">
+                                            <span class="TVText @(!tvim.IsActive ? "text-strikeThrough" : "")" title="@((tvim.TVText.Contains("(NC)") || tvim.TVText.Contains("(PC)")) ? (ViewBag.Language == LanguageEnum.fr ? "Pas complet" : "Not complete") : "")">@tvim.TVText</span> &nbsp; &nbsp;<span class="badge">&nbsp;@tvim.ChildCount&nbsp;</span>
+                                        </a>
+                                        @*}*@
+                                    </div>
+
+                                    <p class="list-group-item-text ">
+                                        <ul class="moreInfo list-unstyled blockMargin" data-tvitemid="@tvim.TVItemID" data-numberofsample="@NumberOfSample"></ul>
+                                    </p>
+                                    @if (tvim.TVType == TVTypeEnum.MWQMSite)
                                     {
-                                        if (tvim.TVType == TVTypeEnum.MWQMRun)
-                                        {
-                                            <button class="jbMWQMRunShowOnMap btn btn-default" href="#" title="@TVItemViewRes.ShowRunSampleOnMap">
-                                                <span class="glyphicon glyphicon-map-marker"></span>
-                                            </button>
-                                        }
-                                        else
-                                        {
-                                            <button class="jbMapShowItem btn btn-default" href="#" title="@TVItemViewRes.LocateOnMap" data-tvitemid="@tvim.TVItemID">
-                                                <span class="glyphicon glyphicon-map-marker"></span>
-                                            </button>
-                                        }
+                                        <div class="MWQMSiteDiv container-fluid"></div>
                                     }
+                                    <div class="TVItemModify paraBlock blockMargin"></div>
+                                </li>
+                            }
 
-                                    @*@if (tvim.TVType == TVTypeEnum.MWQMSite)
-                                        {
-                                            <a href="@tvItemController.CreateHashURL(tvim.TVItemID)" class="text-noUnderline">
-                                                <span class="TVText @(!tvim.IsActive ? "text-strikeThrough" : "")">@tvim.TVText</span> &nbsp; &nbsp;<span class="badge">&nbsp;@tvim.ChildCount&nbsp;</span>
-                                            </a>
-                                        }
-                                        else if (tvim.TVType == TVTypeEnum.PolSourceSite)
-                                        {
-                                            string href = tvItemController.CreateHashURL(tvim.TVItemID);
-                                            <a href="@href" class="text-noUnderline">
-                                                <span class="TVText @(!tvim.IsActive ? "text-strikeThrough" : "")">@tvim.TVText</span> &nbsp; &nbsp;<span class="badge">&nbsp;@tvim.ChildCount&nbsp;</span>
-                                            </a>
-                                        }
-                                        else
-                                        {*@
-                                    @*string href = tvItemController.CreateHashURL(tvim.TVItemID);*@
-                                    <a href="@(tvItemController.CreateHashURL(tvim.TVItemID))" class="text-noUnderline">
-                                        <span class="TVText @(!tvim.IsActive ? "text-strikeThrough" : "")" title="@((tvim.TVText.Contains("(NC)") || tvim.TVText.Contains("(PC)")) ?  (ViewBag.Language == LanguageEnum.fr ? "Pas complet" : "Not complete") : "")" >@tvim.TVText</span> &nbsp; &nbsp;<span class="badge">&nbsp;@tvim.ChildCount&nbsp;</span>
-                                    </a>
-                                    @*}*@
-                                </div>
+                            <li class="list-group-item"><h3>@TVItemViewRes.WithoutInfrastructure</h3></li>
 
-                                <p class="list-group-item-text ">
-                                    <ul class="moreInfo list-unstyled blockMargin" data-tvitemid="@tvim.TVItemID" data-numberofsample="@NumberOfSample"></ul>
-                                </p>
-                                @if (tvim.TVType == TVTypeEnum.MWQMSite)
-                                {
-                                    <div class="MWQMSiteDiv container-fluid"></div>
-                                }
-                                <div class="TVItemModify paraBlock blockMargin"></div>
-                            </li>
+                            foreach (TVItemModelAndChildCount tvim in (from c in tvItemModelLocationChildrenList
+                                                                       let exist = (from cc in TVItemIDWithInfrastructureList
+                                                                                    where c.TVItemID == cc
+                                                                                    select cc).Any()
+                                                                       where exist == false
+                                                                       select c).ToList())
+                            {
+                                <li class="TVItem list-group-item" data-tvitemid="@tvim.TVItemID">
+
+                                    <div class="list-group-item-heading">
+                                        <div class="LastUpdateAndTVText" data-table="TVItemLanguage" data-id="@tvim.TVItemID"></div>
+                                        <span class="TVItemEditButtons hidden">
+                                            @if (tvim.TVType == TVTypeEnum.MikeScenario)
+                                            {
+                                                // nothing for now
+                                            }
+                                            else if (tvim.TVType == TVTypeEnum.MWQMRun)
+                                            {
+                                                // nothing for now
+                                            }
+                                            else
+                                            {
+                                                if (tvim.TVAuth >= TVAuthEnum.Write)
+                                                {
+                                                    if (tvim.TVType == TVTypeEnum.PolSourceSite)
+                                                    {
+                                                        if (tvim.TVAuth >= TVAuthEnum.Write)
+                                                        {
+                                                            <button class="jbPolSourceSiteToggleActive btn btn-@(tvim.IsActive ? "success" : "default")"
+                                                                    title="@(tvim.IsActive ? TVItemViewRes.IsActive : TVItemViewRes.IsNotActive)"
+                                                                    data-isactive="@TVItemViewRes.IsActive"
+                                                                    data-isnotactive="@TVItemViewRes.IsNotActive"
+                                                                    data-working="@TVItemViewRes.Working"
+                                                                    data-tvitemid="@tvim.TVItemID">
+                                                                <span>@(tvim.IsActive ? TVItemViewRes.IsActive : TVItemViewRes.IsNotActive)</span>
+                                                            </button>
+                                                            <button class="jbPolSourceSiteModifyShowHide btn btn-default" title="@TVItemViewRes.ViewDetails">
+                                                                <span class="glyphicon glyphicon-pencil"></span>
+                                                            </button>
+                                                        }
+                                                    }
+                                                    else if (tvim.TVType == TVTypeEnum.MWQMSite)
+                                                    {
+                                                        if (tvim.TVAuth >= TVAuthEnum.Write)
+                                                        {
+                                                            <button class="jbMWQMSiteModifyShowHide btn btn-default" title="@TVItemViewRes.ViewDetails">
+                                                                <span class="glyphicon glyphicon-pencil"></span>
+                                                            </button>
+                                                        }
+                                                    }
+                                                    else
+                                                    {
+                                                        <button class="jbTVItemShowModify btn btn-default " type="button" title="@TVItemViewRes.Modify"><span class="glyphicon glyphicon-pencil"></span></button>
+                                                    }
+                                                }
+                                                if (tvim.TVAuth >= TVAuthEnum.Delete)
+                                                {
+                                                    <button class="jbTVItemAskToDelete btn btn-default " type="button" title="@TVItemViewRes.Delete"><span class="glyphicon glyphicon-trash"></span></button>
+                                                }
+                                            }
+                                        </span>
+                                        @if (IsShowMap)
+                                        {
+                                            if (tvim.TVType == TVTypeEnum.MWQMRun)
+                                            {
+                                                <button class="jbMWQMRunShowOnMap btn btn-default" href="#" title="@TVItemViewRes.ShowRunSampleOnMap">
+                                                    <span class="glyphicon glyphicon-map-marker"></span>
+                                                </button>
+                                            }
+                                            else
+                                            {
+                                                <button class="jbMapShowItem btn btn-default" href="#" title="@TVItemViewRes.LocateOnMap" data-tvitemid="@tvim.TVItemID">
+                                                    <span class="glyphicon glyphicon-map-marker"></span>
+                                                </button>
+                                            }
+                                        }
+
+                                        <a href="@(tvItemController.CreateHashURL(tvim.TVItemID))" class="text-noUnderline">
+                                            <span class="TVText @(!tvim.IsActive ? "text-strikeThrough" : "")" title="@((tvim.TVText.Contains("(NC)") || tvim.TVText.Contains("(PC)")) ? (ViewBag.Language == LanguageEnum.fr ? "Pas complet" : "Not complete") : "")">@tvim.TVText</span> &nbsp; &nbsp;<span class="badge">&nbsp;@tvim.ChildCount&nbsp;</span>
+                                        </a>
+                                        @*}*@
+                                    </div>
+
+                                    <p class="list-group-item-text ">
+                                        <ul class="moreInfo list-unstyled blockMargin" data-tvitemid="@tvim.TVItemID" data-numberofsample="@NumberOfSample"></ul>
+                                    </p>
+                                    @if (tvim.TVType == TVTypeEnum.MWQMSite)
+                                    {
+                                        <div class="MWQMSiteDiv container-fluid"></div>
+                                    }
+                                    <div class="TVItemModify paraBlock blockMargin"></div>
+                                </li>
+                            }
+                        }
+                        else
+                        {
+                            foreach (TVItemModelAndChildCount tvim in tvItemModelLocationChildrenList)
+                            {
+                                <li class="TVItem list-group-item" data-tvitemid="@tvim.TVItemID">
+
+                                    <div class="list-group-item-heading">
+                                        <div class="LastUpdateAndTVText" data-table="TVItemLanguage" data-id="@tvim.TVItemID"></div>
+                                        <span class="TVItemEditButtons hidden">
+                                            @if (tvim.TVType == TVTypeEnum.MikeScenario)
+                                            {
+                                                // nothing for now
+                                            }
+                                            else if (tvim.TVType == TVTypeEnum.MWQMRun)
+                                            {
+                                                // nothing for now
+                                            }
+                                            else
+                                            {
+                                                if (tvim.TVAuth >= TVAuthEnum.Write)
+                                                {
+                                                    if (tvim.TVType == TVTypeEnum.PolSourceSite)
+                                                    {
+                                                        if (tvim.TVAuth >= TVAuthEnum.Write)
+                                                        {
+                                                            <button class="jbPolSourceSiteToggleActive btn btn-@(tvim.IsActive ? "success" : "default")"
+                                                                    title="@(tvim.IsActive ? TVItemViewRes.IsActive : TVItemViewRes.IsNotActive)"
+                                                                    data-isactive="@TVItemViewRes.IsActive"
+                                                                    data-isnotactive="@TVItemViewRes.IsNotActive"
+                                                                    data-working="@TVItemViewRes.Working"
+                                                                    data-tvitemid="@tvim.TVItemID">
+                                                                <span>@(tvim.IsActive ? TVItemViewRes.IsActive : TVItemViewRes.IsNotActive)</span>
+                                                            </button>
+                                                            <button class="jbPolSourceSiteModifyShowHide btn btn-default" title="@TVItemViewRes.ViewDetails">
+                                                                <span class="glyphicon glyphicon-pencil"></span>
+                                                            </button>
+                                                        }
+                                                    }
+                                                    else if (tvim.TVType == TVTypeEnum.MWQMSite)
+                                                    {
+                                                        if (tvim.TVAuth >= TVAuthEnum.Write)
+                                                        {
+                                                            <button class="jbMWQMSiteModifyShowHide btn btn-default" title="@TVItemViewRes.ViewDetails">
+                                                                <span class="glyphicon glyphicon-pencil"></span>
+                                                            </button>
+                                                        }
+                                                    }
+                                                    else
+                                                    {
+                                                        <button class="jbTVItemShowModify btn btn-default " type="button" title="@TVItemViewRes.Modify"><span class="glyphicon glyphicon-pencil"></span></button>
+                                                    }
+                                                }
+                                                if (tvim.TVAuth >= TVAuthEnum.Delete)
+                                                {
+                                                    <button class="jbTVItemAskToDelete btn btn-default " type="button" title="@TVItemViewRes.Delete"><span class="glyphicon glyphicon-trash"></span></button>
+                                                }
+                                            }
+                                        </span>
+                                        @if (IsShowMap)
+                                        {
+                                            if (tvim.TVType == TVTypeEnum.MWQMRun)
+                                            {
+                                                <button class="jbMWQMRunShowOnMap btn btn-default" href="#" title="@TVItemViewRes.ShowRunSampleOnMap">
+                                                    <span class="glyphicon glyphicon-map-marker"></span>
+                                                </button>
+                                            }
+                                            else
+                                            {
+                                                <button class="jbMapShowItem btn btn-default" href="#" title="@TVItemViewRes.LocateOnMap" data-tvitemid="@tvim.TVItemID">
+                                                    <span class="glyphicon glyphicon-map-marker"></span>
+                                                </button>
+                                            }
+                                        }
+
+                                        @*@if (tvim.TVType == TVTypeEnum.MWQMSite)
+                                            {
+                                                <a href="@tvItemController.CreateHashURL(tvim.TVItemID)" class="text-noUnderline">
+                                                    <span class="TVText @(!tvim.IsActive ? "text-strikeThrough" : "")">@tvim.TVText</span> &nbsp; &nbsp;<span class="badge">&nbsp;@tvim.ChildCount&nbsp;</span>
+                                                </a>
+                                            }
+                                            else if (tvim.TVType == TVTypeEnum.PolSourceSite)
+                                            {
+                                                string href = tvItemController.CreateHashURL(tvim.TVItemID);
+                                                <a href="@href" class="text-noUnderline">
+                                                    <span class="TVText @(!tvim.IsActive ? "text-strikeThrough" : "")">@tvim.TVText</span> &nbsp; &nbsp;<span class="badge">&nbsp;@tvim.ChildCount&nbsp;</span>
+                                                </a>
+                                            }
+                                            else
+                                            {*@
+                                        @*string href = tvItemController.CreateHashURL(tvim.TVItemID);*@
+                                        <a href="@(tvItemController.CreateHashURL(tvim.TVItemID))" class="text-noUnderline">
+                                            <span class="TVText @(!tvim.IsActive ? "text-strikeThrough" : "")" title="@((tvim.TVText.Contains("(NC)") || tvim.TVText.Contains("(PC)")) ? (ViewBag.Language == LanguageEnum.fr ? "Pas complet" : "Not complete") : "")">@tvim.TVText</span> &nbsp; &nbsp;<span class="badge">&nbsp;@tvim.ChildCount&nbsp;</span>
+                                        </a>
+                                        @*}*@
+                                    </div>
+
+                                    <p class="list-group-item-text ">
+                                        <ul class="moreInfo list-unstyled blockMargin" data-tvitemid="@tvim.TVItemID" data-numberofsample="@NumberOfSample"></ul>
+                                    </p>
+                                    @if (tvim.TVType == TVTypeEnum.MWQMSite)
+                                    {
+                                        <div class="MWQMSiteDiv container-fluid"></div>
+                                    }
+                                    <div class="TVItemModify paraBlock blockMargin"></div>
+                                </li>
+                            }
                         }
                     </ul>
                 </div>

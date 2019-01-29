@@ -188,6 +188,7 @@
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\DialogController.cs" />
     <Compile Include="Controllers\DocumentController.cs" />
+    <Compile Include="Controllers\HelpDocController.cs" />
     <Compile Include="Controllers\EmailController.cs" />
     <Compile Include="Controllers\EmailDistributionListController.cs" />
     <Compile Include="Controllers\FileController.cs" />
@@ -354,6 +355,16 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>FileViewRes.fr.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HelpDoc\Resources\HelpDocViewRes.fr.Designer.cs">
+      <DependentUpon>HelpDocViewRes.fr.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Views\HelpDoc\Resources\HelpDocViewRes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HelpDocViewRes.resx</DependentUpon>
     </Compile>
     <Compile Include="Views\Help\Resources\HelpViewRes.fr.Designer.cs">
       <DependentUpon>HelpViewRes.fr.resx</DependentUpon>
@@ -952,6 +963,7 @@
     <Content Include="Views\SubsectorTools\_municipalityTopPage.cshtml" />
     <Content Include="Views\TideSite\_subsectorTideSites.cshtml" />
     <Content Include="Views\SubsectorTools\_subsectorMunicipalities.cshtml" />
+    <Content Include="Views\HelpDoc\_HelpDocViewAndEdit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -962,6 +974,7 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="Scripts\csspjs\cssp.HelpDoc.ts" />
     <TypeScriptCompile Include="Scripts\csspjs\cssp.SubsectorTools.ts" />
     <TypeScriptCompile Include="Scripts\csspjs\cssp.ProvinceTools.ts" />
     <TypeScriptCompile Include="Scripts\csspjs\cssp.OpenData.ts" />
@@ -1192,6 +1205,14 @@
     <EmbeddedResource Include="Views\File\Resources\FileViewRes.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>FileViewRes.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\HelpDoc\Resources\HelpDocViewRes.fr.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>HelpDocViewRes.fr.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\HelpDoc\Resources\HelpDocViewRes.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>HelpDocViewRes.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Help\Resources\HelpViewRes.fr.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

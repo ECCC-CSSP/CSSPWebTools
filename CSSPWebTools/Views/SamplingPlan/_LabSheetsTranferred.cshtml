@@ -955,16 +955,23 @@ else
                                                 </p>
                                                 <p>
                                                     <b>@SamplingPlanViewRes.RLogs</b> &nbsp; &nbsp; &nbsp;
-                                                    @labSheetModelAndA1Sheet.LabSheetA1Sheet.DailyDuplicateRLog
+                                                    @(labSheetModelAndA1Sheet.LabSheetA1Sheet.DailyDuplicatePrecisionCriteria == "0" ? "N/A" : labSheetModelAndA1Sheet.LabSheetA1Sheet.DailyDuplicateRLog)
                                                 </p>
                                                 <p>
                                                     <b>@SamplingPlanViewRes.PrecisionCriteria</b> &nbsp; &nbsp; &nbsp;
-                                                    @labSheetModelAndA1Sheet.LabSheetA1Sheet.DailyDuplicatePrecisionCriteria
+                                                    @(labSheetModelAndA1Sheet.LabSheetA1Sheet.DailyDuplicatePrecisionCriteria == "0" ? "N/A" : labSheetModelAndA1Sheet.LabSheetA1Sheet.DailyDuplicatePrecisionCriteria)
                                                 </p>
                                                 <p>
-                                                    <b class="@(labSheetModelAndA1Sheet.LabSheetA1Sheet.DailyDuplicateAcceptableOrUnacceptable == "Acceptable" ? "text-success" : "text-danger")">
-                                                        @labSheetModelAndA1Sheet.LabSheetA1Sheet.DailyDuplicateAcceptableOrUnacceptable
-                                                    </b>
+                                                    @if (labSheetModelAndA1Sheet.LabSheetA1Sheet.DailyDuplicatePrecisionCriteria == "0")
+                                                    {
+                                                        <span>N/A</span>
+                                                    }
+                                                    else
+                                                    {
+                                                        <b class="@(labSheetModelAndA1Sheet.LabSheetA1Sheet.DailyDuplicateAcceptableOrUnacceptable == "Acceptable" ? "text-success" : "text-danger")">
+                                                            @labSheetModelAndA1Sheet.LabSheetA1Sheet.DailyDuplicateAcceptableOrUnacceptable
+                                                        </b>
+                                                    }
                                                 </p>
                                             </td>
                                         </tr>
@@ -986,16 +993,23 @@ else
                                                 </p>
                                                 <p>
                                                     <b>@SamplingPlanViewRes.RLogs</b> &nbsp; &nbsp; &nbsp;
-                                                    @labSheetModelAndA1Sheet.LabSheetA1Sheet.IntertechDuplicateRLog
+                                                    @(labSheetModelAndA1Sheet.LabSheetA1Sheet.IntertechDuplicatePrecisionCriteria == "0" ? "N/A" : labSheetModelAndA1Sheet.LabSheetA1Sheet.DailyDuplicateRLog)
                                                 </p>
                                                 <p>
                                                     <b>@SamplingPlanViewRes.PrecisionCriteria</b> &nbsp; &nbsp; &nbsp;
-                                                    @labSheetModelAndA1Sheet.LabSheetA1Sheet.IntertechDuplicatePrecisionCriteria
+                                                    @(labSheetModelAndA1Sheet.LabSheetA1Sheet.IntertechDuplicatePrecisionCriteria == "0" ? "N/A" : labSheetModelAndA1Sheet.LabSheetA1Sheet.IntertechDuplicatePrecisionCriteria)
                                                 </p>
                                                 <p>
-                                                    <b class="@(labSheetModelAndA1Sheet.LabSheetA1Sheet.IntertechDuplicateAcceptableOrUnacceptable == "Acceptable" ? "text-success" : "text-danger")">
-                                                        @labSheetModelAndA1Sheet.LabSheetA1Sheet.IntertechDuplicateAcceptableOrUnacceptable
-                                                    </b>
+                                                    @if (labSheetModelAndA1Sheet.LabSheetA1Sheet.IntertechDuplicatePrecisionCriteria == "0")
+                                                    {
+                                                        <span>N/A</span>
+                                                    }
+                                                    else
+                                                    {
+                                                        <b class="@(labSheetModelAndA1Sheet.LabSheetA1Sheet.IntertechDuplicateAcceptableOrUnacceptable == "Acceptable" ? "text-success" : "text-danger")">
+                                                            @labSheetModelAndA1Sheet.LabSheetA1Sheet.IntertechDuplicateAcceptableOrUnacceptable
+                                                        </b>
+                                                    }
                                                 </p>
                                             </td>
                                         </tr>
@@ -1045,16 +1059,23 @@ else
                                                     </p>
                                                     <p>
                                                         <b>@SamplingPlanViewRes.RLogs</b> &nbsp; &nbsp; &nbsp;
-                                                        @labSheetModelAndA1Sheet.LabSheetA1Sheet.DailyDuplicateRLog
+                                                        @(labSheetModelAndA1Sheet.LabSheetA1Sheet.DailyDuplicatePrecisionCriteria == "0" ? "N/A" : labSheetModelAndA1Sheet.LabSheetA1Sheet.DailyDuplicateRLog)
                                                     </p>
                                                     <p>
                                                         <b>@SamplingPlanViewRes.PrecisionCriteria</b> &nbsp; &nbsp; &nbsp;
-                                                        @labSheetModelAndA1Sheet.LabSheetA1Sheet.DailyDuplicatePrecisionCriteria
+                                                        @(labSheetModelAndA1Sheet.LabSheetA1Sheet.DailyDuplicatePrecisionCriteria == "0" ? "N/A" : labSheetModelAndA1Sheet.LabSheetA1Sheet.DailyDuplicatePrecisionCriteria)
                                                     </p>
                                                     <p>
-                                                        <b class="@(labSheetModelAndA1Sheet.LabSheetA1Sheet.DailyDuplicateAcceptableOrUnacceptable == "Acceptable" ? "text-success" : "text-danger")">
-                                                            @labSheetModelAndA1Sheet.LabSheetA1Sheet.DailyDuplicateAcceptableOrUnacceptable
-                                                        </b>
+                                                        @if (labSheetModelAndA1Sheet.LabSheetA1Sheet.DailyDuplicatePrecisionCriteria == "0")
+                                                        {
+                                                            <span>N/A</span>
+                                                        }
+                                                        else
+                                                        {
+                                                            <b class="@(labSheetModelAndA1Sheet.LabSheetA1Sheet.DailyDuplicateAcceptableOrUnacceptable == "Acceptable" ? "text-success" : "text-danger")">
+                                                                @labSheetModelAndA1Sheet.LabSheetA1Sheet.DailyDuplicateAcceptableOrUnacceptable
+                                                            </b>
+                                                        }
                                                     </p>
                                                 </td>
                                             </tr>
@@ -1076,16 +1097,23 @@ else
                                                     </p>
                                                     <p>
                                                         <b>@SamplingPlanViewRes.RLogs</b> &nbsp; &nbsp; &nbsp;
-                                                        @labSheetModelAndA1Sheet.LabSheetA1Sheet.IntertechDuplicateRLog
+                                                        @(labSheetModelAndA1Sheet.LabSheetA1Sheet.IntertechDuplicatePrecisionCriteria == "0" ? "N/A" : labSheetModelAndA1Sheet.LabSheetA1Sheet.IntertechDuplicateRLog)
                                                     </p>
                                                     <p>
                                                         <b>@SamplingPlanViewRes.PrecisionCriteria</b> &nbsp; &nbsp; &nbsp;
-                                                        @labSheetModelAndA1Sheet.LabSheetA1Sheet.IntertechDuplicatePrecisionCriteria
+                                                        @(labSheetModelAndA1Sheet.LabSheetA1Sheet.IntertechDuplicatePrecisionCriteria == "0" ? "N/A" : labSheetModelAndA1Sheet.LabSheetA1Sheet.IntertechDuplicatePrecisionCriteria)
                                                     </p>
                                                     <p>
-                                                        <b class="@(labSheetModelAndA1Sheet.LabSheetA1Sheet.IntertechDuplicateAcceptableOrUnacceptable == "Acceptable" ? "text-success" : "text-danger")">
-                                                            @labSheetModelAndA1Sheet.LabSheetA1Sheet.IntertechDuplicateAcceptableOrUnacceptable
-                                                        </b>
+                                                        @if (labSheetModelAndA1Sheet.LabSheetA1Sheet.IntertechDuplicatePrecisionCriteria == "0")
+                                                        {
+                                                            <span>N/A</span>
+                                                        }
+                                                        else
+                                                        {
+                                                            <b class="@(labSheetModelAndA1Sheet.LabSheetA1Sheet.IntertechDuplicateAcceptableOrUnacceptable == "Acceptable" ? "text-success" : "text-danger")">
+                                                                @labSheetModelAndA1Sheet.LabSheetA1Sheet.IntertechDuplicateAcceptableOrUnacceptable
+                                                            </b>
+                                                        }
                                                     </p>
                                                 </td>
                                             </tr>

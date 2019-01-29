@@ -19,7 +19,7 @@ namespace CSSPWebTools.Views.Infrastructure.Resources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class InfrastructureViewRes {
@@ -93,6 +93,15 @@ namespace CSSPWebTools.Views.Infrastructure.Resources {
         public static string AlarmSystemType {
             get {
                 return ResourceManager.GetString("AlarmSystemType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Attached Growth Group.
+        /// </summary>
+        public static string AttachedGrowthGroup {
+            get {
+                return ResourceManager.GetString("AttachedGrowthGroup", resourceCulture);
             }
         }
         
@@ -732,6 +741,15 @@ namespace CSSPWebTools.Views.Infrastructure.Resources {
         public static string StartMove {
             get {
                 return ResourceManager.GetString("StartMove", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Suspended Growth Group.
+        /// </summary>
+        public static string SuspendedGrowthGroup {
+            get {
+                return ResourceManager.GetString("SuspendedGrowthGroup", resourceCulture);
             }
         }
         

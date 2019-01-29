@@ -433,4 +433,10 @@
   <data name="WillBeRemoved" xml:space="preserve">
     <value>Sera supprimé</value>
   </data>
+  <data name="AttachedGrowthGroup" xml:space="preserve">
+    <value>Attached Growth Group (fr)</value>
+  </data>
+  <data name="SuspendedGrowthGroup" xml:space="preserve">
+    <value>Suspended Growth Group (fr)</value>
+  </data>
 </root>

@@ -157,10 +157,13 @@ namespace CSSPWebTools.Controllers
             List<TVTypeEnum> tvTypeWithMunicipalityList = new List<TVTypeEnum>() { TVTypeEnum.Province };
 
             List<TVItemModelAndChildCount> tvItemModelLocationChildrenList = new List<TVItemModelAndChildCount>();
+            List<int> TVItemIDWithInfrastructureList = new List<int>();
             if (tvTypeWithMunicipalityList.Contains(tvItemModelLocationCurrent.TVType) && tabInfoList.FirstOrDefault().Active == "1")
             {
                 tvItemModelLocationChildrenList = _TVItemService.GetChildrenTVItemModelAndChildCountListWithTVItemIDAndTVTypeDB(urlModel.TVItemIDList[0], TVTypeEnum.Municipality);
                 tvType = TVTypeEnum.Municipality;
+
+                TVItemIDWithInfrastructureList = _TVItemService.GetMunicipalityTVItemIDListWithInfrastructureUnder(urlModel.TVItemIDList[0]);
             }
             else if (tvItemModelLocationCurrent.TVType == TVTypeEnum.Municipality && tabInfoList.FirstOrDefault().Active == "1")
             {
@@ -222,6 +225,10 @@ namespace CSSPWebTools.Controllers
 
 
             ViewBag.TVItemModelLocationChildrenList = tvItemModelLocationChildrenList;
+
+
+            ViewBag.TVItemIDWithInfrastructureList = TVItemIDWithInfrastructureList;
+
 
             ViewBag.TVItemController = _TVItemController;
 

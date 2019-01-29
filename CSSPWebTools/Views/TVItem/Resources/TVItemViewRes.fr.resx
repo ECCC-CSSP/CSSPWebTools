@@ -468,4 +468,10 @@
   <data name="LastSampleDate" xml:space="preserve">
     <value>Date du dernier échantillon</value>
   </data>
+  <data name="WithInfrastructure" xml:space="preserve">
+    <value>With Infrastructure</value>
+  </data>
+  <data name="WithoutInfrastructure" xml:space="preserve">
+    <value>Without Infrastructure</value>
+  </data>
 </root>

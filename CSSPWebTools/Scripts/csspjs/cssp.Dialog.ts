@@ -107,6 +107,9 @@
                 }, 500);
             }
         };
+        public ShowDialogHelp: Function = (Title: string, HelpDocHTMLText: string) => {
+            cssp.Dialog.ShowDialogBasic(new DialogModel(DialogModelTypeEnum.Message, Title, HelpDocHTMLText));
+        };
         public ShowDialogMessage: Function = (Message: string) => {
             cssp.Dialog.ShowDialogBasic(new DialogModel(DialogModelTypeEnum.Message, cssp.GetHTMLVariable("#LayoutVariables", "varMessage"), Message));
         };

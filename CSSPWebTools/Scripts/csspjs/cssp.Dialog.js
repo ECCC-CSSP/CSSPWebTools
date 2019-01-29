@@ -104,6 +104,9 @@ var CSSP;
                     }, 500);
                 }
             };
+            this.ShowDialogHelp = function (Title, HelpDocHTMLText) {
+                cssp.Dialog.ShowDialogBasic(new CSSP.DialogModel(CSSP.DialogModelTypeEnum.Message, Title, HelpDocHTMLText));
+            };
             this.ShowDialogMessage = function (Message) {
                 cssp.Dialog.ShowDialogBasic(new CSSP.DialogModel(CSSP.DialogModelTypeEnum.Message, cssp.GetHTMLVariable("#LayoutVariables", "varMessage"), Message));
             };

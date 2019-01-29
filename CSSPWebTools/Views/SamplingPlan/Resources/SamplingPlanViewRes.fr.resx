@@ -543,4 +543,7 @@
   <data name="RejectReason" xml:space="preserve">
     <value>Raison du rejet</value>
   </data>
+  <data name="OrZeroIfNotUsed" xml:space="preserve">
+    <value>or 0 if not used (fr)</value>
+  </data>
 </root>

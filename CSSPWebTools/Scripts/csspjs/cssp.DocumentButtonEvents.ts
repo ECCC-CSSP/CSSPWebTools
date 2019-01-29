@@ -424,6 +424,26 @@ module CSSP {
                             cssp.File.GetParentLatLng($bjs);
                         }
                         break;
+                    case "jbHelpDocShowDialog":
+                        {
+                            cssp.HelpDoc.HelpDocShowDialog($bjs);
+                        }
+                        break;
+                    case "jbHelpDocShowEN":
+                        {
+                            cssp.HelpDoc.HelpDocShowEN($bjs);
+                        }
+                        break;
+                    case "jbHelpDocShowEdit":
+                        {
+                            cssp.HelpDoc.HelpDocShowEdit($bjs);
+                        }
+                        break;
+                    case "jbHelpDocShowFR":
+                        {
+                            cssp.HelpDoc.HelpDocShowFR($bjs);
+                        }
+                        break;
                     case "jbInfrastructureCreateShowHide":
                         {
                             cssp.Infrastructure.ShowHideAddOrModify($bjs, true, true);
@@ -1352,11 +1372,6 @@ module CSSP {
                     case "jbReportSectionNameModify":
                         {
                             cssp.ReportType.ReportSectionNameModify($bjs);
-                        }
-                        break;
-                    case "jbReportSectionTextModify":
-                        {
-                            cssp.ReportType.ReportSectionTextModify($bjs);
                         }
                         break;
                     case "jbReportSectionOrdinalDown":

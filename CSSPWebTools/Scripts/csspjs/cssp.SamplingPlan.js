@@ -179,19 +179,9 @@ var CSSP;
                                 minlength: 3,
                                 maxlength: 10,
                             },
-                            DuplicatePrecisionCriteria: {
-                                required: true,
-                                min: 0,
-                                max: 1,
-                            },
                         }
                     });
                 });
-                //$(".mwqmsitecount").each((ind: number, elem: Element) => {
-                //    if ($(elem).text() != "0") {
-                //        $(elem).closest(".jbSamplingPlanShowMWQMSites").trigger("click");
-                //    }
-                //});
                 window.setTimeout(function () {
                     $(".jbSamplingPlanEditSave").removeClass("hidden");
                 }, 5000);

@@ -228,6 +228,7 @@ cssp.File = new CSSP.File();
 cssp.ForgotPassword = new CSSP.ForgotPassword();
 cssp.ForgotPasswordEmailSent = new CSSP.ForgotPasswordEmailSent();
 cssp.Infrastructure = new CSSP.Infrastructure();
+cssp.HelpDoc = new CSSP.HelpDoc();
 cssp.Home = new CSSP.Home();
 cssp.HydrometricSite = new CSSP.HydrometricSite();
 cssp.Login = new CSSP.Login();

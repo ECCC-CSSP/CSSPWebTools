@@ -952,6 +952,24 @@ namespace CSSPWebTools.Views.TVItem.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to With Infrastructure.
+        /// </summary>
+        public static string WithInfrastructure {
+            get {
+                return ResourceManager.GetString("WithInfrastructure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Without Infrastructure.
+        /// </summary>
+        public static string WithoutInfrastructure {
+            get {
+                return ResourceManager.GetString("WithoutInfrastructure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Working ....
         /// </summary>
         public static string Working {

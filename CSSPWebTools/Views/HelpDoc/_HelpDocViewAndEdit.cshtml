@@ -1,0 +1,61 @@
+﻿@using CSSPWebTools.Views.HelpDoc.Resources;
+@using CSSPWebTools.Controllers;
+@using CSSPEnumsDLL.Enums;
+@using CSSPEnumsDLL.Services;
+@using CSSPModelsDLL.Models;
+
+@{
+    HelpDocModel helpDocModelEN = (HelpDocModel)ViewBag.HelpDocModelEN;
+    HelpDocModel helpDocModelFR = (HelpDocModel)ViewBag.HelpDocModelFR;
+    string Title = (string)ViewBag.Title;
+    string DocKey = (string)ViewBag.DocKey;
+    LanguageEnum Language = (LanguageEnum)ViewBag.Language;
+}
+<div class="HelpDocTop container-fluid">
+    <div>
+        <p>
+            <button class="jbHelpDocShowFR btn btn-@(Language == LanguageEnum.fr ? "success" : "default")">FR</button>&nbsp;&nbsp;
+            <button class="jbHelpDocShowEN btn btn-@(Language == LanguageEnum.en ? "success" : "default")">EN</button>&nbsp;&nbsp;
+            <button class="jbHelpDocShowEdit btn btn-default">@HelpDocViewRes.Edit</button>&nbsp;&nbsp;
+        </p>
+    </div>
+    <div class="HelpDocFR @(Language == LanguageEnum.fr ? "" : "hidden")">
+        <div>
+            @Html.Raw(helpDocModelFR.DocHTMLText)
+        </div>
+        <div class="HelpDocEdit hidden">
+            <form class="HelpDocEditForm " action="HelpDoc/HelpDocSaveJSON" method="post" role="form">
+                <input type="hidden" name="DocKey" value="@DocKey" />
+                <input type="hidden" name="Language" value="fr" />
+                <div>
+                    <label>@Title (Français)</label>
+                    <textarea class="HelpDocHMTLTextArea form-control" rows="4" name="DocHTMLText">@helpDocModelFR.DocHTMLText</textarea>
+                    <span class="help-block"></span>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="HelpDocEN @(Language == LanguageEnum.en ? "" : "hidden")">
+        <div>
+            @Html.Raw(helpDocModelEN.DocHTMLText)
+        </div>
+        <div class="HelpDocEdit hidden">
+            <form class="HelpDocEditForm " action="HelpDoc/HelpDocSaveJSON" method="post" role="form">
+                <input type="hidden" name="DocKey" value="@DocKey" />
+                <input type="hidden" name="Language" value="en" />
+                <div>
+                    <label>@Title (English)</label>
+                    <textarea class="HelpDocHMTLTextArea form-control" rows="4" name="DocHTMLText">@helpDocModelEN.DocHTMLText</textarea>
+                    <span class="help-block"></span>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $(function () {
+        cssp.HelpDoc.TinymceInit();
+    });
+</script>

@@ -429,4 +429,10 @@
   <data name="WillBeRemoved" xml:space="preserve">
     <value>Will be removed</value>
   </data>
+  <data name="AttachedGrowthGroup" xml:space="preserve">
+    <value>Attached Growth Group</value>
+  </data>
+  <data name="SuspendedGrowthGroup" xml:space="preserve">
+    <value>Suspended Growth Group</value>
+  </data>
 </root>

@@ -11,6 +11,27 @@
     MapInfoPointModel mapInfoPointModelOutfall = (MapInfoPointModel)ViewBag.MapInfoPointModelOutfall;
     InfrastructureController infrastructureController = (InfrastructureController)ViewBag.InfrastructureController;
     BaseEnumService _BaseEnumService = new BaseEnumService(ViewBag.Language);
+    List<SecondaryTreatmentTypeEnum> AttachedGrowthList = new List<SecondaryTreatmentTypeEnum>()
+{
+SecondaryTreatmentTypeEnum.RotatingBiologicalContactor,
+SecondaryTreatmentTypeEnum.TricklingFilters,
+SecondaryTreatmentTypeEnum.IntegratedFixedFilmActivatedSludge,
+SecondaryTreatmentTypeEnum.MechanicalMixer,
+SecondaryTreatmentTypeEnum.MovingBedBioReactor,
+SecondaryTreatmentTypeEnum.BiologicalAearatedFilters,
+SecondaryTreatmentTypeEnum.AeratedSubmergedBioFilmReactor
+};
+
+    List<SecondaryTreatmentTypeEnum> SuspendedGrowthList = new List<SecondaryTreatmentTypeEnum>()
+{
+SecondaryTreatmentTypeEnum.OxidationDitch,
+SecondaryTreatmentTypeEnum.ActivatedSludge,
+SecondaryTreatmentTypeEnum.ExtendedActivatedSludge,
+SecondaryTreatmentTypeEnum.ExtendedAeration,
+SecondaryTreatmentTypeEnum.ContactStabilization,
+SecondaryTreatmentTypeEnum.PhysicalChemicalProcesses,
+SecondaryTreatmentTypeEnum.SequencingBatchReator
+};
 }
 
 @if (!string.IsNullOrWhiteSpace(infrastructureModel.Error))
@@ -38,7 +59,10 @@ else
                         @*InfrastructureType*@
                         <li>
                             <div class="form-group">
-                                <label for="InfrastructureType" class="control-label">@InfrastructureViewRes.InfrastructureType</label>
+                                <label for="InfrastructureType" class="control-label">
+                                    @InfrastructureViewRes.InfrastructureType
+                                    <button class="jbHelpDocShowDialog btn btn-link" data-dockey="infrastructuretype" data-title="@InfrastructureViewRes.InfrastructureType"><span class="glyphicon glyphicon-info-sign"></span></button>
+                                </label>
                                 <div>
                                     <span>
                                         <select name="InfrastructureType" class="form-control">
@@ -58,7 +82,10 @@ else
                         @*FacilityType*@
                         <li>
                             <div class="form-group">
-                                <label for="FacilityType" class="control-label">@InfrastructureViewRes.FacilityType</label>
+                                <label for="FacilityType" class="control-label">
+                                    @InfrastructureViewRes.FacilityType
+                                    <button class="jbHelpDocShowDialog btn btn-link" data-dockey="facilitytype" data-title="@InfrastructureViewRes.FacilityType"><span class="glyphicon glyphicon-info-sign"></span></button>
+                                </label>
                                 <div>
                                     <span>
                                         <select name="FacilityType" class="form-control">
@@ -82,7 +109,10 @@ else
                                 <li>
                                     <blockquote>
                                         <div class="form-group">
-                                            <label for="IsMechanicallyAerated" class="control-label">@InfrastructureViewRes.IsMechanicallyAerated</label>
+                                            <label for="IsMechanicallyAerated" class="control-label">
+                                                @InfrastructureViewRes.IsMechanicallyAerated
+                                                <button class="jbHelpDocShowDialog btn btn-link" data-dockey="ismechanicallyaerated" data-title="@InfrastructureViewRes.IsMechanicallyAerated"><span class="glyphicon glyphicon-info-sign"></span></button>
+                                            </label>
                                             <div>
                                                 <span>
                                                     <input name="IsMechanicallyAerated" type="checkbox" @((infrastructureModel.IsMechanicallyAerated != null && infrastructureModel.IsMechanicallyAerated == true) ? "checked=checked" : "") />
@@ -93,7 +123,10 @@ else
                                         </div>
                                         @*AerationType*@
                                         <div class="AerationType form-group hidden">
-                                            <label for="AerationType" class="control-label">@InfrastructureViewRes.AerationType</label>
+                                            <label for="AerationType" class="control-label">
+                                                @InfrastructureViewRes.AerationType
+                                                <button class="jbHelpDocShowDialog btn btn-link" data-dockey="aerationtype" data-title="@InfrastructureViewRes.AerationType"><span class="glyphicon glyphicon-info-sign"></span></button>
+                                            </label>
                                             <div>
                                                 <span>
                                                     <select name="AerationType" class="form-control">
@@ -114,7 +147,10 @@ else
                                 @*NumberOfCells*@
                                 <li>
                                     <div class="form-group">
-                                        <label for="NumberOfCells" class="control-label">@InfrastructureViewRes.NumberOfCells</label>
+                                        <label for="NumberOfCells" class="control-label">
+                                            @InfrastructureViewRes.NumberOfCells
+                                            <button class="jbHelpDocShowDialog btn btn-link" data-dockey="numberofcells" data-title="@InfrastructureViewRes.NumberOfCells"><span class="glyphicon glyphicon-info-sign"></span></button>
+                                        </label>
                                         <div>
                                             <span>
                                                 @for (int i = 1; i < 8; i++)
@@ -129,7 +165,10 @@ else
                                 @*NumberOfAeratedCells*@
                                 <li>
                                     <div class="form-group">
-                                        <label for="NumberOfAeratedCells" class="control-label">@InfrastructureViewRes.NumberOfAeratedCells</label>
+                                        <label for="NumberOfAeratedCells" class="control-label">
+                                            @InfrastructureViewRes.NumberOfAeratedCells
+                                            <button class="jbHelpDocShowDialog btn btn-link" data-dockey="numberofaeratedcells" data-title="@InfrastructureViewRes.NumberOfAeratedCells"><span class="glyphicon glyphicon-info-sign"></span></button>
+                                        </label>
                                         <div>
                                             <span>
                                                 @for (int i = 1; i < 8; i++)
@@ -149,16 +188,32 @@ else
                                 @*PreliminaryTreatmentType*@
                                 <li>
                                     <div class="form-group">
-                                        <label for="PreliminaryTreatmentType" class="control-label">@InfrastructureViewRes.PreliminaryTreatmentType</label>
+                                        <label for="PreliminaryTreatmentType" class="control-label">
+                                            @InfrastructureViewRes.PreliminaryTreatmentType
+                                            <button class="jbHelpDocShowDialog btn btn-link" data-dockey="preliminarytreatmenttype" data-title="@InfrastructureViewRes.PreliminaryTreatmentType"><span class="glyphicon glyphicon-info-sign"></span></button>
+                                        </label>
                                         <div>
                                             <span>
                                                 <select name="PreliminaryTreatmentType" class="form-control">
                                                     <option value="0" @(infrastructureModel.PreliminaryTreatmentType == null ? "selected=selected" : "")>@InfrastructureViewRes.Select @InfrastructureViewRes.PreliminaryTreatmentType</option>
                                                     @foreach (PreliminaryTreatmentTypeEnumTextOrdered preliminaryTreatmentTypeEnumTextOrdered in _BaseEnumService.GetPreliminaryTreatmentTypeEnumTextOrderedList())
                                                     {
-                                                        <option value="@((int)preliminaryTreatmentTypeEnumTextOrdered.PreliminaryTreatmentType)" @(infrastructureModel.PreliminaryTreatmentType == preliminaryTreatmentTypeEnumTextOrdered.PreliminaryTreatmentType ? "selected=selected" : "")>
-                                                            @(preliminaryTreatmentTypeEnumTextOrdered.PreliminaryTreatmentTypeText)
-                                                        </option>
+                                                        if (preliminaryTreatmentTypeEnumTextOrdered.PreliminaryTreatmentType != PreliminaryTreatmentTypeEnum.NotApplicable)
+                                                        {
+                                                            <option value="@((int)preliminaryTreatmentTypeEnumTextOrdered.PreliminaryTreatmentType)" @(infrastructureModel.PreliminaryTreatmentType == preliminaryTreatmentTypeEnumTextOrdered.PreliminaryTreatmentType ? "selected=selected" : "")>
+                                                                @(preliminaryTreatmentTypeEnumTextOrdered.PreliminaryTreatmentTypeText)
+                                                            </option>
+                                                        }
+                                                    }
+                                                    <option value="0">---------------</option>
+                                                    @foreach (PreliminaryTreatmentTypeEnumTextOrdered preliminaryTreatmentTypeEnumTextOrdered in _BaseEnumService.GetPreliminaryTreatmentTypeEnumTextOrderedList())
+                                                    {
+                                                        if (preliminaryTreatmentTypeEnumTextOrdered.PreliminaryTreatmentType == PreliminaryTreatmentTypeEnum.NotApplicable)
+                                                        {
+                                                            <option value="@((int)preliminaryTreatmentTypeEnumTextOrdered.PreliminaryTreatmentType)" @(infrastructureModel.PreliminaryTreatmentType == preliminaryTreatmentTypeEnumTextOrdered.PreliminaryTreatmentType ? "selected=selected" : "")>
+                                                                @(preliminaryTreatmentTypeEnumTextOrdered.PreliminaryTreatmentTypeText)
+                                                            </option>
+                                                        }
                                                     }
                                                 </select>
                                                 <span class="help-block"></span>
@@ -169,16 +224,32 @@ else
                                 @*PrimaryTreatmentType*@
                                 <li>
                                     <div class="form-group">
-                                        <label for="PrimaryTreatmentType" class="control-label">@InfrastructureViewRes.PrimaryTreatmentType</label>
+                                        <label for="PrimaryTreatmentType" class="control-label">
+                                            @InfrastructureViewRes.PrimaryTreatmentType
+                                            <button class="jbHelpDocShowDialog btn btn-link" data-dockey="primarytreatmenttype" data-title="@InfrastructureViewRes.PrimaryTreatmentType"><span class="glyphicon glyphicon-info-sign"></span></button>
+                                        </label>
                                         <div>
                                             <span>
                                                 <select name="PrimaryTreatmentType" class="form-control">
                                                     <option value="0" @(infrastructureModel.PrimaryTreatmentType == null ? "selected=selected" : "")>@InfrastructureViewRes.Select @InfrastructureViewRes.PrimaryTreatmentType</option>
                                                     @foreach (PrimaryTreatmentTypeEnumTextOrdered primaryTreatmentTypeEnumTextOrdered in _BaseEnumService.GetPrimaryTreatmentTypeEnumTextOrderedList())
                                                     {
-                                                        <option value="@((int)primaryTreatmentTypeEnumTextOrdered.PrimaryTreatmentType)" @(infrastructureModel.PrimaryTreatmentType == primaryTreatmentTypeEnumTextOrdered.PrimaryTreatmentType ? "selected=selected" : "")>
-                                                            @(primaryTreatmentTypeEnumTextOrdered.PrimaryTreatmentTypeText)
-                                                        </option>
+                                                        if (primaryTreatmentTypeEnumTextOrdered.PrimaryTreatmentType != PrimaryTreatmentTypeEnum.NotApplicable)
+                                                        {
+                                                            <option value="@((int)primaryTreatmentTypeEnumTextOrdered.PrimaryTreatmentType)" @(infrastructureModel.PrimaryTreatmentType == primaryTreatmentTypeEnumTextOrdered.PrimaryTreatmentType ? "selected=selected" : "")>
+                                                                @(primaryTreatmentTypeEnumTextOrdered.PrimaryTreatmentTypeText)
+                                                            </option>
+                                                        }
+                                                    }
+                                                    <option value="0">---------------</option>
+                                                    @foreach (PrimaryTreatmentTypeEnumTextOrdered primaryTreatmentTypeEnumTextOrdered in _BaseEnumService.GetPrimaryTreatmentTypeEnumTextOrderedList())
+                                                    {
+                                                        if (primaryTreatmentTypeEnumTextOrdered.PrimaryTreatmentType == PrimaryTreatmentTypeEnum.NotApplicable)
+                                                        {
+                                                            <option value="@((int)primaryTreatmentTypeEnumTextOrdered.PrimaryTreatmentType)" @(infrastructureModel.PrimaryTreatmentType == primaryTreatmentTypeEnumTextOrdered.PrimaryTreatmentType ? "selected=selected" : "")>
+                                                                @(primaryTreatmentTypeEnumTextOrdered.PrimaryTreatmentTypeText)
+                                                            </option>
+                                                        }
                                                     }
                                                 </select>
                                                 <span class="help-block"></span>
@@ -189,16 +260,51 @@ else
                                 @*SecondaryTreatmentType*@
                                 <li>
                                     <div class="form-group">
-                                        <label for="SecondaryTreatmentType" class="control-label">@InfrastructureViewRes.SecondaryTreatmentType</label>
+                                        <label for="SecondaryTreatmentType" class="control-label">
+                                            @InfrastructureViewRes.SecondaryTreatmentType
+                                            <button class="jbHelpDocShowDialog btn btn-link" data-dockey="secondarytreatmenttype" data-title="@InfrastructureViewRes.SecondaryTreatmentType"><span class="glyphicon glyphicon-info-sign"></span></button>
+                                        </label>
                                         <div>
                                             <span>
                                                 <select name="SecondaryTreatmentType" class="form-control">
                                                     <option value="0" @(infrastructureModel.SecondaryTreatmentType == null ? "selected=selected" : "")>@InfrastructureViewRes.Select @InfrastructureViewRes.SecondaryTreatmentType</option>
+                                                    <option value="0">&nbsp;</option>
+                                                    <option value="0">@InfrastructureViewRes.AttachedGrowthGroup</option>
                                                     @foreach (SecondaryTreatmentTypeEnumTextOrdered secondaryTreatmentTypeEnumTextOrdered in _BaseEnumService.GetSecondaryTreatmentTypeEnumTextOrderedList())
                                                     {
-                                                        <option value="@((int)secondaryTreatmentTypeEnumTextOrdered.SecondaryTreatmentType)" @(infrastructureModel.SecondaryTreatmentType == secondaryTreatmentTypeEnumTextOrdered.SecondaryTreatmentType ? "selected=selected" : "")>
-                                                            @(secondaryTreatmentTypeEnumTextOrdered.SecondaryTreatmentTypeText)
-                                                        </option>
+                                                        if (secondaryTreatmentTypeEnumTextOrdered.SecondaryTreatmentType != SecondaryTreatmentTypeEnum.NotApplicable)
+                                                        {
+                                                            if (AttachedGrowthList.Contains(secondaryTreatmentTypeEnumTextOrdered.SecondaryTreatmentType))
+                                                            {
+                                                                <option value="@((int)secondaryTreatmentTypeEnumTextOrdered.SecondaryTreatmentType)" @(infrastructureModel.SecondaryTreatmentType == secondaryTreatmentTypeEnumTextOrdered.SecondaryTreatmentType ? "selected=selected" : "")>
+                                                                    &nbsp;&nbsp;&nbsp;@(secondaryTreatmentTypeEnumTextOrdered.SecondaryTreatmentTypeText)
+                                                                </option>
+                                                            }
+                                                        }
+                                                    }
+                                                    <option value="0">&nbsp;</option>
+                                                    <option value="0">@InfrastructureViewRes.SuspendedGrowthGroup</option>
+                                                    @foreach (SecondaryTreatmentTypeEnumTextOrdered secondaryTreatmentTypeEnumTextOrdered in _BaseEnumService.GetSecondaryTreatmentTypeEnumTextOrderedList())
+                                                    {
+                                                        if (secondaryTreatmentTypeEnumTextOrdered.SecondaryTreatmentType != SecondaryTreatmentTypeEnum.NotApplicable)
+                                                        {
+                                                            if (SuspendedGrowthList.Contains(secondaryTreatmentTypeEnumTextOrdered.SecondaryTreatmentType))
+                                                            {
+                                                                <option value="@((int)secondaryTreatmentTypeEnumTextOrdered.SecondaryTreatmentType)" @(infrastructureModel.SecondaryTreatmentType == secondaryTreatmentTypeEnumTextOrdered.SecondaryTreatmentType ? "selected=selected" : "")>
+                                                                    &nbsp;&nbsp;&nbsp;@(secondaryTreatmentTypeEnumTextOrdered.SecondaryTreatmentTypeText)
+                                                                </option>
+                                                            }
+                                                        }
+                                                    }
+                                                    <option value="0">---------------</option>
+                                                    @foreach (SecondaryTreatmentTypeEnumTextOrdered secondaryTreatmentTypeEnumTextOrdered in _BaseEnumService.GetSecondaryTreatmentTypeEnumTextOrderedList())
+                                                    {
+                                                        if (secondaryTreatmentTypeEnumTextOrdered.SecondaryTreatmentType == SecondaryTreatmentTypeEnum.NotApplicable)
+                                                        {
+                                                            <option value="@((int)secondaryTreatmentTypeEnumTextOrdered.SecondaryTreatmentType)" @(infrastructureModel.SecondaryTreatmentType == secondaryTreatmentTypeEnumTextOrdered.SecondaryTreatmentType ? "selected=selected" : "")>
+                                                                &nbsp;&nbsp;&nbsp;@(secondaryTreatmentTypeEnumTextOrdered.SecondaryTreatmentTypeText)
+                                                            </option>
+                                                        }
                                                     }
                                                 </select>
                                                 <span class="help-block"></span>
@@ -209,16 +315,32 @@ else
                                 @*TertiaryTreatmentType*@
                                 <li>
                                     <div class="form-group">
-                                        <label for="TertiaryTreatmentType" class="control-label">@InfrastructureViewRes.TertiaryTreatmentType</label>
+                                        <label for="TertiaryTreatmentType" class="control-label">
+                                            @InfrastructureViewRes.TertiaryTreatmentType
+                                            <button class="jbHelpDocShowDialog btn btn-link" data-dockey="tertiarytreatmenttype" data-title="@InfrastructureViewRes.TertiaryTreatmentType"><span class="glyphicon glyphicon-info-sign"></span></button>
+                                        </label>
                                         <div>
                                             <span>
                                                 <select name="TertiaryTreatmentType" class="form-control">
                                                     <option value="0" @(infrastructureModel.TertiaryTreatmentType == null ? "selected=selected" : "")>@InfrastructureViewRes.Select @InfrastructureViewRes.TertiaryTreatmentType</option>
                                                     @foreach (TertiaryTreatmentTypeEnumTextOrdered tertiaryTreatmentTypeEnumTextOrdered in _BaseEnumService.GetTertiaryTreatmentTypeEnumTextOrderedList())
                                                     {
-                                                        <option value="@((int)tertiaryTreatmentTypeEnumTextOrdered.TertiaryTreatmentType)" @(infrastructureModel.TertiaryTreatmentType == tertiaryTreatmentTypeEnumTextOrdered.TertiaryTreatmentType ? "selected=selected" : "")>
-                                                            @tertiaryTreatmentTypeEnumTextOrdered.TertiaryTreatmentTypeText
-                                                        </option>
+                                                        if (tertiaryTreatmentTypeEnumTextOrdered.TertiaryTreatmentType != TertiaryTreatmentTypeEnum.NotApplicable)
+                                                        {
+                                                            <option value="@((int)tertiaryTreatmentTypeEnumTextOrdered.TertiaryTreatmentType)" @(infrastructureModel.TertiaryTreatmentType == tertiaryTreatmentTypeEnumTextOrdered.TertiaryTreatmentType ? "selected=selected" : "")>
+                                                                @tertiaryTreatmentTypeEnumTextOrdered.TertiaryTreatmentTypeText
+                                                            </option>
+                                                        }
+                                                    }
+                                                    <option value="0">---------------</option>
+                                                    @foreach (TertiaryTreatmentTypeEnumTextOrdered tertiaryTreatmentTypeEnumTextOrdered in _BaseEnumService.GetTertiaryTreatmentTypeEnumTextOrderedList())
+                                                    {
+                                                        if (tertiaryTreatmentTypeEnumTextOrdered.TertiaryTreatmentType == TertiaryTreatmentTypeEnum.NotApplicable)
+                                                        {
+                                                            <option value="@((int)tertiaryTreatmentTypeEnumTextOrdered.TertiaryTreatmentType)" @(infrastructureModel.TertiaryTreatmentType == tertiaryTreatmentTypeEnumTextOrdered.TertiaryTreatmentType ? "selected=selected" : "")>
+                                                                @tertiaryTreatmentTypeEnumTextOrdered.TertiaryTreatmentTypeText
+                                                            </option>
+                                                        }
                                                     }
                                                 </select>
                                                 <span class="help-block"></span>
@@ -237,7 +359,10 @@ else
                         @*DisinfectionType*@
                         <li>
                             <div class="form-group">
-                                <label for="DisinfectionType" class="control-label">@InfrastructureViewRes.DisinfectionType</label>
+                                <label for="DisinfectionType" class="control-label">
+                                    @InfrastructureViewRes.DisinfectionType
+                                    <button class="jbHelpDocShowDialog btn btn-link" data-dockey="disinfectiontype" data-title="@InfrastructureViewRes.DisinfectionType"><span class="glyphicon glyphicon-info-sign"></span></button>
+                                </label>
                                 <div>
                                     <span>
                                         <select name="DisinfectionType" class="form-control">
@@ -257,7 +382,10 @@ else
                         @*CollectionSystemType*@
                         <li>
                             <div class="form-group">
-                                <label for="CollectionSystemType" class="control-label">@InfrastructureViewRes.CollectionSystemType</label>
+                                <label for="CollectionSystemType" class="control-label">
+                                    @InfrastructureViewRes.CollectionSystemType
+                                    <button class="jbHelpDocShowDialog btn btn-link" data-dockey="collectionsystemtype" data-title="@InfrastructureViewRes.CollectionSystemType"><span class="glyphicon glyphicon-info-sign"></span></button>
+                                </label>
                                 <div>
                                     <div>
                                         <select name="CollectionSystemType" class="form-control">
@@ -277,7 +405,10 @@ else
                         @*DesignFlow*@
                         <li>
                             <div class="form-group">
-                                <label for="DesignFlow_m3_day" class="control-label">@InfrastructureViewRes.DesignFlow (@Html.Raw(UnitViewRes.m3PerDay))</label>
+                                <label for="DesignFlow_m3_day" class="control-label">
+                                    @InfrastructureViewRes.DesignFlow (@Html.Raw(UnitViewRes.m3PerDay))
+                                    <button class="jbHelpDocShowDialog btn btn-link" data-dockey="designflow" data-title="@InfrastructureViewRes.DesignFlow"><span class="glyphicon glyphicon-info-sign"></span></button>
+                                </label>
                                 <div>
                                     <input id="DesignFlow_m3_day" class="isnumber form-control" type="text" name="DesignFlow_m3_day" value="@infrastructureModel.DesignFlow_m3_day" />
                                     <span class="help-block"></span>
@@ -287,7 +418,10 @@ else
                         @*AverageFlow*@
                         <li>
                             <div class="form-group">
-                                <label for="AverageFlow_m3_day" class="control-label">@InfrastructureViewRes.AverageFlow (@Html.Raw(UnitViewRes.m3PerDay))</label>
+                                <label for="AverageFlow_m3_day" class="control-label">
+                                    @InfrastructureViewRes.AverageFlow (@Html.Raw(UnitViewRes.m3PerDay))
+                                    <button class="jbHelpDocShowDialog btn btn-link" data-dockey="averageflow" data-title="@InfrastructureViewRes.AverageFlow"><span class="glyphicon glyphicon-info-sign"></span></button>
+                                </label>
                                 <div>
                                     <input id="AverageFlow_m3_day" class="isnumber form-control" type="text" name="AverageFlow_m3_day" value="@infrastructureModel.AverageFlow_m3_day" />
                                     <span class="help-block"></span>
@@ -297,7 +431,10 @@ else
                         @*PeakFlow*@
                         <li>
                             <div class="form-group">
-                                <label for="PeakFlow_m3_day" class="control-label">@InfrastructureViewRes.PeakFlow (@Html.Raw(UnitViewRes.m3PerDay))</label>
+                                <label for="PeakFlow_m3_day" class="control-label">
+                                    @InfrastructureViewRes.PeakFlow (@Html.Raw(UnitViewRes.m3PerDay))
+                                    <button class="jbHelpDocShowDialog btn btn-link" data-dockey="peakflow" data-title="@InfrastructureViewRes.PeakFlow"><span class="glyphicon glyphicon-info-sign"></span></button>
+                                </label>
                                 <div>
                                     <input id="PeakFlow_m3_day" class="isnumber form-control" type="text" name="PeakFlow_m3_day" value="@infrastructureModel.PeakFlow_m3_day" />
                                     <span class="help-block"></span>
@@ -307,7 +444,10 @@ else
                         @*PercentFlowTotal*@
                         <li>
                             <div class="form-group">
-                                <label for="PercFlowOfTotal" class="control-label">@InfrastructureViewRes.PercentFlowTotal (%)</label>
+                                <label for="PercFlowOfTotal" class="control-label">
+                                    @InfrastructureViewRes.PercentFlowTotal (%)
+                                    <button class="jbHelpDocShowDialog btn btn-link" data-dockey="percentflowtotal" data-title="@InfrastructureViewRes.PercentFlowTotal"><span class="glyphicon glyphicon-info-sign"></span></button>
+                                </label>
                                 <div>
                                     <input id="PercFlowOfTotal" class="isnumber form-control" type="hidden" name="PercFlowOfTotal" value="100" />
                                     100
@@ -318,7 +458,10 @@ else
                         @*PopulationServed*@
                         <li>
                             <div class="form-group">
-                                <label for="PopServed" class="control-label">@InfrastructureViewRes.PopulationServed</label>
+                                <label for="PopServed" class="control-label">
+                                    @InfrastructureViewRes.PopulationServed
+                                    <button class="jbHelpDocShowDialog btn btn-link" data-dockey="populationserved" data-title="@InfrastructureViewRes.PopulationServed"><span class="glyphicon glyphicon-info-sign"></span></button>
+                                </label>
                                 <div>
                                     <input id="PopServed" class="isnumber form-control" type="text" name="PopServed" value="@infrastructureModel.PopServed" />
                                     <span class="help-block"></span>
@@ -328,7 +471,10 @@ else
                         @*AlarmSystemType*@
                         <li>
                             <div class="form-group">
-                                <label for="AlarmSystemType" class="control-label">@InfrastructureViewRes.AlarmSystemType</label>
+                                <label for="AlarmSystemType" class="control-label">
+                                    @InfrastructureViewRes.AlarmSystemType
+                                    <button class="jbHelpDocShowDialog btn btn-link" data-dockey="alarmsystemtype" data-title="@InfrastructureViewRes.AlarmSystemType"><span class="glyphicon glyphicon-info-sign"></span></button>
+                                </label>
                                 <div>
                                     <span>
                                         <select name="AlarmSystemType" class="form-control">
@@ -348,7 +494,10 @@ else
                         @*CanOverflow*@
                         <li>
                             <div class="form-group">
-                                <label for="Overflow" class="control-label">@InfrastructureViewRes.CanOverflow</label>
+                                <label for="Overflow" class="control-label">
+                                    @InfrastructureViewRes.CanOverflow
+                                    <button class="jbHelpDocShowDialog btn btn-link" data-dockey="canoverflow" data-title="@InfrastructureViewRes.CanOverflow"><span class="glyphicon glyphicon-info-sign"></span></button>
+                                </label>
                                 <div class="checkbox-inline">
                                     <input type="radio" name="Overflow" @(infrastructureModel.CanOverflow == true ? "checked=checked" : "") value="1" /><span>&nbsp;@InfrastructureViewRes.Yes</span>
                                     <input type="radio" name="Overflow" @(infrastructureModel.CanOverflow == false ? "checked=checked" : "") value="0" /><span>&nbsp;@InfrastructureViewRes.No</span>
@@ -359,7 +508,10 @@ else
                         @*Latitude*@
                         <li>
                             <div class="form-group">
-                                <label for="Lat" class="control-label">@InfrastructureViewRes.Latitude</label>
+                                <label for="Lat" class="control-label">
+                                    @InfrastructureViewRes.Latitude
+                                    <button class="jbHelpDocShowDialog btn btn-link" data-dockey="infrastructurelatitude" data-title="@InfrastructureViewRes.Latitude"><span class="glyphicon glyphicon-info-sign"></span></button>
+                                </label>
                                 <div>
                                     <input id="Lat" class="isnumber form-control" type="text" name="Lat" value="@mapInfoPointModelInfrastructure.Lat.ToString("F5")" />
                                     <span class="help-block"></span>
@@ -369,7 +521,10 @@ else
                         @*Longitude*@
                         <li>
                             <div class="form-group">
-                                <label for="Lng" class="control-label">@InfrastructureViewRes.Longitude</label>
+                                <label for="Lng" class="control-label">
+                                    @InfrastructureViewRes.Longitude
+                                    <button class="jbHelpDocShowDialog btn btn-link" data-dockey="infrastructurelongitude" data-title="@InfrastructureViewRes.Longitude"><span class="glyphicon glyphicon-info-sign"></span></button>
+                                </label>
                                 <div>
                                     <input id="Lng" class="isnumber form-control" type="text" name="Lng" value="@mapInfoPointModelInfrastructure.Lng.ToString("F5")" />
                                     <span class="help-block"></span>
@@ -380,7 +535,10 @@ else
                         @*Outfall Latitude*@
                         <li>
                             <div class="form-group">
-                                <label for="LatOutfall" class="control-label">@InfrastructureViewRes.Outfall @InfrastructureViewRes.Latitude</label>
+                                <label for="LatOutfall" class="control-label">
+                                    @InfrastructureViewRes.Outfall @InfrastructureViewRes.Latitude
+                                    <button class="jbHelpDocShowDialog btn btn-link" data-dockey="infrastructureoutfalllatitude" data-title="@InfrastructureViewRes.Outfall @InfrastructureViewRes.Latitude"><span class="glyphicon glyphicon-info-sign"></span></button>
+                                </label>
                                 <div>
                                     <input id="LatOutfall" class="isnumber form-control" type="text" name="LatOutfall" value="@(mapInfoPointModelOutfall == null ? "" : mapInfoPointModelOutfall.Lat.ToString("F5"))" />
                                     <span class="help-block"></span>
@@ -390,7 +548,10 @@ else
                         @*Outfall Longitude*@
                         <li>
                             <div class="form-group">
-                                <label for="LngOutfall" class="control-label">@InfrastructureViewRes.Outfall @InfrastructureViewRes.Longitude</label>
+                                <label for="LngOutfall" class="control-label">
+                                    @InfrastructureViewRes.Outfall @InfrastructureViewRes.Longitude
+                                    <button class="jbHelpDocShowDialog btn btn-link" data-dockey="infrastructureoutfalllongitude" data-title="@InfrastructureViewRes.Outfall @InfrastructureViewRes.Longitude"><span class="glyphicon glyphicon-info-sign"></span></button>
+                                </label>
                                 <div>
                                     <input id="LngOutfall" class="isnumber form-control" type="text" name="LngOutfall" value="@(mapInfoPointModelOutfall == null ? "" : mapInfoPointModelOutfall.Lng.ToString("F5"))" />
                                     <span class="help-block"></span>
@@ -400,7 +561,10 @@ else
                         @*Comments*@
                         <li>
                             <div class="form-group">
-                                <label for="Comments" class="control-label">@InfrastructureViewRes.Comments</label>
+                                <label for="Comments" class="control-label">
+                                    @InfrastructureViewRes.Comments
+                                    <button class="jbHelpDocShowDialog btn btn-link" data-dockey="infrastructurecomment" data-title="@InfrastructureViewRes.Comments"><span class="glyphicon glyphicon-info-sign"></span></button>
+                                </label>
                                 <div>
                                     <textarea id="Comments" class="form-control" rows="6" name="Comments">@infrastructureModel.Comment</textarea>
                                     <span class="help-block"></span>
@@ -429,7 +593,10 @@ else
                         @*InfrastructureType*@
                         <li>
                             <div class="form-group">
-                                <label for="InfrastructureType" class="control-label">@InfrastructureViewRes.InfrastructureType</label>
+                                <label for="InfrastructureType" class="control-label">
+                                    @InfrastructureViewRes.InfrastructureType
+                                    <button class="jbHelpDocShowDialog btn btn-link" data-dockey="infrastructuretype" data-title="@InfrastructureViewRes.InfrastructureType"><span class="glyphicon glyphicon-info-sign"></span></button>
+                                </label>
                                 <div>
                                     <span>
                                         <select name="InfrastructureType" class="form-control">
@@ -449,7 +616,10 @@ else
                         @*PercentageFlowTotal*@
                         <li>
                             <div class="form-group">
-                                <label for="PercFlowOfTotal" class="control-label">@InfrastructureViewRes.PercentFlowTotal (%)</label>
+                                <label for="PercFlowOfTotal" class="control-label">
+                                    @InfrastructureViewRes.PercentFlowTotal (%)
+                                    <button class="jbHelpDocShowDialog btn btn-link" data-dockey="percentflowtotal" data-title="@InfrastructureViewRes.PercentFlowTotal"><span class="glyphicon glyphicon-info-sign"></span></button>
+                                </label>
                                 <div>
                                     <input id="PercFlowOfTotal" class="isnumber form-control" type="text" name="PercFlowOfTotal" value="@infrastructureModel.PercFlowOfTotal" />
                                     <span class="help-block"></span>
@@ -460,7 +630,10 @@ else
                         @*Latitude*@
                         <li>
                             <div class="form-group">
-                                <label for="Lat" class="control-label">@InfrastructureViewRes.Latitude</label>
+                                <label for="Lat" class="control-label">
+                                    @InfrastructureViewRes.Latitude
+                                    <button class="jbHelpDocShowDialog btn btn-link" data-dockey="infrastructurelatitude" data-title="@InfrastructureViewRes.Latitude"><span class="glyphicon glyphicon-info-sign"></span></button>
+                                </label>
                                 <div>
                                     <input id="Lat" class="isnumber form-control" type="text" name="Lat" value="@mapInfoPointModelInfrastructure.Lat.ToString("F5")" />
                                     <span class="help-block"></span>
@@ -470,7 +643,10 @@ else
                         @*Longitude*@
                         <li>
                             <div class="form-group">
-                                <label for="Lng" class="control-label">@InfrastructureViewRes.Longitude</label>
+                                <label for="Lng" class="control-label">
+                                    @InfrastructureViewRes.Longitude
+                                    <button class="jbHelpDocShowDialog btn btn-link" data-dockey="infrastructurelongitude" data-title="@InfrastructureViewRes.Longitude"><span class="glyphicon glyphicon-info-sign"></span></button>
+                                </label>
                                 <div>
                                     <input id="Lng" class="isnumber form-control" type="text" name="Lng" value="@mapInfoPointModelInfrastructure.Lng.ToString("F5")" />
                                     <span class="help-block"></span>
@@ -481,7 +657,10 @@ else
                         @*Outfall Latitude*@
                         <li>
                             <div class="form-group">
-                                <label for="LatOutfall" class="control-label">@InfrastructureViewRes.Outfall @InfrastructureViewRes.Latitude</label>
+                                <label for="LatOutfall" class="control-label">
+                                    @InfrastructureViewRes.Outfall @InfrastructureViewRes.Latitude
+                                    <button class="jbHelpDocShowDialog btn btn-link" data-dockey="infrastructureoutfalllatitude" data-title="@InfrastructureViewRes.Outfall @InfrastructureViewRes.Latitude"><span class="glyphicon glyphicon-info-sign"></span></button>
+                                </label>
                                 <div>
                                     <input id="LatOutfall" class="isnumber form-control" type="text" name="LatOutfall" value="@(mapInfoPointModelOutfall == null ? "" : mapInfoPointModelOutfall.Lat.ToString("F5"))" />
                                     <span class="help-block"></span>
@@ -491,7 +670,10 @@ else
                         @*Outfall Longitude*@
                         <li>
                             <div class="form-group">
-                                <label for="LngOutfall" class="control-label">@InfrastructureViewRes.Outfall @InfrastructureViewRes.Longitude</label>
+                                <label for="LngOutfall" class="control-label">
+                                    @InfrastructureViewRes.Outfall @InfrastructureViewRes.Longitude
+                                    <button class="jbHelpDocShowDialog btn btn-link" data-dockey="infrastructureoutfalllongitude" data-title="@InfrastructureViewRes.Outfall @InfrastructureViewRes.Longitude"><span class="glyphicon glyphicon-info-sign"></span></button>
+                                </label>
                                 <div>
                                     <input id="LngOutfall" class="isnumber form-control" type="text" name="LngOutfall" value="@(mapInfoPointModelOutfall == null ? "" : mapInfoPointModelOutfall.Lng.ToString("F5"))" />
                                     <span class="help-block"></span>
@@ -501,7 +683,10 @@ else
                         @*AlarmSystemType*@
                         <li>
                             <div class="form-group">
-                                <label for="AlarmSystemType" class="control-label">@InfrastructureViewRes.AlarmSystemType</label>
+                                <label for="AlarmSystemType" class="control-label">
+                                    @InfrastructureViewRes.AlarmSystemType
+                                    <button class="jbHelpDocShowDialog btn btn-link" data-dockey="alarmsystemtype" data-title="@InfrastructureViewRes.AlarmSystemType"><span class="glyphicon glyphicon-info-sign"></span></button>
+                                </label>
                                 <div>
                                     <span>
                                         <select name="AlarmSystemType" class="form-control">
@@ -521,7 +706,10 @@ else
                         @*CanOverFlow*@
                         <li>
                             <div class="form-group">
-                                <label for="Overflow" class="control-label">@InfrastructureViewRes.CanOverflow</label>
+                                <label for="Overflow" class="control-label">
+                                    @InfrastructureViewRes.CanOverflow
+                                    <button class="jbHelpDocShowDialog btn btn-link" data-dockey="canoverflow" data-title="@InfrastructureViewRes.CanOverflow"><span class="glyphicon glyphicon-info-sign"></span></button>
+                                </label>
                                 <div class="checkbox-inline">
                                     <input type="radio" name="Overflow" @(infrastructureModel.CanOverflow == true ? "checked=checked" : "") value="1" /><span>&nbsp;@InfrastructureViewRes.Yes</span>
                                     <input type="radio" name="Overflow" @(infrastructureModel.CanOverflow == false ? "checked=checked" : "") value="0" /><span>&nbsp;@InfrastructureViewRes.No</span>
@@ -531,7 +719,10 @@ else
                         @*Comments*@
                         <li>
                             <div class="form-group">
-                                <label for="Comments" class="control-label">@InfrastructureViewRes.Comments</label>
+                                <label for="Comments" class="control-label">
+                                    @InfrastructureViewRes.Comments
+                                    <button class="jbHelpDocShowDialog btn btn-link" data-dockey="infrastructurecomment" data-title="@InfrastructureViewRes.Comments"><span class="glyphicon glyphicon-info-sign"></span></button>
+                                </label>
                                 <div>
                                     <textarea id="Comments" class="form-control" rows="6" name="Comments">@infrastructureModel.Comment</textarea>
                                     <span class="help-block"></span>

@@ -23,6 +23,7 @@ module CSSP {
         public ForgotPasswordEmailSent: CSSP.ForgotPasswordEmailSent;
         public GoogleMap: CSSP.GoogleMap;
         public Helper: CSSP.Helper;
+        public HelpDoc: CSSP.HelpDoc;
         public Home: CSSP.Home;
         public HydrometricSite: CSSP.HydrometricSite;
         public Infrastructure: CSSP.Infrastructure;
@@ -292,6 +293,7 @@ cssp.File = new CSSP.File();
 cssp.ForgotPassword = new CSSP.ForgotPassword();
 cssp.ForgotPasswordEmailSent = new CSSP.ForgotPasswordEmailSent();
 cssp.Infrastructure = new CSSP.Infrastructure();
+cssp.HelpDoc = new CSSP.HelpDoc();
 cssp.Home = new CSSP.Home();
 cssp.HydrometricSite = new CSSP.HydrometricSite();
 cssp.Login = new CSSP.Login();
