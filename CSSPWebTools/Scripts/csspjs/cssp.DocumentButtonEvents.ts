@@ -260,6 +260,26 @@ module CSSP {
                             cssp.Document.FormSubmit($bjs);
                         }
                         break;
+                    case "jbDrogueRunAddOrEditSave":
+                        {
+                            cssp.DrogueRun.DrogueRunAddOrEditSave($bjs);
+                        }
+                        break;
+                    case "jbDrogueRunDelete":
+                        {
+                            cssp.DrogueRun.DrogueRunAskToDelete($bjs);
+                        }
+                        break;
+                    case "jbDrogueRunShowAdd":
+                        {
+                            cssp.DrogueRun.DrogueRunShowAdd($bjs);
+                        }
+                        break;
+                    case "jbDrogueRunShowEdit":
+                        {
+                            cssp.DrogueRun.DrogueRunShowEdit($bjs);
+                        }
+                        break;
                     case "jbEmailAdd":
                         {
                             cssp.Email.FormSubmitAddOrUpdate($bjs);

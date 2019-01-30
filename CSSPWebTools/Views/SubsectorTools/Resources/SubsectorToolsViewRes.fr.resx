@@ -312,4 +312,7 @@
   <data name="YearsOfUse" xml:space="preserve">
     <value>Années d'utilisation</value>
   </data>
+  <data name="Drogue" xml:space="preserve">
+    <value>Drogue (fr)</value>
+  </data>
 </root>

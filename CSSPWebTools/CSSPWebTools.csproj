@@ -188,6 +188,7 @@
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\DialogController.cs" />
     <Compile Include="Controllers\DocumentController.cs" />
+    <Compile Include="Controllers\DrogueRunController.cs" />
     <Compile Include="Controllers\HelpDocController.cs" />
     <Compile Include="Controllers\EmailController.cs" />
     <Compile Include="Controllers\EmailDistributionListController.cs" />
@@ -325,6 +326,16 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DocumentViewRes.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DrogueRun\Resources\DrogueRunViewRes.fr.Designer.cs">
+      <DependentUpon>DrogueRunViewRes.fr.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Views\DrogueRun\Resources\DrogueRunViewRes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DrogueRunViewRes.resx</DependentUpon>
     </Compile>
     <Compile Include="Views\EmailDistributionList\Resources\EmailDistributionListViewRes.fr.Designer.cs">
       <DependentUpon>EmailDistributionListViewRes.fr.resx</DependentUpon>
@@ -964,6 +975,7 @@
     <Content Include="Views\TideSite\_subsectorTideSites.cshtml" />
     <Content Include="Views\SubsectorTools\_subsectorMunicipalities.cshtml" />
     <Content Include="Views\HelpDoc\_HelpDocViewAndEdit.cshtml" />
+    <Content Include="Views\DrogueRun\_DrogueRunForSubsector.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -974,6 +986,7 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="Scripts\csspjs\cssp.DrogueRun.ts" />
     <TypeScriptCompile Include="Scripts\csspjs\cssp.HelpDoc.ts" />
     <TypeScriptCompile Include="Scripts\csspjs\cssp.SubsectorTools.ts" />
     <TypeScriptCompile Include="Scripts\csspjs\cssp.ProvinceTools.ts" />
@@ -1180,6 +1193,14 @@
     <EmbeddedResource Include="Views\Document\Resources\DocumentViewRes.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>DocumentViewRes.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\DrogueRun\Resources\DrogueRunViewRes.fr.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>DrogueRunViewRes.fr.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\DrogueRun\Resources\DrogueRunViewRes.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>DrogueRunViewRes.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\EmailDistributionList\Resources\EmailDistributionListViewRes.fr.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

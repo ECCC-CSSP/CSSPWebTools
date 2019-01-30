@@ -160,6 +160,15 @@ namespace CSSPWebTools.Views.SubsectorTools.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Drogue.
+        /// </summary>
+        public static string Drogue {
+            get {
+                return ResourceManager.GetString("Drogue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Edit.
         /// </summary>
         public static string Edit {

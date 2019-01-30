@@ -47,6 +47,9 @@
                     case "cssp.Infrastructure.SetDialogEvents":
                         cssp.Infrastructure.SetDialogEvents($ajs);
                         break;
+                    case "cssp.DrogueRun.SetDialogEvents":
+                        cssp.DrogueRun.SetDialogEvents($ajs);
+                        break;
                     case "cssp.MikeScenario.SetDialogEvents":
                         cssp.MikeScenario.SetDialogEvents($ajs);
                         break;

@@ -222,6 +222,7 @@ cssp.Dialog = new CSSP.Dialog();
 cssp.Document = new CSSP.Document();
 cssp.DocumentAEvents = new CSSP.DocumentAEvents();
 cssp.DocumentButtonEvents = new CSSP.DocumentButtonEvents();
+cssp.DrogueRun = new CSSP.DrogueRun();
 cssp.Email = new CSSP.Email();
 cssp.EmailDistributionList = new CSSP.EmailDistributionList();
 cssp.File = new CSSP.File();

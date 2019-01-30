@@ -16,6 +16,7 @@ module CSSP {
         public Document: CSSP.Document;
         public DocumentAEvents: CSSP.DocumentAEvents;
         public DocumentButtonEvents: CSSP.DocumentButtonEvents;
+        public DrogueRun: CSSP.DrogueRun;
         public Email: CSSP.Email;
         public EmailDistributionList: CSSP.EmailDistributionList;
         public File: CSSP.File;
@@ -287,6 +288,7 @@ cssp.Dialog = new CSSP.Dialog();
 cssp.Document = new CSSP.Document();
 cssp.DocumentAEvents = new CSSP.DocumentAEvents();
 cssp.DocumentButtonEvents = new CSSP.DocumentButtonEvents();
+cssp.DrogueRun = new CSSP.DrogueRun();
 cssp.Email = new CSSP.Email();
 cssp.EmailDistributionList = new CSSP.EmailDistributionList();
 cssp.File = new CSSP.File();
