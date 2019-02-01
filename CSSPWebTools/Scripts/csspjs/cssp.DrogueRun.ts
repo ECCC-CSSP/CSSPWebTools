@@ -163,7 +163,7 @@
         };
         public DrogueRunPositionDrawCrossAtLatLng: Function = (Lat: number, Lng: number): void => {
             for (let i = 0, count = cssp.DrogueRun.polyCrossArr.length; i < count; i++) {
-                    cssp.DrogueRun.polyCrossArr[i].setMap(null);
+                cssp.DrogueRun.polyCrossArr[i].setMap(null);
             }
             cssp.DrogueRun.polyArr = [];
             var CurrentPoint: google.maps.LatLng = new google.maps.LatLng(Lat, Lng);
