@@ -20,20 +20,6 @@
         <tr class="CanHide">
             <th class="FirstTH verticalRight" colspan="11">
                 <div class="panel">
-                    @*<ul class="form-inline list-inline">
-                            <li>
-                                <button class="jbMWQMSubsectorAnalysisShowHideRainRows btn btn-default">@MWQMViewRes.HideRainRows</button>
-                            </li>
-                            <li>
-                                <button class="jbMWQMSubsectorAnalysisShowHideTideRows btn btn-default">@MWQMViewRes.HideTideRows</button>
-                            </li>
-                            <li>
-                                <button class="jbMWQMSubsectorAnalysisShowHideQueryTool btn btn-default">@MWQMViewRes.HideQueryTool</button>
-                            </li>
-                            <li>
-                                <button class="jbMWQMSubsectorAnalysisShowHideRunsNotUsed btn btn-default">@MWQMViewRes.HideRunsNotUsed</button>
-                            </li>
-                        </ul>*@
                     <div class="QueryTool small">
                         <ul class="form-inline list-inline">
                             <li>
@@ -42,7 +28,7 @@
                                     {
                                         <option value="@(mwqmRunAnalysisModel.DateTime_Local.ToString("yyyy-MM-dd"))"
                                                 @(mwqmRunAnalysisModel.MWQMRunTVItemID == mwqmSubsectorAnalysisModel.MWQMRunAnalysisModelList[0].MWQMRunTVItemID ? "selected=selected" : "")>
-                                            @(mwqmRunAnalysisModel.DateTime_Local.ToString("yyyy MMMM dd"))
+                                            @(mwqmRunAnalysisModel.DateTime_Local.ToString("yyyy MMM dd"))
                                         </option>
                                     }
                                 </select>
@@ -53,7 +39,7 @@
                                     {
                                         <option value="@(mwqmRunAnalysisModel.DateTime_Local.ToString("yyyy-MM-dd"))"
                                                 @(mwqmRunAnalysisModel.MWQMRunTVItemID == mwqmSubsectorAnalysisModel.MWQMRunAnalysisModelList[mwqmSubsectorAnalysisModel.MWQMRunAnalysisModelList.Count - 1].MWQMRunTVItemID ? "selected=selected" : "")>
-                                            @(mwqmRunAnalysisModel.DateTime_Local.ToString("yyyy MMMM dd"))
+                                            @(mwqmRunAnalysisModel.DateTime_Local.ToString("yyyy MMM dd"))
                                         </option>
                                     }
                                 </select>

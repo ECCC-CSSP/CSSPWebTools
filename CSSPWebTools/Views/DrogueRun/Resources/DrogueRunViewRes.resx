@@ -133,7 +133,7 @@
     <value>Delete</value>
   </data>
   <data name="Dir" xml:space="preserve">
-    <value>Dir (deg)</value>
+    <value>Dir</value>
   </data>
   <data name="Drogue" xml:space="preserve">
     <value>Drogue</value>
@@ -168,26 +168,44 @@
   <data name="Minute" xml:space="preserve">
     <value>Minute</value>
   </data>
+  <data name="Minutes" xml:space="preserve">
+    <value>Minutes</value>
+  </data>
   <data name="Modify" xml:space="preserve">
     <value>Modify</value>
   </data>
   <data name="Month" xml:space="preserve">
     <value>Month</value>
   </data>
+  <data name="MovingNorth0East90South180" xml:space="preserve">
+    <value>Moving: North - 0, East - 90, South - 180</value>
+  </data>
   <data name="NoDrogueRunYet" xml:space="preserve">
     <value>No drogue run yet</value>
   </data>
-  <data name="RunDate" xml:space="preserve">
-    <value>Run date</value>
+  <data name="ShowOnMap" xml:space="preserve">
+    <value>Show on map</value>
   </data>
   <data name="SmallDrogue" xml:space="preserve">
     <value>Small Drogue</value>
   </data>
   <data name="Speed" xml:space="preserve">
-    <value>Speed (m/s)</value>
+    <value>Speed</value>
+  </data>
+  <data name="StartRunDate" xml:space="preserve">
+    <value>Start run date</value>
+  </data>
+  <data name="TakeValueEvery" xml:space="preserve">
+    <value>Take value every</value>
   </data>
   <data name="Time" xml:space="preserve">
     <value>Time</value>
+  </data>
+  <data name="ToTakeAll" xml:space="preserve">
+    <value>to take all</value>
+  </data>
+  <data name="ViewData" xml:space="preserve">
+    <value>View Data</value>
   </data>
   <data name="Year" xml:space="preserve">
     <value>Year</value>

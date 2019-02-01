@@ -280,6 +280,21 @@ module CSSP {
                             cssp.DrogueRun.DrogueRunShowEdit($bjs);
                         }
                         break;
+                    case "jbDrogueRunShowOnMap":
+                        {
+                            cssp.DrogueRun.DrogueRunShowOnMap($bjs);
+                        }
+                        break;
+                    case "jbDrogueRunPointerShowOnMap":
+                        {
+                            cssp.DrogueRun.DrogueRunPointerShowOnMap($bjs);
+                        }
+                        break;
+                    case "jbDrogueRunViewData":
+                        {
+                            cssp.DrogueRun.DrogueRunViewData($bjs);
+                        }
+                        break;
                     case "jbEmailAdd":
                         {
                             cssp.Email.FormSubmitAddOrUpdate($bjs);

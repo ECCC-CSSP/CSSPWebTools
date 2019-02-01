@@ -106,7 +106,7 @@ namespace CSSPWebTools.Views.DrogueRun.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Dir (deg).
+        ///   Looks up a localized string similar to Dir.
         /// </summary>
         public static string Dir {
             get {
@@ -214,6 +214,15 @@ namespace CSSPWebTools.Views.DrogueRun.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Minutes.
+        /// </summary>
+        public static string Minutes {
+            get {
+                return ResourceManager.GetString("Minutes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Modify.
         /// </summary>
         public static string Modify {
@@ -232,6 +241,15 @@ namespace CSSPWebTools.Views.DrogueRun.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Moving: North - 0, East - 90, South - 180.
+        /// </summary>
+        public static string MovingNorth0East90South180 {
+            get {
+                return ResourceManager.GetString("MovingNorth0East90South180", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No drogue run yet.
         /// </summary>
         public static string NoDrogueRunYet {
@@ -241,11 +259,11 @@ namespace CSSPWebTools.Views.DrogueRun.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Run date.
+        ///   Looks up a localized string similar to Show on map.
         /// </summary>
-        public static string RunDate {
+        public static string ShowOnMap {
             get {
-                return ResourceManager.GetString("RunDate", resourceCulture);
+                return ResourceManager.GetString("ShowOnMap", resourceCulture);
             }
         }
         
@@ -259,11 +277,29 @@ namespace CSSPWebTools.Views.DrogueRun.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Speed (m/s).
+        ///   Looks up a localized string similar to Speed.
         /// </summary>
         public static string Speed {
             get {
                 return ResourceManager.GetString("Speed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Start run date.
+        /// </summary>
+        public static string StartRunDate {
+            get {
+                return ResourceManager.GetString("StartRunDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Take value every.
+        /// </summary>
+        public static string TakeValueEvery {
+            get {
+                return ResourceManager.GetString("TakeValueEvery", resourceCulture);
             }
         }
         
@@ -273,6 +309,24 @@ namespace CSSPWebTools.Views.DrogueRun.Resources {
         public static string Time {
             get {
                 return ResourceManager.GetString("Time", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to to take all.
+        /// </summary>
+        public static string ToTakeAll {
+            get {
+                return ResourceManager.GetString("ToTakeAll", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to View Data.
+        /// </summary>
+        public static string ViewData {
+            get {
+                return ResourceManager.GetString("ViewData", resourceCulture);
             }
         }
         

@@ -881,7 +881,7 @@ module CSSP {
         };
         public FillTVItemObjects: Function = (mapItems: Array<CSSP.tvLocation>, Recenter: boolean): void => {
             cssp.GoogleMap.LegendArr = new Array<LegendElem>();
-            var map: google.maps.Map = cssp.GoogleMap.Map;
+            let map: google.maps.Map = cssp.GoogleMap.Map;
             for (var i = 0, CountItems = mapItems.length; i < CountItems; i++) {
                 cssp.GoogleMap.TVItemObjects.push(mapItems[i]);
             }
@@ -894,17 +894,17 @@ module CSSP {
 
                 cssp.GoogleMap.DrawObjects();
 
-                var MinLat90 = cssp.GoogleMap.MinLat;
+                let MinLat90 = cssp.GoogleMap.MinLat;
                 cssp.GoogleMap.MinLat = cssp.GoogleMap.MinLat - 0.01;
                 cssp.GoogleMap.MaxLat = cssp.GoogleMap.MaxLat + 0.01;
 
                 cssp.GoogleMap.MinLng = cssp.GoogleMap.MinLng - 0.01;
                 cssp.GoogleMap.MaxLng = cssp.GoogleMap.MaxLng + 0.01;
 
-                var sw: google.maps.LatLng = new google.maps.LatLng(cssp.GoogleMap.MinLat, cssp.GoogleMap.MinLng);
-                var ne: google.maps.LatLng = new google.maps.LatLng(cssp.GoogleMap.MaxLat, cssp.GoogleMap.MaxLng);
+                let sw: google.maps.LatLng = new google.maps.LatLng(cssp.GoogleMap.MinLat, cssp.GoogleMap.MinLng);
+                let ne: google.maps.LatLng = new google.maps.LatLng(cssp.GoogleMap.MaxLat, cssp.GoogleMap.MaxLng);
                 if (MinLat90 != 90) {
-                    var fBounds = new google.maps.LatLngBounds(sw, ne);
+                    let fBounds = new google.maps.LatLngBounds(sw, ne);
 
                     if (Recenter) {
                         if (map)

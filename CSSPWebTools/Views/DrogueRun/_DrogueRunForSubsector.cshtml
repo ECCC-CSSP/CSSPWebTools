@@ -10,8 +10,9 @@
     List<DrogueRunModel> drogueRunModelList = (List<DrogueRunModel>)ViewBag.DrogueRunModelList;
     List<DrogueRunPositionModel> drogueRunPositionModelList = (List<DrogueRunPositionModel>)ViewBag.DrogueRunPositionModelList;
     int SubsectorTVItemID = (int)ViewBag.SubsectorTVItemID;
+    BaseEnumService _BaseEnumService = new BaseEnumService(ViewBag.Language);
 }
-<div class="DrogueRunTop container-fluid">
+<div class="DrogueRunsTop container-fluid">
     @if (drogueRunModelList.Count == 0)
     {
         <h3>@DrogueRunViewRes.NoDrogueRunYet</h3>
@@ -24,7 +25,7 @@
 
         foreach (DrogueRunPositionModel drogueRunPositionModel in drogueRunPositionModelList2)
         {
-            sb.AppendLine(drogueRunPositionModel.StepLat.ToString("F5") + " " + drogueRunPositionModel.StepLng.ToString("F5") + " " + drogueRunPositionModel.StepDateTime_Local.ToString("yyyy-MMM-dd HH:mm:ss"));
+            sb.AppendLine(drogueRunPositionModel.StepLat.ToString("F7") + " " + drogueRunPositionModel.StepLng.ToString("F7") + " " + drogueRunPositionModel.StepDateTime_Local.ToString("yyyy-MM-dd HH:mm:ss"));
         }
 
         <div class="panel-group" id="droguerunid@(drogueRunModel.DrogueRunID)" role="tablist" aria-multiselectable="true">
@@ -32,13 +33,21 @@
                 <div class="panel-heading" role="tab" id="heading@(drogueRunModel.DrogueRunID)">
                     <h4 class="panel-title">
                         <a role="button" data-toggle="collapse" data-parent="#droguerunid@(drogueRunModel.DrogueRunID)" href="#collapse@(drogueRunModel.DrogueRunID)" aria-expanded="true" aria-controls="collapse@(drogueRunModel.DrogueRunID)">
-                            @DrogueRunViewRes.Drogue #@drogueRunModel.DrogueNumber
+                            @DrogueRunViewRes.Drogue #@drogueRunModel.DrogueNumber (@(_BaseEnumService.GetEnumText_DrogueTypeEnum(drogueRunModel.DrogueType))) @DrogueRunViewRes.StartRunDate (@drogueRunModel.RunStartDateTime.ToString("yyyy-MMMM-dd HH:mm:ss"))
                         </a>
                     </h4>
-                    <button class="jbDrogueRunShowEdit btn btn-default"><span class="glyphicon glyphicon-pencil" title="@DrogueRunViewRes.EditDrogueRun"></span></button>
                 </div>
-                <div id="collapse@(drogueRunModel.DrogueRunID)" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading@(drogueRunModel.DrogueRunID)">
-                    <div class="panel-body">
+                <div id="collapse@(drogueRunModel.DrogueRunID)" class="DrogueRunBody panel-collapse collapse" role="tabpanel" aria-labelledby="heading@(drogueRunModel.DrogueRunID)">
+                    <div class="DrogueRunDiv panel-body">
+                        <div class="btn-block">
+                            <button class="jbDrogueRunShowOnMap btn btn-default" data-droguerunid="@drogueRunModel.DrogueRunID"><span>@DrogueRunViewRes.ShowOnMap</span></button>
+                            <button class="jbDrogueRunShowEdit btn btn-default"><span class="glyphicon glyphicon-pencil" title="@DrogueRunViewRes.EditDrogueRun"></span></button>
+                            <span>@DrogueRunViewRes.MovingNorth0East90South180</span>
+                            <button class="jbDrogueRunDelete btn btn-primary" data-droguerunid="@drogueRunModel.DrogueRunID" data-droguenumber="@drogueRunModel.DrogueNumber">
+                                <span class="glyphicon glyphicon-remove"></span>
+                                @DrogueRunViewRes.Delete
+                            </button>
+                        </div>
                         @* Drogue Edit Section *@
                         <div class="DrogueRunEdit hidden">
                             <form class="DrogueRunEditForm " action="DrogueRun/DrogueRunSaveJSON" method="post" role="form">
@@ -46,101 +55,16 @@
                                 <input type="hidden" name="SubsectorTVItemID" value="@SubsectorTVItemID" />
                                 <ul class="blockMargin">
                                     <li class="list-unstyled">
-                                        <div class="form-group">
+                                        <div class="form-group form-inline">
                                             <label for="DrogueNumber" class="control-label">
-                                                @DrogueRunViewRes.DrogueNumber
-                                                <button class="jbHelpDocShowDialog btn btn-link" data-dockey="droguenumber" data-title="@DrogueRunViewRes.DrogueNumber"><span class="glyphicon glyphicon-info-sign"></span></button>
-                                            </label>
-                                            <div>
-                                                <input class="isnumber form-control" type="text" name="DrogueNumber" value="@drogueRunModel.DrogueNumber" />
-                                                <span class="help-block"></span>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="list-unstyled">
-                                        <div class="form-group">
-                                            <label for="DrogueNumber" class="control-label">
-                                                @DrogueRunViewRes.DrogueType
+                                                <span>@DrogueRunViewRes.DrogueNumber &nbsp;&nbsp;&nbsp;</span>
+                                                <input class="isnumber form-control" type="text" size="3" name="DrogueNumber" value="@drogueRunModel.DrogueNumber" />
+                                                <button class="jbHelpDocShowDialog btn btn-link form-inline" data-dockey="droguenumber" data-title="@DrogueRunViewRes.DrogueNumber"><span class="glyphicon glyphicon-info-sign"></span></button>
+                                                <input class="form-control" type="radio" name="DrogueType" value="@((int)DrogueTypeEnum.SmallDrogue)" @(drogueRunModel.DrogueType == DrogueTypeEnum.SmallDrogue ? "checked=checked" : "") /><span>&nbsp;&nbsp;@DrogueRunViewRes.SmallDrogue&nbsp;&nbsp;</span>
+                                                <input class="form-control" type="radio" name="DrogueType" value="@((int)DrogueTypeEnum.LargeDrogue)" @(drogueRunModel.DrogueType == DrogueTypeEnum.LargeDrogue ? "checked=checked" : "") /><span>&nbsp;&nbsp;@DrogueRunViewRes.LargeDrogue&nbsp;&nbsp;</span>
                                                 <button class="jbHelpDocShowDialog btn btn-link" data-dockey="droguetype" data-title="@DrogueRunViewRes.DrogueType"><span class="glyphicon glyphicon-info-sign"></span></button>
-                                            </label>
-                                            <div>
-                                                <input type="radio" name="DrogueType" value="@(DrogueTypeEnum.SmallDrogue)" @(drogueRunModel.DrogueType == DrogueTypeEnum.SmallDrogue ? "checked=checked" : "") /><span>&nbsp;&nbsp;@DrogueRunViewRes.SmallDrogue&nbsp;&nbsp;</span>
-                                                <input type="radio" name="DrogueType" value="@(DrogueTypeEnum.LargeDrogue)" @(drogueRunModel.DrogueType == DrogueTypeEnum.LargeDrogue ? "checked=checked" : "") /><span>&nbsp;&nbsp;@DrogueRunViewRes.LargeDrogue&nbsp;&nbsp;</span>
                                                 <span class="help-block"></span>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="list-unstyled">
-                                        <label>@DrogueRunViewRes.DrogueRunStartDateAndTime</label>
-                                        <div class="blockMargin lineSpaceBottom">
-                                            <div class="form-inline">
-                                                <div class="form-group  blockRightSpace">
-                                                    <label class="control-label" for="DrogueRunDateYear"> @DrogueRunViewRes.Year</label>
-                                                    <div>
-                                                        <select class="form-control" name="DrogueRunDateYear">
-                                                            @for (int i = 1980; i < DateTime.Now.Year + 1; i++)
-                                                            {
-                                                                <option @((drogueRunModel.RunStartDateTime != null && drogueRunModel.RunStartDateTime.Year == i) ? "selected=selected" : "") value="@i.ToString()">@i.ToString()</option>
-                                                            }
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group  blockRightSpace">
-                                                    <label class="control-label" for="DrogueRunDateMonth">@DrogueRunViewRes.Month</label>
-                                                    <div>
-                                                        <select class="form-control" name="DrogueRunDateMonth">
-                                                            @for (int i = 1; i < 13; i++)
-                                                            {
-                                                                <option @((drogueRunModel.RunStartDateTime != null && drogueRunModel.RunStartDateTime.Month == i) ? "selected=selected" : "") value="@i.ToString()">@(CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(i))</option>
-                                                            }
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group  blockRightSpace">
-                                                    <label class="control-label" for="DrogueRunDateDay">@DrogueRunViewRes.Day</label>
-                                                    <div>
-                                                        <select class="form-control" name="DrogueRunDateDay">
-                                                            @{
-                                                                int NumberOfDaysInMonth1 = DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month);
-                                                                if (drogueRunModel.RunStartDateTime != null)
-                                                                {
-                                                                    NumberOfDaysInMonth1 = DateTime.DaysInMonth(drogueRunModel.RunStartDateTime.Year, drogueRunModel.RunStartDateTime.Month);
-                                                                }
-                                                                for (int i = 1; i < NumberOfDaysInMonth1 + 1; i++)
-                                                                {
-                                                                    <option @((drogueRunModel.RunStartDateTime != null && drogueRunModel.RunStartDateTime.Day == i ? "selected=selected" : "")) value="@i.ToString()">@i.ToString()</option>
-                                                                }
-                                                            }
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group  blockRightSpace">
-                                                    <label class="control-label" for="DrogueRunDateHour">@DrogueRunViewRes.Hour</label>
-                                                    <div>
-                                                        <select class="form-control" name="DrogueRunDateHour">
-                                                            @{
-                                                                for (int i = 0; i < 24 + 1; i++)
-                                                                {
-                                                                    <option @((drogueRunModel.RunStartDateTime != null && drogueRunModel.RunStartDateTime.Hour == i ? "selected=selected" : "")) value="@i.ToString()">@i.ToString()</option>
-                                                                }
-                                                            }
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group  blockRightSpace">
-                                                    <label class="control-label" for="DrogueRunDateMinute">@DrogueRunViewRes.Minute</label>
-                                                    <div>
-                                                        <select class="form-control" name="DrogueRunDateMinute">
-                                                            @{
-                                                                for (int i = 0; i < 60; i++)
-                                                                {
-                                                                    <option @((drogueRunModel.RunStartDateTime != null && drogueRunModel.RunStartDateTime.Minute == i ? "selected=selected" : "")) value="@i.ToString()">@i.ToString()</option>
-                                                                }
-                                                            }
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            </label>
                                         </div>
                                     </li>
                                     <li class="list-unstyled">
@@ -149,8 +73,14 @@
                                                 @DrogueRunViewRes.DroguePoints
                                                 <button class="jbHelpDocShowDialog btn btn-link" data-dockey="droguepoints" data-title="@DrogueRunViewRes.DroguePoints"><span class="glyphicon glyphicon-info-sign"></span></button>
                                                 <br />
-                                                <span>Ex: 45.45 -65.65 2010-07-23 14:25:33</span><br />
-                                                <span>Ex: 45.44 -65.64 2010-07-23 14:25:34</span>
+                                                <span>Ex: 45.45555 -65.65 2010-07-23 14:25:33</span><br />
+                                                <span>Ex: 45.44557 -65.64 2010-07-23 14:25:34</span><br />
+                                                <span class="form-inline">
+                                                    <span>@DrogueRunViewRes.TakeValueEvery &nbsp;</span>
+                                                    &nbsp;<input class="form-control" type="text" size="3" name="TakeValueEveryXMinutes" value="2" />
+                                                    &nbsp;<span>@DrogueRunViewRes.Minutes</span>
+                                                    &nbsp;<span>(0 @DrogueRunViewRes.ToTakeAll)</span>
+                                                </span>
                                             </label>
                                             <div>
                                                 <textarea class="form-control" rows="6" name="DroguePoints">@sb.ToString()</textarea>
@@ -170,39 +100,46 @@
                             </form>
                         </div>
                         @* Drogue View Section *@
-                        <div class="DrogueRunDiv" data-droguerunid="@drogueRunModel.DrogueRunID">
-                            <h3>@DrogueRunViewRes.Drogue #@drogueRunModel.DrogueNumber (@drogueRunModel.DrogueType) @DrogueRunViewRes.RunDate (@drogueRunModel.RunStartDateTime.ToString("yyyy-MMMM-dd HH:mm:ss"))</h3>
+                        <div class="btn-block">
+                            <button class="jbDrogueRunViewData btn btn-default" data-droguerunid="@drogueRunModel.DrogueRunID"><span>@DrogueRunViewRes.ViewData</span></button>
+                        </div>
+                        <div class="DrogueRunDataDiv hidden" data-droguerunid="@drogueRunModel.DrogueRunID">
                             <table class="table table-condensed">
                                 <thead>
                                     <tr>
+                                        <th>Map</th>
                                         <th>#</th>
                                         <th>@DrogueRunViewRes.Lat</th>
                                         <th>@DrogueRunViewRes.Long</th>
                                         <th>@DrogueRunViewRes.Time</th>
-                                        <th>@DrogueRunViewRes.Speed</th>
-                                        <th>@DrogueRunViewRes.Dir</th>
+                                        <th>@DrogueRunViewRes.Speed (m/s) (km/h)</th>
+                                        <th>@DrogueRunViewRes.Dir (deg)</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach (DrogueRunPositionModel drogueRunPositionModel in drogueRunPositionModelList2)
                                     {
                                         <tr>
+                                            <td>
+                                                <button class="jbDrogueRunPointerShowOnMap btn btn-default"
+                                                        data-droguerunpositionid="@drogueRunPositionModel.DrogueRunPositionID"
+                                                        data-lat="@drogueRunPositionModel.StepLat.ToString("F5")"
+                                                        data-lng="@drogueRunPositionModel.StepLng.ToString("F5")"
+                                                        data-speed="@drogueRunPositionModel.CalculatedSpeed_m_s.ToString("F3")"
+                                                        data-direction="@drogueRunPositionModel.CalculatedDirection_deg.ToString("F1")">
+                                                    <span class="glyphicon glyphicon-map-marker"></span>
+                                                </button>
+                                            </td>
                                             <td>@drogueRunPositionModel.Ordinal</td>
-                                            <td>@drogueRunPositionModel.StepLat</td>
-                                            <td>@drogueRunPositionModel.StepLng</td>
+                                            <td>@drogueRunPositionModel.StepLat.ToString("F5")</td>
+                                            <td>@drogueRunPositionModel.StepLng.ToString("F5")</td>
                                             <td>@drogueRunPositionModel.StepDateTime_Local.ToString("HH:mm:ss")</td>
-                                            <td>@drogueRunPositionModel.CalculatedSpeed_m_s.ToString("F5")</td>
+                                            <td>@drogueRunPositionModel.CalculatedSpeed_m_s.ToString("F3") (@(((drogueRunPositionModel.CalculatedSpeed_m_s) * 3.6).ToString("F3")))</td>
                                             <td>@drogueRunPositionModel.CalculatedDirection_deg.ToString("F1")</td>
                                         </tr>
                                     }
                                 </tbody>
                             </table>
-                        </div>
-                        <div class="btn-block">
-                            <button class="jbDrogueRunDelete btn btn-primary" data-droguerunid="@drogueRunModel.DrogueRunID" data-droguenumber="@drogueRunModel.DrogueNumber">
-                                <span class="glyphicon glyphicon-remove"></span>
-                                @DrogueRunViewRes.Delete
-                            </button>
                         </div>
                     </div>
                 </div>
@@ -213,7 +150,7 @@
     <div>
         <button class="jbDrogueRunShowAdd btn btn-default"><span class="glyphicon glyphicon-plus" title="@DrogueRunViewRes.AddNewDrogueRun"></span></button>
         <div class="DrogueRunAdd hidden">
-            <form class="DrogueRunEditForm " action="DrogueRun/DrogueRunSaveJSON" method="post" role="form">
+            <form class="DrogueRunEditForm" action="DrogueRun/DrogueRunSaveJSON" method="post" role="form">
                 <input type="hidden" name="DrogueRunID" value="0" />
                 <input type="hidden" name="SubsectorTVItemID" value="@SubsectorTVItemID" />
                 <ul class="blockMargin">
@@ -236,78 +173,9 @@
                                 <button class="jbHelpDocShowDialog btn btn-link" data-dockey="droguetype" data-title="@DrogueRunViewRes.DrogueType"><span class="glyphicon glyphicon-info-sign"></span></button>
                             </label>
                             <div>
-                                <input type="radio" name="DrogueType" value="@(DrogueTypeEnum.SmallDrogue)" checked /><span>&nbsp;&nbsp;@DrogueRunViewRes.SmallDrogue&nbsp;&nbsp;</span>
-                                <input type="radio" name="DrogueType" value="@(DrogueTypeEnum.LargeDrogue)" /><span>&nbsp;&nbsp;@DrogueRunViewRes.LargeDrogue&nbsp;&nbsp;</span>
+                                <input type="radio" name="DrogueType" value="@((int)DrogueTypeEnum.SmallDrogue)" checked /><span>&nbsp;&nbsp;@DrogueRunViewRes.SmallDrogue&nbsp;&nbsp;</span>
+                                <input type="radio" name="DrogueType" value="@((int)DrogueTypeEnum.LargeDrogue)" /><span>&nbsp;&nbsp;@DrogueRunViewRes.LargeDrogue&nbsp;&nbsp;</span>
                                 <span class="help-block"></span>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="list-unstyled">
-                        <label>@DrogueRunViewRes.DrogueRunStartDateAndTime</label>
-                        <div class="blockMargin lineSpaceBottom">
-                            <div class="form-inline">
-                                <div class="form-group  blockRightSpace">
-                                    <label class="control-label" for="DrogueRunDateYear"> @DrogueRunViewRes.Year</label>
-                                    <div>
-                                        <select class="form-control" name="DrogueRunDateYear">
-                                            @for (int i = 1980; i < DateTime.Now.Year + 1; i++)
-                                            {
-                                                <option @((1980 == i) ? "selected=selected" : "") value="@i.ToString()">@i.ToString()</option>
-                                            }
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-group  blockRightSpace">
-                                    <label class="control-label" for="DrogueRunDateMonth">@DrogueRunViewRes.Month</label>
-                                    <div>
-                                        <select class="form-control" name="DrogueRunDateMonth">
-                                            @for (int i = 1; i < 13; i++)
-                                            {
-                                                <option @(1 == i ? "selected=selected" : "") value="@i.ToString()">@(CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(i))</option>
-                                            }
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-group  blockRightSpace">
-                                    <label class="control-label" for="DrogueRunDateDay">@DrogueRunViewRes.Day</label>
-                                    <div>
-                                        <select class="form-control" name="DrogueRunDateDay">
-                                            @{
-                                                int NumberOfDaysInMonth2 = DateTime.DaysInMonth(1980, 1);
-                                                for (int i = 1; i < NumberOfDaysInMonth2 + 1; i++)
-                                                {
-                                                    <option @((1 == i ? "selected=selected" : "")) value="@i.ToString()">@i.ToString()</option>
-                                                }
-                                            }
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-group  blockRightSpace">
-                                    <label class="control-label" for="DrogueRunDateHour">@DrogueRunViewRes.Hour</label>
-                                    <div>
-                                        <select class="form-control" name="DrogueRunDateHour">
-                                            @{
-                                                for (int i = 0; i < 24; i++)
-                                                {
-                                                    <option @((0 == i ? "selected=selected" : "")) value="@i.ToString()">@i.ToString()</option>
-                                                }
-                                            }
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-group  blockRightSpace">
-                                    <label class="control-label" for="DrogueRunDateHour">@DrogueRunViewRes.Minute</label>
-                                    <div>
-                                        <select class="form-control" name="DrogueRunDateMinute">
-                                            @{
-                                                for (int i = 0; i < 60; i++)
-                                                {
-                                                    <option @((0 == i ? "selected=selected" : "")) value="@i.ToString()">@i.ToString()</option>
-                                                }
-                                            }
-                                        </select>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </li>
@@ -322,7 +190,7 @@
                                 <span>45.44444 -65.64444 2010-07-23 14:25:34</span>
                             </label>
                             <div>
-                                <textarea class="form-control" rows="6" name="DroguePoints">@DrogueRunViewRes.CopyPasteYourPoints</textarea>
+                                <textarea class="form-control" rows="6" name="DroguePoints"></textarea>
                                 <span class="help-block"></span>
                             </div>
                         </div>
