@@ -986,7 +986,6 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="Scripts\csspjs\cssp.DrogueRun.ts" />
     <TypeScriptCompile Include="Scripts\csspjs\cssp.HelpDoc.ts" />
     <TypeScriptCompile Include="Scripts\csspjs\cssp.SubsectorTools.ts" />
     <TypeScriptCompile Include="Scripts\csspjs\cssp.ProvinceTools.ts" />
@@ -1009,6 +1008,7 @@
     <TypeScriptCompile Include="Scripts\csspjs\cssp.Dialog.ts" />
     <TypeScriptCompile Include="Scripts\csspjs\cssp.DocumentButtonEvents.ts" />
     <TypeScriptCompile Include="Scripts\csspjs\cssp.Email.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\cssp.DrogueRun.ts" />
     <TypeScriptCompile Include="Scripts\csspjs\cssp.File.ts" />
     <TypeScriptCompile Include="Scripts\csspjs\cssp.ForgotPassword.ts" />
     <TypeScriptCompile Include="Scripts\csspjs\cssp.ForgotPasswordEmailSent.ts" />
