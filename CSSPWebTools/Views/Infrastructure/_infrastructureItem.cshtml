@@ -59,7 +59,7 @@
                             @if (tvAuth >= TVAuthEnum.Write)
                             {
                                 <button class="jbInfrastructureShowHideModify btn btn-default" title="@InfrastructureViewRes.Edit"><span class="glyphicon glyphicon-pencil"></span></button>
-                                if (tvItemModelInfrastructureTypeTVItemLinkModel.SeeOtherTVItemID == null)
+                                if (tvItemModelInfrastructureTypeTVItemLinkModel.SeeOtherMunicipalityTVItemID == null)
                                 {
                                     <button class="jbInfrastructureMoveStart  btn btn-default" title="@InfrastructureViewRes.StartMove"><span class="glyphicon glyphicon-move"></span></button>
                                     <button class="jbInfrastructureMoveTo btn btn-default hidden" title="@InfrastructureViewRes.MoveBelow"><span class="glyphicon glyphicon-hand-right"></span></button>
@@ -81,10 +81,10 @@
                             </button>
                         </li>
                     }
-                    @if (tvItemModelInfrastructureTypeTVItemLinkModel.SeeOtherTVItemID != null)
+                    @if (tvItemModelInfrastructureTypeTVItemLinkModel.SeeOtherMunicipalityTVItemID != null)
                     {
                         <li>
-                            <a class="btn btn-default" role="button" href="@infrastructureController.CreateHashURL((int)tvItemModelInfrastructureTypeTVItemLinkModel.SeeOtherTVItemID)">
+                            <a class="btn btn-default" role="button" href="@infrastructureController.CreateHashURL((int)tvItemModelInfrastructureTypeTVItemLinkModel.SeeOtherMunicipalityTVItemID)">
                                 @tvItemModelInfrastructureTypeTVItemLinkModel.TVItemModel.TVText
                             </a>
                         </li>

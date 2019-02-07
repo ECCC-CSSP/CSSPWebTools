@@ -166,7 +166,7 @@ module CSSP {
         WWTP = 1,
         LiftStation = 2,
         Other = 3,
-        SeeOther = 4,
+        SeeOtherMunicipality = 4,
     }
     export class Variables {
         public URL: string;
@@ -592,7 +592,7 @@ module CSSP {
         MeshNode = 38,
         WebTideNode = 39,
         SamplingPlan = 40,
-        SeeOther = 41,
+        SeeOtherMunicipality = 41,
         LineOverflow = 42,
         BoxModelInputs = 43,
         BoxModelResults = 44,

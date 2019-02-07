@@ -673,15 +673,6 @@ namespace CSSPWebTools.Views.Infrastructure.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to See Other.
-        /// </summary>
-        public static string SeeOther {
-            get {
-                return ResourceManager.GetString("SeeOther", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to See other municipality.
         /// </summary>
         public static string SeeOtherMunicipality {

@@ -450,7 +450,7 @@ namespace CSSPWebTools.Controllers
                         break;
                     case TVTypeEnum.SamplingPlan:
                         break;
-                    case TVTypeEnum.SeeOther:
+                    case TVTypeEnum.SeeOtherMunicipality:
                         break;
                     case TVTypeEnum.LineOverflow:
                         break;

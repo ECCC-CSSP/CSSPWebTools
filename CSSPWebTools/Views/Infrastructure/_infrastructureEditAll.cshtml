@@ -12,25 +12,24 @@
     InfrastructureController infrastructureController = (InfrastructureController)ViewBag.InfrastructureController;
     BaseEnumService _BaseEnumService = new BaseEnumService(ViewBag.Language);
     List<SecondaryTreatmentTypeEnum> AttachedGrowthList = new List<SecondaryTreatmentTypeEnum>()
-{
-SecondaryTreatmentTypeEnum.RotatingBiologicalContactor,
-SecondaryTreatmentTypeEnum.TricklingFilters,
-SecondaryTreatmentTypeEnum.IntegratedFixedFilmActivatedSludge,
-SecondaryTreatmentTypeEnum.MechanicalMixer,
-SecondaryTreatmentTypeEnum.MovingBedBioReactor,
-SecondaryTreatmentTypeEnum.BiologicalAearatedFilters,
-SecondaryTreatmentTypeEnum.AeratedSubmergedBioFilmReactor
-};
+    {
+    SecondaryTreatmentTypeEnum.RotatingBiologicalContactor,
+    SecondaryTreatmentTypeEnum.TricklingFilters,
+    SecondaryTreatmentTypeEnum.IntegratedFixedFilmActivatedSludge,
+    SecondaryTreatmentTypeEnum.MovingBedBioReactor,
+    SecondaryTreatmentTypeEnum.BiologicalAearatedFilters,
+    SecondaryTreatmentTypeEnum.AeratedSubmergedBioFilmReactor
+    };
 
     List<SecondaryTreatmentTypeEnum> SuspendedGrowthList = new List<SecondaryTreatmentTypeEnum>()
-{
-SecondaryTreatmentTypeEnum.OxidationDitch,
-SecondaryTreatmentTypeEnum.ActivatedSludge,
-SecondaryTreatmentTypeEnum.ExtendedActivatedSludge,
-SecondaryTreatmentTypeEnum.ExtendedAeration,
-SecondaryTreatmentTypeEnum.ContactStabilization,
-SecondaryTreatmentTypeEnum.PhysicalChemicalProcesses,
-SecondaryTreatmentTypeEnum.SequencingBatchReator
+    {
+    SecondaryTreatmentTypeEnum.OxidationDitch,
+    SecondaryTreatmentTypeEnum.ActivatedSludge,
+    SecondaryTreatmentTypeEnum.ExtendedActivatedSludge,
+    SecondaryTreatmentTypeEnum.ExtendedAeration,
+    SecondaryTreatmentTypeEnum.ContactStabilization,
+    SecondaryTreatmentTypeEnum.PhysicalChemicalProcesses,
+    SecondaryTreatmentTypeEnum.SequencingBatchReator
 };
 }
 

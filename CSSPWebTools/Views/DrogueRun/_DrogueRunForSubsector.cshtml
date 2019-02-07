@@ -41,6 +41,7 @@
                     <div class="DrogueRunDiv panel-body">
                         <div class="btn-block">
                             <button class="jbDrogueRunShowOnMap btn btn-default" data-droguerunid="@drogueRunModel.DrogueRunID"><span>@DrogueRunViewRes.ShowOnMap</span></button>
+                            <button class="jbDrogueRunViewData btn btn-default" data-droguerunid="@drogueRunModel.DrogueRunID"><span>@DrogueRunViewRes.ViewData</span></button>
                             <button class="jbDrogueRunShowEdit btn btn-default"><span class="glyphicon glyphicon-pencil" title="@DrogueRunViewRes.EditDrogueRun"></span></button>
                             <span>@DrogueRunViewRes.MovingNorth0East90South180</span>
                             <button class="jbDrogueRunDelete btn btn-primary" data-droguerunid="@drogueRunModel.DrogueRunID" data-droguenumber="@drogueRunModel.DrogueNumber">
@@ -100,9 +101,6 @@
                             </form>
                         </div>
                         @* Drogue View Section *@
-                        <div class="btn-block">
-                            <button class="jbDrogueRunViewData btn btn-default" data-droguerunid="@drogueRunModel.DrogueRunID"><span>@DrogueRunViewRes.ViewData</span></button>
-                        </div>
                         <div class="DrogueRunDataDiv hidden" data-droguerunid="@drogueRunModel.DrogueRunID">
                             <table class="table table-condensed">
                                 <thead>
@@ -155,28 +153,16 @@
                 <input type="hidden" name="SubsectorTVItemID" value="@SubsectorTVItemID" />
                 <ul class="blockMargin">
                     <li class="list-unstyled">
-                        <div class="form-group">
+                        <div class="form-group form-inline">
                             <label for="DrogueNumber" class="control-label">
-                                @DrogueRunViewRes.DrogueNumber
-                                <button class="jbHelpDocShowDialog btn btn-link" data-dockey="droguenumber" data-title="@DrogueRunViewRes.DrogueNumber"><span class="glyphicon glyphicon-info-sign"></span></button>
-                            </label>
-                            <div>
-                                <input class="isnumber form-control" type="text" name="DrogueNumber" value="" />
-                                <span class="help-block"></span>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="list-unstyled">
-                        <div class="form-group">
-                            <label for="DrogueNumber" class="control-label">
-                                @DrogueRunViewRes.DrogueType
+                                <span>@DrogueRunViewRes.DrogueNumber &nbsp;&nbsp;&nbsp;</span>
+                                <input class="isnumber form-control" type="text" size="3" name="DrogueNumber" value="" />
+                                <button class="jbHelpDocShowDialog btn btn-link form-inline" data-dockey="droguenumber" data-title="@DrogueRunViewRes.DrogueNumber"><span class="glyphicon glyphicon-info-sign"></span></button>
+                                <input class="form-control" type="radio" name="DrogueType" value="@((int)DrogueTypeEnum.SmallDrogue)" checked="checked") /><span>&nbsp;&nbsp;@DrogueRunViewRes.SmallDrogue&nbsp;&nbsp;</span>
+                                <input class="form-control" type="radio" name="DrogueType" value="@((int)DrogueTypeEnum.LargeDrogue)" /><span>&nbsp;&nbsp;@DrogueRunViewRes.LargeDrogue&nbsp;&nbsp;</span>
                                 <button class="jbHelpDocShowDialog btn btn-link" data-dockey="droguetype" data-title="@DrogueRunViewRes.DrogueType"><span class="glyphicon glyphicon-info-sign"></span></button>
-                            </label>
-                            <div>
-                                <input type="radio" name="DrogueType" value="@((int)DrogueTypeEnum.SmallDrogue)" checked /><span>&nbsp;&nbsp;@DrogueRunViewRes.SmallDrogue&nbsp;&nbsp;</span>
-                                <input type="radio" name="DrogueType" value="@((int)DrogueTypeEnum.LargeDrogue)" /><span>&nbsp;&nbsp;@DrogueRunViewRes.LargeDrogue&nbsp;&nbsp;</span>
                                 <span class="help-block"></span>
-                            </div>
+                            </label>
                         </div>
                     </li>
                     <li class="list-unstyled">
@@ -185,16 +171,21 @@
                                 @DrogueRunViewRes.DroguePoints
                                 <button class="jbHelpDocShowDialog btn btn-link" data-dockey="droguepoints" data-title="@DrogueRunViewRes.DroguePoints"><span class="glyphicon glyphicon-info-sign"></span></button>
                                 <br />
-                                <span>Ex:</span><br />
-                                <span>45.44445 -65.64445 2010-07-23 14:25:33</span><br />
-                                <span>45.44444 -65.64444 2010-07-23 14:25:34</span>
+                                <span>Ex: 45.45555 -65.65 2010-07-23 14:25:33</span><br />
+                                <span>Ex: 45.44557 -65.64 2010-07-23 14:25:34</span><br />
+                                <span class="form-inline">
+                                    <span>@DrogueRunViewRes.TakeValueEvery &nbsp;</span>
+                                    &nbsp;<input class="form-control" type="text" size="3" name="TakeValueEveryXMinutes" value="2" />
+                                    &nbsp;<span>@DrogueRunViewRes.Minutes</span>
+                                    &nbsp;<span>(0 @DrogueRunViewRes.ToTakeAll)</span>
+                                </span>
                             </label>
                             <div>
                                 <textarea class="form-control" rows="6" name="DroguePoints"></textarea>
                                 <span class="help-block"></span>
                             </div>
                         </div>
-                    </li>
+                    </li>                
                     <li class="list-unstyled">
                         <div class="btn-block">
                             <button class="jbDrogueRunAddOrEditSave btn btn-primary" type="submit">

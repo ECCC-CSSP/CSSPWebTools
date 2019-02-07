@@ -35,7 +35,7 @@
         <div class="InfrastructureAdd">
 
         </div>
-        foreach (TVItemModelInfrastructureTypeTVItemLinkModel tvItemModelInfrastructureTypeTVItemLinkModel in tvItemModelInfrastructureTypeTVItemLinkModelList.Where(c => c.InfrastructureType != InfrastructureTypeEnum.Other && c.InfrastructureType != InfrastructureTypeEnum.SeeOther && c.TVItemModelLinkList.Count == 0))
+        foreach (TVItemModelInfrastructureTypeTVItemLinkModel tvItemModelInfrastructureTypeTVItemLinkModel in tvItemModelInfrastructureTypeTVItemLinkModelList.Where(c => c.InfrastructureType != InfrastructureTypeEnum.Other && c.InfrastructureType != InfrastructureTypeEnum.SeeOtherMunicipality && c.TVItemModelLinkList.Count == 0))
         {
             @Html.Action("_infrastructureItem", "Infrastructure", new { Q = urlModel.Q, TVItemID = tvItemModelInfrastructureTypeTVItemLinkModel.TVItemModel.TVItemID, TVItemModelInfrastructureTypeTVItemLinkModelList = tvItemModelInfrastructureTypeTVItemLinkModelList })
         }
@@ -50,12 +50,12 @@
                 }
             </div>
         }
-        if (tvItemModelInfrastructureTypeTVItemLinkModelList.Where(c => c.InfrastructureType == InfrastructureTypeEnum.SeeOther).ToList().Count > 0)
+        if (tvItemModelInfrastructureTypeTVItemLinkModelList.Where(c => c.InfrastructureType == InfrastructureTypeEnum.SeeOtherMunicipality).ToList().Count > 0)
         {
             <div class="blockMargin">
-                @foreach (TVItemModelInfrastructureTypeTVItemLinkModel tvItemModelInfrastructureTypeTVItemLinkModel in tvItemModelInfrastructureTypeTVItemLinkModelList.Where(c => c.InfrastructureType == InfrastructureTypeEnum.SeeOther))
+                @foreach (TVItemModelInfrastructureTypeTVItemLinkModel tvItemModelInfrastructureTypeTVItemLinkModel in tvItemModelInfrastructureTypeTVItemLinkModelList.Where(c => c.InfrastructureType == InfrastructureTypeEnum.SeeOtherMunicipality))
                 {
-                    if (tvItemModelInfrastructureTypeTVItemLinkModel.SeeOtherTVItemID != null)
+                    if (tvItemModelInfrastructureTypeTVItemLinkModel.SeeOtherMunicipalityTVItemID != null)
                     {
                         @Html.Action("_infrastructureItem", "Infrastructure", new { Q = urlModel.Q, TVItemID = tvItemModelInfrastructureTypeTVItemLinkModel.TVItemModel.TVItemID, TVItemModelInfrastructureTypeTVItemLinkModelList = tvItemModelInfrastructureTypeTVItemLinkModelList })
                     }

@@ -488,10 +488,10 @@ module CSSP {
                                                     cssp.GetHTMLVariable("#LayoutVariables", "varLineOverflow")));
                                             }
                                             break;
-                                        case TVTypeEnum.SeeOther:
+                                        case TVTypeEnum.SeeOtherMunicipality:
                                             {
-                                                legendElem = cssp.GoogleMap.LegendSetup(new LegendElem(CSSP.TVTypeEnum.LineOverflow, "ffffff",
-                                                    cssp.GetHTMLVariable("#LayoutVariables", "varSeeOther")));
+                                                legendElem = cssp.GoogleMap.LegendSetup(new LegendElem(CSSP.TVTypeEnum.SeeOtherMunicipality, "ffffff",
+                                                    cssp.GetHTMLVariable("#LayoutVariables", "varSeeOtherMunicipality")));
                                             }
                                             break;
                                         default:

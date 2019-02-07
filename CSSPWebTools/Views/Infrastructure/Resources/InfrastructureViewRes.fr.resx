@@ -352,7 +352,7 @@
   <data name="ShowMapItem" xml:space="preserve">
     <value>Afficher l'article de la carte</value>
   </data>
-  <data name="SeeOther" xml:space="preserve">
+  <data name="SeeOtherMunicipality" xml:space="preserve">
     <value>Voir autre</value>
   </data>
   <data name="SeeOtherMunicipality" xml:space="preserve">

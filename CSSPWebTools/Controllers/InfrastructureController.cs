@@ -176,9 +176,9 @@ namespace CSSPWebTools.Controllers
                 mapInfoPointModelInfrastructure = _MapInfoPointService.GetMapInfoPointModelListWithTVItemIDAndTVTypeAndMapInfoDrawTypeDB(InfrastructureTVItemID, TVTypeEnum.OtherInfrastructure, MapInfoDrawTypeEnum.Point).FirstOrDefault();
                 mapInfoPointModelOutfall = _MapInfoPointService.GetMapInfoPointModelListWithTVItemIDAndTVTypeAndMapInfoDrawTypeDB(InfrastructureTVItemID, TVTypeEnum.Outfall, MapInfoDrawTypeEnum.Point).FirstOrDefault();
             }
-            else if (infrastructureModel.InfrastructureType == InfrastructureTypeEnum.SeeOther)
+            else if (infrastructureModel.InfrastructureType == InfrastructureTypeEnum.SeeOtherMunicipality)
             {
-                mapInfoPointModelInfrastructure = _MapInfoPointService.GetMapInfoPointModelListWithTVItemIDAndTVTypeAndMapInfoDrawTypeDB(InfrastructureTVItemID, TVTypeEnum.SeeOther, MapInfoDrawTypeEnum.Point).FirstOrDefault();
+                mapInfoPointModelInfrastructure = _MapInfoPointService.GetMapInfoPointModelListWithTVItemIDAndTVTypeAndMapInfoDrawTypeDB(InfrastructureTVItemID, TVTypeEnum.SeeOtherMunicipality, MapInfoDrawTypeEnum.Point).FirstOrDefault();
                 mapInfoPointModelOutfall = _MapInfoPointService.GetMapInfoPointModelListWithTVItemIDAndTVTypeAndMapInfoDrawTypeDB(InfrastructureTVItemID, TVTypeEnum.Outfall, MapInfoDrawTypeEnum.Point).FirstOrDefault();
             }
 
@@ -223,9 +223,9 @@ namespace CSSPWebTools.Controllers
             {
                 TVType = TVTypeEnum.OtherInfrastructure;
             }
-            else if (infrastructureModel.InfrastructureType == InfrastructureTypeEnum.SeeOther)
+            else if (infrastructureModel.InfrastructureType == InfrastructureTypeEnum.SeeOtherMunicipality)
             {
-                TVType = TVTypeEnum.SeeOther;
+                TVType = TVTypeEnum.SeeOtherMunicipality;
             }
 
             mapInfoPointModelInfrastructure = _MapInfoPointService.GetMapInfoPointModelListWithTVItemIDAndTVTypeAndMapInfoDrawTypeDB(InfrastructureTVItemID, TVType, MapInfoDrawTypeEnum.Point).FirstOrDefault();

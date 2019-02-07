@@ -972,9 +972,9 @@ namespace CSSPWebTools.Views.Shared.Resources {
         /// <summary>
         ///   Looks up a localized string similar to See Other.
         /// </summary>
-        public static string SeeOther {
+        public static string SeeOtherMunicipality {
             get {
-                return ResourceManager.GetString("SeeOther", resourceCulture);
+                return ResourceManager.GetString("SeeOtherMunicipality", resourceCulture);
             }
         }
         

@@ -118,19 +118,19 @@ module CSSP {
             $(document).on("change", ".InfrastructureTypeSelect", (evt: Event) => {
                 var $selectInfrastructureType: JQuery = $(evt.target);
                 var InfrastructureType: number = parseInt($selectInfrastructureType.val());
-                if (InfrastructureType == CSSP.InfrastructureTypeEnum.SeeOther) {
-                    $(".SeeOtherTVItemID").removeClass("hidden");
+                if (InfrastructureType == CSSP.InfrastructureTypeEnum.SeeOtherMunicipality) {
+                    $(".SeeOtherMunicipalityTVItemID").removeClass("hidden");
                 }
                 else {
-                    $(".SeeOtherTVItemID").removeClass("hidden").addClass("hidden");
+                    $(".SeeOtherMunicipalityTVItemID").removeClass("hidden").addClass("hidden");
                 }
             });
 
-            $(document).off("change", ".SeeOtherTVItemID");
-            $(document).on("change", ".SeeOtherTVItemID", (evt: Event) => {
+            $(document).off("change", ".SeeOtherMunicipalityTVItemID");
+            $(document).on("change", ".SeeOtherMunicipalityTVItemID", (evt: Event) => {
                 $("input[name='Lat']").val(cssp.GetHTMLVariable("#LayoutVariables", "varInProgress"));
                 $("input[name='Lng']").val(cssp.GetHTMLVariable("#LayoutVariables", "varInProgress"));
-                var MunicipalityTVItemID: number = parseInt($("select[name='SeeOtherTVItemID']").val());
+                var MunicipalityTVItemID: number = parseInt($("select[name='SeeOtherMunicipalityTVItemID']").val());
                 var command: string = "Infrastructure/GetMunicipalityLatLngJSON";
                 $.get(cssp.BaseURL + command,
                     {

@@ -302,7 +302,7 @@ var CSSP;
         InfrastructureTypeEnum[InfrastructureTypeEnum["WWTP"] = 1] = "WWTP";
         InfrastructureTypeEnum[InfrastructureTypeEnum["LiftStation"] = 2] = "LiftStation";
         InfrastructureTypeEnum[InfrastructureTypeEnum["Other"] = 3] = "Other";
-        InfrastructureTypeEnum[InfrastructureTypeEnum["SeeOther"] = 4] = "SeeOther";
+        InfrastructureTypeEnum[InfrastructureTypeEnum["SeeOtherMunicipality"] = 4] = "SeeOtherMunicipality";
     })(InfrastructureTypeEnum = CSSP.InfrastructureTypeEnum || (CSSP.InfrastructureTypeEnum = {}));
     var Variables = (function () {
         function Variables() {
@@ -785,7 +785,7 @@ var CSSP;
         TVTypeEnum[TVTypeEnum["MeshNode"] = 38] = "MeshNode";
         TVTypeEnum[TVTypeEnum["WebTideNode"] = 39] = "WebTideNode";
         TVTypeEnum[TVTypeEnum["SamplingPlan"] = 40] = "SamplingPlan";
-        TVTypeEnum[TVTypeEnum["SeeOther"] = 41] = "SeeOther";
+        TVTypeEnum[TVTypeEnum["SeeOtherMunicipality"] = 41] = "SeeOtherMunicipality";
         TVTypeEnum[TVTypeEnum["LineOverflow"] = 42] = "LineOverflow";
         TVTypeEnum[TVTypeEnum["BoxModelInputs"] = 43] = "BoxModelInputs";
         TVTypeEnum[TVTypeEnum["BoxModelResults"] = 44] = "BoxModelResults";

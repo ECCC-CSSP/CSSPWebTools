@@ -435,9 +435,9 @@ var CSSP;
                                                     legendElem = cssp.GoogleMap.LegendSetup(new CSSP.LegendElem(CSSP.TVTypeEnum.LineOverflow, "888800", cssp.GetHTMLVariable("#LayoutVariables", "varLineOverflow")));
                                                 }
                                                 break;
-                                            case CSSP.TVTypeEnum.SeeOther:
+                                            case CSSP.TVTypeEnum.SeeOtherMunicipality:
                                                 {
-                                                    legendElem = cssp.GoogleMap.LegendSetup(new CSSP.LegendElem(CSSP.TVTypeEnum.LineOverflow, "ffffff", cssp.GetHTMLVariable("#LayoutVariables", "varSeeOther")));
+                                                    legendElem = cssp.GoogleMap.LegendSetup(new CSSP.LegendElem(CSSP.TVTypeEnum.SeeOtherMunicipality, "ffffff", cssp.GetHTMLVariable("#LayoutVariables", "varSeeOtherMunicipality")));
                                                 }
                                                 break;
                                             default:
