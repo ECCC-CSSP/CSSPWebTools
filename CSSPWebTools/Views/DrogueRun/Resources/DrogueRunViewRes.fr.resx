@@ -156,6 +156,12 @@
   <data name="Hour" xml:space="preserve">
     <value>Hour (fr)</value>
   </data>
+  <data name="IsFallingTide" xml:space="preserve">
+    <value>Is falling tide (fr)</value>
+  </data>
+  <data name="IsRisingTide" xml:space="preserve">
+    <value>Is rising tide (fr)</value>
+  </data>
   <data name="LargeDrogue" xml:space="preserve">
     <value>Large Drogue (fr)</value>
   </data>

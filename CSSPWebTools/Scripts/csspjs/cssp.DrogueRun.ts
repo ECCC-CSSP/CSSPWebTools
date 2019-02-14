@@ -129,10 +129,12 @@
             }
             else {
                 $bjs.removeClass("btn-success").addClass("btn-default");
-                for (let i = 0, count = cssp.DrogueRun.polyArr.length; i < count; i++) {
-                    if (cssp.DrogueRun.polyArr[i].zIndex == DrogueRunID) {
-                        cssp.DrogueRun.polyArr[i].setMap(null);
-                        cssp.DrogueRun.polyArr.splice(i, 1);
+                for (let j = 0; j < 3; j++) {
+                    for (let i = 0, count = cssp.DrogueRun.polyArr.length; i < count; i++) {
+                        if (cssp.DrogueRun.polyArr[i].zIndex == DrogueRunID) {
+                            cssp.DrogueRun.polyArr[i].setMap(null);
+                            cssp.DrogueRun.polyArr.splice(i, 1);
+                        }
                     }
                 }
             }

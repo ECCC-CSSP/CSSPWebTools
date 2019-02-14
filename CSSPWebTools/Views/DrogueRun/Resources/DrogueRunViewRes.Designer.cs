@@ -178,6 +178,24 @@ namespace CSSPWebTools.Views.DrogueRun.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Is falling tide.
+        /// </summary>
+        public static string IsFallingTide {
+            get {
+                return ResourceManager.GetString("IsFallingTide", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Is rising tide.
+        /// </summary>
+        public static string IsRisingTide {
+            get {
+                return ResourceManager.GetString("IsRisingTide", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Large Drogue.
         /// </summary>
         public static string LargeDrogue {
