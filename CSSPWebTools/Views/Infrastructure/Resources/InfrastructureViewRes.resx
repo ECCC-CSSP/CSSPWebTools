@@ -349,9 +349,6 @@
     <value>Show Map Item</value>
   </data>
   <data name="SeeOtherMunicipality" xml:space="preserve">
-    <value>See Other</value>
-  </data>
-  <data name="SeeOtherMunicipality" xml:space="preserve">
     <value>See other municipality</value>
   </data>
   <data name="FlowsOrPumpsInto" xml:space="preserve">
@@ -434,5 +431,8 @@
   </data>
   <data name="SuspendedGrowthGroup" xml:space="preserve">
     <value>Suspended Growth Group</value>
+  </data>
+  <data name="NeedToSelectLagoonOrPlant" xml:space="preserve">
+    <value>Need to select lagoon or plant</value>
   </data>
 </root>

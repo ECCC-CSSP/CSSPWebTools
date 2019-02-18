@@ -475,6 +475,15 @@ namespace CSSPWebTools.Views.Infrastructure.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Need to select lagoon or plant.
+        /// </summary>
+        public static string NeedToSelectLagoonOrPlant {
+            get {
+                return ResourceManager.GetString("NeedToSelectLagoonOrPlant", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No.
         /// </summary>
         public static string No {

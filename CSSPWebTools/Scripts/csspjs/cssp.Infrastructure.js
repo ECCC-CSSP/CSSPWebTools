@@ -283,6 +283,132 @@ var CSSP;
                 if ($("input[name='IsMechanicallyAerated']").is(":checked")) {
                     $(".AerationType").removeClass("hidden");
                 }
+                $(document).off("change, keyup", "#DesignFlow_m3_day");
+                $(document).on("change, keyup", "#DesignFlow_m3_day", function (evt) {
+                    if ($(evt.target).val()) {
+                        var m3Val = parseInt($(evt.target).val());
+                        var m3ValCan = m3Val * 219.969248;
+                        var m3ValUS = m3Val * 264.172;
+                        $("#DesignFlow_m3_day_ToCanGal").val(Math.round(m3ValCan));
+                        $("#DesignFlow_m3_day_ToUSGal").val(Math.round(m3ValUS));
+                    }
+                    else {
+                        $("#DesignFlow_m3_day_ToCanGal").val("");
+                        $("#DesignFlow_m3_day_ToUSGal").val("");
+                    }
+                });
+                $(document).off("change, keyup", "#DesignFlow_m3_day_ToCanGal");
+                $(document).on("change, keyup", "#DesignFlow_m3_day_ToCanGal", function (evt) {
+                    if ($(evt.target).val()) {
+                        var m3ValCan = parseInt($(evt.target).val());
+                        var m3Val = m3ValCan / 219.969248;
+                        var m3ValUS = m3ValCan * (264.172 / 219.969248);
+                        $("#DesignFlow_m3_day").val(Math.round(m3Val));
+                        $("#DesignFlow_m3_day_ToUSGal").val(Math.round(m3ValUS));
+                    }
+                    else {
+                        $("#DesignFlow_m3_day").val("");
+                        $("#DesignFlow_m3_day_ToUSGal").val("");
+                    }
+                });
+                $(document).off("change, keyup", "#DesignFlow_m3_day_ToUSGal");
+                $(document).on("change, keyup", "#DesignFlow_m3_day_ToUSGal", function (evt) {
+                    if ($(evt.target).val()) {
+                        var m3ValUS = parseInt($(evt.target).val());
+                        var m3ValCan = m3ValUS * (219.969248 / 264.172);
+                        var m3Val = m3ValUS / 264.172;
+                        $("#DesignFlow_m3_day_ToCanGal").val(Math.round(m3ValCan));
+                        $("#DesignFlow_m3_day").val(Math.round(m3Val));
+                    }
+                    else {
+                        $("#DesignFlow_m3_day_ToCanGal").val("");
+                        $("#DesignFlow_m3_day").val("");
+                    }
+                });
+                $(document).off("change, keyup", "#AverageFlow_m3_day");
+                $(document).on("change, keyup", "#AverageFlow_m3_day", function (evt) {
+                    if ($(evt.target).val()) {
+                        var m3Val = parseInt($(evt.target).val());
+                        var m3ValCan = m3Val * 219.969248;
+                        var m3ValUS = m3Val * 264.172;
+                        $("#AverageFlow_m3_day_ToCanGal").val(Math.round(m3ValCan));
+                        $("#AverageFlow_m3_day_ToUSGal").val(Math.round(m3ValUS));
+                    }
+                    else {
+                        $("#AverageFlow_m3_day_ToCanGal").val("");
+                        $("#AverageFlow_m3_day_ToUSGal").val("");
+                    }
+                });
+                $(document).off("change, keyup", "#AverageFlow_m3_day_ToCanGal");
+                $(document).on("change, keyup", "#AverageFlow_m3_day_ToCanGal", function (evt) {
+                    if ($(evt.target).val()) {
+                        var m3ValCan = parseInt($(evt.target).val());
+                        var m3Val = m3ValCan / 219.969248;
+                        var m3ValUS = m3ValCan * (264.172 / 219.969248);
+                        $("#AverageFlow_m3_day").val(Math.round(m3Val));
+                        $("#AverageFlow_m3_day_ToUSGal").val(Math.round(m3ValUS));
+                    }
+                    else {
+                        $("#AverageFlow_m3_day").val("");
+                        $("#AverageFlow_m3_day_ToUSGal").val("");
+                    }
+                });
+                $(document).off("change, keyup", "#AverageFlow_m3_day_ToUSGal");
+                $(document).on("change, keyup", "#AverageFlow_m3_day_ToUSGal", function (evt) {
+                    if ($(evt.target).val()) {
+                        var m3ValUS = parseInt($(evt.target).val());
+                        var m3ValCan = m3ValUS * (219.969248 / 264.172);
+                        var m3Val = m3ValUS / 264.172;
+                        $("#AverageFlow_m3_day_ToCanGal").val(Math.round(m3ValCan));
+                        $("#AverageFlow_m3_day").val(Math.round(m3Val));
+                    }
+                    else {
+                        $("#AverageFlow_m3_day_ToCanGal").val("");
+                        $("#AverageFlow_m3_day").val("");
+                    }
+                });
+                $(document).off("change, keyup", "#PeakFlow_m3_day");
+                $(document).on("change, keyup", "#PeakFlow_m3_day", function (evt) {
+                    if ($(evt.target).val()) {
+                        var m3Val = parseInt($(evt.target).val());
+                        var m3ValCan = m3Val * 219.969248;
+                        var m3ValUS = m3Val * 264.172;
+                        $("#PeakFlow_m3_day_ToCanGal").val(Math.round(m3ValCan));
+                        $("#PeakFlow_m3_day_ToUSGal").val(Math.round(m3ValUS));
+                    }
+                    else {
+                        $("#PeakFlow_m3_day_ToCanGal").val("");
+                        $("#PeakFlow_m3_day_ToUSGal").val("");
+                    }
+                });
+                $(document).off("change, keyup", "#PeakFlow_m3_day_ToCanGal");
+                $(document).on("change, keyup", "#PeakFlow_m3_day_ToCanGal", function (evt) {
+                    if ($(evt.target).val()) {
+                        var m3ValCan = parseInt($(evt.target).val());
+                        var m3Val = m3ValCan / 219.969248;
+                        var m3ValUS = m3ValCan * (264.172 / 219.969248);
+                        $("#PeakFlow_m3_day").val(Math.round(m3Val));
+                        $("#PeakFlow_m3_day_ToUSGal").val(Math.round(m3ValUS));
+                    }
+                    else {
+                        $("#PeakFlow_m3_day").val("");
+                        $("#PeakFlow_m3_day_ToUSGal").val("");
+                    }
+                });
+                $(document).off("change, keyup", "#PeakFlow_m3_day_ToUSGal");
+                $(document).on("change, keyup", "#PeakFlow_m3_day_ToUSGal", function (evt) {
+                    if ($(evt.target).val()) {
+                        var m3ValUS = parseInt($(evt.target).val());
+                        var m3ValCan = m3ValUS * (219.969248 / 264.172);
+                        var m3Val = m3ValUS / 264.172;
+                        $("#PeakFlow_m3_day_ToCanGal").val(Math.round(m3ValCan));
+                        $("#PeakFlow_m3_day").val(Math.round(m3Val));
+                    }
+                    else {
+                        $("#PeakFlow_m3_day_ToCanGal").val("");
+                        $("#PeakFlow_m3_day").val("");
+                    }
+                });
             };
             this.MoveCancel = function ($bjs) {
                 var $AllItems = $bjs.closest("#InfrastructureTopDiv");

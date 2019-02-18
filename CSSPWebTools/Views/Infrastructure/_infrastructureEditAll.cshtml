@@ -350,10 +350,13 @@ else
                             </ul>
                         </li>
                         <li class="notlagoonorplant @(!(infrastructureModel.FacilityType == FacilityTypeEnum.Lagoon || infrastructureModel.FacilityType == FacilityTypeEnum.Plant) ? "" : "hidden")">
-                            <div>
-                                <p>@InfrastructureViewRes.FacilityTypeNotLagoonOrPlant</p>
-                                <p>@InfrastructureViewRes.Error</p>
-                            </div>
+                            <ul class="list-unstyled">
+                                <li>
+                                    <blockquote>
+                                        @InfrastructureViewRes.NeedToSelectLagoonOrPlant
+                                    </blockquote>
+                                </li>
+                            </ul>
                         </li>
                         @*DisinfectionType*@
                         <li>
@@ -405,11 +408,15 @@ else
                         <li>
                             <div class="form-group">
                                 <label for="DesignFlow_m3_day" class="control-label">
-                                    @InfrastructureViewRes.DesignFlow (@Html.Raw(UnitViewRes.m3PerDay))
+                                    @InfrastructureViewRes.DesignFlow (@Html.Raw(UnitViewRes.m3PerDay))&nbsp;&nbsp;(@Html.Raw(UnitViewRes.CanGalPerDay))&nbsp;&nbsp;(@Html.Raw(UnitViewRes.USGalPerDay))
                                     <button class="jbHelpDocShowDialog btn btn-link" data-dockey="designflow" data-title="@InfrastructureViewRes.DesignFlow"><span class="glyphicon glyphicon-info-sign"></span></button>
                                 </label>
-                                <div>
-                                    <input id="DesignFlow_m3_day" class="isnumber form-control" type="text" name="DesignFlow_m3_day" value="@infrastructureModel.DesignFlow_m3_day" />
+                                <div class="form-inline">
+                                    <input id="DesignFlow_m3_day" class="isnumber form-control" type="text" name="DesignFlow_m3_day" value="@(infrastructureModel.DesignFlow_m3_day == null ? "" : ((double)infrastructureModel.DesignFlow_m3_day).ToString("F0"))" />
+                                    <span>&nbsp;&nbsp;</span>
+                                    <input id="DesignFlow_m3_day_ToCanGal" class="isnumber form-control" type="text" name="DesignFlow_m3_day_ToCanGal" value="@(infrastructureModel.DesignFlow_m3_day == null ? "" : ((double)infrastructureModel.DesignFlow_m3_day * 219.969248f).ToString("F0"))" />
+                                    <span>&nbsp;&nbsp;</span>
+                                    <input id="DesignFlow_m3_day_ToUSGal" class="isnumber form-control" type="text" name="DesignFlow_m3_day_ToUSGal" value="@(infrastructureModel.DesignFlow_m3_day == null ? "" : ((double)infrastructureModel.DesignFlow_m3_day * 264.172f).ToString("F0"))" />
                                     <span class="help-block"></span>
                                 </div>
                             </div>
@@ -418,11 +425,15 @@ else
                         <li>
                             <div class="form-group">
                                 <label for="AverageFlow_m3_day" class="control-label">
-                                    @InfrastructureViewRes.AverageFlow (@Html.Raw(UnitViewRes.m3PerDay))
+                                    @InfrastructureViewRes.AverageFlow (@Html.Raw(UnitViewRes.m3PerDay))&nbsp;&nbsp;(@Html.Raw(UnitViewRes.CanGalPerDay))&nbsp;&nbsp;(@Html.Raw(UnitViewRes.USGalPerDay))
                                     <button class="jbHelpDocShowDialog btn btn-link" data-dockey="averageflow" data-title="@InfrastructureViewRes.AverageFlow"><span class="glyphicon glyphicon-info-sign"></span></button>
                                 </label>
-                                <div>
-                                    <input id="AverageFlow_m3_day" class="isnumber form-control" type="text" name="AverageFlow_m3_day" value="@infrastructureModel.AverageFlow_m3_day" />
+                                <div class="form-inline">
+                                    <input id="AverageFlow_m3_day" class="isnumber form-control" type="text" name="AverageFlow_m3_day" value="@(infrastructureModel.AverageFlow_m3_day == null ? "" : ((double)infrastructureModel.AverageFlow_m3_day).ToString("F0"))" />
+                                    <span>&nbsp;&nbsp;</span>
+                                    <input id="AverageFlow_m3_day_ToCanGal" class="isnumber form-control" type="text" name="AverageFlow_m3_day_ToCanGal" value="@(infrastructureModel.AverageFlow_m3_day == null ? "" : ((double)infrastructureModel.AverageFlow_m3_day * 219.969248f).ToString("F0"))" />
+                                    <span>&nbsp;&nbsp;</span>
+                                    <input id="AverageFlow_m3_day_ToUSGal" class="isnumber form-control" type="text" name="AverageFlow_m3_day_ToUSGal" value="@(infrastructureModel.AverageFlow_m3_day == null ? "" : ((double)infrastructureModel.AverageFlow_m3_day * 264.172f).ToString("F0"))" />
                                     <span class="help-block"></span>
                                 </div>
                             </div>
@@ -431,11 +442,15 @@ else
                         <li>
                             <div class="form-group">
                                 <label for="PeakFlow_m3_day" class="control-label">
-                                    @InfrastructureViewRes.PeakFlow (@Html.Raw(UnitViewRes.m3PerDay))
+                                    @InfrastructureViewRes.PeakFlow (@Html.Raw(UnitViewRes.m3PerDay))&nbsp;&nbsp;(@Html.Raw(UnitViewRes.CanGalPerDay))&nbsp;&nbsp;(@Html.Raw(UnitViewRes.USGalPerDay))
                                     <button class="jbHelpDocShowDialog btn btn-link" data-dockey="peakflow" data-title="@InfrastructureViewRes.PeakFlow"><span class="glyphicon glyphicon-info-sign"></span></button>
                                 </label>
-                                <div>
-                                    <input id="PeakFlow_m3_day" class="isnumber form-control" type="text" name="PeakFlow_m3_day" value="@infrastructureModel.PeakFlow_m3_day" />
+                                <div class="form-inline">
+                                    <input id="PeakFlow_m3_day" class="isnumber form-control" type="text" name="PeakFlow_m3_day" value="@(infrastructureModel.PeakFlow_m3_day == null ? "" : ((double)infrastructureModel.PeakFlow_m3_day).ToString("F0"))" />
+                                    <span>&nbsp;&nbsp;</span>
+                                    <input id="PeakFlow_m3_day_ToCanGal" class="isnumber form-control" type="text" name="PeakFlow_m3_day_ToCanGal" value="@(infrastructureModel.PeakFlow_m3_day == null ? "" : ((double)infrastructureModel.PeakFlow_m3_day * 219.969248f).ToString("F0"))" />
+                                    <span>&nbsp;&nbsp;</span>
+                                    <input id="PeakFlow_m3_day_ToUSGal" class="isnumber form-control" type="text" name="PeakFlow_m3_day_ToUSGal" value="@(infrastructureModel.PeakFlow_m3_day == null ? "" : ((double)infrastructureModel.PeakFlow_m3_day * 264.172f).ToString("F0"))" />
                                     <span class="help-block"></span>
                                 </div>
                             </div>

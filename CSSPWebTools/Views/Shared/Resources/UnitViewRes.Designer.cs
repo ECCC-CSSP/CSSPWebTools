@@ -19,7 +19,7 @@ namespace CSSPWebTools.Views.Shared.Resources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class UnitViewRes {
@@ -57,6 +57,15 @@ namespace CSSPWebTools.Views.Shared.Resources {
             }
             set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Can. Gal./day.
+        /// </summary>
+        public static string CanGalPerDay {
+            get {
+                return ResourceManager.GetString("CanGalPerDay", resourceCulture);
             }
         }
         
@@ -345,6 +354,15 @@ namespace CSSPWebTools.Views.Shared.Resources {
         public static string Second_abbr {
             get {
                 return ResourceManager.GetString("Second_abbr", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to US. Gal./day.
+        /// </summary>
+        public static string USGalPerDay {
+            get {
+                return ResourceManager.GetString("USGalPerDay", resourceCulture);
             }
         }
         

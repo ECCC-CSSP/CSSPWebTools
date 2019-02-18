@@ -353,9 +353,6 @@
     <value>Afficher l'article de la carte</value>
   </data>
   <data name="SeeOtherMunicipality" xml:space="preserve">
-    <value>Voir autre</value>
-  </data>
-  <data name="SeeOtherMunicipality" xml:space="preserve">
     <value>Voir autre municipalité</value>
   </data>
   <data name="FlowsOrPumpsInto" xml:space="preserve">
@@ -438,5 +435,8 @@
   </data>
   <data name="SuspendedGrowthGroup" xml:space="preserve">
     <value>Suspended Growth Group (fr)</value>
+  </data>
+  <data name="NeedToSelectLagoonOrPlant" xml:space="preserve">
+    <value>Need to select lagoon or plant (fr)</value>
   </data>
 </root>

@@ -219,4 +219,10 @@
   <data name="Millimeters_abr" xml:space="preserve">
     <value>mm</value>
   </data>
+  <data name="CanGalPerDay" xml:space="preserve">
+    <value>Can. Gal./day</value>
+  </data>
+  <data name="USGalPerDay" xml:space="preserve">
+    <value>US. Gal./day</value>
+  </data>
 </root>
