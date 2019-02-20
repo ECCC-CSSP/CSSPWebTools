@@ -516,9 +516,9 @@ namespace CSSPWebTools.Controllers
         }
         [HttpPost]
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
-        public JsonResult SavePSSAddressJSON(int SubsectorTVItemID, int TVItemID, string StreetNumber, string StreetName, int StreetType, string Municipality, string PostalCode, bool CreateMunicipality, string AdminEmail)
+        public JsonResult SavePSSAddressJSON(int ProvinceTVItemID, int TVItemID, string StreetNumber, string StreetName, int StreetType, string Municipality, string PostalCode, bool CreateMunicipality, string AdminEmail)
         {
-            TVItemModel tvItemModel = _PolSourceSiteInputToolService.SavePSSAddressDB(SubsectorTVItemID, TVItemID, StreetNumber, StreetName, StreetType, Municipality, PostalCode, CreateMunicipality, AdminEmail);
+            TVItemModel tvItemModel = _PolSourceSiteInputToolService.SavePSSAddressDB(ProvinceTVItemID, TVItemID, StreetNumber, StreetName, StreetType, Municipality, PostalCode, CreateMunicipality, AdminEmail);
 
             return Json(tvItemModel.Error, JsonRequestBehavior.AllowGet);
         }
@@ -540,9 +540,9 @@ namespace CSSPWebTools.Controllers
         }
         [HttpPost]
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
-        public JsonResult MunicipalityExistJSON(int SubsectorTVItemID, string Municipality, string AdminEmail)
+        public JsonResult MunicipalityExistJSON(int ProvinceTVItemID, string Municipality, string AdminEmail)
         {
-            TVItemModel tvItemModel = _PolSourceSiteInputToolService.MunicipalityExistDB(SubsectorTVItemID, Municipality, AdminEmail);
+            TVItemModel tvItemModel = _PolSourceSiteInputToolService.MunicipalityExistDB(ProvinceTVItemID, Municipality, AdminEmail);
 
             return Json(tvItemModel.Error, JsonRequestBehavior.AllowGet);
         }

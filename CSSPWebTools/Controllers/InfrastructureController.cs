@@ -115,28 +115,6 @@ namespace CSSPWebTools.Controllers
 
         [HttpGet]
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
-        public PartialViewResult _infrastructureItem(string Q, int TVItemID, List<TVItemModelInfrastructureTypeTVItemLinkModel> TVItemModelInfrastructureTypeTVItemLinkModelList)
-        {
-            SetArgs(Q);
-            ViewBag.URLModel = urlModel;
-
-            ViewBag.TVItemID = TVItemID;
-            ViewBag.TVItemModelInfrastructureTypeTVItemLinkModelList = TVItemModelInfrastructureTypeTVItemLinkModelList;
-
-            ViewBag.InfrastructureController = _InfrastructureController;
-
-            TVAuthEnum tvAuth = _TVItemService.GetTVAuthWithTVItemIDAndLoggedInUser(TVItemID, null, null, null);
-
-            ViewBag.TVAuth = tvAuth;
-
-            ViewBag.IsShowMoreInfo = (GetURLVarShowEnumStr(URLVarShowEnum.ShowMoreInfo) == "0" ? false : true);
-            ViewBag.IsShowMap = (GetURLVarShowEnumStr(URLVarShowEnum.ShowMap) == "0" ? false : true);
-
-            return PartialView();
-        }
-
-        [HttpGet]
-        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
         public PartialViewResult _infrastructureEditAll(int InfrastructureTVItemID)
         {
             ViewBag.AddressModel = null;

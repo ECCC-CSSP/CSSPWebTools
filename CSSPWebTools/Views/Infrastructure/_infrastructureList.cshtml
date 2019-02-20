@@ -12,6 +12,36 @@
     bool IsShowMoreInfo = (bool)ViewBag.IsShowMoreInfo;
     bool IsShowMap = (bool)ViewBag.IsShowMap;
 
+    List<TVItemModelInfrastructureTypeTVItemLinkModel> tvItemModelInfrastructureTypeTVItemLinkModelListDone = new List<TVItemModelInfrastructureTypeTVItemLinkModel>();
+
+    foreach (TVItemModelInfrastructureTypeTVItemLinkModel tvItemModelInfrastructureTypeTVItemLinkModel in tvItemModelInfrastructureTypeTVItemLinkModelList.Where(c => c.InfrastructureType != InfrastructureTypeEnum.Other && c.InfrastructureType != InfrastructureTypeEnum.SeeOtherMunicipality && c.TVItemModelLinkList.Count == 0))
+    {
+        next(tvItemModelInfrastructureTypeTVItemLinkModel, tvItemModelInfrastructureTypeTVItemLinkModelList, tvItemModelInfrastructureTypeTVItemLinkModelListDone);
+    }
+
+    List<TVItemModelInfrastructureTypeTVItemLinkModel> tvItemModelInfrastructureTypeTVItemLinkModelListFloating = new List<TVItemModelInfrastructureTypeTVItemLinkModel>();
+
+    foreach (TVItemModelInfrastructureTypeTVItemLinkModel tvItemModelInfrastructureTypeTVItemLinkModel in tvItemModelInfrastructureTypeTVItemLinkModelList.Where(c => c.InfrastructureType != InfrastructureTypeEnum.Other && c.InfrastructureType != InfrastructureTypeEnum.SeeOtherMunicipality))
+    {
+        if (!tvItemModelInfrastructureTypeTVItemLinkModelListDone.Contains(tvItemModelInfrastructureTypeTVItemLinkModel))
+        {
+            tvItemModelInfrastructureTypeTVItemLinkModelListFloating.Add(tvItemModelInfrastructureTypeTVItemLinkModel);
+        }
+    }
+}
+
+@functions {
+    private void next(TVItemModelInfrastructureTypeTVItemLinkModel tvItemModelInfrastructureTypeTVItemLinkModel, List<TVItemModelInfrastructureTypeTVItemLinkModel> tvItemModelInfrastructureTypeTVItemLinkModelList, List<TVItemModelInfrastructureTypeTVItemLinkModel> tvItemModelInfrastructureTypeTVItemLinkModelListDone)
+    {
+        if (!tvItemModelInfrastructureTypeTVItemLinkModelListDone.Contains(tvItemModelInfrastructureTypeTVItemLinkModel))
+        {
+            tvItemModelInfrastructureTypeTVItemLinkModelListDone.Add(tvItemModelInfrastructureTypeTVItemLinkModel);
+        }
+        foreach (TVItemModelInfrastructureTypeTVItemLinkModel tvItemModelInfrastructureTypeTVItemLinkModelNext in tvItemModelInfrastructureTypeTVItemLinkModelList.Where(c => c.FlowTo == tvItemModelInfrastructureTypeTVItemLinkModel).ToList())
+        {
+            next(tvItemModelInfrastructureTypeTVItemLinkModelNext, tvItemModelInfrastructureTypeTVItemLinkModelList, tvItemModelInfrastructureTypeTVItemLinkModelListDone);
+        }
+    }
 }
 <div id="InfrastructureTopDiv">
     @if (tvItemModelInfrastructureTypeTVItemLinkModelList.Count == 0)
@@ -37,7 +67,12 @@
         </div>
         foreach (TVItemModelInfrastructureTypeTVItemLinkModel tvItemModelInfrastructureTypeTVItemLinkModel in tvItemModelInfrastructureTypeTVItemLinkModelList.Where(c => c.InfrastructureType != InfrastructureTypeEnum.Other && c.InfrastructureType != InfrastructureTypeEnum.SeeOtherMunicipality && c.TVItemModelLinkList.Count == 0))
         {
-            @Html.Action("_infrastructureItem", "Infrastructure", new { Q = urlModel.Q, TVItemID = tvItemModelInfrastructureTypeTVItemLinkModel.TVItemModel.TVItemID, TVItemModelInfrastructureTypeTVItemLinkModelList = tvItemModelInfrastructureTypeTVItemLinkModelList })
+            @InfrastructureItem(tvAuth, IsShowMap, IsShowMoreInfo, infrastructureController, tvItemModelInfrastructureTypeTVItemLinkModel, urlModel, tvItemModelInfrastructureTypeTVItemLinkModelList, true)
+        }
+
+        foreach (TVItemModelInfrastructureTypeTVItemLinkModel tvItemModelInfrastructureTypeTVItemLinkModel in tvItemModelInfrastructureTypeTVItemLinkModelListFloating)
+        {
+            @InfrastructureItem(tvAuth, IsShowMap, IsShowMoreInfo, infrastructureController, tvItemModelInfrastructureTypeTVItemLinkModel, urlModel, tvItemModelInfrastructureTypeTVItemLinkModelListFloating, false)
         }
 
         if (tvItemModelInfrastructureTypeTVItemLinkModelList.Where(c => c.InfrastructureType == InfrastructureTypeEnum.Other).ToList().Count > 0)
@@ -46,7 +81,7 @@
                 <h4>@InfrastructureViewRes.Others</h4>
                 @foreach (TVItemModelInfrastructureTypeTVItemLinkModel tvItemModelInfrastructureTypeTVItemLinkModel in tvItemModelInfrastructureTypeTVItemLinkModelList.Where(c => c.InfrastructureType == InfrastructureTypeEnum.Other))
                 {
-                    @Html.Action("_infrastructureItem", "Infrastructure", new { Q = urlModel.Q, TVItemID = tvItemModelInfrastructureTypeTVItemLinkModel.TVItemModel.TVItemID, TVItemModelInfrastructureTypeTVItemLinkModelList = tvItemModelInfrastructureTypeTVItemLinkModelList })
+                    @InfrastructureItem(tvAuth, IsShowMap, IsShowMoreInfo, infrastructureController, tvItemModelInfrastructureTypeTVItemLinkModel, urlModel, tvItemModelInfrastructureTypeTVItemLinkModelList, true)
                 }
             </div>
         }
@@ -57,10 +92,122 @@
                 {
                     if (tvItemModelInfrastructureTypeTVItemLinkModel.SeeOtherMunicipalityTVItemID != null)
                     {
-                        @Html.Action("_infrastructureItem", "Infrastructure", new { Q = urlModel.Q, TVItemID = tvItemModelInfrastructureTypeTVItemLinkModel.TVItemModel.TVItemID, TVItemModelInfrastructureTypeTVItemLinkModelList = tvItemModelInfrastructureTypeTVItemLinkModelList })
+                        @InfrastructureItem(tvAuth, IsShowMap, IsShowMoreInfo, infrastructureController, tvItemModelInfrastructureTypeTVItemLinkModel, urlModel, tvItemModelInfrastructureTypeTVItemLinkModelList, true)
                     }
                 }
             </div>
         }
     }
 </div>
+
+@helper  InfrastructureItem(TVAuthEnum tvAuth, bool IsShowMap, bool IsShowMoreInfo, InfrastructureController infrastructureController, TVItemModelInfrastructureTypeTVItemLinkModel tvItemModelInfrastructureTypeTVItemLinkModel, URLModel urlModel, List<TVItemModelInfrastructureTypeTVItemLinkModel> tvItemModelInfrastructureTypeTVItemLinkModelList, bool DoNext)
+{
+
+    string BorderColor = "";
+    bool HasOtherThanOutfall = false;
+
+    if (tvItemModelInfrastructureTypeTVItemLinkModel.TVItemModelLinkList.Count > 0)
+    {
+        foreach (TVItemLinkModel tvItemLinkModel in tvItemModelInfrastructureTypeTVItemLinkModel.TVItemModelLinkList)
+        {
+            if (tvItemModelInfrastructureTypeTVItemLinkModel.InfrastructureType != InfrastructureTypeEnum.WWTP)
+            {
+                HasOtherThanOutfall = true;
+            }
+        }
+    }
+    switch (tvItemModelInfrastructureTypeTVItemLinkModel.InfrastructureType)
+    {
+        case InfrastructureTypeEnum.LiftStation:
+            BorderColor = "BorderLiftStation";
+            break;
+        case InfrastructureTypeEnum.Other:
+            BorderColor = "BorderOtherInfrastructure";
+            break;
+        case InfrastructureTypeEnum.LineOverflow:
+            BorderColor = "BorderLineOverflow";
+            break;
+        case InfrastructureTypeEnum.WWTP:
+            BorderColor = "BorderWWTP";
+            break;
+        default:
+            break;
+    }
+
+    <ul class="list-unstyled blockMargin">
+        <li class="BorderType">
+            <ul class="InfrastructureItem @BorderColor  list-unstyled" data-infrastructuretvitemid="@tvItemModelInfrastructureTypeTVItemLinkModel.TVItemModel.TVItemID">
+                <li>
+                    <ul class="list-inline">
+                        @if (HasOtherThanOutfall)
+                        {
+                            <li class="glyphicon glyphicon-open" title="@InfrastructureViewRes.FlowsOrPumpsInto" style="vertical-align:top;"></li>
+                        }
+                        <li class="InfrastructureEditButtons hidden" style="vertical-align:top;">
+                            <div>
+                                @if (tvAuth >= TVAuthEnum.Write)
+                                {
+                                    <button class="jbInfrastructureShowHideModify btn btn-default" title="@InfrastructureViewRes.Edit"><span class="glyphicon glyphicon-pencil"></span></button>
+                                    if (tvItemModelInfrastructureTypeTVItemLinkModel.SeeOtherMunicipalityTVItemID == null)
+                                    {
+                                        <button class="jbInfrastructureMoveStart btn btn-default" title="@InfrastructureViewRes.StartMove"><span class="glyphicon glyphicon-move"></span></button>
+                                        <button class="jbInfrastructureMoveTo btn btn-default hidden" title="@InfrastructureViewRes.MoveBelow"><span class="glyphicon glyphicon-hand-right"></span></button>
+                                        <button class="jbInfrastructureMoveCancel btn btn-default hidden" title="@InfrastructureViewRes.CancelMove"><span class="glyphicon glyphicon-stop"></span></button>
+                                        <button class="jbInfrastructureMoveToTop btn btn-default" title="@InfrastructureViewRes.MoveToTop"><span class="glyphicon glyphicon-arrow-up"></span></button>
+                                    }
+                                }
+                                @if (tvAuth >= TVAuthEnum.Delete)
+                                {
+                                    <button class="jbInfrastructureDelete btn btn-default" title="@InfrastructureViewRes.Delete"><span class="glyphicon glyphicon-trash"></span></button>
+                                }
+                            </div>
+                        </li>
+                        @if (IsShowMap)
+                        {
+                            <li data-tvitemid="@tvItemModelInfrastructureTypeTVItemLinkModel.TVItemModel.TVItemID">
+                                <button class="jbMapShowItem btn btn-default" title="@InfrastructureViewRes.ShowMapItem" data-tvitemid="@tvItemModelInfrastructureTypeTVItemLinkModel.TVItemModel.TVItemID">
+                                    <span class="glyphicon glyphicon-map-marker"></span>
+                                </button>
+                            </li>
+                        }
+                        @if (tvItemModelInfrastructureTypeTVItemLinkModel.SeeOtherMunicipalityTVItemID != null)
+                        {
+                            <li>
+                                <a class="btn btn-default" role="button" href="@infrastructureController.CreateHashURL((int)tvItemModelInfrastructureTypeTVItemLinkModel.SeeOtherMunicipalityTVItemID)">
+                                    @tvItemModelInfrastructureTypeTVItemLinkModel.TVItemModel.TVText
+                                </a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li>
+                                <div class="LastUpdateAndTVText" data-table="TVItemLanguage" data-id="@tvItemModelInfrastructureTypeTVItemLinkModel.TVItemModel.TVItemID"></div>
+                                <a href="@infrastructureController.CreateHashURL(tvItemModelInfrastructureTypeTVItemLinkModel.TVItemModel.TVItemID)">
+                                    <span class="TVTextA">@tvItemModelInfrastructureTypeTVItemLinkModel.TVItemModel.TVText</span>
+                                </a>
+
+                            </li>
+                        }
+                    </ul>
+                    <ul class="list-unstyled paraBlock">
+                        <li>
+                            @if (IsShowMoreInfo)
+                            {
+                                @Html.Action("_TVItemMoreInfo", "TVItem", new { Q = urlModel.Q, TVItemID = tvItemModelInfrastructureTypeTVItemLinkModel.TVItemModel.TVItemID, NumberOfSample = 0 })
+                            }
+                        </li>
+                    </ul>
+
+                    <div class="InfrastructureAddOrModify paraBlock blockMargin"></div>
+                </li>
+            </ul>
+            @if (DoNext)
+            {
+                foreach (TVItemModelInfrastructureTypeTVItemLinkModel tvItemModelInfrastructureTypeTVItemLinkModelNext in tvItemModelInfrastructureTypeTVItemLinkModelList.Where(c => c.FlowTo == tvItemModelInfrastructureTypeTVItemLinkModel).ToList())
+                {
+                    @InfrastructureItem(tvAuth, IsShowMap, IsShowMoreInfo, infrastructureController, tvItemModelInfrastructureTypeTVItemLinkModelNext, urlModel, tvItemModelInfrastructureTypeTVItemLinkModelList, true)
+                }
+            }
+        </li>
+    </ul>
+}

@@ -845,7 +845,6 @@
     <Content Include="Views\Address\_CountryList.cshtml" />
     <Content Include="Views\Address\_ProvinceList.cshtml" />
     <Content Include="Views\Address\_MunicipalityList.cshtml" />
-    <Content Include="Views\Infrastructure\_infrastructureItem.cshtml" />
     <Content Include="Views\Infrastructure\_infrastructureAddOrModify.cshtml" />
     <Content Include="Views\Base\_GetLastUpdateAndTVText.cshtml" />
     <Content Include="Views\TVItem\_MovingTVItem.cshtml" />
