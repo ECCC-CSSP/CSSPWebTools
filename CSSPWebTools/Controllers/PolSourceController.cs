@@ -508,6 +508,36 @@ namespace CSSPWebTools.Controllers
         }
         [HttpPost]
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public JsonResult CreateOrModifyInfrastructureJSON(int MunicipalityTVItemID, int TVItemID, string TVText,
+            float? Lat, float? Lng, float? LatOutfall, float? LngOutfall, string CommentEN, string CommentFR, InfrastructureTypeEnum? InfrastructureType,
+            FacilityTypeEnum? FacilityType, bool? IsMechanicallyAerated, int? NumberOfCells, int? NumberOfAeratedCells, AerationTypeEnum? AerationType,
+            PreliminaryTreatmentTypeEnum? PreliminaryTreatmentType, PrimaryTreatmentTypeEnum? PrimaryTreatmentType,
+            SecondaryTreatmentTypeEnum? SecondaryTreatmentType, TertiaryTreatmentTypeEnum? TertiaryTreatmentType,
+            DisinfectionTypeEnum? DisinfectionType, CollectionSystemTypeEnum? CollectionSystemType, AlarmSystemTypeEnum? AlarmSystemType,
+            float? DesignFlow_m3_day, float? AverageFlow_m3_day, float? PeakFlow_m3_day, int? PopServed, bool? CanOverflow,
+            float? PercFlowOfTotal, float? AverageDepth_m, int? NumberOfPorts,
+            float? PortDiameter_m, float? PortSpacing_m, float? PortElevation_m, float? VerticalAngle_deg, float? HorizontalAngle_deg,
+            float? DecayRate_per_day, float? NearFieldVelocity_m_s, float? FarFieldVelocity_m_s, float? ReceivingWaterSalinity_PSU,
+            float? ReceivingWaterTemperature_C, int? ReceivingWater_MPN_per_100ml, float? DistanceFromShore_m,
+            int? SeeOtherMunicipalityTVItemID, string SeeOtherMunicipalityText, int? PumpsToTVItemID, string AdminEmail)
+        {
+            TVItemModel tvItemModel = _PolSourceSiteInputToolService.CreateOrModifyInfrastructureDB(MunicipalityTVItemID, TVItemID, TVText,
+                    Lat, Lng, LatOutfall, LngOutfall, CommentEN, CommentFR, InfrastructureType, FacilityType,
+                    IsMechanicallyAerated, NumberOfCells, NumberOfAeratedCells, AerationType,
+                    PreliminaryTreatmentType, PrimaryTreatmentType,
+                    SecondaryTreatmentType, TertiaryTreatmentType,
+                    DisinfectionType, CollectionSystemType, AlarmSystemType,
+                    DesignFlow_m3_day, AverageFlow_m3_day, PeakFlow_m3_day, PopServed, CanOverflow,
+                    PercFlowOfTotal, AverageDepth_m, NumberOfPorts,
+                    PortDiameter_m, PortSpacing_m, PortElevation_m, VerticalAngle_deg, HorizontalAngle_deg,
+                    DecayRate_per_day, NearFieldVelocity_m_s, FarFieldVelocity_m_s, ReceivingWaterSalinity_PSU,
+                    ReceivingWaterTemperature_C, ReceivingWater_MPN_per_100ml, DistanceFromShore_m,
+                    SeeOtherMunicipalityTVItemID, SeeOtherMunicipalityText, PumpsToTVItemID, AdminEmail);
+
+            return Json(tvItemModel.Error, JsonRequestBehavior.AllowGet);
+        }
+        [HttpPost]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
         public JsonResult CreateNewPollutionSourceSiteJSON(int SubsectorTVItemID, int TVItemID, string TVText, int SiteNumber, float Lat, float Lng, string AdminEmail)
         {
             TVItemModel tvItemModel = _PolSourceSiteInputToolService.CreateNewPollutionSourceSiteDB(SubsectorTVItemID, TVItemID, TVText, SiteNumber, Lat, Lng, AdminEmail);
@@ -516,17 +546,17 @@ namespace CSSPWebTools.Controllers
         }
         [HttpPost]
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
-        public JsonResult SavePSSAddressJSON(int ProvinceTVItemID, int TVItemID, string StreetNumber, string StreetName, int StreetType, string Municipality, string PostalCode, bool CreateMunicipality, string AdminEmail)
+        public JsonResult SavePSSOrInfrastructureAddressJSON(int ProvinceTVItemID, int TVItemID, string StreetNumber, string StreetName, int StreetType, string Municipality, string PostalCode, bool CreateMunicipality, bool IsPSS, bool IsInfrastructure, string AdminEmail)
         {
-            TVItemModel tvItemModel = _PolSourceSiteInputToolService.SavePSSAddressDB(ProvinceTVItemID, TVItemID, StreetNumber, StreetName, StreetType, Municipality, PostalCode, CreateMunicipality, AdminEmail);
+            TVItemModel tvItemModel = _PolSourceSiteInputToolService.SavePSSOrInfrastructureAddressDB(ProvinceTVItemID, TVItemID, StreetNumber, StreetName, StreetType, Municipality, PostalCode, CreateMunicipality, IsPSS, IsInfrastructure, AdminEmail);
 
             return Json(tvItemModel.Error, JsonRequestBehavior.AllowGet);
         }
         [HttpPost]
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
-        public JsonResult SavePSSLatLngJSON(int TVItemID, float Lat, float Lng, string AdminEmail)
+        public JsonResult SaveLatLngWithTVTypeJSON(int TVItemID, float Lat, float Lng, TVTypeEnum TVType, string AdminEmail)
         {
-            TVItemModel tvItemModel = _PolSourceSiteInputToolService.SavePSSLatLngDB(TVItemID, Lat, Lng, AdminEmail);
+            TVItemModel tvItemModel = _PolSourceSiteInputToolService.SaveLatLngWithTVTypeDB(TVItemID, Lat, Lng, TVType, AdminEmail);
 
             return Json(tvItemModel.Error, JsonRequestBehavior.AllowGet);
         }
@@ -543,6 +573,14 @@ namespace CSSPWebTools.Controllers
         public JsonResult MunicipalityExistJSON(int ProvinceTVItemID, string Municipality, string AdminEmail)
         {
             TVItemModel tvItemModel = _PolSourceSiteInputToolService.MunicipalityExistDB(ProvinceTVItemID, Municipality, AdminEmail);
+
+            return Json(tvItemModel.Error, JsonRequestBehavior.AllowGet);
+        }
+        [HttpPost]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public JsonResult InfrastructureExistJSON(int TVItemID, string AdminEmail)
+        {
+            TVItemModel tvItemModel = _PolSourceSiteInputToolService.InfrastructureExistDB(TVItemID, AdminEmail);
 
             return Json(tvItemModel.Error, JsonRequestBehavior.AllowGet);
         }
