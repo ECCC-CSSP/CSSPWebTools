@@ -27,6 +27,7 @@
         </li>
         <li>
             <button class="jbHydrometricSitesFindWithinDistance btn btn-default">@HydrometricSiteViewRes.Find</button>
+            <button class="jbHelpDocShowDialog btn btn-link" data-dockey="hydrometricsitesfind" data-title="@HydrometricSiteViewRes.Find"><span class="glyphicon glyphicon-info-sign"></span></button>
         </li>
     </ul>
     <ul class="ClickGlobeToViewOnMap list-inline hidden">
@@ -34,7 +35,12 @@
             @HydrometricSiteViewRes.ClickOnGlobeIconToViewOnMap
         </li>
     </ul>
-    <h3>@HydrometricSiteViewRes.HydrometricSitesUsedAndWithinDistance <button class="jbHydrometricSitesShowOnMap btn btn-default hidden">@HydrometricSiteViewRes.ShowHydrometricSitesOnMap</button></h3>
+    <h3>
+        @HydrometricSiteViewRes.HydrometricSitesUsedAndWithinDistance <button class="jbHydrometricSitesShowOnMap btn btn-default hidden">
+            @HydrometricSiteViewRes.ShowHydrometricSitesOnMap
+        </button>
+        <button class="jbHelpDocShowDialog btn btn-link" data-dockey="hydrometricsitesuseandwithindistance" data-title="@HydrometricSiteViewRes.HydrometricSitesUsedAndWithinDistance"><span class="glyphicon glyphicon-info-sign"></span></button>
+    </h3>
     <div class="HydrometricSitesUsedAndWithinDistanceDiv">
         @{
             int HydrometricSiteCount = 99;
@@ -92,6 +98,7 @@
     <div>
         <br />
         <button class="jbHydrometricSitesToUseForSubsectorVerifyAndSave btn btn-default">@HydrometricSiteViewRes.HydrometricSitesToUseForSubsectorVerifyAndSave</button>
+        <button class="jbHelpDocShowDialog btn btn-link" data-dockey="hydrometricsitesuseforsubsectorverifyandsave" data-title="@HydrometricSiteViewRes.HydrometricSitesToUseForSubsectorVerifyAndSave"><span class="glyphicon glyphicon-info-sign"></span></button>
     </div>
 </div>
 

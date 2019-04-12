@@ -37,7 +37,10 @@
 
 <div class="ClimateSitePrioritiesTabDiv">
     <div>
-        <h4>@ClimateSiteViewRes.SettingClimateSitePriorities</h4>
+        <h4>
+            @ClimateSiteViewRes.SettingClimateSitePriorities
+            <button class="jbHelpDocShowDialog btn btn-link" data-dockey="climatesitessettingclimatesitepriorities" data-title="@ClimateSiteViewRes.SettingClimateSitePriorities"><span class="glyphicon glyphicon-info-sign"></span></button>
+        </h4>
     </div>
     <table class="table table-bordered">
         <tr>
@@ -52,12 +55,12 @@
             @for (int i = SmallestYearOfSampling; i <= CurrentYear; i++)
             {
                 <th class="ClimateSiteStatus">
-                    <span class="@(runYears.Contains(i) 
-                    ? (runYearsHasClimateSites[i-SmallestYearOfSampling] == true 
-                    ? "glyphicon glyphicon-ok text-success" 
-                    : "glyphicon glyphicon-ok text-danger") 
+                    <span class="@(runYears.Contains(i)
+                    ? (runYearsHasClimateSites[i-SmallestYearOfSampling] == true
+                    ? "glyphicon glyphicon-ok text-success"
+                    : "glyphicon glyphicon-ok text-danger")
                     : "")"></span>
-            </th>
+                </th>
             }
         </tr>
         @for (int i = 0, count = climateSiteUseOfSiteModelList.Count(); i < count; i++)
@@ -115,11 +118,13 @@
                     }
                 }
             </tr>
-                    }
+        }
     </table>
     <div>
         <button class="jbClimateSitePrioritiesSetPriorityByDistance btn btn-button">@ClimateSiteViewRes.SetClimateSitePriorityByDistance</button>
+        <button class="jbHelpDocShowDialog btn btn-link" data-dockey="climatesitessetclimatesiteprioritybydistance" data-title="@ClimateSiteViewRes.SetClimateSitePriorityByDistance"><span class="glyphicon glyphicon-info-sign"></span></button>
         <button class="jbClimateSitePrioritiesSave btn btn-button">@ClimateSiteViewRes.SaveClimateSitePriorities</button>
+        <button class="jbHelpDocShowDialog btn btn-link" data-dockey="climatesitessaveclimatesitepriorities" data-title="@ClimateSiteViewRes.SaveClimateSitePriorities"><span class="glyphicon glyphicon-info-sign"></span></button>
     </div>
 
 </div>

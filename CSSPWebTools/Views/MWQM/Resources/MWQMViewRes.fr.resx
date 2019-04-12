@@ -840,4 +840,7 @@
   <data name="UseForOpenData" xml:space="preserve">
     <value>Use for open data (fr)</value>
   </data>
+  <data name="Analysis" xml:space="preserve">
+    <value>Analyses</value>
+  </data>
 </root>

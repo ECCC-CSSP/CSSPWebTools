@@ -40,14 +40,20 @@
                             <label class="h4">@PolSourceViewRes.Location</label>
                             <div class="form-inline elementSpacing">
                                 <div class="form-group">
-                                    <label class="control-label">@PolSourceViewRes.Latitude :</label>
+                                    <label class="control-label">
+                                        @PolSourceViewRes.Latitude :
+                                        <button class="jbHelpDocShowDialog btn btn-link" data-dockey="pollutionsourcesitelatitude" data-title="@PolSourceViewRes.Latitude"><span class="glyphicon glyphicon-info-sign"></span></button>
+                                    </label>
                                     <div>
                                         <input class="isnumber form-control" type="text" name="Lat" value="@(mapInfoPointModel == null ? "" : mapInfoPointModel.Lat.ToString("F5"))" />
                                         <span class="help-block"></span>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label">@PolSourceViewRes.Longitude :</label>
+                                    <label class="control-label">
+                                        @PolSourceViewRes.Longitude :
+                                        <button class="jbHelpDocShowDialog btn btn-link" data-dockey="pollutionsourcesitelongitude" data-title="@PolSourceViewRes.Longitude"><span class="glyphicon glyphicon-info-sign"></span></button>
+                                    </label>
                                     <div>
                                         <input class="isnumber form-control" type="text" name="Lng" value="@(mapInfoPointModel == null ? "" : mapInfoPointModel.Lng.ToString("F5"))" />
                                         <span class="help-block"></span>
@@ -61,12 +67,14 @@
                                         <label class="control-label">
                                             <input type="checkbox" class="checkbox" name="IsActive" @((tvItemModel == null || tvItemModel.IsActive) == false ? "" : "checked=\"checked\"") />
                                             @PolSourceViewRes.IsActive
+                                            <button class="jbHelpDocShowDialog btn btn-link" data-dockey="pollutionsourcesiteisactive" data-title="@PolSourceViewRes.IsActive"><span class="glyphicon glyphicon-info-sign"></span></button>
                                         </label>
                                     </div>
                                     <div class="checkbox-inline">
                                         <label class="control-label">
                                             <input type="checkbox" class="checkbox" name="IsPointSource" @((polSourceSiteModel == null || polSourceSiteModel.IsPointSource) == false ? "" : "checked=\"checked\"") />
                                             @PolSourceViewRes.IsPointSource
+                                            <button class="jbHelpDocShowDialog btn btn-link" data-dockey="pollutionsourcesiteispointsource" data-title="@PolSourceViewRes.IsPointSource"><span class="glyphicon glyphicon-info-sign"></span></button>
                                         </label>
                                     </div>
                                 </div>
@@ -75,10 +83,8 @@
                             <div class="Inactive @((tvItemModel == null || tvItemModel.IsActive) == false ? "" : "hidden")">
                                 <label class="h4">
                                     @PolSourceViewRes.InactiveReason
+                                    <button class="jbHelpDocShowDialog btn btn-link" data-dockey="pollutionsourcesiteinactivereason" data-title="@PolSourceViewRes.InactiveReason"><span class="glyphicon glyphicon-info-sign"></span></button>
                                 </label>
-                                <a href="" class="jaPopover text-info elementSpacing" type="button" tabindex="1" data-trigger="focus" data-container="body" data-toggle="popover" data-placement="right" data-content="@PolSourceViewRes.ToChangeExistingObsInsertSameDateAsObsDate">
-                                    <span class="glyphicon glyphicon-info-sign"></span>
-                                </a>
                                 <div class="elementSpacing">
                                     @foreach (PolSourceInactiveReasonEnumTextAndID polSourceInactiveReasonEnumTextAndID in polSourceInactiveReasonEnumTextAndIDList)
                                     {

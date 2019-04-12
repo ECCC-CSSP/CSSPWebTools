@@ -3,7 +3,9 @@
 @using CSSPModelsDLL.Models;
 
 @{
-    VPFullModel vpFullModel = (VPFullModel)ViewBag.VPFullModel;
+                /**/
+
+                VPFullModel vpFullModel = (VPFullModel)ViewBag.VPFullModel;
 
 }
 
@@ -29,7 +31,7 @@
                 <h4 class="panel-title">
                     <a data-toggle="collapse" data-parent="#accordion" href="#collapse_@i" aria-expanded="false"
                        aria-controls="collapse_@i">
-                        @VisualPlumeViewRes.AmbientInformation: 
+                        @VisualPlumeViewRes.AmbientInformation:
                         @if (vpFullModel.AmbientList[i - 1].MeasurementDepth_m > -998)
                         {
                             <b class="text-lowercase">@VisualPlumeViewRes.AtDepth @(vpFullModel.AmbientList[i - 1].MeasurementDepth_m) @UnitViewRes.Meters_abbr</b>
@@ -43,170 +45,190 @@
             </div>
             <div id="collapse_@i" class="panel-collapse collapse" role="tabpanel" aria-labelledby="Ambient_@i">
                 <div class="panel-body">
-
                     <div class="form-group">
-                        <label for="@MD" class="control-label h4 ">
-
-                            <span class="text-capitalize">@VisualPlumeViewRes.Depth
-                              
-                            </span>&nbsp;&nbsp;(@UnitViewRes.Meters_abbr)
-
-
+                        <label for="@MD" class="control-label">
+                            @VisualPlumeViewRes.DepthCap (@UnitViewRes.Meters_abbr)
+                            <button class="jbHelpDocShowDialog btn btn-link" data-dockey="visualplumesambientdepth_m" data-title="@VisualPlumeViewRes.Depth"><span class="glyphicon glyphicon-info-sign"></span></button>
                         </label>
-                        <div>
-                            @if (vpFullModel.AmbientList[i - 1].MeasurementDepth_m > -998)
-                            {
-                                <input id="@MD" class="isnumber form-control text-primary" type="text" name="@MD" value="@(string.Format("{0:F3}", vpFullModel.AmbientList[i - 1].MeasurementDepth_m))" />
-                                <span class="help-block"></span>
-                            }
-                            else
-                            {
-                                <input id="@MD" class="isnumber form-control text-primary" type="text" name="@MD" value="" />
-                                <span class="help-block"></span>
-                            }
-                        </div>
+                    <div>
+                        @if (vpFullModel.AmbientList[i - 1].MeasurementDepth_m > -998)
+                        {
+                            <input id="@MD" class="isnumber form-control text-primary" type="text" name="@MD" value="@(string.Format("{0:F3}", vpFullModel.AmbientList[i - 1].MeasurementDepth_m))" />
+                            <span class="help-block"></span>
+                        }
+                        else
+                        {
+                            <input id="@MD" class="isnumber form-control text-primary" type="text" name="@MD" value="" />
+                            <span class="help-block"></span>
+                        }
                     </div>
-                    <div class="form-group">
-                        <label for="@CS" class="control-label">@VisualPlumeViewRes.CurrentSpeed (@UnitViewRes.MetersPerSecond_abbr)</label>
-                        <div>
-                            @if (vpFullModel.AmbientList[i - 1].CurrentSpeed_m_s > -998)
-                            {
-                                <input id="@CS" class="isnumber form-control" type="text" name="@CS" value="@(string.Format("{0:F6}", vpFullModel.AmbientList[i - 1].CurrentSpeed_m_s))" />
-                                <span class="help-block"></span>
-                            }
-                            else
-                            {
-                                <input id="@CS" class="isnumber form-control" type="text" name="@CS" value="" />
-                                <span class="help-block"></span>
-                            }
-                        </div>
+                </div>
+                <div class="form-group">
+                    <label for="@CS" class="control-label">
+                        @VisualPlumeViewRes.CurrentSpeed (@UnitViewRes.MetersPerSecond_abbr)
+                        <button class="jbHelpDocShowDialog btn btn-link" data-dockey="visualplumesambientcurrentspeed_m_s" data-title="@VisualPlumeViewRes.CurrentSpeed"><span class="glyphicon glyphicon-info-sign"></span></button>
+                    </label>
+                    <div>
+                        @if (vpFullModel.AmbientList[i - 1].CurrentSpeed_m_s > -998)
+                        {
+                            <input id="@CS" class="isnumber form-control" type="text" name="@CS" value="@(string.Format("{0:F6}", vpFullModel.AmbientList[i - 1].CurrentSpeed_m_s))" />
+                            <span class="help-block"></span>
+                        }
+                        else
+                        {
+                            <input id="@CS" class="isnumber form-control" type="text" name="@CS" value="" />
+                            <span class="help-block"></span>
+                        }
                     </div>
-                    <div class="form-group">
-                        <label for="@CD" class="control-label">@VisualPlumeViewRes.CurrentDirection (@UnitViewRes.Degrees_abbr)</label>
-                        <div>
-                            @if (vpFullModel.AmbientList[i - 1].CurrentDirection_deg > -998)
-                            {
-                                <input id="@CD" class="isnumber form-control" type="text" name="@CD" value="@(string.Format("{0:F1}", vpFullModel.AmbientList[i - 1].CurrentDirection_deg))" />
-                                <span class="help-block"></span>
-                            }
-                            else
-                            {
-                                <input id="@CD" class="isnumber form-control" type="text" name="@CD" value="" />
-                                <span class="help-block"></span>
-                            }
-                        </div>
+                </div>
+                <div class="form-group">
+                    <label for="@CD" class="control-label">
+                        @VisualPlumeViewRes.CurrentDirection (@UnitViewRes.Degrees_abbr)
+                        <button class="jbHelpDocShowDialog btn btn-link" data-dockey="visualplumesambientcurrentdirection_deg" data-title="@VisualPlumeViewRes.CurrentDirection"><span class="glyphicon glyphicon-info-sign"></span></button>
+                    </label>
+                    <div>
+                        @if (vpFullModel.AmbientList[i - 1].CurrentDirection_deg > -998)
+                        {
+                            <input id="@CD" class="isnumber form-control" type="text" name="@CD" value="@(string.Format("{0:F1}", vpFullModel.AmbientList[i - 1].CurrentDirection_deg))" />
+                            <span class="help-block"></span>
+                        }
+                        else
+                        {
+                            <input id="@CD" class="isnumber form-control" type="text" name="@CD" value="" />
+                            <span class="help-block"></span>
+                        }
                     </div>
-                    <div class="form-group">
-                        <label for="@AS" class="control-label">@VisualPlumeViewRes.AmbientSalinity (@UnitViewRes.PSU)</label>
-                        <div>
-                            @if (vpFullModel.AmbientList[i - 1].AmbientSalinity_PSU > -998)
-                            {
-                                <input id="@AS" class="isnumber form-control" type="text" name="@AS" value="@(string.Format("{0:F1}", vpFullModel.AmbientList[i - 1].AmbientSalinity_PSU))" />
-                                <span class="help-block"></span>
-                            }
-                            else
-                            {
-                                <input id="@AS" class="isnumber form-control" type="text" name="@AS" value="" />
-                                <span class="help-block"></span>
-                            }
-                        </div>
+                </div>
+                <div class="form-group">
+                    <label for="@AS" class="control-label">
+                        @VisualPlumeViewRes.AmbientSalinity (@UnitViewRes.PSU)
+                        <button class="jbHelpDocShowDialog btn btn-link" data-dockey="visualplumesambientambientsalinity_psu" data-title="@VisualPlumeViewRes.AmbientSalinity"><span class="glyphicon glyphicon-info-sign"></span></button>
+                    </label>
+                    <div>
+                        @if (vpFullModel.AmbientList[i - 1].AmbientSalinity_PSU > -998)
+                        {
+                            <input id="@AS" class="isnumber form-control" type="text" name="@AS" value="@(string.Format("{0:F1}", vpFullModel.AmbientList[i - 1].AmbientSalinity_PSU))" />
+                            <span class="help-block"></span>
+                        }
+                        else
+                        {
+                            <input id="@AS" class="isnumber form-control" type="text" name="@AS" value="" />
+                            <span class="help-block"></span>
+                        }
                     </div>
-                    <div class="form-group">
-                        <label for="@AT" class="control-label">@VisualPlumeViewRes.AmbientTemperature (@UnitViewRes.Celcius_abbr)</label>
-                        <div>
-                            @if (vpFullModel.AmbientList[i - 1].AmbientTemperature_C > -998)
-                            {
-                                <input id="@AT" class="isnumber form-control" type="text" name="@AT" value="@(string.Format("{0:F1}", vpFullModel.AmbientList[i - 1].AmbientTemperature_C))" />
-                                <span class="help-block"></span>
-                            }
-                            else
-                            {
-                                <input id="@AT" class="isnumber form-control" type="text" name="@AT" value="" />
-                                <span class="help-block"></span>
-                            }
-                        </div>
+                </div>
+                <div class="form-group">
+                    <label for="@AT" class="control-label">
+                        @VisualPlumeViewRes.AmbientTemperature (@UnitViewRes.Celcius_abbr)
+                        <button class="jbHelpDocShowDialog btn btn-link" data-dockey="visualplumesambientambienttemperature_c" data-title="@VisualPlumeViewRes.AmbientTemperature"><span class="glyphicon glyphicon-info-sign"></span></button>
+                    </label>
+                    <div>
+                        @if (vpFullModel.AmbientList[i - 1].AmbientTemperature_C > -998)
+                        {
+                            <input id="@AT" class="isnumber form-control" type="text" name="@AT" value="@(string.Format("{0:F1}", vpFullModel.AmbientList[i - 1].AmbientTemperature_C))" />
+                            <span class="help-block"></span>
+                        }
+                        else
+                        {
+                            <input id="@AT" class="isnumber form-control" type="text" name="@AT" value="" />
+                            <span class="help-block"></span>
+                        }
                     </div>
-                    <div class="form-group">
-                        <label for="@BC" class="control-label">
-                            @VisualPlumeViewRes.BackgroundConcentration (@UnitViewRes.FCPer100ml)
-                        </label>
-                        <div>
-                            @if (vpFullModel.AmbientList[i - 1].BackgroundConcentration_MPN_100ml > -998)
-                            {
-                                <input id="@BC" class="isnumber form-control" type="text" name="@BC" value="@(string.Format("{0:F0}", vpFullModel.AmbientList[i - 1].BackgroundConcentration_MPN_100ml))" />
-                                <span class="help-block"></span>
-                            }
-                            else
-                            {
-                                <input id="@BC" class="isnumber form-control" type="text" name="@BC" value="" />
-                                <span class="help-block"></span>
-                            }
-                        </div>
+                </div>
+                <div class="form-group">
+                    <label for="@BC" class="control-label">
+                        @VisualPlumeViewRes.BackgroundConcentration (@UnitViewRes.FCPer100ml)
+                        <button class="jbHelpDocShowDialog btn btn-link" data-dockey="visualplumesambientbackgroundconcentration_mpn_fc_100ml" data-title="@VisualPlumeViewRes.BackgroundConcentration"><span class="glyphicon glyphicon-info-sign"></span></button>
+                    </label>
+                    <div>
+                        @if (vpFullModel.AmbientList[i - 1].BackgroundConcentration_MPN_100ml > -998)
+                        {
+                            <input id="@BC" class="isnumber form-control" type="text" name="@BC" value="@(string.Format("{0:F0}", vpFullModel.AmbientList[i - 1].BackgroundConcentration_MPN_100ml))" />
+                            <span class="help-block"></span>
+                        }
+                        else
+                        {
+                            <input id="@BC" class="isnumber form-control" type="text" name="@BC" value="" />
+                            <span class="help-block"></span>
+                        }
                     </div>
-                    <div class="form-group">
-                        <label for="@PD" class="control-label">@VisualPlumeViewRes.PollutantDecayRate (@UnitViewRes.PerDay)</label>
-                        <div>
-                            @if (vpFullModel.AmbientList[i - 1].PollutantDecayRate_per_day > -998)
-                            {
-                                <input id="@PD" class="isnumber form-control" type="text" name="@PD" value="@(string.Format("{0:F6}", vpFullModel.AmbientList[i - 1].PollutantDecayRate_per_day))" />
-                                <span class="help-block"></span>
-                            }
-                            else
-                            {
-                                <input id="@PD" class="isnumber form-control" type="text" name="@PD" value="" />
-                                <span class="help-block"></span>
-                            }
-                        </div>
+                </div>
+                <div class="form-group">
+                    <label for="@PD" class="control-label">
+                        @VisualPlumeViewRes.PollutantDecayRate (@UnitViewRes.PerDay)
+                        <button class="jbHelpDocShowDialog btn btn-link" data-dockey="visualplumesambientpollutantdecayrate_day" data-title="@VisualPlumeViewRes.PollutantDecayRate"><span class="glyphicon glyphicon-info-sign"></span></button>
+                    </label>
+                    <div>
+                        @if (vpFullModel.AmbientList[i - 1].PollutantDecayRate_per_day > -998)
+                        {
+                            <input id="@PD" class="isnumber form-control" type="text" name="@PD" value="@(string.Format("{0:F6}", vpFullModel.AmbientList[i - 1].PollutantDecayRate_per_day))" />
+                            <span class="help-block"></span>
+                        }
+                        else
+                        {
+                            <input id="@PD" class="isnumber form-control" type="text" name="@PD" value="" />
+                            <span class="help-block"></span>
+                        }
                     </div>
-                    <div class="form-group">
-                        <label for="@FFCS" class="control-label">@VisualPlumeViewRes.FarFieldCurrentSpeed (@UnitViewRes.MetersPerSecond_abbr)</label>
-                        <div>
-                            @if (vpFullModel.AmbientList[i - 1].FarFieldCurrentSpeed_m_s > -998)
-                            {
-                                <input id="@FFCS" class="isnumber form-control" type="text" name="@FFCS" value="@(string.Format("{0:F3}", vpFullModel.AmbientList[i - 1].FarFieldCurrentSpeed_m_s))" />
-                                <span class="help-block"></span>
-                            }
-                            else
-                            {
-                                <input id="@FFCS" class="isnumber form-control" type="text" name="@FFCS" value="" />
-                                <span class="help-block"></span>
-                            }
-                        </div>
+                </div>
+                <div class="form-group">
+                    <label for="@FFCS" class="control-label">
+                        @VisualPlumeViewRes.FarFieldCurrentSpeed (@UnitViewRes.MetersPerSecond_abbr)
+                        <button class="jbHelpDocShowDialog btn btn-link" data-dockey="visualplumesambientfarfieldcurrentspeed_m_s" data-title="@VisualPlumeViewRes.FarFieldCurrentSpeed"><span class="glyphicon glyphicon-info-sign"></span></button>
+                    </label>
+                    <div>
+                        @if (vpFullModel.AmbientList[i - 1].FarFieldCurrentSpeed_m_s > -998)
+                        {
+                            <input id="@FFCS" class="isnumber form-control" type="text" name="@FFCS" value="@(string.Format("{0:F3}", vpFullModel.AmbientList[i - 1].FarFieldCurrentSpeed_m_s))" />
+                            <span class="help-block"></span>
+                        }
+                        else
+                        {
+                            <input id="@FFCS" class="isnumber form-control" type="text" name="@FFCS" value="" />
+                            <span class="help-block"></span>
+                        }
                     </div>
-                    <div class="form-group">
-                        <label for="@FFCD" class="control-label ">@VisualPlumeViewRes.FarFieldCurrentDirection (@UnitViewRes.Degrees_abbr)</label>
-                        <div>
-                            @if (vpFullModel.AmbientList[i - 1].FarFieldCurrentDirection_deg > -998)
-                            {
-                                <input id="@FFCD" class="isnumber form-control" type="text" name="@FFCD" value="@(string.Format("{0:F1}", vpFullModel.AmbientList[i - 1].FarFieldCurrentDirection_deg))" />
-                                <span class="help-block"></span>
-                            }
-                            else
-                            {
-                                <input id="@FFCD" class="isnumber form-control" type="text" name="@FFCD" value="" />
-                                <span class="help-block"></span>
-                            }
-                        </div>
+                </div>
+                <div class="form-group">
+                    <label for="@FFCD" class="control-label">
+                        @VisualPlumeViewRes.FarFieldCurrentDirection (@UnitViewRes.Degrees_abbr)
+                        <button class="jbHelpDocShowDialog btn btn-link" data-dockey="visualplumesambientfarfieldcurrentdirection_deg" data-title="@VisualPlumeViewRes.FarFieldCurrentDirection"><span class="glyphicon glyphicon-info-sign"></span></button>
+                    </label>
+                    <div>
+                        @if (vpFullModel.AmbientList[i - 1].FarFieldCurrentDirection_deg > -998)
+                        {
+                            <input id="@FFCD" class="isnumber form-control" type="text" name="@FFCD" value="@(string.Format("{0:F1}", vpFullModel.AmbientList[i - 1].FarFieldCurrentDirection_deg))" />
+                            <span class="help-block"></span>
+                        }
+                        else
+                        {
+                            <input id="@FFCD" class="isnumber form-control" type="text" name="@FFCD" value="" />
+                            <span class="help-block"></span>
+                        }
                     </div>
-                    <div class="form-group ">
-                        <label for="@FFDC" class="control-label">@VisualPlumeViewRes.FarFieldDiffusionCoefficient (@Html.Raw(UnitViewRes.m067perS2))</label>
-                        <div>
-                            @if (vpFullModel.AmbientList[i - 1].FarFieldDiffusionCoefficient > -998)
-                            {
-                                <input id="@FFDC" class="isnumber form-control" type="text" name="@FFDC" value="@(string.Format("{0:F6}", vpFullModel.AmbientList[i - 1].FarFieldDiffusionCoefficient))" />
-                                <span class="help-block"></span>
-                            }
-                            else
-                            {
-                                <input id="@FFDC" class="isnumber form-control" type="text" name="@FFDC" value="" />
-                                <span class="help-block"></span>
-                            }
-                        </div>
+                </div>
+                <div class="form-group ">
+                    <label for="@FFDC" class="control-label">
+                        @VisualPlumeViewRes.FarFieldDiffusionCoefficient (@Html.Raw(UnitViewRes.m067perS2))
+                        <button class="jbHelpDocShowDialog btn btn-link" data-dockey="visualplumesambientfarfielddiffusioncoefficient_m067pers2" data-title="@VisualPlumeViewRes.FarFieldDiffusionCoefficient"><span class="glyphicon glyphicon-info-sign"></span></button>
+                    </label>
+                    <div>
+                        @if (vpFullModel.AmbientList[i - 1].FarFieldDiffusionCoefficient > -998)
+                        {
+                            <input id="@FFDC" class="isnumber form-control" type="text" name="@FFDC" value="@(string.Format("{0:F6}", vpFullModel.AmbientList[i - 1].FarFieldDiffusionCoefficient))" />
+                            <span class="help-block"></span>
+                        }
+                        else
+                        {
+                            <input id="@FFDC" class="isnumber form-control" type="text" name="@FFDC" value="" />
+                            <span class="help-block"></span>
+                        }
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 }
 
 <script type="text/javascript">

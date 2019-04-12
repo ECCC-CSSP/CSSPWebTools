@@ -23,6 +23,7 @@
                     <div class="QueryTool small">
                         <ul class="form-inline list-inline">
                             <li>
+                                <button class="jbHelpDocShowDialog btn btn-link" data-dockey="mwqmanalysis" data-title="@MWQMViewRes.MWQMSite  @MWQMViewRes.Analysis"><span class="glyphicon glyphicon-info-sign"></span></button>
                                 <select class="MWQMSubsectorAnalysisStartDate form-control" title="@MWQMViewRes.StartDate">
                                     @foreach (MWQMRunAnalysisModel mwqmRunAnalysisModel in mwqmSubsectorAnalysisModel.MWQMRunAnalysisModelList.OrderByDescending(c => c.DateTime_Local))
                                     {

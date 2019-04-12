@@ -329,4 +329,8 @@
     <value>inutilisé</value>
     <comment>VPSEA</comment>
   </data>
+  <data name="DepthCap" xml:space="preserve">
+    <value>Profondeur</value>
+    <comment>VPA  VPSEA</comment>
+  </data>
 </root>

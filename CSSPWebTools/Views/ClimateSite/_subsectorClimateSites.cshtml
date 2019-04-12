@@ -55,6 +55,7 @@
                     </li>
                     <li>
                         <button class="jbClimateSitesFindWithinDistance btn btn-default">@ClimateSiteViewRes.Find</button>
+                        <button class="jbHelpDocShowDialog btn btn-link" data-dockey="climatesitesfind" data-title="@ClimateSiteViewRes.Find"><span class="glyphicon glyphicon-info-sign"></span></button>
                     </li>
                 </ul>
                 <ul class="ClickGlobeToViewOnMap list-inline hidden">
@@ -62,7 +63,10 @@
                         @ClimateSiteViewRes.ClickOnGlobeIconToViewOnMap
                     </li>
                 </ul>
-                <h3>@ClimateSiteViewRes.ClimateSitesUsedAndWithinDistance <button class="jbClimateSitesShowOnMap btn btn-default hidden">@ClimateSiteViewRes.ShowClimateSitesOnMap</button></h3>
+                <h3>
+                    @ClimateSiteViewRes.ClimateSitesUsedAndWithinDistance <button class="jbClimateSitesShowOnMap btn btn-default hidden">@ClimateSiteViewRes.ShowClimateSitesOnMap</button>
+                    <button class="jbHelpDocShowDialog btn btn-link" data-dockey="climatesitesshowonmap" data-title="@ClimateSiteViewRes.ShowClimateSitesOnMap"><span class="glyphicon glyphicon-info-sign"></span></button>
+                </h3>
                 <div class="ClimateSitesUsedAndWithinDistanceDiv">
                     @{
                         int ClimateSiteCount = 99;
@@ -120,6 +124,7 @@
                 <div>
                     <br />
                     <button class="jbClimateSitesToUseForSubsectorVerifyAndSave btn btn-default">@ClimateSiteViewRes.ClimateSitesToUseForSubsectorVerifyAndSave</button>
+                    <button class="jbHelpDocShowDialog btn btn-link" data-dockey="climatesitessaveclimatesitetouse" data-title="@ClimateSiteViewRes.ClimateSitesToUseForSubsectorVerifyAndSave"><span class="glyphicon glyphicon-info-sign"></span></button>
                 </div>
             </div>
             <div role="tabpanel" class="tab-pane" id="ClimateSitesPriorities">

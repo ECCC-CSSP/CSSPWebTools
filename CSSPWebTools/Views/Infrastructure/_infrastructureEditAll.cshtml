@@ -12,24 +12,24 @@
     InfrastructureController infrastructureController = (InfrastructureController)ViewBag.InfrastructureController;
     BaseEnumService _BaseEnumService = new BaseEnumService(ViewBag.Language);
     List<SecondaryTreatmentTypeEnum> AttachedGrowthList = new List<SecondaryTreatmentTypeEnum>()
-    {
-    SecondaryTreatmentTypeEnum.RotatingBiologicalContactor,
-    SecondaryTreatmentTypeEnum.TricklingFilters,
-    SecondaryTreatmentTypeEnum.IntegratedFixedFilmActivatedSludge,
-    SecondaryTreatmentTypeEnum.MovingBedBioReactor,
-    SecondaryTreatmentTypeEnum.BiologicalAearatedFilters,
-    SecondaryTreatmentTypeEnum.AeratedSubmergedBioFilmReactor
-    };
+{
+SecondaryTreatmentTypeEnum.RotatingBiologicalContactor,
+SecondaryTreatmentTypeEnum.TricklingFilters,
+SecondaryTreatmentTypeEnum.IntegratedFixedFilmActivatedSludge,
+SecondaryTreatmentTypeEnum.MovingBedBioReactor,
+SecondaryTreatmentTypeEnum.BiologicalAearatedFilters,
+SecondaryTreatmentTypeEnum.AeratedSubmergedBioFilmReactor
+};
 
     List<SecondaryTreatmentTypeEnum> SuspendedGrowthList = new List<SecondaryTreatmentTypeEnum>()
-    {
-    SecondaryTreatmentTypeEnum.OxidationDitch,
-    SecondaryTreatmentTypeEnum.ActivatedSludge,
-    SecondaryTreatmentTypeEnum.ExtendedActivatedSludge,
-    SecondaryTreatmentTypeEnum.ExtendedAeration,
-    SecondaryTreatmentTypeEnum.ContactStabilization,
-    SecondaryTreatmentTypeEnum.PhysicalChemicalProcesses,
-    SecondaryTreatmentTypeEnum.SequencingBatchReator
+{
+SecondaryTreatmentTypeEnum.OxidationDitch,
+SecondaryTreatmentTypeEnum.ActivatedSludge,
+SecondaryTreatmentTypeEnum.ExtendedActivatedSludge,
+SecondaryTreatmentTypeEnum.ExtendedAeration,
+SecondaryTreatmentTypeEnum.ContactStabilization,
+SecondaryTreatmentTypeEnum.PhysicalChemicalProcesses,
+SecondaryTreatmentTypeEnum.SequencingBatchReator
 };
 }
 
@@ -154,7 +154,7 @@ else
                                             <span>
                                                 @for (int i = 1; i < 8; i++)
                                                 {
-                                                    <input type="radio" name="NumberOfCells" value="@i" @(infrastructureModel.NumberOfCells != null && infrastructureModel.NumberOfCells == i ? "checked=checked" : "") /><span>@i&nbsp;&nbsp;</span>                                                    
+                                                    <input type="radio" name="NumberOfCells" value="@i" @(infrastructureModel.NumberOfCells != null && infrastructureModel.NumberOfCells == i ? "checked=checked" : "") /><span>@i&nbsp;&nbsp;</span>
                                                 }
                                                 <span class="help-block"></span>
                                             </span>
@@ -776,6 +776,7 @@ else
                                     <li>
                                         <div class="form-group">
                                             <label for="AverageDepth_m" class="control-label">@InfrastructureViewRes.AverageDepth (@UnitViewRes.Meters_abbr)</label>
+                                            <button class="jbHelpDocShowDialog btn btn-link" data-dockey="averagedepth_m" data-title="@InfrastructureViewRes.AverageDepth"><span class="glyphicon glyphicon-info-sign"></span></button>
                                             <div>
                                                 <input id="AverageDepth_m" class="isnumber form-control" type="text" name="AverageDepth_m" value="@infrastructureModel.AverageDepth_m" />
                                                 <span class="help-block"></span>
@@ -786,6 +787,7 @@ else
                                     <li>
                                         <div class="form-group">
                                             <label for="DecayRate_per_day" class="control-label">@InfrastructureViewRes.DecayRate (@UnitViewRes.PerDay)</label>
+                                            <button class="jbHelpDocShowDialog btn btn-link" data-dockey="decayrate_per_day" data-title="@InfrastructureViewRes.DecayRate"><span class="glyphicon glyphicon-info-sign"></span></button>
                                             <div>
                                                 <input id="DecayRate_per_day" class="isnumber form-control" type="text" name="DecayRate_per_day" value="@infrastructureModel.DecayRate_per_day" />
                                                 <span class="help-block"></span>
@@ -796,6 +798,7 @@ else
                                     <li>
                                         <div class="form-group">
                                             <label for="DistanceFromShore_m" class="control-label">@InfrastructureViewRes.DistanceFromShore (@UnitViewRes.Meters_abbr)</label>
+                                            <button class="jbHelpDocShowDialog btn btn-link" data-dockey="distancefromshore_m" data-title="@InfrastructureViewRes.DistanceFromShore"><span class="glyphicon glyphicon-info-sign"></span></button>
                                             <div>
                                                 <input id="DistanceFromShore_m" class="isnumber form-control" type="text" name="DistanceFromShore_m" value="@infrastructureModel.DistanceFromShore_m" />
                                                 <span class="help-block"></span>
@@ -806,6 +809,7 @@ else
                                     <li>
                                         <div class="form-group">
                                             <label for="FarFieldVelocity_m_s" class="control-label">@InfrastructureViewRes.FarFieldVelocity (@UnitViewRes.MetersPerSecond_abbr)</label>
+                                            <button class="jbHelpDocShowDialog btn btn-link" data-dockey="farfieldvelocity_m_s" data-title="@InfrastructureViewRes.FarFieldVelocity"><span class="glyphicon glyphicon-info-sign"></span></button>
                                             <div>
                                                 <input id="FarFieldVelocity_m_s" class="isnumber form-control" type="text" name="FarFieldVelocity_m_s" value="@infrastructureModel.FarFieldVelocity_m_s" />
                                                 <span class="help-block"></span>
@@ -816,6 +820,7 @@ else
                                     <li>
                                         <div class="form-group">
                                             <label for="HorizontalAngle_deg" class="control-label">@InfrastructureViewRes.HorizontalAngle (@UnitViewRes.Degrees_abbr)</label>
+                                            <button class="jbHelpDocShowDialog btn btn-link" data-dockey="horizontalangle_deg" data-title="@InfrastructureViewRes.HorizontalAngle"><span class="glyphicon glyphicon-info-sign"></span></button>
                                             <div>
                                                 <input id="HorizontalAngle_deg" class="isnumber form-control" type="text" name="HorizontalAngle_deg" value="@infrastructureModel.HorizontalAngle_deg" />
                                                 <span class="help-block"></span>
@@ -826,6 +831,7 @@ else
                                     <li>
                                         <div class="form-group">
                                             <label for="NearFieldVelocity_m_s" class="control-label">@InfrastructureViewRes.NearFieldVelocity (@UnitViewRes.MetersPerSecond_abbr)</label>
+                                            <button class="jbHelpDocShowDialog btn btn-link" data-dockey="nearfieldvelocity_m_s" data-title="@InfrastructureViewRes.NearFieldVelocity"><span class="glyphicon glyphicon-info-sign"></span></button>
                                             <div>
                                                 <input id="NearFieldVelocity_m_s" class="isnumber form-control" type="text" name="NearFieldVelocity_m_s" value="@infrastructureModel.NearFieldVelocity_m_s" />
                                                 <span class="help-block"></span>
@@ -836,6 +842,7 @@ else
                                     <li>
                                         <div class="form-group">
                                             <label for="NumberOfPorts" class="control-label">@InfrastructureViewRes.NumberOfPorts</label>
+                                            <button class="jbHelpDocShowDialog btn btn-link" data-dockey="numberofports" data-title="@InfrastructureViewRes.NumberOfPorts"><span class="glyphicon glyphicon-info-sign"></span></button>
                                             <div>
                                                 <input id="NumberOfPorts" class="isnumber form-control" type="text" name="NumberOfPorts" value="@infrastructureModel.NumberOfPorts" />
                                                 <span class="help-block"></span>
@@ -846,6 +853,7 @@ else
                                     <li>
                                         <div class="form-group">
                                             <label for="PortDiameter_m" class="control-label">@InfrastructureViewRes.PortDiameter (@UnitViewRes.Meters_abbr)</label>
+                                            <button class="jbHelpDocShowDialog btn btn-link" data-dockey="portdiameter_m" data-title="@InfrastructureViewRes.PortDiameter"><span class="glyphicon glyphicon-info-sign"></span></button>
                                             <div>
                                                 <input id="PortDiameter_m" class="isnumber form-control" type="text" name="PortDiameter_m" value="@infrastructureModel.PortDiameter_m" />
                                                 <span class="help-block"></span>
@@ -856,6 +864,7 @@ else
                                     <li>
                                         <div class="form-group">
                                             <label for="PortElevation_m" class="control-label">@InfrastructureViewRes.PortElevation (@UnitViewRes.Meters_abbr)</label>
+                                            <button class="jbHelpDocShowDialog btn btn-link" data-dockey="portelevation_m" data-title="@InfrastructureViewRes.PortElevation"><span class="glyphicon glyphicon-info-sign"></span></button>
                                             <div>
                                                 <input id="PortElevation_m" class="isnumber form-control" type="text" name="PortElevation_m" value="@infrastructureModel.PortElevation_m" />
                                                 <span class="help-block"></span>
@@ -866,6 +875,7 @@ else
                                     <li>
                                         <div class="form-group">
                                             <label for="PortSpacing_m" class="control-label">@InfrastructureViewRes.PortSpacing (@UnitViewRes.Meters_abbr)</label>
+                                            <button class="jbHelpDocShowDialog btn btn-link" data-dockey="portspacing_m" data-title="@InfrastructureViewRes.PortSpacing"><span class="glyphicon glyphicon-info-sign"></span></button>
                                             <div>
                                                 <input id="PortSpacing_m" class="isnumber form-control" type="text" name="PortSpacing_m" value="@infrastructureModel.PortSpacing_m" />
                                                 <span class="help-block"></span>
@@ -876,6 +886,7 @@ else
                                     <li>
                                         <div class="form-group">
                                             <label for="ReceivingWater_MPN_per_100ml" class="control-label">@InfrastructureViewRes.ReceivingWaterConc (@UnitViewRes.FCPer100ml)</label>
+                                            <button class="jbHelpDocShowDialog btn btn-link" data-dockey="receivingwater_mpn_per_100ml" data-title="@InfrastructureViewRes.ReceivingWaterConc"><span class="glyphicon glyphicon-info-sign"></span></button>
                                             <div>
                                                 <input id="ReceivingWater_MPN_per_100ml" class="isnumber form-control" type="text" name="ReceivingWater_MPN_per_100ml" value="@infrastructureModel.ReceivingWater_MPN_per_100ml" />
                                                 <span class="help-block"></span>
@@ -886,6 +897,7 @@ else
                                     <li>
                                         <div class="form-group">
                                             <label for="ReceivingWaterSalinity_PSU" class="control-label">@InfrastructureViewRes.ReceivingWaterSalinity (@UnitViewRes.PSU)</label>
+                                            <button class="jbHelpDocShowDialog btn btn-link" data-dockey="receivingwatersalinity_psu" data-title="@InfrastructureViewRes.ReceivingWaterSalinity"><span class="glyphicon glyphicon-info-sign"></span></button>
                                             <div>
                                                 <input id="ReceivingWaterSalinity_PSU" class="isnumber form-control" type="text" name="ReceivingWaterSalinity_PSU" value="@infrastructureModel.ReceivingWaterSalinity_PSU" />
                                                 <span class="help-block"></span>
@@ -896,6 +908,7 @@ else
                                     <li>
                                         <div class="form-group">
                                             <label for="ReceivingWaterTemperature_C" class="control-label">@InfrastructureViewRes.ReceivingWaterTemperature (@UnitViewRes.Celcius_abbr)</label>
+                                            <button class="jbHelpDocShowDialog btn btn-link" data-dockey="receivingwatertemperature_c" data-title="@InfrastructureViewRes.ReceivingWaterTemperature"><span class="glyphicon glyphicon-info-sign"></span></button>
                                             <div>
                                                 <input id="ReceivingWaterTemperature_C" class="isnumber form-control" type="text" name="ReceivingWaterTemperature_C" value="@infrastructureModel.ReceivingWaterTemperature_C" />
                                                 <span class="help-block"></span>
@@ -906,6 +919,7 @@ else
                                     <li>
                                         <div class="form-group">
                                             <label for="VerticalAngle_deg" class="control-label">@InfrastructureViewRes.VerticalAngle (@UnitViewRes.Degrees_abbr)</label>
+                                            <button class="jbHelpDocShowDialog btn btn-link" data-dockey="verticalangle_deg" data-title="@InfrastructureViewRes.VerticalAngle"><span class="glyphicon glyphicon-info-sign"></span></button>
                                             <div>
                                                 <input id="VerticalAngle_deg" class="isnumber form-control" type="text" name="VerticalAngle_deg" value="@infrastructureModel.VerticalAngle_deg" />
                                                 <span class="help-block"></span>
@@ -926,6 +940,7 @@ else
                     @*InfrastructureType*@
                     <div class="form-group">
                         <label for="InfrastructureType" class="control-label">@InfrastructureViewRes.InfrastructureType</label>
+                        <button class="jbHelpDocShowDialog btn btn-link" data-dockey="infrastructuretype" data-title="@InfrastructureViewRes.InfrastructureType"><span class="glyphicon glyphicon-info-sign"></span></button>
                         <div>
                             <span>
                                 <select name="InfrastructureType">
@@ -944,6 +959,7 @@ else
                     @*Infrastructure Latitude*@
                     <div class="form-group">
                         <label for="Lat" class="control-label">@InfrastructureViewRes.Latitude</label>
+                        <button class="jbHelpDocShowDialog btn btn-link" data-dockey="infrastructurelatitude" data-title="@InfrastructureViewRes.Latitude"><span class="glyphicon glyphicon-info-sign"></span></button>
                         <div>
                             <input id="Lat" class="isnumber form-control" type="text" name="Lat" value="@mapInfoPointModelInfrastructure.Lat.ToString("F5")" />
                             <span class="help-block"></span>
@@ -952,6 +968,7 @@ else
                     @*Infrastructure Longitude*@
                     <div class="form-group">
                         <label for="Lng" class="control-label">@InfrastructureViewRes.Longitude</label>
+                        <button class="jbHelpDocShowDialog btn btn-link" data-dockey="infrastructurelongitude" data-title="@InfrastructureViewRes.Longitude"><span class="glyphicon glyphicon-info-sign"></span></button>
                         <div>
                             <input id="Lng" class="isnumber form-control" type="text" name="Lng" value="@mapInfoPointModelInfrastructure.Lng.ToString("F5")" />
                             <span class="help-block"></span>

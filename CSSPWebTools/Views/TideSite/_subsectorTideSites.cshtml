@@ -27,6 +27,7 @@
         </li>
         <li>
             <button class="jbTideSitesFindWithinDistance btn btn-default">@TideSiteViewRes.Find</button>
+            <button class="jbHelpDocShowDialog btn btn-link" data-dockey="tidesitesfind" data-title="@TideSiteViewRes.Find"><span class="glyphicon glyphicon-info-sign"></span></button>
         </li>
     </ul>
     <ul class="ClickGlobeToViewOnMap list-inline hidden">
@@ -34,7 +35,10 @@
             @TideSiteViewRes.ClickOnGlobeIconToViewOnMap
         </li>
     </ul>
-    <h3>@TideSiteViewRes.TideSitesUsedAndWithinDistance <button class="jbTideSitesShowOnMap btn btn-default hidden">@TideSiteViewRes.ShowTideSitesOnMap</button></h3>
+    <h3>
+        @TideSiteViewRes.TideSitesUsedAndWithinDistance <button class="jbTideSitesShowOnMap btn btn-default hidden">@TideSiteViewRes.ShowTideSitesOnMap</button>
+        <button class="jbHelpDocShowDialog btn btn-link" data-dockey="tidesitesshowonmap" data-title="@TideSiteViewRes.ShowTideSitesOnMap"><span class="glyphicon glyphicon-info-sign"></span></button>
+    </h3>
     <div class="TideSitesUsedAndWithinDistanceDiv">
         @{
             int TideSiteCount = 99;
@@ -67,6 +71,7 @@
     <div>
         <br />
         <button class="jbTideSitesToUseForSubsectorVerifyAndSave btn btn-default">@TideSiteViewRes.TideSitesToUseForSubsectorVerifyAndSave</button>
+        <button class="jbHelpDocShowDialog btn btn-link" data-dockey="tidesitesuseforsubsectorverifyandsave" data-title="@TideSiteViewRes.TideSitesToUseForSubsectorVerifyAndSave"><span class="glyphicon glyphicon-info-sign"></span></button>
     </div>
 </div>
 

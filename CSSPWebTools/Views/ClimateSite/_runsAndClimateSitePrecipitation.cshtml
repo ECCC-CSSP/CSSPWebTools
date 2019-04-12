@@ -21,17 +21,18 @@
         <ul class="list-group">
             @foreach (MWQMRunModel mwqmRunModel in mwqmRunModelList)
             {
-                <li class="MWQMRunModel list-group-item"
-                    data-mwqmruntvitemid="@mwqmRunModel.MWQMRunTVItemID"
-                    data-rundate="@(mwqmRunModel.DateTime_Local.ToString("yyyy-MM-dd"))">
-                    <button class="jbLoadClimateSiteSelectRun btn btn-@(CountRun == 0 ? "success" : "default")">@(mwqmRunModel.DateTime_Local.ToString("yyyy MMMM dd"))</button>
-                    <div class="SelectedRunPrecipitationDiv">
-                        @if (CountRun == 0)
-                        {
-                            @Html.Action("_selectedRunPrecipitation", "ClimateSite", new { SubsectorTVItemID = @SubsectorTVItemID, MWQMRunTVItemID = @mwqmRunModel.MWQMRunTVItemID })
-                        }
-                    </div>
-                </li>
+            <li class="MWQMRunModel list-group-item"
+                data-mwqmruntvitemid="@mwqmRunModel.MWQMRunTVItemID"
+                data-rundate="@(mwqmRunModel.DateTime_Local.ToString("yyyy-MM-dd"))">
+                <button class="jbLoadClimateSiteSelectRun btn btn-@(CountRun == 0 ? "success" : "default")">@(mwqmRunModel.DateTime_Local.ToString("yyyy MMMM dd"))</button>
+                <button class="jbHelpDocShowDialog btn btn-link" data-dockey="climatesitesdataforrun" data-title="@ClimateSiteViewRes.ClimateSitesDataForEachRun"><span class="glyphicon glyphicon-info-sign"></span></button>
+                <div class="SelectedRunPrecipitationDiv">
+                    @if (CountRun == 0)
+                    {
+                        @Html.Action("_selectedRunPrecipitation", "ClimateSite", new { SubsectorTVItemID = @SubsectorTVItemID, MWQMRunTVItemID = @mwqmRunModel.MWQMRunTVItemID })
+                    }
+                </div>
+            </li>
                 CountRun += 1;
             }
         </ul>

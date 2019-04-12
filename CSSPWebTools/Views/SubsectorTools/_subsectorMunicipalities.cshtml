@@ -27,6 +27,7 @@
         </li>
         <li>
             <button class="jbMunicipalitiesFindWithinDistance btn btn-default">@SubsectorToolsViewRes.Find</button>
+            <button class="jbHelpDocShowDialog btn btn-link" data-dockey="municipalitiesfind" data-title="@SubsectorToolsViewRes.Find"><span class="glyphicon glyphicon-info-sign"></span></button>
         </li>
     </ul>
     <ul class="ClickGlobeToViewOnMap list-inline hidden">
@@ -34,7 +35,10 @@
             @SubsectorToolsViewRes.ClickOnGlobeIconToViewOnMap
         </li>
     </ul>
-    <h3>@SubsectorToolsViewRes.MunicipalitiesUsedAndWithinDistance <button class="jbMunicipalitiesShowOnMap btn btn-default hidden">@SubsectorToolsViewRes.ShowMunicipalitiesOnMap</button></h3>
+    <h3>
+        @SubsectorToolsViewRes.MunicipalitiesUsedAndWithinDistance <button class="jbMunicipalitiesShowOnMap btn btn-default hidden">@SubsectorToolsViewRes.ShowMunicipalitiesOnMap</button>
+        <button class="jbHelpDocShowDialog btn btn-link" data-dockey="municipalitiesshowmunicipalitiesonmap" data-title="@SubsectorToolsViewRes.ShowMunicipalitiesOnMap"><span class="glyphicon glyphicon-info-sign"></span></button>
+    </h3>
     <div class="MunicipalityUsedAndWithinDistanceDiv">
         @{
             int MunicipalityCount = 99;
@@ -68,6 +72,7 @@
     <div>
         <br />
         <button class="jbMunicipalitiesToUseForSubsectorVerifyAndSave btn btn-default">@SubsectorToolsViewRes.MunicipalitiesToUseForSubsectorVerifyAndSave</button>
+        <button class="jbHelpDocShowDialog btn btn-link" data-dockey="municipalitiesuseforsubsectorverifyandsave" data-title="@SubsectorToolsViewRes.MunicipalitiesToUseForSubsectorVerifyAndSave"><span class="glyphicon glyphicon-info-sign"></span></button>
     </div>
 </div>
 

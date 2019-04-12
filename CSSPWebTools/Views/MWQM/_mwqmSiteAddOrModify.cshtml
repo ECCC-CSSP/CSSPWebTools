@@ -28,16 +28,19 @@
                 <input type="hidden" name="MWQMSiteTVItemID" value="@MWQMSiteTVItemID" />
 
                 <div class="form-group">
-                    <label class="control-label" for="MWQMSiteTVText">@MWQMViewRes.MWQMSiteName</label>
-                    <div>
-                        <input type="checkbox" class="checkbox" name="IsActive" @((tvItemModel == null || tvItemModel.IsActive) == false ? "" : "checked=\"checked\"") />
+                    <label class="control-label" for="MWQMSiteTVText">
+                        <input type="checkbox" class="checkbox-inline" name="IsActive" @((tvItemModel == null || tvItemModel.IsActive) == false ? "" : "checked=\"checked\"") />
                         @MWQMViewRes.IsActive
+                        <button class="jbHelpDocShowDialog btn btn-link" data-dockey="mwqmsiteisactive" data-title="@MWQMViewRes.IsActive"><span class="glyphicon glyphicon-info-sign"></span></button>
                         <span class="help-block"></span>
-                    </div>
+                    </label>
                 </div>
 
                 <div class="form-group">
-                    <label class="control-label" for="MWQMSiteTVText">@MWQMViewRes.MWQMSiteName</label>
+                    <label class="control-label" for="MWQMSiteTVText">
+                        @MWQMViewRes.MWQMSiteName
+                        <button class="jbHelpDocShowDialog btn btn-link" data-dockey="mwqmsitesitename" data-title="@MWQMViewRes.MWQMSiteName"><span class="glyphicon glyphicon-info-sign"></span></button>
+                    </label>
                     <div>
                         <input class="form-control" type="text" name="MWQMSiteTVText" value="@mwqmSiteModel.MWQMSiteTVText" />
                         <span class="help-block"></span>
@@ -45,7 +48,10 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="control-label" for="MWQMSiteNumber">@MWQMViewRes.MWQMSiteNumber</label>
+                    <label class="control-label" for="MWQMSiteNumber">
+                        @MWQMViewRes.MWQMSiteNumber
+                        <button class="jbHelpDocShowDialog btn btn-link" data-dockey="mwqmsitesitenumber" data-title="@MWQMViewRes.MWQMSiteNumber"><span class="glyphicon glyphicon-info-sign"></span></button>
+                    </label>
                     <div>
                         <input class="form-control" type="text" name="MWQMSiteNumber" value="@mwqmSiteModel.MWQMSiteNumber" />
                         <span class="help-block"></span>
@@ -53,7 +59,10 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="control-label" for="MWQMSiteDescription">@MWQMViewRes.MWQMSiteDescription</label>
+                    <label class="control-label" for="MWQMSiteDescription">
+                        @MWQMViewRes.MWQMSiteDescription
+                        <button class="jbHelpDocShowDialog btn btn-link" data-dockey="mwqmsitedescription" data-title="@MWQMViewRes.MWQMSiteDescription"><span class="glyphicon glyphicon-info-sign"></span></button>
+                    </label>
                     <div>
                         <input class="form-control" type="text" name="MWQMSiteDescription" value="@mwqmSiteModel.MWQMSiteDescription" />
                         <span class="help-block"></span>
@@ -61,7 +70,10 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="sr-only" for="MWQMSiteLatestClassification">@MWQMViewRes.MWQMSiteLatestClassification</label>
+                    <label class="control-label" for="MWQMSiteLatestClassification">
+                        @MWQMViewRes.MWQMSiteLatestClassification
+                        <button class="jbHelpDocShowDialog btn btn-link" data-dockey="mwqmsitelatestclassification" data-title="@MWQMViewRes.MWQMSiteLatestClassification"><span class="glyphicon glyphicon-info-sign"></span></button>
+                    </label>
                     <div>
                         <select name="MWQMSiteLatestClassification" class="form-control">
                             <option value="0" @(mwqmSiteModel.MWQMSiteLatestClassification == MWQMSiteLatestClassificationEnum.Error ? "selected=selected" : "")>@(MWQMViewRes.SelectAClassification)</option>
@@ -76,18 +88,24 @@
                         <span class="help-block"></span>
                     </div>
                 </div>
-                
+
                 <label class="h4">@MWQMViewRes.Location</label>
                 <div class="form-inline elementSpacing">
                     <div class="form-group">
-                        <label class="control-label" for="Lat">@MWQMViewRes.Latitude :</label>
+                        <label class="control-label" for="Lat">
+                            @MWQMViewRes.Latitude :
+                            <button class="jbHelpDocShowDialog btn btn-link" data-dockey="mwqmsitelatitude" data-title="@MWQMViewRes.Latitude"><span class="glyphicon glyphicon-info-sign"></span></button>
+                        </label>
                         <div>
                             <input class="isnumber form-control" type="text" name="Lat" value="@(mapInfoPointModel == null ? "" : mapInfoPointModel.Lat.ToString("F5"))" />
                             <span class="help-block"></span>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label" for="Lng">@MWQMViewRes.Longitude :</label>
+                        <label class="control-label" for="Lng">
+                            @MWQMViewRes.Longitude :
+                            <button class="jbHelpDocShowDialog btn btn-link" data-dockey="mwqmsitelongitude" data-title="@MWQMViewRes.Longitude"><span class="glyphicon glyphicon-info-sign"></span></button>
+                        </label>
                         <div>
                             <input class="isnumber form-control" type="text" name="Lng" value="@(mapInfoPointModel == null ? "" : mapInfoPointModel.Lng.ToString("F5"))" />
                             <span class="help-block"></span>
@@ -95,7 +113,7 @@
                     </div>
                 </div>
                 <br />
-                
+
                 <div class="btn-block">
                     <button class="jbMWQMSiteEditSave btn btn-primary" type="submit">
                         <span class="glyphicon glyphicon-check"></span>
