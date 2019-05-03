@@ -161,7 +161,9 @@ var CSSP;
                     if (cssp.GoogleMap.TVItemObjects[i].TVItemID == TVItemID) {
                         for (var j = 0, CountObj = cssp.GoogleMap.TVItemObjects[i].MapObjList.length; j < CountObj; j++) {
                             if (cssp.GoogleMap.TVItemObjects[i].MapObjList[j].MapInfoDrawType == CSSP.DrawTypeEnum.Point) {
-                                CurrentPoint = new google.maps.LatLng(cssp.GoogleMap.TVItemObjects[i].MapObjList[j].CoordList[0].Lat, cssp.GoogleMap.TVItemObjects[i].MapObjList[j].CoordList[0].Lng);
+                                if (cssp.GoogleMap.TVItemObjects[i].SubTVType != CSSP.TVTypeEnum.Outfall) {
+                                    CurrentPoint = new google.maps.LatLng(cssp.GoogleMap.TVItemObjects[i].MapObjList[j].CoordList[0].Lat, cssp.GoogleMap.TVItemObjects[i].MapObjList[j].CoordList[0].Lng);
+                                }
                             }
                         }
                     }
@@ -766,7 +768,7 @@ var CSSP;
                                         // Get direction of the segment
                                         var heading = spherical.computeHeading(F, T);
                                         var dist = 50; // distance in meters
-                                        // Place point A that is oriented at 90� in a distance of dist from M
+                                        // Place point A that is oriented at 90° in a distance of dist from M
                                         var A = spherical.computeOffset(M, dist, heading + 90);
                                         var perpendicularCoordinates = [F, T, A, F];
                                         var polyg = new google.maps.Polygon({

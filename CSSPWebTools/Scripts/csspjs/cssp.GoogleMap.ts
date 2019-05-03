@@ -183,7 +183,9 @@ module CSSP {
                 if (cssp.GoogleMap.TVItemObjects[i].TVItemID == TVItemID) {
                     for (var j = 0, CountObj = cssp.GoogleMap.TVItemObjects[i].MapObjList.length; j < CountObj; j++) {
                         if (cssp.GoogleMap.TVItemObjects[i].MapObjList[j].MapInfoDrawType == DrawTypeEnum.Point) {
-                            CurrentPoint = new google.maps.LatLng(cssp.GoogleMap.TVItemObjects[i].MapObjList[j].CoordList[0].Lat, cssp.GoogleMap.TVItemObjects[i].MapObjList[j].CoordList[0].Lng);
+                            if (cssp.GoogleMap.TVItemObjects[i].SubTVType != TVTypeEnum.Outfall) {
+                                CurrentPoint = new google.maps.LatLng(cssp.GoogleMap.TVItemObjects[i].MapObjList[j].CoordList[0].Lat, cssp.GoogleMap.TVItemObjects[i].MapObjList[j].CoordList[0].Lng);
+                            }
                         }
                     }
                 }
