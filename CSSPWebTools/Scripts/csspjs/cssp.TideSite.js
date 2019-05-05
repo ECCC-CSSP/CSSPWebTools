@@ -1,6 +1,6 @@
 var CSSP;
 (function (CSSP) {
-    var TideSite = (function () {
+    var TideSite = /** @class */ (function () {
         // Variables
         // Constructors
         function TideSite() {

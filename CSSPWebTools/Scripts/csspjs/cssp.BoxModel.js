@@ -1,6 +1,6 @@
 var CSSP;
 (function (CSSP) {
-    var BoxModel = (function () {
+    var BoxModel = /** @class */ (function () {
         // Constructors
         function BoxModel() {
             // Variables

@@ -1,6 +1,6 @@
 var CSSP;
 (function (CSSP) {
-    var ProvinceTools = (function () {
+    var ProvinceTools = /** @class */ (function () {
         // Variables
         // Constructors
         function ProvinceTools() {
