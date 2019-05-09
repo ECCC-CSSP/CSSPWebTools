@@ -508,7 +508,7 @@ namespace CSSPWebTools.Controllers
         }
         [HttpPost]
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
-        public JsonResult CreateOrModifyInfrastructureJSON(int MunicipalityTVItemID, int TVItemID, string TVText,
+        public JsonResult CreateOrModifyInfrastructureJSON(int MunicipalityTVItemID, int TVItemID, string TVText, bool IsActive,
             float? Lat, float? Lng, float? LatOutfall, float? LngOutfall, string CommentEN, string CommentFR, InfrastructureTypeEnum? InfrastructureType,
             FacilityTypeEnum? FacilityType, bool? IsMechanicallyAerated, int? NumberOfCells, int? NumberOfAeratedCells, AerationTypeEnum? AerationType,
             PreliminaryTreatmentTypeEnum? PreliminaryTreatmentType, PrimaryTreatmentTypeEnum? PrimaryTreatmentType,
@@ -521,7 +521,7 @@ namespace CSSPWebTools.Controllers
             float? ReceivingWaterTemperature_C, int? ReceivingWater_MPN_per_100ml, float? DistanceFromShore_m,
             int? SeeOtherMunicipalityTVItemID, string SeeOtherMunicipalityText, int? PumpsToTVItemID, string AdminEmail)
         {
-            TVItemModel tvItemModel = _PolSourceSiteInputToolService.CreateOrModifyInfrastructureDB(MunicipalityTVItemID, TVItemID, TVText,
+            TVItemModel tvItemModel = _PolSourceSiteInputToolService.CreateOrModifyInfrastructureDB(MunicipalityTVItemID, TVItemID, TVText, IsActive,
                     Lat, Lng, LatOutfall, LngOutfall, CommentEN, CommentFR, InfrastructureType, FacilityType,
                     IsMechanicallyAerated, NumberOfCells, NumberOfAeratedCells, AerationType,
                     PreliminaryTreatmentType, PrimaryTreatmentType,
@@ -594,9 +594,9 @@ namespace CSSPWebTools.Controllers
         }
         [HttpPost]
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
-        public JsonResult SavePSSTVTextAndIsActiveJSON(int TVItemID, string TVText, bool IsActive, string AdminEmail)
+        public JsonResult SavePSSTVTextAndIsActiveJSON(int TVItemID, string TVText, bool IsActive, bool IsPointSource, string AdminEmail)
         {
-            TVItemModel tvItemModel = _PolSourceSiteInputToolService.SavePSSTVTextAndIsActiveDB(TVItemID, TVText, IsActive, AdminEmail);
+            TVItemModel tvItemModel = _PolSourceSiteInputToolService.SavePSSTVTextAndIsActiveDB(TVItemID, TVText, IsActive, IsPointSource, AdminEmail);
 
             return Json(tvItemModel.Error, JsonRequestBehavior.AllowGet);
         }
