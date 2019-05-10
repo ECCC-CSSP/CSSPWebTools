@@ -1,6 +1,6 @@
 var CSSP;
 (function (CSSP) {
-    var OpenData = /** @class */ (function () {
+    var OpenData = (function () {
         // Variables
         // Constructors
         function OpenData() {

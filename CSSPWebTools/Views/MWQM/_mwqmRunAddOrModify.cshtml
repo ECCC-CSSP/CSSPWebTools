@@ -442,7 +442,13 @@
                                             <option value="0" @(mwqmRunModel.Laboratory == null ? "selected=selected" : "")>@MWQMViewRes.SelectTheLaboratory</option>
                                             @foreach (LaboratoryEnumTextOrdered laboratoryEnumTextOrdered in _BaseEnumService.GetLaboratoryEnumTextOrderedList())
                                             {
-                                                <option value="@((int)laboratoryEnumTextOrdered.Laboratory)" @(mwqmRunModel.Laboratory != null && (laboratoryEnumTextOrdered.Laboratory == mwqmRunModel.Laboratory) ? "selected=selected" : "")>@(laboratoryEnumTextOrdered.LaboratoryText)</option>
+                                                if (laboratoryEnumTextOrdered.LaboratoryText.StartsWith("ZZ_"))
+                                                {
+                                                }
+                                                else
+                                                {
+                                                    <option value="@((int)laboratoryEnumTextOrdered.Laboratory)" @(mwqmRunModel.Laboratory != null && (laboratoryEnumTextOrdered.Laboratory == mwqmRunModel.Laboratory) ? "selected=selected" : "")>@(laboratoryEnumTextOrdered.LaboratoryText)</option>
+                                                }
                                             }
                                         </select>
                                         <span class="help-block"></span>
@@ -517,9 +523,20 @@
                                             <option value="0" @(mwqmRunModel.AnalyzeMethod == null ? "selected=selected" : "")>@MWQMViewRes.SelectTheAnalysisMethod</option>
                                             @foreach (AnalyzeMethodEnumTextOrdered analyzeMethodEnumTextOrdered in _BaseEnumService.GetAnalyzeMethodEnumTextOrderedList())
                                             {
-                                                <option value="@((int)analyzeMethodEnumTextOrdered.AnalyzeMethod)" @(mwqmRunModel.AnalyzeMethod != null && (analyzeMethodEnumTextOrdered.AnalyzeMethod == mwqmRunModel.AnalyzeMethod) ? "selected=selected" : "")>
-                                                    @(analyzeMethodEnumTextOrdered.AnalyzeMethodText)
-                                                </option>
+                                                if (analyzeMethodEnumTextOrdered.AnalyzeMethodText.StartsWith("Analyze"))
+                                                {
+                                                    // this is temporary ... do not want to show
+                                                }
+                                                else if (analyzeMethodEnumTextOrdered.AnalyzeMethodText.StartsWith("ZZ"))
+                                                {
+                                                    // this is temporary ... do not want to show
+                                                }
+                                                else
+                                                {
+                                                    <option value="@((int)analyzeMethodEnumTextOrdered.AnalyzeMethod)" @(mwqmRunModel.AnalyzeMethod != null && (analyzeMethodEnumTextOrdered.AnalyzeMethod == mwqmRunModel.AnalyzeMethod) ? "selected=selected" : "")>
+                                                        @(analyzeMethodEnumTextOrdered.AnalyzeMethodText)
+                                                    </option>
+                                                }
                                             }
                                         </select>
                                         <span class="help-block"></span>
@@ -641,7 +658,13 @@
                                             <option value="0" @(mwqmRunModel.LabSampleApprovalContactTVItemID == null ? "selected=selected" : "")>@MWQMViewRes.RunSamplesApprovedBy</option>
                                             @foreach (TVItemModel tvItemModel in tvItemModelContactLabValidatorOptionList)
                                             {
-                                                <option value="@tvItemModel.TVItemID" @(mwqmRunModel.LabSampleApprovalContactTVItemID == tvItemModel.TVItemID ? "selected=selected" : "")>@tvItemModel.TVText</option>
+                                                if (tvItemModel.TVText.StartsWith("Inspector"))
+                                                {
+                                                }
+                                                else
+                                                {
+                                                    <option value="@tvItemModel.TVItemID" @(mwqmRunModel.LabSampleApprovalContactTVItemID == tvItemModel.TVItemID ? "selected=selected" : "")>@tvItemModel.TVText</option>
+                                                }
                                             }
                                         </select>
                                         <span class="help-block"></span>
@@ -775,14 +798,14 @@
                 <div id="collapseMWQMRunDataTable" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingMWQMRunDataTable">
                     <div class="panel-body">
                         <div>
+                            <label>
+                                <span>
+                                    @MWQMViewRes.ModifyMWQMRun @MWQMViewRes.Samples
+                                </span>
+                                <button class="jbHelpDocShowDialog btn btn-link" data-dockey="mwqmrunmodifymwqmrunsamples" data-title="@MWQMViewRes.ModifyMWQMRun @MWQMViewRes.Samples"><span class="glyphicon glyphicon-info-sign"></span></button>
+                            </label>
                             <form id="MWQMRunSampleEditForm" method="post" action="">
                                 <fieldset>
-                                    <legend>
-                                        <span>
-                                            @MWQMViewRes.ModifyMWQMRun @MWQMViewRes.Samples
-                                            <button class="jbHelpDocShowDialog btn btn-link" data-dockey="mwqmrunmodifymwqmrunsamples" data-title="@MWQMViewRes.ModifyMWQMRun @MWQMViewRes.Samples"><span class="glyphicon glyphicon-info-sign"></span></button>
-                                        </span>
-                                    </legend>
 
                                     <table class="table table-bordered">
                                         <thead>

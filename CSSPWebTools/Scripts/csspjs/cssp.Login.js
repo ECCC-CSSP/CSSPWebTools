@@ -1,6 +1,6 @@
 var CSSP;
 (function (CSSP) {
-    var Login = /** @class */ (function () {
+    var Login = (function () {
         // Constructor
         function Login() {
             // Variables

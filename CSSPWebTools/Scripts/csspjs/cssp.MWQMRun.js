@@ -1,6 +1,6 @@
 var CSSP;
 (function (CSSP) {
-    var MWQMRun = /** @class */ (function () {
+    var MWQMRun = (function () {
         // Constructors
         function MWQMRun() {
             var _this = this;
@@ -48,6 +48,134 @@ var CSSP;
                 });
             };
             this.InitEdit = function () {
+                $(document).off("change", "input[name='RunStartTime']");
+                $(document).on("change", "input[name='RunStartTime']", function () {
+                    var RunStartTime = $("input[name='RunStartTime']").val();
+                    if (RunStartTime.length == 4) {
+                        $("input[name='RunStartTime']").val(RunStartTime.substring(0, 2) + ":" + RunStartTime.substring(2, 4));
+                        $("input[name='RunStartTime']").validate({
+                            rules: {
+                                RunStartTime: {
+                                    required: true,
+                                    minlength: 5,
+                                    maxlength: 5,
+                                }
+                            }
+                        });
+                    }
+                });
+                $(document).off("change", "input[name='RunEndTime']");
+                $(document).on("change", "input[name='RunEndTime']", function () {
+                    var RunStartTime = $("input[name='RunEndTime']").val();
+                    if (RunStartTime.length == 4) {
+                        $("input[name='RunEndTime']").val(RunStartTime.substring(0, 2) + ":" + RunStartTime.substring(2, 4));
+                        $("input[name='RunEndTime']").validate({
+                            rules: {
+                                RunStartTime: {
+                                    required: true,
+                                    minlength: 5,
+                                    maxlength: 5,
+                                }
+                            }
+                        });
+                    }
+                });
+                $(document).off("change", "input[name='LabReceivedTime']");
+                $(document).on("change", "input[name='LabReceivedTime']", function () {
+                    var RunStartTime = $("input[name='LabReceivedTime']").val();
+                    if (RunStartTime.length == 4) {
+                        $("input[name='LabReceivedTime']").val(RunStartTime.substring(0, 2) + ":" + RunStartTime.substring(2, 4));
+                        $("input[name='LabReceivedTime']").validate({
+                            rules: {
+                                RunStartTime: {
+                                    required: true,
+                                    minlength: 5,
+                                    maxlength: 5,
+                                }
+                            }
+                        });
+                    }
+                });
+                $(document).off("change", "input[name='LabAnalyzeBath1StartIncubationTime']");
+                $(document).on("change", "input[name='LabAnalyzeBath1StartIncubationTime']", function () {
+                    var RunStartTime = $("input[name='LabAnalyzeBath1StartIncubationTime']").val();
+                    if (RunStartTime.length == 4) {
+                        $("input[name='LabAnalyzeBath1StartIncubationTime']").val(RunStartTime.substring(0, 2) + ":" + RunStartTime.substring(2, 4));
+                        $("input[name='LabAnalyzeBath1StartIncubationTime']").validate({
+                            rules: {
+                                RunStartTime: {
+                                    required: true,
+                                    minlength: 5,
+                                    maxlength: 5,
+                                }
+                            }
+                        });
+                    }
+                });
+                $(document).off("change", "input[name='LabAnalyzeBath2StartIncubationTime']");
+                $(document).on("change", "input[name='LabAnalyzeBath2StartIncubationTime']", function () {
+                    var RunStartTime = $("input[name='LabAnalyzeBath2StartIncubationTime']").val();
+                    if (RunStartTime.length == 4) {
+                        $("input[name='LabAnalyzeBath2StartIncubationTime']").val(RunStartTime.substring(0, 2) + ":" + RunStartTime.substring(2, 4));
+                        $("input[name='LabAnalyzeBath2StartIncubationTime']").validate({
+                            rules: {
+                                RunStartTime: {
+                                    required: true,
+                                    minlength: 5,
+                                    maxlength: 5,
+                                }
+                            }
+                        });
+                    }
+                });
+                $(document).off("change", "input[name='LabAnalyzeBath3StartIncubationTime']");
+                $(document).on("change", "input[name='LabAnalyzeBath3StartIncubationTime']", function () {
+                    var RunStartTime = $("input[name='LabAnalyzeBath3StartIncubationTime']").val();
+                    if (RunStartTime.length == 4) {
+                        $("input[name='LabAnalyzeBath3StartIncubationTime']").val(RunStartTime.substring(0, 2) + ":" + RunStartTime.substring(2, 4));
+                        $("input[name='LabAnalyzeBath3StartIncubationTime']").validate({
+                            rules: {
+                                RunStartTime: {
+                                    required: true,
+                                    minlength: 5,
+                                    maxlength: 5,
+                                }
+                            }
+                        });
+                    }
+                });
+                $(document).off("change", "input[name='LabRunSampleApprovalTime']");
+                $(document).on("change", "input[name='LabRunSampleApprovalTime']", function () {
+                    var RunStartTime = $("input[name='LabRunSampleApprovalTime']").val();
+                    if (RunStartTime.length == 4) {
+                        $("input[name='LabRunSampleApprovalTime']").val(RunStartTime.substring(0, 2) + ":" + RunStartTime.substring(2, 4));
+                        $("input[name='LabRunSampleApprovalTime']").validate({
+                            rules: {
+                                RunStartTime: {
+                                    required: true,
+                                    minlength: 5,
+                                    maxlength: 5,
+                                }
+                            }
+                        });
+                    }
+                });
+                $(document).off("change", "input[name='SampleTime']");
+                $(document).on("change", "input[name='SampleTime']", function () {
+                    var RunStartTime = $("input[name='SampleTime']").val();
+                    if (RunStartTime.length == 4) {
+                        $("input[name='SampleTime']").val(RunStartTime.substring(0, 2) + ":" + RunStartTime.substring(2, 4));
+                        $("input[name='SampleTime']").validate({
+                            rules: {
+                                RunStartTime: {
+                                    required: true,
+                                    minlength: 5,
+                                    maxlength: 5,
+                                }
+                            }
+                        });
+                    }
+                });
                 if ($("tr.MWQMSample").length > 0) {
                     $(".jbMWQMRunDelete").removeClass("hidden");
                 }
@@ -142,9 +270,7 @@ var CSSP;
                                 min: -1,
                                 max: 2000,
                             },
-                            LabValidateDateYear: {
-                            //required: true,
-                            },
+                            LabValidateDateYear: {},
                             LabValidateDateMonth: {
                                 min: 1,
                                 max: 12,
