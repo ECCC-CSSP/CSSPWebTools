@@ -1,6 +1,6 @@
 var CSSP;
 (function (CSSP) {
-    var PolSourceSite = (function () {
+    var PolSourceSite = /** @class */ (function () {
         // Constructors
         function PolSourceSite() {
             var _this = this;

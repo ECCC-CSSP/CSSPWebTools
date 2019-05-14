@@ -1,6 +1,6 @@
 var CSSP;
 (function (CSSP) {
-    var Profile = (function () {
+    var Profile = /** @class */ (function () {
         // Constructors
         function Profile() {
             // Variables
