@@ -1,6 +1,6 @@
 var CSSP;
 (function (CSSP) {
-    var DocumentAEvents = /** @class */ (function () {
+    var DocumentAEvents = (function () {
         // Constructor
         function DocumentAEvents() {
             // Functions

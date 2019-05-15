@@ -1,6 +1,6 @@
 var CSSP;
 (function (CSSP) {
-    var Dialog = /** @class */ (function () {
+    var Dialog = (function () {
         // Variables
         // Constructor
         function Dialog() {
