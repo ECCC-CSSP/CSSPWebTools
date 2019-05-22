@@ -29,6 +29,11 @@
                         <span class="glyphicon glyphicon-duplicate"></span>
                     </button>
                     <form class="hidden" id="PolSourceObservationAddOrModifyForm" action="PolSource/PolSourceObservationAddOrModifyJSON" method="post">
+                        <span class="hidden" id="AreYouSureYouDidNotWantToMakeACopyOfTheObservation">@PolSourceViewRes.AreYouSureYouDidNotWantToMakeACopyOfTheObservation</span>
+                        <span class="hidden" id="AreYouSureYouWantToChangeDateOfCurrentObservation">@PolSourceViewRes.AreYouSureYouWantToChangeDateOfCurrentObservation</span>
+                        <span class="hidden" id="ObsDateYear">@polSourceObservationModel.ObservationDate_Local.Year.ToString()</span>
+                        <span class="hidden" id="ObsDateMonth">@polSourceObservationModel.ObservationDate_Local.Month.ToString()</span>
+                        <span class="hidden" id="ObsDateDay">@polSourceObservationModel.ObservationDate_Local.Day.ToString()</span>
                         @Html.AntiForgeryToken()
                         <input type="hidden" name="PolSourceSiteID" value="@polSourceObservationModel.PolSourceSiteID" />
                         <input type="hidden" name="PolSourceSiteTVItemID" value="@PolSourceSiteTVItemID" />
@@ -40,7 +45,7 @@
                         </a>
                         <div class="form-inline elementSpacing">
                             <div class="form-group">
-                                <label class="control-label">@PolSourceViewRes.Year</label>
+                                <label class="control-label" for="ObsYear">@PolSourceViewRes.Year</label>
                                 <div>
                                     <select class="form-control" name="ObsYear">
                                         @for (int i = 1980; i < DateTime.Now.Year + 1; i++)
@@ -51,7 +56,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label">@PolSourceViewRes.Month</label>
+                                <label class="control-label" for="ObsMonth">@PolSourceViewRes.Month</label>
                                 <div>
                                     <select class="form-control" name="ObsMonth">
                                         @for (int i = 1; i < 13; i++)
@@ -62,7 +67,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label">@PolSourceViewRes.Day</label>
+                                <label class="control-label" for="ObsDay">@PolSourceViewRes.Day</label>
                                 <div>
                                     <select class="form-control" name="ObsDay">
                                         @{
@@ -76,9 +81,17 @@
                                 </div>
                             </div>
                         </div>
+                        <div>
+                            <div class="form-group">
+                                <br />
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" name="DesktopReviewed" @(polSourceObservationModel.DesktopReviewed ? "checked=checked" : "") />&nbsp;@PolSourceViewRes.DesktopReviewed
+                                </label>
+                            </div>
+                        </div>
                         <br />
                         <div class="btn-block">
-                            <button class="jbPolSourceObservationEditSave btn btn-primary" type="submit">
+                            <button class="jbPolSourceObservationEditAskToSave btn btn-primary" type="submit">
                                 <span class="glyphicon glyphicon-check"></span>
                                 &nbsp;@PolSourceViewRes.Modify
                             </button>
@@ -92,6 +105,10 @@
                         <b>
                             <i>@polSourceObservationModel.ObservationDate_Local.ToString("yyyy MMMM dd")</i>
                             <i class="elementSpacing">@polSourceObservationModel.ContactTVText</i>
+                            @if (polSourceObservationModel.DesktopReviewed)
+                            {
+                                <strong class="text-primary">&nbsp;&nbsp;(@PolSourceViewRes.DesktopReviewed)</strong>
+                            }
                         </b>
                     </p>
                     <p>
@@ -234,7 +251,14 @@
                     </p>
                     <h4>@PolSourceViewRes.EditIssues</h4>
                     <div class="PolSourceIssueListTopDiv">
-                        @Html.Action("_polSourceIssueList", "PolSource", new { PolSourceObservationID = polSourceObservationModel.PolSourceObservationID, IssueOrdinal = polSourceObservationModel.PolSourceObservationIssueModelList[0].Ordinal })
+                        @if (polSourceObservationModel.PolSourceObservationIssueModelList.Count > 0)
+                        {
+                            @Html.Action("_polSourceIssueList", "PolSource", new { PolSourceObservationID = polSourceObservationModel.PolSourceObservationID, IssueOrdinal = polSourceObservationModel.PolSourceObservationIssueModelList[0].Ordinal })
+                        }
+                        else
+                        {
+                            <span>@PolSourceViewRes.NoData</span>
+                        }
                     </div>
                 </div>
             </div>
@@ -386,7 +410,7 @@
                                 }
                             </li>
                             <li>
-                                <span>@polSourceObservationModel.PolSourceObservationIssueModelList[i].ExtraComment</span>
+                                <span>@polSourceObservationModelRest.PolSourceObservationIssueModelList[i].ExtraComment</span>
                             </li>
                         }
                     </ul>

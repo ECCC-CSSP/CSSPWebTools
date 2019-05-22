@@ -70,6 +70,7 @@ else
                                     <div class="SamplingPlanItem panel panel-info" data-SamplingPlanid="@SamplingPlanAndFilesAndLabSheetIDListModel.SamplingPlanModel.SamplingPlanID">
                                         <div class="panel-heading">
                                             <h4 class="panel-title SamplingPlanTitlePanel">
+                                                <button class="jbHelpDocShowDialog btn btn-link" data-dockey="samplingplanbuttons" data-title="@SamplingPlanViewRes.Edit @SamplingPlanViewRes.Delete @SamplingPlanViewRes.Copy"><span class="glyphicon glyphicon-info-sign"></span></button>
                                                 <button class="jbSamplingPlanEdit SamplingPlanEditButons btn btn-default hidden" title="@SamplingPlanViewRes.Edit"><span class="glyphicon glyphicon-pencil"></span></button>
                                                 <button class="jbSamplingPlanAskToDelete SamplingPlanEditButons btn btn-default hidden" title="@SamplingPlanViewRes.Delete"><span class="glyphicon glyphicon-trash"></span></button>
                                                 <button class="jbSamplingPlanCopy SamplingPlanEditButons btn btn-default hidden" title="@SamplingPlanViewRes.Copy"><span class="glyphicon glyphicon-duplicate"></span></button>
@@ -178,6 +179,7 @@ else
                                     <div class="SamplingPlanItem panel panel-warning" data-SamplingPlanid="@SamplingPlanAndFilesAndLabSheetIDListModel.SamplingPlanModel.SamplingPlanID">
                                         <div class="panel-heading">
                                             <h4 class="panel-title SamplingPlanTitlePanel">
+                                                <button class="jbHelpDocShowDialog btn btn-link" data-dockey="samplingplaneditdeletecopy" data-title="@SamplingPlanViewRes.Edit @SamplingPlanViewRes.Delete @SamplingPlanViewRes.Copy"><span class="glyphicon glyphicon-info-sign"></span></button>
                                                 <button class="jbSamplingPlanEdit SamplingPlanEditButons btn btn-default hidden" title="@SamplingPlanViewRes.Edit"><span class="glyphicon glyphicon-pencil"></span></button>
                                                 <button class="jbSamplingPlanAskToDelete SamplingPlanEditButons btn btn-default hidden" title="@SamplingPlanViewRes.Delete"><span class="glyphicon glyphicon-trash"></span></button>
                                                 <button class="jbSamplingPlanCopy SamplingPlanEditButons btn btn-default hidden" title="@SamplingPlanViewRes.Copy"><span class="glyphicon glyphicon-duplicate"></span></button>
@@ -193,6 +195,7 @@ else
                                             @if (SamplingPlanAndFilesAndLabSheetIDListModel.LabSheetTransferredCount > 0)
                                             {
                                                 <button class="jbSamplingPlanShowTransferredLabSheets SamplingPlanEditButons btn btn-default" title="@SamplingPlanViewRes.ShowTransferredLabSheets"><span class="glyphicon glyphicon-arrow-down"></span></button>
+                                                <button class="jbHelpDocShowDialog btn btn-link" data-dockey="samplingplanshowtransferredlabsheets" data-title="@SamplingPlanViewRes.ShowTransferredLabSheets"><span class="glyphicon glyphicon-info-sign"></span></button>
                                             }
                                             <div class="LabSheetsTransferredDiv">
 
@@ -201,6 +204,7 @@ else
                                             @if (SamplingPlanAndFilesAndLabSheetIDListModel.LabSheetHistoryCount > 0)
                                             {
                                                 <button class="jbSamplingPlanShowHistoryLabSheets SamplingPlanEditButons btn btn-default" title="@SamplingPlanViewRes.ShowHistoryLabSheets"><span class="glyphicon glyphicon-hourglass"></span></button>
+                                                <button class="jbHelpDocShowDialog btn btn-link" data-dockey="samplingplanshowhistorylabsheets" data-title="@SamplingPlanViewRes.ShowHistoryLabSheets"><span class="glyphicon glyphicon-info-sign"></span></button>
                                             }
                                             <div class="LabSheetsHistoryDiv">
 
@@ -213,7 +217,7 @@ else
                                                     <li>
                                                         @if (SamplingPlanAndFilesAndLabSheetIDListModel.TVFileModelSamplingPlanFileTXT != null)
                                                         {
-
+                                                            <button class="jbHelpDocShowDialog btn btn-link" data-dockey="samplingplandownloaddelete" data-title="@SamplingPlanViewRes.Download @SamplingPlanViewRes.Delete"><span class="glyphicon glyphicon-info-sign"></span></button>
                                                             <button class="jbFileDownload SamplingPlanEditButons btn btn-default hidden"
                                                                     data-tvfiletvitemid="@SamplingPlanAndFilesAndLabSheetIDListModel.TVFileModelSamplingPlanFileTXT.TVFileTVItemID"
                                                                     title="@SamplingPlanViewRes.Download">
@@ -246,6 +250,7 @@ else
                                                         }
                                                         else
                                                         {
+                                                            <button class="jbHelpDocShowDialog btn btn-link" data-dockey="samplingplancreatesamplingplan" data-title="@SamplingPlanViewRes.CreateSamplingPlan"><span class="glyphicon glyphicon-info-sign"></span></button>
                                                             <img src="~/Images/Notepad_icon16.png" />
                                                             <button class="jbSamplingPlanGenerateSamplingPlan btn btn-link"
                                                                     data-extensionwithdot=".txt">

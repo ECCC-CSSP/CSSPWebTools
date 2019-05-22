@@ -82,6 +82,7 @@ else
         {
             <div class="form-group">
                 <label class="control-label">
+                    <button class="jbHelpDocShowDialog btn btn-link" data-dockey="mikescenariodecouplinggenerateuse" data-title="@MikeScenarioViewRes.Decoupling @MikeScenarioViewRes.Generate @MikeScenarioViewRes.Use"><span class="glyphicon glyphicon-info-sign"></span></button>
                     @MikeScenarioViewRes.Decoupling ----- &nbsp;&nbsp;&nbsp;
                     <input type="radio" class="checkbox-inline" name="DecouplingAction" value="Empty" @((GenerateDecouplingFiles == null || GenerateDecouplingFiles == false) && (UseDecouplingFiles == null || UseDecouplingFiles == false) ? "checked='checked'" : "") />
                     <span>@MikeScenarioViewRes.Nothing</span>
@@ -91,7 +92,7 @@ else
                     @if (HasDecouplingFiles)
                     {
                         <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                        <input type="radio" class="checkbox-inline" name="DecouplingAction" value="UseDecouplingFiles"  @(UseDecouplingFiles != null && UseDecouplingFiles == true ? "checked='checked'" : "") />
+                        <input type="radio" class="checkbox-inline" name="DecouplingAction" value="UseDecouplingFiles" @(UseDecouplingFiles != null && UseDecouplingFiles == true ? "checked='checked'" : "") />
                         <span>@MikeScenarioViewRes.Use</span>
 
                     }
@@ -99,7 +100,10 @@ else
                 </label>
             </div>
             <div class="form-group">
-                <label class="control-label">@MikeScenarioViewRes.UseSalinityAndTemperatureInitialConditionFromResultFile</label>
+                <label class="control-label">
+                    @MikeScenarioViewRes.UseSalinityAndTemperatureInitialConditionFromResultFile
+                    <button class="jbHelpDocShowDialog btn btn-link" data-dockey="mikescenariousesalinityandtemperatureinitialconditionfromresultfile" data-title="@MikeScenarioViewRes.UseSalinityAndTemperatureInitialConditionFromResultFile"><span class="glyphicon glyphicon-info-sign"></span></button>
+                </label>
                 <div>
                     <select name="UseSalinityAndTemperatureInitialConditionFromTVFileTVItemID" class="form-control">
                         <option value="0">@MikeScenarioViewRes.ServerFiles</option>
@@ -120,7 +124,10 @@ else
                 </div>
             </div>
             <div class="form-group">
-                <label class="control-label">@MikeScenarioViewRes.ForSimulatingMWQMRun</label>
+                <label class="control-label">
+                    @MikeScenarioViewRes.ForSimulatingMWQMRun
+                    <button class="jbHelpDocShowDialog btn btn-link" data-dockey="mikescenarioforsimulatingmwqmrun" data-title="@MikeScenarioViewRes.ForSimulatingMWQMRun"><span class="glyphicon glyphicon-info-sign"></span></button>
+                </label>
                 <div>
                     <select name="ForSimulatingMWQMRunTVItemID" class="form-control">
                         <option value="0">@MikeScenarioViewRes.MWQMRunDates</option>
@@ -142,14 +149,20 @@ else
             </div>
         }
         <div class="form-group">
-            <label class="control-label">@MikeScenarioViewRes.ScenarioName</label>
+            <label class="control-label">
+                @MikeScenarioViewRes.ScenarioName
+                <button class="jbHelpDocShowDialog btn btn-link" data-dockey="mikescenarioscenarioname" data-title="@MikeScenarioViewRes.ScenarioName"><span class="glyphicon glyphicon-info-sign"></span></button>
+            </label>
             <div>
                 <input type="text" name="MikeScenarioName" class="form-control" value="@mikeScenarioModel.MikeScenarioTVText" />
                 <p class="help-block"></p>
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label">@MikeScenarioViewRes.StartDateTime (@MikeScenarioViewRes.LocalTime)</label>
+            <label class="control-label">
+                @MikeScenarioViewRes.StartDateTime (@MikeScenarioViewRes.LocalTime)
+                <button class="jbHelpDocShowDialog btn btn-link" data-dockey="mikescenariostartdatetime" data-title="@MikeScenarioViewRes.StartDateTime"><span class="glyphicon glyphicon-info-sign"></span></button>
+            </label>
             <div>
                 @if (mikeScenarioModel.ForSimulatingMWQMRunTVItemID != null)
                 {
@@ -243,7 +256,10 @@ else
         </div>
         <div class="form-group">
             <section>
-                <label class="control-label">@MikeScenarioViewRes.EndDateTime (@MikeScenarioViewRes.LocalTime)</label>
+                <label class="control-label">
+                    @MikeScenarioViewRes.EndDateTime (@MikeScenarioViewRes.LocalTime)
+                    <button class="jbHelpDocShowDialog btn btn-link" data-dockey="mikescenarioenddatetime" data-title="@MikeScenarioViewRes.EndDateTime"><span class="glyphicon glyphicon-info-sign"></span></button>
+                </label>
                 <div>
                     @if (mikeScenarioModel.ForSimulatingMWQMRunTVItemID != null)
                     {
@@ -337,7 +353,10 @@ else
             </section>
         </div>
         <div class="form-group">
-            <label class="control-label">@MikeScenarioViewRes.ScenarioLength</label>
+            <label class="control-label">
+                @MikeScenarioViewRes.ScenarioLength
+                <button class="jbHelpDocShowDialog btn btn-link" data-dockey="mikescenarioscenariolength" data-title="@MikeScenarioViewRes.ScenarioLength"><span class="glyphicon glyphicon-info-sign"></span></button>
+            </label>
             <div>
                 @if (mikeScenarioModel.ForSimulatingMWQMRunTVItemID != null)
                 {
@@ -354,7 +373,10 @@ else
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label">@MikeScenarioViewRes.DecayFactorAverage (@UnitViewRes.PerDay)</label>
+            <label class="control-label">
+                @MikeScenarioViewRes.DecayFactorAverage (@UnitViewRes.PerDay)
+                <button class="jbHelpDocShowDialog btn btn-link" data-dockey="mikescenariodecayfactoraverage" data-title="@MikeScenarioViewRes.DecayFactorAverage"><span class="glyphicon glyphicon-info-sign"></span></button>
+            </label>
             <div>
                 <input class="isnumber form-control" type="text" name="DecayFactor_per_day" value="@string.Format("{0:F5}", mikeScenarioModel.DecayFactor_per_day)" />
                 <span class="help-block"></span>
@@ -367,6 +389,7 @@ else
                     <label class="checkbox-inline">
                         <input class="checkbox" type="checkbox" name="DecayIsConstant" checked="checked" value="@mikeScenarioModel.DecayIsConstant" />
                         @MikeScenarioViewRes.DecayConstant
+                        <button class="jbHelpDocShowDialog btn btn-link" data-dockey="mikescenariodecayisconstant" data-title="@MikeScenarioViewRes.DecayConstant"><span class="glyphicon glyphicon-info-sign"></span></button>
                     </label>
                 </div>
             }
@@ -381,28 +404,40 @@ else
             }
         </div>
         <div class="form-group">
-            <label class="control-label">@MikeScenarioViewRes.DecayFactorAmplitude</label>
+            <label class="control-label">
+                @MikeScenarioViewRes.DecayFactorAmplitude
+                <button class="jbHelpDocShowDialog btn btn-link" data-dockey="mikescenariodecayfactoramplitude" data-title="@MikeScenarioViewRes.DecayFactorAmplitude"><span class="glyphicon glyphicon-info-sign"></span></button>
+            </label>
             <div>
                 <input class="isnumber form-control" type="text" name="DecayFactorAmplitude" value="@string.Format("{0:F5}", mikeScenarioModel.DecayFactorAmplitude)" />
                 <span class="help-block"></span>
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label">@MikeScenarioViewRes.AmbientTemperature (@UnitViewRes.Celcius_abbr)</label>
+            <label class="control-label">
+                @MikeScenarioViewRes.AmbientTemperature (@UnitViewRes.Celcius_abbr)
+                <button class="jbHelpDocShowDialog btn btn-link" data-dockey="mikescenarioambienttemperature" data-title="@MikeScenarioViewRes.AmbientTemperature"><span class="glyphicon glyphicon-info-sign"></span></button>
+            </label>
             <div>
                 <input class="isnumber form-control" type="text" name="AmbientTemperature_C" value="@string.Format("{0:F1}", mikeScenarioModel.AmbientTemperature_C)" />
                 <span class="help-block"></span>
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label">@MikeScenarioViewRes.AmbientSalinity (@UnitViewRes.PSU)</label>
+            <label class="control-label">
+                @MikeScenarioViewRes.AmbientSalinity (@UnitViewRes.PSU)
+                <button class="jbHelpDocShowDialog btn btn-link" data-dockey="mikescenarioambientsalinity" data-title="@MikeScenarioViewRes.AmbientSalinity"><span class="glyphicon glyphicon-info-sign"></span></button>
+            </label>
             <div>
                 <input class="isnumber  form-control" type="text" name="AmbientSalinity_PSU" value="@string.Format("{0:F1}", mikeScenarioModel.AmbientSalinity_PSU)" />
                 <span class="help-block"></span>
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label">@MikeScenarioViewRes.ResultFrequency (@UnitViewRes.Minutes)</label>
+            <label class="control-label">
+                @MikeScenarioViewRes.ResultFrequency (@UnitViewRes.Minutes)
+                <button class="jbHelpDocShowDialog btn btn-link" data-dockey="mikescenarioresultfrequency" data-title="@MikeScenarioViewRes.ResultFrequency"><span class="glyphicon glyphicon-info-sign"></span></button>
+            </label>
             <div>
                 <select name="ResultFrequency_min" class="form-control">
                     @if (FreqRes == 5)
@@ -450,14 +485,20 @@ else
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label">@MikeScenarioViewRes.ManningNumber (@Html.Raw(UnitViewRes.ManningNumber_unit))</label>
+            <label class="control-label">
+                @MikeScenarioViewRes.ManningNumber (@Html.Raw(UnitViewRes.ManningNumber_unit))
+                <button class="jbHelpDocShowDialog btn btn-link" data-dockey="mikescenariomanningnumber" data-title="@MikeScenarioViewRes.ManningNumber"><span class="glyphicon glyphicon-info-sign"></span></button>
+            </label>
             <div>
                 <input class="isnumber form-control" type="text" name="ManningNumber" value="@string.Format("{0:F1}", mikeScenarioModel.ManningNumber)" />
                 <span class="help-block"></span>
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label">@MikeScenarioViewRes.WindSpeed (@UnitViewRes.KmPerHour)</label>
+            <label class="control-label">
+                @MikeScenarioViewRes.WindSpeed (@UnitViewRes.KmPerHour)
+                <button class="jbHelpDocShowDialog btn btn-link" data-dockey="mikescenariowindspeed" data-title="@MikeScenarioViewRes.WindSpeed"><span class="glyphicon glyphicon-info-sign"></span></button>
+            </label>
             <div>
                 <input class="isnumber form-control" type="text" name="WindSpeed_km_h" value="@string.Format("{0:F1}", mikeScenarioModel.WindSpeed_km_h)" />
                 <span class="help-block"></span>
@@ -466,6 +507,7 @@ else
         <div class="form-group">
             <label class="control-label">
                 @MikeScenarioViewRes.WindDirection (@UnitViewRes.Degrees)
+                <button class="jbHelpDocShowDialog btn btn-link" data-dockey="mikescenariowinddirection" data-title="@MikeScenarioViewRes.WindDirection"><span class="glyphicon glyphicon-info-sign"></span></button>
             </label>
             <div>
                 <input class="isnumber form-control" type="text" name="WindDirection_deg" value="@string.Format("{0:F0}", mikeScenarioModel.WindDirection_deg)" /><span class="text-lighter text-nowrap elementSpacing">

@@ -474,4 +474,10 @@
   <data name="WithoutInfrastructure" xml:space="preserve">
     <value>Without Infrastructure</value>
   </data>
+  <data name="ButtonsHelp" xml:space="preserve">
+    <value>Buttons help (fr)</value>
+  </data>
+  <data name="DesktopReviewed" xml:space="preserve">
+    <value>Desktop reviewed (fr)</value>
+  </data>
 </root>

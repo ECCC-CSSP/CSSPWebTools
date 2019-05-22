@@ -21,6 +21,7 @@ namespace CSSPWebTools.Controllers
         #region Properties
         public TVItemController _TVItemController { get; private set; }
         public MapInfoService _MapInfoService { get; private set; }
+        public MikeScenarioService _MikeScenarioService { get; private set; }
         public BaseEnumService _EnumService { get; private set; }
         #endregion Properties
 
@@ -36,6 +37,7 @@ namespace CSSPWebTools.Controllers
         {
             base.Initialize(requestContext);
             _MapInfoService = new MapInfoService(LanguageRequest, User);
+            _MikeScenarioService = new MikeScenarioService(LanguageRequest, User);
             _EnumService = new BaseEnumService(LanguageRequest);
         }
         #endregion Overrides
@@ -75,7 +77,7 @@ namespace CSSPWebTools.Controllers
             List<TabInfo> tabInfoList = GetTab1ViewTVItemInfoDB(tvItemModelLocationCurrent, tvAuth);
 
             ViewBag.TabInfoList = tabInfoList;
-            
+
             ViewBag.TVItemController = _TVItemController;
 
             return PartialView();
@@ -167,13 +169,67 @@ namespace CSSPWebTools.Controllers
             }
             else if (tvItemModelLocationCurrent.TVType == TVTypeEnum.Municipality && tabInfoList.FirstOrDefault().Active == "1")
             {
-                tvItemModelLocationChildrenList = _TVItemService.GetChildrenTVItemModelAndChildCountListWithTVItemIDAndTVTypeDB(urlModel.TVItemIDList[0], TVTypeEnum.MikeScenario);
+                List<TVItemModelAndChildCount> tvItemModelLocationChildrenTempList = _TVItemService.GetChildrenTVItemModelAndChildCountListWithTVItemIDAndTVTypeDB(urlModel.TVItemIDList[0], TVTypeEnum.MikeScenario);
                 tvType = TVTypeEnum.MikeScenario;
+                ViewBag.MikeScenarioModelList = new List<MikeScenarioModel>();
+                if (ViewBag.AllSites)
+                {
+                    List<MikeScenarioModel> mikeScenarioModelTempList = _MikeScenarioService.GetMikeScenarioModelListWithParentTVItemIDDB(urlModel.TVItemIDList[0]);
+                    if (mikeScenarioModelTempList.Count > 0)
+                    {
+                        if (string.IsNullOrWhiteSpace(mikeScenarioModelTempList[0].Error))
+                        {
+                            List<MikeScenarioModel> mikeScenarioModelList = mikeScenarioModelTempList.OrderByDescending(c => c.MikeScenarioStartDateTime_Local).ToList();
+
+                            foreach (MikeScenarioModel mikeScenarioModel in mikeScenarioModelList)
+                            {
+                                TVItemModelAndChildCount tvItemModelAndChildCount = tvItemModelLocationChildrenTempList.Where(c => c.TVItemID == mikeScenarioModel.MikeScenarioTVItemID).FirstOrDefault();
+                                if (tvItemModelAndChildCount != null)
+                                {
+                                    tvItemModelLocationChildrenList.Add(tvItemModelAndChildCount);
+                                }
+                            }
+
+                            ViewBag.MikeScenarioModelList = mikeScenarioModelList;
+                        }
+                    }
+                }
+                else
+                {
+                    tvItemModelLocationChildrenList = tvItemModelLocationChildrenTempList;
+                }
             }
             else if (tvItemModelLocationCurrent.TVType == TVTypeEnum.Sector && tabInfoList.FirstOrDefault().Active == "2")
             {
-                tvItemModelLocationChildrenList = _TVItemService.GetChildrenTVItemModelAndChildCountListWithTVItemIDAndTVTypeOnlyOneLevelDownDB(urlModel.TVItemIDList[0], TVTypeEnum.MikeScenario);
+                List<TVItemModelAndChildCount> tvItemModelLocationChildrenTempList = _TVItemService.GetChildrenTVItemModelAndChildCountListWithTVItemIDAndTVTypeOnlyOneLevelDownDB(urlModel.TVItemIDList[0], TVTypeEnum.MikeScenario);
                 tvType = TVTypeEnum.MikeScenario;
+                ViewBag.MikeScenarioModelList = new List<MikeScenarioModel>();
+                if (ViewBag.AllSites)
+                {
+                    List<MikeScenarioModel> mikeScenarioModelTempList = _MikeScenarioService.GetMikeScenarioModelListWithParentTVItemIDDB(urlModel.TVItemIDList[0]);
+                    if (mikeScenarioModelTempList.Count > 0)
+                    {
+                        if (string.IsNullOrWhiteSpace(mikeScenarioModelTempList[0].Error))
+                        {
+                            List<MikeScenarioModel> mikeScenarioModelList = mikeScenarioModelTempList.OrderByDescending(c => c.MikeScenarioStartDateTime_Local).ToList();
+
+                            foreach (MikeScenarioModel mikeScenarioModel in mikeScenarioModelList)
+                            {
+                                TVItemModelAndChildCount tvItemModelAndChildCount = tvItemModelLocationChildrenTempList.Where(c => c.TVItemID == mikeScenarioModel.MikeScenarioTVItemID).FirstOrDefault();
+                                if (tvItemModelAndChildCount != null)
+                                {
+                                    tvItemModelLocationChildrenList.Add(tvItemModelAndChildCount);
+                                }
+                            }
+
+                            ViewBag.MikeScenarioModelList = mikeScenarioModelList;
+                        }
+                    }
+                }
+                else
+                {
+                    tvItemModelLocationChildrenList = tvItemModelLocationChildrenTempList;
+                }
             }
             else if (tvItemModelLocationCurrent.TVType == TVTypeEnum.MWQMSite && tabInfoList.FirstOrDefault().Active == "0")
             {

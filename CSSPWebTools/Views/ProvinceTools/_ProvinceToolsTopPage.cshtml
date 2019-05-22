@@ -28,12 +28,13 @@
                 <div class="ProvinceToolsStatDiv panel-body">
                     <div class="h4">@ProvinceToolsViewRes.SomeOfTheseTasksCanTakeALongTime</div>
                     <button class="jbProvinceToolsGenerateStats btn btn-primary" data-provincetvitemid="@ProvinceTVItemID">
-                        @ProvinceToolsViewRes.GenerateStatisticsNormalDryWetKMLAndCSV  
+                        @ProvinceToolsViewRes.GenerateStatisticsNormalDryWetKMLAndCSV
                         <span class="working hidden">
                             @ProvinceToolsViewRes.Working...
                             <span class="percent"></span>
                         </span>
                     </button>
+                    <button class="jbHelpDocShowDialog btn btn-link" data-dockey="generatestatisticsnormaldrywetkmlandcsv" data-title="@ProvinceToolsViewRes.GenerateStatisticsNormalDryWetKMLAndCSV"><span class="glyphicon glyphicon-info-sign"></span></button>
                     <p></p>
                 </div>
             </div>
@@ -55,6 +56,7 @@
                             <option value="@year">@year</option>
                         }
                     </select>
+                    <button class="jbHelpDocShowDialog btn btn-link" data-dockey="yearforprecipitationfunction" data-title="@ProvinceToolsViewRes.YearToRunPrecipiationFunction"><span class="glyphicon glyphicon-info-sign"></span></button>
                     <p></p>
                     <button class="jbProvinceToolsGetAllPrecipitationForYear btn btn-primary" data-provincetvitemid="@ProvinceTVItemID">
                         @ProvinceToolsViewRes.GetAllPrecipitationForYear
@@ -63,6 +65,7 @@
                             <span class="percent"></span>
                         </span>
                     </button>
+                    <button class="jbHelpDocShowDialog btn btn-link" data-dockey="getallprecipitationforyear" data-title="@ProvinceToolsViewRes.GetAllPrecipitationForYear"><span class="glyphicon glyphicon-info-sign"></span></button>
                     <p></p>
                     <button class="jbProvinceToolsFillRunPrecipByClimateSitePriorityForYear btn btn-primary" data-provincetvitemid="@ProvinceTVItemID">
                         @ProvinceToolsViewRes.FillRunPrecipByClimateSitePriorityForYear
@@ -71,6 +74,7 @@
                             <span class="percent"></span>
                         </span>
                     </button>
+                    <button class="jbHelpDocShowDialog btn btn-link" data-dockey="fillrunprecipbyclimatesitepriorityforyear" data-title="@ProvinceToolsViewRes.FillRunPrecipByClimateSitePriorityForYear"><span class="glyphicon glyphicon-info-sign"></span></button>
                     <p></p>
                     <button class="jbProvinceToolsFindMissingPrecipForProvince btn btn-primary" data-provincetvitemid="@ProvinceTVItemID">
                         @ProvinceToolsViewRes.FindMissingPrecipForProvince
@@ -79,6 +83,7 @@
                             <span class="percent"></span>
                         </span>
                     </button>
+                    <button class="jbHelpDocShowDialog btn btn-link" data-dockey="findmissingprecipforprovince" data-title="@ProvinceToolsViewRes.FindMissingPrecipForProvince"><span class="glyphicon glyphicon-info-sign"></span></button>
                     <span>@ProvinceToolsViewRes.ADocumentWillBeCreatedShowingTheMissingPrecip</span>
                     <p></p>
                 </div>

@@ -27,7 +27,10 @@
                 <input type="hidden" name="TVItemIDMunicipality" value="@TVItemIDMunicipality" />
                 <input type="hidden" name="InfrastructureTVItemID" value="@InfrastructureTVItemID" />
                 <div class="form-group">
-                    <label class="control-label" for="InfrastructureTVText">@InfrastructureViewRes.InfrastructureName</label>
+                    <label class="control-label" for="InfrastructureTVText">
+                        @InfrastructureViewRes.InfrastructureName
+                        <button class="jbHelpDocShowDialog btn btn-link" data-dockey="addormodifyinfrastructurename" data-title="@InfrastructureViewRes.InfrastructureName"><span class="glyphicon glyphicon-info-sign"></span></button>
+                    </label>
                     <div>
                         <input autofocus="autofocus" class="form-control"
                                name="InfrastructureTVText" type="text" id="InfrastructureTVText" value="@(InfrastructureTVItemID == 0 ? "" : infrastructureModel.InfrastructureTVText)" />
@@ -35,14 +38,17 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="InfrastructureType" class="control-label">@InfrastructureViewRes.InfrastructureType</label>
+                    <label for="InfrastructureType" class="control-label">
+                        @InfrastructureViewRes.InfrastructureType
+                        <button class="jbHelpDocShowDialog btn btn-link" data-dockey="addormodifyinfrastructuretype" data-title="@InfrastructureViewRes.InfrastructureType"><span class="glyphicon glyphicon-info-sign"></span></button>
+                    </label>
                     <div>
                         <span>
                             <select class="InfrastructureTypeSelect form-control" name="InfrastructureType">
                                 <option value="0" @(InfrastructureTVItemID == 0 ? "selected=selected" : "")>@InfrastructureViewRes.Select @InfrastructureViewRes.InfrastructureType</option>
                                 @foreach (InfrastructureTypeEnumTextOrdered infrastructureTypeEnumTextOrdered in _BaseEnumService.GetInfrastructureTypeEnumTextOrderedList())
                                 {
-                                    <option value="@((int)infrastructureTypeEnumTextOrdered.InfrastructureType)" @(InfrastructureTVItemID == 0 ? "" : (infrastructureTypeEnumTextOrdered.InfrastructureType == infrastructureModel.InfrastructureType) ? "selected=selected" : ""))>
+                                    <option value="@((int)infrastructureTypeEnumTextOrdered.InfrastructureType)" @(InfrastructureTVItemID == 0 ? "" : (infrastructureTypeEnumTextOrdered.InfrastructureType == infrastructureModel.InfrastructureType) ? "selected=selected" : "") )>
                                         @(infrastructureTypeEnumTextOrdered.InfrastructureTypeText)
                                     </option>
                                 }
@@ -52,7 +58,10 @@
                     </div>
                 </div>
                 <div class="SeeOtherMunicipalityTVItemID form-group hidden">
-                    <label for="SeeOtherMunicipalityTVItemID" class="control-label">@InfrastructureViewRes.SeeOtherMunicipality</label>
+                    <label for="SeeOtherMunicipalityTVItemID" class="control-label">
+                        @InfrastructureViewRes.SeeOtherMunicipality
+                        <button class="jbHelpDocShowDialog btn btn-link" data-dockey="addormodifyseeothermunicipality" data-title="@InfrastructureViewRes.SeeOtherMunicipality"><span class="glyphicon glyphicon-info-sign"></span></button>
+                    </label>
                     <div>
                         <span>
                             <select name="SeeOtherMunicipalityTVItemID" class="form-control">
@@ -69,20 +78,23 @@
                 </div>
                 <div class="form-inline">
                     <div>
-                        <label>@InfrastructureViewRes.InfrastructureCoordinates</label>
+                        <label>
+                            @InfrastructureViewRes.InfrastructureCoordinates
+                            <button class="jbHelpDocShowDialog btn btn-link" data-dockey="addormodifyinfrastructurecoordinates" data-title="@InfrastructureViewRes.InfrastructureCoordinates"><span class="glyphicon glyphicon-info-sign"></span></button>
+                        </label>
                     </div>
                     <div class="form-group blockRightSpace">
                         <label for="Lat" class="control-label">@InfrastructureViewRes.Latitude</label>
                         <div>
                             <input class="isnumber form-control" type="text" name="Lat"
-                                    value="@(InfrastructureTVItemID == 0 ? "" : (mapInfoPointModelInfrastructure == null ? "" : mapInfoPointModelInfrastructure.Lat.ToString("F5")))" />
+                                   value="@(InfrastructureTVItemID == 0 ? "" : (mapInfoPointModelInfrastructure == null ? "" : mapInfoPointModelInfrastructure.Lat.ToString("F5")))" />
                             <span class="help-block"></span>
                         </div>
                     </div>
                     <div class="form-group  blockRightSpace">
                         <label for="Lng" class="control-label">@InfrastructureViewRes.Longitude</label>
                         <div>
-                            <input class="isnumber form-control" type="text" name="Lng" 
+                            <input class="isnumber form-control" type="text" name="Lng"
                                    value="@(InfrastructureTVItemID == 0 ? "" : (mapInfoPointModelInfrastructure == null ? " " : mapInfoPointModelInfrastructure.Lng.ToString("F5")))" />
                             <span class="help-block"></span>
                         </div>
@@ -90,20 +102,23 @@
                 </div>
                 <div class="form-inline">
                     <div>
-                        <label>@InfrastructureViewRes.InfrastructureOutfallCoordinates</label>
+                        <label>
+                            @InfrastructureViewRes.InfrastructureOutfallCoordinates
+                            <button class="jbHelpDocShowDialog btn btn-link" data-dockey="addormodifyinfrastructureoutfallcoordinates" data-title="@InfrastructureViewRes.InfrastructureOutfallCoordinates"><span class="glyphicon glyphicon-info-sign"></span></button>
+                        </label>
                     </div>
                     <div class="form-group blockRightSpace">
                         <label for="LatOutfall" class="control-label">@InfrastructureViewRes.OutfallLatitude</label>
                         <div>
                             <input class="isnumber form-control" type="text" name="LatOutfall"
-                                    value="@(InfrastructureTVItemID == 0 ? "" : (mapInfoPointModelInfrastructureOutfall == null ? "" : mapInfoPointModelInfrastructureOutfall.Lat.ToString("F5")))" />
+                                   value="@(InfrastructureTVItemID == 0 ? "" : (mapInfoPointModelInfrastructureOutfall == null ? "" : mapInfoPointModelInfrastructureOutfall.Lat.ToString("F5")))" />
                             <span class="help-block"></span>
                         </div>
                     </div>
                     <div class="form-group  blockRightSpace">
                         <label for="LngOutfall" class="control-label">@InfrastructureViewRes.OutfallLongitude</label>
                         <div>
-                            <input class="isnumber form-control" type="text" name="LngOutfall" 
+                            <input class="isnumber form-control" type="text" name="LngOutfall"
                                    value="@(InfrastructureTVItemID == 0 ? "" : (mapInfoPointModelInfrastructureOutfall == null ? " " : mapInfoPointModelInfrastructureOutfall.Lng.ToString("F5")))" />
                             <span class="help-block"></span>
                         </div>

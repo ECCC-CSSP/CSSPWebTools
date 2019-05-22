@@ -403,6 +403,28 @@ var CSSP;
                     cssp.Dialog.ShowDialogErrorWithFail(command);
                 });
             };
+            this.PolSourceObservationEditAskToSave = function ($bjs) {
+                var OldYear = $bjs.closest("form").find("#ObsDateYear").text();
+                var OldMonth = $bjs.closest("form").find("#ObsDateMonth").text();
+                var OldDay = $bjs.closest("form").find("#ObsDateDay").text();
+                var NewYear = $bjs.closest("form").find("select[name='ObsYear']").val();
+                var NewMonth = $bjs.closest("form").find("select[name='ObsMonth']").val();
+                var NewDay = $bjs.closest("form").find("select[name='ObsDay']").val();
+                if (OldYear == NewYear && OldMonth == NewMonth && OldDay == NewDay) {
+                    cssp.PolSourceSite.PolSourceObservationEditSave($bjs);
+                    return;
+                }
+                var PolObservationMessageText = $bjs.closest("form").find("#AreYouSureYouDidNotWantToMakeACopyOfTheObservation").text() + "\r\n" + $bjs.closest("form").find("#AreYouSureYouWantToChangeDateOfCurrentObservation").text();
+                cssp.Dialog.ShowDialogAreYouSureNoDelete(PolObservationMessageText);
+                cssp.Dialog.CheckDialogAndButtonsExist(["#DialogBasic", "#DialogBasicYes"], 5, "cssp.PolSourceSite.SetDialogEventsEditSave", $bjs);
+            };
+            this.SetDialogEventsEditSave = function ($bjs) {
+                $("#DialogBasicYes").one("click", function (evt) {
+                    $("#DialogBasic").one('hidden.bs.modal', function () {
+                        cssp.PolSourceSite.PolSourceObservationEditSave($bjs);
+                    });
+                });
+            };
             this.PolSourceObservationEditSave = function ($bjs) {
                 var $form = $("#PolSourceObservationAddOrModifyForm");
                 if ($form.length == 0) {

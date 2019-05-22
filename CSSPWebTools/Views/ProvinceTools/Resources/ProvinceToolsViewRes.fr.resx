@@ -240,4 +240,7 @@
   <data name="StatisticsNormalDryWetKMLAndCSV" xml:space="preserve">
     <value>Statistiques (Normale, Sec, Pluie) (KML and CSV)</value>
   </data>
+  <data name="YearToRunPrecipiationFunction" xml:space="preserve">
+    <value>Year to run precipitation function (fr)</value>
+  </data>
 </root>

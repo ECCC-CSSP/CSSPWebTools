@@ -422,6 +422,15 @@ namespace CSSPWebTools.Views.ProvinceTools.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Year to run precipitation function.
+        /// </summary>
+        public static string YearToRunPrecipiationFunction {
+            get {
+                return ResourceManager.GetString("YearToRunPrecipiationFunction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to You can draw as many as is needed.
         /// </summary>
         public static string YouCanDrawAsManyAsIsNeeded {

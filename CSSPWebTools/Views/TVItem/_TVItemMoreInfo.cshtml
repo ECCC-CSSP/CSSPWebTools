@@ -297,6 +297,10 @@
                 <span>
                     <span><b>@TVItemViewRes.ObservationDate:</b></span>
                     <span>@Html.Raw(tvItemMoreInfoPolSourceSiteModel.ObsDateTime_Local)</span>
+                    @if (tvItemMoreInfoPolSourceSiteModel.DesktopReviewed)
+                    {
+                    <strong>&nbsp;&nbsp;(@TVItemViewRes.DesktopReviewed)</strong>
+                    }
                 </span>
                 <br />
                 <br />

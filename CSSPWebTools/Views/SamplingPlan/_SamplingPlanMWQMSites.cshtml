@@ -46,7 +46,10 @@ else
                 <input type="hidden" name="SubsectorTVItemID" value="@SubsectorTVItemID" />
                 <ul class="list-unstyled blockMargin">
                     <li>
-                        <label class="text-primary h4">@SamplingPlanViewRes.MWQMSites</label>
+                        <label class="text-primary h4">
+                            @SamplingPlanViewRes.MWQMSites
+                            <button class="jbHelpDocShowDialog btn btn-link" data-dockey="addormodifysamplingplanselectallunselectall" data-title="@SamplingPlanViewRes.SelectAll @SamplingPlanViewRes.UnSelectAll"><span class="glyphicon glyphicon-info-sign"></span></button>
+                        </label>
                         <button class="jbSamplingPlanSubsectorSelectAll btn btn-default">@SamplingPlanViewRes.SelectAll</button>
                         <button class="jbSamplingPlanSubsectorUnSelectAll btn btn-default">@SamplingPlanViewRes.UnSelectAll</button>
                         <span>(A) -> Active</span>
@@ -101,14 +104,16 @@ else
                                     </div>
 
                                     MWQMDuplicateID = "SS" + tvItemModelMWQMSite.ParentID + "_D";
-
                                 }
                             </li>
                         </ul>
                     </li>
                     <li>
                         <div class="form-inline">
-                            <label class="control-label text-primary">@SamplingPlanViewRes.Duplicate:</label>
+                            <label class="control-label text-primary">
+                                @SamplingPlanViewRes.Duplicate:
+                                <button class="jbHelpDocShowDialog btn btn-link" data-dockey="addormodifysamplingplanduplicate" data-title="@SamplingPlanViewRes.Duplicate @SamplingPlanViewRes.UnSelectAll"><span class="glyphicon glyphicon-info-sign"></span></button>
+                            </label>
                             <select class="mwqmsiteduplicate form-control" name="@MWQMDuplicateID">
                                 @DuplicateOption
                             </select>

@@ -59,11 +59,13 @@ else
                             <input name="IsActive" type="checkbox"
                                    id="IsActive" @(SamplingPlanModel == null ? "" : (SamplingPlanModel.IsActive ? "checked=checked" : "")) />
                             <span>&nbsp;&nbsp;@SamplingPlanViewRes.IsActive</span>
+                            <button class="jbHelpDocShowDialog btn btn-link" data-dockey="addormodifysamplingplanisactive" data-title="@SamplingPlanViewRes.IsActive"><span class="glyphicon glyphicon-info-sign"></span></button>
                         </label>
                     </div>
                     <div class="form-group">
                         <label class="control-label" for="ForGroupName">@SamplingPlanViewRes.ForGroupName</label>
                         <i class="text-lighter elementSpacing">ex: ECCC_NB</i>
+                        <button class="jbHelpDocShowDialog btn btn-link" data-dockey="addormodifysamplingplanforgroupname" data-title="@SamplingPlanViewRes.ForGroupName"><span class="glyphicon glyphicon-info-sign"></span></button>
                         <div class="form-inline elementSpacing">
                             <span class="form-control-static"></span>
                             <input autofocus="autofocus" class="form-control" name="ForGroupName" type="text" id="ForGroupName" value="@(SamplingPlanModel == null ? "" : SamplingPlanModel.ForGroupName)" />
@@ -71,7 +73,10 @@ else
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label" for="SamplingPlanType">@SamplingPlanViewRes.SamplingPlanType</label>
+                        <label class="control-label" for="SamplingPlanType">
+                            @SamplingPlanViewRes.SamplingPlanType
+                            <button class="jbHelpDocShowDialog btn btn-link" data-dockey="addormodifysamplingplansamplingplantype" data-title="@SamplingPlanViewRes.SamplingPlanType"><span class="glyphicon glyphicon-info-sign"></span></button>
+                        </label>
                         <div class="form-inline elementSpacing">
                             <span class="form-control-static"></span>
                             <select class="form-control" name="SamplingPlanType">
@@ -92,7 +97,10 @@ else
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label" for="SampleType">@SamplingPlanViewRes.SampleType</label>
+                        <label class="control-label" for="SampleType">
+                            @SamplingPlanViewRes.SampleType
+                            <button class="jbHelpDocShowDialog btn btn-link" data-dockey="addormodifysamplingplansampletype" data-title="@SamplingPlanViewRes.SampleType"><span class="glyphicon glyphicon-info-sign"></span></button>
+                        </label>
                         <div class="form-inline elementSpacing">
                             <span class="form-control-static"></span>
                             <select class="form-control" name="SampleType">
@@ -118,7 +126,10 @@ else
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label" for="LabSheetType">@SamplingPlanViewRes.LabSheetType</label>
+                        <label class="control-label" for="LabSheetType">
+                            @SamplingPlanViewRes.LabSheetType
+                            <button class="jbHelpDocShowDialog btn btn-link" data-dockey="addormodifysamplingplanlabsheettype" data-title="@SamplingPlanViewRes.LabSheetType"><span class="glyphicon glyphicon-info-sign"></span></button>
+                        </label>
                         <div class="form-inline elementSpacing">
                             <span class="form-control-static"></span>
                             <select class="form-control" name="LabSheetType">
@@ -142,6 +153,7 @@ else
                     <div class="form-group">
                         <label class="control-label" for="Year">@SamplingPlanViewRes.Year</label>
                         <i class="text-lighter elementSpacing">ex: 2016</i>
+                        <button class="jbHelpDocShowDialog btn btn-link" data-dockey="addormodifysamplingplanyear" data-title="@SamplingPlanViewRes.Year"><span class="glyphicon glyphicon-info-sign"></span></button>
                         <div class="form-inline elementSpacing">
                             <span class="form-control-static"></span>
                             <input class="form-control" name="Year" type="text" id="Year" value="@(SamplingPlanModel == null ? "" : SamplingPlanModel.Year.ToString())" />
@@ -151,6 +163,7 @@ else
                     <div class="form-group">
                         <label class="control-label" for="SamplingPlanName">@SamplingPlanViewRes.SamplingPlanName</label>
                         <i class="text-lighter elementSpacing">ex: IRZC2015</i>
+                        <button class="jbHelpDocShowDialog btn btn-link" data-dockey="addormodifysamplingplansamplingplanname" data-title="@SamplingPlanViewRes.SamplingPlanName"><span class="glyphicon glyphicon-info-sign"></span></button>
                         <div class="form-inline elementSpacing">
                             <img src="~/Images/Notepad_icon16.png" />&nbsp;
                             <span id="GeneratedSamplingPlanName">@(SamplingPlanModel != null && SamplingPlanModel.SamplingPlanName.Length > 0 ? SamplingPlanModel.SamplingPlanName : "SamplingPlan_nnnnnnnnn.txt")</span>
@@ -163,7 +176,10 @@ else
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label" for="AccessCode">@SamplingPlanViewRes.AccessCode</label>
+                        <label class="control-label" for="AccessCode">
+                            @SamplingPlanViewRes.AccessCode
+                            <button class="jbHelpDocShowDialog btn btn-link" data-dockey="addormodifysamplingplanaccesscode" data-title="@SamplingPlanViewRes.AccessCode"><span class="glyphicon glyphicon-info-sign"></span></button>
+                        </label>
                         <i class="text-lighter elementSpacing">ex: GPT3Fois</i>
                         <div class="form-inline elementSpacing">
                             <span class="form-control-static"></span>
@@ -176,6 +192,7 @@ else
                             <input name="IncludeLaboratoryQAQC" type="checkbox"
                                    id="IncludeLaboratoryQAQC" @(SamplingPlanModel == null ? "" : (SamplingPlanModel.IncludeLaboratoryQAQC ? "checked=checked" : "")) />
                             <span>&nbsp;&nbsp;@SamplingPlanViewRes.IncludeLaboratoryQAQC</span>
+                            <button class="jbHelpDocShowDialog btn btn-link" data-dockey="addormodifysamplingplanincludelaboratoryqaqc" data-title="@SamplingPlanViewRes.IncludeLaboratoryQAQC"><span class="glyphicon glyphicon-info-sign"></span></button>
                         </label>
                     </div>
                     <div class="IncludeLaboratoryQAQCInfoDiv @(SamplingPlanModel == null ? "hidden" : (SamplingPlanModel.IncludeLaboratoryQAQC ? "" : "hidden"))">
@@ -184,6 +201,7 @@ else
                                 @SamplingPlanViewRes.ApprovalCode
                             </label>
                             <i class="text-lighter elementSpacing">ex: GPT3Fois</i>
+                            <button class="jbHelpDocShowDialog btn btn-link" data-dockey="addormodifysamplingplanapprovalcode" data-title="@SamplingPlanViewRes.ApprovalCode"><span class="glyphicon glyphicon-info-sign"></span></button>
                             <div class="form-inline elementSpacing">
                                 <span class="form-control-static"></span>
                                 <input class="form-control" name="ApprovalCode" type="text" id="ApprovalCode" value="@(SamplingPlanModel == null ? "" : SamplingPlanModel.ApprovalCode)" />
@@ -194,6 +212,7 @@ else
                     <div class="form-group">
                         <label class="control-label" for="DuplicatePrecisionCriteria">@SamplingPlanViewRes.DailyDuplicatePrecisionCriteria</label>
                         <i class="text-lighter elementSpacing">ex: 0.6872 @SamplingPlanViewRes.OrZeroIfNotUsed</i>
+                        <button class="jbHelpDocShowDialog btn btn-link" data-dockey="addormodifysamplingplandailyduplicateprecisioncriteria" data-title="@SamplingPlanViewRes.DailyDuplicatePrecisionCriteria"><span class="glyphicon glyphicon-info-sign"></span></button>
                         <div class="form-inline elementSpacing">
                             <span class="form-control-static"></span>
                             <input class="form-control isnumber" name="DailyDuplicatePrecisionCriteria" type="text" id="DailyDuplicatePrecisionCriteria" value="@(SamplingPlanModel == null ? "" : SamplingPlanModel.DailyDuplicatePrecisionCriteria.ToString())" />
@@ -203,6 +222,7 @@ else
                     <div class="form-group">
                         <label class="control-label" for="IntertechDuplicatePrecisionCriteria">@SamplingPlanViewRes.IntertechDuplicatePrecisionCriteria</label>
                         <i class="text-lighter elementSpacing">ex: 0.093 @SamplingPlanViewRes.OrZeroIfNotUsed</i>
+                        <button class="jbHelpDocShowDialog btn btn-link" data-dockey="addormodifysamplingplanintertechduplicateprecisioncriteria" data-title="@SamplingPlanViewRes.IntertechDuplicatePrecisionCriteria"><span class="glyphicon glyphicon-info-sign"></span></button>
                         <div class="form-inline elementSpacing">
                             <span class="form-control-static"></span>
                             <input class="form-control isnumber" name="IntertechDuplicatePrecisionCriteria" type="text" id="IntertechDuplicatePrecisionCriteria" value="@(SamplingPlanModel == null ? "" : SamplingPlanModel.IntertechDuplicatePrecisionCriteria.ToString())" />
@@ -212,7 +232,10 @@ else
                     <div class="panel panel-default">
                         @* AnalyzeMethod*@
                         <div class="form-group">
-                            <label for="AnalyzeMethodDefault" class="control-label">@SamplingPlanViewRes.AnalyzeMethod</label>
+                            <label for="AnalyzeMethodDefault" class="control-label">
+                                @SamplingPlanViewRes.AnalyzeMethod
+                                <button class="jbHelpDocShowDialog btn btn-link" data-dockey="addormodifysamplingplananalyzemethod" data-title="@SamplingPlanViewRes.AnalyzeMethod"><span class="glyphicon glyphicon-info-sign"></span></button>
+                            </label>
                             <div>
                                 <select name="AnalyzeMethodDefault" class="form-control">
                                     <option value="0" @(SamplingPlanModel != null && SamplingPlanModel.AnalyzeMethodDefault != null && (AnalyzeMethodEnum)SamplingPlanModel.AnalyzeMethodDefault == 0 ? "selected=selected" : "")>
@@ -232,7 +255,10 @@ else
 
                         @* SampleMatrix*@
                         <div class="form-group">
-                            <label for="SampleMatrixDefault" class="control-label">@SamplingPlanViewRes.SampleMatrix</label>
+                            <label for="SampleMatrixDefault" class="control-label">
+                                @SamplingPlanViewRes.SampleMatrix
+                                <button class="jbHelpDocShowDialog btn btn-link" data-dockey="addormodifysamplingplansamplematrix" data-title="@SamplingPlanViewRes.SampleMatrix"><span class="glyphicon glyphicon-info-sign"></span></button>
+                            </label>
                             <div>
                                 <select name="SampleMatrixDefault" class="form-control">
                                     <option value="0" @(SamplingPlanModel != null && SamplingPlanModel.SampleMatrixDefault != null && (SampleMatrixEnum)SamplingPlanModel.SampleMatrixDefault == 0 ? "selected=selected" : "")>
@@ -252,7 +278,10 @@ else
 
                         @* Laboratory*@
                         <div class="form-group">
-                            <label for="LaboratoryDefault" class="control-label">@SamplingPlanViewRes.Laboratory</label>
+                            <label for="LaboratoryDefault" class="control-label">
+                                @SamplingPlanViewRes.Laboratory
+                                <button class="jbHelpDocShowDialog btn btn-link" data-dockey="addormodifysamplingplanlaboratory" data-title="@SamplingPlanViewRes.Laboratory"><span class="glyphicon glyphicon-info-sign"></span></button>
+                            </label>
                             <div>
                                 <select name="LaboratoryDefault" class="form-control">
                                     <option value="0" @(SamplingPlanModel != null && SamplingPlanModel.LaboratoryDefault != null && (LaboratoryEnum)SamplingPlanModel.LaboratoryDefault == 0 ? "selected=selected" : "")>
@@ -273,7 +302,10 @@ else
 
                     @* BackupPath *@
                     <div class="form-group">
-                        <label class="control-label" for="BackupDirectory">@SamplingPlanViewRes.BackupDirectory</label>
+                        <label class="control-label" for="BackupDirectory">
+                            @SamplingPlanViewRes.BackupDirectory
+                            <button class="jbHelpDocShowDialog btn btn-link" data-dockey="addormodifysamplingplanbackupdirectory" data-title="@SamplingPlanViewRes.BackupDirectory"><span class="glyphicon glyphicon-info-sign"></span></button>
+                        </label>
                         <i class="text-lighter elementSpacing"><b>Ex: </b>\\Atlantic.int.ec.gc.ca\shares\Branches\EPB\ShellFish\CSSPTools\CSSPLabSheets\</i>
                         <div class="form-inline elementSpacing">
                             <span class="form-control-static"></span>

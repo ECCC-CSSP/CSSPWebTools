@@ -293,4 +293,13 @@
   <data name="ExtraComment" xml:space="preserve">
     <value>Extra commentaire</value>
   </data>
+  <data name="DesktopReviewed" xml:space="preserve">
+    <value>Desktop reviewed (fr)</value>
+  </data>
+  <data name="AreYouSureYouDidNotWantToMakeACopyOfTheObservation" xml:space="preserve">
+    <value>Are you sure you did not want to make a copy of the observation? (fr)</value>
+  </data>
+  <data name="AreYouSureYouWantToChangeDateOfCurrentObservation" xml:space="preserve">
+    <value>Are you sure you want to change date of current observation? (fr)</value>
+  </data>
 </root>

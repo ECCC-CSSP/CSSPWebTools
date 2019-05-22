@@ -4,6 +4,9 @@
     <div id="MWQMSiteChartProp">
         <ul class="list-inline">
             <li>
+                <button class="jbHelpDocShowDialog btn btn-link" data-dockey="mwqmsitecharts" data-title="@MWQMViewRes.Charts"><span class="glyphicon glyphicon-info-sign"></span></button>
+            </li>
+            <li>
                 <button class="jbMWQMSiteRefresh btn btn-default" title="@MWQMViewRes.Refresh"><span class="glyphicon glyphicon-refresh"></span></button>
             </li>
             <li>
@@ -21,6 +24,9 @@
             </li>
         </ul>
         <ul class="list-inline paraBlock">
+            <li>
+                <button class="jbHelpDocShowDialog btn btn-link" data-dockey="mwqmsitechartsparameters" data-title="@MWQMViewRes.Charts @MWQMViewRes.Parameters"><span class="glyphicon glyphicon-info-sign"></span></button>
+            </li>
             <li>
                 <input name="MWQMSiteByDate" checked="checked" type="radio" value="1">&nbsp;@MWQMViewRes.ByDate
             </li>
@@ -40,9 +46,9 @@
             <li>
                 <select name="MWQMSiteStartYear">
                     @for (int i = 1980, count = DateTime.Now.Year; i < count; i++)
-                {
-                    <option @(i == 1980 ? "selected=\"selected\"" : "") value="@i">@i</option>
-                }
+                    {
+                        <option @(i == 1980 ? "selected=\"selected\"" : "") value="@i">@i</option>
+                    }
                 </select>
 
             </li>
@@ -50,7 +56,12 @@
     </div>
 
     <ul class="list-inline">
-        <li><div class="h4">@MWQMViewRes.StatisticsChart</div></li>
+        <li>
+            <div class="h4">
+                @MWQMViewRes.StatisticsChart
+                <button class="jbHelpDocShowDialog btn btn-link" data-dockey="mwqmsitestatisticschart" data-title="@MWQMViewRes.StatisticsChart"><span class="glyphicon glyphicon-info-sign"></span></button>
+            </div>
+        </li>
         <li>
             <div class="blockMargin dropdown">
                 <a class="dropdown-toggle" id="MenuLegendChartFC" data-toggle="dropdown" aria-expanded="true">
@@ -80,7 +91,12 @@
     </div>
 
     <ul class="list-inline">
-        <li><div class="h4">@MWQMViewRes.FecalColiformsChart</div></li>
+        <li>
+            <div class="h4">
+                @MWQMViewRes.FecalColiformsChart
+                <button class="jbHelpDocShowDialog btn btn-link" data-dockey="mwqmsitefecalcoliformschart" data-title="@MWQMViewRes.FecalColiformsChart"><span class="glyphicon glyphicon-info-sign"></span></button>
+            </div>
+        </li>
         <li>
             <div class="blockMargin dropdown">
                 <a class="dropdown-toggle" id="MenuLegendChartFC" data-toggle="dropdown" aria-expanded="false">
@@ -97,7 +113,10 @@
     <div id="MWQMSiteChartFCID">
     </div>
 
-    <h4>@MWQMViewRes.SalinityAndTemperatureChart</h4>
+    <h4>
+        @MWQMViewRes.SalinityAndTemperatureChart
+        <button class="jbHelpDocShowDialog btn btn-link" data-dockey="mwqmsitesalinityandtemperaturechart" data-title="@MWQMViewRes.SalinityAndTemperatureChart"><span class="glyphicon glyphicon-info-sign"></span></button>
+    </h4>
 
     <div id="MWQMSiteChartSalTempID">
     </div>

@@ -1224,9 +1224,9 @@ module CSSP {
                             cssp.PolSourceSite.PolSourceObservationAskToDelete($bjs);
                         }
                         break;
-                    case "jbPolSourceObservationEditSave":
+                    case "jbPolSourceObservationEditAskToSave":
                         {
-                            cssp.PolSourceSite.PolSourceObservationEditSave($bjs);
+                            cssp.PolSourceSite.PolSourceObservationEditAskToSave($bjs);
                         }
                         break;
                     case "jbPolSourceSaveIssue":

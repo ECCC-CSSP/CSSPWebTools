@@ -610,6 +610,15 @@ namespace CSSPWebTools.Controllers.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Order MIKE scenario by date.
+        /// </summary>
+        public static string OrderMikeScenarioByDate {
+            get {
+                return ResourceManager.GetString("OrderMikeScenarioByDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Your password has been changed..
         /// </summary>
         public static string PasswordChanged {

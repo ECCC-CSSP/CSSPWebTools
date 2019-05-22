@@ -8,33 +8,41 @@
         @Html.AntiForgeryToken()
         <fieldset>
             <div class="panel panel-default">
-               
-                    <input type="hidden" name="TVItemID" value="@TVItemID" />
+
+                <input type="hidden" name="TVItemID" value="@TVItemID" />
                 <div class="panel-heading">
-                    <h4 class="panel-title">@MikeScenarioViewRes.AddNewMikeScenario</h4>
+                    <h4 class="panel-title">
+                        @MikeScenarioViewRes.AddNewMikeScenario
+                        <button class="jbHelpDocShowDialog btn btn-link" data-dockey="mikescenarioaddnewmikescenario" data-title="@MikeScenarioViewRes.AddNewMikeScenario"><span class="glyphicon glyphicon-info-sign"></span></button>
+                    </h4>
                 </div>
                 <div class="panel-body">
                     <div class="form-group">
                         <label class="control-label" for="UplandFile">
                             @MikeScenarioViewRes.FileNameLabel:
-                        <span class="app-labelDefinition">(fileName.m21fm or filename.m3fm)</span>
-                    </label>
-                    <div>
-                        <input class="form-control" name="UplandFile" type="file" />
-                        <span class="help-block"></span>
-                        <span class="app-inputDefinition">(ex: Blacks Harbour.m21fm or Blacks Harbour.m3fm)</span>
+                            <button class="jbHelpDocShowDialog btn btn-link" data-dockey="mikescenariofilename" data-title="@MikeScenarioViewRes.FileNameLabel"><span class="glyphicon glyphicon-info-sign"></span></button>
+                            <span class="app-labelDefinition">(fileName.m21fm or filename.m3fm)</span>
+                        </label>
+                        <div>
+                            <input class="form-control" name="UplandFile" type="file" />
+                            <span class="help-block"></span>
+                            <span class="app-inputDefinition">(ex: Blacks Harbour.m21fm or Blacks Harbour.m3fm)</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="UploadClientPath">
+                            @MikeScenarioViewRes.FileFullPath:
+                            <button class="jbHelpDocShowDialog btn btn-link" data-dockey="mikescenariofilefullpath" data-title="@MikeScenarioViewRes.FileFullPath"><span class="glyphicon glyphicon-info-sign"></span></button>
+                        </label>
+                        <div>
+                            <input class="form-control" name="UploadClientPath" type="text" value="" />
+                            <span class="help-block"></span>
+                            <span>(ex: C:\CSSP\Modelling\Mike21\New Brunswick\Blacks Harbour\Model\Model Inputs)</span>
+                        </div>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label class="control-label" for="UploadClientPath">@MikeScenarioViewRes.FileFullPath:</label>
-                    <div>
-                        <input class="form-control" name="UploadClientPath" type="text" value="" />
-                        <span class="help-block"></span>
-                        <span>(ex: C:\CSSP\Modelling\Mike21\New Brunswick\Blacks Harbour\Model\Model Inputs)</span>
-                    </div>
-                </div>
-            </div>
                 <div class="panel-footer">
+                    <button class="jbHelpDocShowDialog btn btn-link" data-dockey="mikescenarioaddmikescenario" data-title="@MikeScenarioViewRes.AddMikeScenario"><span class="glyphicon glyphicon-info-sign"></span></button>
                     <button class="jbMikeScenarioImport btn btn-primary" type="submit">
                         <span class="glyphicon glyphicon-check"></span>
                         &nbsp;

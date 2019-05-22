@@ -855,7 +855,7 @@
     <Content Include="Views\MWQM\_mwqmSiteAddOrModify.cshtml" />
     <Content Include="Images\Empty.kmz" />
     <Content Include="Views\MikeScenario\_mikeScenarioGeneralParametersEdit.cshtml" />
-    <Content Include="Views\MikeScenario\_mikeScenarioBoundaryConditions.cshtml" />
+    <Content Include="Views\MikeScenario\_mikeScenarioBoundaryConditions_should_delete.cshtml" />
     <Content Include="Views\MikeScenario\_mikeScenarioGenerateResults.cshtml" />
     <Content Include="Views\MikeScenario\_mikeScenarioSourceAdd.cshtml" />
     <Content Include="Views\MikeScenario\_mikeScenarioSourceInfo.cshtml" />

@@ -8,6 +8,7 @@
     URLModel urlModel = (URLModel)ViewBag.URLModel;
     TVItemModel tvItemModelLocationCurrent = (TVItemModel)ViewBag.TVItemModelLocationCurrent;
     List<TVItemModelAndChildCount> tvItemModelLocationChildrenList = (List<TVItemModelAndChildCount>)ViewBag.TVItemModelLocationChildrenList;
+    List<MikeScenarioModel> mikeScenarioModelList = (List<MikeScenarioModel>)ViewBag.MikeScenarioModelList;
     List<int> TVItemIDWithInfrastructureList = (List<int>)ViewBag.TVItemIDWithInfrastructureList;
     List<TabInfo> TabInfoList = (List<TabInfo>)ViewBag.TabInfoList;
     List<List<IconInfo>> viewTVItemIconListList = (List<List<IconInfo>>)TabInfoList[int.Parse(TabInfoList[0].Active)].viewTVItemIconListList;
@@ -95,6 +96,9 @@ else
                         {
                             <a class="btn btn-@(AllSites ? "success" : "default")" href="@ActiveURL" type="button" title="@TVItemViewRes.AllSites"><span class="glyphicon glyphicon-th-list"></span></a>
                         }
+                    </li>
+                    <li>
+                        <button class="jbHelpDocShowDialog btn btn-link" data-dockey="contentbuttons" data-title="@TVItemViewRes.ButtonsHelp"><span class="glyphicon glyphicon-info-sign"></span></button>
                     </li>
                 </ul>
             </div>
@@ -376,26 +380,24 @@ else
                                             }
                                         }
 
-                                        @*@if (tvim.TVType == TVTypeEnum.MWQMSite)
-                                            {
-                                                <a href="@tvItemController.CreateHashURL(tvim.TVItemID)" class="text-noUnderline">
-                                                    <span class="TVText @(!tvim.IsActive ? "text-strikeThrough" : "")">@tvim.TVText</span> &nbsp; &nbsp;<span class="badge">&nbsp;@tvim.ChildCount&nbsp;</span>
-                                                </a>
-                                            }
-                                            else if (tvim.TVType == TVTypeEnum.PolSourceSite)
-                                            {
-                                                string href = tvItemController.CreateHashURL(tvim.TVItemID);
-                                                <a href="@href" class="text-noUnderline">
-                                                    <span class="TVText @(!tvim.IsActive ? "text-strikeThrough" : "")">@tvim.TVText</span> &nbsp; &nbsp;<span class="badge">&nbsp;@tvim.ChildCount&nbsp;</span>
-                                                </a>
-                                            }
-                                            else
-                                            {*@
-                                        @*string href = tvItemController.CreateHashURL(tvim.TVItemID);*@
                                         <a href="@(tvItemController.CreateHashURL(tvim.TVItemID))" class="text-noUnderline">
-                                            <span class="TVText @(!tvim.IsActive ? "text-strikeThrough" : "")" title="@((tvim.TVText.Contains("(NC)") || tvim.TVText.Contains("(PC)")) ? (ViewBag.Language == LanguageEnum.fr ? "Pas complet" : "Not complete") : "")">@tvim.TVText</span> &nbsp; &nbsp;<span class="badge">&nbsp;@tvim.ChildCount&nbsp;</span>
+
+                                            <span class="TVText @(!tvim.IsActive ? "text-strikeThrough" : "")" title="@((tvim.TVText.Contains("(NC)") || tvim.TVText.Contains("(PC)")) ? (ViewBag.Language == LanguageEnum.fr ? "Pas complet" : "Not complete") : "")">
+                                                @if (tvim.TVType == TVTypeEnum.MikeScenario)
+                                                {
+                                                    string StartDateText = "";
+                                                    MikeScenarioModel mikeScenarioModel = mikeScenarioModelList.Where(c => c.MikeScenarioTVItemID == tvim.TVItemID).FirstOrDefault();
+                                                    if (mikeScenarioModel != null)
+                                                    {
+                                                        StartDateText = "(" + mikeScenarioModel.MikeScenarioStartDateTime_Local.ToString("yyyy MM dd") + ") - ";
+                                                    }
+                                                    <span>
+                                                        @StartDateText
+                                                    </span>
+                                                }
+                                                @tvim.TVText
+                                            </span> &nbsp; &nbsp;<span class="badge">&nbsp;@tvim.ChildCount&nbsp;</span>
                                         </a>
-                                        @*}*@
                                     </div>
 
                                     <p class="list-group-item-text ">

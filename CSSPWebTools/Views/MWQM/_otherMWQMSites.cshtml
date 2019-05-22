@@ -9,7 +9,10 @@
     List<TVItemModel> tvItemModelOtherList = (List<TVItemModel>)ViewBag.TVItemModelOtherList;
 }
 <div>
-    <h4>@MWQMViewRes.OtherMWQMSites</h4>
+    <h4>
+        @MWQMViewRes.OtherMWQMSites
+        <button class="jbHelpDocShowDialog btn btn-link" data-dockey="mwqmsiteothermwqmsites" data-title="@MWQMViewRes.OtherMWQMSites"><span class="glyphicon glyphicon-info-sign"></span></button>
+    </h4>
     <ul class="list-inline">
         @foreach (TVItemModel tvItemModel in tvItemModelOtherList)
         {

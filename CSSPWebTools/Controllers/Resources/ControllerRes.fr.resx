@@ -410,4 +410,7 @@
   <data name="SubsectorTools" xml:space="preserve">
     <value>Subsector Tools (fr)</value>
   </data>
+  <data name="OrderMikeScenarioByDate" xml:space="preserve">
+    <value>Order MIKE scenario by date (fr)</value>
+  </data>
 </root>

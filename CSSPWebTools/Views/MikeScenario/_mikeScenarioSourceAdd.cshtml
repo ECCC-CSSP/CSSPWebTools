@@ -6,14 +6,20 @@
 <div>
     <div class="panel panel-default">
         <div class="panel-heading">
-            <h4 class="panel-title">@MikeScenarioViewRes.AddNewSource</h4>
+            <h4 class="panel-title">
+                @MikeScenarioViewRes.AddNewSource
+                <button class="jbHelpDocShowDialog btn btn-link" data-dockey="mikescenarioaddnewsource" data-title="@MikeScenarioViewRes.AddNewSource"><span class="glyphicon glyphicon-info-sign"></span></button>
+            </h4>
         </div>
         <div class="panel-body">
             <form class="MikeScenarioSourceAddOrModifyForm" action="MikeScenario/MikeScenarioSourceAddOrModifyJSON" method="post">
                 <input type="hidden" name="MikeScenarioTVItemID" value="@MikeScenarioTVItemID" />
                 <input type="hidden" name="MikeSourceTVItemID" value="0" />
                 <div class="form-group">
-                    <label class="control-label">@MikeScenarioViewRes.SourceName</label>
+                    <label class="control-label">
+                        @MikeScenarioViewRes.SourceName
+                        <button class="jbHelpDocShowDialog btn btn-link" data-dockey="mikescenariosourcename" data-title="@MikeScenarioViewRes.SourceName"><span class="glyphicon glyphicon-info-sign"></span></button>
+                    </label>
                     <div>
                         <input class="form-control" type="text" name="SourceName" value="" />
                         <span class="help-block"></span>
@@ -21,6 +27,9 @@
                 </div>
                 <div>
                     <div class="form-group">
+                        <label>
+                            <button class="jbHelpDocShowDialog btn btn-link" data-dockey="mikescenarioincludeisriveriscontinuoususehydrometric" data-title="@MikeScenarioViewRes.Include @MikeScenarioViewRes.IsRiver @MikeScenarioViewRes.IsContinuous @MikeScenarioViewRes.UseHydrometric"><span class="glyphicon glyphicon-info-sign"></span></button>
+                        </label>
                         <label for="Include" class="checkbox-inline">
                             <input type="checkbox" name="Include" id="Include" />@MikeScenarioViewRes.Include
                         </label>
@@ -37,12 +46,18 @@
                         </label>
                     </div>
                     <div class="form-group">
-                        <label>@MikeScenarioViewRes.Latitude</label>
+                        <label>
+                            @MikeScenarioViewRes.Latitude
+                            <button class="jbHelpDocShowDialog btn btn-link" data-dockey="mikescenariolatitude" data-title="@MikeScenarioViewRes.Latitude"><span class="glyphicon glyphicon-info-sign"></span></button>
+                        </label>
                         <input class="isnumber form-control" type="text" name="Lat" value="" />
                         <span class="help-block"></span>
                     </div>
                     <div class="form-group">
-                        <label class="control-label">@MikeScenarioViewRes.Longitude</label>
+                        <label class="control-label">
+                            @MikeScenarioViewRes.Longitude
+                            <button class="jbHelpDocShowDialog btn btn-link" data-dockey="mikescenariolongitude" data-title="@MikeScenarioViewRes.Longitude"><span class="glyphicon glyphicon-info-sign"></span></button>
+                        </label>
                         <input class="isnumber form-control" type="text" name="Lng" value="" />
                         <span class="help-block"></span>
                     </div>

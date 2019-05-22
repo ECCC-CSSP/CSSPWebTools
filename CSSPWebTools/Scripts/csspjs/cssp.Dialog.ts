@@ -68,6 +68,9 @@
                     case "cssp.MWQMRun.SetDialogEventsRunSample":
                         cssp.MWQMRun.SetDialogEventsRunSample($ajs);
                         break;
+                    case "cssp.PolSourceSite.SetDialogEventsEditSave":
+                        cssp.PolSourceSite.SetDialogEventsEditSave($ajs);
+                        break;
                     case "cssp.PolSourceSite.SetDialogEventsDeleteObservation":
                         cssp.PolSourceSite.SetDialogEventsDeleteObservation($ajs);
                         break;
@@ -121,6 +124,9 @@
         };
         public ShowDialogAreYouSure: Function = (DeleteObjText: string) => {
             cssp.Dialog.ShowDialogBasic(new DialogModel(DialogModelTypeEnum.AreYouSure, cssp.GetHTMLVariable("#LayoutVariables", "varDeleting") + " " + DeleteObjText, cssp.GetHTMLVariable("#LayoutVariables", "varAreYouSure")));            
+        };
+        public ShowDialogAreYouSureNoDelete: Function = (DeleteObjText: string) => {
+            cssp.Dialog.ShowDialogBasic(new DialogModel(DialogModelTypeEnum.AreYouSure, DeleteObjText, cssp.GetHTMLVariable("#LayoutVariables", "varAreYouSure")));
         };
         public ShowDialogError: Function = (Title: string, Message: string) => {
             cssp.Dialog.ShowDialogBasic(new DialogModel(DialogModelTypeEnum.Error, Title, Message));

@@ -418,7 +418,32 @@ module CSSP {
                 cssp.Dialog.ShowDialogErrorWithFail(command);
             });
         };
-        public PolSourceObservationEditSave: Function = ($bjs: JQuery): void => {
+        public PolSourceObservationEditAskToSave: Function = ($bjs: JQuery): void => {
+            let OldYear: string = $bjs.closest("form").find("#ObsDateYear").text();
+            let OldMonth: string = $bjs.closest("form").find("#ObsDateMonth").text();
+            let OldDay: string = $bjs.closest("form").find("#ObsDateDay").text();
+
+            let NewYear: string = $bjs.closest("form").find("select[name='ObsYear']").val();
+            let NewMonth: string = $bjs.closest("form").find("select[name='ObsMonth']").val();
+            let NewDay: string = $bjs.closest("form").find("select[name='ObsDay']").val();
+
+            if (OldYear == NewYear && OldMonth == NewMonth && OldDay == NewDay) {
+                cssp.PolSourceSite.PolSourceObservationEditSave($bjs);
+                return;
+            }
+
+            let PolObservationMessageText: string = $bjs.closest("form").find("#AreYouSureYouDidNotWantToMakeACopyOfTheObservation").text() + "\r\n" + $bjs.closest("form").find("#AreYouSureYouWantToChangeDateOfCurrentObservation").text();
+            cssp.Dialog.ShowDialogAreYouSureNoDelete(PolObservationMessageText);
+            cssp.Dialog.CheckDialogAndButtonsExist(["#DialogBasic", "#DialogBasicYes"], 5, "cssp.PolSourceSite.SetDialogEventsEditSave", $bjs);
+        };
+        public SetDialogEventsEditSave: Function = ($bjs: JQuery): void => {
+            $("#DialogBasicYes").one("click", (evt) => {
+                $("#DialogBasic").one('hidden.bs.modal', () => {
+                    cssp.PolSourceSite.PolSourceObservationEditSave($bjs);
+                });
+            });
+        };
+    public PolSourceObservationEditSave: Function = ($bjs: JQuery): void => {
             var $form: JQuery = $("#PolSourceObservationAddOrModifyForm");
             if ($form.length == 0) {
                 cssp.Dialog.ShowDialogErrorWithCouldNotFind_Within_("#PolSourceObservationAddOrModifyForm", "PolSourceObservationTopDiv");

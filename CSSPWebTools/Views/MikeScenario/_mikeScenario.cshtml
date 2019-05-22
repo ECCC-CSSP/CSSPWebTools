@@ -16,12 +16,12 @@
     List<TabInfo> tab1ViewTVItemInfoList = (List<TabInfo>)ViewBag.Tab1ViewTVItemInfoList;
 
     List<AppTaskCommandEnum> NoCancelList = new List<AppTaskCommandEnum>()
-    {
-        AppTaskCommandEnum.GenerateWebTide,
-        AppTaskCommandEnum.SetupWebTide,
-        AppTaskCommandEnum.MikeScenarioImport,
-        AppTaskCommandEnum.MikeScenarioOtherFileImport,
-    };
+{
+AppTaskCommandEnum.GenerateWebTide,
+AppTaskCommandEnum.SetupWebTide,
+AppTaskCommandEnum.MikeScenarioImport,
+AppTaskCommandEnum.MikeScenarioOtherFileImport,
+};
     int BCCount = -1;
     int WebTideNodeCount = 5;
 }
@@ -63,7 +63,12 @@
                             <input type="hidden" name="ClientFullPath" value="@ClientFullFileName" />
                             <input type="hidden" name="ServerFullPath" value="@ServerFullFileName" />
                             <div class="panel panel-default">
-                                <div class="panel-heading"><h4 class="panel-title">@MikeScenarioViewRes.OtherFileToUpload</h4></div>
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        @MikeScenarioViewRes.OtherFileToUpload
+                                        <button class="jbHelpDocShowDialog btn btn-link" data-dockey="mikescenariootherfileupload" data-title="@MikeScenarioViewRes.OtherFileToUpload"><span class="glyphicon glyphicon-info-sign"></span></button>
+                                    </h4>
+                                </div>
                                 <div class="panel-body">
                                     <ul class="list-unstyled">
                                         <li>
@@ -80,6 +85,7 @@
                                     <div class="btn-block paraBlock">
                                         <button class="jbMikeScenarioOtherFileImport btn btn-default" type="submit" href="#"><span class="glyphicon glyphicon-upload"></span>&nbsp;@MikeScenarioViewRes.Upload</button>
                                         <button class="jbMikeScenarioOtherFileNotImport btn btn-default" href="#"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;@MikeScenarioViewRes.NotThisFile</button>
+                                        <button class="jbHelpDocShowDialog btn btn-link" data-dockey="mikescenariouploadnotthisfile" data-title="@MikeScenarioViewRes.Upload @MikeScenarioViewRes.NotThisFile"><span class="glyphicon glyphicon-info-sign"></span></button>
                                     </div>
                                     <div class="MikeScenarioOtherFileImportProgress hidden">
                                         <div class="progress">
@@ -99,7 +105,10 @@
         else if (mikeBoundaryConditionModelListMesh.Count == 0)
         {
             <div class="blockMargin">
-                <h4>@MikeScenarioViewRes.SetupWebTide</h4>
+                <h4>
+                    @MikeScenarioViewRes.SetupWebTide
+                    <button class="jbHelpDocShowDialog btn btn-link" data-dockey="mikescenariosetupwebtide" data-title="@MikeScenarioViewRes.SetupWebTide"><span class="glyphicon glyphicon-info-sign"></span></button>
+                </h4>
                 <ul class="list-inline">
                     <li>
                         <select class="MikeScenarioBoundaryConditionDataPathBC form-control">
@@ -129,7 +138,11 @@
                         {
                             if (dataPathOfTide.WebTideDataSet == mikeBoundaryConditionModelListMesh[0].WebTideDataSet)
                             {
-                                <h4>@MikeScenarioViewRes.BoundaryConditions: <u>@dataPathOfTide.Text</u></h4>
+                                <h4>
+                                    @MikeScenarioViewRes.BoundaryConditions:
+                                    <button class="jbHelpDocShowDialog btn btn-link" data-dockey="mikescenarioboudaryconditions" data-title="@MikeScenarioViewRes.BoundaryConditions"><span class="glyphicon glyphicon-info-sign"></span></button>
+                                    <u>@dataPathOfTide.Text</u>
+                                </h4>
                                 <p class="paraBlock">
                                     <label class="h4 text-danger">@MikeScenarioViewRes.AllWebTidesBelowToGenerate</label>
                                 </p>

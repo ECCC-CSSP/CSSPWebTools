@@ -142,6 +142,15 @@ namespace CSSPWebTools.Views.TVItem.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Buttons help.
+        /// </summary>
+        public static string ButtonsHelp {
+            get {
+                return ResourceManager.GetString("ButtonsHelp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cancel.
         /// </summary>
         public static string Cancel {
@@ -219,6 +228,15 @@ namespace CSSPWebTools.Views.TVItem.Resources {
         public static string Description {
             get {
                 return ResourceManager.GetString("Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Desktop reviewed.
+        /// </summary>
+        public static string DesktopReviewed {
+            get {
+                return ResourceManager.GetString("DesktopReviewed", resourceCulture);
             }
         }
         

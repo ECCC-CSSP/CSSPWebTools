@@ -63,6 +63,7 @@ MikeScenarioViewRes.December,
         <div class="panel panel-default">
             <div class="panel-heading" role="tab" id="@panelHeadingID">
                 <h4 class="panel-title">
+                    <button class="jbHelpDocShowDialog btn btn-link" data-dockey="mikescenariosourceproperties" data-title="@MikeScenarioViewRes.Source @MikeScenarioViewRes.Properties"><span class="glyphicon glyphicon-info-sign"></span></button>
                     <a role="button" class="text-noUnderline" data-toggle="collapse" data-parent="#@panelGroupID" href="#@panelCollapseID" aria-expanded="false" aria-controls="@panelCollapseID" title="@MikeScenarioViewRes.Edit">
                         <span class="glyphicon glyphicon-pencil"></span>
                         <span class="elementSpacing">
@@ -99,7 +100,10 @@ MikeScenarioViewRes.December,
                         <div class="panel panel-default">
                             <div class="panel-body">
                                 <div class="form-group">
-                                    <label class="SourceName control-label">@MikeScenarioViewRes.SourceName</label>
+                                    <label class="SourceName control-label">
+                                        @MikeScenarioViewRes.SourceName
+                                        <button class="jbHelpDocShowDialog btn btn-link" data-dockey="mikescenariosourcename" data-title="@MikeScenarioViewRes.SourceName"><span class="glyphicon glyphicon-info-sign"></span></button>
+                                    </label>
                                     <div>
                                         <input type="text" class="form-control" name="SourceName" value="@mikeSourceModel.MikeSourceTVText" />
                                         <span class="help-block"></span>
@@ -107,6 +111,9 @@ MikeScenarioViewRes.December,
                                 </div>
                                 <div class="form-group">
                                     <div>
+                                        <label>
+                                            <button class="jbHelpDocShowDialog btn btn-link" data-dockey="mikescenariosourceincludeisriveriscontinuoususehydrometric" data-title="@MikeScenarioViewRes.Source @MikeScenarioViewRes.Include @MikeScenarioViewRes.IsRiver @MikeScenarioViewRes.IsContinuous @MikeScenarioViewRes.UseHydrometric"><span class="glyphicon glyphicon-info-sign"></span></button>
+                                        </label>
                                         <label class="checkbox-inline">
                                             <input type="checkbox" name="Include" @(mikeSourceModel.Include ? "checked=checked" : "") />&nbsp;@MikeScenarioViewRes.Include
                                         </label>
@@ -130,7 +137,10 @@ MikeScenarioViewRes.December,
                                     else
                                     {
                                         <div class="form-group">
-                                            <label class="control-label">@MikeScenarioViewRes.SelectAHydrometricSite</label>
+                                            <label class="control-label">
+                                                @MikeScenarioViewRes.SelectAHydrometricSite
+                                                <button class="jbHelpDocShowDialog btn btn-link" data-dockey="mikescenariosourceselectahydrometricsite" data-title="@MikeScenarioViewRes.Source @MikeScenarioViewRes.SelectAHydrometricSite"><span class="glyphicon glyphicon-info-sign"></span></button>
+                                            </label>
                                             <div>
                                                 <select class="form-control" name="HydrometricTVItemID">
                                                     <option value="0" @(mikeSourceModel.UseHydrometric == false ? "selected=selected" : "")>Select a hydrometric site</option>
@@ -165,6 +175,7 @@ MikeScenarioViewRes.December,
                                                             data-mikescenariotvitemid="@mikeScenarioModel.MikeScenarioTVItemID">
                                                         @MikeScenarioViewRes.ViewHydrometricData
                                                     </button>
+                                                    <button class="jbHelpDocShowDialog btn btn-link" data-dockey="mikescenariosourceviewhydrometricdata" data-title="@MikeScenarioViewRes.Source @MikeScenarioViewRes.ViewHydrometricData"><span class="glyphicon glyphicon-info-sign"></span></button>
                                                     <p class="HydrometricData">
 
                                                     </p>
@@ -179,6 +190,7 @@ MikeScenarioViewRes.December,
                                                 &nbsp;&nbsp;&nbsp;<a target="_blank" href="https://open.canada.ca/data/en/fgpv_vpgf/a4b190fe-e090-4e6d-881e-b87956c07977">Open Map Data Viewer</a>
                                                 <br /><br />
                                                 @MikeScenarioViewRes.ImportKMLPolygonRepresentingTheDrainageArea
+                                                <button class="jbHelpDocShowDialog btn btn-link" data-dockey="mikescenariosourceimportkmlpolygonrepresentingthedrainagearea" data-title="@MikeScenarioViewRes.Source @MikeScenarioViewRes.ImportKMLPolygonRepresentingTheDrainageArea"><span class="glyphicon glyphicon-info-sign"></span></button>
                                             </label>
                                             <div>
                                             </div>
@@ -190,6 +202,7 @@ MikeScenarioViewRes.December,
                                         <div class="form-group">
                                             <label class="control-label">
                                                 @MikeScenarioViewRes.DrainageArea_km2
+                                                <button class="jbHelpDocShowDialog btn btn-link" data-dockey="mikescenariosourcedrainageareakm2" data-title="@MikeScenarioViewRes.Source @MikeScenarioViewRes.DrainageArea_km2"><span class="glyphicon glyphicon-info-sign"></span></button>
                                                 <span class="DrainageAreaSpan">
                                                     <button class="jbMikeScenarioGetDrainageArea btn btn-default" data-tvitemid="@mikeSourceModel.MikeSourceTVItemID">@MikeScenarioViewRes.GetDrainageArea</button>
                                                     <span class="DrainageAreaValue"></span>
@@ -203,6 +216,7 @@ MikeScenarioViewRes.December,
                                         <div class="form-group">
                                             <label class="control-label">
                                                 @MikeScenarioViewRes.Factor
+                                                <button class="jbHelpDocShowDialog btn btn-link" data-dockey="mikescenariosourcefactor" data-title="@MikeScenarioViewRes.Source @MikeScenarioViewRes.Factor"><span class="glyphicon glyphicon-info-sign"></span></button>
                                                 <span class="FactorSpan">
                                                     <button class="jbMikeScenarioCalculateFactor btn btn-default" data-tvitemid="@mikeSourceModel.MikeSourceTVItemID">@MikeScenarioViewRes.GetFactor</button>
                                                     <span class="FactorValue"></span>
@@ -216,14 +230,20 @@ MikeScenarioViewRes.December,
                                     }
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label">@MikeScenarioViewRes.Latitude</label>
+                                    <label class="control-label">
+                                        @MikeScenarioViewRes.Latitude
+                                        <button class="jbHelpDocShowDialog btn btn-link" data-dockey="mikescenariosourcelatitude" data-title="@MikeScenarioViewRes.Source @MikeScenarioViewRes.Latitude"><span class="glyphicon glyphicon-info-sign"></span></button>
+                                    </label>
                                     <div>
                                         <input class="isnumber form-control" type="text" name="Lat" value="@mikeSourceModel.Lat" />
                                         <span class="help-block"></span>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label">@MikeScenarioViewRes.Longitude</label>
+                                    <label class="control-label">
+                                        @MikeScenarioViewRes.Longitude
+                                        <button class="jbHelpDocShowDialog btn btn-link" data-dockey="mikescenariosourcelongitude" data-title="@MikeScenarioViewRes.Source @MikeScenarioViewRes.Longitude"><span class="glyphicon glyphicon-info-sign"></span></button>
+                                    </label>
                                     <div>
                                         <input class="isnumber form-control" type="text" name="Lng" value="@mikeSourceModel.Lng" />
                                         <span class="help-block"></span>
@@ -234,6 +254,7 @@ MikeScenarioViewRes.December,
                                 <div class="btn-block">
                                     <button class="jbMikeScenarioSourceEditSave btn btn-primary" type="submit"><span class="glyphicon glyphicon-check"></span>&nbsp;@MikeScenarioViewRes.SaveFirstPart</button>
                                     <button class="jbMikeScenarioSourceEditDelete btn btn-primary" title="@MikeScenarioViewRes.DeleteSource"><span class="glyphicon glyphicon-trash"></span>&nbsp;@MikeScenarioViewRes.Delete</button>
+                                    <button class="jbHelpDocShowDialog btn btn-link" data-dockey="mikescenariodeletesource" data-title="@MikeScenarioViewRes.DeleteSource"><span class="glyphicon glyphicon-info-sign"></span></button>
                                 </div>
                             </div>
                         </div>
@@ -314,6 +335,7 @@ MikeScenarioViewRes.December,
                                             <label class="control-label ">
                                                 @MikeScenarioViewRes.Discharge &nbsp;<span class="text-lighter text-nowrap">(@Html.Raw(UnitViewRes.m3PerDay))</span>
                                             </label>
+                                            <button class="jbHelpDocShowDialog btn btn-link" data-dockey="mikescenariosourcedischarge" data-title="@MikeScenarioViewRes.Source @MikeScenarioViewRes.Discharge"><span class="glyphicon glyphicon-info-sign"></span></button>
                                             <div>
                                                 <input class="isnumber form-control" name="SourceFlowStart_m3_day" type="text" value="@string.Format("{0:F2}", mikeSourceStartEndModel.SourceFlowStart_m3_day)" />
                                                 <span class="help-block"></span>
@@ -334,6 +356,7 @@ MikeScenarioViewRes.December,
                                                 @MikeScenarioViewRes.FecalColiform:
                                                 <span class="text-lighter text-nowrap">(@Html.Raw(UnitViewRes.MPN_Per100ml_abr))</span>
                                             </label>
+                                            <button class="jbHelpDocShowDialog btn btn-link" data-dockey="mikescenariosourcefecalcoliform" data-title="@MikeScenarioViewRes.Source @MikeScenarioViewRes.FecalColiform"><span class="glyphicon glyphicon-info-sign"></span></button>
                                             <div>
                                                 <input class="isnumber form-control" name="SourcePollutionStart_MPN_100ml" type="text" value="@string.Format("{0:F0}", mikeSourceStartEndModel.SourcePollutionStart_MPN_100ml)" />
                                                 <span class="help-block"></span>
@@ -344,6 +367,7 @@ MikeScenarioViewRes.December,
                                                 @MikeScenarioViewRes.Temperature:
                                                 <span class="text-lighter text-nowrap">(@Html.Raw(UnitViewRes.Celcius_abbr))</span>
                                             </label>
+                                            <button class="jbHelpDocShowDialog btn btn-link" data-dockey="mikescenariosourcetemperature" data-title="@MikeScenarioViewRes.Source @MikeScenarioViewRes.Temperature"><span class="glyphicon glyphicon-info-sign"></span></button>
                                             <div>
                                                 <input class="isnumber form-control" name="SourceTemperatureStart_C" type="text" value="@string.Format("{0:F1}", mikeSourceStartEndModel.SourceTemperatureStart_C)" />
                                                 <span class="help-block"></span>
@@ -354,6 +378,7 @@ MikeScenarioViewRes.December,
                                                 @MikeScenarioViewRes.Salinity:
                                                 <span class="text-lighter text-nowrap">(@Html.Raw(UnitViewRes.PSU))</span>
                                             </label>
+                                            <button class="jbHelpDocShowDialog btn btn-link" data-dockey="mikescenariosourcesalinity" data-title="@MikeScenarioViewRes.Source @MikeScenarioViewRes.Salinity"><span class="glyphicon glyphicon-info-sign"></span></button>
                                             <div>
                                                 <input class="isnumber form-control" name="SourceSalinityStart_PSU" type="text" value="@string.Format("{0:F1}", mikeSourceStartEndModel.SourceSalinityStart_PSU)" />
                                                 <span class="help-block"></span>
@@ -380,6 +405,7 @@ MikeScenarioViewRes.December,
 
                 <div class="panel-heading" role="tab" id="@panelHeadingID2">
                     <h4 class="panel-title">
+                        <button class="jbHelpDocShowDialog btn btn-link" data-dockey="mikescenariosourceeffluents" data-title="@MikeScenarioViewRes.Source @MikeScenarioViewRes.Effluents"><span class="glyphicon glyphicon-info-sign"></span></button>
                         <a role="button" data-toggle="collapse" data-parent="#@panelGroupID2" href="#@panelCollapseID2" aria-expanded="false" aria-controls="@panelCollapseID2" title="@MikeScenarioViewRes.Edit">
                             <span class="glyphicon glyphicon-pencil"></span>
                             <span class="elementSpacing">@MikeScenarioViewRes.Effluents (@(mikeSourceModel.MikeSourceStartEndModelList.Count))</span>
@@ -425,6 +451,7 @@ MikeScenarioViewRes.December,
                                         <div class="panel panel-info">
                                             <div class="panel-heading" role="tab" id="@panelHeadingID3">
                                                 <h4 class="panel-title">
+                                                    <button class="jbHelpDocShowDialog btn btn-link" data-dockey="mikescenariosourceeffluent" data-title="@MikeScenarioViewRes.Source @MikeScenarioViewRes.Effluent"><span class="glyphicon glyphicon-info-sign"></span></button>
                                                     <a role="button" data-toggle="collapse" data-parent="#@panelGroupID2" href="#@panelCollapseID3" aria-expanded="false" aria-controls="@panelCollapseID3">
                                                         <span class="StartEndName">@MikeScenarioViewRes.Effluent (@(CountEff.ToString() + "/" + mikeSourceModel.MikeSourceStartEndModelList.Count))</span>
                                                         <i class="elementSpacing">
@@ -473,12 +500,18 @@ MikeScenarioViewRes.December,
                                                                 <div class="col-lg-6  col-md-12 col-sm-12 col-xs-12">
                                                                     <div class="panel panel-info">
                                                                         <div class="panel-heading">
-                                                                            <h4 class="panel-title">@MikeScenarioViewRes.EffluentStart</h4>
+                                                                            <h4 class="panel-title">
+                                                                                @MikeScenarioViewRes.EffluentStart
+                                                                                <button class="jbHelpDocShowDialog btn btn-link" data-dockey="mikescenariosourceeffluentstart" data-title="@MikeScenarioViewRes.Source @MikeScenarioViewRes.EffluentStart"><span class="glyphicon glyphicon-info-sign"></span></button>
+                                                                            </h4>
                                                                         </div>
                                                                         <div class="panel-body">
                                                                             <div class="DateOK @DateClass bold">@MikeScenarioViewRes.ScenarioLength (@mikeScenarioModel.MikeScenarioStartDateTime_Local.ToString("yyyy MMMM dd") --- @mikeScenarioModel.MikeScenarioEndDateTime_Local.ToString("yyyy MMMM dd"))</div>
                                                                             <div class="form-group">
-                                                                                <label class="control-label">@MikeScenarioViewRes.Date</label>
+                                                                                <label class="control-label">
+                                                                                    @MikeScenarioViewRes.Date
+                                                                                </label>
+                                                                                <button class="jbHelpDocShowDialog btn btn-link" data-dockey="mikescenariosourceeffluentstartdate" data-title="@MikeScenarioViewRes.Source @MikeScenarioViewRes.EffluentStart  @MikeScenarioViewRes.Date"><span class="glyphicon glyphicon-info-sign"></span></button>
                                                                                 <div>
                                                                                     <ul class="list-inline">
                                                                                         <li>
@@ -568,6 +601,7 @@ MikeScenarioViewRes.December,
                                                                                     @MikeScenarioViewRes.Discharge
                                                                                     <em class="text-lighter">(@Html.Raw(UnitViewRes.m3PerDay))</em>
                                                                                 </label>
+                                                                                <button class="jbHelpDocShowDialog btn btn-link" data-dockey="mikescenariosourceeffluentstartdischarge" data-title="@MikeScenarioViewRes.Source @MikeScenarioViewRes.EffluentStart  @MikeScenarioViewRes.Discharge"><span class="glyphicon glyphicon-info-sign"></span></button>
                                                                                 <div>
                                                                                     @if (mikeSourceModel.UseHydrometric == false)
                                                                                     {
@@ -599,6 +633,7 @@ MikeScenarioViewRes.December,
                                                                             </div>
                                                                             <div class="form-group">
                                                                                 <label class="control-label">@MikeScenarioViewRes.FecalColiform <span class="text-lighter text-nowrap">(@Html.Raw(UnitViewRes.MPN_Per100ml_abr))</span></label>
+                                                                                <button class="jbHelpDocShowDialog btn btn-link" data-dockey="mikescenariosourceeffluentstartfecalcoliform" data-title="@MikeScenarioViewRes.Source @MikeScenarioViewRes.EffluentStart  @MikeScenarioViewRes.FecalColiform"><span class="glyphicon glyphicon-info-sign"></span></button>
                                                                                 <div>
                                                                                     <input class="isnumber form-control" name="SourcePollutionStart_MPN_100ml" type="text" value="@string.Format("{0:F0}", mikeSourceStartEndModel.SourcePollutionStart_MPN_100ml)" />
                                                                                     <span class="help-block"></span>
@@ -607,6 +642,7 @@ MikeScenarioViewRes.December,
                                                                             </div>
                                                                             <div class="form-group">
                                                                                 <label class="control-label">@MikeScenarioViewRes.Temperature <span class="text-lighter">(@Html.Raw(UnitViewRes.Celcius_abbr))</span></label>
+                                                                                <button class="jbHelpDocShowDialog btn btn-link" data-dockey="mikescenariosourceeffluentstarttemperature" data-title="@MikeScenarioViewRes.Source @MikeScenarioViewRes.EffluentStart  @MikeScenarioViewRes.Temperature"><span class="glyphicon glyphicon-info-sign"></span></button>
                                                                                 <div>
                                                                                     <input class="isnumber form-control" name="SourceTemperatureStart_C" type="text" value="@string.Format("{0:F1}", mikeSourceStartEndModel.SourceTemperatureStart_C)" />
                                                                                     <span class="help-block"></span>
@@ -614,6 +650,7 @@ MikeScenarioViewRes.December,
                                                                             </div>
                                                                             <div class="form-group">
                                                                                 <label class="control-label">@MikeScenarioViewRes.Salinity <span class="text-lighter">(@Html.Raw(UnitViewRes.PSU))</span></label>
+                                                                                <button class="jbHelpDocShowDialog btn btn-link" data-dockey="mikescenariosourceeffluentstartsalinity" data-title="@MikeScenarioViewRes.Source @MikeScenarioViewRes.EffluentStart  @MikeScenarioViewRes.Salinity"><span class="glyphicon glyphicon-info-sign"></span></button>
                                                                                 <div>
                                                                                     <input class="isnumber form-control" name="SourceSalinityStart_PSU" type="text" value="@string.Format("{0:F1}", mikeSourceStartEndModel.SourceSalinityStart_PSU)" />
                                                                                     <span class="help-block"></span>
@@ -627,12 +664,18 @@ MikeScenarioViewRes.December,
                                                                 <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
                                                                     <div class="panel panel-info">
                                                                         <div class="panel-heading">
-                                                                            <h4 class="panel-title">@MikeScenarioViewRes.EffluentFinish</h4>
+                                                                            <h4 class="panel-title">
+                                                                                @MikeScenarioViewRes.EffluentFinish
+                                                                                <button class="jbHelpDocShowDialog btn btn-link" data-dockey="mikescenariosourceeffluentfinish" data-title="@MikeScenarioViewRes.Source @MikeScenarioViewRes.EffluentFinish"><span class="glyphicon glyphicon-info-sign"></span></button>
+                                                                            </h4>
                                                                         </div>
                                                                         <div class="panel-body">
                                                                             <div class="DateOK @DateClass bold">@MikeScenarioViewRes.ScenarioLength (@mikeScenarioModel.MikeScenarioStartDateTime_Local.ToString("yyyy MMMM dd - HH:mm") --- @mikeScenarioModel.MikeScenarioEndDateTime_Local.ToString("yyyy MMMM dd - HH:mm"))</div>
                                                                             <div class="form-group">
-                                                                                <label class="control-label">@MikeScenarioViewRes.Date</label>
+                                                                                <label class="control-label">
+                                                                                    @MikeScenarioViewRes.Date
+                                                                                </label>
+                                                                                <button class="jbHelpDocShowDialog btn btn-link" data-dockey="mikescenariosourceeffluentfinishdate" data-title="@MikeScenarioViewRes.Source @MikeScenarioViewRes.EffluentFinish  @MikeScenarioViewRes.Date"><span class="glyphicon glyphicon-info-sign"></span></button>
                                                                                 <div>
                                                                                     <ul class="list-inline ">
                                                                                         <li>
@@ -725,6 +768,7 @@ MikeScenarioViewRes.December,
                                                                                     @MikeScenarioViewRes.Discharge
                                                                                     <em class="text-lighter">(@Html.Raw(UnitViewRes.m3PerDay))</em>
                                                                                 </label>
+                                                                                <button class="jbHelpDocShowDialog btn btn-link" data-dockey="mikescenariosourceeffluentfinishdischarge" data-title="@MikeScenarioViewRes.Source @MikeScenarioViewRes.EffluentFinish  @MikeScenarioViewRes.Discharge"><span class="glyphicon glyphicon-info-sign"></span></button>
                                                                                 <div>
                                                                                     @if (mikeSourceModel.UseHydrometric == false)
                                                                                     {
@@ -756,7 +800,7 @@ MikeScenarioViewRes.December,
                                                                             </div>
                                                                             <div class="form-group">
                                                                                 <label class="control-label">@MikeScenarioViewRes.FecalColiform <span class="text-lighter text-nowrap">(@Html.Raw(UnitViewRes.MPN_Per100ml_abr))</span></label>
-
+                                                                                <button class="jbHelpDocShowDialog btn btn-link" data-dockey="mikescenariosourceeffluentfinishfecalcoliform" data-title="@MikeScenarioViewRes.Source @MikeScenarioViewRes.EffluentFinish  @MikeScenarioViewRes.FecalColiform"><span class="glyphicon glyphicon-info-sign"></span></button>
                                                                                 <div>
                                                                                     <input class="isnumber form-control" name="SourcePollutionEnd_MPN_100ml" type="text" value="@string.Format("{0:F0}", mikeSourceStartEndModel.SourcePollutionEnd_MPN_100ml)" />
                                                                                     <span class="help-block"></span>
@@ -764,7 +808,7 @@ MikeScenarioViewRes.December,
                                                                             </div>
                                                                             <div class="form-group">
                                                                                 <label class="control-label">@MikeScenarioViewRes.Temperature <span class="text-lighter">(@Html.Raw(UnitViewRes.Celcius_abbr))</span></label>
-
+                                                                                <button class="jbHelpDocShowDialog btn btn-link" data-dockey="mikescenariosourceeffluentfinishtemperature" data-title="@MikeScenarioViewRes.Source @MikeScenarioViewRes.EffluentFinish  @MikeScenarioViewRes.Temperature"><span class="glyphicon glyphicon-info-sign"></span></button>
                                                                                 <div>
                                                                                     <input class="isnumber form-control" name="SourceTemperatureEnd_C" type="text" value="@string.Format("{0:F1}", mikeSourceStartEndModel.SourceTemperatureEnd_C)" />
                                                                                     <span class="help-block"></span>
@@ -772,13 +816,12 @@ MikeScenarioViewRes.December,
                                                                             </div>
                                                                             <div class="form-group">
                                                                                 <label class="control-label">@MikeScenarioViewRes.Salinity <span class="text-lighter">(@Html.Raw(UnitViewRes.PSU))</span></label>
-
+                                                                                <button class="jbHelpDocShowDialog btn btn-link" data-dockey="mikescenariosourceeffluentfinishsalinity" data-title="@MikeScenarioViewRes.Source @MikeScenarioViewRes.EffluentFinish  @MikeScenarioViewRes.Salinity"><span class="glyphicon glyphicon-info-sign"></span></button>
                                                                                 <div>
                                                                                     <input class="isnumber form-control" name="SourceSalinityEnd_PSU" type="text" value="@string.Format("{0:F1}", mikeSourceStartEndModel.SourceSalinityEnd_PSU)" />
                                                                                     <span class="help-block"></span>
                                                                                 </div>
                                                                             </div>
-
                                                                         </div>
                                                                     </div>
                                                                 </div>

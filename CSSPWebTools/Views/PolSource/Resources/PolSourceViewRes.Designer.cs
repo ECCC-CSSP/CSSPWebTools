@@ -97,6 +97,24 @@ namespace CSSPWebTools.Views.PolSource.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Are you sure you did not want to make a copy of the observation?.
+        /// </summary>
+        public static string AreYouSureYouDidNotWantToMakeACopyOfTheObservation {
+            get {
+                return ResourceManager.GetString("AreYouSureYouDidNotWantToMakeACopyOfTheObservation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Are you sure you want to change date of current observation?.
+        /// </summary>
+        public static string AreYouSureYouWantToChangeDateOfCurrentObservation {
+            get {
+                return ResourceManager.GetString("AreYouSureYouWantToChangeDateOfCurrentObservation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Building.
         /// </summary>
         public static string Building {
@@ -165,6 +183,15 @@ namespace CSSPWebTools.Views.PolSource.Resources {
         public static string DeleteObservation {
             get {
                 return ResourceManager.GetString("DeleteObservation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Desktop reviewed.
+        /// </summary>
+        public static string DesktopReviewed {
+            get {
+                return ResourceManager.GetString("DesktopReviewed", resourceCulture);
             }
         }
         

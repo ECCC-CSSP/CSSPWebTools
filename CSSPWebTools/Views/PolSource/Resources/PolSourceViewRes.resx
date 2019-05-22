@@ -290,4 +290,13 @@
   <data name="ExtraComment" xml:space="preserve">
     <value>Extra comment</value>
   </data>
+  <data name="DesktopReviewed" xml:space="preserve">
+    <value>Desktop reviewed</value>
+  </data>
+  <data name="AreYouSureYouDidNotWantToMakeACopyOfTheObservation" xml:space="preserve">
+    <value>Are you sure you did not want to make a copy of the observation?</value>
+  </data>
+  <data name="AreYouSureYouWantToChangeDateOfCurrentObservation" xml:space="preserve">
+    <value>Are you sure you want to change date of current observation?</value>
+  </data>
 </root>
