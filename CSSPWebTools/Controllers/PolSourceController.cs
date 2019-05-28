@@ -626,9 +626,9 @@ namespace CSSPWebTools.Controllers
         }
         [HttpPost]
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
-        public JsonResult SavePictureInfoJSON(int TVItemID, int PictureTVItemID, string FileName, string Description, string Extension, string AdminEmail)
+        public JsonResult SavePictureInfoJSON(int TVItemID, int PictureTVItemID, string FileName, string Description, string Extension, bool FromWater, string AdminEmail)
         {
-            TVItemModel tvItemModel = _PolSourceSiteInputToolService.SavePictureInfoDB(TVItemID, PictureTVItemID, FileName, Description, Extension, AdminEmail);
+            TVItemModel tvItemModel = _PolSourceSiteInputToolService.SavePictureInfoDB(TVItemID, PictureTVItemID, FileName, Description, Extension, FromWater, AdminEmail);
 
             return Json(tvItemModel.Error, JsonRequestBehavior.AllowGet);
         }
