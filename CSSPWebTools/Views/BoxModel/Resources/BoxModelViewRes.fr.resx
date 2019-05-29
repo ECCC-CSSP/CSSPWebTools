@@ -119,174 +119,131 @@
   </resheader>
   <data name="BoxModelCalculatedResult" xml:space="preserve">
     <value>Résultats calculés de la boîte modèle</value>
-    <comment>BML</comment>
   </data>
   <data name="CalculatedRadius" xml:space="preserve">
     <value>Rayon calculé</value>
-    <comment>BMR</comment>
   </data>
   <data name="CalculatedSurface" xml:space="preserve">
     <value>Surface calculée</value>
-    <comment>BMR</comment>
   </data>
   <data name="CalculatedVolume" xml:space="preserve">
     <value>Volume calculé</value>
-    <comment>BMR</comment>
-  </data>
-  <data name="Copy" xml:space="preserve">
-    <value>Copier</value>
-    <comment>BML</comment>
-  </data>
-  <data name="DecayPreDisinfection" xml:space="preserve">
-    <value>Décroissance, avant la désinfection</value>
-    <comment>BMR</comment>
-  </data>
-  <data name="DecayRate" xml:space="preserve">
-    <value>Taux de décroissance</value>
-    <comment>BML, BME</comment>
-  </data>
-  <data name="DecayUntreated" xml:space="preserve">
-    <value>Décroissance, sans traitement</value>
-    <comment>BMR</comment>
-  </data>
-  <data name="Delete" xml:space="preserve">
-    <value>Supprimer</value>
-    <comment>BML</comment>
-  </data>
-  <data name="Depth" xml:space="preserve">
-    <value>Profondeur</value>
-    <comment>BML, BME</comment>
-  </data>
-  <data name="Dilution" xml:space="preserve">
-    <value>Dilution</value>
-    <comment>BML, BME BMR</comment>
-  </data>
-  <data name="edit" xml:space="preserve">
-    <value>éditer</value>
-    <comment>BML</comment>
-  </data>
-  <data name="FC" xml:space="preserve">
-    <value>CF</value>
-    <comment>fecal coliforms BML, BME</comment>
-  </data>
-  <data name="Discharge" xml:space="preserve">
-    <value>Écoulement</value>
-    <comment>BML, BME</comment>
-  </data>
-  <data name="InputInformation" xml:space="preserve">
-    <value>Intrants fournis</value>
-    <comment>BML, BME</comment>
-  </data>
-  <data name="Length" xml:space="preserve">
-    <value>Longueur</value>
-    <comment>BMR</comment>
-  </data>
-  <data name="NoDecayPreDisinfection" xml:space="preserve">
-    <value>Aucune décroissance, avant la désinfection</value>
-    <comment>BMR</comment>
-  </data>
-  <data name="NoDecayUntreated" xml:space="preserve">
-    <value>Aucune décroissance, sans traitement</value>
-    <comment>BMR</comment>
-  </data>
-  <data name="NoItem" xml:space="preserve">
-    <value>Aucun élément</value>
-    <comment>BML</comment>
-  </data>
-  <data name="Rectangle" xml:space="preserve">
-    <value>Rectangle</value>
-    <comment>BMR</comment>
-  </data>
-  <data name="ScenarioName" xml:space="preserve">
-    <value>Nom du scénario</value>
-    <comment>BME</comment>
-  </data>
-  <data name="SemiCircle" xml:space="preserve">
-    <value>demi-cercle</value>
-    <comment>BMR</comment>
-  </data>
-  <data name="T90" xml:space="preserve">
-    <value>T90</value>
-    <comment>BML, BME</comment>
-  </data>
-  <data name="Temperature" xml:space="preserve">
-    <value>Température</value>
-    <comment>BML, BME</comment>
-  </data>
-  <data name="unitPerDay" xml:space="preserve">
-    <value>/jour</value>
-    <comment>BML, BME</comment>
-  </data>
-  <data name="Width" xml:space="preserve">
-    <value>Largeur</value>
-    <comment>BMR</comment>
-  </data>
-  <data name="hours" xml:space="preserve">
-    <value>heures</value>
-    <comment>BML</comment>
-  </data>
-  <data name="FixLengthAndFixWidthAreSelected" xml:space="preserve">
-    <value>Longueur et largeur fixes est sélectionné</value>
-    <comment>BML</comment>
-  </data>
-  <data name="LengthRequiredWhenFixLengthSelected" xml:space="preserve">
-    <value>La longueur est requise lorsque longueur fixe est sélectionnée.</value>
-    <comment>BML, BME</comment>
-  </data>
-  <data name="PleaseSelectOnlyOne" xml:space="preserve">
-    <value>Veuillez en choisir un seulement</value>
-    <comment>BML</comment>
-  </data>
-  <data name="WidthRequiredWhenFixWidthSelected" xml:space="preserve">
-    <value>La largeur est requise lorsque largeur fixe est sélectionnée.</value>
-    <comment>BML</comment>
   </data>
   <data name="Cancel" xml:space="preserve">
     <value>Annuler</value>
-    <comment>, BME</comment>
   </data>
   <data name="ConcentrationObjective" xml:space="preserve">
     <value>Objectif de concentration</value>
-    <comment>BML, BME</comment>
   </data>
-  <data name="FC_Full" xml:space="preserve">
-    <value>Coliformes fécaux</value>
-    <comment>FC/100ml BML, BME</comment>
+  <data name="Copy" xml:space="preserve">
+    <value>Copier</value>
   </data>
-  <data name="FixedLength" xml:space="preserve">
-    <value>Longueur fixe</value>
-    <comment>BME</comment>
+  <data name="DecayPreDisinfection" xml:space="preserve">
+    <value>Décroissance, avant la désinfection</value>
   </data>
-  <data name="FixedWidth" xml:space="preserve">
-    <value>Largeur fixe</value>
-    <comment>BME</comment>
+  <data name="DecayRate" xml:space="preserve">
+    <value>Taux de décroissance</value>
+  </data>
+  <data name="DecayUntreated" xml:space="preserve">
+    <value>Décroissance, sans traitement</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Supprimer</value>
+  </data>
+  <data name="Depth" xml:space="preserve">
+    <value>Profondeur</value>
+  </data>
+  <data name="Dilution" xml:space="preserve">
+    <value>Dilution</value>
+  </data>
+  <data name="Discharge" xml:space="preserve">
+    <value>Écoulement</value>
   </data>
   <data name="DischargeDuration" xml:space="preserve">
     <value>Durée de l'écoulement</value>
-    <comment>BML, BME</comment>
   </data>
-  <data name="Information" xml:space="preserve">
-    <value>Information</value>
-    <comment>BML</comment>
+  <data name="edit" xml:space="preserve">
+    <value>modifier</value>
   </data>
-  <data name="Meters" xml:space="preserve">
-    <value>mètres</value>
-    <comment>BML</comment>
+  <data name="FC" xml:space="preserve">
+    <value>CF</value>
   </data>
-  <data name="PreDisinfection" xml:space="preserve">
-    <value>Pré-désinfection</value>
-    <comment>BML, BME</comment>
+  <data name="FC_Full" xml:space="preserve">
+    <value>Coliformes fécaux</value>
   </data>
-  <data name="Save" xml:space="preserve">
-    <value>Sauvegarder</value>
-    <comment>, BME</comment>
+  <data name="FixedLength" xml:space="preserve">
+    <value>Longueur fixe</value>
   </data>
-  <data name="Untreated" xml:space="preserve">
-    <value>Sans traitement</value>
-    <comment>BML, BME</comment>
+  <data name="FixedWidth" xml:space="preserve">
+    <value>Largeur fixe</value>
+  </data>
+  <data name="FixLengthAndFixWidthAreSelected" xml:space="preserve">
+    <value>Longueur et largeur fixes est sélectionné</value>
+  </data>
+  <data name="hours" xml:space="preserve">
+    <value>heures</value>
   </data>
   <data name="hours_abbr" xml:space="preserve">
     <value>h</value>
-    <comment>abbreviation of hours BME</comment>
+  </data>
+  <data name="Information" xml:space="preserve">
+    <value>Information</value>
+  </data>
+  <data name="InputInformation" xml:space="preserve">
+    <value>Intrants fournis</value>
+  </data>
+  <data name="Length" xml:space="preserve">
+    <value>Longueur</value>
+  </data>
+  <data name="LengthRequiredWhenFixLengthSelected" xml:space="preserve">
+    <value>La longueur est requise lorsque longueur fixe est sélectionnée.</value>
+  </data>
+  <data name="Meters" xml:space="preserve">
+    <value>mètres</value>
+  </data>
+  <data name="NoDecayPreDisinfection" xml:space="preserve">
+    <value>Aucune décroissance, avant la désinfection</value>
+  </data>
+  <data name="NoDecayUntreated" xml:space="preserve">
+    <value>Aucune décroissance, sans traitement</value>
+  </data>
+  <data name="NoItem" xml:space="preserve">
+    <value>Aucun élément</value>
+  </data>
+  <data name="PleaseSelectOnlyOne" xml:space="preserve">
+    <value>Veuillez en choisir un seulement</value>
+  </data>
+  <data name="PreDisinfection" xml:space="preserve">
+    <value>Pré-désinfection</value>
+  </data>
+  <data name="Rectangle" xml:space="preserve">
+    <value>Rectangle</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Sauvegarder</value>
+  </data>
+  <data name="ScenarioName" xml:space="preserve">
+    <value>Nom du scénario</value>
+  </data>
+  <data name="SemiCircle" xml:space="preserve">
+    <value>demi-cercle</value>
+  </data>
+  <data name="T90" xml:space="preserve">
+    <value>T90</value>
+  </data>
+  <data name="Temperature" xml:space="preserve">
+    <value>Température</value>
+  </data>
+  <data name="unitPerDay" xml:space="preserve">
+    <value>/jour</value>
+  </data>
+  <data name="Untreated" xml:space="preserve">
+    <value>Sans traitement</value>
+  </data>
+  <data name="Width" xml:space="preserve">
+    <value>Largeur</value>
+  </data>
+  <data name="WidthRequiredWhenFixWidthSelected" xml:space="preserve">
+    <value>La largeur est requise lorsque largeur fixe est sélectionnée.</value>
   </data>
 </root>

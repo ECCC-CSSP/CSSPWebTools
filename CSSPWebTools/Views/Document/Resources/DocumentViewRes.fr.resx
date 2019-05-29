@@ -154,7 +154,7 @@
     <value>Masquer l'indication nord</value>
   </data>
   <data name="HideNumberOfRunsUsedByYearGraph" xml:space="preserve">
-    <value>Masquer le graphic, nombre de randonnées utilisées par année</value>
+    <value>Masquer le graphique, nombre de randonnées utilisées par année</value>
   </data>
   <data name="HideOver260Column" xml:space="preserve">
     <value>Masquer la colonne de &gt; 260</value>
@@ -193,13 +193,13 @@
     <value>L'année du rapport</value>
   </data>
   <data name="SubsectorMunicipalityIsASpecialCaseAndShouldNotBeGeneratedByItself" xml:space="preserve">
-    <value>Subsector municipality est un cas spéciale et ne devrait pas &#x1E;être généré par soit-même</value>
+    <value>La municipalité du sous-secteur est un cas spéciale et ne devrait pas ‑être généré par soi-même</value>
   </data>
   <data name="SubsectorMunicipalityIsUsedWithinTheReEvaluation" xml:space="preserve">
-    <value>Subsector municipality est utilisé à l'intérieur du document Re-evaluation</value>
+    <value>La municipalité du sous-secteur est utilisé à l'intérieur du document Réévaluation</value>
   </data>
   <data name="SummaryStatisticsOfFCDensitiesTablesParameters" xml:space="preserve">
-    <value>Paramètres pour les tableaux des statistiques summaires des "FC Densities"</value>
+    <value>Paramètres pour les tableaux des statistiques sommaires des "FC Densities"</value>
   </data>
   <data name="WithFileType" xml:space="preserve">
     <value>pour le type de filière</value>

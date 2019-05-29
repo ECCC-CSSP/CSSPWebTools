@@ -119,59 +119,47 @@
   </resheader>
   <data name="Add" xml:space="preserve">
     <value>Ajouter</value>
-    <comment>15</comment>
-  </data>
-  <data name="Addresses" xml:space="preserve">
-    <value>Adresses</value>
-    <comment>15</comment>
-  </data>
-  <data name="AddressType" xml:space="preserve">
-    <value>Type d'adresse</value>
-    <comment>15</comment>
-  </data>
-  <data name="CanOnlyAddNew_ViaBrowsing" xml:space="preserve">
-    <value>Can only add new [{0}] via browsing</value>
-  </data>
-  <data name="Country" xml:space="preserve">
-    <value>Pays</value>
-    <comment>15</comment>
-  </data>
-  <data name="Delete" xml:space="preserve">
-    <value>Supprimer</value>
-    <comment>15</comment>
-  </data>
-  <data name="Municipality" xml:space="preserve">
-    <value>Municipalité</value>
-    <comment>15</comment>
-  </data>
-  <data name="PostalCode" xml:space="preserve">
-    <value>Code postal</value>
-    <comment>15</comment>
-  </data>
-  <data name="Province" xml:space="preserve">
-    <value>Province</value>
-    <comment>15</comment>
-  </data>
-  <data name="Save" xml:space="preserve">
-    <value>Save</value>
-    <comment>15</comment>
-  </data>
-  <data name="StreetName" xml:space="preserve">
-    <value>Street Name</value>
-    <comment>15</comment>
-  </data>
-  <data name="StreetNumber" xml:space="preserve">
-    <value>Street Number</value>
-    <comment>15</comment>
-  </data>
-  <data name="StreetType" xml:space="preserve">
-    <value>Street Type</value>
-    <comment>15</comment>
   </data>
   <data name="Address" xml:space="preserve">
     <value>Adresse</value>
   </data>
+  <data name="Addresses" xml:space="preserve">
+    <value>Adresses</value>
+  </data>
+  <data name="AddressType" xml:space="preserve">
+    <value>Type d'adresse</value>
+  </data>
+  <data name="CanOnlyAddNew_ViaBrowsing" xml:space="preserve">
+    <value>Peut seulement ajouter un nouveau [{0}] via la navigation</value>
+  </data>
+  <data name="Country" xml:space="preserve">
+    <value>Pays</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Supprimer</value>
+  </data>
   <data name="GetCivicAddressFromGoogle" xml:space="preserve">
     <value>Obtenir l'adresse civique de Google</value>
+  </data>
+  <data name="Municipality" xml:space="preserve">
+    <value>Municipalité</value>
+  </data>
+  <data name="PostalCode" xml:space="preserve">
+    <value>Code postal</value>
+  </data>
+  <data name="Province" xml:space="preserve">
+    <value>Province</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Enregistrer</value>
+  </data>
+  <data name="StreetName" xml:space="preserve">
+    <value>Nom de rue</value>
+  </data>
+  <data name="StreetNumber" xml:space="preserve">
+    <value>Numéro de rue</value>
+  </data>
+  <data name="StreetType" xml:space="preserve">
+    <value>Type de rue</value>
   </data>
 </root>

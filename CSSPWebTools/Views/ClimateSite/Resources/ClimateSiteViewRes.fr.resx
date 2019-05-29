@@ -126,11 +126,17 @@
   <data name="AnythingUnrecognizedTheUserWillReceiveAnErrorMessage" xml:space="preserve">
     <value>N’importe quoi qui n'est pas reconnu - l'utilisateur recevra un message d'erreur</value>
   </data>
+  <data name="Average" xml:space="preserve">
+    <value>Moyenne</value>
+  </data>
   <data name="AYearBetweenTwoCommasRepresentThatYear" xml:space="preserve">
     <value>Une année entre deux virgules représente cette année</value>
   </data>
   <data name="ClickOnGlobeIconToViewOnMap" xml:space="preserve">
     <value>Cliquez sur l'icône du globe pour voir sur la carte</value>
+  </data>
+  <data name="ClimateSite" xml:space="preserve">
+    <value>Site climatique</value>
   </data>
   <data name="ClimateSiteName" xml:space="preserve">
     <value>Nom du site climatique</value>
@@ -153,8 +159,14 @@
   <data name="ClimateSitesUsedAndWithinDistance" xml:space="preserve">
     <value>Sites climatiques utilisés et à distance</value>
   </data>
+  <data name="Day" xml:space="preserve">
+    <value>Jour</value>
+  </data>
   <data name="Down" xml:space="preserve">
     <value>Vers le bas</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Modifier</value>
   </data>
   <data name="Empty" xml:space="preserve">
     <value>Vide</value>
@@ -165,11 +177,23 @@
   <data name="Entered" xml:space="preserve">
     <value>Entré</value>
   </data>
+  <data name="Fill" xml:space="preserve">
+    <value>Remplir</value>
+  </data>
+  <data name="FillUsing" xml:space="preserve">
+    <value>Remplir en utilisant</value>
+  </data>
   <data name="Find" xml:space="preserve">
     <value>Trouver</value>
   </data>
   <data name="FindClimateSitesWithinDistanceOfSubsector" xml:space="preserve">
     <value>Trouver des sites climatiques à distance du sous-secteur</value>
+  </data>
+  <data name="GetClimateDataForRunsOfYear_" xml:space="preserve">
+    <value>Obtenir des données climatiques pour l'année {0}</value>
+  </data>
+  <data name="HasRuns" xml:space="preserve">
+    <value>A une tournée</value>
   </data>
   <data name="IdentifyOnMap" xml:space="preserve">
     <value>Identifier sur la carte</value>
@@ -186,11 +210,23 @@
   <data name="MoreInfo" xml:space="preserve">
     <value>Plus d'informations</value>
   </data>
+  <data name="NoDataOnMSCHistoricalSite" xml:space="preserve">
+    <value>Aucune donnée sur le site historique MSC</value>
+  </data>
+  <data name="Note" xml:space="preserve">
+    <value>Remarque</value>
+  </data>
   <data name="Now" xml:space="preserve">
     <value>À présent</value>
   </data>
   <data name="PeriodWithDailyData" xml:space="preserve">
     <value>Période avec données quotidiennes</value>
+  </data>
+  <data name="Priority" xml:space="preserve">
+    <value>Priorité</value>
+  </data>
+  <data name="Radar" xml:space="preserve">
+    <value>Radar</value>
   </data>
   <data name="RainfallEntered_mm" xml:space="preserve">
     <value>Précipitations saisies manuellement (mm)</value>
@@ -202,16 +238,43 @@
     <value>Effacer</value>
   </data>
   <data name="Run" xml:space="preserve">
-    <value>Trounée</value>
+    <value>Tournée</value>
   </data>
   <data name="Save" xml:space="preserve">
     <value>Sauvegarder</value>
   </data>
+  <data name="SaveButtonAtBottomOfPage" xml:space="preserve">
+    <value>Bouton Enregistrer au bas de la page</value>
+  </data>
+  <data name="SaveClimateSitePriorities" xml:space="preserve">
+    <value>Sauvegarder les priorités du site climatique</value>
+  </data>
+  <data name="SaveEnteredPrecipitation" xml:space="preserve">
+    <value>Enregistrer les précipitations inscrites</value>
+  </data>
   <data name="Saving" xml:space="preserve">
     <value>Sauvegarder ...</value>
   </data>
+  <data name="SelectAnAdjacentSubsector" xml:space="preserve">
+    <value>Sélectionnez un sous-secteur adjacent</value>
+  </data>
   <data name="SelectARunAboveToSeePrecipitation" xml:space="preserve">
     <value>Sélectionnez une course ci-dessus pour voir les précipitations</value>
+  </data>
+  <data name="Selected" xml:space="preserve">
+    <value>Choisi</value>
+  </data>
+  <data name="SetClimateSitePriorityByDistance" xml:space="preserve">
+    <value>Définir la priorité du site climatique par distance</value>
+  </data>
+  <data name="SetDataToUseByAverageForYear_" xml:space="preserve">
+    <value>Définir les données à utiliser par moyenne pour l'année {0}</value>
+  </data>
+  <data name="SetDataToUseByPriorityForYear_" xml:space="preserve">
+    <value>Définir les données à utiliser par priorité pour l'année {0}</value>
+  </data>
+  <data name="SettingClimateSitePriorities" xml:space="preserve">
+    <value>Définir les priorités du site climatique</value>
   </data>
   <data name="ShowClimateSitesOnMap" xml:space="preserve">
     <value>Afficher les sites climatiques sur la carte</value>
@@ -234,85 +297,22 @@
   <data name="Use" xml:space="preserve">
     <value>Utilise</value>
   </data>
-  <data name="ViewDataType" xml:space="preserve">
-    <value>Afficher le type de données</value>
-  </data>
-  <data name="YearsOfUse" xml:space="preserve">
-    <value>Années d'utilisation</value>
-  </data>
-  <data name="GetClimateDataForRunsOfYear_" xml:space="preserve">
-    <value>Obtenir des données climatiques pour l'année {0}</value>
-  </data>
-  <data name="SaveButtonAtBottomOfPage" xml:space="preserve">
-    <value>Bouton Enregistrer au bas de la page</value>
-  </data>
-  <data name="SaveClimateSitePriorities" xml:space="preserve">
-    <value>Sauvegarder les priorités du site climatique</value>
-  </data>
-  <data name="SettingClimateSitePriorities" xml:space="preserve">
-    <value>Définir les priorités du site climatique</value>
-  </data>
-  <data name="Day" xml:space="preserve">
-    <value>Jour</value>
-  </data>
-  <data name="Edit" xml:space="preserve">
-    <value>Modifier</value>
-  </data>
-  <data name="Fill" xml:space="preserve">
-    <value>Remplir</value>
-  </data>
-  <data name="NoDataOnMSCHistoricalSite" xml:space="preserve">
-    <value>Aucune donnée sur le site historique MSC</value>
-  </data>
-  <data name="Note" xml:space="preserve">
-    <value>Remarque</value>
-  </data>
-  <data name="SaveEnteredPrecipitation" xml:space="preserve">
-    <value>Enregistrer les précipitations inscrites</value>
-  </data>
-  <data name="Average" xml:space="preserve">
-    <value>Moyenne</value>
-  </data>
-  <data name="Selected" xml:space="preserve">
-    <value>Choisi</value>
-  </data>
-  <data name="Weighted" xml:space="preserve">
-    <value>Pondéré</value>
-  </data>
-  <data name="Priority" xml:space="preserve">
-    <value>Priorité</value>
-  </data>
-  <data name="Weight" xml:space="preserve">
-    <value>Poids</value>
-  </data>
-  <data name="FillUsing" xml:space="preserve">
-    <value>Remplir en utilisant</value>
-  </data>
-  <data name="Radar" xml:space="preserve">
-    <value>Radar</value>
-  </data>
-  <data name="SetDataToUseByAverageForYear_" xml:space="preserve">
-    <value>Définir les données à utiliser par moyenne pour l'année {0}</value>
-  </data>
-  <data name="SetDataToUseByPriorityForYear_" xml:space="preserve">
-    <value>Définir les données à utiliser par priorité pour l'année {0}</value>
-  </data>
-  <data name="SelectAnAdjacentSubsector" xml:space="preserve">
-    <value>Sélectionnez un sous-secteur adjacent</value>
-  </data>
-  <data name="UseSameClimateSiteAsSelectedSubsector" xml:space="preserve">
+  <data name="UseSameClimateSitesAsSelectedSubsector" xml:space="preserve">
     <value>Utilisez les mêmes sites climatiques que le sous-secteur sélectionné</value>
   </data>
   <data name="ValuesToBeUsed" xml:space="preserve">
     <value>Valeurs à utiliser</value>
   </data>
-  <data name="SetClimateSitePriorityByDistance" xml:space="preserve">
-    <value>Définir la priorité du site climatique par distance</value>
+  <data name="ViewDataType" xml:space="preserve">
+    <value>Afficher le type de données</value>
   </data>
-  <data name="ClimateSite" xml:space="preserve">
-    <value>Site climatique</value>
+  <data name="Weight" xml:space="preserve">
+    <value>Poids</value>
   </data>
-  <data name="HasRuns" xml:space="preserve">
-    <value>A une tournée</value>
+  <data name="Weighted" xml:space="preserve">
+    <value>Pondéré</value>
+  </data>
+  <data name="YearsOfUse" xml:space="preserve">
+    <value>Années d'utilisation</value>
   </data>
 </root>

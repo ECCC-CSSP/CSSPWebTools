@@ -117,87 +117,155 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Add" xml:space="preserve">
+    <value>Ajouter</value>
+  </data>
+  <data name="AddNewBoxModelScenario" xml:space="preserve">
+    <value>Ajouter un nouveau scénario de boite modèle</value>
+  </data>
+  <data name="AllMWQMSamplesNeedsToBeDeletedBeforeDeletingTheRun" xml:space="preserve">
+    <value>Tous les données d'échantillonnage doivent être effacées avant de pouvoir effacer la tournée</value>
+  </data>
+  <data name="Analysis" xml:space="preserve">
+    <value>Analyse</value>
+  </data>
   <data name="Areas" xml:space="preserve">
     <value>Régions</value>
   </data>
-  <data name="ShowBasicInformation" xml:space="preserve">
-    <value>Montrer information de base</value>
+  <data name="AskToRun" xml:space="preserve">
+    <value>Demande d'exécution</value>
+  </data>
+  <data name="BoxModels" xml:space="preserve">
+    <value>Box Models</value>
+  </data>
+  <data name="CancelEdit" xml:space="preserve">
+    <value>Annuler l'entrée</value>
+  </data>
+  <data name="Charts" xml:space="preserve">
+    <value>Graphiques</value>
+  </data>
+  <data name="ClimateSites" xml:space="preserve">
+    <value>Sites climatiques</value>
   </data>
   <data name="Contacts" xml:space="preserve">
     <value>Personnes-ressources</value>
   </data>
+  <data name="Copy" xml:space="preserve">
+    <value>Copier</value>
+  </data>
   <data name="CouldNotCreateNewUserError_" xml:space="preserve">
-    <value>L'enregistration d'un nouvel utilisateur est présentement impossible.\r\nMessage d'erreur: {0}.</value>
-    <comment>24-Oct-12</comment>
+    <value>Enregistrer un nouvel utilisateur est présentement impossible.\r\nMessage d'erreur: {0}.</value>
   </data>
   <data name="Countries" xml:space="preserve">
     <value>Pays</value>
   </data>
   <data name="CurrentPasswordIncorrectOrNewPasswordInvalid" xml:space="preserve">
     <value>Le mot de passe entré ou le nouveau mot de passe n'est pas valide.</value>
-    <comment>juin2013</comment>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Enlever</value>
   </data>
   <data name="DetailInformation" xml:space="preserve">
     <value>Information détaillée</value>
   </data>
   <data name="DuplicateEmail" xml:space="preserve">
     <value>Un utilisateur se sert déjà de ce courriel, veuillez utiliser un autre courriel.</value>
-    <comment>24-Oct-12</comment>
   </data>
   <data name="Edit" xml:space="preserve">
     <value>Éditer</value>
   </data>
+  <data name="EmailDistributionList" xml:space="preserve">
+    <value>Liste de distribution des courriels</value>
+  </data>
   <data name="EmailDoesNotExist" xml:space="preserve">
     <value>Courriel inexistant.</value>
-    <comment>juin2013</comment>
   </data>
   <data name="EmailNotUniqueAlreadyRegistered" xml:space="preserve">
     <value>Le courriel n'est pas unique.  Cet individu est possiblement déjà enregistré.</value>
-    <comment>24-Oct-12</comment>
   </data>
   <data name="EmailOrPasswordIncorrect" xml:space="preserve">
     <value>Le courriel ou le mot de passe utilisé est erroné.</value>
-    <comment>juin2013</comment>
+  </data>
+  <data name="Empty" xml:space="preserve">
+    <value>Vide</value>
+  </data>
+  <data name="ExportArcGIS" xml:space="preserve">
+    <value>Exportation ArcGIS</value>
   </data>
   <data name="ExternalLoginRemoved" xml:space="preserve">
     <value>La connexion externe est retirée.</value>
-    <comment>juin 2013</comment>
   </data>
   <data name="Files" xml:space="preserve">
     <value>Fichiers</value>
   </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>Prénom</value>
+  </data>
   <data name="FullNameNotUniqueAlreadyRegistered" xml:space="preserve">
     <value>Le nom complet n'est pas unique.  Cet individu est possiblement déjà enregistré.</value>
-    <comment>24-Oct-12</comment>
+  </data>
+  <data name="GeneralParameters" xml:space="preserve">
+    <value>Paramètres généraux</value>
+  </data>
+  <data name="GenerateResults" xml:space="preserve">
+    <value>Générer résultats</value>
+  </data>
+  <data name="HideMap" xml:space="preserve">
+    <value>Cacher la carte</value>
+  </data>
+  <data name="Hydrometric" xml:space="preserve">
+    <value>Hydrométrique</value>
+  </data>
+  <data name="HydrometricSites" xml:space="preserve">
+    <value>Sites hydrométriques</value>
+  </data>
+  <data name="Import" xml:space="preserve">
+    <value>Importer</value>
+  </data>
+  <data name="Information" xml:space="preserve">
+    <value>Information</value>
   </data>
   <data name="Infrastructures" xml:space="preserve">
     <value>Infrastructures</value>
   </data>
+  <data name="InputSummary" xml:space="preserve">
+    <value>Sommaire des entrées</value>
+  </data>
   <data name="InvalidAnswer" xml:space="preserve">
     <value>La réponse de récupération du mot de passe n'est pas valide, veuillez réessayer.</value>
-    <comment>24-Oct-12</comment>
   </data>
   <data name="InvalidEmail" xml:space="preserve">
     <value>Le courriel utilisé n'est pas valide, veuillez réessayer.</value>
-    <comment>24-Oct-12</comment>
   </data>
   <data name="InvalidPassword" xml:space="preserve">
     <value>Le mot de passe utilisé n'est pas valide, veuillez réessayer.</value>
-    <comment>24-Oct-12</comment>
   </data>
   <data name="InvalidQuestion" xml:space="preserve">
     <value>La question de récupération du mot de passe n'est pas valide, veuillez réessayer.</value>
-    <comment>24-Oct-12</comment>
   </data>
   <data name="IsUnique" xml:space="preserve">
     <value>est unique</value>
-    <comment>24-Oct-12</comment>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>Nom</value>
+  </data>
+  <data name="LogBook" xml:space="preserve">
+    <value>Journal de bord</value>
   </data>
   <data name="LoginRequired" xml:space="preserve">
     <value>Connexion requise</value>
   </data>
+  <data name="MikeScenario" xml:space="preserve">
+    <value>Scenario MIKE</value>
+  </data>
+  <data name="MikeScenarioInput" xml:space="preserve">
+    <value>Entrées</value>
+  </data>
   <data name="MikeScenarios" xml:space="preserve">
     <value>Scénarios MIKE</value>
+  </data>
+  <data name="MikeSource" xml:space="preserve">
+    <value>Source pour MIKE</value>
   </data>
   <data name="Municipalities" xml:space="preserve">
     <value>Municipalités</value>
@@ -205,212 +273,145 @@
   <data name="MWQMRuns" xml:space="preserve">
     <value>Tournées PSQEM </value>
   </data>
+  <data name="MWQMRunShowOnMap" xml:space="preserve">
+    <value>Tournée PSQEM montrer sur carte</value>
+  </data>
+  <data name="MWQMSite" xml:space="preserve">
+    <value>Site PSQEM</value>
+  </data>
   <data name="MWQMSites" xml:space="preserve">
     <value>Sites PSQEM</value>
   </data>
+  <data name="MWQMSiteShowOnMap" xml:space="preserve">
+    <value>Site PSQEM montrer sur carte</value>
+  </data>
+  <data name="NeedToBeAnAdministrator" xml:space="preserve">
+    <value>Doit être un administrateur</value>
+  </data>
+  <data name="NeedToBeLoggedin" xml:space="preserve">
+    <value>Doit être connecté</value>
+  </data>
   <data name="NeedToLoginToAddNewMember" xml:space="preserve">
     <value>Vous devez vous identifier pour ajouter un individu relié au site web. Veuillez activer la connexion.</value>
-    <comment>24-Oct-12</comment>
   </data>
   <data name="NotUnique" xml:space="preserve">
     <value>n'est pas unique</value>
-    <comment>24-Oct-12</comment>
+  </data>
+  <data name="OpenData" xml:space="preserve">
+    <value>Données ouvertes</value>
+  </data>
+  <data name="OpenDataNational" xml:space="preserve">
+    <value>Données ouvertes nationales</value>
+  </data>
+  <data name="OrderMikeScenarioByDate" xml:space="preserve">
+    <value>Demander le scenario MIKE par date</value>
   </data>
   <data name="PasswordChanged" xml:space="preserve">
     <value>Votre mot de passe est modifié.</value>
-    <comment>juin2013</comment>
   </data>
   <data name="PasswordSet" xml:space="preserve">
     <value>Votre mot de passe est défini.</value>
-    <comment>juin2013</comment>
+  </data>
+  <data name="PolSourceSiteMikeScenarios" xml:space="preserve">
+    <value>Sites de sources de pollutions de scénario MIKE</value>
   </data>
   <data name="PolSourceSites" xml:space="preserve">
     <value>Sites des sources de pollution</value>
   </data>
+  <data name="PolSourceSiteShowOnMap" xml:space="preserve">
+    <value>Source de pollution montrer sure carte</value>
+  </data>
   <data name="PrecHydroTideSites" xml:space="preserve">
     <value>Site de Précipitation, Hydrométrie et Marée</value>
   </data>
+  <data name="Precipitation" xml:space="preserve">
+    <value>Précipitations</value>
+  </data>
   <data name="ProviderError" xml:space="preserve">
     <value>Une erreur a été renvoyée lors de l'authentification.  Veuillez vérifier l'information de saisie et réessayer.  Si le problème persiste, veuillez contacter le webmestre.</value>
-    <comment>24-Oct-12</comment>
   </data>
   <data name="Provinces" xml:space="preserve">
     <value>Provinces</value>
   </data>
+  <data name="ProvinceTools" xml:space="preserve">
+    <value>Outils pour province</value>
+  </data>
+  <data name="RainExceedance" xml:space="preserve">
+    <value>Pluie dépassement</value>
+  </data>
+  <data name="SamplingPlan" xml:space="preserve">
+    <value>Plan d'échantillonnage</value>
+  </data>
+  <data name="SamplingPlans" xml:space="preserve">
+    <value>Plans d'échantillonnage</value>
+  </data>
   <data name="Sectors" xml:space="preserve">
     <value>Secteurs</value>
   </data>
+  <data name="Setup" xml:space="preserve">
+    <value>Installer</value>
+  </data>
+  <data name="ShowBasicInformation" xml:space="preserve">
+    <value>Montrer information de base</value>
+  </data>
+  <data name="ShowBiggerMap" xml:space="preserve">
+    <value>Agrandir la carte</value>
+  </data>
+  <data name="ShowGenerateReport" xml:space="preserve">
+    <value>Afficher le rapport de génération</value>
+  </data>
+  <data name="ShowMap" xml:space="preserve">
+    <value>Montrer la carte</value>
+  </data>
+  <data name="ShowMoreInformation" xml:space="preserve">
+    <value>Montrer plus d'information</value>
+  </data>
+  <data name="ShowSiteText" xml:space="preserve">
+    <value>Voir le nom des sites</value>
+  </data>
+  <data name="ShowSmallerMap" xml:space="preserve">
+    <value>Diminuer la carte</value>
+  </data>
+  <data name="Sources" xml:space="preserve">
+    <value>Sources</value>
+  </data>
   <data name="Subsectors" xml:space="preserve">
     <value>Sous-secteurs</value>
+  </data>
+  <data name="SubsectorTools" xml:space="preserve">
+    <value>Outils de sous-secteurs</value>
+  </data>
+  <data name="Table" xml:space="preserve">
+    <value>Tableau</value>
+  </data>
+  <data name="Tides" xml:space="preserve">
+    <value>Marées</value>
+  </data>
+  <data name="TideSites" xml:space="preserve">
+    <value>Sites de marées</value>
+  </data>
+  <data name="Tools" xml:space="preserve">
+    <value>Outils</value>
   </data>
   <data name="TypeNot_" xml:space="preserve">
     <value>Type pas [{0}]</value>
   </data>
   <data name="UnknownError" xml:space="preserve">
     <value>Une erreur inconnue s'est produite. Veuillez vérifier l'information de saisie et réessayer. Si le problème persiste, veuillez contacter le webmestre.</value>
-    <comment>24-Oct-12</comment>
+  </data>
+  <data name="UserNotFound" xml:space="preserve">
+    <value>Utilisateur Non Trouvé</value>
   </data>
   <data name="UserRejected" xml:space="preserve">
     <value>La demande d'enregistrer un nouvel utilisateur est annulée. Veuillez vérifier l'information de saisie et réessayer. Si le problème persiste, veuillez contacter le webmestre.</value>
-    <comment>24-Oct-12</comment>
-  </data>
-  <data name="BoxModels" xml:space="preserve">
-    <value>Box Models</value>
-  </data>
-  <data name="Information" xml:space="preserve">
-    <value>Information</value>
   </data>
   <data name="VisualPlumes" xml:space="preserve">
     <value>Visual Plumes</value>
   </data>
-  <data name="Add" xml:space="preserve">
-    <value>Ajouter</value>
-  </data>
-  <data name="ShowGenerateReport" xml:space="preserve">
-    <value>Afficher le rapport de génération</value>
-  </data>
-  <data name="Hydrometric" xml:space="preserve">
-    <value>Hydrométrique</value>
-  </data>
-  <data name="MikeScenarioInput" xml:space="preserve">
-    <value>Entrées</value>
-  </data>
-  <data name="Precipitation" xml:space="preserve">
-    <value>Precipitation</value>
-  </data>
-  <data name="Tides" xml:space="preserve">
-    <value>Marées</value>
-  </data>
-  <data name="Tools" xml:space="preserve">
-    <value>Outils</value>
-  </data>
-  <data name="Charts" xml:space="preserve">
-    <value>Graphiques</value>
-  </data>
-  <data name="Table" xml:space="preserve">
-    <value>Tableau</value>
-  </data>
-  <data name="CancelEdit" xml:space="preserve">
-    <value>Annuler l'entrée</value>
-  </data>
-  <data name="HideMap" xml:space="preserve">
-    <value>Cacher la carte</value>
-  </data>
-  <data name="ShowMap" xml:space="preserve">
-    <value>Montrer la carte</value>
-  </data>
-  <data name="GeneralParameters" xml:space="preserve">
-    <value>Paramètres généraux</value>
-  </data>
-  <data name="InputSummary" xml:space="preserve">
-    <value>Sommaire des entrées</value>
-  </data>
-  <data name="Sources" xml:space="preserve">
-    <value>Sources</value>
-  </data>
-  <data name="ShowBiggerMap" xml:space="preserve">
-    <value>Agrandir la carte</value>
-  </data>
-  <data name="ShowMoreInformation" xml:space="preserve">
-    <value>Montrer plus d'information</value>
-  </data>
-  <data name="ShowSmallerMap" xml:space="preserve">
-    <value>Diminuer la carte</value>
-  </data>
-  <data name="MWQMSite" xml:space="preserve">
-    <value>Site PSQEM</value>
-  </data>
-  <data name="MWQMSiteShowOnMap" xml:space="preserve">
-    <value>Site PSQEM montrer sur carte</value>
-  </data>
-  <data name="PolSourceSiteShowOnMap" xml:space="preserve">
-    <value>Source de pollution montrer sure carte</value>
-  </data>
-  <data name="SamplingPlans" xml:space="preserve">
-    <value>Plans d'échantillonnage</value>
-  </data>
-  <data name="Setup" xml:space="preserve">
-    <value>Installer</value>
-  </data>
-  <data name="Import" xml:space="preserve">
-    <value>Importer</value>
-  </data>
-  <data name="Delete" xml:space="preserve">
-    <value>Enlever</value>
-  </data>
-  <data name="Copy" xml:space="preserve">
-    <value>Copier</value>
-  </data>
-  <data name="MikeScenario" xml:space="preserve">
-    <value>Scenario MIKE</value>
-  </data>
-  <data name="MikeSource" xml:space="preserve">
-    <value>Source pour MIKE</value>
-  </data>
-  <data name="AskToRun" xml:space="preserve">
-    <value>Demande d'exécution</value>
-  </data>
-  <data name="ClimateSites" xml:space="preserve">
-    <value>Sites climatiques</value>
-  </data>
-  <data name="HydrometricSites" xml:space="preserve">
-    <value>Sites hydrométriques</value>
-  </data>
-  <data name="TideSites" xml:space="preserve">
-    <value>Sites de marées</value>
-  </data>
-  <data name="MWQMRunShowOnMap" xml:space="preserve">
-    <value>Tournée PSQEM montrer sur carte</value>
-  </data>
-  <data name="AllMWQMSamplesNeedsToBeDeletedBeforeDeletingTheRun" xml:space="preserve">
-    <value>Tous les données d'échantillonage doivent être effacées avant de pouvoir effacer la tournée</value>
-  </data>
-  <data name="SamplingPlan" xml:space="preserve">
-    <value>Plan d'échantillonnage</value>
-  </data>
-  <data name="Empty" xml:space="preserve">
-    <value>Vide</value>
-  </data>
-  <data name="GenerateResults" xml:space="preserve">
-    <value>Générer résultats</value>
-  </data>
-  <data name="RainExceedance" xml:space="preserve">
-    <value>Pluie dépassement</value>
-  </data>
-  <data name="EmailDistributionList" xml:space="preserve">
-    <value>Liste de distribution des courriels</value>
-  </data>
-  <data name="LogBook" xml:space="preserve">
-    <value>Journal de bord</value>
-  </data>
   <data name="YearsWithSamplesUsed" xml:space="preserve">
     <value>Années avec des échantillons utilisés</value>
   </data>
-  <data name="ShowSiteText" xml:space="preserve">
-    <value>Voir le nom des sites</value>
-  </data>
-  <data name="Analysis" xml:space="preserve">
-    <value>Analyse</value>
-  </data>
-  <data name="ExportArcGIS" xml:space="preserve">
-    <value>Exportation ArcGIS</value>
-  </data>
-  <data name="OpenData" xml:space="preserve">
-    <value>Open Data (fr)</value>
-  </data>
-  <data name="ProvinceTools" xml:space="preserve">
-    <value>Outils pour province</value>
-  </data>
-  <data name="OpenDataNational" xml:space="preserve">
-    <value>Open Data National (fr)</value>
-  </data>
-  <data name="PolSourceSiteMikeScenarios" xml:space="preserve">
-    <value>Pollution Source Site Mike Scenarios (fr)</value>
-  </data>
-  <data name="SubsectorTools" xml:space="preserve">
-    <value>Subsector Tools (fr)</value>
-  </data>
-  <data name="OrderMikeScenarioByDate" xml:space="preserve">
-    <value>Order MIKE scenario by date (fr)</value>
+  <data name="_IsRequired" xml:space="preserve">
+    <value>{0} est requis</value>
   </data>
 </root>
