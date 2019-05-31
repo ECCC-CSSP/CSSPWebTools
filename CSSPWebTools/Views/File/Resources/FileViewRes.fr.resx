@@ -117,198 +117,175 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Active" xml:space="preserve">
+    <value>Actif</value>
+  </data>
+  <data name="Both" xml:space="preserve">
+    <value>Tous les deux</value>
+  </data>
   <data name="Cancel" xml:space="preserve">
     <value>Annuler</value>
-    <comment>FG FE FI</comment>
-  </data>
-  <data name="Delete" xml:space="preserve">
-    <value>Supprimer</value>
-    <comment>FL</comment>
-  </data>
-  <data name="Download" xml:space="preserve">
-    <value>Télécharger</value>
-    <comment>FL</comment>
-  </data>
-  <data name="Edit" xml:space="preserve">
-    <value>Éditer</value>
-    <comment>FL FE</comment>
-  </data>
-  <data name="Empty" xml:space="preserve">
-    <value>vide</value>
-    <comment>FL</comment>
-  </data>
-  <data name="FileDescription" xml:space="preserve">
-    <value>Description du fichier</value>
-    <comment>FE FI</comment>
-  </data>
-  <data name="FileGenerateOptions" xml:space="preserve">
-    <value>Options pour générer les fichiers</value>
-    <comment>FG</comment>
-  </data>
-  <data name="FileName" xml:space="preserve">
-    <value>Nom du fichier</value>
-    <comment>FE</comment>
-  </data>
-  <data name="FilePurpose" xml:space="preserve">
-    <value>But du fichier</value>
-    <comment>FE FI</comment>
-  </data>
-  <data name="Files" xml:space="preserve">
-    <value>Fichiers</value>
-    <comment>FL</comment>
-  </data>
-  <data name="FileType" xml:space="preserve">
-    <value>Type de fichier</value>
-    <comment>FG</comment>
-  </data>
-  <data name="Generate" xml:space="preserve">
-    <value>Générer</value>
-    <comment>FG</comment>
-  </data>
-  <data name="KB" xml:space="preserve">
-    <value>Ko</value>
-    <comment>FL</comment>
-  </data>
-  <data name="Latitude" xml:space="preserve">
-    <value>Latitude</value>
-    <comment>FE</comment>
-  </data>
-  <data name="Longitude" xml:space="preserve">
-    <value>Longitude</value>
-    <comment>FE</comment>
-  </data>
-  <data name="MB" xml:space="preserve">
-    <value>Mo</value>
-    <comment>FL</comment>
-  </data>
-  <data name="Refresh" xml:space="preserve">
-    <value>Actualiser</value>
-    <comment>FAT</comment>
-  </data>
-  <data name="Save" xml:space="preserve">
-    <value>Sauvegarder</value>
-    <comment>FE</comment>
-  </data>
-  <data name="TaskRunning" xml:space="preserve">
-    <value>Tâche en fonction</value>
-    <comment>FAT</comment>
-  </data>
-  <data name="Upload" xml:space="preserve">
-    <value>Télécharger vers le serveur</value>
-    <comment>FI</comment>
-  </data>
-  <data name="UploadFile" xml:space="preserve">
-    <value>Télécharger un fichier vers le serveur</value>
-    <comment>FI</comment>
-  </data>
-  <data name="UseParentCoordinates" xml:space="preserve">
-    <value>Utiliser les coordonnées du parent</value>
-    <comment>FE</comment>
-  </data>
-  <data name="Processing" xml:space="preserve">
-    <value>Traitement</value>
-    <comment>FAT</comment>
-  </data>
-  <data name="_fileEditReturnedEmpty" xml:space="preserve">
-    <value>_fileEdit a routourner vide</value>
-    <comment>FL</comment>
-  </data>
-  <data name="TemplateExample" xml:space="preserve">
-    <value>exemple de modèle</value>
-    <comment>FG</comment>
   </data>
   <data name="ContourValues" xml:space="preserve">
     <value>Valeurs de contour</value>
   </data>
+  <data name="CreateDocumentFromTemplates" xml:space="preserve">
+    <value>Créer un document à partir de modèle</value>
+  </data>
+  <data name="CreateDocumentUsingParameters" xml:space="preserve">
+    <value>Créer un document à partir de paramètres</value>
+  </data>
+  <data name="CreatePDF" xml:space="preserve">
+    <value>Créer un PDF</value>
+  </data>
   <data name="CurrentVectorsWillBeShowAtTheCenterOfEachElementForWhichThePathHasAPointInIt" xml:space="preserve">
     <value>2) - Les vecteurs actuels seront affichés au centre de chaque élément pour lequel le chemin comporte un point.</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Supprimer</value>
+  </data>
+  <data name="Download" xml:space="preserve">
+    <value>Télécharger</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Modifier</value>
+  </data>
+  <data name="EditMode" xml:space="preserve">
+    <value>Mode édition</value>
+  </data>
+  <data name="Empty" xml:space="preserve">
+    <value>vide</value>
+  </data>
+  <data name="English" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="ExportingFilesToArcGIS" xml:space="preserve">
+    <value>Exportation des document vers Arc GIS</value>
+  </data>
+  <data name="FileDescription" xml:space="preserve">
+    <value>Description du fichier</value>
+  </data>
+  <data name="FileGenerateOptions" xml:space="preserve">
+    <value>Options pour générer les fichiers</value>
+  </data>
+  <data name="FileName" xml:space="preserve">
+    <value>Nom du fichier</value>
+  </data>
+  <data name="FilePurpose" xml:space="preserve">
+    <value>But du fichier</value>
+  </data>
+  <data name="Files" xml:space="preserve">
+    <value>Fichiers</value>
+  </data>
+  <data name="FileType" xml:space="preserve">
+    <value>Type de fichier</value>
   </data>
   <data name="ForEach10cm_sShowVectorLength" xml:space="preserve">
     <value>Pour chaque longueur vectorielle de 10 cm / s</value>
   </data>
+  <data name="French" xml:space="preserve">
+    <value>Français</value>
+  </data>
+  <data name="FromWater" xml:space="preserve">
+    <value>De l'eau</value>
+  </data>
+  <data name="Generate" xml:space="preserve">
+    <value>Générer</value>
+  </data>
+  <data name="GenerateReport" xml:space="preserve">
+    <value>Générer rapport</value>
+  </data>
+  <data name="InActive" xml:space="preserve">
+    <value>Inactif</value>
+  </data>
   <data name="inMetersApprox" xml:space="preserve">
     <value>En mètres (environ)</value>
   </data>
+  <data name="KB" xml:space="preserve">
+    <value>Ko</value>
+  </data>
+  <data name="KeepFileName" xml:space="preserve">
+    <value>Garder le nom de fichier</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>La langue</value>
+  </data>
+  <data name="Latitude" xml:space="preserve">
+    <value>Latitude</value>
+  </data>
+  <data name="LiftStations" xml:space="preserve">
+    <value>Remontées mécaniques</value>
+  </data>
+  <data name="Longitude" xml:space="preserve">
+    <value>Longitude</value>
+  </data>
+  <data name="MB" xml:space="preserve">
+    <value>Mo</value>
+  </data>
+  <data name="MonitoringSites" xml:space="preserve">
+    <value>Sites de surveillance</value>
+  </data>
+  <data name="Municipalities" xml:space="preserve">
+    <value>Municipalités</value>
+  </data>
+  <data name="NoExtension" xml:space="preserve">
+    <value>pas d'extension</value>
+  </data>
+  <data name="NotImplementedYet" xml:space="preserve">
+    <value>Pas encore mis en œuvre</value>
+  </data>
+  <data name="PollutionSourceSites" xml:space="preserve">
+    <value>Sites de sources de pollution</value>
+  </data>
+  <data name="PressCtrlAndClickToSelectMany" xml:space="preserve">
+    <value>Peser Ctrl + click pour en sélectionner plusieurs</value>
+  </data>
+  <data name="Processing" xml:space="preserve">
+    <value>Traitement</value>
+  </data>
+  <data name="Refresh" xml:space="preserve">
+    <value>Actualiser</value>
+  </data>
   <data name="ReplaceTheTextWithinBoxByCopyingAGoogleEarthPath" xml:space="preserve">
     <value>1) - Remplacez le texte dans cette zone en copiant un Google Earth Path.</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Sauvegarder</value>
+  </data>
+  <data name="SaveAsFileName" xml:space="preserve">
+    <value>Enregistrer sous le nom de fichier</value>
   </data>
   <data name="SelectAllCtrlAPasteCtrlV" xml:space="preserve">
     <value>Sélectionnez tout [Ctrl + A] Coller [Ctrl-V]</value>
   </data>
   <data name="SubsectorPollutionSourceFieldSheet" xml:space="preserve">
-    <value>Sous-secteur Pollution Source Field Sheet</value>
+    <value>Feuille de terrain de source de pollution d'un sous-secteur</value>
   </data>
-  <data name="SaveAsFileName" xml:space="preserve">
-    <value>Enregistrer sous le nom de fichier</value>
+  <data name="TaskRunning" xml:space="preserve">
+    <value>Tâche en fonction</value>
   </data>
-  <data name="NoExtension" xml:space="preserve">
-    <value>pas d'extension</value>
-  </data>
-  <data name="KeepFileName" xml:space="preserve">
-    <value>Garder le nom de fichier</value>
-  </data>
-  <data name="FromWater" xml:space="preserve">
-    <value>De l'eau</value>
-  </data>
-  <data name="CreateDocumentFromTemplates" xml:space="preserve">
-    <value>Créer un document à partir de modèle</value>
-    <comment>FG</comment>
+  <data name="TemplateExample" xml:space="preserve">
+    <value>exemple de modèle</value>
   </data>
   <data name="Templates" xml:space="preserve">
     <value>Modèles</value>
   </data>
-  <data name="Both" xml:space="preserve">
-    <value>Tous les deux</value>
+  <data name="Upload" xml:space="preserve">
+    <value>Télécharger vers le serveur</value>
   </data>
-  <data name="English" xml:space="preserve">
-    <value>English</value>
+  <data name="UploadFile" xml:space="preserve">
+    <value>Télécharger un fichier vers le serveur</value>
   </data>
-  <data name="French" xml:space="preserve">
-    <value>Français</value>
+  <data name="UseParentCoordinates" xml:space="preserve">
+    <value>Utiliser les coordonnées du parent</value>
   </data>
-  <data name="Language" xml:space="preserve">
-    <value>La langue</value>
-  </data>
-  <data name="CreateDocumentUsingParameters" xml:space="preserve">
-    <value>Créer un document à partir de paramètres</value>
-  </data>
-  <data name="GenerateReport" xml:space="preserve">
-    <value>Générer rapport</value>
-  </data>
-  <data name="NotImplementedYet" xml:space="preserve">
-    <value>Pas encore mis en oeuvre</value>
-  </data>
-  <data name="CreatePDF" xml:space="preserve">
-    <value>Create PDF (fr)</value>
+  <data name="WWTP" xml:space="preserve">
+    <value>UTEU</value>
   </data>
   <data name="YearOfDocument" xml:space="preserve">
     <value>Année du document</value>
   </data>
-  <data name="Active" xml:space="preserve">
-    <value>Active (fr)</value>
-  </data>
-  <data name="InActive" xml:space="preserve">
-    <value>InActive (fr)</value>
-  </data>
-  <data name="LiftStations" xml:space="preserve">
-    <value>Lift Stations (fr)</value>
-  </data>
-  <data name="MonitoringSites" xml:space="preserve">
-    <value>Monitoring Sites (fr)</value>
-  </data>
-  <data name="Municipalities" xml:space="preserve">
-    <value>Municipalities (fr)</value>
-  </data>
-  <data name="PollutionSourceSites" xml:space="preserve">
-    <value>Pollution Source Sites (fr)</value>
-  </data>
-  <data name="PressCtrlAndClickToSelectMany" xml:space="preserve">
-    <value>Press Ctrl + click to select many (fr)</value>
-  </data>
-  <data name="WWTP" xml:space="preserve">
-    <value>WWTP (fr)</value>
-  </data>
-  <data name="ExportingFilesToArcGIS" xml:space="preserve">
-    <value>Exporting files to Arc GIS (fr)</value>
+  <data name="_fileEditReturnedEmpty" xml:space="preserve">
+    <value>_fileEdit a retourner vide</value>
   </data>
 </root>

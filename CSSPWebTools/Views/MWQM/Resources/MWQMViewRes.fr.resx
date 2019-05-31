@@ -117,203 +117,254 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ByDate" xml:space="preserve">
-    <value>Selon la date</value>
-    <comment>MWQMSC</comment>
-  </data>
-  <data name="BySample" xml:space="preserve">
-    <value>Selon l'échantillonage</value>
-    <comment>MWQMSC</comment>
-  </data>
-  <data name="Depth" xml:space="preserve">
-    <value>Profondeur</value>
-    <comment>MWQMS MWQMST</comment>
-  </data>
-  <data name="FecalColiformsChart" xml:space="preserve">
-    <value>Graphique des Coliformes fécaux</value>
-    <comment>MWQMSC</comment>
-  </data>
-  <data name="ShowFromYear" xml:space="preserve">
-    <value>à partir de l'année</value>
-    <comment>MWQMSC</comment>
-  </data>
-  <data name="GeometricMean" xml:space="preserve">
-    <value>Moyenne géométrique</value>
-    <comment>MWQMST</comment>
-  </data>
-  <data name="Log" xml:space="preserve">
-    <value>Log</value>
-    <comment>MWQMSC</comment>
-  </data>
-  <data name="Median" xml:space="preserve">
-    <value>Médiane</value>
-    <comment>MWQMST</comment>
-  </data>
-  <data name="Normal" xml:space="preserve">
-    <value>Normal</value>
-    <comment>MWQMSC</comment>
-  </data>
-  <data name="Percentile90" xml:space="preserve">
-    <value>Percentile 90</value>
-    <comment>MWQMST</comment>
-  </data>
-  <data name="Refresh" xml:space="preserve">
-    <value>Actualiser</value>
-    <comment>MWQMSC</comment>
-  </data>
-  <data name="Salinity" xml:space="preserve">
-    <value>Salinité</value>
-    <comment>MWQMST</comment>
-  </data>
-  <data name="StatisticsChart" xml:space="preserve">
-    <value>Graphique des Statistiques</value>
-    <comment>MWQMSC</comment>
-  </data>
-  <data name="Temperature" xml:space="preserve">
-    <value>Température</value>
-    <comment>MWQMS MWQMST</comment>
-  </data>
-  <data name="FecalColiforms_abbr" xml:space="preserve">
-    <value>CF</value>
-    <comment>MWQMS</comment>
-  </data>
-  <data name="FCLessOrEqualThan14" xml:space="preserve">
-    <value>CF  &lt;= 14</value>
-    <comment>MWQMS</comment>
-  </data>
-  <data name="FCMoreThan14" xml:space="preserve">
-    <value>CF  &gt; 14</value>
-    <comment>MWQMS</comment>
-  </data>
-  <data name="GeometricMean_abbr" xml:space="preserve">
-    <value>MG</value>
-    <comment>MWQMS</comment>
-  </data>
-  <data name="Median_abbr" xml:space="preserve">
-    <value>Md</value>
-    <comment>MWQMS</comment>
-  </data>
-  <data name="NumberOfSample" xml:space="preserve">
-    <value>Nombre d'échantillons</value>
-    <comment>MWQMS</comment>
-  </data>
-  <data name="pH" xml:space="preserve">
-    <value>pH </value>
-    <comment>MWQMS MWQMST</comment>
-  </data>
-  <data name="SampleDate" xml:space="preserve">
-    <value>date de l'échantillon</value>
-    <comment>MWQMS</comment>
-  </data>
-  <data name="DataTable" xml:space="preserve">
-    <value>Tableau de données</value>
-    <comment>MWQMST</comment>
-  </data>
-  <data name="Samples" xml:space="preserve">
-    <value>échantillons</value>
-    <comment>MWQMS</comment>
-  </data>
-  <data name="SalinityAndTemperatureChart" xml:space="preserve">
-    <value>Graphique de salinité et de température</value>
-    <comment>MWQMSC</comment>
-  </data>
-  <data name="ChartHeight" xml:space="preserve">
-    <value>la hauteur du graphique</value>
-    <comment>MWQMSC</comment>
-  </data>
-  <data name="ChartWidth" xml:space="preserve">
-    <value>la largeur du graphique</value>
-    <comment>MWQMSC</comment>
-  </data>
-  <data name="Decrease" xml:space="preserve">
-    <value>diminuer</value>
-    <comment>MWQMSC</comment>
-  </data>
-  <data name="Increase" xml:space="preserve">
-    <value>augmenter</value>
-    <comment>MWQMSC</comment>
-  </data>
   <data name="Abbreviations" xml:space="preserve">
     <value>Abréviations</value>
-    <comment>MWQMST MWQMSC</comment>
   </data>
   <data name="Abbreviations_abbr" xml:space="preserve">
     <value>Abr.</value>
-    <comment>MWQMST MWQMSC</comment>
   </data>
-  <data name="Depth_abbr" xml:space="preserve">
-    <value>P.</value>
-    <comment>MWQMST MWQMSC</comment>
-  </data>
-  <data name="FecalColiforms" xml:space="preserve">
-    <value>Coliformes fécaux</value>
-    <comment>MWQMST</comment>
-  </data>
-  <data name="Percentagegt260" xml:space="preserve">
-    <value>% &gt; 260 </value>
-    <comment>MWQMSC MWQMST</comment>
-  </data>
-  <data name="Percentagegt43" xml:space="preserve">
-    <value>% &gt; 43 </value>
-    <comment>MWQMST MWQMSC</comment>
-  </data>
-  <data name="Percentile90_abbr" xml:space="preserve">
-    <value>P90</value>
-    <comment>MWQMST MWQMSC</comment>
-  </data>
-  <data name="OtherMWQMSites" xml:space="preserve">
-    <value>Autres sites SQEM</value>
-  </data>
-  <data name="LocateOnMap" xml:space="preserve">
-    <value>Pointé sur la carte</value>
+  <data name="Action" xml:space="preserve">
+    <value>Action </value>
   </data>
   <data name="Add" xml:space="preserve">
     <value>Ajouter</value>
   </data>
+  <data name="AddSample" xml:space="preserve">
+    <value>Ajouter un échantillon</value>
+  </data>
+  <data name="All" xml:space="preserve">
+    <value>Tous</value>
+  </data>
+  <data name="Analysis" xml:space="preserve">
+    <value>Analyses</value>
+  </data>
+  <data name="AnalysisCalculationType" xml:space="preserve">
+    <value>Type de calcul d'analyse</value>
+  </data>
+  <data name="AnalysisMethod" xml:space="preserve">
+    <value>Méthode analytique</value>
+  </data>
+  <data name="AnalysisName" xml:space="preserve">
+    <value>Nom de l'analyse</value>
+  </data>
+  <data name="AnalysisReportYear" xml:space="preserve">
+    <value>Année du rapport d'analyse</value>
+  </data>
+  <data name="And" xml:space="preserve">
+    <value>et</value>
+  </data>
+  <data name="AutoCalculation" xml:space="preserve">
+    <value>Calcul automatique</value>
+  </data>
+  <data name="BeaufortScale" xml:space="preserve">
+    <value>Échelle de Beaufort </value>
+  </data>
+  <data name="Between" xml:space="preserve">
+    <value>entre</value>
+  </data>
+  <data name="ByDate" xml:space="preserve">
+    <value>Selon la date</value>
+  </data>
+  <data name="BySample" xml:space="preserve">
+    <value>Selon l'échantillonnage</value>
+  </data>
+  <data name="Calculation" xml:space="preserve">
+    <value>Calcul</value>
+  </data>
   <data name="Cancel" xml:space="preserve">
     <value>Annuler</value>
   </data>
-  <data name="Latitude" xml:space="preserve">
-    <value>Latitude</value>
+  <data name="ChangeSample" xml:space="preserve">
+    <value>Changement d'échantillon</value>
   </data>
-  <data name="Location" xml:space="preserve">
-    <value>Coordonnées</value>
+  <data name="ChartHeight" xml:space="preserve">
+    <value>la hauteur du graphique</value>
   </data>
-  <data name="Longitude" xml:space="preserve">
-    <value>Longitude</value>
+  <data name="Charts" xml:space="preserve">
+    <value>Graphiques</value>
   </data>
-  <data name="Modify" xml:space="preserve">
-    <value>Modifier</value>
+  <data name="ChartWidth" xml:space="preserve">
+    <value>la largeur du graphique</value>
   </data>
-  <data name="Save" xml:space="preserve">
-    <value>Sauvegarder</value>
+  <data name="ColorAndLetterSchema" xml:space="preserve">
+    <value>Schéma des couleurs et des lettres</value>
   </data>
-  <data name="MWQMSiteDescription" xml:space="preserve">
-    <value>Description du site SQEM</value>
+  <data name="Comment" xml:space="preserve">
+    <value>Commentaires</value>
   </data>
-  <data name="MWQMSiteNumber" xml:space="preserve">
-    <value>Numéro du site SQEM</value>
+  <data name="Completed" xml:space="preserve">
+    <value>Terminé ...</value>
   </data>
-  <data name="MWQMSiteName" xml:space="preserve">
-    <value>Nom du site SQEM</value>
+  <data name="Data" xml:space="preserve">
+    <value>Données</value>
   </data>
-  <data name="IsActive" xml:space="preserve">
-    <value>est activ</value>
+  <data name="DataTable" xml:space="preserve">
+    <value>Tableau de données</value>
   </data>
   <data name="Day" xml:space="preserve">
     <value>Jour</value>
   </data>
+  <data name="Decrease" xml:space="preserve">
+    <value>diminuer</value>
+  </data>
+  <data name="DeleteAnalysis" xml:space="preserve">
+    <value>Effacer l'analyse</value>
+  </data>
+  <data name="DeleteSample" xml:space="preserve">
+    <value>Supprimer l'échantillon</value>
+  </data>
+  <data name="Depth" xml:space="preserve">
+    <value>Profondeur</value>
+  </data>
+  <data name="Depth_abbr" xml:space="preserve">
+    <value>P.</value>
+  </data>
+  <data name="Dry" xml:space="preserve">
+    <value>Sec</value>
+  </data>
+  <data name="DryLimit24h" xml:space="preserve">
+    <value>Limite sèche 24h</value>
+  </data>
+  <data name="DryLimit48h" xml:space="preserve">
+    <value>Limite sèche 48 h</value>
+  </data>
+  <data name="DryLimit72h" xml:space="preserve">
+    <value>Limite sèche 72h</value>
+  </data>
+  <data name="DryLimit96h" xml:space="preserve">
+    <value>Limite sèche 96h</value>
+  </data>
+  <data name="Empty" xml:space="preserve">
+    <value>Vide</value>
+  </data>
   <data name="End" xml:space="preserve">
     <value>Fin</value>
+  </data>
+  <data name="EndDate" xml:space="preserve">
+    <value>Date de fin</value>
+  </data>
+  <data name="EndTide" xml:space="preserve">
+    <value>Marée de la fin</value>
+  </data>
+  <data name="ExcelFileName" xml:space="preserve">
+    <value>Nom de la filière Excel</value>
+  </data>
+  <data name="ExcelSelectOptionBelow" xml:space="preserve">
+    <value>Excel: choisir un option ci-dessous</value>
+  </data>
+  <data name="ExcelTVFileTVItemID" xml:space="preserve">
+    <value>ExcelTVFileTVItemID</value>
+  </data>
+  <data name="ExcelTVFileTVText" xml:space="preserve">
+    <value>ExcelTVFileTVText</value>
+  </data>
+  <data name="ExportOrSave" xml:space="preserve">
+    <value>Exporter ou sauvegarder</value>
+  </data>
+  <data name="ExportToExcelDocument" xml:space="preserve">
+    <value>Exporter vers le document Excel</value>
+  </data>
+  <data name="FC" xml:space="preserve">
+    <value>CF</value>
+  </data>
+  <data name="FCLessOrEqualThan14" xml:space="preserve">
+    <value>CF  &lt;= 14</value>
+  </data>
+  <data name="FCMoreThan14" xml:space="preserve">
+    <value>CF  &gt; 14</value>
+  </data>
+  <data name="FecalColiformPer100mL" xml:space="preserve">
+    <value>Coliformes fécaux / 100 mL</value>
+  </data>
+  <data name="FecalColiforms" xml:space="preserve">
+    <value>Coliformes fécaux</value>
+  </data>
+  <data name="FecalColiformsChart" xml:space="preserve">
+    <value>Graphique des Coliformes fécaux</value>
+  </data>
+  <data name="FecalColiforms_abbr" xml:space="preserve">
+    <value>CF</value>
+  </data>
+  <data name="FieldRelatedInformation" xml:space="preserve">
+    <value>Information - Travail de terrain</value>
+  </data>
+  <data name="ForExcelExportDeletingTheAnalysisWillNotAutomaticallyDeleteTheExcelFile" xml:space="preserve">
+    <value>Pour les documents Excel exportés, effacer l'analyse n'effacera pas automatiquement la filière Excel</value>
+  </data>
+  <data name="FullYear" xml:space="preserve">
+    <value>Pleine année</value>
+  </data>
+  <data name="GeometricMean" xml:space="preserve">
+    <value>Moyenne géométrique</value>
+  </data>
+  <data name="GeometricMean_abbr" xml:space="preserve">
+    <value>MG</value>
+  </data>
+  <data name="GM" xml:space="preserve">
+    <value>MG</value>
+  </data>
+  <data name="Hide" xml:space="preserve">
+    <value>Cacher</value>
+  </data>
+  <data name="HideQueryTool" xml:space="preserve">
+    <value>Cacher l'outil de requête</value>
+  </data>
+  <data name="HideRainRows" xml:space="preserve">
+    <value>Cacher les lignes de pluie</value>
+  </data>
+  <data name="HideRunsNotUsed" xml:space="preserve">
+    <value>Cacher les tournées pas utilisées</value>
+  </data>
+  <data name="HideTideRows" xml:space="preserve">
+    <value>Cacher les marées</value>
+  </data>
+  <data name="HighlightSalinityDeviationFromAverage" xml:space="preserve">
+    <value>Souligner l'écart de salinité par rapport à la moyenne</value>
+  </data>
+  <data name="HistoricalRelatedInformation" xml:space="preserve">
+    <value>Information - Historique</value>
+  </data>
+  <data name="IncludeRain" xml:space="preserve">
+    <value>Inclure la pluie</value>
+  </data>
+  <data name="Increase" xml:space="preserve">
+    <value>augmenter</value>
+  </data>
+  <data name="InProgress" xml:space="preserve">
+    <value>En cours</value>
+  </data>
+  <data name="InTxt" xml:space="preserve">
+    <value>dans</value>
+  </data>
+  <data name="IsActive" xml:space="preserve">
+    <value>Est actif</value>
+  </data>
+  <data name="IsRainRunWhen" xml:space="preserve">
+    <value>Est une tournée de pluie quand</value>
   </data>
   <data name="LabAnalysis" xml:space="preserve">
     <value>Analyse de laboratoire</value>
   </data>
-  <data name="ModifyMWQMRun" xml:space="preserve">
-    <value>Modifier une tournée SQEM</value>
+  <data name="LabAnalysisBath1Incubation" xml:space="preserve">
+    <value>Analyse de laboratoire /  Bain 1 Incubation</value>
   </data>
-  <data name="Month" xml:space="preserve">
-    <value>Mois</value>
+  <data name="LabAnalysisBath2Incubation" xml:space="preserve">
+    <value>Analyse de laboratoire /  Bain 2 Incubation</value>
+  </data>
+  <data name="LabAnalysisBath3Incubation" xml:space="preserve">
+    <value>Analyse de laboratoire /  Bain 3 Incubation</value>
+  </data>
+  <data name="Laboratory" xml:space="preserve">
+    <value>Laboratoire</value>
+  </data>
+  <data name="LaboratoryReceivedSamples" xml:space="preserve">
+    <value>Échantillons reçu au laboratoire</value>
+  </data>
+  <data name="LaboratoryRelatedInformation" xml:space="preserve">
+    <value>Information - Analyse en laboratoire</value>
+  </data>
+  <data name="LaboratorySampleApprovalDateAndTime" xml:space="preserve">
+    <value>Date et heure d'approbation des échantillons</value>
   </data>
   <data name="Last24hours" xml:space="preserve">
     <value>dernières 24 heures</value>
@@ -324,233 +375,161 @@
   <data name="Last72hours" xml:space="preserve">
     <value>dernières 72 heures</value>
   </data>
-  <data name="RunSamplingCrewInitials" xml:space="preserve">
-    <value>Initiales de l’équipe d’échantillonnage</value>
+  <data name="Latitude" xml:space="preserve">
+    <value>Latitude</value>
   </data>
-  <data name="SelectSeaState" xml:space="preserve">
-    <value>Choisir l'état de la mer</value>
+  <data name="ListOfExcelDocuments" xml:space="preserve">
+    <value>Liste des documents Excel</value>
   </data>
-  <data name="Start" xml:space="preserve">
-    <value>Début</value>
-  </data>
-  <data name="WaterLevelAtBrook" xml:space="preserve">
-    <value>Niveau d'eau du ruisseau</value>
-  </data>
-  <data name="Year" xml:space="preserve">
-    <value>Année</value>
-  </data>
-  <data name="RunDate" xml:space="preserve">
-    <value>Date de la tournée</value>
-  </data>
-  <data name="LabAnalysisBath1Incubation" xml:space="preserve">
-    <value>Analyse de laboratoire /  Bain 1 Incubation</value>
-  </data>
-  <data name="RunTime" xml:space="preserve">
-    <value>Durée de la tournée</value>
-  </data>
-  <data name="SelectTheAnalysisMethod" xml:space="preserve">
-    <value>Choisir la méthode analytique</value>
-  </data>
-  <data name="SelectTheLaboratory" xml:space="preserve">
-    <value>Choisir le laboratoire</value>
-  </data>
-  <data name="SelectTheSampleMatrix" xml:space="preserve">
-    <value>Choisir le milieu d'échantillonnage</value>
-  </data>
-  <data name="Action" xml:space="preserve">
-    <value>Action </value>
-  </data>
-  <data name="DeleteSample" xml:space="preserve">
-    <value>Supprimer l'échantillon</value>
-  </data>
-  <data name="AddSample" xml:space="preserve">
-    <value>Ajouter un échantillon</value>
-  </data>
-  <data name="ChangeSample" xml:space="preserve">
-    <value>Changement d'échantillon</value>
-  </data>
-  <data name="Comment" xml:space="preserve">
-    <value>Commentaires</value>
-  </data>
-  <data name="ProcessedBy" xml:space="preserve">
-    <value>Traité par</value>
-  </data>
-  <data name="Time" xml:space="preserve">
-    <value>Heure</value>
-  </data>
-  <data name="AnalysisMethod" xml:space="preserve">
-    <value>Méthode analytique</value>
-  </data>
-  <data name="BeaufortScale" xml:space="preserve">
-    <value>Échelle de Beaufort </value>
-  </data>
-  <data name="FieldRelatedInformation" xml:space="preserve">
-    <value>Information - Travail de terrain</value>
-  </data>
-  <data name="HistoricalRelatedInformation" xml:space="preserve">
-    <value>Information - Historique</value>
-  </data>
-  <data name="LaboratoryRelatedInformation" xml:space="preserve">
-    <value>Information - Analyse en laboratoire</value>
-  </data>
-  <data name="LaboratorySampleApprovalDateAndTime" xml:space="preserve">
-    <value>Date et heure d'approbation des échantillons</value>
-  </data>
-  <data name="RunSamplesApprovedBy" xml:space="preserve">
-    <value>Échantillons de la tournée approuvés par</value>
-  </data>
-  <data name="SampleMatrix" xml:space="preserve">
-    <value>Matrice de l’échantillon</value>
-  </data>
-  <data name="SeaState" xml:space="preserve">
-    <value>État de la mer</value>
-  </data>
-  <data name="StartTime" xml:space="preserve">
-    <value>Heure du début</value>
-  </data>
-  <data name="TemperatureControl1" xml:space="preserve">
-    <value>Contrôle de la température #1</value>
-  </data>
-  <data name="LaboratoryReceivedSamples" xml:space="preserve">
-    <value>Échantillons reçu au laboratoire</value>
-  </data>
-  <data name="Precipitation" xml:space="preserve">
-    <value>Précipitations</value>
-  </data>
-  <data name="Reception" xml:space="preserve">
-    <value>Réception</value>
-  </data>
-  <data name="RunSampleReception" xml:space="preserve">
-    <value>Réception des échantillons de la tournée</value>
-  </data>
-  <data name="TheNextDay" xml:space="preserve">
-    <value>le lendemain</value>
-  </data>
-  <data name="TheSameDay" xml:space="preserve">
-    <value>le jour même</value>
-  </data>
-  <data name="WaveHeight" xml:space="preserve">
-    <value>Hauteur de la vague</value>
-  </data>
-  <data name="RunComment" xml:space="preserve">
-    <value>Commentaire de la tournée</value>
-  </data>
-  <data name="Charts" xml:space="preserve">
-    <value>Graphiques</value>
-  </data>
-  <data name="Data" xml:space="preserve">
-    <value>Données</value>
-  </data>
-  <data name="StatisticsData" xml:space="preserve">
-    <value>Données statistiques</value>
-  </data>
-  <data name="RunInformation" xml:space="preserve">
-    <value>Information de la tournée</value>
-  </data>
-  <data name="ShowMWQMSiteOnMap" xml:space="preserve">
-    <value>Afficher le site PSQEM sur la carte</value>
-  </data>
-  <data name="TemperatureControl2" xml:space="preserve">
-    <value>Contrôle de la température #2</value>
-  </data>
-  <data name="MWQMSampleNote" xml:space="preserve">
-    <value>Remarque d'échantillon</value>
-  </data>
-  <data name="SampleTypes" xml:space="preserve">
-    <value>Types d'échantillons</value>
-  </data>
-  <data name="RunSampleType" xml:space="preserve">
-    <value>Type d'échantillon de la tournée</value>
-  </data>
-  <data name="LabAnalysisBath2Incubation" xml:space="preserve">
-    <value>Analyse de laboratoire /  Bain 2 Incubation</value>
-  </data>
-  <data name="LabAnalysisBath3Incubation" xml:space="preserve">
-    <value>Analyse de laboratoire /  Bain 3 Incubation</value>
-  </data>
-  <data name="MWQMSiteLatestClassification" xml:space="preserve">
-    <value>Dernière classification</value>
-  </data>
-  <data name="SelectAClassification" xml:space="preserve">
-    <value>Sélectionnez une classification</value>
-  </data>
-  <data name="EndDate" xml:space="preserve">
-    <value>Date de fin</value>
-  </data>
-  <data name="InTxt" xml:space="preserve">
-    <value>dans</value>
-  </data>
-  <data name="IsRainRunWhen" xml:space="preserve">
-    <value>Est une tournée de plue quand</value>
-  </data>
-  <data name="Runs" xml:space="preserve">
-    <value>Tournée</value>
-  </data>
-  <data name="Or" xml:space="preserve">
-    <value>ou</value>
-  </data>
-  <data name="StartDate" xml:space="preserve">
-    <value>Date de départ</value>
-  </data>
-  <data name="VisibleDataType" xml:space="preserve">
-    <value>Type de données visibles</value>
-  </data>
-  <data name="Rain" xml:space="preserve">
-    <value>Pluie</value>
-  </data>
-  <data name="Recalculate" xml:space="preserve">
-    <value>Recalculer</value>
-  </data>
-  <data name="Calculation" xml:space="preserve">
-    <value>Calcul</value>
-  </data>
-  <data name="FecalColiformPer100mL" xml:space="preserve">
-    <value>Coliformes fécaux / 100 mL</value>
-  </data>
-  <data name="IncludeRain" xml:space="preserve">
-    <value>Inclure la pluie</value>
-  </data>
-  <data name="NoRain" xml:space="preserve">
-    <value>Pas de pluie</value>
-  </data>
-  <data name="OnlyRain" xml:space="preserve">
-    <value>Seule la pluie</value>
-  </data>
-  <data name="P90" xml:space="preserve">
-    <value>P90</value>
-  </data>
-  <data name="SaveForReport" xml:space="preserve">
-    <value>Enregistrer pour le rapport</value>
-  </data>
-  <data name="AutoCalculation" xml:space="preserve">
-    <value>Calcul automatique</value>
-  </data>
-  <data name="And" xml:space="preserve">
-    <value>et</value>
-  </data>
-  <data name="Between" xml:space="preserve">
-    <value>entre</value>
-  </data>
-  <data name="NeedRecalculation" xml:space="preserve">
-    <value>Besoin de calcul</value>
-  </data>
-  <data name="Saving" xml:space="preserve">
-    <value>Sauvegarde ...</value>
-  </data>
-  <data name="SelectFullYear" xml:space="preserve">
-    <value>Sélectionnez l'année complète</value>
-  </data>
-  <data name="Completed" xml:space="preserve">
-    <value>Terminé ...</value>
-  </data>
-  <data name="InProgress" xml:space="preserve">
-    <value>En cours</value>
+  <data name="ListOfSavedParametersForReport" xml:space="preserve">
+    <value>Liste des paramètres sauvegardés pour les rapports</value>
   </data>
   <data name="Load" xml:space="preserve">
     <value>Télécharger</value>
   </data>
   <data name="Loading" xml:space="preserve">
     <value>Télécharger ...</value>
+  </data>
+  <data name="LocateOnMap" xml:space="preserve">
+    <value>Pointé sur la carte</value>
+  </data>
+  <data name="Location" xml:space="preserve">
+    <value>Coordonnées</value>
+  </data>
+  <data name="Log" xml:space="preserve">
+    <value>Log</value>
+  </data>
+  <data name="Longitude" xml:space="preserve">
+    <value>Longitude</value>
+  </data>
+  <data name="LongRange" xml:space="preserve">
+    <value>Long terme</value>
+  </data>
+  <data name="LowerRainLimitConsideredRain" xml:space="preserve">
+    <value>Limite de pluie inférieure considérée comme pluie</value>
+  </data>
+  <data name="MarkAllRoutineSamplesAs" xml:space="preserve">
+    <value>Marquer tous les échantillons de routine comme</value>
+  </data>
+  <data name="Med" xml:space="preserve">
+    <value>Médiane</value>
+  </data>
+  <data name="Median" xml:space="preserve">
+    <value>Médiane</value>
+  </data>
+  <data name="Median_abbr" xml:space="preserve">
+    <value>Md</value>
+  </data>
+  <data name="Mid" xml:space="preserve">
+    <value>Moyen</value>
+  </data>
+  <data name="MidRange" xml:space="preserve">
+    <value>Moyen terme</value>
+  </data>
+  <data name="MidRangeNumberOfDays" xml:space="preserve">
+    <value>Nombre moyen de jours</value>
+  </data>
+  <data name="Modify" xml:space="preserve">
+    <value>Modifier</value>
+  </data>
+  <data name="ModifyMWQMRun" xml:space="preserve">
+    <value>Modifier une tournée SQEM</value>
+  </data>
+  <data name="Month" xml:space="preserve">
+    <value>Mois</value>
+  </data>
+  <data name="MWQMRunSampleData" xml:space="preserve">
+    <value>Données d'échantillonnage de tournée SQEM</value>
+  </data>
+  <data name="MWQMSampleNote" xml:space="preserve">
+    <value>Remarque d'échantillon</value>
+  </data>
+  <data name="MWQMSite" xml:space="preserve">
+    <value>Site SQEM</value>
+  </data>
+  <data name="MWQMSiteDescription" xml:space="preserve">
+    <value>Description du site SQEM</value>
+  </data>
+  <data name="MWQMSiteLatestClassification" xml:space="preserve">
+    <value>Dernière classification</value>
+  </data>
+  <data name="MWQMSiteName" xml:space="preserve">
+    <value>Nom du site SQEM</value>
+  </data>
+  <data name="MWQMSiteNumber" xml:space="preserve">
+    <value>Numéro du site SQEM</value>
+  </data>
+  <data name="NA" xml:space="preserve">
+    <value>N/A</value>
+  </data>
+  <data name="NeedRecalculation" xml:space="preserve">
+    <value>Besoin de calcul</value>
+  </data>
+  <data name="NewAnalysisName" xml:space="preserve">
+    <value>Nom de la nouvelle analyse</value>
+  </data>
+  <data name="NoRain" xml:space="preserve">
+    <value>Pas de pluie</value>
+  </data>
+  <data name="Normal" xml:space="preserve">
+    <value>Normal</value>
+  </data>
+  <data name="NotUseForOpenData" xml:space="preserve">
+    <value>Ne pas utiliser pour les données ouvertes</value>
+  </data>
+  <data name="NumberOfRuns" xml:space="preserve">
+    <value>Nombres de tournées</value>
+  </data>
+  <data name="NumberOfSample" xml:space="preserve">
+    <value>Nombre d'échantillons</value>
+  </data>
+  <data name="OnlyRain" xml:space="preserve">
+    <value>Seulement la pluie</value>
+  </data>
+  <data name="Or" xml:space="preserve">
+    <value>ou</value>
+  </data>
+  <data name="OtherMWQMSites" xml:space="preserve">
+    <value>Autres sites SQEM</value>
+  </data>
+  <data name="P260" xml:space="preserve">
+    <value>P260</value>
+  </data>
+  <data name="P43" xml:space="preserve">
+    <value>P43</value>
+  </data>
+  <data name="P90" xml:space="preserve">
+    <value>P90</value>
+  </data>
+  <data name="Parameters" xml:space="preserve">
+    <value>Paramètres</value>
+  </data>
+  <data name="Percentagegt260" xml:space="preserve">
+    <value>% &gt; 260 </value>
+  </data>
+  <data name="Percentagegt43" xml:space="preserve">
+    <value>% &gt; 43 </value>
+  </data>
+  <data name="Percentile90" xml:space="preserve">
+    <value>Percentile 90</value>
+  </data>
+  <data name="Percentile90_abbr" xml:space="preserve">
+    <value>P90</value>
+  </data>
+  <data name="pH" xml:space="preserve">
+    <value>pH </value>
+  </data>
+  <data name="Precipitation" xml:space="preserve">
+    <value>Précipitations</value>
+  </data>
+  <data name="ProcessedBy" xml:space="preserve">
+    <value>Traité par</value>
+  </data>
+  <data name="Rain" xml:space="preserve">
+    <value>Pluie</value>
+  </data>
+  <data name="RainDay" xml:space="preserve">
+    <value>Jour de pluie</value>
   </data>
   <data name="RainDay0" xml:space="preserve">
     <value>Pluie jour 0</value>
@@ -585,119 +564,179 @@
   <data name="RainDay9" xml:space="preserve">
     <value>Pluie jour 9</value>
   </data>
-  <data name="SaveOrGetFromDatabase" xml:space="preserve">
-    <value>Enregistrer / obtenir de la base de données</value>
+  <data name="Ranges" xml:space="preserve">
+    <value>Termes</value>
   </data>
-  <data name="ShrinkRainRows" xml:space="preserve">
-    <value>Rétrécir les lignes de pluie</value>
+  <data name="Recalculate" xml:space="preserve">
+    <value>Recalculer</value>
   </data>
-  <data name="HideRainRows" xml:space="preserve">
-    <value>Cacher les lignes de pluie</value>
+  <data name="Reception" xml:space="preserve">
+    <value>Réception</value>
   </data>
-  <data name="HideTideRows" xml:space="preserve">
-    <value>Cacher les marées</value>
+  <data name="Refresh" xml:space="preserve">
+    <value>Actualiser</value>
   </data>
-  <data name="All" xml:space="preserve">
-    <value>Tous</value>
+  <data name="ReportSelectOptionBelow" xml:space="preserve">
+    <value>Rapport: choisir un option ci-dessous</value>
   </data>
-  <data name="Dry" xml:space="preserve">
-    <value>Sec</value>
+  <data name="RunComment" xml:space="preserve">
+    <value>Commentaire de la tournée</value>
   </data>
-  <data name="HideQueryTool" xml:space="preserve">
-    <value>Cacher l'outil de requête</value>
-  </data>
-  <data name="HideRunsNotUsed" xml:space="preserve">
-    <value>Cacher les tournées pas utilisées</value>
-  </data>
-  <data name="LongRange" xml:space="preserve">
-    <value>Long terme</value>
-  </data>
-  <data name="LowerRainLimitConsideredRain" xml:space="preserve">
-    <value>Limite de pluie inférieure considérée comme pluie</value>
-  </data>
-  <data name="MidRange" xml:space="preserve">
-    <value>Moyen terme</value>
-  </data>
-  <data name="ShortRange" xml:space="preserve">
-    <value>Court terme</value>
-  </data>
-  <data name="UpperRainLimitStillConsideredDry" xml:space="preserve">
-    <value>Limite de pluie supérieure encore considérée comme sèche</value>
-  </data>
-  <data name="Wet" xml:space="preserve">
-    <value>Pluie</value>
-  </data>
-  <data name="NA" xml:space="preserve">
-    <value>N/A</value>
-  </data>
-  <data name="ExportToExcelDocument" xml:space="preserve">
-    <value>Exporter vers le document Excel</value>
-  </data>
-  <data name="FC" xml:space="preserve">
-    <value>CF</value>
-  </data>
-  <data name="GM" xml:space="preserve">
-    <value>MG</value>
-  </data>
-  <data name="HighlightSalinityDeviationFromAverage" xml:space="preserve">
-    <value>Souligner l'écart de salinité par rapport à la moyenne</value>
-  </data>
-  <data name="Med" xml:space="preserve">
-    <value>Médiane</value>
-  </data>
-  <data name="P260" xml:space="preserve">
-    <value>P260</value>
-  </data>
-  <data name="P43" xml:space="preserve">
-    <value>P43</value>
-  </data>
-  <data name="Sal" xml:space="preserve">
-    <value>Sal</value>
-  </data>
-  <data name="SaveForFutureReportProduction" xml:space="preserve">
-    <value>Enregistrer pour la production de rapports futurs</value>
-  </data>
-  <data name="Temp" xml:space="preserve">
-    <value>Temp</value>
-  </data>
-  <data name="RainDay" xml:space="preserve">
-    <value>Jour de pluie</value>
-  </data>
-  <data name="RunNumber" xml:space="preserve">
-    <value>No. tournée</value>
-  </data>
-  <data name="RunWeatherComment" xml:space="preserve">
-    <value>Remarque sur météo de la tournée</value>
-  </data>
-  <data name="ColorAndLetterSchema" xml:space="preserve">
-    <value>Schéma des couleurs et des lettres</value>
-  </data>
-  <data name="Hide" xml:space="preserve">
-    <value>Cacher</value>
+  <data name="RunDate" xml:space="preserve">
+    <value>Date de la tournée</value>
   </data>
   <data name="RunDay" xml:space="preserve">
     <value>Jour de la tournée</value>
   </data>
+  <data name="RunGeneralInformation" xml:space="preserve">
+    <value>Information générale de la tournée</value>
+  </data>
+  <data name="RunInformation" xml:space="preserve">
+    <value>Information de la tournée</value>
+  </data>
+  <data name="RunningTask" xml:space="preserve">
+    <value>Tâche(s) en cours</value>
+  </data>
+  <data name="RunNumber" xml:space="preserve">
+    <value>No. tournée</value>
+  </data>
+  <data name="Runs" xml:space="preserve">
+    <value>Tournée</value>
+  </data>
+  <data name="RunSampleReception" xml:space="preserve">
+    <value>Réception des échantillons de la tournée</value>
+  </data>
+  <data name="RunSamplesApprovedBy" xml:space="preserve">
+    <value>Échantillons de la tournée approuvés par</value>
+  </data>
+  <data name="RunSampleType" xml:space="preserve">
+    <value>Type d'échantillon de la tournée</value>
+  </data>
+  <data name="RunSamplingCrewInitials" xml:space="preserve">
+    <value>Initiales de l’équipe d’échantillonnage</value>
+  </data>
+  <data name="RunsToOmit" xml:space="preserve">
+    <value>Tournées à omettre</value>
+  </data>
+  <data name="RunTime" xml:space="preserve">
+    <value>Durée de la tournée</value>
+  </data>
+  <data name="RunWeatherComment" xml:space="preserve">
+    <value>Remarque sur météo de la tournée</value>
+  </data>
+  <data name="Sal" xml:space="preserve">
+    <value>Sal</value>
+  </data>
+  <data name="Salinity" xml:space="preserve">
+    <value>Salinité</value>
+  </data>
+  <data name="SalinityAndTemperatureChart" xml:space="preserve">
+    <value>Graphique de salinité et de température</value>
+  </data>
+  <data name="SalinityHighlightDeviationFromAverage" xml:space="preserve">
+    <value>Mettre en évidence la déviation de la salinité de la moyenne</value>
+  </data>
+  <data name="SampleDate" xml:space="preserve">
+    <value>date de l'échantillon</value>
+  </data>
+  <data name="SampleMatrix" xml:space="preserve">
+    <value>Matrice de l’échantillon</value>
+  </data>
+  <data name="Samples" xml:space="preserve">
+    <value>échantillons</value>
+  </data>
+  <data name="SampleStatus" xml:space="preserve">
+    <value>Statut de l'échantillon</value>
+  </data>
+  <data name="SampleType" xml:space="preserve">
+    <value>Type d'échantillon</value>
+  </data>
+  <data name="SampleTypes" xml:space="preserve">
+    <value>Types d'échantillons</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Sauvegarder</value>
+  </data>
+  <data name="SaveForFutureReportProduction" xml:space="preserve">
+    <value>Enregistrer pour la production de rapports futurs</value>
+  </data>
+  <data name="SaveForReport" xml:space="preserve">
+    <value>Enregistrer pour le rapport</value>
+  </data>
+  <data name="SaveOrGetFromDatabase" xml:space="preserve">
+    <value>Enregistrer / obtenir de la base de données</value>
+  </data>
+  <data name="SaveParametersForReport" xml:space="preserve">
+    <value>Sauvegarder les paramètres pour les rapports</value>
+  </data>
+  <data name="Saving" xml:space="preserve">
+    <value>Sauvegarde ...</value>
+  </data>
+  <data name="SeaState" xml:space="preserve">
+    <value>État de la mer</value>
+  </data>
+  <data name="SelectAClassification" xml:space="preserve">
+    <value>Sélectionnez une classification</value>
+  </data>
+  <data name="SelectFullYear" xml:space="preserve">
+    <value>Sélectionnez l'année complète</value>
+  </data>
+  <data name="SelectOneOptionBelow" xml:space="preserve">
+    <value>Choisir un option ci-dessous</value>
+  </data>
+  <data name="SelectSeaState" xml:space="preserve">
+    <value>Choisir l'état de la mer</value>
+  </data>
+  <data name="SelectTheAnalysisMethod" xml:space="preserve">
+    <value>Choisir la méthode analytique</value>
+  </data>
+  <data name="SelectTheLaboratory" xml:space="preserve">
+    <value>Choisir le laboratoire</value>
+  </data>
+  <data name="SelectTheSampleMatrix" xml:space="preserve">
+    <value>Choisir le milieu d'échantillonnage</value>
+  </data>
+  <data name="Short" xml:space="preserve">
+    <value>Court</value>
+  </data>
   <data name="ShortMidLongRange" xml:space="preserve">
     <value>Court - Moyen - Longue terme</value>
   </data>
-  <data name="UpperAndLowerRainLimitConsideredDryOrWet" xml:space="preserve">
-    <value>Limite de pluie supérieure et inférieure considérée comme sèche ou humide</value>
+  <data name="ShortRange" xml:space="preserve">
+    <value>Court terme</value>
   </data>
-  <data name="ViewData" xml:space="preserve">
-    <value>Montrer les données</value>
+  <data name="ShortRangeNumberOfDays" xml:space="preserve">
+    <value>Nombre de jours de cours terme</value>
   </data>
-  <data name="Laboratory" xml:space="preserve">
-    <value>Laboratoire</value>
+  <data name="ShowFromYear" xml:space="preserve">
+    <value>à partir de l'année</value>
   </data>
-  <data name="MWQMRunSampleData" xml:space="preserve">
-    <value>Données d'échantillonnage de tournée SQEM</value>
+  <data name="ShowMWQMSiteOnMap" xml:space="preserve">
+    <value>Afficher le site PSQEM sur la carte</value>
   </data>
-  <data name="MWQMSite" xml:space="preserve">
-    <value>Site SQEM</value>
+  <data name="ShrinkRainRows" xml:space="preserve">
+    <value>Rétrécir les lignes de pluie</value>
   </data>
-  <data name="RunGeneralInformation" xml:space="preserve">
-    <value>Information générale de la tournée</value>
+  <data name="Start" xml:space="preserve">
+    <value>Début</value>
+  </data>
+  <data name="StartDate" xml:space="preserve">
+    <value>Date de départ</value>
+  </data>
+  <data name="StartDateAndTime" xml:space="preserve">
+    <value>Date et heure de début</value>
+  </data>
+  <data name="StartTide" xml:space="preserve">
+    <value>Marée du début</value>
+  </data>
+  <data name="StartTime" xml:space="preserve">
+    <value>Heure du début</value>
+  </data>
+  <data name="StatisticsChart" xml:space="preserve">
+    <value>Graphique des Statistiques</value>
+  </data>
+  <data name="StatisticsData" xml:space="preserve">
+    <value>Données statistiques</value>
   </data>
   <data name="SubsectorDescription" xml:space="preserve">
     <value>Description du sous-secteur</value>
@@ -705,89 +744,41 @@
   <data name="SubsectorLogBook" xml:space="preserve">
     <value>Journal de bord du sous-secteur</value>
   </data>
-  <data name="AnalysisCalculationType" xml:space="preserve">
-    <value>Analysis calculation type (fr)</value>
+  <data name="Temp" xml:space="preserve">
+    <value>Temp</value>
   </data>
-  <data name="AnalysisName" xml:space="preserve">
-    <value>Analysis name (fr)</value>
+  <data name="Temperature" xml:space="preserve">
+    <value>Température</value>
   </data>
-  <data name="AnalysisReportYear" xml:space="preserve">
-    <value>Analysis report year (fr)</value>
+  <data name="TemperatureControl1" xml:space="preserve">
+    <value>Contrôle de la température #1</value>
   </data>
-  <data name="DryLimit24h" xml:space="preserve">
-    <value>Dry limit 24h (fr)</value>
+  <data name="TemperatureControl2" xml:space="preserve">
+    <value>Contrôle de la température #2</value>
   </data>
-  <data name="DryLimit48h" xml:space="preserve">
-    <value>Dry limit 48h (fr)</value>
+  <data name="TheNextDay" xml:space="preserve">
+    <value>le lendemain</value>
   </data>
-  <data name="DryLimit72h" xml:space="preserve">
-    <value>Dry limit 72h (fr)</value>
+  <data name="TheSameDay" xml:space="preserve">
+    <value>le jour même</value>
   </data>
-  <data name="DryLimit96h" xml:space="preserve">
-    <value>Dry limit 96h (fr)</value>
-  </data>
-  <data name="FullYear" xml:space="preserve">
-    <value>Full year (fr)</value>
-  </data>
-  <data name="MidRangeNumberOfDays" xml:space="preserve">
-    <value>Mid range number of days (fr)</value>
-  </data>
-  <data name="NewAnalysisName" xml:space="preserve">
-    <value>Nom de la nouvelle analyse</value>
-  </data>
-  <data name="NumberOfRuns" xml:space="preserve">
-    <value>Number of runs (fr)</value>
-  </data>
-  <data name="RunsToOmit" xml:space="preserve">
-    <value>Runs to omit (fr)</value>
-  </data>
-  <data name="SalinityHighlightDeviationFromAverage" xml:space="preserve">
-    <value>Salinity highlight deviation from average (fr)</value>
-  </data>
-  <data name="ShortRangeNumberOfDays" xml:space="preserve">
-    <value>Short range number of days (fr)</value>
-  </data>
-  <data name="WetLimit24h" xml:space="preserve">
-    <value>Wet limit 24h (fr)</value>
-  </data>
-  <data name="WetLimit48h" xml:space="preserve">
-    <value>Wet limit 48h (fr)</value>
-  </data>
-  <data name="WetLimit72h" xml:space="preserve">
-    <value>Wet limit 72h (fr)</value>
-  </data>
-  <data name="WetLimit96h" xml:space="preserve">
-    <value>Wet limit 96h (fr)</value>
-  </data>
-  <data name="DeleteAnalysis" xml:space="preserve">
-    <value>Effacer l'analyse</value>
-  </data>
-  <data name="ExcelFileName" xml:space="preserve">
-    <value>Nom de la filière Excel</value>
-  </data>
-  <data name="ExcelTVFileTVItemID" xml:space="preserve">
-    <value>ExcelTVFileTVItemID</value>
-  </data>
-  <data name="ExcelTVFileTVText" xml:space="preserve">
-    <value>ExcelTVFileTVText</value>
-  </data>
-  <data name="Mid" xml:space="preserve">
-    <value>Moyen</value>
-  </data>
-  <data name="Parameters" xml:space="preserve">
-    <value>Paramètres</value>
-  </data>
-  <data name="Ranges" xml:space="preserve">
-    <value>Termes</value>
-  </data>
-  <data name="SelectOneOptionBelow" xml:space="preserve">
-    <value>Choisir un option ci-dessous</value>
-  </data>
-  <data name="Short" xml:space="preserve">
-    <value>Court</value>
+  <data name="Time" xml:space="preserve">
+    <value>Heure</value>
   </data>
   <data name="To" xml:space="preserve">
     <value>à</value>
+  </data>
+  <data name="UpperAndLowerRainLimitConsideredDryOrWet" xml:space="preserve">
+    <value>Limite de pluie supérieure et inférieure considérée comme sèche ou humide</value>
+  </data>
+  <data name="UpperRainLimitStillConsideredDry" xml:space="preserve">
+    <value>Limite de pluie supérieure encore considérée comme sèche</value>
+  </data>
+  <data name="Used" xml:space="preserve">
+    <value>Utilisés</value>
+  </data>
+  <data name="UseForOpenData" xml:space="preserve">
+    <value>Utilisé pour les données ouvertes</value>
   </data>
   <data name="UseFullYear" xml:space="preserve">
     <value>année complète</value>
@@ -795,52 +786,43 @@
   <data name="UseTheseParameters" xml:space="preserve">
     <value>Utiliser ces paramètres</value>
   </data>
-  <data name="ExportOrSave" xml:space="preserve">
-    <value>Exporter ou sauvegarder</value>
+  <data name="ValidateDateAndTime" xml:space="preserve">
+    <value>Valider la date et l'heure</value>
   </data>
-  <data name="ForExcelExportDeletingTheAnalysisWillNotAutomaticallyDeleteTheExcelFile" xml:space="preserve">
-    <value>Pour les documents Excel exportés, effacer l'analyse n'effacera pas automatiquement la filiè Excel</value>
+  <data name="ValidatorContactName" xml:space="preserve">
+    <value>Valider le nom du contact</value>
   </data>
-  <data name="RunningTask" xml:space="preserve">
-    <value>Tâche(s) en cours</value>
+  <data name="ViewData" xml:space="preserve">
+    <value>Montrer les données</value>
   </data>
-  <data name="EndTide" xml:space="preserve">
-    <value>Marée de la fin</value>
+  <data name="VisibleDataType" xml:space="preserve">
+    <value>Type de données visibles</value>
   </data>
-  <data name="StartTide" xml:space="preserve">
-    <value>Marée du début</value>
+  <data name="WaterLevelAtBrook" xml:space="preserve">
+    <value>Niveau d'eau du ruisseau</value>
   </data>
-  <data name="Used" xml:space="preserve">
-    <value>Utilisés</value>
+  <data name="WaveHeight" xml:space="preserve">
+    <value>Hauteur de la vague</value>
   </data>
-  <data name="ExcelSelectOptionBelow" xml:space="preserve">
-    <value>Excel: choisir un option ci-dessous</value>
+  <data name="Wet" xml:space="preserve">
+    <value>Pluie</value>
   </data>
-  <data name="ListOfExcelDocuments" xml:space="preserve">
-    <value>Liste des documents Excel</value>
+  <data name="WetLimit24h" xml:space="preserve">
+    <value>Limite mouillé 24h</value>
   </data>
-  <data name="ListOfSavedParametersForReport" xml:space="preserve">
-    <value>Liste des paramètres sauvegardés pour les rapports</value>
+  <data name="WetLimit48h" xml:space="preserve">
+    <value>Limite mouillé 48h</value>
   </data>
-  <data name="ReportSelectOptionBelow" xml:space="preserve">
-    <value>Rapport: choisir un option ci-dessous</value>
+  <data name="WetLimit72h" xml:space="preserve">
+    <value>Limite mouillé 72h</value>
   </data>
-  <data name="SaveParametersForReport" xml:space="preserve">
-    <value>Sauvegarder les paramètres pour les rapports</value>
+  <data name="WetLimit96h" xml:space="preserve">
+    <value>Limite mouillé 96h</value>
   </data>
   <data name="WillBeUsingDefaultParameters" xml:space="preserve">
     <value>Utilisation des paramètres par default</value>
   </data>
-  <data name="MarkAllRoutineSamplesAs" xml:space="preserve">
-    <value>Mark all routine samples as (fr)</value>
-  </data>
-  <data name="NotUseForOpenData" xml:space="preserve">
-    <value>Not use for open data (fr)</value>
-  </data>
-  <data name="UseForOpenData" xml:space="preserve">
-    <value>Use for open data (fr)</value>
-  </data>
-  <data name="Analysis" xml:space="preserve">
-    <value>Analyses</value>
+  <data name="Year" xml:space="preserve">
+    <value>Année</value>
   </data>
 </root>

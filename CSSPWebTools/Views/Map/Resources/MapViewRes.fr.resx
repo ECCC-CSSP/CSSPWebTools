@@ -119,260 +119,212 @@
   </resheader>
   <data name="Admin" xml:space="preserve">
     <value>Admin</value>
-    <comment>2014</comment>
   </data>
   <data name="AllActivities" xml:space="preserve">
-    <value>All activities</value>
+    <value>Tous les activités</value>
   </data>
   <data name="AllLocations" xml:space="preserve">
-    <value>All locations</value>
+    <value>Tous les emplacements</value>
   </data>
   <data name="Area_abr" xml:space="preserve">
     <value>AR</value>
-    <comment>2014</comment>
+  </data>
+  <data name="Automatic" xml:space="preserve">
+    <value>Automatique</value>
   </data>
   <data name="BoxModel_abr" xml:space="preserve">
     <value>BM</value>
-    <comment>2014</comment>
-  </data>
-  <data name="Cancel" xml:space="preserve">
-    <value>Cancel</value>
-    <comment>2014</comment>
-  </data>
-  <data name="Contacts_abr" xml:space="preserve">
-    <value>CT</value>
-    <comment>2014</comment>
-  </data>
-  <data name="CSSPApps" xml:space="preserve">
-    <value>CSSP - Web Tools</value>
-    <comment>2014</comment>
-  </data>
-  <data name="CSSPWebTools" xml:space="preserve">
-    <value>CSSPWebTools</value>
-    <comment>2014</comment>
-  </data>
-  <data name="DecreaseMapSize" xml:space="preserve">
-    <value>Decrease map size</value>
-    <comment>2014</comment>
-  </data>
-  <data name="Edit" xml:space="preserve">
-    <value>Edit</value>
-    <comment>2014</comment>
-  </data>
-  <data name="ExpandOrCollapseLegend" xml:space="preserve">
-    <value>Expanding or collapsing legend</value>
-    <comment>2014</comment>
-  </data>
-  <data name="HideMap" xml:space="preserve">
-    <value>Hide Map</value>
-    <comment>2014</comment>
-  </data>
-  <data name="Home" xml:space="preserve">
-    <value>Home</value>
-    <comment>2014</comment>
-  </data>
-  <data name="HomeTitle" xml:space="preserve">
-    <value>Go to home page</value>
-    <comment>2014</comment>
-  </data>
-  <data name="ImageIcons" xml:space="preserve">
-    <value>Image Icons</value>
-    <comment>2014</comment>
-  </data>
-  <data name="IncreaseMapSize" xml:space="preserve">
-    <value>Increase map size</value>
-    <comment>2014</comment>
-  </data>
-  <data name="InfInformation_abr" xml:space="preserve">
-    <value>II</value>
-    <comment>2014</comment>
-  </data>
-  <data name="Infrastructure_abr" xml:space="preserve">
-    <value>INF</value>
-    <comment>2014</comment>
-  </data>
-  <data name="Labels" xml:space="preserve">
-    <value>Icons' name</value>
-    <comment>2014</comment>
-  </data>
-  <data name="LanguageOption" xml:space="preserve">
-    <value>Language option</value>
-    <comment>2014</comment>
-  </data>
-  <data name="Legend" xml:space="preserve">
-    <value>Legend</value>
-    <comment>2014</comment>
-  </data>
-  <data name="Legend_abr" xml:space="preserve">
-    <value>LE</value>
-    <comment>2014</comment>
-  </data>
-  <data name="LinkToShare" xml:space="preserve">
-    <value>Link to share</value>
-    <comment>2014</comment>
-  </data>
-  <data name="LoadingApp" xml:space="preserve">
-    <value>Loading </value>
-    <comment>2014</comment>
-  </data>
-  <data name="Login" xml:space="preserve">
-    <value>Log in</value>
-    <comment>2014</comment>
-  </data>
-  <data name="LogOff" xml:space="preserve">
-    <value>Log off</value>
-    <comment>2014</comment>
-  </data>
-  <data name="MetaDescription" xml:space="preserve">
-    <value>Page description</value>
-  </data>
-  <data name="MikeScenario_abr" xml:space="preserve">
-    <value>MS</value>
-    <comment>2014</comment>
-  </data>
-  <data name="Municipality_abr" xml:space="preserve">
-    <value>MU</value>
-    <comment>2014</comment>
-  </data>
-  <data name="MWQMRun_abr" xml:space="preserve">
-    <value>WR</value>
-    <comment>2014</comment>
-  </data>
-  <data name="MWQMSite_abr" xml:space="preserve">
-    <value>WS</value>
-    <comment>2014</comment>
-  </data>
-  <data name="MyProfile" xml:space="preserve">
-    <value>My profile</value>
-    <comment>2014</comment>
-  </data>
-  <data name="PlainIcons" xml:space="preserve">
-    <value>Plain Icons</value>
-    <comment>2014</comment>
-  </data>
-  <data name="PollutionSourceSite_abr" xml:space="preserve">
-    <value>PS</value>
-    <comment>2014</comment>
-  </data>
-  <data name="Save" xml:space="preserve">
-    <value>Save</value>
-    <comment>2014</comment>
-  </data>
-  <data name="Search" xml:space="preserve">
-    <value>Search</value>
-    <comment>2014</comment>
-  </data>
-  <data name="ShareThisPage" xml:space="preserve">
-    <value>Share this page</value>
-    <comment>2014</comment>
-  </data>
-  <data name="ShowAreas" xml:space="preserve">
-    <value>Areas</value>
-    <comment>2014</comment>
-  </data>
-  <data name="ShowBoxModel" xml:space="preserve">
-    <value>Box Model</value>
-    <comment>2014</comment>
-  </data>
-  <data name="ShowContacts" xml:space="preserve">
-    <value>Contacts</value>
-    <comment>2014</comment>
-  </data>
-  <data name="ShowInfInformation" xml:space="preserve">
-    <value>Infrastructures Information</value>
-    <comment>2014</comment>
-  </data>
-  <data name="ShowInfrastructure" xml:space="preserve">
-    <value>Infrastructures</value>
-    <comment>2014</comment>
-  </data>
-  <data name="ShowMikeScenario" xml:space="preserve">
-    <value>Mike Scenarios</value>
-    <comment>2014</comment>
-  </data>
-  <data name="ShowMunicipalities" xml:space="preserve">
-    <value>Municipalities</value>
-    <comment>2014</comment>
-  </data>
-  <data name="ShowMWQMRuns" xml:space="preserve">
-    <value>MWQM Runs</value>
-    <comment>2014</comment>
-  </data>
-  <data name="ShowMWQMSites" xml:space="preserve">
-    <value>MWQM Sites</value>
-    <comment>2014</comment>
-  </data>
-  <data name="ShowPollutionSources" xml:space="preserve">
-    <value>Pollution Sources</value>
-    <comment>2014</comment>
-  </data>
-  <data name="ShowVisualPlumes" xml:space="preserve">
-    <value>Visual Plumes</value>
-    <comment>2014</comment>
-  </data>
-  <data name="SiteAdmin" xml:space="preserve">
-    <value>Site management</value>
-    <comment>2014</comment>
-  </data>
-  <data name="VisualPlumes_abr" xml:space="preserve">
-    <value>VP</value>
-    <comment>2014</comment>
-  </data>
-  <data name="Files" xml:space="preserve">
-    <value>Files</value>
-  </data>
-  <data name="BrowseTo" xml:space="preserve">
-    <value>Parcourir vers:</value>
-  </data>
-  <data name="ShowLessTextInMapMarkers" xml:space="preserve">
-    <value>Afficher moins de texte dans les marqueurs de carte</value>
-  </data>
-  <data name="ShowMoreTextInMapMarkers" xml:space="preserve">
-    <value>Afficher plus de texte dans les marqueurs de cartes</value>
-  </data>
-  <data name="InProgress" xml:space="preserve">
-    <value>En cours ...</value>
   </data>
   <data name="Browse" xml:space="preserve">
     <value>Parcourir</value>
   </data>
+  <data name="BrowseTo" xml:space="preserve">
+    <value>Parcourir vers:</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Annuler</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+    <value>Effacer</value>
+  </data>
   <data name="CloseWindow" xml:space="preserve">
     <value>Fermer la fenêtre</value>
   </data>
-  <data name="Setup" xml:space="preserve">
-    <value>Configuration</value>
+  <data name="Contacts_abr" xml:space="preserve">
+    <value>CT</value>
   </data>
-  <data name="MarkerSize" xml:space="preserve">
-    <value>Taille du marqueur</value>
+  <data name="CSSPApps" xml:space="preserve">
+    <value>PCCSM - Outils web</value>
+  </data>
+  <data name="CSSPWebTools" xml:space="preserve">
+    <value>OutilWebPCCSM</value>
+  </data>
+  <data name="DecreaseMapSize" xml:space="preserve">
+    <value>Diminuer la grosseur de la carte</value>
+  </data>
+  <data name="DFOCSSP" xml:space="preserve">
+    <value>PCCSM MPO</value>
   </data>
   <data name="Distance" xml:space="preserve">
     <value>Distance</value>
   </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Modifier</value>
+  </data>
+  <data name="ExpandOrCollapseLegend" xml:space="preserve">
+    <value>Extension ou réduction de la légende</value>
+  </data>
+  <data name="Files" xml:space="preserve">
+    <value>Fichiers</value>
+  </data>
+  <data name="HideMap" xml:space="preserve">
+    <value>Cacher la carte</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Accueil</value>
+  </data>
+  <data name="HomeTitle" xml:space="preserve">
+    <value>Aller à la page d'accueil</value>
+  </data>
+  <data name="ImageIcons" xml:space="preserve">
+    <value>Image de l'icone</value>
+  </data>
+  <data name="IncreaseMapSize" xml:space="preserve">
+    <value>Agrandir la carte</value>
+  </data>
+  <data name="InfInformation_abr" xml:space="preserve">
+    <value>II</value>
+  </data>
+  <data name="Infrastructure_abr" xml:space="preserve">
+    <value>INF</value>
+  </data>
+  <data name="InProgress" xml:space="preserve">
+    <value>En cours ...</value>
+  </data>
+  <data name="Labels" xml:space="preserve">
+    <value>Nom de l'icone</value>
+  </data>
+  <data name="LanguageOption" xml:space="preserve">
+    <value>Options de langues</value>
+  </data>
   <data name="Lat" xml:space="preserve">
     <value>Lat</value>
+  </data>
+  <data name="Legend" xml:space="preserve">
+    <value>Légende</value>
+  </data>
+  <data name="Legend_abr" xml:space="preserve">
+    <value>LE</value>
+  </data>
+  <data name="LinkToShare" xml:space="preserve">
+    <value>Lien à partager</value>
   </data>
   <data name="Lng" xml:space="preserve">
     <value>Lng</value>
   </data>
-  <data name="Point" xml:space="preserve">
-    <value>Point</value>
+  <data name="LoadingApp" xml:space="preserve">
+    <value>Chargement</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Connection</value>
+  </data>
+  <data name="LogOff" xml:space="preserve">
+    <value>Déconnection</value>
   </data>
   <data name="MapHelper" xml:space="preserve">
     <value>Aide carte</value>
   </data>
+  <data name="MarkerSize" xml:space="preserve">
+    <value>Taille du marqueur</value>
+  </data>
+  <data name="MetaDescription" xml:space="preserve">
+    <value>Description de la page</value>
+  </data>
+  <data name="MikeScenario_abr" xml:space="preserve">
+    <value>MS</value>
+  </data>
   <data name="MoveLabel" xml:space="preserve">
-    <value>Move label (fr)</value>
+    <value>Bouger l'étiquette</value>
   </data>
-  <data name="Automatic" xml:space="preserve">
-    <value>Automatic (fr)</value>
+  <data name="Municipality_abr" xml:space="preserve">
+    <value>MU</value>
   </data>
-  <data name="Clear" xml:space="preserve">
-    <value>Clear (fr)</value>
+  <data name="MWQMRun_abr" xml:space="preserve">
+    <value>WR</value>
+  </data>
+  <data name="MWQMSite_abr" xml:space="preserve">
+    <value>WS</value>
+  </data>
+  <data name="MyProfile" xml:space="preserve">
+    <value>Mon profil</value>
   </data>
   <data name="OnlyActive" xml:space="preserve">
-    <value>Only active (fr)</value>
+    <value>Seulement les actifs</value>
   </data>
-  <data name="DFOCSSP" xml:space="preserve">
-    <value>PCCSM MPO</value>
+  <data name="PlainIcons" xml:space="preserve">
+    <value>Icones vierges</value>
+  </data>
+  <data name="Point" xml:space="preserve">
+    <value>Point</value>
+  </data>
+  <data name="PollutionSourceSite_abr" xml:space="preserve">
+    <value>PS</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Enregistrer</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Recherche</value>
+  </data>
+  <data name="Setup" xml:space="preserve">
+    <value>Configuration</value>
+  </data>
+  <data name="ShareThisPage" xml:space="preserve">
+    <value>Partager cette page</value>
+  </data>
+  <data name="ShowAreas" xml:space="preserve">
+    <value>Zones</value>
+  </data>
+  <data name="ShowBoxModel" xml:space="preserve">
+    <value>Box Model</value>
+  </data>
+  <data name="ShowContacts" xml:space="preserve">
+    <value>Contacts</value>
+  </data>
+  <data name="ShowInfInformation" xml:space="preserve">
+    <value>Information sur les Infrastructures</value>
+  </data>
+  <data name="ShowInfrastructure" xml:space="preserve">
+    <value>Infrastructures</value>
+  </data>
+  <data name="ShowLessTextInMapMarkers" xml:space="preserve">
+    <value>Afficher moins de texte dans les marqueurs de carte</value>
+  </data>
+  <data name="ShowMikeScenario" xml:space="preserve">
+    <value>Scenarios Mike</value>
+  </data>
+  <data name="ShowMoreTextInMapMarkers" xml:space="preserve">
+    <value>Afficher plus de texte dans les marqueurs de cartes</value>
+  </data>
+  <data name="ShowMunicipalities" xml:space="preserve">
+    <value>Municipalités</value>
+  </data>
+  <data name="ShowMWQMRuns" xml:space="preserve">
+    <value>Tournées de SQEM</value>
+  </data>
+  <data name="ShowMWQMSites" xml:space="preserve">
+    <value>Sites de SQEM</value>
+  </data>
+  <data name="ShowPollutionSources" xml:space="preserve">
+    <value>Sources de pollution</value>
+  </data>
+  <data name="ShowVisualPlumes" xml:space="preserve">
+    <value>Visual Plumes</value>
+  </data>
+  <data name="SiteAdmin" xml:space="preserve">
+    <value>Gérance des sites</value>
+  </data>
+  <data name="VisualPlumes_abr" xml:space="preserve">
+    <value>VP</value>
   </data>
 </root>

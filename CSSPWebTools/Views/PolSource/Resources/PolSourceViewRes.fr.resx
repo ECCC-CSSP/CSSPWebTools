@@ -117,11 +117,74 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Active" xml:space="preserve">
+    <value>Actif</value>
+  </data>
+  <data name="Add" xml:space="preserve">
+    <value>Ajouter</value>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>Adresse</value>
+  </data>
+  <data name="AreaSlopeInDegree" xml:space="preserve">
+    <value>Pente de l'endroit (degré)</value>
+  </data>
+  <data name="AreYouSureYouDidNotWantToMakeACopyOfTheObservation" xml:space="preserve">
+    <value>Êtes-vous certain de ne pas vouloir faire une copie de l'observation?</value>
+  </data>
+  <data name="AreYouSureYouWantToChangeDateOfCurrentObservation" xml:space="preserve">
+    <value>Êtes-vous certain de vouloir changer la date de l'observation en cours?</value>
+  </data>
+  <data name="Building" xml:space="preserve">
+    <value>Bâtiment</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Annuler</value>
+  </data>
+  <data name="ChangeDate" xml:space="preserve">
+    <value>Changer la date</value>
+  </data>
+  <data name="Copy" xml:space="preserve">
+    <value>Copier</value>
+  </data>
   <data name="CurrentValue" xml:space="preserve">
     <value>Valeur actuelle</value>
   </data>
-  <data name="False" xml:space="preserve">
+  <data name="Day" xml:space="preserve">
+    <value>Jour</value>
+  </data>
+  <data name="DeleteIssue" xml:space="preserve">
+    <value>Effacer item</value>
+  </data>
+  <data name="DeleteObservation" xml:space="preserve">
+    <value>Effacer l'observation</value>
+  </data>
+  <data name="DesktopReviewed" xml:space="preserve">
+    <value>Bureau examiné</value>
+  </data>
+  <data name="DistanceFromShoreInMeters" xml:space="preserve">
+    <value>Distance de la rive (mètres)</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Modifier</value>
+  </data>
+  <data name="EditIssues" xml:space="preserve">
+    <value>Modifier l'item</value>
+  </data>
+  <data name="Empty" xml:space="preserve">
+    <value>Vide</value>
+  </data>
+  <data name="ExtraComment" xml:space="preserve">
+    <value>Extra commentaire</value>
+  </data>
+  <data name="FALSE" xml:space="preserve">
     <value>Faux</value>
+  </data>
+  <data name="HowManyLivingBeing" xml:space="preserve">
+    <value>Combien d'êtres vivants</value>
+  </data>
+  <data name="InactiveReason" xml:space="preserve">
+    <value>Raison d'être inactif</value>
   </data>
   <data name="IsActive" xml:space="preserve">
     <value>Est actif</value>
@@ -129,15 +192,68 @@
   <data name="IsPointSource" xml:space="preserve">
     <value>Est une source ponctuelle</value>
   </data>
+  <data name="Issue" xml:space="preserve">
+    <value>Item</value>
+  </data>
+  <data name="LastObservations" xml:space="preserve">
+    <value>Dernière observation</value>
+  </data>
+  <data name="LatestObservation" xml:space="preserve">
+    <value>Dernière observation</value>
+  </data>
   <data name="Latitude" xml:space="preserve">
     <value>Latitude</value>
+  </data>
+  <data name="LivingBeing" xml:space="preserve">
+    <value>Être vivant</value>
+  </data>
+  <data name="Location" xml:space="preserve">
+    <value>Endroit</value>
   </data>
   <data name="Longitude" xml:space="preserve">
     <value>Longitude</value>
   </data>
+  <data name="Modify" xml:space="preserve">
+    <value>Modifier</value>
+  </data>
+  <data name="Month" xml:space="preserve">
+    <value>Mois</value>
+  </data>
+  <data name="MoveDown" xml:space="preserve">
+    <value>Déplacer vers le bas</value>
+  </data>
+  <data name="MoveUp" xml:space="preserve">
+    <value>Déplacer vers le haut</value>
+  </data>
+  <data name="NewGroupingFormat" xml:space="preserve">
+    <value>Nouveau format de regroupement</value>
+  </data>
+  <data name="NewObservations" xml:space="preserve">
+    <value>Nouvelles observations</value>
+  </data>
   <data name="NoData" xml:space="preserve">
     <value>Aucune donnée</value>
-    <comment>oct2013</comment>
+  </data>
+  <data name="NonPointSource" xml:space="preserve">
+    <value>Source non ponctuelle</value>
+  </data>
+  <data name="NotActive" xml:space="preserve">
+    <value>Inactif</value>
+  </data>
+  <data name="ObservationDate" xml:space="preserve">
+    <value>Date d'observation</value>
+  </data>
+  <data name="PointSource" xml:space="preserve">
+    <value>Source ponctuelle</value>
+  </data>
+  <data name="PollutionSource" xml:space="preserve">
+    <value>Source de pollution</value>
+  </data>
+  <data name="PollutionSourceSite" xml:space="preserve">
+    <value>Site de source de pollution</value>
+  </data>
+  <data name="PollutionSourceSiteObservations" xml:space="preserve">
+    <value>Site d'observation de source de pollution</value>
   </data>
   <data name="PolRisk" xml:space="preserve">
     <value>Risque de pollution</value>
@@ -154,152 +270,37 @@
   <data name="PolType" xml:space="preserve">
     <value>Genre de pollution</value>
   </data>
+  <data name="PreviousObservations" xml:space="preserve">
+    <value>Observations antérieures</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Sauvegarder</value>
+  </data>
+  <data name="SaveIssue" xml:space="preserve">
+    <value>Sauvegarder item</value>
+  </data>
+  <data name="SelectedDescription" xml:space="preserve">
+    <value>Nouvelle description</value>
+  </data>
   <data name="Site" xml:space="preserve">
     <value>Site</value>
   </data>
   <data name="siteid" xml:space="preserve">
     <value>siteid</value>
   </data>
-  <data name="True" xml:space="preserve">
+  <data name="ToChangeExistingObsInsertSameDateAsObsDate" xml:space="preserve">
+    <value>Pour modifier l'observation existante, insérez la même date que la date d'observation</value>
+  </data>
+  <data name="TRUE" xml:space="preserve">
     <value>Vrai</value>
-  </data>
-  <data name="LatestObservation" xml:space="preserve">
-    <value>Dernière observation</value>
-    <comment>n/a</comment>
-  </data>
-  <data name="Add" xml:space="preserve">
-    <value>Ajouter</value>
-  </data>
-  <data name="Building" xml:space="preserve">
-    <value>Bâtiment</value>
-  </data>
-  <data name="Cancel" xml:space="preserve">
-    <value>Annuler</value>
-  </data>
-  <data name="DistanceFromShoreInMeters" xml:space="preserve">
-    <value>Distance de la rive (mètres)</value>
-  </data>
-  <data name="HowManyLivingBeing" xml:space="preserve">
-    <value>Combien d'êtres vivants</value>
-  </data>
-  <data name="LivingBeing" xml:space="preserve">
-    <value>Être vivant</value>
-  </data>
-  <data name="Modify" xml:space="preserve">
-    <value>Modifier</value>
-  </data>
-  <data name="AreaSlopeInDegree" xml:space="preserve">
-    <value>Pente de l'endroit (degré)</value>
-  </data>
-  <data name="LastObservation" xml:space="preserve">
-    <value>Dernière observation</value>
   </data>
   <data name="Unknown" xml:space="preserve">
     <value>Inconnu</value>
   </data>
-  <data name="ObservationDate" xml:space="preserve">
-    <value>Date d'observation</value>
-  </data>
-  <data name="Day" xml:space="preserve">
-    <value>Jour</value>
-  </data>
-  <data name="Month" xml:space="preserve">
-    <value>Mois</value>
-  </data>
-  <data name="Year" xml:space="preserve">
-    <value>Année</value>
-  </data>
-  <data name="Location" xml:space="preserve">
-    <value>Endroit</value>
-  </data>
-  <data name="PollutionSource" xml:space="preserve">
-    <value>Source de pollution</value>
-  </data>
-  <data name="Empty" xml:space="preserve">
-    <value>Vide</value>
-  </data>
-  <data name="InactiveReason" xml:space="preserve">
-    <value>Raison d'être inactif</value>
-  </data>
-  <data name="PreviousObservations" xml:space="preserve">
-    <value>Observations antérieures</value>
-  </data>
-  <data name="NewGroupingFormat" xml:space="preserve">
-    <value>Nouveau format de regroupement</value>
-  </data>
-  <data name="ToChangeExistingObsInsertSameDateAsObsDate" xml:space="preserve">
-    <value>Pour modifier l'observation existante, insérez la même date que la date d'observation</value>
-  </data>
-  <data name="Save" xml:space="preserve">
-    <value>Sauvegarder</value>
-  </data>
-  <data name="SelectedDescription" xml:space="preserve">
-    <value>Nouvelle description</value>
-  </data>
   <data name="WrittenDescription" xml:space="preserve">
     <value>Ancienne description</value>
   </data>
-  <data name="Active" xml:space="preserve">
-    <value>Actif</value>
-  </data>
-  <data name="NonPointSource" xml:space="preserve">
-    <value>Source non ponctuelle</value>
-  </data>
-  <data name="NotActive" xml:space="preserve">
-    <value>Inactif</value>
-  </data>
-  <data name="PointSource" xml:space="preserve">
-    <value>Source ponctuelle</value>
-  </data>
-  <data name="NewObservations" xml:space="preserve">
-    <value>Nouvelles observations</value>
-  </data>
-  <data name="Address" xml:space="preserve">
-    <value>Address</value>
-  </data>
-  <data name="Copy" xml:space="preserve">
-    <value>Copier</value>
-  </data>
-  <data name="DeleteIssue" xml:space="preserve">
-    <value>Effacer item</value>
-  </data>
-  <data name="Edit" xml:space="preserve">
-    <value>Modifier</value>
-  </data>
-  <data name="Issue" xml:space="preserve">
-    <value>Item</value>
-  </data>
-  <data name="PollutionSourceSite" xml:space="preserve">
-    <value>Site de source de pollution</value>
-  </data>
-  <data name="SaveIssue" xml:space="preserve">
-    <value>Sauvegarder item</value>
-  </data>
-  <data name="ChangeDate" xml:space="preserve">
-    <value>Changer la date</value>
-  </data>
-  <data name="DeleteObservation" xml:space="preserve">
-    <value>Effacer l'observation</value>
-  </data>
-  <data name="EditIssues" xml:space="preserve">
-    <value>Modifier l'item</value>
-  </data>
-  <data name="MoveDown" xml:space="preserve">
-    <value>Déplacer vers le bas</value>
-  </data>
-  <data name="MoveUp" xml:space="preserve">
-    <value>Déplacer vers le haut</value>
-  </data>
-  <data name="ExtraComment" xml:space="preserve">
-    <value>Extra commentaire</value>
-  </data>
-  <data name="DesktopReviewed" xml:space="preserve">
-    <value>Desktop reviewed (fr)</value>
-  </data>
-  <data name="AreYouSureYouDidNotWantToMakeACopyOfTheObservation" xml:space="preserve">
-    <value>Are you sure you did not want to make a copy of the observation? (fr)</value>
-  </data>
-  <data name="AreYouSureYouWantToChangeDateOfCurrentObservation" xml:space="preserve">
-    <value>Are you sure you want to change date of current observation? (fr)</value>
+  <data name="Year" xml:space="preserve">
+    <value>Année</value>
   </data>
 </root>

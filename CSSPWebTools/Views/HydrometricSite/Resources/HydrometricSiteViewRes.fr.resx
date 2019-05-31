@@ -132,9 +132,6 @@
   <data name="ClickOnGlobeIconToViewOnMap" xml:space="preserve">
     <value>Cliquez sur l'icône du globe pour voir sur la carte</value>
   </data>
-  <data name="HydrometricSitesToUseForSubsectorVerifyAndSave" xml:space="preserve">
-    <value>Les sites hydrométriques à utiliser pour le sous-secteur - (vérifier et enregistrer)</value>
-  </data>
   <data name="Empty" xml:space="preserve">
     <value>Vide</value>
   </data>
@@ -146,6 +143,12 @@
   </data>
   <data name="FindHydrometricSitesWithinDistanceOfSubsector" xml:space="preserve">
     <value>Trouver des sites hydrométriques à distance du sous-secteur</value>
+  </data>
+  <data name="HydrometricSitesToUseForSubsectorVerifyAndSave" xml:space="preserve">
+    <value>Les sites hydrométriques à utiliser pour le sous-secteur - (vérifier et enregistrer)</value>
+  </data>
+  <data name="HydrometricSitesUsedAndWithinDistance" xml:space="preserve">
+    <value>Sites hydrométrique utilisés et à distance du sous-secteur</value>
   </data>
   <data name="IdentifyOnMap" xml:space="preserve">
     <value>Identifier sur la carte</value>
@@ -162,13 +165,10 @@
   <data name="ShowHydrometricSitesOnMap" xml:space="preserve">
     <value>Afficher les sites hydrométriques sur la carte</value>
   </data>
-  <data name="UseSameHydrometricSiteAsSelectedSubsector" xml:space="preserve">
+  <data name="UseSameHydrometricSitesAsSelectedSubsector" xml:space="preserve">
     <value>Utilisez les mêmes sites hydrométriques que le sous-secteur sélectionné</value>
   </data>
   <data name="YearsOfUse" xml:space="preserve">
     <value>Années d'utilisation</value>
-  </data>
-  <data name="HydrometricSitesUsedAndWithinDistance" xml:space="preserve">
-    <value>Sites hydrometrique utilisés et a distance du sous-secteur</value>
   </data>
 </root>

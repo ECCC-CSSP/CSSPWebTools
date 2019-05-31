@@ -118,102 +118,102 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Add" xml:space="preserve">
-    <value>Add (fr)</value>
+    <value>Ajouter</value>
   </data>
   <data name="AddNewDrogueRun" xml:space="preserve">
-    <value>Add new drogue run (fr)</value>
+    <value>Ajouter une nouvelle tournée de drogue</value>
   </data>
   <data name="CopyPasteYourPoints" xml:space="preserve">
-    <value>Copy paste your points (fr)</value>
+    <value>Copier-coller vos points</value>
   </data>
   <data name="Day" xml:space="preserve">
-    <value>Day (fr)</value>
+    <value>Jour</value>
   </data>
   <data name="Delete" xml:space="preserve">
-    <value>Delete (fr)</value>
+    <value>Supprimer</value>
   </data>
   <data name="Dir" xml:space="preserve">
-    <value>Dir (fr)</value>
+    <value>Dir</value>
   </data>
   <data name="Drogue" xml:space="preserve">
-    <value>Drogue (fr)</value>
+    <value>Drogue</value>
   </data>
   <data name="DrogueNumber" xml:space="preserve">
-    <value>Drogue number (fr)</value>
+    <value>Numéro du drogue</value>
   </data>
   <data name="DroguePoints" xml:space="preserve">
-    <value>Drogue Points (fr)</value>
+    <value>Points de drogue</value>
   </data>
   <data name="DrogueRunStartDateAndTime" xml:space="preserve">
-    <value>Drogue run start date and time (fr)</value>
+    <value>Date et heure de début de la tournée du drogue</value>
   </data>
   <data name="DrogueType" xml:space="preserve">
-    <value>Drogue Type (fr)</value>
+    <value>Type de drogue</value>
   </data>
   <data name="EditDrogueRun" xml:space="preserve">
-    <value>Edit drogue run (fr)</value>
+    <value>Modifiée la tournée du drogue</value>
   </data>
   <data name="Hour" xml:space="preserve">
-    <value>Hour (fr)</value>
+    <value>Heure</value>
   </data>
   <data name="IsFallingTide" xml:space="preserve">
-    <value>Is falling tide (fr)</value>
+    <value>Est marée descendante</value>
   </data>
   <data name="IsRisingTide" xml:space="preserve">
-    <value>Is rising tide (fr)</value>
+    <value>Est marée montante</value>
   </data>
   <data name="LargeDrogue" xml:space="preserve">
-    <value>Large Drogue (fr)</value>
+    <value>Gros drogue</value>
   </data>
   <data name="Lat" xml:space="preserve">
-    <value>Lat (fr)</value>
+    <value>Lat</value>
   </data>
   <data name="Long" xml:space="preserve">
-    <value>Long (fr)</value>
+    <value>Long</value>
   </data>
   <data name="Minute" xml:space="preserve">
-    <value>Minute (fr)</value>
+    <value>Minute</value>
   </data>
   <data name="Minutes" xml:space="preserve">
-    <value>Minutes (fr)</value>
+    <value>Minutes</value>
   </data>
   <data name="Modify" xml:space="preserve">
-    <value>Modify (fr)</value>
+    <value>Modifié</value>
   </data>
   <data name="Month" xml:space="preserve">
-    <value>Month (fr)</value>
+    <value>Mois</value>
   </data>
   <data name="MovingNorth0East90South180" xml:space="preserve">
-    <value>Moving: North - 0, East - 90, South - 180 (fr)</value>
+    <value>En mouvement: Nord - 0, Est - 90, Sud - 180</value>
   </data>
   <data name="NoDrogueRunYet" xml:space="preserve">
-    <value>No drogue run yet (fr)</value>
+    <value>Pas encore de drogue en tournée</value>
   </data>
   <data name="ShowOnMap" xml:space="preserve">
-    <value>Show on map (fr)</value>
+    <value>Afficher sur la carte</value>
   </data>
   <data name="SmallDrogue" xml:space="preserve">
-    <value>Small Drogue (fr)</value>
+    <value>Petit drogue</value>
   </data>
   <data name="Speed" xml:space="preserve">
-    <value>Speed (fr)</value>
+    <value>Vitesse</value>
   </data>
   <data name="StartRunDate" xml:space="preserve">
-    <value>Start run date (fr)</value>
+    <value>Date de début de la tournée</value>
   </data>
   <data name="TakeValueEvery" xml:space="preserve">
-    <value>Take value every (fr)</value>
+    <value>Prendre la valeur chaque</value>
   </data>
   <data name="Time" xml:space="preserve">
-    <value>Time (fr)</value>
+    <value>Temps</value>
   </data>
   <data name="ToTakeAll" xml:space="preserve">
-    <value>to take all (fr)</value>
+    <value>prendre tout</value>
   </data>
   <data name="ViewData" xml:space="preserve">
-    <value>View Data (fr)</value>
+    <value>Voir les données</value>
   </data>
   <data name="Year" xml:space="preserve">
-    <value>Year (fr)</value>
+    <value>Année</value>
   </data>
 </root>

@@ -119,26 +119,20 @@
   </resheader>
   <data name="Add" xml:space="preserve">
     <value>Ajouter</value>
-    <comment>15</comment>
   </data>
   <data name="Delete" xml:space="preserve">
     <value>Supprimer</value>
-    <comment>15</comment>
   </data>
   <data name="EmailAddress" xml:space="preserve">
     <value>Courriel</value>
-    <comment>15</comment>
   </data>
   <data name="Emails" xml:space="preserve">
     <value>Courriels</value>
-    <comment>15</comment>
   </data>
   <data name="EmailType" xml:space="preserve">
     <value>Type de courriel</value>
-    <comment>15</comment>
   </data>
   <data name="Save" xml:space="preserve">
     <value>Sauvegarder</value>
-    <comment>15</comment>
   </data>
 </root>

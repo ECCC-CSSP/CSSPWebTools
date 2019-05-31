@@ -129,8 +129,17 @@
   <data name="Agency" xml:space="preserve">
     <value>Agence</value>
   </data>
+  <data name="All" xml:space="preserve">
+    <value>Tous</value>
+  </data>
+  <data name="ClickTheEditButtonToCreateOrModifyListsAsWellAsGenerateExcelDocument" xml:space="preserve">
+    <value>Cliquez sur le bouton éditer pour créer ou modifier les listes ainsi que la production de document Excel</value>
+  </data>
+  <data name="CMP" xml:space="preserve">
+    <value>PGC</value>
+  </data>
   <data name="CMPRainfallSeasonal" xml:space="preserve">
-    <value>PGC de pluie saisonier</value>
+    <value>PGC de pluie saisonnier</value>
   </data>
   <data name="CMPWastewater" xml:space="preserve">
     <value>PGC eaux usées</value>
@@ -153,6 +162,9 @@
   <data name="EmailDistributionList" xml:space="preserve">
     <value>Liste de distribution de courriel</value>
   </data>
+  <data name="Emergency" xml:space="preserve">
+    <value>Urgence</value>
+  </data>
   <data name="EmergencyWastewater" xml:space="preserve">
     <value>Urgence eaux usées</value>
   </data>
@@ -162,8 +174,14 @@
   <data name="Empty" xml:space="preserve">
     <value>Vide</value>
   </data>
+  <data name="ExportListsToSharedDrive" xml:space="preserve">
+    <value>Exporter les listes vers le lecteur partagé</value>
+  </data>
+  <data name="GenerateExcelFileThenLookUnderFileTabOnceDone" xml:space="preserve">
+    <value>Générer un fichier Excel puis regarder sous l'onglet fichier une fois terminé</value>
+  </data>
   <data name="InformIndividualOn" xml:space="preserve">
-    <value>Informer l'individi sur</value>
+    <value>Informer l'individuel sur</value>
   </data>
   <data name="IsCC" xml:space="preserve">
     <value>Est cc</value>
@@ -174,56 +192,41 @@
   <data name="Modify" xml:space="preserve">
     <value>Modifier</value>
   </data>
+  <data name="MoveDown" xml:space="preserve">
+    <value>Descendre</value>
+  </data>
+  <data name="MoveUp" xml:space="preserve">
+    <value>Monter</value>
+  </data>
   <data name="Name" xml:space="preserve">
     <value>Nom</value>
+  </data>
+  <data name="Note" xml:space="preserve">
+    <value>Notez</value>
+  </data>
+  <data name="Rainfall" xml:space="preserve">
+    <value>Pluie</value>
   </data>
   <data name="RegionName" xml:space="preserve">
     <value>Nom de la région</value>
   </data>
+  <data name="Reopening" xml:space="preserve">
+    <value>Ré ouvrir</value>
+  </data>
   <data name="ReopeningAllTypes" xml:space="preserve">
     <value>Réouverture tous type</value>
+  </data>
+  <data name="Seasonal" xml:space="preserve">
+    <value>Saisonnier</value>
+  </data>
+  <data name="SendEmail" xml:space="preserve">
+    <value>Envoyer un courriel</value>
   </data>
   <data name="ShowHideAdd" xml:space="preserve">
     <value>Montrer ou cacher ajouter</value>
   </data>
   <data name="To" xml:space="preserve">
     <value>à propos</value>
-  </data>
-  <data name="ClickTheEditButtonToCreateOrModifyListsAsWellAsGenerateExcelDocument" xml:space="preserve">
-    <value>Cliquez sur le bouton éditer pour créer ou modifier les listes ainsi que la production de document Excel</value>
-  </data>
-  <data name="ExportListsToSharedDrive" xml:space="preserve">
-    <value>Exporter les listes vers le lecteur partagé</value>
-  </data>
-  <data name="MoveDown" xml:space="preserve">
-    <value>Déscendre</value>
-  </data>
-  <data name="MoveUp" xml:space="preserve">
-    <value>Monter</value>
-  </data>
-  <data name="Note" xml:space="preserve">
-    <value>Notez</value>
-  </data>
-  <data name="GenerateExcelFileThenLookUnderFileTabOnceDone" xml:space="preserve">
-    <value>Générer un fichier excel puis regarder sous l'onglet fichier une fois terminé</value>
-  </data>
-  <data name="All" xml:space="preserve">
-    <value>Tous</value>
-  </data>
-  <data name="CMP" xml:space="preserve">
-    <value>PGC</value>
-  </data>
-  <data name="Emergency" xml:space="preserve">
-    <value>Urgence</value>
-  </data>
-  <data name="Rainfall" xml:space="preserve">
-    <value>Pluie</value>
-  </data>
-  <data name="Reopening" xml:space="preserve">
-    <value>Réouvrir</value>
-  </data>
-  <data name="Seasonal" xml:space="preserve">
-    <value>Saisonnier</value>
   </data>
   <data name="Type" xml:space="preserve">
     <value>Type</value>
@@ -236,8 +239,5 @@
   </data>
   <data name="Weather" xml:space="preserve">
     <value>Météo</value>
-  </data>
-  <data name="SendEmail" xml:space="preserve">
-    <value>Envoyer un courriel</value>
   </data>
 </root>

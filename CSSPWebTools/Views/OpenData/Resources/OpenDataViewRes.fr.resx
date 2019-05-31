@@ -117,130 +117,130 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AppliedBetween" xml:space="preserve">
+    <value>Appliquer entre</value>
+  </data>
   <data name="ClickingTheButtonsBelowCanTakeALongTimeToExecuteSometimeAFewMinutes" xml:space="preserve">
-    <value>Clicking the buttons below can take a long time to execute. Sometime a few minutes. (fr)</value>
+    <value>En cliquant les boutons ci-dessous, l'exécution de la tâche peut prendre jusqu'à quelque minutes.</value>
+  </data>
+  <data name="ClickToAddAsOpenData" xml:space="preserve">
+    <value>Cliquer pour ajouter comme données ouvertes</value>
+  </data>
+  <data name="ClickToRemoveAsOpenData" xml:space="preserve">
+    <value>Cliquer pour enlever comme données ouverte</value>
   </data>
   <data name="Commands" xml:space="preserve">
-    <value>Commands</value>
+    <value>Commandes</value>
   </data>
   <data name="Date" xml:space="preserve">
     <value>Date</value>
+  </data>
+  <data name="Day" xml:space="preserve">
+    <value>Jour</value>
   </data>
   <data name="Depth" xml:space="preserve">
     <value>Profondeur</value>
   </data>
   <data name="Documents" xml:space="preserve">
-    <value>Documents (fr)</value>
+    <value>Documents</value>
+  </data>
+  <data name="EndDate" xml:space="preserve">
+    <value>Date de fin</value>
   </data>
   <data name="FC" xml:space="preserve">
     <value>CF</value>
   </data>
+  <data name="GenerateCSVDocumentNationalOfMWQMSamples" xml:space="preserve">
+    <value>Générer les documents CSV national des échantillons de SQEM</value>
+  </data>
+  <data name="GenerateCSVDocumentNationalOfMWQMSites" xml:space="preserve">
+    <value>Générer les documents CSV national des sites de SQEM</value>
+  </data>
   <data name="GenerateCSVDocumentOfMWQMSamples" xml:space="preserve">
-    <value>Generate CSV document of MWQM samples (fr)</value>
+    <value>Générer les documents des échantillons de SQEM</value>
   </data>
   <data name="GenerateCSVDocumentOfMWQMSites" xml:space="preserve">
-    <value>Generate CSV document of MWQM sites (fr)</value>
+    <value>Générer les documents des sites de SQEM</value>
   </data>
   <data name="GenerateKMZDocumentOfMWQMSites" xml:space="preserve">
-    <value>Generate KMZ document of MWQM sites (fr)</value>
+    <value>Générer les documents KMZ des sites de SQEM</value>
+  </data>
+  <data name="GenerateXlsxDocumentOfMWQMSitesAndSamples" xml:space="preserve">
+    <value>Générer les documents Xlsx des sites et des échantillons de SQEM</value>
+  </data>
+  <data name="IsOpenData" xml:space="preserve">
+    <value>est des données ouvertes</value>
   </data>
   <data name="LoadSetup" xml:space="preserve">
-    <value>Load setup (fr)</value>
+    <value>Charger la configuration</value>
+  </data>
+  <data name="MarkAllRoutineSamplesFromSelectedDatesAboveAvailableForOpenData" xml:space="preserve">
+    <value>Mettre tous les échantillons de routine des dates sélectionner disponible pour les données ouvertes</value>
+  </data>
+  <data name="Month" xml:space="preserve">
+    <value>Mois</value>
+  </data>
+  <data name="MWQMSiteWide" xml:space="preserve">
+    <value>À l'échelle du site de SQEM</value>
+  </data>
+  <data name="NotOpenData" xml:space="preserve">
+    <value>Pas des données ouvertes</value>
   </data>
   <data name="NotUseForOpenData" xml:space="preserve">
-    <value>Not use for open data (fr)</value>
+    <value>Ne pas utiliser pour des données ouvertes</value>
+  </data>
+  <data name="OpenDataDocumentNationalProduction" xml:space="preserve">
+    <value>Production des documents national à données ouvertes</value>
   </data>
   <data name="OpenDataDocumentProduction" xml:space="preserve">
-    <value>Open data document production (fr)</value>
+    <value>Production de documents à données ouvertes</value>
   </data>
   <data name="pH" xml:space="preserve">
     <value>pH</value>
+  </data>
+  <data name="ProvinceWide" xml:space="preserve">
+    <value>À l'échelle de la province</value>
   </data>
   <data name="Sal" xml:space="preserve">
     <value>Sal</value>
   </data>
   <data name="Sensitive" xml:space="preserve">
-    <value>Sensitive (fr)</value>
+    <value>Sensible</value>
   </data>
   <data name="Setup" xml:space="preserve">
-    <value>Setup (fr)</value>
+    <value>Configuration</value>
   </data>
   <data name="ShowOrHideMWQMSamples" xml:space="preserve">
-    <value>Show or hide MWQM samples (fr)</value>
+    <value>Cacher ou montrer des échantillons de SQEM</value>
   </data>
   <data name="ShowOrHideMWQMSiteList" xml:space="preserve">
-    <value>Show or hide MWQM site list (fr)</value>
+    <value>Cacher ou montrer la liste des sites</value>
+  </data>
+  <data name="StartDate" xml:space="preserve">
+    <value>Date de départ</value>
   </data>
   <data name="Stat" xml:space="preserve">
     <value>Stat</value>
+  </data>
+  <data name="SubsectorWide" xml:space="preserve">
+    <value>À l'échelle du sous-secteur</value>
   </data>
   <data name="Temp" xml:space="preserve">
     <value>Temp</value>
   </data>
   <data name="Total" xml:space="preserve">
-    <value>Total (fr)</value>
+    <value>Total</value>
   </data>
   <data name="UseForOpenData" xml:space="preserve">
-    <value>Use for open data (fr)</value>
+    <value>Utiliser pour les données ouvertes</value>
   </data>
   <data name="Working" xml:space="preserve">
-    <value>Working (fr)</value>
-  </data>
-  <data name="YouCanClickTheStatButtonToSeeTheStatusOfTheTask" xml:space="preserve">
-    <value>You can click the stat button to see the status of the task (fr)</value>
-  </data>
-  <data name="AppliedBetween" xml:space="preserve">
-    <value>Applied between (fr)</value>
-  </data>
-  <data name="Day" xml:space="preserve">
-    <value>Day (fr)</value>
-  </data>
-  <data name="EndDate" xml:space="preserve">
-    <value>End date (fr)</value>
-  </data>
-  <data name="Month" xml:space="preserve">
-    <value>Month (fr)</value>
-  </data>
-  <data name="StartDate" xml:space="preserve">
-    <value>Start date (fr)</value>
+    <value>En marche</value>
   </data>
   <data name="Year" xml:space="preserve">
-    <value>Year (fr)</value>
+    <value>Année</value>
   </data>
-  <data name="ClickToAddAsOpenData" xml:space="preserve">
-    <value>Click to add as Open Data (fr)</value>
-  </data>
-  <data name="ClickToRemoveAsOpenData" xml:space="preserve">
-    <value>Click to remove as Open Data (fr)</value>
-  </data>
-  <data name="IsOpenData" xml:space="preserve">
-    <value>Is Open Data (fr)</value>
-  </data>
-  <data name="NotOpenData" xml:space="preserve">
-    <value>Not Open Data (fr)</value>
-  </data>
-  <data name="GenerateXlsxDocumentOfMWQMSitesAndSamples" xml:space="preserve">
-    <value>Generate Xlsx document of MWQM Sites and Samples (fr)</value>
-  </data>
-  <data name="MarkAllRoutineSamplesFromSelectedDatesAboveAvailableForOpenData" xml:space="preserve">
-    <value>Make all routine samples from selected dates above available for open data (fr)</value>
-  </data>
-  <data name="MWQMSiteWide" xml:space="preserve">
-    <value>MWQM site wide (fr)</value>
-  </data>
-  <data name="ProvinceWide" xml:space="preserve">
-    <value>province wide (fr)</value>
-  </data>
-  <data name="SubsectorWide" xml:space="preserve">
-    <value>subsector wide (fr)</value>
-  </data>
-  <data name="GenerateCSVDocumentNationalOfMWQMSamples" xml:space="preserve">
-    <value>Generate CSV document national of MWQM Samples (fr)</value>
-  </data>
-  <data name="GenerateCSVDocumentNationalOfMWQMSites" xml:space="preserve">
-    <value>Generate CSV document national of MWQM Sites (fr)</value>
-  </data>
-  <data name="OpenDataDocumentNationalProduction" xml:space="preserve">
-    <value>Open Data Document National Production (fr)</value>
+  <data name="YouCanClickTheStatButtonToSeeTheStatusOfTheTask" xml:space="preserve">
+    <value>Vous pouvez cliquer le bouton pour savoir le statut de la tâche</value>
   </data>
 </root>

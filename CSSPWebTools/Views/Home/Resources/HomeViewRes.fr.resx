@@ -117,144 +117,121 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="List10HAppVarFunc" xml:space="preserve">
-    <value>Avec les outils Web, il est possible de:</value>
-    <comment>home</comment>
-  </data>
-  <data name="List12BoxModel" xml:space="preserve">
-    <value>exécuter les calculs utilisant Box Model et Visual Plumes, </value>
-    <comment>home</comment>
-  </data>
-  <data name="List11ContainInfo" xml:space="preserve">
-    <value>consulter et mettre à jour l'information des usines de traitement des eaux usées et des postes de pompage,</value>
-    <comment>home</comment>
-  </data>
-  <data name="List13Mike" xml:space="preserve">
-    <value>exécuter divers scénarios à partir de MIKE 21/3 ainsi configuré  et sauvegarder les résultats ainsi que</value>
-    <comment>home</comment>
-  </data>
-  <data name="StartUsingCSSPWebTools" xml:space="preserve">
-    <value>Utiliser les outils web PCCSM</value>
-    <comment>home</comment>
-  </data>
-  <data name="ToHaveAccess" xml:space="preserve">
-    <value>Pour accéder à l'information et aux applications des outils Web, veuillez contacter un  administrateur du site suivants: </value>
-    <comment>home</comment>
-  </data>
-  <data name="PermissionRequiredToGetAccess" xml:space="preserve">
-    <value>Permission requise pour avoir accès</value>
-    <comment>PermissionRequired</comment>
-  </data>
-  <data name="YouCurrentlyDoNotHavePermission" xml:space="preserve">
-    <value>Votre autorisation actuelle ne vous permet pas d'accéder à cette information.</value>
-    <comment>PermissionRequired</comment>
-  </data>
-  <data name="Login" xml:space="preserve">
-    <value>connexion</value>
-    <comment>LoginOrRegisterRequired, Header</comment>
-  </data>
-  <data name="Register" xml:space="preserve">
-    <value>S'inscrire</value>
-    <comment>LoginOrRegisterRequired</comment>
-  </data>
-  <data name="PleaseLoginRegisterAccessMessage" xml:space="preserve">
-    <value>Veuillez établir la connexion ou vous inscrire pour utiliser les outils web et la documentation de PCCSM.</value>
-    <comment>LoginOrRegisterRequired</comment>
-  </data>
-  <data name="List14MWQMInformationManagement" xml:space="preserve">
-    <value>gérer l'information de la SQEM.</value>
-    <comment>home</comment>
-  </data>
   <data name="Admin" xml:space="preserve">
     <value>Admin</value>
-    <comment>Header</comment>
-  </data>
-  <data name="CSSP" xml:space="preserve">
-    <value>PCCSM</value>
-    <comment>Header</comment>
-  </data>
-  <data name="CSSPWebTools" xml:space="preserve">
-    <value>PCCSM:  outils Web</value>
-    <comment>home, Header, PermissionRequired</comment>
-  </data>
-  <data name="CSSP_FULL" xml:space="preserve">
-    <value>Programme canadien de contrôle de la salubrité des mollusques</value>
-    <comment>home, Header</comment>
-  </data>
-  <data name="GetPermission" xml:space="preserve">
-    <value>Demander la permission</value>
-    <comment>PermissionRequired</comment>
-  </data>
-  <data name="Home" xml:space="preserve">
-    <value>Accueil</value>
-    <comment>Header</comment>
-  </data>
-  <data name="LoginRegister" xml:space="preserve">
-    <value>Connexion et s'inscrire</value>
-    <comment>LoginOrRegisterRequired</comment>
-  </data>
-  <data name="Logoff" xml:space="preserve">
-    <value>déconnexion</value>
-    <comment>Header</comment>
-  </data>
-  <data name="MWQM_FULL" xml:space="preserve">
-    <value>Surveillance de la qualité des eaux marines</value>
-  </data>
-  <data name="Search" xml:space="preserve">
-    <value>Chercher</value>
-    <comment>Header</comment>
-  </data>
-  <data name="ToggleNavigation" xml:space="preserve">
-    <value>Menu de navigation</value>
-    <comment>Header</comment>
-  </data>
-  <data name="UpdateDetails" xml:space="preserve">
-    <value>Détails de mises à jour</value>
-    <comment>View</comment>
-  </data>
-  <data name="YourPermission" xml:space="preserve">
-    <value>votre permission</value>
-    <comment>View</comment>
-  </data>
-  <data name="YourProfile" xml:space="preserve">
-    <value>Votre profil</value>
-    <comment>Header</comment>
-  </data>
-  <data name="YourStatus" xml:space="preserve">
-    <value>Votre situation</value>
-    <comment>PermissionRequired</comment>
-  </data>
-  <data name="SamplingPlans" xml:space="preserve">
-    <value>Plans d'échantillonnage</value>
-  </data>
-  <data name="Processing" xml:space="preserve">
-    <value>En traitement</value>
-  </data>
-  <data name="TasksRunning" xml:space="preserve">
-    <value>Tâches en cours d'exécution</value>
-  </data>
-  <data name="WillRefreshIn" xml:space="preserve">
-    <value>Va recharger dans</value>
   </data>
   <data name="Busy" xml:space="preserve">
     <value>Occupé</value>
   </data>
-  <data name="Error" xml:space="preserve">
-    <value>Erreur</value>
+  <data name="CSSP" xml:space="preserve">
+    <value>PCCSM</value>
   </data>
-  <data name="Status" xml:space="preserve">
-    <value>Statut</value>
+  <data name="CSSPWebTools" xml:space="preserve">
+    <value>PCCSM:  outils Web</value>
   </data>
-  <data name="seconds" xml:space="preserve">
-    <value>secondes</value>
+  <data name="CSSP_FULL" xml:space="preserve">
+    <value>Programme canadien de contrôle de la salubrité des mollusques</value>
   </data>
   <data name="DeleteAppTask" xml:space="preserve">
     <value>Supprimer la tâche</value>
   </data>
-  <data name="StopRefresh" xml:space="preserve">
-    <value>Arrêter de recharger</value>
+  <data name="Error" xml:space="preserve">
+    <value>Erreur</value>
+  </data>
+  <data name="GetPermission" xml:space="preserve">
+    <value>Demander la permission</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Accueil</value>
+  </data>
+  <data name="List10HAppVarFunc" xml:space="preserve">
+    <value>Avec les outils Web, il est possible de:</value>
+  </data>
+  <data name="List11ContainInfo" xml:space="preserve">
+    <value>consulter et mettre à jour l'information des usines de traitement des eaux usées et des postes de pompage,</value>
+  </data>
+  <data name="List12BoxModel" xml:space="preserve">
+    <value>exécuter les calculs utilisant Box Model et Visual Plumes, </value>
+  </data>
+  <data name="List13Mike" xml:space="preserve">
+    <value>exécuter divers scénarios à partir de MIKE 21/3 ainsi configuré  et sauvegarder les résultats ainsi que</value>
+  </data>
+  <data name="List14MWQMInformationManagement" xml:space="preserve">
+    <value>gérer l'information de la SQEM.</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>connexion</value>
+  </data>
+  <data name="LoginRegister" xml:space="preserve">
+    <value>Connexion et s'inscrire</value>
+  </data>
+  <data name="Logoff" xml:space="preserve">
+    <value>déconnexion</value>
+  </data>
+  <data name="MWQM_FULL" xml:space="preserve">
+    <value>Surveillance de la qualité des eaux marines</value>
+  </data>
+  <data name="PermissionRequiredToGetAccess" xml:space="preserve">
+    <value>Permission requise pour avoir accès</value>
+  </data>
+  <data name="PleaseLoginRegisterAccessMessage" xml:space="preserve">
+    <value>Veuillez établir la connexion ou vous inscrire pour utiliser les outils web et la documentation de PCCSM.</value>
+  </data>
+  <data name="Processing" xml:space="preserve">
+    <value>En traitement</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>S'inscrire</value>
   </data>
   <data name="RestartAutoRefresh" xml:space="preserve">
-    <value>Restart Auto Refresh</value>
+    <value>Redémarrer l'actualisation automatique</value>
+  </data>
+  <data name="SamplingPlans" xml:space="preserve">
+    <value>Plans d'échantillonnage</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Chercher</value>
+  </data>
+  <data name="seconds" xml:space="preserve">
+    <value>secondes</value>
+  </data>
+  <data name="StartUsingCSSPWebTools" xml:space="preserve">
+    <value>Utiliser les outils web PCCSM</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Statut</value>
+  </data>
+  <data name="StopAutoRefresh" xml:space="preserve">
+    <value>Arrêter l'actualisation automatique</value>
+  </data>
+  <data name="StopRefresh" xml:space="preserve">
+    <value>Arrêter l'actualisation</value>
+  </data>
+  <data name="TasksRunning" xml:space="preserve">
+    <value>Tâches en cours d'exécution</value>
+  </data>
+  <data name="ToggleNavigation" xml:space="preserve">
+    <value>Menu de navigation</value>
+  </data>
+  <data name="ToHaveAccess" xml:space="preserve">
+    <value>Pour accéder à l'information et aux applications des outils Web, veuillez contacter un  administrateur du site suivants: </value>
+  </data>
+  <data name="UpdateDetails" xml:space="preserve">
+    <value>Détails de mises à jour</value>
+  </data>
+  <data name="WillRefreshIn" xml:space="preserve">
+    <value>Va recharger dans</value>
+  </data>
+  <data name="YouCurrentlyDoNotHavePermission" xml:space="preserve">
+    <value>Votre autorisation actuelle ne vous permet pas d'accéder à cette information.</value>
+  </data>
+  <data name="YourPermission" xml:space="preserve">
+    <value>votre permission</value>
+  </data>
+  <data name="YourProfile" xml:space="preserve">
+    <value>Votre profil</value>
+  </data>
+  <data name="YourStatus" xml:space="preserve">
+    <value>Votre situation</value>
   </data>
 </root>
