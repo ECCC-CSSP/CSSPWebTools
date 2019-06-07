@@ -207,6 +207,9 @@
   <data name="Mesh" xml:space="preserve">
     <value>Mesh</value>
   </data>
+  <data name="MIKEParameter" xml:space="preserve">
+    <value>MIKE Parameter</value>
+  </data>
   <data name="NoParameters" xml:space="preserve">
     <value>No parameters</value>
   </data>

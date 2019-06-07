@@ -331,6 +331,15 @@ namespace CSSPWebTools.Views.Document.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to MIKE Parameter.
+        /// </summary>
+        public static string MIKEParameter {
+            get {
+                return ResourceManager.GetString("MIKEParameter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No parameters.
         /// </summary>
         public static string NoParameters {

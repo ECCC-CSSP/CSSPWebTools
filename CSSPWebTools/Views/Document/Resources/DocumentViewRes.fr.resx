@@ -207,6 +207,9 @@
   <data name="Mesh" xml:space="preserve">
     <value>Grille</value>
   </data>
+  <data name="MIKEParameter" xml:space="preserve">
+    <value>Paramètre de MIKE</value>
+  </data>
   <data name="NoParameters" xml:space="preserve">
     <value>Aucun paramètres</value>
   </data>
