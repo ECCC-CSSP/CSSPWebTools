@@ -117,53 +117,11 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ADashBetweenTwoYearsRepresentFromYearToYearInclusively" xml:space="preserve">
-    <value>Un tiret [-] entre deux ans représente: d'une année à l'autre inclusivement</value>
-  </data>
-  <data name="AnySpaceWillBeOmitted" xml:space="preserve">
-    <value>Tout espace sera omis</value>
-  </data>
-  <data name="AnythingUnrecognizedTheUserWillReceiveAnErrorMessage" xml:space="preserve">
-    <value>N’importe quoi qui n'est pas reconnu - l'utilisateur recevra un message d'erreur</value>
-  </data>
-  <data name="Average" xml:space="preserve">
-    <value>Moyenne</value>
-  </data>
-  <data name="AYearBetweenTwoCommasRepresentThatYear" xml:space="preserve">
-    <value>Une année entre deux virgules représente cette année</value>
-  </data>
   <data name="ClickOnGlobeIconToViewOnMap" xml:space="preserve">
     <value>Cliquez sur l'icône du globe pour voir sur la carte</value>
   </data>
-  <data name="Day" xml:space="preserve">
-    <value>Jour</value>
-  </data>
-  <data name="DischargesEntered_m3_s" xml:space="preserve">
-    <value>Débits saisies manuellement (m3/s)</value>
-  </data>
-  <data name="Discharge_m3_s" xml:space="preserve">
-    <value>Débit (m3/s)</value>
-  </data>
-  <data name="Down" xml:space="preserve">
-    <value>Vers le bas</value>
-  </data>
-  <data name="Edit" xml:space="preserve">
-    <value>Modifier</value>
-  </data>
   <data name="Empty" xml:space="preserve">
     <value>Vide</value>
-  </data>
-  <data name="EndingWithADashRepresentUpToCurrentYear" xml:space="preserve">
-    <value>En terminant avec un tiret [-] représente jusqu'à l'année en cours</value>
-  </data>
-  <data name="Entered" xml:space="preserve">
-    <value>Entré</value>
-  </data>
-  <data name="Fill" xml:space="preserve">
-    <value>Remplir</value>
-  </data>
-  <data name="FillUsing" xml:space="preserve">
-    <value>Remplir en utilisant</value>
   </data>
   <data name="Find" xml:space="preserve">
     <value>Trouver</value>
@@ -174,104 +132,20 @@
   <data name="GetTideDataForRunsOfYear_" xml:space="preserve">
     <value>Obtenir des données marées pour l'année {0}</value>
   </data>
-  <data name="HasRuns" xml:space="preserve">
-    <value>A une tournée</value>
-  </data>
   <data name="IdentifyOnMap" xml:space="preserve">
     <value>Identifier sur la carte</value>
-  </data>
-  <data name="Level_m" xml:space="preserve">
-    <value>Niveau (m)</value>
-  </data>
-  <data name="Meters" xml:space="preserve">
-    <value>Mètres</value>
-  </data>
-  <data name="MoreInfo" xml:space="preserve">
-    <value>Plus d'informations</value>
-  </data>
-  <data name="NoDataOnHSCHistoricalSite" xml:space="preserve">
-    <value>Aucune donnée sur le site historique HSC</value>
-  </data>
-  <data name="Note" xml:space="preserve">
-    <value>Remarque</value>
   </data>
   <data name="Now" xml:space="preserve">
     <value>À présent</value>
   </data>
-  <data name="PeriodWithDailyData" xml:space="preserve">
-    <value>Période avec données quotidiennes</value>
-  </data>
-  <data name="Priority" xml:space="preserve">
-    <value>Priorité</value>
-  </data>
-  <data name="Radar" xml:space="preserve">
-    <value>Radar</value>
-  </data>
-  <data name="Remove" xml:space="preserve">
-    <value>Effacer</value>
-  </data>
-  <data name="Run" xml:space="preserve">
-    <value>Trounée</value>
-  </data>
-  <data name="Save" xml:space="preserve">
-    <value>Sauvegarder</value>
-  </data>
   <data name="SaveButtonAtBottomOfPage" xml:space="preserve">
     <value>Bouton Enregistrer au bas de la page</value>
-  </data>
-  <data name="SaveEnteredDischarge" xml:space="preserve">
-    <value>Enregistrer les discharges inscrites</value>
-  </data>
-  <data name="SaveTideSitePriorities" xml:space="preserve">
-    <value>Sauvegarder les priorités du site de marée</value>
-  </data>
-  <data name="Saving" xml:space="preserve">
-    <value>Sauvegarder ...</value>
   </data>
   <data name="SelectAnAdjacentSubsector" xml:space="preserve">
     <value>Sélectionnez un sous-secteur adjacent</value>
   </data>
-  <data name="SelectARunAboveToSeeDischarge" xml:space="preserve">
-    <value>Sélectionnez une course ci-dessus pour voir les débits</value>
-  </data>
-  <data name="Selected" xml:space="preserve">
-    <value>Choisi</value>
-  </data>
-  <data name="SetDataToUseByAverageForYear_" xml:space="preserve">
-    <value>Définir les données à utiliser par moyenne pour l'année {0}</value>
-  </data>
-  <data name="SetDataToUseByPriorityForYear_" xml:space="preserve">
-    <value>Définir les données à utiliser par priorité pour l'année {0}</value>
-  </data>
-  <data name="SetTideSitePriorityByDistance" xml:space="preserve">
-    <value>Définir la priorité du site de marée par distance</value>
-  </data>
-  <data name="SettingTideSitePriorities" xml:space="preserve">
-    <value>Définir les priorités du site de marée</value>
-  </data>
   <data name="ShowTideSitesOnMap" xml:space="preserve">
     <value>Afficher les sites de marées sur la carte</value>
-  </data>
-  <data name="SubsectorRuns" xml:space="preserve">
-    <value>tournée du sous-secteur</value>
-  </data>
-  <data name="TideSite" xml:space="preserve">
-    <value>Site de marée</value>
-  </data>
-  <data name="TideSiteName" xml:space="preserve">
-    <value>Nom du site de marée</value>
-  </data>
-  <data name="TideSitesAndYearsOfUse" xml:space="preserve">
-    <value>Sites de marées et années d'utilisation</value>
-  </data>
-  <data name="TideSitesDataForEachRun" xml:space="preserve">
-    <value>Données sur les sites de marées pour chaque tournée</value>
-  </data>
-  <data name="TideSitesPriorities" xml:space="preserve">
-    <value>Priorités des sites marées</value>
-  </data>
-  <data name="TideSitesToUseForSubsector" xml:space="preserve">
-    <value>Sites marées à utiliser pour le sous-secteur</value>
   </data>
   <data name="TideSitesToUseForSubsectorVerifyAndSave" xml:space="preserve">
     <value>Les sites marées à utiliser pour le sous-secteur - (vérifier et enregistrer)</value>
@@ -279,28 +153,7 @@
   <data name="TideSitesUsedAndWithinDistance" xml:space="preserve">
     <value>Sites marées utilisés et à distance</value>
   </data>
-  <data name="Up" xml:space="preserve">
-    <value>En haut</value>
-  </data>
-  <data name="Use" xml:space="preserve">
-    <value>Utilise</value>
-  </data>
-  <data name="UseSameTideSiteAsSelectedSubsector" xml:space="preserve">
+  <data name="UseSameTideSitesAsSelectedSubsector" xml:space="preserve">
     <value>Utilisez les mêmes sites de marées que le sous-secteur sélectionné</value>
-  </data>
-  <data name="ValuesToBeUsed" xml:space="preserve">
-    <value>Valeurs à utiliser</value>
-  </data>
-  <data name="ViewDataType" xml:space="preserve">
-    <value>Afficher le type de données</value>
-  </data>
-  <data name="Weight" xml:space="preserve">
-    <value>Poids</value>
-  </data>
-  <data name="Weighted" xml:space="preserve">
-    <value>Pondéré</value>
-  </data>
-  <data name="YearsOfUse" xml:space="preserve">
-    <value>Années d'utilisation</value>
   </data>
 </root>

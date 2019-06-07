@@ -136,7 +136,7 @@
     <value>Cliquez sur l'icône du globe pour voir sur la carte</value>
   </data>
   <data name="Climate" xml:space="preserve">
-    <value>Climate</value>
+    <value>Climat</value>
   </data>
   <data name="Day" xml:space="preserve">
     <value>Jour</value>
@@ -149,6 +149,9 @@
   </data>
   <data name="Down" xml:space="preserve">
     <value>Vers le bas</value>
+  </data>
+  <data name="Drogue" xml:space="preserve">
+    <value>Drogue</value>
   </data>
   <data name="Edit" xml:space="preserve">
     <value>Modifier</value>
@@ -181,7 +184,7 @@
     <value>A une tournée</value>
   </data>
   <data name="Hydrometric" xml:space="preserve">
-    <value>Hydrometrique</value>
+    <value>Hydrométrique</value>
   </data>
   <data name="IdentifyOnMap" xml:space="preserve">
     <value>Identifier sur la carte</value>
@@ -241,7 +244,7 @@
     <value>Effacer</value>
   </data>
   <data name="Run" xml:space="preserve">
-    <value>Trounée</value>
+    <value>Tournée</value>
   </data>
   <data name="Save" xml:space="preserve">
     <value>Sauvegarder</value>
@@ -250,13 +253,13 @@
     <value>Bouton Enregistrer au bas de la page</value>
   </data>
   <data name="SaveEnteredDischarge" xml:space="preserve">
-    <value>Enregistrer les discharges inscrites</value>
+    <value>Enregistrer les décharges inscrites</value>
   </data>
   <data name="SaveMunicipalityPriorities" xml:space="preserve">
     <value>Sauvegarder les priorités de la municipalité</value>
   </data>
   <data name="Saving" xml:space="preserve">
-    <value>Sauvegarder ...</value>
+    <value>En cours de sauvegarde ...</value>
   </data>
   <data name="SelectAnAdjacentSubsector" xml:space="preserve">
     <value>Sélectionnez un sous-secteur adjacent</value>
@@ -311,8 +314,5 @@
   </data>
   <data name="YearsOfUse" xml:space="preserve">
     <value>Années d'utilisation</value>
-  </data>
-  <data name="Drogue" xml:space="preserve">
-    <value>Drogue (fr)</value>
   </data>
 </root>

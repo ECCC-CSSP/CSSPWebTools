@@ -117,95 +117,8 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Add" xml:space="preserve">
-    <value>Ajouter</value>
-    <comment>aom</comment>
-  </data>
-  <data name="Cancel" xml:space="preserve">
-    <value>Annuler</value>
-    <comment>aom</comment>
-  </data>
-  <data name="SamplingPlanName" xml:space="preserve">
-    <value>Nom du plan d'échantillonnage</value>
-    <comment>aom</comment>
-  </data>
-  <data name="Copy" xml:space="preserve">
-    <value>Copier</value>
-    <comment>pbp</comment>
-  </data>
-  <data name="CreateSamplingPlan" xml:space="preserve">
-    <value>Créer le plan d'échantillonnage</value>
-    <comment>pbp</comment>
-  </data>
-  <data name="Delete" xml:space="preserve">
-    <value>Supprmier</value>
-    <comment>pbp</comment>
-  </data>
-  <data name="Download" xml:space="preserve">
-    <value>Télécharger</value>
-    <comment>pbp</comment>
-  </data>
-  <data name="Duplicate" xml:space="preserve">
-    <value>Duplicata</value>
-    <comment>aom</comment>
-  </data>
-  <data name="Edit" xml:space="preserve">
-    <value>Éditer</value>
-    <comment>pbp</comment>
-  </data>
-  <data name="Empty" xml:space="preserve">
-    <value>Vide</value>
-    <comment>pbp</comment>
-  </data>
-  <data name="ExistingSamplingPlans" xml:space="preserve">
-    <value>Plans existants de SQEM</value>
-    <comment>pbp</comment>
-  </data>
-  <data name="Files" xml:space="preserve">
-    <value>Fichiers</value>
-    <comment>pbp</comment>
-  </data>
-  <data name="ForGroupName" xml:space="preserve">
-    <value>Nom du groupe</value>
-    <comment>aom</comment>
-  </data>
-  <data name="KB" xml:space="preserve">
-    <value>Ko</value>
-    <comment>pbp</comment>
-  </data>
-  <data name="MB" xml:space="preserve">
-    <value>Mo</value>
-    <comment>pbp</comment>
-  </data>
-  <data name="Modify" xml:space="preserve">
-    <value>Modifier</value>
-    <comment>aom</comment>
-  </data>
-  <data name="MWQMSites" xml:space="preserve">
-    <value>Postes de SQEM</value>
-    <comment>aom</comment>
-  </data>
-  <data name="ShowOnMap" xml:space="preserve">
-    <value>Montrer sur la carte</value>
-    <comment>aom</comment>
-  </data>
-  <data name="Subsectors" xml:space="preserve">
-    <value>Sous-secteurs</value>
-    <comment>aom</comment>
-  </data>
-  <data name="Year" xml:space="preserve">
-    <value>Année</value>
-    <comment>aom</comment>
-  </data>
-  <data name="YouAreNotAuthorizedToSetupSamplingPlans" xml:space="preserve">
-    <value>Vous devez obtenir la permission pour l'installation des plans de SQEM.</value>
-    <comment>pbp aom</comment>
-  </data>
-  <data name="LabSheetsTransferred" xml:space="preserve">
-    <value>Feuilles de laboratoire transféré</value>
-  </data>
-  <data name="ShowTransferredLabSheets" xml:space="preserve">
-    <value>Afficher les feuilles de laboratoire transférées</value>
+  <data name="A1" xml:space="preserve">
+    <value>A1</value>
   </data>
   <data name="A1Media1X" xml:space="preserve">
     <value>A1 Media 1X</value>
@@ -214,46 +127,139 @@
     <value>A1 Media 2X</value>
   </data>
   <data name="A1SheetTitle" xml:space="preserve">
-    <value>A1 Coliform fécaux - Fiche d'analyse de l'eau</value>
+    <value>A1 Coliforme fécaux - Fiche d'analyse de l'eau</value>
   </data>
-  <data name="Analyst" xml:space="preserve">
-    <value>Analyste</value>
+  <data name="Accepted" xml:space="preserve">
+    <value>Accepter</value>
   </data>
   <data name="AcceptLabSheetAndSendInformationToDataBase" xml:space="preserve">
     <value>Accepter la feuille de laboratoire et envoyer des informations à la base de données</value>
   </data>
+  <data name="AccessCode" xml:space="preserve">
+    <value>Code d'accès</value>
+  </data>
+  <data name="ActiveSamplingPlans" xml:space="preserve">
+    <value>Plans d'échantillonnage actif</value>
+  </data>
+  <data name="Add" xml:space="preserve">
+    <value>Ajouter</value>
+  </data>
+  <data name="Analyst" xml:space="preserve">
+    <value>Analyste</value>
+  </data>
+  <data name="AnalyzeMethod" xml:space="preserve">
+    <value>Méthode d'analyse</value>
+  </data>
+  <data name="ApprovalCode" xml:space="preserve">
+    <value>Code du superviseur</value>
+  </data>
+  <data name="At14h" xml:space="preserve">
+    <value>Vers 14:00</value>
+  </data>
+  <data name="Average" xml:space="preserve">
+    <value>Moyenne</value>
+  </data>
+  <data name="BackupDirectory" xml:space="preserve">
+    <value>Répertoire de sauvegarde</value>
+  </data>
   <data name="Blank" xml:space="preserve">
     <value>Vide</value>
+  </data>
+  <data name="BlueTextIndicateValueAlreadyInDatabase" xml:space="preserve">
+    <value>Texte bleu indique que la valeur est déjà dans la base de données</value>
+  </data>
+  <data name="CalculatedHoldingTimeInHours" xml:space="preserve">
+    <value>Temps de maintien calculé (heures)</value>
   </data>
   <data name="CalculatedIncubationTime" xml:space="preserve">
     <value>Temps d'incubation calculé</value>
   </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Annuler</value>
+  </data>
+  <data name="ChangeRunSamplingType" xml:space="preserve">
+    <value>Changer le type d'échantillonnage</value>
+  </data>
+  <data name="ChangeTheInformationAboveToChangeTheSamplingPlanName" xml:space="preserve">
+    <value>Modifiez les informations ci-dessus pour modifier le nom du plan d'échantillonnage</value>
+  </data>
   <data name="Comment" xml:space="preserve">
     <value>Commentaire</value>
+  </data>
+  <data name="Control" xml:space="preserve">
+    <value>Contrôle</value>
   </data>
   <data name="ControlLotNumbs" xml:space="preserve">
     <value>Lot de control #s</value>
   </data>
+  <data name="Copy" xml:space="preserve">
+    <value>Copier</value>
+  </data>
+  <data name="CreateSamplingPlan" xml:space="preserve">
+    <value>Créer le plan d'échantillonnage</value>
+  </data>
+  <data name="CtrlClickToSelectMultiple" xml:space="preserve">
+    <value>Ctrl + clique pour sélectionner plusieurs</value>
+  </data>
+  <data name="DailyDuplicatePrecisionCriteria" xml:space="preserve">
+    <value>Critère de précision du duplicata journalier</value>
+  </data>
   <data name="Data" xml:space="preserve">
     <value>Données</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Supprimer</value>
+  </data>
+  <data name="Download" xml:space="preserve">
+    <value>Télécharger</value>
+  </data>
+  <data name="Duplicate" xml:space="preserve">
+    <value>Duplicata</value>
+  </data>
+  <data name="DuplicateHighestValueWillBeUsedAndOtherValuesAsDuplicates" xml:space="preserve">
+    <value>Lorsque les résultats en duplicata diffèrent en valeur, le résultat le plus élevée servira lors de l'utilisation des données.</value>
   </data>
   <data name="DuplicateInformation" xml:space="preserve">
     <value>Information du duplicata</value>
   </data>
-  <data name="NonTarget35" xml:space="preserve">
-    <value>Non ciblé 35</value>
+  <data name="Edit" xml:space="preserve">
+    <value>Modifier</value>
   </data>
-  <data name="NonTarget44_5" xml:space="preserve">
-    <value>Non ciblé 44.5</value>
+  <data name="Email" xml:space="preserve">
+    <value>Courriel</value>
   </data>
-  <data name="Positive35" xml:space="preserve">
-    <value>Positif 35</value>
+  <data name="Empty" xml:space="preserve">
+    <value>Vide</value>
   </data>
-  <data name="Positive44_5" xml:space="preserve">
-    <value>Positif 44.5</value>
+  <data name="ExistingSamplingPlans" xml:space="preserve">
+    <value>Plans existants de SQEM</value>
+  </data>
+  <data name="Files" xml:space="preserve">
+    <value>Fichiers</value>
+  </data>
+  <data name="First" xml:space="preserve">
+    <value>Premier</value>
+  </data>
+  <data name="ForGroupName" xml:space="preserve">
+    <value>Nom du groupe</value>
+  </data>
+  <data name="Friday" xml:space="preserve">
+    <value>Vendredi</value>
+  </data>
+  <data name="HasValue" xml:space="preserve">
+    <value>A une valeur</value>
+  </data>
+  <data name="InactiveOrOldSamplingPlans" xml:space="preserve">
+    <value>Vieux plans d'échantillonnage inactif</value>
+  </data>
+  <data name="IncludeLaboratoryQAQC" xml:space="preserve">
+    <value>Inclure AQ/CQ de laboratoire</value>
   </data>
   <data name="IncubationFinishTime" xml:space="preserve">
     <value>Fin du temps d'incubation</value>
+  </data>
+  <data name="IncubationStartedTheSameDay" xml:space="preserve">
+    <value>L'incubation a débuté le même jour</value>
   </data>
   <data name="IncubationStartTime" xml:space="preserve">
     <value>Début du temps d'incubation</value>
@@ -261,32 +267,149 @@
   <data name="Information" xml:space="preserve">
     <value>Information</value>
   </data>
+  <data name="IntertechDuplicateInformation" xml:space="preserve">
+    <value>Intertech information du duplicata</value>
+  </data>
+  <data name="IntertechDuplicatePrecisionCriteria" xml:space="preserve">
+    <value>Intertech critère de précision pour duplicata</value>
+  </data>
+  <data name="IntertechReadInformation" xml:space="preserve">
+    <value>Intertech information de lecture</value>
+  </data>
+  <data name="IsActive" xml:space="preserve">
+    <value>Est actif</value>
+  </data>
+  <data name="IsContractor" xml:space="preserve">
+    <value>Est entrepreneur</value>
+  </data>
+  <data name="KB" xml:space="preserve">
+    <value>Ko</value>
+  </data>
+  <data name="Laboratory" xml:space="preserve">
+    <value>Laboratoire</value>
+  </data>
+  <data name="LabSheet" xml:space="preserve">
+    <value>Feuille de laboratoire</value>
+  </data>
+  <data name="LabSheetsHistory" xml:space="preserve">
+    <value>Historique des feuilles de laboratoire</value>
+  </data>
+  <data name="LabSheetsTransferred" xml:space="preserve">
+    <value>Feuilles de laboratoire transféré</value>
+  </data>
+  <data name="LabSheetsWaitingToBeAccepted" xml:space="preserve">
+    <value>Feuilles de laboratoire en attente d'acceptation</value>
+  </data>
+  <data name="LabSheetType" xml:space="preserve">
+    <value>Type de feuille de laboratoire</value>
+  </data>
+  <data name="LotNumbers" xml:space="preserve">
+    <value>#'s de Lot</value>
+  </data>
+  <data name="MB" xml:space="preserve">
+    <value>Mo</value>
+  </data>
+  <data name="Media" xml:space="preserve">
+    <value>Media</value>
+  </data>
+  <data name="Modify" xml:space="preserve">
+    <value>Modifier</value>
+  </data>
   <data name="MoreInformation" xml:space="preserve">
     <value>Plus Information</value>
   </data>
   <data name="MPN" xml:space="preserve">
     <value>NPP</value>
   </data>
+  <data name="MWQMSites" xml:space="preserve">
+    <value>Postes de SQEM</value>
+  </data>
+  <data name="NA" xml:space="preserve">
+    <value>N / A</value>
+  </data>
+  <data name="Negative" xml:space="preserve">
+    <value>Négatif</value>
+  </data>
+  <data name="Negative35" xml:space="preserve">
+    <value>Négatif 35</value>
+  </data>
+  <data name="Negative44_5" xml:space="preserve">
+    <value>Négatif 44.5</value>
+  </data>
+  <data name="NonTarget" xml:space="preserve">
+    <value>Non ciblé</value>
+  </data>
+  <data name="NonTarget35" xml:space="preserve">
+    <value>Non ciblé 35</value>
+  </data>
+  <data name="NonTarget44_5" xml:space="preserve">
+    <value>Non ciblé 44.5</value>
+  </data>
+  <data name="NoPermissionMessageSamplingPlans" xml:space="preserve">
+    <value>Vous avez besoin de la permission pour configurer un plan d'échantillonnage</value>
+  </data>
   <data name="NotAllRequiredEtc" xml:space="preserve">
     <value>Remarque: Toutes les informations requises conformément à la section 5.10.2 de l'ISO / CEI 17025 sont disponibles auprès du Superviseur de laboratoire.</value>
   </data>
+  <data name="OrZeroIfNotUsed" xml:space="preserve">
+    <value>Ou 0 si non utiliser</value>
+  </data>
+  <data name="Over500" xml:space="preserve">
+    <value>Plus que 500</value>
+  </data>
+  <data name="PendingApproval" xml:space="preserve">
+    <value>En attente d'‑être accepté</value>
+  </data>
+  <data name="Positive" xml:space="preserve">
+    <value>Positif</value>
+  </data>
+  <data name="Positive35" xml:space="preserve">
+    <value>Positif 35</value>
+  </data>
+  <data name="Positive44_5" xml:space="preserve">
+    <value>Positif 44.5</value>
+  </data>
   <data name="PrecisionCriteria" xml:space="preserve">
-    <value>Critere de precision</value>
+    <value>Critère de précision</value>
   </data>
   <data name="ProcBy" xml:space="preserve">
     <value>Manipulé par</value>
   </data>
+  <data name="Received" xml:space="preserve">
+    <value>Reçus</value>
+  </data>
   <data name="RecordFactor" xml:space="preserve">
     <value>TEMPERATURE ENREGISTÉE EST UNE LECTURE ACTUELLE + FACTEUR DE CORRECTION</value>
   </data>
+  <data name="Rejected" xml:space="preserve">
+    <value>Rejeter</value>
+  </data>
+  <data name="RejectLabSheet" xml:space="preserve">
+    <value>Rejeter la feuille de laboratoire</value>
+  </data>
+  <data name="RejectReason" xml:space="preserve">
+    <value>Raison du rejet</value>
+  </data>
+  <data name="Reminder" xml:space="preserve">
+    <value>Rappel</value>
+  </data>
+  <data name="ResultsReadBy" xml:space="preserve">
+    <value>Résultats enregistré par</value>
+  </data>
   <data name="ResultsRecordedBy" xml:space="preserve">
-    <value>Resultats enregistré par</value>
+    <value>Résultats enregistré par</value>
   </data>
   <data name="RLogs" xml:space="preserve">
     <value>R-Log's</value>
   </data>
+  <data name="Run" xml:space="preserve">
+    <value>Tournée</value>
+  </data>
   <data name="RunComment" xml:space="preserve">
     <value>Remarque de la tournée</value>
+  </data>
+  <data name="RunWeatherComment" xml:space="preserve">
+    <value>Remarque météo de la tournée</value>
   </data>
   <data name="Sal" xml:space="preserve">
     <value>Sal</value>
@@ -300,59 +423,26 @@
   <data name="SampleCrew" xml:space="preserve">
     <value>Équipe d'échantillonnage</value>
   </data>
+  <data name="SampleMatrix" xml:space="preserve">
+    <value>Milieu d'échantillonnage</value>
+  </data>
   <data name="SampleTime" xml:space="preserve">
     <value>Temps d'échantillonnage</value>
   </data>
-  <data name="Negative35" xml:space="preserve">
-    <value>Negatif 35</value>
+  <data name="SampleType" xml:space="preserve">
+    <value>Type d'échantillon</value>
   </data>
-  <data name="Negative44_5" xml:space="preserve">
-    <value>Negatif 44.5</value>
+  <data name="SamplingPlanName" xml:space="preserve">
+    <value>Nom du plan d'échantillonnage</value>
   </data>
-  <data name="Site" xml:space="preserve">
-    <value>Site</value>
+  <data name="SamplingPlanType" xml:space="preserve">
+    <value>Type de plan d'échantillonnage</value>
   </data>
-  <data name="SiteNumber" xml:space="preserve">
-    <value># du site</value>
+  <data name="Save" xml:space="preserve">
+    <value>Sauvegarder</value>
   </data>
-  <data name="T0_1" xml:space="preserve">
-    <value>T 0.1</value>
-  </data>
-  <data name="T10" xml:space="preserve">
-    <value>T 10</value>
-  </data>
-  <data name="T1_0" xml:space="preserve">
-    <value>T 1.0</value>
-  </data>
-  <data name="TCField1" xml:space="preserve">
-    <value>CT champ</value>
-  </data>
-  <data name="TCLab1" xml:space="preserve">
-    <value>CT lab</value>
-  </data>
-  <data name="Temp" xml:space="preserve">
-    <value>Tempér</value>
-  </data>
-  <data name="Tides" xml:space="preserve">
-    <value>Marées</value>
-  </data>
-  <data name="Time" xml:space="preserve">
-    <value>Temps</value>
-  </data>
-  <data name="WaterBath" xml:space="preserve">
-    <value>Bain</value>
-  </data>
-  <data name="WeatherComment" xml:space="preserve">
-    <value>Remarque de météo</value>
-  </data>
-  <data name="AnalyzeMethod" xml:space="preserve">
-    <value>Méthode d'analyse</value>
-  </data>
-  <data name="Laboratory" xml:space="preserve">
-    <value>Laboratoire</value>
-  </data>
-  <data name="SampleMatrix" xml:space="preserve">
-    <value>Milieu d'échantillonnage</value>
+  <data name="SelectAll" xml:space="preserve">
+    <value>Choisir tous</value>
   </data>
   <data name="SelectTheAnalyzeMethod" xml:space="preserve">
     <value>Sélectionnez la méthode d'analyse</value>
@@ -363,77 +453,95 @@
   <data name="SelectTheSampleMatrix" xml:space="preserve">
     <value>Sélectionnez la milieu d'échantillonnage</value>
   </data>
-  <data name="TCField2" xml:space="preserve">
-    <value>CT champ #2</value>
+  <data name="SettingUpEmails" xml:space="preserve">
+    <value>Configuration des courriels</value>
   </data>
-  <data name="TCLab2" xml:space="preserve">
-    <value>CT lab #2</value>
-  </data>
-  <data name="ResultsReadBy" xml:space="preserve">
-    <value>Resultats enregistré par</value>
-  </data>
-  <data name="DailyDuplicatePrecisionCriteria" xml:space="preserve">
-    <value>Critere de précision du duplicata journalier</value>
-  </data>
-  <data name="SelectAll" xml:space="preserve">
-    <value>Choisir tous</value>
-  </data>
-  <data name="UnSelectAll" xml:space="preserve">
-    <value>Déchoisir tous</value>
+  <data name="ShowHistoryLabSheets" xml:space="preserve">
+    <value>Montrer les feuilles de laboratoire historiques</value>
   </data>
   <data name="ShowMWQMSites" xml:space="preserve">
     <value>Montré tous les sites PSQEM</value>
   </data>
-  <data name="IntertechDuplicatePrecisionCriteria" xml:space="preserve">
-    <value>Intertech critère de précision pour duplicata</value>
+  <data name="ShowOnMap" xml:space="preserve">
+    <value>Montrer sur la carte</value>
   </data>
-  <data name="SampleType" xml:space="preserve">
-    <value>Type d'échantillon</value>
+  <data name="ShowTransferredLabSheets" xml:space="preserve">
+    <value>Afficher les feuilles de laboratoire transférées</value>
   </data>
-  <data name="SamplingPlanType" xml:space="preserve">
-    <value>Type de plan d'échantillonnage</value>
+  <data name="Site" xml:space="preserve">
+    <value>Site</value>
   </data>
-  <data name="LabSheetType" xml:space="preserve">
-    <value>Type de feuille de laboratoire</value>
+  <data name="SiteNumber" xml:space="preserve">
+    <value># du site</value>
   </data>
-  <data name="ChangeTheInformationAboveToChangeTheSamplingPlanName" xml:space="preserve">
-    <value>Modifiez les informations ci-dessus pour modifier le nom du plan d'échantillonnage</value>
+  <data name="Status" xml:space="preserve">
+    <value>État</value>
   </data>
-  <data name="IntertechDuplicateInformation" xml:space="preserve">
-    <value>Intertech information du duplicata</value>
+  <data name="Subsectors" xml:space="preserve">
+    <value>Sous-secteurs</value>
   </data>
-  <data name="IntertechReadInformation" xml:space="preserve">
-    <value>Intertech information de lecture</value>
+  <data name="T0_1" xml:space="preserve">
+    <value>T 0.1</value>
   </data>
-  <data name="IncubationStartedTheSameDay" xml:space="preserve">
-    <value>L'incubation a débuté le même jour</value>
+  <data name="T10" xml:space="preserve">
+    <value>T 10</value>
   </data>
-  <data name="A1" xml:space="preserve">
-    <value>A1</value>
-  </data>
-  <data name="Average" xml:space="preserve">
-    <value>Moyenne</value>
-  </data>
-  <data name="First" xml:space="preserve">
-    <value>Premier</value>
-  </data>
-  <data name="LotNumbers" xml:space="preserve">
-    <value>#'s de Lot</value>
-  </data>
-  <data name="Media" xml:space="preserve">
-    <value>Media</value>
+  <data name="T1_0" xml:space="preserve">
+    <value>T 1.0</value>
   </data>
   <data name="TCCelcius" xml:space="preserve">
     <value>CT (˚C)</value>
   </data>
+  <data name="TCField1" xml:space="preserve">
+    <value>CT champ</value>
+  </data>
+  <data name="TCField2" xml:space="preserve">
+    <value>CT champ #2</value>
+  </data>
   <data name="TCHas2Coolers" xml:space="preserve">
     <value>CT a 2 refroidisseurs</value>
   </data>
+  <data name="TCLab1" xml:space="preserve">
+    <value>CT lab</value>
+  </data>
+  <data name="TCLab2" xml:space="preserve">
+    <value>CT lab #2</value>
+  </data>
+  <data name="Temp" xml:space="preserve">
+    <value>Tempér</value>
+  </data>
+  <data name="Tides" xml:space="preserve">
+    <value>Marées</value>
+  </data>
+  <data name="Time" xml:space="preserve">
+    <value>Temps</value>
+  </data>
+  <data name="ToGetPermissionMessage" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ToHaveAccess" xml:space="preserve">
+    <value>Pour avoir accès aux informations et applications du WebTool, veuillez contacter l'administrateur du site indiqué ci-dessous</value>
+  </data>
+  <data name="UnSelectAll" xml:space="preserve">
+    <value>Déchoisir tous</value>
+  </data>
   <data name="UnusualTubeCombination" xml:space="preserve">
-    <value>Combination de tube anormal</value>
+    <value>Combinaison de tube anormal</value>
   </data>
   <data name="UnusualTubeCombinationExistEtc" xml:space="preserve">
     <value>Une combinaison de tubes inhabituelle, identifiée par -999, existe dans la feuille de laboratoire. L'approbation de la feuille de laboratoire NE PAS insérer ces valeurs (-999) dans la base de données.</value>
+  </data>
+  <data name="WaterBath" xml:space="preserve">
+    <value>Bain</value>
+  </data>
+  <data name="WeatherComment" xml:space="preserve">
+    <value>Remarque de météo</value>
+  </data>
+  <data name="Year" xml:space="preserve">
+    <value>Année</value>
+  </data>
+  <data name="YouAreNotAuthorizedToSetupSamplingPlans" xml:space="preserve">
+    <value>Vous devez obtenir la permission pour l'installation des plans de SQEM.</value>
   </data>
   <data name="_1X" xml:space="preserve">
     <value>1X</value>
@@ -441,109 +549,10 @@
   <data name="_2X" xml:space="preserve">
     <value>2X</value>
   </data>
-  <data name="CalculatedHoldingTimeInHours" xml:space="preserve">
-    <value>Temps de maintien calculé (heures)</value>
+  <data name="_35_0Celcius" xml:space="preserve">
+    <value>35.0 (˚C)</value>
   </data>
-  <data name="LabSheetsHistory" xml:space="preserve">
-    <value>Historique des feuilles de laboratoire</value>
-  </data>
-  <data name="ShowHistoryLabSheets" xml:space="preserve">
-    <value>Montrer les feuilles de laboratoire historiques</value>
-  </data>
-  <data name="LabSheetsWaitingToBeAccepted" xml:space="preserve">
-    <value>Feuilles de laboratoire en attente d'acceptation</value>
-  </data>
-  <data name="Save" xml:space="preserve">
-    <value>Sauvegarder</value>
-  </data>
-  <data name="IncludeLaboratoryQAQC" xml:space="preserve">
-    <value>Inclure AQ/CQ de laboratoire</value>
-  </data>
-  <data name="Run" xml:space="preserve">
-    <value>Tournée</value>
-  </data>
-  <data name="AccessCode" xml:space="preserve">
-    <value>Code d'accès</value>
-  </data>
-  <data name="RunWeatherComment" xml:space="preserve">
-    <value>Remarque météo de la tournée</value>
-  </data>
-  <data name="ApprovalCode" xml:space="preserve">
-    <value>Code du superviseur</value>
-  </data>
-  <data name="RejectLabSheet" xml:space="preserve">
-    <value>Rejeter la feuille de laboratoire</value>
-  </data>
-  <data name="DuplicateHighestValueWillBeUsedAndOtherValuesAsDuplicates" xml:space="preserve">
-    <value>Lorsque les résultats en duplicata diffèrent en valeur, le résultat le plus élevée servira lors de l'utilisation des données.</value>
-  </data>
-  <data name="Status" xml:space="preserve">
-    <value>État</value>
-  </data>
-  <data name="ChangeRunSamplingType" xml:space="preserve">
-    <value>Changer le type d'échantillonnage</value>
-  </data>
-  <data name="CtrlClickToSelectMultiple" xml:space="preserve">
-    <value>Ctrl + clique pour sélectionner plusieurs</value>
-  </data>
-  <data name="BlueTextIndicateValueAlreadyInDatabase" xml:space="preserve">
-    <value>Texte bleu indique que la valeur est déjà dans la base de données</value>
-  </data>
-  <data name="PendingApproval" xml:space="preserve">
-    <value>En attente d'&#x1E;être accepté</value>
-  </data>
-  <data name="BackupDirectory" xml:space="preserve">
-    <value>Répertoire de sauvegarde</value>
-  </data>
-  <data name="Accepted" xml:space="preserve">
-    <value>Accepted (fr)</value>
-  </data>
-  <data name="ActiveSamplingPlans" xml:space="preserve">
-    <value>Active sampling plans (fr)</value>
-  </data>
-  <data name="At14h" xml:space="preserve">
-    <value>At 14:00 (fr)</value>
-  </data>
-  <data name="Email" xml:space="preserve">
-    <value>Email (fr)</value>
-  </data>
-  <data name="Friday" xml:space="preserve">
-    <value>Friday (fr)</value>
-  </data>
-  <data name="HasValue" xml:space="preserve">
-    <value>Has Value (fr)</value>
-  </data>
-  <data name="InactiveOrOldSamplingPlans" xml:space="preserve">
-    <value>Inactive or old sampling plans (fr)</value>
-  </data>
-  <data name="IsActive" xml:space="preserve">
-    <value>Is Active (fr)</value>
-  </data>
-  <data name="IsContractor" xml:space="preserve">
-    <value>Is Contractor (fr)</value>
-  </data>
-  <data name="LabSheet" xml:space="preserve">
-    <value>Labsheet (fr)</value>
-  </data>
-  <data name="Over500" xml:space="preserve">
-    <value>Over 500 (fr)</value>
-  </data>
-  <data name="Received" xml:space="preserve">
-    <value>Received (fr)</value>
-  </data>
-  <data name="Rejected" xml:space="preserve">
-    <value>Rejected (fr)</value>
-  </data>
-  <data name="Reminder" xml:space="preserve">
-    <value>Reminder (fr)</value>
-  </data>
-  <data name="SettingUpEmails" xml:space="preserve">
-    <value>Setting up emails (fr)</value>
-  </data>
-  <data name="RejectReason" xml:space="preserve">
-    <value>Raison du rejet</value>
-  </data>
-  <data name="OrZeroIfNotUsed" xml:space="preserve">
-    <value>or 0 if not used (fr)</value>
+  <data name="_44_5Celcius" xml:space="preserve">
+    <value>44.5 (˚C)</value>
   </data>
 </root>

@@ -123,8 +123,11 @@
   <data name="AddChildSection" xml:space="preserve">
     <value>Ajouter section enfant</value>
   </data>
+  <data name="AddNewYear" xml:space="preserve">
+    <value>Ajouter une nouvelle année</value>
+  </data>
   <data name="AddSiblingSection" xml:space="preserve">
-    <value>Ajouter une section soeur</value>
+    <value>Ajouter une section sœur</value>
   </data>
   <data name="AddTopSection" xml:space="preserve">
     <value>Ajouter une section du sommet</value>
@@ -133,7 +136,7 @@
     <value>Région</value>
   </data>
   <data name="BoxModel" xml:space="preserve">
-    <value>Box model (fr)</value>
+    <value>Modèle boitier</value>
   </data>
   <data name="ClickHereToChangeTo" xml:space="preserve">
     <value>Cliquer ici pour changer à</value>
@@ -160,7 +163,7 @@
     <value>Description</value>
   </data>
   <data name="Edit" xml:space="preserve">
-    <value>Editer</value>
+    <value>Modifier</value>
   </data>
   <data name="FileNameWillStartWith" xml:space="preserve">
     <value>Le nom des filières vont commencer par</value>
@@ -178,10 +181,10 @@
     <value>Est statique</value>
   </data>
   <data name="MikeScenario" xml:space="preserve">
-    <value>Mike scenario (fr)</value>
+    <value>Scenario Mike</value>
   </data>
   <data name="MikeSource" xml:space="preserve">
-    <value>Mike source (fr)</value>
+    <value>Source Mike</value>
   </data>
   <data name="Modify" xml:space="preserve">
     <value>Modifier</value>
@@ -204,20 +207,26 @@
   <data name="New" xml:space="preserve">
     <value>Nouveau</value>
   </data>
+  <data name="NewYear" xml:space="preserve">
+    <value>Nouvelle année</value>
+  </data>
   <data name="NoReportTypeCreatedYetFor_" xml:space="preserve">
     <value>Aucun type de rapport créer pour le type d'item {0}</value>
   </data>
   <data name="PolSourceSite" xml:space="preserve">
-    <value>Polllution source site (fr)</value>
+    <value>Site de source de pollution</value>
   </data>
   <data name="Province" xml:space="preserve">
     <value>Province</value>
+  </data>
+  <data name="ReportSectionForYear" xml:space="preserve">
+    <value>Section de rapport pour l'année</value>
   </data>
   <data name="ReportSectionName" xml:space="preserve">
     <value>Nom de la section</value>
   </data>
   <data name="ReportSections" xml:space="preserve">
-    <value>Sections de repport</value>
+    <value>Sections de rapport</value>
   </data>
   <data name="ReportSectionText" xml:space="preserve">
     <value>Texte de la section du rapport</value>
@@ -238,13 +247,13 @@
     <value>Secteur</value>
   </data>
   <data name="Setup" xml:space="preserve">
-    <value>Setup (fr)</value>
+    <value>Configuration</value>
   </data>
   <data name="ShowOrHideReportSectionEdit" xml:space="preserve">
     <value>Voir ou masquer la section du rapport pour éditer</value>
   </data>
   <data name="ShowOrHideReportSectionList" xml:space="preserve">
-    <value>Voir ou masquer la list de section du rapport</value>
+    <value>Voir ou masquer la liste de section du rapport</value>
   </data>
   <data name="ShowOrHideReportType" xml:space="preserve">
     <value>Voir ou masquer le type de rapport</value>
@@ -262,15 +271,6 @@
     <value>Code unique</value>
   </data>
   <data name="VisualPlumesScenario" xml:space="preserve">
-    <value>Visual plume scenario (fr)</value>
-  </data>
-  <data name="AddNewYear" xml:space="preserve">
-    <value>Ajouter une nouvelle année</value>
-  </data>
-  <data name="NewYear" xml:space="preserve">
-    <value>Nouvelle année</value>
-  </data>
-  <data name="ReportSectionForYear" xml:space="preserve">
-    <value>Section de rapport pour l'année</value>
+    <value>Scenario Visual Plume</value>
   </data>
 </root>

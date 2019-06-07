@@ -52,9 +52,7 @@
             <div class="panel-body">
                 <div class="form-group">
                     <label class="control-label" for="TVText">@TVTypeText - @TVItemViewRes.Name</label>
-                    <a href="" class="jaPopover text-info elementSpacing" type="button" tabindex="1" data-trigger="focus" data-container="body" data-toggle="popover" data-placement="right" data-content="@TVItemViewRes.NameDescriptionPopOver">
-                        <span class="glyphicon glyphicon-info-sign"></span>
-                    </a>
+                    <button class="jbHelpDocShowDialog btn btn-link" data-dockey="tvitemname" data-title="@TVItemViewRes.Name"><span class="glyphicon glyphicon-info-sign"></span></button>
                     <div>
                         <input autofocus="autofocus" class="form-control"
                                name="TVText" autocomplete="off" type="text" id="TVText" value="@(TVItemID == 0 ? "" : tvItemModel.TVText)" />
@@ -69,9 +67,7 @@
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="MapInfoPoint">@TVItemViewRes.GeographicCoordinates</label>
-                    <a href="" class="jaPopover text-info elementSpacing" type="button" tabindex="1" data-trigger="focus" data-container="body" data-toggle="popover" data-placement="right" data-content="@TVItemViewRes.GeographicCoordinatesDescriptionPopOver">
-                        <span class="glyphicon glyphicon-info-sign"></span>
-                    </a>
+                    <button class="jbHelpDocShowDialog btn btn-link" data-dockey="tvitemgeographiccoordinates" data-title="@TVItemViewRes.GeographicCoordinates"><span class="glyphicon glyphicon-info-sign"></span></button>
                     <div>
                         <textarea class="form-control" name="MapInfoPoint" type="text" id="MapInfoPoint">@sbMapInfoPoint.ToString()</textarea>
                         <span class="help-block"></span>
@@ -81,9 +77,7 @@
                     <ul class="list-inline">
                         <li><label class="control-label" for="MapInfoPolyline">@TVItemViewRes.Path</label></li>
                         <li>
-                            <a href="" class="jaPopover text-info elementSpacing" type="button" tabindex="1" data-trigger="focus" data-container="body" data-toggle="popover" data-placement="right" data-content="@TVItemViewRes.PathDescriptionPopOver">
-                                <span class="glyphicon glyphicon-info-sign"></span>
-                            </a>
+                            <button class="jbHelpDocShowDialog btn btn-link" data-dockey="tvitempath" data-title="@TVItemViewRes.Path"><span class="glyphicon glyphicon-info-sign"></span></button>
                         </li>
                         <li>
                             <a href="#pastePathGE" class="jaOpenGoogleEarth collapse in text-info elementSpacing" data-toggle="collapse" aria-expanded="false" aria-controls="pastePathGE">
@@ -110,9 +104,7 @@
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="MapInfoPolygon">@TVItemViewRes.Polygon</label>
-                    <a href="" class="jaPopover text-info elementSpacing" type="button" tabindex="1" data-trigger="focus" data-container="body" data-toggle="popover" data-placement="right" data-content="@TVItemViewRes.PolygonDescriptionPopOver">
-                        <span class="glyphicon glyphicon-info-sign"></span>
-                    </a>
+                    <button class="jbHelpDocShowDialog btn btn-link" data-dockey="tvitempolygon" data-title="@TVItemViewRes.Polygon"><span class="glyphicon glyphicon-info-sign"></span></button>
                     <div>
                         <textarea class="form-control" name="MapInfoPolygon" id="MapInfoPolygon">@sbMapInfoPolygon.ToString()</textarea>
                         <span class="help-block"></span>

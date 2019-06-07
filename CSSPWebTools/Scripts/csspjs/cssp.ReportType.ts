@@ -359,18 +359,18 @@ module CSSP {
                 let command: string = $form.attr("action");
                 $.post(cssp.BaseURL + command, $form.serializeArray())
                     .done((ret) => {
-                        if (ret.Error != "") {
-                            cssp.Dialog.ShowDialogErrorWithError(ret.Error);
+                        if (ret != "") {
+                            cssp.Dialog.ShowDialogErrorWithError(ret);
                         }
                         else {
                             if (IsAdd) {
-                                cssp.Helper.PageRefresh();
                                 cssp.Dialog.ShowDialogSuccess("Added successfully");
                             }
                             else {
                                 cssp.Dialog.ShowDialogSuccess("Modified successfully");
-                                cssp.ReportType.ReportTypeRelaod($bjs);
+                                //cssp.ReportType.ReportTypeReload($bjs);
                             }
+                            cssp.Helper.PageRefresh();
                         }
                     })
                     .fail(() => {
@@ -507,8 +507,8 @@ module CSSP {
             let command: string = "ReportType/ReportTypeDeleteJSON";
             $.post(cssp.BaseURL + command, { ReportTypeID: ReportTypeID })
                 .done((ret) => {
-                    if (ret.Error != "") {
-                        cssp.Dialog.ShowDialogErrorWithError(ret.Error);
+                    if (ret != "") {
+                        cssp.Dialog.ShowDialogErrorWithError(ret);
                     }
                     else {
                         cssp.Helper.PageRefresh();
@@ -517,22 +517,6 @@ module CSSP {
                 .fail(() => {
                     cssp.Dialog.ShowDialogErrorWithFail(command);
                 });
-        };
-        public ReportTypeRelaod: Function = ($bjs: JQuery): void => {
-            let TVType: number = parseInt($bjs.data("tvtype"));
-
-            let command: string = "ReportType/_reportTypeList";
-            $.get(cssp.BaseURL + command,
-                {
-                    TVType: TVType,
-                })
-                .done((ret) => {
-                    $bjs.closest(".ReportTypeListTopDiv").html(ret);
-                })
-                .fail(() => {
-                    cssp.Dialog.ShowDialogErrorWithFail(command);
-                });
-
         };
         public TinymceInit: Function = (): void => {
             tinymce.init({

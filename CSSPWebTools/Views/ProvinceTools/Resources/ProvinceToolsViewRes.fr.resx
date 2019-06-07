@@ -117,130 +117,130 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ADocumentWillBeCreatedShowingTheMissingDischarge" xml:space="preserve">
+    <value>Un document sera créer montrant les décharges manquantes</value>
+  </data>
   <data name="ADocumentWillBeCreatedShowingTheMissingPrecip" xml:space="preserve">
-    <value>A document will be created showing the missing precipitation (fr)</value>
+    <value>Un document sera créé montrant les précipitations manquantes</value>
   </data>
   <data name="AForApproved" xml:space="preserve">
-    <value>A = Approved (fr)</value>
+    <value>A = Approuver</value>
   </data>
   <data name="CAForConditionallyApproved" xml:space="preserve">
-    <value>CA = Conditionally Approved (fr)</value>
+    <value>CA = Approuver sous condition</value>
   </data>
   <data name="ClassificationRelatedTools" xml:space="preserve">
-    <value>Classification Related Tools (fr)</value>
+    <value>Outils pour la classification</value>
   </data>
   <data name="ClickTheButtonBelowToGenerateClassificatonForCSSPWebToolsVisualization" xml:space="preserve">
-    <value>Click the button below to generate classification for CSSPWebTools visualization (fr)</value>
-  </data>
-  <data name="ClimateSitePrecipitationRelatedTools" xml:space="preserve">
-    <value>Climate site precipitation related tools (fr)</value>
-  </data>
-  <data name="CRForConditionallyRestricted" xml:space="preserve">
-    <value>CR = Conditionally Restricted (fr)</value>
-  </data>
-  <data name="DownloadTheFileToYourComputer" xml:space="preserve">
-    <value>Download the file to your computer (fr)</value>
-  </data>
-  <data name="DrawRequiredPathsUnderEachSubsectorToRepresentClassification" xml:space="preserve">
-    <value>Draw required paths under each subsector to represent classification (fr)</value>
-  </data>
-  <data name="FillRunPrecipByClimateSitePriorityForYear" xml:space="preserve">
-    <value>Fill run precip by climate site priority for year (fr)</value>
-  </data>
-  <data name="FindMissingPrecipForProvince" xml:space="preserve">
-    <value>Find missing precip for province (fr)</value>
-  </data>
-  <data name="GenerateClassificatonForCSSPWebToolsVisualization" xml:space="preserve">
-    <value>Generate classificaton for CSSPWebTools visualization (fr)</value>
-  </data>
-  <data name="GenerateProvincePollutionSourceSitesForInputTool" xml:space="preserve">
-    <value>Generate Province Pollution Source Sites For Input Tool (fr)</value>
-  </data>
-  <data name="GetAllPrecipitationForYear" xml:space="preserve">
-    <value>Get all precipitation for year (fr)</value>
-  </data>
-  <data name="MakeSureYouSaveYourClassificationPolygonsKMLFileUnderProvinceFileTab" xml:space="preserve">
-    <value>Make sure you save your classification polygons KML file under the province file tab (fr)</value>
-  </data>
-  <data name="PForProhibited" xml:space="preserve">
-    <value>P = Prohibited (fr)</value>
-  </data>
-  <data name="PlaceholderForMore" xml:space="preserve">
-    <value>Placeholder for more (fr)</value>
-  </data>
-  <data name="PollutionSourceSitesRelatedTools" xml:space="preserve">
-    <value>Pollution Source Sites Related Tools (fr)</value>
-  </data>
-  <data name="ReplacedTheFileOnTheCSSPWebToolsWithTheChanges" xml:space="preserve">
-    <value>Replaced the file on the CSSPWebTools with the changes (fr)</value>
-  </data>
-  <data name="RForRestricted" xml:space="preserve">
-    <value>R = Restricted (fr)</value>
-  </data>
-  <data name="SomeOfTheseTasksCanTakeALongTime" xml:space="preserve">
-    <value>Some of these tasks can take a long time (fr)</value>
-  </data>
-  <data name="Steps" xml:space="preserve">
-    <value>Steps (fr)</value>
-  </data>
-  <data name="UsingTheClassificationInputsKMLFileFoundUnderProvinceFileTab" xml:space="preserve">
-    <value>Using the classification inputs KML file found under province file tab (fr)</value>
-  </data>
-  <data name="Working" xml:space="preserve">
-    <value>Working (fr)</value>
+    <value>Cliquer le bouton ci-dessous pour générer la visualisation de la classification du WebTool PCCSM</value>
   </data>
   <data name="ClickTheButtonBelowToGenerateGroupingsBewteenMWQMSitesAndPolSourceSitesForCSSPWebToolsVisualization" xml:space="preserve">
-    <value>Click the button below to generate groupings bewteen MWQM Sites and Pollution Source Sites for CSSPWebTools Visualization (fr)</value>
+    <value>Cliquer le bouton ci-dessous pour générer la visualisation des groupements entre les sites de SQEM et les sites de sources de pollution pour le WebTool PCCSM</value>
   </data>
-  <data name="DrawRequiredPolygonsUnderEachSubsectorToGroupTheMWQMSitesAndPolSourceSites" xml:space="preserve">
-    <value>Draw required polygons under each subsector to group the MWQM Sites and Pollution Sources Sites (fr)</value>
-  </data>
-  <data name="GenerateLinksBetweenMWQMSitesAndPolSourceSitesForCSSPWebToolsVisualization" xml:space="preserve">
-    <value>Generate links bewteen MWQM Sites and Pollution Source Sites for CSSPWebTools Visualization (fr)</value>
-  </data>
-  <data name="MWQMSitePolSourceSiteGroupingRelatedTools" xml:space="preserve">
-    <value>MWQM Site and Pollution Source Site Grouping Related Tools (fr)</value>
-  </data>
-  <data name="YouCanDrawAsManyAsIsNeeded" xml:space="preserve">
-    <value>You can draw as many as is needed (fr)</value>
-  </data>
-  <data name="CreateShellOfClassificationInputsKML" xml:space="preserve">
-    <value>Create shell of Classification Inputs KML (fr)</value>
-  </data>
-  <data name="CreateShellOfGroupingInputsKML" xml:space="preserve">
-    <value>Create shell of Grouping Inputs KML (fr)</value>
+  <data name="ClimateSitePrecipitationRelatedTools" xml:space="preserve">
+    <value>Outils relié au précipitations sur les sites climatiques</value>
   </data>
   <data name="CreateMWQMSitesAndPolSourceSitesKML" xml:space="preserve">
-    <value>Create MWQM Sites and PolSourceSites KML (fr)</value>
+    <value>Créer des sites de SQEM et des sites de sources de pollution KML</value>
   </data>
-  <data name="TheFileAboveIsAnExportAsKMLFromArcGISProvincialClassificationPolygons" xml:space="preserve">
-    <value>The file above is an export as KML from Arc GIS provincial classification polygons (fr)</value>
+  <data name="CreateShellOfClassificationInputsKML" xml:space="preserve">
+    <value>Créer la structure des entrées de classification KML</value>
   </data>
-  <data name="ADocumentWillBeCreatedShowingTheMissingDischarge" xml:space="preserve">
-    <value>A document will be created showing the missing discharge (fr)</value>
+  <data name="CreateShellOfGroupingInputsKML" xml:space="preserve">
+    <value>Créer la structure des entrées de groupement KML</value>
+  </data>
+  <data name="CRForConditionallyRestricted" xml:space="preserve">
+    <value>CR = restreint conditionnellement</value>
+  </data>
+  <data name="DownloadTheFileToYourComputer" xml:space="preserve">
+    <value>Télécharger le fichier sur l'ordinateur</value>
+  </data>
+  <data name="DrawRequiredPathsUnderEachSubsectorToRepresentClassification" xml:space="preserve">
+    <value>Dessinez les chemins nécessaire sous chaque sous-secteurs pour représenter la classification</value>
+  </data>
+  <data name="DrawRequiredPolygonsUnderEachSubsectorToGroupTheMWQMSitesAndPolSourceSites" xml:space="preserve">
+    <value>Dessinez les polygones nécessaires sous chaque sous-secteur pour grouper les sites de SQEM et les sites de sources de pollution</value>
   </data>
   <data name="FillRunDischargeByHydrometricSitePriorityForYear" xml:space="preserve">
-    <value>Fill run discharge by hydrometric site priority for year (fr)</value>
+    <value>Remplissez la décharge des tournées par site hydrométrique prioritaires pour l'année</value>
+  </data>
+  <data name="FillRunPrecipByClimateSitePriorityForYear" xml:space="preserve">
+    <value>Remplissez les précipitations des tournées par site climatiques pour l'année</value>
   </data>
   <data name="FindMissingDischargeForProvince" xml:space="preserve">
-    <value>Find missing discharge for province (fr)</value>
+    <value>Trouver les décharges manquantes pour la province</value>
   </data>
-  <data name="GetAllDischargeForYear" xml:space="preserve">
-    <value>Get all discharges for year (fr)</value>
+  <data name="FindMissingPrecipForProvince" xml:space="preserve">
+    <value>Trouvez les précipitations manquantes pour la province</value>
   </data>
-  <data name="HydrometricSiteDischargeRelatedTools" xml:space="preserve">
-    <value>Hydrometric site discharge related tools (fr)</value>
+  <data name="GenerateClassificatonForCSSPWebToolsVisualization" xml:space="preserve">
+    <value>Générer la classification pour la visualisation du WebTool PCCSM</value>
   </data>
   <data name="GenerateClassificatonKMLFileForQuickChecking" xml:space="preserve">
-    <value>Generate classificaton KML file for quick checking</value>
+    <value>Générer le fichier de classification KML pour la vérification rapide</value>
+  </data>
+  <data name="GenerateLinksBetweenMWQMSitesAndPolSourceSitesForCSSPWebToolsVisualization" xml:space="preserve">
+    <value>Générer un lien entre les sites de SQEM et les sites de sources de pollution pour la visualisation du WebToolPCCSM</value>
+  </data>
+  <data name="GenerateProvincePollutionSourceSitesForInputTool" xml:space="preserve">
+    <value>Générer les sites de sources de pollution provincial pour l'outil de saisie</value>
   </data>
   <data name="GenerateStatisticsNormalDryWetKMLAndCSV" xml:space="preserve">
-    <value>Créer statistics (Normale, Sec, Pluie) (KML and CSV)</value>
+    <value>Créer statistiques (Normale, Sec, Pluie) (KML and CSV)</value>
+  </data>
+  <data name="GetAllDischargeForYear" xml:space="preserve">
+    <value>Obtenir tous les décharges pour l'année</value>
+  </data>
+  <data name="GetAllPrecipitationForYear" xml:space="preserve">
+    <value>Obtenir tous les précipitations pour l'année</value>
+  </data>
+  <data name="HydrometricSiteDischargeRelatedTools" xml:space="preserve">
+    <value>Outils relié aux sites hydrométriques de décharges</value>
+  </data>
+  <data name="MakeSureYouSaveYourClassificationPolygonsKMLFileUnderProvinceFileTab" xml:space="preserve">
+    <value>Faites sur que vous sauvez votre fichier de polygones de classification KML sous l'onglet de la province</value>
+  </data>
+  <data name="MWQMSitePolSourceSiteGroupingRelatedTools" xml:space="preserve">
+    <value>Outils relié au groupement des sites de SQEM et des sites de sources de pollution</value>
+  </data>
+  <data name="PForProhibited" xml:space="preserve">
+    <value>P = Interdit</value>
+  </data>
+  <data name="PlaceholderForMore" xml:space="preserve">
+    <value>Espace réservé pour plus</value>
+  </data>
+  <data name="PollutionSourceSitesRelatedTools" xml:space="preserve">
+    <value>Outils relié aux sites de sources de pollution</value>
+  </data>
+  <data name="ReplacedTheFileOnTheCSSPWebToolsWithTheChanges" xml:space="preserve">
+    <value>Le document avec les changements a remplacer le document sur le WebToolPCCSM</value>
+  </data>
+  <data name="RForRestricted" xml:space="preserve">
+    <value>R = Restreint</value>
+  </data>
+  <data name="SomeOfTheseTasksCanTakeALongTime" xml:space="preserve">
+    <value>Certaines de ces taches peuvent prendre plus de temps</value>
   </data>
   <data name="StatisticsNormalDryWetKMLAndCSV" xml:space="preserve">
     <value>Statistiques (Normale, Sec, Pluie) (KML and CSV)</value>
   </data>
+  <data name="Steps" xml:space="preserve">
+    <value>Étapes</value>
+  </data>
+  <data name="TheFileAboveIsAnExportAsKMLFromArcGISProvincialClassificationPolygons" xml:space="preserve">
+    <value>Le fichier si dessus est une exportation au format KML à partir de polygones de classification provincial ArcGIS</value>
+  </data>
+  <data name="UsingTheClassificationInputsKMLFileFoundUnderProvinceFileTab" xml:space="preserve">
+    <value>Utilisation du fichier KML des entrées de classification disponible dans l'onglet des fichier de la province</value>
+  </data>
+  <data name="Working" xml:space="preserve">
+    <value>Travail</value>
+  </data>
   <data name="YearToRunPrecipiationFunction" xml:space="preserve">
-    <value>Year to run precipitation function (fr)</value>
+    <value>Année pour exécuter la fonction de précipitation</value>
+  </data>
+  <data name="YouCanDrawAsManyAsIsNeeded" xml:space="preserve">
+    <value>Vous pouvez en dessinez autant que nécessaire</value>
   </data>
 </root>

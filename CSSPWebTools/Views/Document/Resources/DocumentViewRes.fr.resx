@@ -117,8 +117,17 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AnnualReviewDocx" xml:space="preserve">
+    <value>Revue annuelle (docx)</value>
+  </data>
+  <data name="BoundaryConditions" xml:space="preserve">
+    <value>Conditions aux limites</value>
+  </data>
   <data name="ContourValues" xml:space="preserve">
     <value>Valeurs de contour</value>
+  </data>
+  <data name="CurrentsAnimation" xml:space="preserve">
+    <value>Animation des courants</value>
   </data>
   <data name="Delete" xml:space="preserve">
     <value>Supprimer</value>
@@ -126,8 +135,20 @@
   <data name="Download" xml:space="preserve">
     <value>Télécharger</value>
   </data>
+  <data name="FCSummaryStatDocx" xml:space="preserve">
+    <value>Sommaire Statistique de Coliform Fécaux (docx)</value>
+  </data>
+  <data name="For" xml:space="preserve">
+    <value>pour</value>
+  </data>
   <data name="GenerateReportWithParameters" xml:space="preserve">
     <value>Générer report avec paramètres</value>
+  </data>
+  <data name="GoogleEarthMarker" xml:space="preserve">
+    <value>Marqueur Google Earth</value>
+  </data>
+  <data name="GoogleEarthPath" xml:space="preserve">
+    <value>Chemin Google Earth</value>
   </data>
   <data name="HideAllAllAll" xml:space="preserve">
     <value>Masquer Tous-Tous-Tous</value>
@@ -183,14 +204,32 @@
   <data name="MB" xml:space="preserve">
     <value>Mo</value>
   </data>
+  <data name="Mesh" xml:space="preserve">
+    <value>Grille</value>
+  </data>
   <data name="NoParameters" xml:space="preserve">
     <value>Aucun paramètres</value>
+  </data>
+  <data name="ParameterAtOnePoint" xml:space="preserve">
+    <value>Paramètre à un point</value>
   </data>
   <data name="Parameters" xml:space="preserve">
     <value>Paramètres</value>
   </data>
+  <data name="PollutionAnimation" xml:space="preserve">
+    <value>Animation de la zone de pollution</value>
+  </data>
+  <data name="PollutionLimit" xml:space="preserve">
+    <value>Limite de pollution</value>
+  </data>
+  <data name="ReEvaluationDocx" xml:space="preserve">
+    <value>Ré-évaluation (docx)</value>
+  </data>
   <data name="ReportYear" xml:space="preserve">
     <value>L'année du rapport</value>
+  </data>
+  <data name="StudyArea" xml:space="preserve">
+    <value>Zone d'étude</value>
   </data>
   <data name="SubsectorMunicipalityIsASpecialCaseAndShouldNotBeGeneratedByItself" xml:space="preserve">
     <value>La municipalité du sous-secteur est un cas spéciale et ne devrait pas ‑être généré par soi-même</value>
@@ -200,6 +239,12 @@
   </data>
   <data name="SummaryStatisticsOfFCDensitiesTablesParameters" xml:space="preserve">
     <value>Paramètres pour les tableaux des statistiques sommaires des "FC Densities"</value>
+  </data>
+  <data name="TestObjectsDocx" xml:space="preserve">
+    <value>Vérification des objets (docx)</value>
+  </data>
+  <data name="TestObjectsParameters" xml:space="preserve">
+    <value>Paramètres pour vérifier les divers objects</value>
   </data>
   <data name="WithFileType" xml:space="preserve">
     <value>pour le type de filière</value>

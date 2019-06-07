@@ -117,220 +117,166 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AmbientSalinity" xml:space="preserve">
-    <value>Salinité ambiante</value>
-    <comment>VPA VPSI VPSEA</comment>
-  </data>
-  <data name="AmbientTemperature" xml:space="preserve">
-    <value>Température ambiante</value>
-    <comment>VPA VPSI VPSEA</comment>
-  </data>
-  <data name="Copy" xml:space="preserve">
-    <value>Copier</value>
-    <comment>VPL</comment>
-  </data>
-  <data name="CurrentDirection" xml:space="preserve">
-    <value>Direction du courant</value>
-    <comment>VPA VPSI VPSEA</comment>
-  </data>
-  <data name="CurrentSpeed" xml:space="preserve">
-    <value>Vitesse du courant</value>
-    <comment>VPA VPSI VPSEA</comment>
-  </data>
-  <data name="DecayRate" xml:space="preserve">
-    <value>Taux de décroissance</value>
-    <comment>VPA</comment>
-  </data>
-  <data name="Delete" xml:space="preserve">
-    <value>Supprimer</value>
-    <comment>VPL</comment>
-  </data>
-  <data name="Depth" xml:space="preserve">
-    <value>Profondeur</value>
-    <comment>VPA VPSEA</comment>
-  </data>
-  <data name="EffluentFlow" xml:space="preserve">
-    <value>Débit de l'effluent</value>
-    <comment>VPL VPSI VPSR</comment>
-  </data>
-  <data name="EffluentSalinity" xml:space="preserve">
-    <value>Salinité de l'effluent</value>
-    <comment>VPL VPSI VPSR</comment>
-  </data>
-  <data name="EffluentTemperature" xml:space="preserve">
-    <value>Température de l'effluent</value>
-    <comment>VPL VPSI VPSR</comment>
-  </data>
-  <data name="FarFieldCurrentDirection" xml:space="preserve">
-    <value>Direction du courant en champ éloigné</value>
-    <comment>VPA VPSI VPSEA</comment>
-  </data>
-  <data name="FarFieldCurrentSpeed" xml:space="preserve">
-    <value>Vitesse du courant en champ éloigné</value>
-    <comment>VPA VPSI VPSEA</comment>
-  </data>
-  <data name="FarFieldDiffusionCoefficient" xml:space="preserve">
-    <value>Coefficient de diffusion en champ éloigné</value>
-    <comment>VPA VPSI VPSEA</comment>
-  </data>
-  <data name="HideAmbient" xml:space="preserve">
-    <value>Fermer "milieu ambiant"</value>
-    <comment>VPL</comment>
-  </data>
-  <data name="NoItem" xml:space="preserve">
-    <value>Aucun élément</value>
-    <comment>VPL</comment>
-  </data>
-  <data name="NumberOfPorts" xml:space="preserve">
-    <value>Nombre d'orifices</value>
-    <comment>VPL VPSI VPSR</comment>
-  </data>
-  <data name="PortDepth" xml:space="preserve">
-    <value>Profondeur de l'orifice</value>
-    <comment>VPL VPSI VPSR</comment>
-  </data>
-  <data name="PortDiameter" xml:space="preserve">
-    <value>Diamètre de l'orifice</value>
-    <comment>VPL VPSI VPSR</comment>
-  </data>
-  <data name="PortElevation" xml:space="preserve">
-    <value>Élévation de l'orifice</value>
-    <comment>VPL VPSI VPSR</comment>
-  </data>
-  <data name="PortSpacing" xml:space="preserve">
-    <value>Espace entre les orifices</value>
-    <comment>VPL VPSI VPSR</comment>
-  </data>
-  <data name="ShowAmbient" xml:space="preserve">
-    <value>Ouvrir "milieu ambiant"</value>
-    <comment>VPL</comment>
-  </data>
-  <data name="VerticalAngle" xml:space="preserve">
-    <value>Angle vertical</value>
-    <comment>VPL VPSI VPSR</comment>
-  </data>
-  <data name="view" xml:space="preserve">
-    <value>Montrer</value>
-    <comment>VPL</comment>
-  </data>
   <data name="AcuteMixZone" xml:space="preserve">
     <value>Zone de pollution aigüe</value>
-    <comment>VPSI VPSR</comment>
   </data>
   <data name="Ambient" xml:space="preserve">
     <value>Milieu ambiant</value>
-    <comment>VPA</comment>
-  </data>
-  <data name="AtDepth" xml:space="preserve">
-    <value>À une profondeur de</value>
-    <comment>VPA VPSI VPSEA</comment>
-  </data>
-  <data name="Charts" xml:space="preserve">
-    <value>Graphiques</value>
-    <comment>VPS</comment>
-  </data>
-  <data name="ChronicMixZone" xml:space="preserve">
-    <value>Zone de pollution chronique</value>
-    <comment>VPSI VPSR</comment>
-  </data>
-  <data name="DiffuserInformation" xml:space="preserve">
-    <value>Information de l'émissaire</value>
-    <comment>VPL VPSI VPSR</comment>
-  </data>
-  <data name="False" xml:space="preserve">
-    <value>Faux</value>
-    <comment>VPSI</comment>
-  </data>
-  <data name="Input" xml:space="preserve">
-    <value>Données</value>
-    <comment>VPS</comment>
-  </data>
-  <data name="NoResultsYet" xml:space="preserve">
-    <value>Pas encore de résultats</value>
-    <comment>VPSR VPSRR VPSCR</comment>
-  </data>
-  <data name="PollutantDecayRate" xml:space="preserve">
-    <value>Taux de décroissance du polluant</value>
-    <comment>VPSI VPSEA</comment>
-  </data>
-  <data name="RawResults" xml:space="preserve">
-    <value>Résultats Bruts</value>
-    <comment>VPS</comment>
-  </data>
-  <data name="Results" xml:space="preserve">
-    <value>Résultats</value>
-    <comment>VPS</comment>
-  </data>
-  <data name="ReturnToVPList" xml:space="preserve">
-    <value>Retour à la liste de scénarios Visual Plumes</value>
-    <comment>VPS</comment>
-  </data>
-  <data name="ReturnVPScenarioList" xml:space="preserve">
-    <value>Veuillez créer un nouveau scénario avec Visual Plumes et revenir consulter la page de résultats.</value>
-    <comment>VPSR VPSRR VPSCR</comment>
-  </data>
-  <data name="ScenarioName" xml:space="preserve">
-    <value>Nom du scénario</value>
-    <comment>VPSR</comment>
-  </data>
-  <data name="ShowGraphicFuture" xml:space="preserve">
-    <value>Un graphique ... prochainement.</value>
-    <comment>VPSCR</comment>
-  </data>
-  <data name="Submit" xml:space="preserve">
-    <value>Soumettre</value>
-    <comment>VPS</comment>
-  </data>
-  <data name="True" xml:space="preserve">
-    <value>Vrai</value>
-    <comment>VPSI</comment>
-  </data>
-  <data name="UseAsBest" xml:space="preserve">
-    <value>Meilleur scénario</value>
-    <comment>VPSI VPSR</comment>
-  </data>
-  <data name="Refresh" xml:space="preserve">
-    <value>Rafraichir</value>
-    <comment>VPL</comment>
-  </data>
-  <data name="Working" xml:space="preserve">
-    <value>en traitement ...</value>
-    <comment>VPL</comment>
   </data>
   <data name="AmbientInformation" xml:space="preserve">
     <value>Information du milieu ambiant</value>
-    <comment>VPSEA</comment>
+  </data>
+  <data name="AmbientSalinity" xml:space="preserve">
+    <value>Salinité ambiante</value>
+  </data>
+  <data name="AmbientTemperature" xml:space="preserve">
+    <value>Température ambiante</value>
+  </data>
+  <data name="AtDepth" xml:space="preserve">
+    <value>À une profondeur de</value>
   </data>
   <data name="BackgroundConcentration" xml:space="preserve">
     <value>Concentration de fond</value>
-    <comment>VPA VPSI VPSEA</comment>
+  </data>
+  <data name="Charts" xml:space="preserve">
+    <value>Graphiques</value>
+  </data>
+  <data name="ChronicMixZone" xml:space="preserve">
+    <value>Zone de pollution chronique</value>
   </data>
   <data name="Concentration" xml:space="preserve">
     <value>Concentration</value>
-    <comment>VPL</comment>
   </data>
-  <data name="Edit" xml:space="preserve">
-    <value>Éditer</value>
-    <comment>VPL</comment>
+  <data name="Copy" xml:space="preserve">
+    <value>Copier</value>
   </data>
-  <data name="EffluentConcentration" xml:space="preserve">
-    <value>Concentration de l'effluent</value>
-    <comment>VPSI VPSR</comment>
+  <data name="CurrentDirection" xml:space="preserve">
+    <value>Direction du courant</value>
   </data>
-  <data name="HorizontalAngle" xml:space="preserve">
-    <value>Angle horizontal</value>
-    <comment>VPL VPSI VPSR</comment>
+  <data name="CurrentSpeed" xml:space="preserve">
+    <value>Vitesse du courant</value>
   </data>
-  <data name="Details" xml:space="preserve">
-    <value>Détails</value>
-    <comment>VPL</comment>
+  <data name="DecayRate" xml:space="preserve">
+    <value>Taux de décroissance</value>
   </data>
-  <data name="NotUsed" xml:space="preserve">
-    <value>inutilisé</value>
-    <comment>VPSEA</comment>
+  <data name="Delete" xml:space="preserve">
+    <value>Supprimer</value>
+  </data>
+  <data name="Depth" xml:space="preserve">
+    <value>Profondeur</value>
   </data>
   <data name="DepthCap" xml:space="preserve">
     <value>Profondeur</value>
-    <comment>VPA  VPSEA</comment>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Détails</value>
+  </data>
+  <data name="DiffuserInformation" xml:space="preserve">
+    <value>Information de l'émissaire</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Modifier</value>
+  </data>
+  <data name="EffluentConcentration" xml:space="preserve">
+    <value>Concentration de l'effluent</value>
+  </data>
+  <data name="EffluentFlow" xml:space="preserve">
+    <value>Débit de l'effluent</value>
+  </data>
+  <data name="EffluentSalinity" xml:space="preserve">
+    <value>Salinité de l'effluent</value>
+  </data>
+  <data name="EffluentTemperature" xml:space="preserve">
+    <value>Température de l'effluent</value>
+  </data>
+  <data name="FALSE" xml:space="preserve">
+    <value>Faux</value>
+  </data>
+  <data name="FarFieldCurrentDirection" xml:space="preserve">
+    <value>Direction du courant en champ éloigné</value>
+  </data>
+  <data name="FarFieldCurrentSpeed" xml:space="preserve">
+    <value>Vitesse du courant en champ éloigné</value>
+  </data>
+  <data name="FarFieldDiffusionCoefficient" xml:space="preserve">
+    <value>Coefficient de diffusion en champ éloigné</value>
+  </data>
+  <data name="HideAmbient" xml:space="preserve">
+    <value>Fermer "milieu ambiant"</value>
+  </data>
+  <data name="HorizontalAngle" xml:space="preserve">
+    <value>Angle horizontal</value>
+  </data>
+  <data name="Input" xml:space="preserve">
+    <value>Données</value>
+  </data>
+  <data name="NoItem" xml:space="preserve">
+    <value>Aucun élément</value>
+  </data>
+  <data name="NoResultsYet" xml:space="preserve">
+    <value>Pas encore de résultats</value>
+  </data>
+  <data name="NotUsed" xml:space="preserve">
+    <value>inutilisé</value>
+  </data>
+  <data name="NumberOfPorts" xml:space="preserve">
+    <value>Nombre d'orifices</value>
+  </data>
+  <data name="PollutantDecayRate" xml:space="preserve">
+    <value>Taux de décroissance du polluant</value>
+  </data>
+  <data name="PortDepth" xml:space="preserve">
+    <value>Profondeur de l'orifice</value>
+  </data>
+  <data name="PortDiameter" xml:space="preserve">
+    <value>Diamètre de l'orifice</value>
+  </data>
+  <data name="PortElevation" xml:space="preserve">
+    <value>Élévation de l'orifice</value>
+  </data>
+  <data name="PortSpacing" xml:space="preserve">
+    <value>Espace entre les orifices</value>
+  </data>
+  <data name="RawResults" xml:space="preserve">
+    <value>Résultats Bruts</value>
+  </data>
+  <data name="Refresh" xml:space="preserve">
+    <value>Rafraichir</value>
+  </data>
+  <data name="Results" xml:space="preserve">
+    <value>Résultats</value>
+  </data>
+  <data name="ReturnToVPList" xml:space="preserve">
+    <value>Retour à la liste de scénarios Visual Plumes</value>
+  </data>
+  <data name="ReturnVPScenarioList" xml:space="preserve">
+    <value>Veuillez créer un nouveau scénario avec Visual Plumes et revenir consulter la page de résultats.</value>
+  </data>
+  <data name="ScenarioName" xml:space="preserve">
+    <value>Nom du scénario</value>
+  </data>
+  <data name="ShowAmbient" xml:space="preserve">
+    <value>Ouvrir "milieu ambiant"</value>
+  </data>
+  <data name="ShowGraphicFuture" xml:space="preserve">
+    <value>Un graphique ... prochainement.</value>
+  </data>
+  <data name="Submit" xml:space="preserve">
+    <value>Soumettre</value>
+  </data>
+  <data name="TRUE" xml:space="preserve">
+    <value>Vrai</value>
+  </data>
+  <data name="UseAsBest" xml:space="preserve">
+    <value>Meilleur scénario</value>
+  </data>
+  <data name="VerticalAngle" xml:space="preserve">
+    <value>Angle vertical</value>
+  </data>
+  <data name="view" xml:space="preserve">
+    <value>Montrer</value>
+  </data>
+  <data name="Working" xml:space="preserve">
+    <value>en traitement ...</value>
   </data>
 </root>

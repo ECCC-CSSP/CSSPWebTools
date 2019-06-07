@@ -19,7 +19,6 @@
             <form class="GenerateReport" method="post" role="form" action="Document/DocumentGenerateJSON">
                 @Html.AntiForgeryToken()
                 <fieldset>
-                    <legend><span>@DocumentViewRes.Parameters</span></legend>
                     <input type="hidden" name="TVItemID" value="@TVItemID" />
                     <input type="hidden" name="ReportTypeID" value="@ReportTypeID" />
                     @Parameters(reportTypeModel.UniqueCode)
@@ -44,29 +43,93 @@ else
 }
 
 @helper Parameters(string UniqueCode)
+{
+    switch (UniqueCode)
     {
-        switch (UniqueCode)
-        {
-            case "MikeScenarioBoundaryConditionsKMZ":
-            case "MikeScenarioMeshKMZ":
-            case "MikeScenarioStudyAreaKMZ":
-                {
-                    <span>@DocumentViewRes.NoParameters</span>
-                }
-                break;
-            case "MikeScenarioPollutionLimitKMZ":
-            case "MikeScenarioPollutionAnimationKMZ":
-                {
-                    <div class="form-inline">
-                        <label>
-                            <span>@DocumentViewRes.ContourValues</span>
-                            <input type="text" name="ContourValues" value="14 88" class="form-control">
-                            <span>EX: 14 88 1000</span>
-                        </label>
-                    </div>
-                }
-                break;
-            default:
-                break;
-        }
+        case "MikeScenarioBoundaryConditionsKMZ":
+            {
+                <legend>
+                    <span>@DocumentViewRes.Parameters</span>
+                    <button class="jbHelpDocShowDialog btn btn-link" data-dockey="documentparametersformikescenarioboundaryconditionskmz" data-title="@DocumentViewRes.Parameters @DocumentViewRes.For @DocumentViewRes.BoundaryConditions"><span class="glyphicon glyphicon-info-sign"></span></button>
+                </legend>
+                <span>@DocumentViewRes.NoParameters</span>
+                <button class="jbHelpDocShowDialog btn btn-link" data-dockey="documentmikescenariokmlnoparameters" data-title="@DocumentViewRes.NoParameters"><span class="glyphicon glyphicon-info-sign"></span></button>
+            }
+            break;
+        case "MikeScenarioMeshKMZ":
+            {
+                <legend>
+                    <span>@DocumentViewRes.Parameters</span>
+                    <button class="jbHelpDocShowDialog btn btn-link" data-dockey="documentparametersformikescenariomeshkmz" data-title="@DocumentViewRes.Parameters @DocumentViewRes.For @DocumentViewRes.Mesh"><span class="glyphicon glyphicon-info-sign"></span></button>
+                </legend>
+                <span>@DocumentViewRes.NoParameters</span>
+                <button class="jbHelpDocShowDialog btn btn-link" data-dockey="documentmikescenariokmlnoparameters" data-title="@DocumentViewRes.NoParameters"><span class="glyphicon glyphicon-info-sign"></span></button>
+            }
+            break;
+        case "MikeScenarioStudyAreaKMZ":
+            {
+                <legend>
+                    <span>@DocumentViewRes.Parameters</span>
+                    <button class="jbHelpDocShowDialog btn btn-link" data-dockey="documentparametersformikescenariostudyareakmz" data-title="@DocumentViewRes.Parameters @DocumentViewRes.For @DocumentViewRes.StudyArea"><span class="glyphicon glyphicon-info-sign"></span></button>
+                </legend>
+                <span>@DocumentViewRes.NoParameters</span>
+                <button class="jbHelpDocShowDialog btn btn-link" data-dockey="documentmikescenariokmlnoparameters" data-title="@DocumentViewRes.NoParameters"><span class="glyphicon glyphicon-info-sign"></span></button>
+            }
+            break;
+        case "MikeScenarioPollutionLimitKMZ":
+            {
+                <legend>
+                    <span>@DocumentViewRes.Parameters</span>
+                    <button class="jbHelpDocShowDialog btn btn-link" data-dockey="documentparametersformikescenariopollutionlimitkmz" data-title="@DocumentViewRes.Parameters @DocumentViewRes.For @DocumentViewRes.PollutionLimit"><span class="glyphicon glyphicon-info-sign"></span></button>
+                </legend>
+                <div class="form-inline">
+                    <label>
+                        <span>@DocumentViewRes.ContourValues</span>
+                        <button class="jbHelpDocShowDialog btn btn-link" data-dockey="documentmikescenariokmlcontourvalues" data-title="@DocumentViewRes.ContourValues"><span class="glyphicon glyphicon-info-sign"></span></button>
+                        <input type="text" name="ContourValues" value="14 88" class="form-control">
+                        <span>EX: 14 88 1000</span>
+                    </label>
+                </div>
+            }
+            break;
+        case "MikeScenarioPollutionAnimationKMZ":
+            {
+                <legend>
+                    <span>@DocumentViewRes.Parameters</span>
+                    <button class="jbHelpDocShowDialog btn btn-link" data-dockey="documentparametersformikescenariopollutionanimationkmz" data-title="@DocumentViewRes.Parameters @DocumentViewRes.For @DocumentViewRes.PollutionAnimation "><span class="glyphicon glyphicon-info-sign"></span></button>
+                </legend>
+                <div class="form-inline">
+                    <label>
+                        <span>@DocumentViewRes.ContourValues</span>
+                        <button class="jbHelpDocShowDialog btn btn-link" data-dockey="documentmikescenariokmlcontourvalues" data-title="@DocumentViewRes.ContourValues"><span class="glyphicon glyphicon-info-sign"></span></button>
+                        <input type="text" name="ContourValues" value="14 88" class="form-control">
+                        <span>EX: 14 88 1000</span>
+                    </label>
+                </div>
+            }
+            break;
+        case "MikeScenarioCurrentsAnimationKMZ":
+            {
+                <legend>
+                    <span>@DocumentViewRes.Parameters</span>
+                    <button class="jbHelpDocShowDialog btn btn-link" data-dockey="documentparametersformikescenariocurrentsanimationkmz" data-title="@DocumentViewRes.Parameters @DocumentViewRes.For @DocumentViewRes.CurrentsAnimation"><span class="glyphicon glyphicon-info-sign"></span></button>
+                </legend>
+                <div class="form-inline">
+                    <label>
+                        <span>@DocumentViewRes.GoogleEarthPath</span>
+                        <button class="jbHelpDocShowDialog btn btn-link" data-dockey="documentmikescenariokmlgoogleearthpath" data-title="@DocumentViewRes.GoogleEarthPath"><span class="glyphicon glyphicon-info-sign"></span></button>
+                        <textarea name="GoogleEarthPath" class="form-control"></textarea>
+                        <br />
+                        <span>EX: </span>
+                        <pre>
+&lt;?xml version="1.0" encoding="UTF-8" ?&gt;
+&lt;kml xmlns="http://... etc...
+                        </pre>
+                    </label>
+                </div>
+            }
+            break;
+        default:
+            break;
+    }
 }

@@ -11,6 +11,14 @@ var CSSP;
                     cssp.Dialog.ShowDialogErrorWithCouldNotFind_Within_("form.GenerateReport", "GenerateReportTopDiv");
                     return;
                 }
+                var $GoogleEarthPath = $form.find("textarea[name='GoogleEarthPath']");
+                if ($GoogleEarthPath) {
+                    var TempVal = $GoogleEarthPath.val();
+                    TempVal = TempVal.replace(/</g, "!!!!!");
+                    TempVal = TempVal.replace(/>/g, "@@@@@");
+                    TempVal = TempVal.replace(/,/g, "%%%%%");
+                    $GoogleEarthPath.val(TempVal);
+                }
                 if (!$form.valid || $form.valid()) {
                     var command = $form.attr("action");
                     $.post(cssp.BaseURL + command, $form.serializeArray())

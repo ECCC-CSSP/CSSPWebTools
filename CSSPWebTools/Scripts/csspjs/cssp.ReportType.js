@@ -314,18 +314,18 @@ var CSSP;
                     var command_3 = $form.attr("action");
                     $.post(cssp.BaseURL + command_3, $form.serializeArray())
                         .done(function (ret) {
-                        if (ret.Error != "") {
-                            cssp.Dialog.ShowDialogErrorWithError(ret.Error);
+                        if (ret != "") {
+                            cssp.Dialog.ShowDialogErrorWithError(ret);
                         }
                         else {
                             if (IsAdd) {
-                                cssp.Helper.PageRefresh();
                                 cssp.Dialog.ShowDialogSuccess("Added successfully");
                             }
                             else {
                                 cssp.Dialog.ShowDialogSuccess("Modified successfully");
-                                cssp.ReportType.ReportTypeRelaod($bjs);
+                                //cssp.ReportType.ReportTypeReload($bjs);
                             }
+                            cssp.Helper.PageRefresh();
                         }
                     })
                         .fail(function () {
@@ -452,25 +452,12 @@ var CSSP;
                 var command = "ReportType/ReportTypeDeleteJSON";
                 $.post(cssp.BaseURL + command, { ReportTypeID: ReportTypeID })
                     .done(function (ret) {
-                    if (ret.Error != "") {
-                        cssp.Dialog.ShowDialogErrorWithError(ret.Error);
+                    if (ret != "") {
+                        cssp.Dialog.ShowDialogErrorWithError(ret);
                     }
                     else {
                         cssp.Helper.PageRefresh();
                     }
-                })
-                    .fail(function () {
-                    cssp.Dialog.ShowDialogErrorWithFail(command);
-                });
-            };
-            this.ReportTypeRelaod = function ($bjs) {
-                var TVType = parseInt($bjs.data("tvtype"));
-                var command = "ReportType/_reportTypeList";
-                $.get(cssp.BaseURL + command, {
-                    TVType: TVType,
-                })
-                    .done(function (ret) {
-                    $bjs.closest(".ReportTypeListTopDiv").html(ret);
                 })
                     .fail(function () {
                     cssp.Dialog.ShowDialogErrorWithFail(command);

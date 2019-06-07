@@ -46,17 +46,15 @@ else
 }
 
 @helper Parameters(string UniqueCode)
+{
+    switch (UniqueCode)
     {
-        /**/
-
-        switch (UniqueCode)
-        {
-            case "SubsectorInformationKMZ":
-                {
-                    <span>@DocumentViewRes.NoParameters</span>
-                }
-                break;
-            default:
-                break;
-        }
+        case "SubsectorInformationKMZ":
+            {
+                <span>@DocumentViewRes.NoParameters</span>
+            }
+            break;
+        default:
+            break;
+    }
 }

@@ -117,290 +117,8 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Areas" xml:space="preserve">
-    <value>Régions</value>
-    <comment>TIMI</comment>
-  </data>
-  <data name="AverageFlow" xml:space="preserve">
-    <value>Débit moyen</value>
-    <comment>TIMI</comment>
-  </data>
-  <data name="BoxModels" xml:space="preserve">
-    <value>Box Models</value>
-    <comment>TIMI</comment>
-  </data>
-  <data name="Description" xml:space="preserve">
-    <value>Description</value>
-    <comment>TIMI</comment>
-  </data>
-  <data name="FileSize" xml:space="preserve">
-    <value>Taille du fichier</value>
-    <comment>TIMI</comment>
-  </data>
-  <data name="GeometricMean" xml:space="preserve">
-    <value>Moyenne géométrique</value>
-    <comment>TIMI</comment>
-  </data>
-  <data name="HydroFileSize" xml:space="preserve">
-    <value>Taille du fichier des résultats hydrodynamique</value>
-    <comment>TIMI</comment>
-  </data>
-  <data name="Info" xml:space="preserve">
-    <value>Informations</value>
-    <comment>TIMI</comment>
-  </data>
-  <data name="LiftStations" xml:space="preserve">
-    <value>Postes de pompage</value>
-    <comment>TIMI</comment>
-  </data>
-  <data name="MaxFC" xml:space="preserve">
-    <value>Maximum CF</value>
-    <comment>TIMI</comment>
-  </data>
-  <data name="Median" xml:space="preserve">
-    <value>Médiane</value>
-    <comment>TIMI</comment>
-  </data>
-  <data name="MikeScenarios" xml:space="preserve">
-    <value>Scénarios de Mike </value>
-    <comment>TIMI</comment>
-  </data>
-  <data name="MinFC" xml:space="preserve">
-    <value>Minimum CF</value>
-    <comment>TIMI</comment>
-  </data>
-  <data name="Municipalities" xml:space="preserve">
-    <value>Municipalités</value>
-    <comment>TIMI</comment>
-  </data>
-  <data name="MWQMSites" xml:space="preserve">
-    <value>Sites de SQE</value>
-    <comment>TIMI</comment>
-  </data>
-  <data name="P90" xml:space="preserve">
-    <value>P90</value>
-    <comment>TIMI</comment>
-  </data>
-  <data name="PeakFlow" xml:space="preserve">
-    <value>Débit de pointe</value>
-    <comment>TIMI</comment>
-  </data>
-  <data name="PercentageTotalFlow" xml:space="preserve">
-    <value>Pourcentage du débit total</value>
-    <comment>TIMI</comment>
-  </data>
-  <data name="PolSourceSites" xml:space="preserve">
-    <value>Sites des sources de pollution</value>
-    <comment>TIMI</comment>
-  </data>
-  <data name="PSFCOver260" xml:space="preserve">
-    <value>Pourcentage des échantillons ayant des CF &gt; 260</value>
-    <comment>TIMI</comment>
-  </data>
-  <data name="PSFCOver43" xml:space="preserve">
-    <value>Pourcentage des échantillons ayant des CF &gt; 43</value>
-    <comment>TIMI</comment>
-  </data>
-  <data name="Sectors" xml:space="preserve">
-    <value>Secteurs</value>
-    <comment>TIMI</comment>
-  </data>
-  <data name="Spill" xml:space="preserve">
-    <value>Déversements</value>
-    <comment>TIMI</comment>
-  </data>
-  <data name="Stats" xml:space="preserve">
-    <value>Statistiques</value>
-    <comment>TIMI</comment>
-  </data>
-  <data name="Subsectors" xml:space="preserve">
-    <value>Sous-secteurs</value>
-    <comment>TIMI</comment>
-  </data>
-  <data name="TransFileSize" xml:space="preserve">
-    <value>Taille du fichier des résultats de la pollution</value>
-    <comment>TIMI</comment>
-  </data>
-  <data name="UNSS" xml:space="preserve">
-    <value>Nombre d'échantillons utilisés dans les statistiques</value>
-    <comment>TIMI</comment>
-  </data>
-  <data name="VPScenarios" xml:space="preserve">
-    <value>Scénarios de VP</value>
-    <comment>TIMI</comment>
-  </data>
-  <data name="WWTP" xml:space="preserve">
-    <value>UÉEU</value>
-    <comment>TIMI</comment>
-  </data>
-  <data name="Provinces" xml:space="preserve">
-    <value>Provinces</value>
-    <comment>TIMI</comment>
-  </data>
-  <data name="Modify" xml:space="preserve">
-    <value>Modifier</value>
-    <comment>content, TIAOM</comment>
-  </data>
   <data name="Add" xml:space="preserve">
     <value>Ajouter</value>
-    <comment>TIAOM</comment>
-  </data>
-  <data name="Cancel" xml:space="preserve">
-    <value>Annuler</value>
-    <comment>TIAOM</comment>
-  </data>
-  <data name="Name" xml:space="preserve">
-    <value>Nom</value>
-    <comment>TIAOM</comment>
-  </data>
-  <data name="GeographicCoordinates" xml:space="preserve">
-    <value>Coordonnées géographiques</value>
-    <comment>TIAOM</comment>
-  </data>
-  <data name="Polygon" xml:space="preserve">
-    <value>Polygone</value>
-    <comment>TIAOM</comment>
-  </data>
-  <data name="Path" xml:space="preserve">
-    <value>Trajet</value>
-    <comment>TIAOM</comment>
-  </data>
-  <data name="Move" xml:space="preserve">
-    <value>Déplacer</value>
-    <comment>MTI</comment>
-  </data>
-  <data name="MovingStats" xml:space="preserve">
-    <value>Statistiques mobiles</value>
-    <comment>content</comment>
-  </data>
-  <data name="Samples" xml:space="preserve">
-    <value>Échantillons</value>
-    <comment>MWQMS</comment>
-  </data>
-  <data name="Delete" xml:space="preserve">
-    <value>Supprimer</value>
-    <comment>content</comment>
-  </data>
-  <data name="Empty" xml:space="preserve">
-    <value>vide</value>
-    <comment>TIMI</comment>
-  </data>
-  <data name="Failed" xml:space="preserve">
-    <value>Échec</value>
-    <comment>TIMI</comment>
-  </data>
-  <data name="Good" xml:space="preserve">
-    <value>Succès</value>
-    <comment>TIMI</comment>
-  </data>
-  <data name="LocateOnMap" xml:space="preserve">
-    <value>Localiser sur la carte</value>
-    <comment>content</comment>
-  </data>
-  <data name="Moving" xml:space="preserve">
-    <value>déplacement de</value>
-    <comment>MTI (moving [xyz] under)</comment>
-  </data>
-  <data name="NoDepuration" xml:space="preserve">
-    <value>Aucune épuration</value>
-    <comment>TIMI</comment>
-  </data>
-  <data name="SamplePeriod" xml:space="preserve">
-    <value>Période de l'échantillonage</value>
-    <comment>MTI</comment>
-  </data>
-  <data name="StatsPeriod" xml:space="preserve">
-    <value>Période des statistiques</value>
-    <comment>MTI</comment>
-  </data>
-  <data name="Under" xml:space="preserve">
-    <value>sous</value>
-    <comment>MTI (moving [xyz] under)</comment>
-  </data>
-  <data name="ViewDetails" xml:space="preserve">
-    <value>Montrer les détails</value>
-    <comment>content</comment>
-  </data>
-  <data name="GeographicCoordinatesDescriptionPopOver" xml:space="preserve">
-    <value>GeographicCoordinatesDescriptionPopOver</value>
-  </data>
-  <data name="NameDescriptionPopOver" xml:space="preserve">
-    <value>NameDescriptionPopOver</value>
-  </data>
-  <data name="PathDescriptionPopOver" xml:space="preserve">
-    <value>PathDescriptionPopOver</value>
-  </data>
-  <data name="PolygonDescriptionPopOver" xml:space="preserve">
-    <value>PolygonDescriptionPopOver</value>
-  </data>
-  <data name="AmbientSalinity_PSU" xml:space="preserve">
-    <value>Salinité ambiante (PSU)</value>
-  </data>
-  <data name="AmbientTemperature_C" xml:space="preserve">
-    <value>Temperature ambiante (ºC)</value>
-  </data>
-  <data name="DecayFactorAmplitude" xml:space="preserve">
-    <value>Amplitude du taux de décroissance</value>
-  </data>
-  <data name="DecayFactor_per_day" xml:space="preserve">
-    <value>Taux de décroissance (/day)</value>
-  </data>
-  <data name="DecayIsConstant" xml:space="preserve">
-    <value>Taux de décroissance est constant</value>
-  </data>
-  <data name="EndDateAndTime" xml:space="preserve">
-    <value>Date et heure de fin</value>
-  </data>
-  <data name="ManningNumber" xml:space="preserve">
-    <value>Coefficient Manning</value>
-  </data>
-  <data name="ResultFrequency_min" xml:space="preserve">
-    <value>Fréquence des résultats (minutes)</value>
-  </data>
-  <data name="StartDateAndTime" xml:space="preserve">
-    <value>Date et heure de début</value>
-  </data>
-  <data name="WindDirection_deg" xml:space="preserve">
-    <value>Direction du vent (dégrée)</value>
-  </data>
-  <data name="WindSpeed_km_h" xml:space="preserve">
-    <value>Vitesse du vent (km/h)</value>
-  </data>
-  <data name="PollutionSourceIncluded" xml:space="preserve">
-    <value>Source de pollution inclus</value>
-  </data>
-  <data name="PollutionSourceNotIncluded" xml:space="preserve">
-    <value>Source de pollution non inclus</value>
-  </data>
-  <data name="EndDateAndTimeOfPollution" xml:space="preserve">
-    <value>Date et heure de fin de la pollution</value>
-  </data>
-  <data name="FC" xml:space="preserve">
-    <value>CF</value>
-  </data>
-  <data name="Discharge" xml:space="preserve">
-    <value>Débit</value>
-  </data>
-  <data name="IsContinuous" xml:space="preserve">
-    <value>Est continue</value>
-  </data>
-  <data name="Salinity_PSU" xml:space="preserve">
-    <value>Salinité (PSU)</value>
-  </data>
-  <data name="SourceName" xml:space="preserve">
-    <value>Nom de la source</value>
-  </data>
-  <data name="StartDateAndTimeOfPollution" xml:space="preserve">
-    <value>Date de début et heure de la pollution</value>
-  </data>
-  <data name="Temperature_C" xml:space="preserve">
-    <value>Température (ºC)</value>
-  </data>
-  <data name="ObservationDate" xml:space="preserve">
-    <value>Date d'observation</value>
-  </data>
-  <data name="WrittenDescription" xml:space="preserve">
-    <value>Description écrite</value>
   </data>
   <data name="All" xml:space="preserve">
     <value>Tous</value>
@@ -408,76 +126,319 @@
   <data name="AllSites" xml:space="preserve">
     <value>Tous les sites</value>
   </data>
-  <data name="IsActive" xml:space="preserve">
-    <value>Est actif</value>
+  <data name="AmbientSalinity_PSU" xml:space="preserve">
+    <value>Salinité ambiante (PSU)</value>
   </data>
-  <data name="IsNotActive" xml:space="preserve">
-    <value>Est inactif</value>
-  </data>
-  <data name="SelectedDescription" xml:space="preserve">
-    <value>Description choisi</value>
-  </data>
-  <data name="CurrentlyShowing" xml:space="preserve">
-    <value>Maintenant visible</value>
-  </data>
-  <data name="End" xml:space="preserve">
-    <value>Fin</value>
-  </data>
-  <data name="PollutionDateAndTime" xml:space="preserve">
-    <value>Date et l'heure de la pollution</value>
-  </data>
-  <data name="Start" xml:space="preserve">
-    <value>Début</value>
-  </data>
-  <data name="NoData" xml:space="preserve">
-    <value>Aucune donnée</value>
-  </data>
-  <data name="NotEnoughData" xml:space="preserve">
-    <value>Pas assez de données</value>
-  </data>
-  <data name="Passed" xml:space="preserve">
-    <value>Passable</value>
-  </data>
-  <data name="OrderByDateModified" xml:space="preserve">
-    <value>Ordre par date modifiée</value>
-  </data>
-  <data name="Working" xml:space="preserve">
-    <value>Travail ...</value>
-  </data>
-  <data name="LatestClassification" xml:space="preserve">
-    <value>Dernière classification</value>
-  </data>
-  <data name="MWQMRuns" xml:space="preserve">
-    <value>Tournées</value>
+  <data name="AmbientTemperature_C" xml:space="preserve">
+    <value>Température ambiante (ºC)</value>
   </data>
   <data name="Analysis" xml:space="preserve">
     <value>Analyse</value>
   </data>
-  <data name="Day" xml:space="preserve">
-    <value>Jour</value>
+  <data name="Areas" xml:space="preserve">
+    <value>Régions</value>
   </data>
-  <data name="NumberOfIssues" xml:space="preserve">
-    <value>Numbre d'items</value>
+  <data name="AverageFlow" xml:space="preserve">
+    <value>Débit moyen</value>
+  </data>
+  <data name="BoxModels" xml:space="preserve">
+    <value>Modèles boitiers</value>
+  </data>
+  <data name="ButtonsHelp" xml:space="preserve">
+    <value>Boutons d'aide</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Annuler</value>
+  </data>
+  <data name="CurrentlyShowing" xml:space="preserve">
+    <value>Maintenant visible</value>
   </data>
   <data name="DataSet" xml:space="preserve">
     <value>Ensemble de données</value>
   </data>
-  <data name="Parameters" xml:space="preserve">
-    <value>Paramètres</value>
+  <data name="Day" xml:space="preserve">
+    <value>Jour</value>
+  </data>
+  <data name="DecayFactorAmplitude" xml:space="preserve">
+    <value>Amplitude du taux de décroissance</value>
+  </data>
+  <data name="DecayFactor_per_day" xml:space="preserve">
+    <value>Taux de décroissance (/jour)</value>
+  </data>
+  <data name="DecayIsConstant" xml:space="preserve">
+    <value>Taux de décroissance est constant</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Supprimer</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="DesktopReviewed" xml:space="preserve">
+    <value>Bureau réviser</value>
+  </data>
+  <data name="Discharge" xml:space="preserve">
+    <value>Débit</value>
+  </data>
+  <data name="Empty" xml:space="preserve">
+    <value>vide</value>
+  </data>
+  <data name="End" xml:space="preserve">
+    <value>Fin</value>
+  </data>
+  <data name="EndDateAndTime" xml:space="preserve">
+    <value>Date et heure de fin</value>
+  </data>
+  <data name="EndDateAndTimeOfPollution" xml:space="preserve">
+    <value>Date et heure de fin de la pollution</value>
+  </data>
+  <data name="Failed" xml:space="preserve">
+    <value>Échec</value>
+  </data>
+  <data name="FC" xml:space="preserve">
+    <value>CF</value>
+  </data>
+  <data name="FileSize" xml:space="preserve">
+    <value>Taille du fichier</value>
+  </data>
+  <data name="GeographicCoordinates" xml:space="preserve">
+    <value>Coordonnées géographiques</value>
+  </data>
+  <data name="GeographicCoordinatesDescriptionPopOver" xml:space="preserve">
+    <value>GeographicCoordinatesDescriptionPopOver</value>
+  </data>
+  <data name="GeometricMean" xml:space="preserve">
+    <value>Moyenne géométrique</value>
+  </data>
+  <data name="Good" xml:space="preserve">
+    <value>Succès</value>
+  </data>
+  <data name="HydroFileSize" xml:space="preserve">
+    <value>Taille du fichier des résultats hydrodynamique</value>
+  </data>
+  <data name="Info" xml:space="preserve">
+    <value>Informations</value>
+  </data>
+  <data name="IsActive" xml:space="preserve">
+    <value>Est actif</value>
+  </data>
+  <data name="IsContinuous" xml:space="preserve">
+    <value>Est continue</value>
+  </data>
+  <data name="IsNotActive" xml:space="preserve">
+    <value>Est inactif</value>
   </data>
   <data name="LastSampleDate" xml:space="preserve">
     <value>Date du dernier échantillon</value>
   </data>
+  <data name="LatestClassification" xml:space="preserve">
+    <value>Dernière classification</value>
+  </data>
+  <data name="LiftStations" xml:space="preserve">
+    <value>Postes de pompage</value>
+  </data>
+  <data name="LocateOnMap" xml:space="preserve">
+    <value>Localiser sur la carte</value>
+  </data>
+  <data name="ManningNumber" xml:space="preserve">
+    <value>Coefficient Manning</value>
+  </data>
+  <data name="MaxFC" xml:space="preserve">
+    <value>Maximum CF</value>
+  </data>
+  <data name="Median" xml:space="preserve">
+    <value>Médiane</value>
+  </data>
+  <data name="MikeScenarios" xml:space="preserve">
+    <value>Scénarios de Mike </value>
+  </data>
+  <data name="MinFC" xml:space="preserve">
+    <value>Minimum CF</value>
+  </data>
+  <data name="Modify" xml:space="preserve">
+    <value>Modifier</value>
+  </data>
+  <data name="Move" xml:space="preserve">
+    <value>Déplacer</value>
+  </data>
+  <data name="Moving" xml:space="preserve">
+    <value>déplacement de</value>
+  </data>
+  <data name="MovingStats" xml:space="preserve">
+    <value>Statistiques mobiles</value>
+  </data>
+  <data name="Municipalities" xml:space="preserve">
+    <value>Municipalités</value>
+  </data>
+  <data name="MWQMRuns" xml:space="preserve">
+    <value>Tournées</value>
+  </data>
+  <data name="MWQMSites" xml:space="preserve">
+    <value>Sites de SQE</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Nom</value>
+  </data>
+  <data name="NameDescriptionPopOver" xml:space="preserve">
+    <value>NameDescriptionPopOver</value>
+  </data>
+  <data name="NoData" xml:space="preserve">
+    <value>Aucune donnée</value>
+  </data>
+  <data name="NoDepuration" xml:space="preserve">
+    <value>Aucune épuration</value>
+  </data>
+  <data name="NotEnoughData" xml:space="preserve">
+    <value>Pas assez de données</value>
+  </data>
+  <data name="NumberOfIssues" xml:space="preserve">
+    <value>Nombre d'items</value>
+  </data>
+  <data name="ObservationDate" xml:space="preserve">
+    <value>Date d'observation</value>
+  </data>
+  <data name="OrderByDateModified" xml:space="preserve">
+    <value>Ordre par date modifiée</value>
+  </data>
+  <data name="P90" xml:space="preserve">
+    <value>P90</value>
+  </data>
+  <data name="Parameters" xml:space="preserve">
+    <value>Paramètres</value>
+  </data>
+  <data name="Passed" xml:space="preserve">
+    <value>Passable</value>
+  </data>
+  <data name="Path" xml:space="preserve">
+    <value>Trajet</value>
+  </data>
+  <data name="PathDescriptionPopOver" xml:space="preserve">
+    <value>PathDescriptionPopOver</value>
+  </data>
+  <data name="PeakFlow" xml:space="preserve">
+    <value>Débit de pointe</value>
+  </data>
+  <data name="PercentageTotalFlow" xml:space="preserve">
+    <value>Pourcentage du débit total</value>
+  </data>
+  <data name="PollutionDateAndTime" xml:space="preserve">
+    <value>Date et l'heure de la pollution</value>
+  </data>
+  <data name="PollutionSourceIncluded" xml:space="preserve">
+    <value>Source de pollution inclus</value>
+  </data>
+  <data name="PollutionSourceNotIncluded" xml:space="preserve">
+    <value>Source de pollution non inclus</value>
+  </data>
+  <data name="PolSourceSites" xml:space="preserve">
+    <value>Sites des sources de pollution</value>
+  </data>
+  <data name="Polygon" xml:space="preserve">
+    <value>Polygone</value>
+  </data>
+  <data name="PolygonDescriptionPopOver" xml:space="preserve">
+    <value>PolygonDescriptionPopOver</value>
+  </data>
+  <data name="Precipitation" xml:space="preserve">
+    <value>Précipitations</value>
+  </data>
+  <data name="Provinces" xml:space="preserve">
+    <value>Provinces</value>
+  </data>
+  <data name="PSFCOver260" xml:space="preserve">
+    <value>Pourcentage des échantillons ayant des CF &gt; 260</value>
+  </data>
+  <data name="PSFCOver43" xml:space="preserve">
+    <value>Pourcentage des échantillons ayant des CF &gt; 43</value>
+  </data>
+  <data name="ResultFrequency_min" xml:space="preserve">
+    <value>Fréquence des résultats (minutes)</value>
+  </data>
+  <data name="Salinity" xml:space="preserve">
+    <value>Salinité</value>
+  </data>
+  <data name="Salinity_PSU" xml:space="preserve">
+    <value>Salinité (PSU)</value>
+  </data>
+  <data name="SamplePeriod" xml:space="preserve">
+    <value>Période de l'échantillonnage</value>
+  </data>
+  <data name="Samples" xml:space="preserve">
+    <value>Échantillons</value>
+  </data>
+  <data name="Sectors" xml:space="preserve">
+    <value>Secteurs</value>
+  </data>
+  <data name="SelectedDescription" xml:space="preserve">
+    <value>Description choisi</value>
+  </data>
+  <data name="ShowRunSampleOnMap" xml:space="preserve">
+    <value>Afficher les échantillon de la tournée sur la carte</value>
+  </data>
+  <data name="SourceName" xml:space="preserve">
+    <value>Nom de la source</value>
+  </data>
+  <data name="Spill" xml:space="preserve">
+    <value>Déversements</value>
+  </data>
+  <data name="Start" xml:space="preserve">
+    <value>Début</value>
+  </data>
+  <data name="StartDateAndTime" xml:space="preserve">
+    <value>Date et heure de début</value>
+  </data>
+  <data name="StartDateAndTimeOfPollution" xml:space="preserve">
+    <value>Date de début et heure de la pollution</value>
+  </data>
+  <data name="Stats" xml:space="preserve">
+    <value>Statistiques</value>
+  </data>
+  <data name="StatsPeriod" xml:space="preserve">
+    <value>Période des statistiques</value>
+  </data>
+  <data name="Subsectors" xml:space="preserve">
+    <value>Sous-secteurs</value>
+  </data>
+  <data name="Temperature" xml:space="preserve">
+    <value>Température</value>
+  </data>
+  <data name="Temperature_C" xml:space="preserve">
+    <value>Température (ºC)</value>
+  </data>
+  <data name="TransFileSize" xml:space="preserve">
+    <value>Taille du fichier des résultats de la pollution</value>
+  </data>
+  <data name="Under" xml:space="preserve">
+    <value>sous</value>
+  </data>
+  <data name="UNSS" xml:space="preserve">
+    <value>Nombre d'échantillons utilisés dans les statistiques</value>
+  </data>
+  <data name="ViewDetails" xml:space="preserve">
+    <value>Montrer les détails</value>
+  </data>
+  <data name="VPScenarios" xml:space="preserve">
+    <value>Scénarios de VP</value>
+  </data>
+  <data name="WindDirection_deg" xml:space="preserve">
+    <value>Direction du vent (dégrée)</value>
+  </data>
+  <data name="WindSpeed_km_h" xml:space="preserve">
+    <value>Vitesse du vent (km/h)</value>
+  </data>
   <data name="WithInfrastructure" xml:space="preserve">
-    <value>With Infrastructure</value>
+    <value>Avec une Infrastructure</value>
   </data>
   <data name="WithoutInfrastructure" xml:space="preserve">
-    <value>Without Infrastructure</value>
+    <value>Sans une infrastructure</value>
   </data>
-  <data name="ButtonsHelp" xml:space="preserve">
-    <value>Buttons help (fr)</value>
+  <data name="Working" xml:space="preserve">
+    <value>Travail ...</value>
   </data>
-  <data name="DesktopReviewed" xml:space="preserve">
-    <value>Desktop reviewed (fr)</value>
+  <data name="WrittenDescription" xml:space="preserve">
+    <value>Description écrite</value>
+  </data>
+  <data name="WWTP" xml:space="preserve">
+    <value>UÉEU</value>
   </data>
 </root>

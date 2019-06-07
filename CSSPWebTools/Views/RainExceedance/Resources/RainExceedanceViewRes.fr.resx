@@ -136,7 +136,7 @@
     <value>Cliquer pour ajouter</value>
   </data>
   <data name="ClickToRemove" xml:space="preserve">
-    <value>Cliquer pour enlèver</value>
+    <value>Cliquer pour enlever</value>
   </data>
   <data name="ClimateSitesNotToUse" xml:space="preserve">
     <value>Sites climatiques à ne pas utiliser</value>
@@ -187,10 +187,10 @@
     <value>Notez</value>
   </data>
   <data name="RainExceedance" xml:space="preserve">
-    <value>Excédance de pluie</value>
+    <value>Excédante de pluie</value>
   </data>
   <data name="RainExceedanceEmailDistributionList" xml:space="preserve">
-    <value>Excédance de pluie - liste de distribution courriel</value>
+    <value>Excédante de pluie - liste de distribution courriel</value>
   </data>
   <data name="RainExtreme" xml:space="preserve">
     <value>Pluie extrême</value>

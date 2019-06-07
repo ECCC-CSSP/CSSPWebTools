@@ -117,11 +117,20 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="CanGalPerDay" xml:space="preserve">
+    <value>Gal. Can. / jour</value>
+  </data>
   <data name="Celcius" xml:space="preserve">
-    <value>degrés Celcius</value>
+    <value>degrés Celsius</value>
   </data>
   <data name="Celcius_abbr" xml:space="preserve">
     <value>ºC</value>
+  </data>
+  <data name="Day" xml:space="preserve">
+    <value>jour</value>
+  </data>
+  <data name="Days" xml:space="preserve">
+    <value>jours</value>
   </data>
   <data name="Degrees" xml:space="preserve">
     <value>degrés</value>
@@ -132,11 +141,17 @@
   <data name="FCPer100ml" xml:space="preserve">
     <value>CF/100 ml</value>
   </data>
+  <data name="Hour" xml:space="preserve">
+    <value>heure</value>
+  </data>
   <data name="Hours" xml:space="preserve">
     <value>heures</value>
   </data>
   <data name="Hours_abbr" xml:space="preserve">
     <value>h</value>
+  </data>
+  <data name="KmPerHour" xml:space="preserve">
+    <value>km/h</value>
   </data>
   <data name="m067perS2" xml:space="preserve">
     <value>m067/s&lt;sup&gt;2&lt;/sup&gt;</value>
@@ -146,6 +161,9 @@
   </data>
   <data name="m3PerSecond" xml:space="preserve">
     <value>m&lt;sup&gt;3&lt;/sup&gt;/s</value>
+  </data>
+  <data name="ManningNumber_unit" xml:space="preserve">
+    <value>m&lt;sup&gt;(1/3)&lt;/sup&gt;/s</value>
   </data>
   <data name="Meters" xml:space="preserve">
     <value>mètres</value>
@@ -162,12 +180,35 @@
   <data name="Milliliters_abbr" xml:space="preserve">
     <value>ml</value>
   </data>
+  <data name="Millimeters" xml:space="preserve">
+    <value>millimètres</value>
+  </data>
+  <data name="Millimeters_abr" xml:space="preserve">
+    <value>mm</value>
+  </data>
+  <data name="Minute" xml:space="preserve">
+    <value>minute</value>
+  </data>
+  <data name="Minutes" xml:space="preserve">
+    <value>minutes</value>
+  </data>
+  <data name="MPN_Per100ml_abr" xml:space="preserve">
+    <value>MPN / 100 ml</value>
+  </data>
+  <data name="MPN_Per100_ml_FullName" xml:space="preserve">
+    <value>Numéro le plus probable par 100 ml</value>
+  </data>
   <data name="PerDay" xml:space="preserve">
     <value>/jour</value>
   </data>
+  <data name="PPT" xml:space="preserve">
+    <value>ppt</value>
+  </data>
   <data name="PSU" xml:space="preserve">
     <value>PSU</value>
-    <comment>Practical Salinity Unit</comment>
+  </data>
+  <data name="PSU_FullName" xml:space="preserve">
+    <value>Unité de salinité pratique</value>
   </data>
   <data name="Second" xml:space="preserve">
     <value>seconde</value>
@@ -175,49 +216,13 @@
   <data name="Second_abbr" xml:space="preserve">
     <value>s</value>
   </data>
-  <data name="Days" xml:space="preserve">
-    <value>days</value>
-  </data>
-  <data name="KmPerHour" xml:space="preserve">
-    <value>km/h</value>
-  </data>
-  <data name="ManningNumber_unit" xml:space="preserve">
-    <value>m&lt;sup&gt;(1/3)&lt;/sup&gt;/s</value>
-  </data>
-  <data name="Minutes" xml:space="preserve">
-    <value>minutes</value>
-  </data>
-  <data name="PSU_FullName" xml:space="preserve">
-    <value>Practical Salinity Unit</value>
+  <data name="USGalPerDay" xml:space="preserve">
+    <value>Gal. É-U / jour</value>
   </data>
   <data name="UTC" xml:space="preserve">
     <value>UTC</value>
   </data>
   <data name="UTC_FullName" xml:space="preserve">
     <value>Temps universel coordonné</value>
-  </data>
-  <data name="PPT" xml:space="preserve">
-    <value>ppt</value>
-  </data>
-  <data name="Day" xml:space="preserve">
-    <value>jour</value>
-  </data>
-  <data name="Hour" xml:space="preserve">
-    <value>heure</value>
-  </data>
-  <data name="Minute" xml:space="preserve">
-    <value>minute</value>
-  </data>
-  <data name="Millimeters" xml:space="preserve">
-    <value>millimetres</value>
-  </data>
-  <data name="Millimeters_abr" xml:space="preserve">
-    <value>mm</value>
-  </data>
-  <data name="CanGalPerDay" xml:space="preserve">
-    <value>Gal. Can. / jour</value>
-  </data>
-  <data name="USGalPerDay" xml:space="preserve">
-    <value>Gal. É-U / jour</value>
   </data>
 </root>

@@ -61,11 +61,38 @@ namespace CSSPWebTools.Views.Document.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Annual Review (docx).
+        /// </summary>
+        public static string AnnualReviewDocx {
+            get {
+                return ResourceManager.GetString("AnnualReviewDocx", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Boundary Conditions.
+        /// </summary>
+        public static string BoundaryConditions {
+            get {
+                return ResourceManager.GetString("BoundaryConditions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Contour values.
         /// </summary>
         public static string ContourValues {
             get {
                 return ResourceManager.GetString("ContourValues", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Currents Animation.
+        /// </summary>
+        public static string CurrentsAnimation {
+            get {
+                return ResourceManager.GetString("CurrentsAnimation", resourceCulture);
             }
         }
         
@@ -88,11 +115,47 @@ namespace CSSPWebTools.Views.Document.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to FC Summary Stat (docx).
+        /// </summary>
+        public static string FCSummaryStatDocx {
+            get {
+                return ResourceManager.GetString("FCSummaryStatDocx", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to for.
+        /// </summary>
+        public static string For {
+            get {
+                return ResourceManager.GetString("For", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Generate report with parameters.
         /// </summary>
         public static string GenerateReportWithParameters {
             get {
                 return ResourceManager.GetString("GenerateReportWithParameters", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Google Earth Marker.
+        /// </summary>
+        public static string GoogleEarthMarker {
+            get {
+                return ResourceManager.GetString("GoogleEarthMarker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Google Earth Path.
+        /// </summary>
+        public static string GoogleEarthPath {
+            get {
+                return ResourceManager.GetString("GoogleEarthPath", resourceCulture);
             }
         }
         
@@ -259,11 +322,29 @@ namespace CSSPWebTools.Views.Document.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Mesh.
+        /// </summary>
+        public static string Mesh {
+            get {
+                return ResourceManager.GetString("Mesh", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No parameters.
         /// </summary>
         public static string NoParameters {
             get {
                 return ResourceManager.GetString("NoParameters", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Parameter at one point.
+        /// </summary>
+        public static string ParameterAtOnePoint {
+            get {
+                return ResourceManager.GetString("ParameterAtOnePoint", resourceCulture);
             }
         }
         
@@ -277,11 +358,47 @@ namespace CSSPWebTools.Views.Document.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Pollution Animation.
+        /// </summary>
+        public static string PollutionAnimation {
+            get {
+                return ResourceManager.GetString("PollutionAnimation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pollution Limit.
+        /// </summary>
+        public static string PollutionLimit {
+            get {
+                return ResourceManager.GetString("PollutionLimit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Re-evaluation (docx).
+        /// </summary>
+        public static string ReEvaluationDocx {
+            get {
+                return ResourceManager.GetString("ReEvaluationDocx", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Report year.
         /// </summary>
         public static string ReportYear {
             get {
                 return ResourceManager.GetString("ReportYear", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Study Area.
+        /// </summary>
+        public static string StudyArea {
+            get {
+                return ResourceManager.GetString("StudyArea", resourceCulture);
             }
         }
         
@@ -309,6 +426,24 @@ namespace CSSPWebTools.Views.Document.Resources {
         public static string SummaryStatisticsOfFCDensitiesTablesParameters {
             get {
                 return ResourceManager.GetString("SummaryStatisticsOfFCDensitiesTablesParameters", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Test Objects (docx).
+        /// </summary>
+        public static string TestObjectsDocx {
+            get {
+                return ResourceManager.GetString("TestObjectsDocx", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Test Objects Parameters.
+        /// </summary>
+        public static string TestObjectsParameters {
+            get {
+                return ResourceManager.GetString("TestObjectsParameters", resourceCulture);
             }
         }
         

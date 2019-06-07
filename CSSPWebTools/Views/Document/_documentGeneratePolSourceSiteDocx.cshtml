@@ -19,10 +19,9 @@
             <form class="GenerateReport" method="post" role="form" action="Document/DocumentGenerateJSON">
                 @Html.AntiForgeryToken()
                 <fieldset>
-                    <legend><span>@DocumentViewRes.Parameters</span></legend>
                     <input type="hidden" name="TVItemID" value="@TVItemID" />
                     <input type="hidden" name="ReportTypeID" value="@ReportTypeID" />
-                    @Parameters()
+                    @Parameters(reportTypeModel.UniqueCode)
                     <div class="form-group">
                         <button class="jbDocumentGenerate btn btn-primary" type="submit">
                             <span class="glyphicon glyphicon-check"></span>
@@ -38,19 +37,38 @@ else
 {
     <ul class="list-unstyled">
         <li>
-            @Parameters()
+            @Parameters(reportTypeModel.UniqueCode)
         </li>
     </ul>
 }
 
-@helper Parameters()
+@helper Parameters(string UniqueCode)
 {
-    <label class="checkbox-inline">
-        <input name="HideTable" type="checkbox" @(!string.IsNullOrWhiteSpace(ViewBag.HideTable) ? "checked=checked" : "") />
-        @DocumentViewRes.HideTable
-    </label>
-    <label class="checkbox-inline">
-        <input name="HideGraphic" type="checkbox" @(!string.IsNullOrWhiteSpace(ViewBag.HideGraphic) ? "checked=checked" : "") />
-        @DocumentViewRes.HideGraphic
-    </label>
-}
+    switch (UniqueCode)
+    {
+        case "StatPolSourceSiteDOCX":
+            {
+                <legend>
+                    <span>@DocumentViewRes.Parameters</span>
+                    <button class="jbHelpDocShowDialog btn btn-link" data-dockey="documentparametersforstatpolsourcesitedocx"
+                            data-title="@DocumentViewRes.Parameters @DocumentViewRes.For aaaaaaaa">
+                        <span class="glyphicon glyphicon-info-sign"></span>
+                    </button>
+                </legend>
+                <div class="form-inline">
+                    <label>
+                        <span>TheYear</span>
+                        <button class="jbHelpDocShowDialog btn btn-link" data-dockey="documentstatpolsourcesitedocxyear" data-title="Year"><span class="glyphicon glyphicon-info-sign"></span></button>
+                        <select name="Year" class="form-control">
+                            @for (int i = 1980; i < DateTime.Now.Year + 1; i++)
+                            {
+                                <option value="@i">@i</option>
+                            }
+                        </select>
+                    </label>
+                </div>
+            }
+            break;
+        default:
+            break;
+    }

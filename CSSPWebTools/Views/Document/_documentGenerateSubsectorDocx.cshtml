@@ -19,19 +19,15 @@
             <form class="GenerateReport" method="post" role="form" action="Document/DocumentGenerateJSON">
                 @Html.AntiForgeryToken()
                 <fieldset>
-                    <legend><span>@DocumentViewRes.Parameters</span></legend>
                     <input type="hidden" name="TVItemID" value="@TVItemID" />
                     <input type="hidden" name="ReportTypeID" value="@ReportTypeID" />
                     @Parameters(reportTypeModel.UniqueCode, ReportTypeID, TVItemID)
-                    @if (reportTypeModel.UniqueCode != "SubsectorMunicipalityDocx")
-                    {
-                        <div class="form-group">
-                            <button class="jbDocumentGenerate btn btn-primary" type="submit">
-                                <span class="glyphicon glyphicon-check"></span>
-                                &nbsp;@DocumentViewRes.GenerateReportWithParameters
-                            </button>
-                        </div>
-                    }
+                    <div class="form-group">
+                        <button class="jbDocumentGenerate btn btn-primary" type="submit">
+                            <span class="glyphicon glyphicon-check"></span>
+                            &nbsp;@DocumentViewRes.GenerateReportWithParameters
+                        </button>
+                    </div>
                 </fieldset>
             </form>
         </li>
@@ -47,233 +43,331 @@ else
 }
 
 @helper Parameters(string UniqueCode, int ReportTypeID, int TVItemID)
+{
+    switch (UniqueCode)
     {
-        switch (UniqueCode)
-        {
-            case "FCSummaryStatDocx":
-                {
+        case "FCSummaryStatDocx":
+            {
+                <legend>
+                    <span>@DocumentViewRes.Parameters</span>
+                    <button class="jbHelpDocShowDialog btn btn-link" data-dockey="documentparametersforfcsummarystatdocx"
+                            data-title="@DocumentViewRes.Parameters @DocumentViewRes.For @DocumentViewRes.FCSummaryStatDocx">
+                        <span class="glyphicon glyphicon-info-sign"></span>
+                    </button>
+                </legend>
+                <div class="form-inline">
+                    <label class="text-nowrap">
+                        <span>@DocumentViewRes.ReportYear</span>
+                        <button class="jbHelpDocShowDialog btn btn-link" data-dockey="documentfcsummarystatdocxyear"
+                                data-title="@DocumentViewRes.FCSummaryStatDocx @DocumentViewRes.ReportYear">
+                            <span class="glyphicon glyphicon-info-sign"></span>
+                        </button>
+                        <select name="Year" class="form-control">
+                            @for (int i = DateTime.Now.Year; i > 1989; i--)
+                            {
+                                <option value="@i" @(i == DateTime.Now.Year ? "selected=selected" : "")>@i.ToString()</option>
+                            }
+                        </select>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                    </label>
+                </div>
+                <p>&nbsp;</p>
+                <div class="form-inline">
+                    <label class="text-nowrap">
+                        <span class="h4">@DocumentViewRes.SummaryStatisticsOfFCDensitiesTablesParameters</span>
+                        <button class="jbHelpDocShowDialog btn btn-link" data-dockey="documentfcsummarystatdocxparameters"
+                                data-title="@DocumentViewRes.FCSummaryStatDocx @DocumentViewRes.Parameters ">
+                            <span class="glyphicon glyphicon-info-sign"></span>
+                        </button>
+                    </label>
+                </div>
+                <blockquote class="h5">
+                    <div class="MWQMAnalysisReportParametersForYearDiv form-inline">
+                        @Html.Action("_mwqmAnalysisReportParameterListForYear", "MWQM", new { TVItemID = TVItemID.ToString(), Year = DateTime.Now.Year })
+                    </div>
                     <div class="form-inline">
                         <label class="text-nowrap">
-                            <span>@DocumentViewRes.ReportYear</span>
-                            <select name="Year" class="form-control">
-                                @for (int i = DateTime.Now.Year; i > 1989; i--)
-                                {
-                                    <option value="@i" @(i == DateTime.Now.Year ? "selected=selected" : "")>@i.ToString()</option>
-                                }
-                            </select>
-                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="checkbox" name="HideAllAllAll" />
+                            <span>&nbsp;&nbsp;@DocumentViewRes.HideAllAllAll &nbsp;&nbsp;</span>
+                        </label>
+                        <label class="text-nowrap">
+                            <input type="checkbox" name="HideWetAllAll" />
+                            <span>&nbsp;&nbsp;@DocumentViewRes.HideWetAllAll &nbsp;&nbsp;</span>
+                        </label>
+                        <label class="text-nowrap">
+                            <input type="checkbox" name="HideDryAllAll" />
+                            <span>&nbsp;&nbsp;@DocumentViewRes.HideDryAllAll &nbsp;&nbsp;</span>
+                        </label>
+                        <label class="text-nowrap">
+                            <input type="checkbox" name="HideClassificationColumn" />
+                            <span>&nbsp;&nbsp;@DocumentViewRes.HideClassificationColumn &nbsp;&nbsp;</span>
+                        </label>
+                        <label class="text-nowrap">
+                            <input type="checkbox" name="HideMaxFCColumn" />
+                            <span>&nbsp;&nbsp;@DocumentViewRes.HideMaxFCColumn &nbsp;&nbsp;</span>
+                        </label>
+                        <label class="text-nowrap">
+                            <input type="checkbox" name="HideOver260Column" />
+                            <span>&nbsp;&nbsp;@DocumentViewRes.HideOver260Column &nbsp;&nbsp;</span>
+                        </label>
+                        <label class="text-nowrap">
+                            <input type="checkbox" name="HideAnalysisColorAndLetterColumn" />
+                            <span>&nbsp;&nbsp;@DocumentViewRes.HideAnalysisColorAndLetterColumn &nbsp;&nbsp;</span>
+                        </label>
+                        <label class="text-nowrap">
+                            <input type="checkbox" name="HideNumberOfRunsUsedByYearGraph" />
+                            <span>&nbsp;&nbsp;@DocumentViewRes.HideNumberOfRunsUsedByYearGraph &nbsp;&nbsp;</span>
+                        </label>
+                        <label class="text-nowrap">
+                            <input type="checkbox" name="HideQueryText" />
+                            <span>&nbsp;&nbsp;@DocumentViewRes.HideQueryText &nbsp;&nbsp;</span>
                         </label>
                     </div>
-                    <p>&nbsp;</p>
+                </blockquote>
+            }
+            break;
+        case "ReEvaluationDocx":
+            {
+                <legend>
+                    <span>@DocumentViewRes.Parameters</span>
+                    <button class="jbHelpDocShowDialog btn btn-link" data-dockey="documentparametersforreevaluationdocx"
+                            data-title="@DocumentViewRes.Parameters @DocumentViewRes.For @DocumentViewRes.ReEvaluationDocx">
+                        <span class="glyphicon glyphicon-info-sign"></span>
+                    </button>
+                </legend>
+                <div class="form-inline">
+                    <label class="text-nowrap">
+                        <span>@DocumentViewRes.ReportYear</span>
+                        <button class="jbHelpDocShowDialog btn btn-link" data-dockey="documentreevaluationdocxyear"
+                                data-title="@DocumentViewRes.ReEvaluationDocx @DocumentViewRes.ReportYear">
+                            <span class="glyphicon glyphicon-info-sign"></span>
+                        </button>
+                        <select name="Year" class="form-control">
+                            @for (int i = DateTime.Now.Year; i > 1989; i--)
+                            {
+                                <option value="@i" @(i == DateTime.Now.Year ? "selected=selected" : "")>@i.ToString()</option>
+                            }
+                        </select>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                    </label>
+                </div>
+                <p>&nbsp;</p>
+                <div class="form-inline">
+                    <label class="text-nowrap">
+                        <span class="h4">@DocumentViewRes.SummaryStatisticsOfFCDensitiesTablesParameters</span>
+                        <button class="jbHelpDocShowDialog btn btn-link" data-dockey="documentreevaluationdocxparameters"
+                                data-title="@DocumentViewRes.ReEvaluationDocx @DocumentViewRes.Parameters">
+                            <span class="glyphicon glyphicon-info-sign"></span>
+                        </button>
+                    </label>
+                </div>
+                <blockquote class="h5">
+                    <div class="MWQMAnalysisReportParametersForYearDiv form-inline">
+                        @Html.Action("_mwqmAnalysisReportParameterListForYear", "MWQM", new { TVItemID = TVItemID.ToString(), Year = DateTime.Now.Year })
+                    </div>
                     <div class="form-inline">
                         <label class="text-nowrap">
-                            <span class="h4">@DocumentViewRes.SummaryStatisticsOfFCDensitiesTablesParameters</span>
+                            <input type="checkbox" name="HideAllAllAll" />
+                            <span>&nbsp;&nbsp;@DocumentViewRes.HideAllAllAll &nbsp;&nbsp;</span>
+                        </label>
+                        <label class="text-nowrap">
+                            <input type="checkbox" name="HideWetAllAll" />
+                            <span>&nbsp;&nbsp;@DocumentViewRes.HideWetAllAll &nbsp;&nbsp;</span>
+                        </label>
+                        <label class="text-nowrap">
+                            <input type="checkbox" name="HideDryAllAll" />
+                            <span>&nbsp;&nbsp;@DocumentViewRes.HideDryAllAll &nbsp;&nbsp;</span>
+                        </label>
+                        <label class="text-nowrap">
+                            <input type="checkbox" name="HideClassificationColumn" />
+                            <span>&nbsp;&nbsp;@DocumentViewRes.HideClassificationColumn &nbsp;&nbsp;</span>
+                        </label>
+                        <label class="text-nowrap">
+                            <input type="checkbox" name="HideMaxFCColumn" />
+                            <span>&nbsp;&nbsp;@DocumentViewRes.HideMaxFCColumn &nbsp;&nbsp;</span>
+                        </label>
+                        <label class="text-nowrap">
+                            <input type="checkbox" name="HideOver260Column" checked="checked" />
+                            <span>&nbsp;&nbsp;@DocumentViewRes.HideOver260Column &nbsp;&nbsp;</span>
+                        </label>
+                        <label class="text-nowrap">
+                            <input type="checkbox" name="HideAnalysisColorAndLetterColumn" checked="checked" />
+                            <span>&nbsp;&nbsp;@DocumentViewRes.HideAnalysisColorAndLetterColumn &nbsp;&nbsp;</span>
+                        </label>
+                        <label class="text-nowrap">
+                            <input type="checkbox" name="HideNumberOfRunsUsedByYearGraph" />
+                            <span>&nbsp;&nbsp;@DocumentViewRes.HideNumberOfRunsUsedByYearGraph &nbsp;&nbsp;</span>
+                        </label>
+                        <label class="text-nowrap">
+                            <input type="checkbox" name="HideQueryText" />
+                            <span>&nbsp;&nbsp;@DocumentViewRes.HideQueryText &nbsp;&nbsp;</span>
                         </label>
                     </div>
-                    <blockquote class="h5">
-                        <div class="MWQMAnalysisReportParametersForYearDiv form-inline">
-                            @Html.Action("_mwqmAnalysisReportParameterListForYear", "MWQM", new { TVItemID = TVItemID.ToString(), Year = DateTime.Now.Year })
-                        </div>
-                        <div class="form-inline">
-                            <label class="text-nowrap">
-                                <input type="checkbox" name="HideAllAllAll" />
-                                <span>&nbsp;&nbsp;@DocumentViewRes.HideAllAllAll &nbsp;&nbsp;</span>
-                            </label>
-                            <label class="text-nowrap">
-                                <input type="checkbox" name="HideWetAllAll" />
-                                <span>&nbsp;&nbsp;@DocumentViewRes.HideWetAllAll &nbsp;&nbsp;</span>
-                            </label>
-                            <label class="text-nowrap">
-                                <input type="checkbox" name="HideDryAllAll" />
-                                <span>&nbsp;&nbsp;@DocumentViewRes.HideDryAllAll &nbsp;&nbsp;</span>
-                            </label>
-                            <label class="text-nowrap">
-                                <input type="checkbox" name="HideClassificationColumn" />
-                                <span>&nbsp;&nbsp;@DocumentViewRes.HideClassificationColumn &nbsp;&nbsp;</span>
-                            </label>
-                            <label class="text-nowrap">
-                                <input type="checkbox" name="HideMaxFCColumn" />
-                                <span>&nbsp;&nbsp;@DocumentViewRes.HideMaxFCColumn &nbsp;&nbsp;</span>
-                            </label>
-                            <label class="text-nowrap">
-                                <input type="checkbox" name="HideOver260Column" />
-                                <span>&nbsp;&nbsp;@DocumentViewRes.HideOver260Column &nbsp;&nbsp;</span>
-                            </label>
-                            <label class="text-nowrap">
-                                <input type="checkbox" name="HideAnalysisColorAndLetterColumn" />
-                                <span>&nbsp;&nbsp;@DocumentViewRes.HideAnalysisColorAndLetterColumn &nbsp;&nbsp;</span>
-                            </label>
-                            <label class="text-nowrap">
-                                <input type="checkbox" name="HideNumberOfRunsUsedByYearGraph" />
-                                <span>&nbsp;&nbsp;@DocumentViewRes.HideNumberOfRunsUsedByYearGraph &nbsp;&nbsp;</span>
-                            </label>
-                            <label class="text-nowrap">
-                                <input type="checkbox" name="HideQueryText" />
-                                <span>&nbsp;&nbsp;@DocumentViewRes.HideQueryText &nbsp;&nbsp;</span>
-                            </label>
-                        </div>
-                    </blockquote>
-                }
-                break;
-            case "ReEvaluationDocx":
-                {
+                </blockquote>
+            }
+            break;
+        case "TestObjectsDocx":
+            {
+                <legend>
+                    <span>@DocumentViewRes.Parameters</span>
+                    <button class="jbHelpDocShowDialog btn btn-link" data-dockey="documentparametersfortestobjectsdocx"
+                            data-title="@DocumentViewRes.Parameters @DocumentViewRes.For @DocumentViewRes.TestObjectsDocx">
+                        <span class="glyphicon glyphicon-info-sign"></span>
+                    </button>
+                </legend>
+                <div class="form-inline">
+                    <label class="text-nowrap">
+                        <span>@DocumentViewRes.ReportYear</span>
+                        <button class="jbHelpDocShowDialog btn btn-link" data-dockey="documenttestobjectsdocxyear"
+                                data-title="@DocumentViewRes.TestObjectsDocx @DocumentViewRes.ReportYear">
+                            <span class="glyphicon glyphicon-info-sign"></span>
+                        </button>
+                        <select name="Year" class="form-control">
+                            @for (int i = DateTime.Now.Year; i > 1989; i--)
+                            {
+                                <option value="@i" @(i == DateTime.Now.Year ? "selected=selected" : "")>@i.ToString()</option>
+                            }
+                        </select>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                    </label>
+                </div>
+                <p>&nbsp;</p>
+                <div class="form-inline">
+                    <label class="text-nowrap">
+                        <span class="h4">@DocumentViewRes.TestObjectsParameters</span>
+                        <button class="jbHelpDocShowDialog btn btn-link" data-dockey="documenttestobjectsdocxparameters"
+                                data-title="@DocumentViewRes.TestObjectsDocx @DocumentViewRes.Parameters">
+                            <span class="glyphicon glyphicon-info-sign"></span>
+                        </button>
+                    </label>
+                </div>
+                <blockquote class="h5">
+                    <div class="MWQMAnalysisReportParametersForYearDiv form-inline">
+                        @Html.Action("_mwqmAnalysisReportParameterListForYear", "MWQM", new { TVItemID = TVItemID.ToString(), Year = DateTime.Now.Year })
+                    </div>
                     <div class="form-inline">
                         <label class="text-nowrap">
-                            <span>@DocumentViewRes.ReportYear</span>
-                            <select name="Year" class="form-control">
-                                @for (int i = DateTime.Now.Year; i > 1989; i--)
-                                {
-                                    <option value="@i" @(i == DateTime.Now.Year ? "selected=selected" : "")>@i.ToString()</option>
-                                }
-                            </select>
-                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="checkbox" name="HideAllAllAll" />
+                            <span>&nbsp;&nbsp;@DocumentViewRes.HideAllAllAll &nbsp;&nbsp;</span>
+                        </label>
+                        <label class="text-nowrap">
+                            <input type="checkbox" name="HideWetAllAll" />
+                            <span>&nbsp;&nbsp;@DocumentViewRes.HideWetAllAll &nbsp;&nbsp;</span>
+                        </label>
+                        <label class="text-nowrap">
+                            <input type="checkbox" name="HideDryAllAll" />
+                            <span>&nbsp;&nbsp;@DocumentViewRes.HideDryAllAll &nbsp;&nbsp;</span>
+                        </label>
+                        <label class="text-nowrap">
+                            <input type="checkbox" name="HideClassificationColumn" />
+                            <span>&nbsp;&nbsp;@DocumentViewRes.HideClassificationColumn &nbsp;&nbsp;</span>
+                        </label>
+                        <label class="text-nowrap">
+                            <input type="checkbox" name="HideMaxFCColumn" />
+                            <span>&nbsp;&nbsp;@DocumentViewRes.HideMaxFCColumn &nbsp;&nbsp;</span>
+                        </label>
+                        <label class="text-nowrap">
+                            <input type="checkbox" name="HideOver260Column" checked="checked" />
+                            <span>&nbsp;&nbsp;@DocumentViewRes.HideOver260Column &nbsp;&nbsp;</span>
+                        </label>
+                        <label class="text-nowrap">
+                            <input type="checkbox" name="HideAnalysisColorAndLetterColumn" checked="checked" />
+                            <span>&nbsp;&nbsp;@DocumentViewRes.HideAnalysisColorAndLetterColumn &nbsp;&nbsp;</span>
+                        </label>
+                        <label class="text-nowrap">
+                            <input type="checkbox" name="HideNumberOfRunsUsedByYearGraph" />
+                            <span>&nbsp;&nbsp;@DocumentViewRes.HideNumberOfRunsUsedByYearGraph &nbsp;&nbsp;</span>
+                        </label>
+                        <label class="text-nowrap">
+                            <input type="checkbox" name="HideQueryText" />
+                            <span>&nbsp;&nbsp;@DocumentViewRes.HideQueryText &nbsp;&nbsp;</span>
                         </label>
                     </div>
-                    <p>&nbsp;</p>
+                </blockquote>
+            }
+            break;
+        case "AnnualReviewDocx":
+            {
+                <legend>
+                    <span>@DocumentViewRes.Parameters</span>
+                    <button class="jbHelpDocShowDialog btn btn-link" data-dockey="documentparametersforannualreviewdocx"
+                            data-title="@DocumentViewRes.Parameters @DocumentViewRes.For @DocumentViewRes.AnnualReviewDocx">
+                        <span class="glyphicon glyphicon-info-sign"></span>
+                    </button>
+                </legend>
+                <div class="form-inline">
+                    <label class="text-nowrap">
+                        <span>@DocumentViewRes.ReportYear</span>
+                        <button class="jbHelpDocShowDialog btn btn-link" data-dockey="documentannualreviewdocxreportyear"
+                                data-title="@DocumentViewRes.AnnualReviewDocx @DocumentViewRes.ReportYear">
+                            <span class="glyphicon glyphicon-info-sign"></span>
+                        </button>
+                        <select name="Year" class="form-control">
+                            @for (int i = DateTime.Now.Year; i > 1989; i--)
+                            {
+                                <option value="@i">@i.ToString()</option>
+                            }
+                        </select>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                    </label>
+                </div>
+                <p>&nbsp;</p>
+                <div class="form-inline">
+                    <label class="text-nowrap">
+                        <span class="h4">@DocumentViewRes.SummaryStatisticsOfFCDensitiesTablesParameters</span>
+                        <button class="jbHelpDocShowDialog btn btn-link" data-dockey="documentreevaluationdocxparameters"
+                                data-title="@DocumentViewRes.ReEvaluationDocx @DocumentViewRes.Parameters">
+                            <span class="glyphicon glyphicon-info-sign"></span>
+                        </button>
+                    </label>
+                </div>
+                <blockquote class="h5">
+                    <div class="MWQMAnalysisReportParametersForYearDiv form-inline">
+                        @Html.Action("_mwqmAnalysisReportParameterListForYear", "MWQM", new { TVItemID = TVItemID.ToString(), Year = DateTime.Now.Year })
+                    </div>
                     <div class="form-inline">
                         <label class="text-nowrap">
-                            <span class="h4">@DocumentViewRes.SummaryStatisticsOfFCDensitiesTablesParameters</span>
+                            <input type="checkbox" name="HideAllAllAll" />
+                            <span>&nbsp;&nbsp;@DocumentViewRes.HideAllAllAll &nbsp;&nbsp;</span>
                         </label>
-                    </div>
-                    <blockquote class="h5">
-                        <div class="MWQMAnalysisReportParametersForYearDiv form-inline">
-                            @Html.Action("_mwqmAnalysisReportParameterListForYear", "MWQM", new { TVItemID = TVItemID.ToString(), Year = DateTime.Now.Year })
-                        </div>
-                        <div class="form-inline">
-                            <label class="text-nowrap">
-                                <input type="checkbox" name="HideAllAllAll" />
-                                <span>&nbsp;&nbsp;@DocumentViewRes.HideAllAllAll &nbsp;&nbsp;</span>
-                            </label>
-                            <label class="text-nowrap">
-                                <input type="checkbox" name="HideWetAllAll" />
-                                <span>&nbsp;&nbsp;@DocumentViewRes.HideWetAllAll &nbsp;&nbsp;</span>
-                            </label>
-                            <label class="text-nowrap">
-                                <input type="checkbox" name="HideDryAllAll" />
-                                <span>&nbsp;&nbsp;@DocumentViewRes.HideDryAllAll &nbsp;&nbsp;</span>
-                            </label>
-                            <label class="text-nowrap">
-                                <input type="checkbox" name="HideClassificationColumn" />
-                                <span>&nbsp;&nbsp;@DocumentViewRes.HideClassificationColumn &nbsp;&nbsp;</span>
-                            </label>
-                            <label class="text-nowrap">
-                                <input type="checkbox" name="HideMaxFCColumn" />
-                                <span>&nbsp;&nbsp;@DocumentViewRes.HideMaxFCColumn &nbsp;&nbsp;</span>
-                            </label>
-                            <label class="text-nowrap">
-                                <input type="checkbox" name="HideOver260Column" checked="checked" />
-                                <span>&nbsp;&nbsp;@DocumentViewRes.HideOver260Column &nbsp;&nbsp;</span>
-                            </label>
-                            <label class="text-nowrap">
-                                <input type="checkbox" name="HideAnalysisColorAndLetterColumn" checked="checked" />
-                                <span>&nbsp;&nbsp;@DocumentViewRes.HideAnalysisColorAndLetterColumn &nbsp;&nbsp;</span>
-                            </label>
-                            <label class="text-nowrap">
-                                <input type="checkbox" name="HideNumberOfRunsUsedByYearGraph" />
-                                <span>&nbsp;&nbsp;@DocumentViewRes.HideNumberOfRunsUsedByYearGraph &nbsp;&nbsp;</span>
-                            </label>
-                            <label class="text-nowrap">
-                                <input type="checkbox" name="HideQueryText" />
-                                <span>&nbsp;&nbsp;@DocumentViewRes.HideQueryText &nbsp;&nbsp;</span>
-                            </label>
-                        </div>
-                    </blockquote>
-                }
-                break;
-            case "TestObjectsDocx":
-                {
-                    <div class="form-inline">
                         <label class="text-nowrap">
-                            <span>@DocumentViewRes.ReportYear</span>
-                            <select name="Year" class="form-control">
-                                @for (int i = DateTime.Now.Year; i > 1989; i--)
-                                {
-                                    <option value="@i" @(i == DateTime.Now.Year ? "selected=selected" : "")>@i.ToString()</option>
-                                }
-                            </select>
-                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="checkbox" name="HideWetAllAll" />
+                            <span>&nbsp;&nbsp;@DocumentViewRes.HideWetAllAll &nbsp;&nbsp;</span>
                         </label>
-                    </div>
-                    <p>&nbsp;</p>
-                    <div class="form-inline">
                         <label class="text-nowrap">
-                            <span class="h4">@DocumentViewRes.SummaryStatisticsOfFCDensitiesTablesParameters</span>
+                            <input type="checkbox" name="HideDryAllAll" />
+                            <span>&nbsp;&nbsp;@DocumentViewRes.HideDryAllAll &nbsp;&nbsp;</span>
                         </label>
-                    </div>
-                    <blockquote class="h5">
-                        <div class="MWQMAnalysisReportParametersForYearDiv form-inline">
-                            @Html.Action("_mwqmAnalysisReportParameterListForYear", "MWQM", new { TVItemID = TVItemID.ToString(), Year = DateTime.Now.Year })
-                        </div>
-                        <div class="form-inline">
-                            <label class="text-nowrap">
-                                <input type="checkbox" name="HideAllAllAll" />
-                                <span>&nbsp;&nbsp;@DocumentViewRes.HideAllAllAll &nbsp;&nbsp;</span>
-                            </label>
-                            <label class="text-nowrap">
-                                <input type="checkbox" name="HideWetAllAll" />
-                                <span>&nbsp;&nbsp;@DocumentViewRes.HideWetAllAll &nbsp;&nbsp;</span>
-                            </label>
-                            <label class="text-nowrap">
-                                <input type="checkbox" name="HideDryAllAll" />
-                                <span>&nbsp;&nbsp;@DocumentViewRes.HideDryAllAll &nbsp;&nbsp;</span>
-                            </label>
-                            <label class="text-nowrap">
-                                <input type="checkbox" name="HideClassificationColumn" />
-                                <span>&nbsp;&nbsp;@DocumentViewRes.HideClassificationColumn &nbsp;&nbsp;</span>
-                            </label>
-                            <label class="text-nowrap">
-                                <input type="checkbox" name="HideMaxFCColumn" />
-                                <span>&nbsp;&nbsp;@DocumentViewRes.HideMaxFCColumn &nbsp;&nbsp;</span>
-                            </label>
-                            <label class="text-nowrap">
-                                <input type="checkbox" name="HideOver260Column" checked="checked" />
-                                <span>&nbsp;&nbsp;@DocumentViewRes.HideOver260Column &nbsp;&nbsp;</span>
-                            </label>
-                            <label class="text-nowrap">
-                                <input type="checkbox" name="HideAnalysisColorAndLetterColumn" checked="checked" />
-                                <span>&nbsp;&nbsp;@DocumentViewRes.HideAnalysisColorAndLetterColumn &nbsp;&nbsp;</span>
-                            </label>
-                            <label class="text-nowrap">
-                                <input type="checkbox" name="HideNumberOfRunsUsedByYearGraph" />
-                                <span>&nbsp;&nbsp;@DocumentViewRes.HideNumberOfRunsUsedByYearGraph &nbsp;&nbsp;</span>
-                            </label>
-                            <label class="text-nowrap">
-                                <input type="checkbox" name="HideQueryText" />
-                                <span>&nbsp;&nbsp;@DocumentViewRes.HideQueryText &nbsp;&nbsp;</span>
-                            </label>
-                        </div>
-                    </blockquote>
-                }
-                break;
-            case "AnnualReviewDocx":
-                {
-                    <div class="form-inline">
                         <label class="text-nowrap">
-                            <span>@DocumentViewRes.ReportYear</span>
-                            <select name="Year" class="form-control">
-                                @for (int i = DateTime.Now.Year; i > 1989; i--)
-                                {
-                                    <option value="@i">@i.ToString()</option>
-                                }
-                            </select>
-                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="checkbox" name="HideClassificationColumn" />
+                            <span>&nbsp;&nbsp;@DocumentViewRes.HideClassificationColumn &nbsp;&nbsp;</span>
                         </label>
-                    </div>
-                }
-                break;
-            case "SubsectorMunicipalityDocx":
-                {
-                    <div class="form-inline">
                         <label class="text-nowrap">
-                            <span>@DocumentViewRes.SubsectorMunicipalityIsASpecialCaseAndShouldNotBeGeneratedByItself</span>
-                            <br />
-                            <span>@DocumentViewRes.SubsectorMunicipalityIsUsedWithinTheReEvaluation</span>
+                            <input type="checkbox" name="HideMaxFCColumn" />
+                            <span>&nbsp;&nbsp;@DocumentViewRes.HideMaxFCColumn &nbsp;&nbsp;</span>
+                        </label>
+                        <label class="text-nowrap">
+                            <input type="checkbox" name="HideOver260Column" checked="checked" />
+                            <span>&nbsp;&nbsp;@DocumentViewRes.HideOver260Column &nbsp;&nbsp;</span>
+                        </label>
+                        <label class="text-nowrap">
+                            <input type="checkbox" name="HideAnalysisColorAndLetterColumn" checked="checked" />
+                            <span>&nbsp;&nbsp;@DocumentViewRes.HideAnalysisColorAndLetterColumn &nbsp;&nbsp;</span>
+                        </label>
+                        <label class="text-nowrap">
+                            <input type="checkbox" name="HideNumberOfRunsUsedByYearGraph" />
+                            <span>&nbsp;&nbsp;@DocumentViewRes.HideNumberOfRunsUsedByYearGraph &nbsp;&nbsp;</span>
+                        </label>
+                        <label class="text-nowrap">
+                            <input type="checkbox" name="HideQueryText" />
+                            <span>&nbsp;&nbsp;@DocumentViewRes.HideQueryText &nbsp;&nbsp;</span>
                         </label>
                     </div>
-                }
-                break;
-            default:
-                break;
-        }
+                </blockquote>
+            }
+            break;
+        default:
+            break;
+    }
 }
 

@@ -119,50 +119,38 @@
   </resheader>
   <data name="Addresses" xml:space="preserve">
     <value>Adresses</value>
-    <comment>p</comment>
   </data>
   <data name="Cancel" xml:space="preserve">
     <value>Annuler</value>
-    <comment>p, PE</comment>
-  </data>
-  <data name="Edit" xml:space="preserve">
-    <value>Éditer</value>
-    <comment>p, PE</comment>
-  </data>
-  <data name="Emails" xml:space="preserve">
-    <value>Courriels</value>
-    <comment>p</comment>
-  </data>
-  <data name="NoData" xml:space="preserve">
-    <value>Aucune donnée</value>
-    <comment>p</comment>
-  </data>
-  <data name="Save" xml:space="preserve">
-    <value>Sauvegarder</value>
-    <comment>PE</comment>
-  </data>
-  <data name="Telephones" xml:space="preserve">
-    <value>Téléphones</value>
-    <comment>p</comment>
   </data>
   <data name="Done" xml:space="preserve">
     <value>Terminé</value>
-    <comment>PE</comment>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Éditer</value>
+  </data>
+  <data name="Emails" xml:space="preserve">
+    <value>Courriels</value>
   </data>
   <data name="FirstName" xml:space="preserve">
     <value>Prénom</value>
-    <comment>PE</comment>
   </data>
   <data name="Initial" xml:space="preserve">
     <value>Initiale</value>
-    <comment>PE</comment>
   </data>
   <data name="LastName" xml:space="preserve">
     <value>Nom</value>
-    <comment>PE</comment>
+  </data>
+  <data name="NoData" xml:space="preserve">
+    <value>Aucune donnée</value>
   </data>
   <data name="Profile" xml:space="preserve">
     <value>Profil</value>
-    <comment>PE</comment>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Sauvegarder</value>
+  </data>
+  <data name="Telephones" xml:space="preserve">
+    <value>Téléphones</value>
   </data>
 </root>

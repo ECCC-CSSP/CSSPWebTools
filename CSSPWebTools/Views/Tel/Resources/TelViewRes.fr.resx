@@ -119,26 +119,20 @@
   </resheader>
   <data name="Add" xml:space="preserve">
     <value>Ajouter</value>
-    <comment>15</comment>
   </data>
   <data name="Delete" xml:space="preserve">
     <value>Supprimer</value>
-    <comment>15</comment>
   </data>
   <data name="Save" xml:space="preserve">
     <value>Sauvegarder</value>
-    <comment>15</comment>
   </data>
   <data name="Telephones" xml:space="preserve">
     <value>Téléphones</value>
-    <comment>15</comment>
   </data>
   <data name="TelNumber" xml:space="preserve">
     <value>Téléphone</value>
-    <comment>15</comment>
   </data>
   <data name="TelType" xml:space="preserve">
     <value>Type de téléphone</value>
-    <comment>15</comment>
   </data>
 </root>
