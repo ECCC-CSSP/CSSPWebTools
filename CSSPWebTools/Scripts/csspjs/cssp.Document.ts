@@ -17,11 +17,13 @@ module CSSP {
 
             if ($GoogleEarthPath) {
                 let TempVal = $GoogleEarthPath.val();
-                TempVal = TempVal.replace(/</g, "!!!!!");
-                TempVal = TempVal.replace(/>/g, "@@@@@");
-                TempVal = TempVal.replace(/,/g, "%%%%%");
+                if (TempVal) {
+                    TempVal = TempVal.replace(/</g, "!!!!!");
+                    TempVal = TempVal.replace(/>/g, "@@@@@");
+                    TempVal = TempVal.replace(/,/g, "%%%%%");
 
-                $GoogleEarthPath.val(TempVal);
+                    $GoogleEarthPath.val(TempVal);
+                }
             }
 
             if (!$form.valid || $form.valid()) {
