@@ -313,6 +313,24 @@ namespace CSSPWebTools.Views.Document.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Latitude.
+        /// </summary>
+        public static string Latitude {
+            get {
+                return ResourceManager.GetString("Latitude", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Longitude.
+        /// </summary>
+        public static string Longitude {
+            get {
+                return ResourceManager.GetString("Longitude", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to MB.
         /// </summary>
         public static string MB {
@@ -349,20 +367,20 @@ namespace CSSPWebTools.Views.Document.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Parameter at one point.
-        /// </summary>
-        public static string ParameterAtOnePoint {
-            get {
-                return ResourceManager.GetString("ParameterAtOnePoint", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Parameters.
         /// </summary>
         public static string Parameters {
             get {
                 return ResourceManager.GetString("Parameters", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Parameters at one point.
+        /// </summary>
+        public static string ParametersAtOnePoint {
+            get {
+                return ResourceManager.GetString("ParametersAtOnePoint", resourceCulture);
             }
         }
         

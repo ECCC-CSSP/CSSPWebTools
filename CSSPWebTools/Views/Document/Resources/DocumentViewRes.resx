@@ -213,8 +213,8 @@
   <data name="NoParameters" xml:space="preserve">
     <value>No parameters</value>
   </data>
-  <data name="ParameterAtOnePoint" xml:space="preserve">
-    <value>Parameter at one point</value>
+  <data name="ParametersAtOnePoint" xml:space="preserve">
+    <value>Parameters at one point</value>
   </data>
   <data name="Parameters" xml:space="preserve">
     <value>Parameters</value>
@@ -251,5 +251,11 @@
   </data>
   <data name="WithFileType" xml:space="preserve">
     <value>with file type</value>
+  </data>
+  <data name="Latitude" xml:space="preserve">
+    <value>Latitude</value>
+  </data>
+  <data name="Longitude" xml:space="preserve">
+    <value>Longitude</value>
   </data>
 </root>

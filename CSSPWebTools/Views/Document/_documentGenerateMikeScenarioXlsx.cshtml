@@ -50,23 +50,24 @@ else
 
     switch (UniqueCode)
     {
-        case "MikeScenarioParameterAtOnePointXLSX":
+        case "MikeScenarioParametersAtOnePointXLSX":
             {
                 <legend>
                     <span>@DocumentViewRes.Parameters</span>
-                    <button class="jbHelpDocShowDialog btn btn-link" data-dockey="documentparametersformikescenarioparameteratonepointxlsx" data-title="@DocumentViewRes.Parameters @DocumentViewRes.For @DocumentViewRes.ParameterAtOnePoint"><span class="glyphicon glyphicon-info-sign"></span></button>
+                    <button class="jbHelpDocShowDialog btn btn-link" data-dockey="documentparametersformikescenarioparametersatonepointxlsx" data-title="@DocumentViewRes.Parameters @DocumentViewRes.For @DocumentViewRes.ParametersAtOnePoint"><span class="glyphicon glyphicon-info-sign"></span></button>
                 </legend>
                 <div class="form-inline">
+                <label>
+                    <span>@DocumentViewRes.Latitude</span>
+                    <button class="jbHelpDocShowDialog btn btn-link" data-dockey="documentmikescenarioxlsxlatitude" data-title="@DocumentViewRes.Latitude"><span class="glyphicon glyphicon-info-sign"></span></button>
+                    <input name="Lat" class="form-control">
+                </label>
+                </div>
+                <div class="form-inline">
                     <label>
-                        <span>@DocumentViewRes.GoogleEarthMarker</span>
-                        <button class="jbHelpDocShowDialog btn btn-link" data-dockey="documentmikescenariokmlgoogleearthmarker" data-title="@DocumentViewRes.GoogleEarthMarker"><span class="glyphicon glyphicon-info-sign"></span></button>
-                        <textarea name="GoogleEarthMarker" class="form-control"></textarea>
-                        <br />
-                        <span>EX: </span>
-                        <pre>
-&lt;?xml version="1.0" encoding="UTF-8" ?&gt;
-&lt;kml xmlns="http://... etc...
-                        </pre>
+                        <span>@DocumentViewRes.Longitude</span>
+                        <button class="jbHelpDocShowDialog btn btn-link" data-dockey="documentmikescenarioxlsxlongitude" data-title="@DocumentViewRes.Longitude"><span class="glyphicon glyphicon-info-sign"></span></button>
+                        <input name="Lng" class="form-control">
                     </label>
                 </div>
             }
