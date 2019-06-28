@@ -10,6 +10,7 @@
     int TVItemID = (int)ViewBag.TVItemID;
     int TVFileTVItemID = (int)ViewBag.TVFileTVItemID;
     ReportTypeModel reportTypeModel = (ReportTypeModel)ViewBag.ReportTypeModel;
+    List<DataPathOfTide> dataPathOfTideList = (List<DataPathOfTide>)ViewBag.DataPathOfTideList;
 }
 
 @if (TVFileTVItemID == 0)
@@ -21,7 +22,7 @@
                 <fieldset>
                     <input type="hidden" name="TVItemID" value="@TVItemID" />
                     <input type="hidden" name="ReportTypeID" value="@ReportTypeID" />
-                    @Parameters(reportTypeModel.UniqueCode)
+                    @Parameters(reportTypeModel.UniqueCode, dataPathOfTideList)
                     <div class="form-group">
                         <button class="jbDocumentGenerate btn btn-primary" type="submit">
                             <span class="glyphicon glyphicon-check"></span>
@@ -37,34 +38,57 @@ else
 {
     <ul class="list-unstyled">
         <li>
-            @Parameters(reportTypeModel.UniqueCode)
+            @Parameters(reportTypeModel.UniqueCode, dataPathOfTideList)
         </li>
     </ul>
 }
 
-@helper Parameters(string UniqueCode)
+@helper Parameters(string UniqueCode, List<DataPathOfTide> dataPathOfTideList)
 {
     switch (UniqueCode)
     {
-        case "StatMunicipalityXLSX":
+        case "MunicipalityHighestAndLowestMonthlyTidesXLSX":
             {
                 <legend>
                     <span>@DocumentViewRes.Parameters</span>
-                    <button class="jbHelpDocShowDialog btn btn-link" data-dockey="documentparametersforstatmunicipalityxlsx"
-                            data-title="@DocumentViewRes.Parameters @DocumentViewRes.For aaaaaaaa">
-                        <span class="glyphicon glyphicon-info-sign"></span>
-                    </button>
+                    <button class="jbHelpDocShowDialog btn btn-link" data-dockey="documentparametersformunicipalityhighestandlowestmonthlytidesxlsx" data-title="@DocumentViewRes.Parameters @DocumentViewRes.For @DocumentViewRes.MunicipalityHighestAndLowestMonthlyTides"><span class="glyphicon glyphicon-info-sign"></span></button>
                 </legend>
                 <div class="form-inline">
                     <label>
-                        <span>TheYear</span>
-                        <button class="jbHelpDocShowDialog btn btn-link" data-dockey="documentstatmunicipalityxlsxyear" data-title="Year"><span class="glyphicon glyphicon-info-sign"></span></button>
-                        <select name="Year" class="form-control">
-                            @for (int i = 1980; i < DateTime.Now.Year + 1; i++)
+                        <span>@DocumentViewRes.WebTideDataSet</span>
+                        <button class="jbHelpDocShowDialog btn btn-link" data-dockey="documenthighestandlowestmonthlytidesxlsxwebtidedata" data-title="@DocumentViewRes.WebTideDataSet"><span class="glyphicon glyphicon-info-sign"></span></button>
+                        <select name="WebTideDataSet" class="form-control">
+                            @foreach (DataPathOfTide dpot in dataPathOfTideList)
                             {
-                                <option value="@i">@i</option>
+                                <option value="@((int)dpot.WebTideDataSet)">@dpot.Text</option>
                             }
                         </select>
+                    </label>
+                </div>
+                <div class="form-inline">
+                    <label>
+                        <span>@DocumentViewRes.Year</span>
+                        <button class="jbHelpDocShowDialog btn btn-link" data-dockey="documenthighestandlowestmonthlytidesxlsxyear" data-title="@DocumentViewRes.Year"><span class="glyphicon glyphicon-info-sign"></span></button>
+                        <select name="Year" class="form-control">
+                            @for (int i = DateTime.Now.Year; i > 1989; i--)
+                            {
+                                <option value="@i" @(i == DateTime.Now.Year ? "selected=selected" : "")>@i.ToString()</option>
+                            }
+                        </select>
+                    </label>
+                </div>
+                <div class="form-inline">
+                    <label>
+                        <span>@DocumentViewRes.Latitude</span>
+                        <button class="jbHelpDocShowDialog btn btn-link" data-dockey="documenthighestandlowestmonthlytidesxlsxlatitude" data-title="@DocumentViewRes.Latitude"><span class="glyphicon glyphicon-info-sign"></span></button>
+                        <input name="Lat" class="form-control">
+                    </label>
+                </div>
+                <div class="form-inline">
+                    <label>
+                        <span>@DocumentViewRes.Longitude</span>
+                        <button class="jbHelpDocShowDialog btn btn-link" data-dockey="documenthighestandlowestmonthlytidesxlsxlongitude" data-title="@DocumentViewRes.Longitude"><span class="glyphicon glyphicon-info-sign"></span></button>
+                        <input name="Lng" class="form-control">
                     </label>
                 </div>
             }
@@ -72,3 +96,4 @@ else
         default:
             break;
     }
+}

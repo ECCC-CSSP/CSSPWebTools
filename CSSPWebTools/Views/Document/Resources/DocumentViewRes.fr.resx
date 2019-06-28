@@ -258,4 +258,13 @@
   <data name="Longitude" xml:space="preserve">
     <value>Longitude</value>
   </data>
+  <data name="MunicipalityHighestAndLowestMonthlyTides" xml:space="preserve">
+    <value>Municipalité: Plus grandes et plus petites marées monsuelles</value>
+  </data>
+  <data name="WebTideDataSet" xml:space="preserve">
+    <value>Données de Web Tide</value>
+  </data>
+  <data name="Year" xml:space="preserve">
+    <value>Année</value>
+  </data>
 </root>

@@ -23,6 +23,7 @@ namespace CSSPWebTools.Controllers
         public DocumentController _DocumentController { get; private set; }
         public TVFileService _TVFileService { get; private set; }
         public ReportTypeService _ReportTypeService { get; private set; }
+        public TideSiteService _TideSiteService { get; private set; }
         public BaseEnumService _BaseEnumService { get; set; }
         #endregion Properties
 
@@ -39,6 +40,7 @@ namespace CSSPWebTools.Controllers
             base.Initialize(requestContext);
             _TVFileService = new TVFileService(LanguageRequest, User);
             _ReportTypeService = new ReportTypeService(LanguageRequest, User);
+            _TideSiteService = new TideSiteService(LanguageRequest, User);
             _BaseEnumService = new BaseEnumService(LanguageRequest);
         }
         #endregion Overrides
@@ -664,11 +666,14 @@ namespace CSSPWebTools.Controllers
             ViewBag.TVItemID = TVItemID;
             ViewBag.TVFileTVItemID = TVFileTVItemID;
             ViewBag.ReportTypeModel = null;
-            ViewBag.HideTable = null;
-            ViewBag.HideGraphic = null;
+            ViewBag.DataPathOfTideList = null;
 
             ReportTypeModel reportTypeModel = _ReportTypeService.GetReportTypeModelWithReportTypeIDDB(ReportTypeID);
             ViewBag.ReportTypeModel = reportTypeModel;
+
+            List<DataPathOfTide> dataPathOfTideList = _TideSiteService.GetTideDataPathsDB();
+
+            ViewBag.DataPathOfTideList = dataPathOfTideList;
 
             if (TVFileTVItemID != 0)
             {
@@ -677,11 +682,6 @@ namespace CSSPWebTools.Controllers
 
                 string Parameters = tvFileModel.Parameters;
                 List<string> ParamValueList = Parameters.Split("|||".ToCharArray(), StringSplitOptions.RemoveEmptyEntries).ToList();
-
-                string HideTable = GetParameters("HideTable", ParamValueList);
-                ViewBag.HideTable = HideTable;
-                string HideGraphic = GetParameters("HideGraphic", ParamValueList);
-                ViewBag.HideGraphic = HideGraphic;
             }
 
             return PartialView();

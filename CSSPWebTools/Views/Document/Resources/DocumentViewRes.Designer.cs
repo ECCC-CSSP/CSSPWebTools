@@ -358,6 +358,15 @@ namespace CSSPWebTools.Views.Document.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Municipality Highest And Lowest Monthly Tides.
+        /// </summary>
+        public static string MunicipalityHighestAndLowestMonthlyTides {
+            get {
+                return ResourceManager.GetString("MunicipalityHighestAndLowestMonthlyTides", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No parameters.
         /// </summary>
         public static string NoParameters {
@@ -475,11 +484,29 @@ namespace CSSPWebTools.Views.Document.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Web Tide Data Set.
+        /// </summary>
+        public static string WebTideDataSet {
+            get {
+                return ResourceManager.GetString("WebTideDataSet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to with file type.
         /// </summary>
         public static string WithFileType {
             get {
                 return ResourceManager.GetString("WithFileType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Year.
+        /// </summary>
+        public static string Year {
+            get {
+                return ResourceManager.GetString("Year", resourceCulture);
             }
         }
     }

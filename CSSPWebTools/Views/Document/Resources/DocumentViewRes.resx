@@ -258,4 +258,13 @@
   <data name="Longitude" xml:space="preserve">
     <value>Longitude</value>
   </data>
+  <data name="MunicipalityHighestAndLowestMonthlyTides" xml:space="preserve">
+    <value>Municipality Highest And Lowest Monthly Tides</value>
+  </data>
+  <data name="WebTideDataSet" xml:space="preserve">
+    <value>Web Tide Data Set</value>
+  </data>
+  <data name="Year" xml:space="preserve">
+    <value>Year</value>
+  </data>
 </root>

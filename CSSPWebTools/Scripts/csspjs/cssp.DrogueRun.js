@@ -1,6 +1,6 @@
 var CSSP;
 (function (CSSP) {
-    var DrogueRun = /** @class */ (function () {
+    var DrogueRun = (function () {
         // Constructor
         function DrogueRun() {
             // Variables
