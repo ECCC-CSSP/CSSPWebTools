@@ -408,6 +408,9 @@
   <data name="RunComment" xml:space="preserve">
     <value>Remarque de la tournée</value>
   </data>
+  <data name="Runs" xml:space="preserve">
+    <value>tournées</value>
+  </data>
   <data name="RunWeatherComment" xml:space="preserve">
     <value>Remarque météo de la tournée</value>
   </data>
@@ -425,6 +428,9 @@
   </data>
   <data name="SampleMatrix" xml:space="preserve">
     <value>Milieu d'échantillonnage</value>
+  </data>
+  <data name="Samples" xml:space="preserve">
+    <value>échantillons</value>
   </data>
   <data name="SampleTime" xml:space="preserve">
     <value>Temps d'échantillonnage</value>

@@ -574,4 +574,10 @@
   <data name="OrZeroIfNotUsed" xml:space="preserve">
     <value>or 0 if not used</value>
   </data>
+  <data name="Samples" xml:space="preserve">
+    <value>Samples</value>
+  </data>
+  <data name="Runs" xml:space="preserve">
+    <value>Runs</value>
+  </data>
 </root>

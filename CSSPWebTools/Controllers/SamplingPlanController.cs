@@ -272,6 +272,8 @@ namespace CSSPWebTools.Controllers
             ViewBag.IsSamplingPlanner = false;
             ViewBag.LabSheetModelList = null;
             ViewBag.SamplingPlanID = SamplingPlanID;
+            ViewBag.LabSheetModelList = null;
+            ViewBag.LabSheetSiteMonitoredCountsList = null;
 
             List<LabSheetModel> labSheetModelList = new List<LabSheetModel>();
 
@@ -297,6 +299,10 @@ namespace CSSPWebTools.Controllers
 
                 labSheetModelList = labSheetService.GetLabSheetModelListWithSamplingPlanIDDB(SamplingPlanID);
                 ViewBag.LabSheetModelList = labSheetModelList;
+
+                List<LabSheetSiteMonitoredCounts> labSheetSiteMonitoredCountsList = labSheetService.GetLabSheetIDListAndCountSamplesWithSamplingPlanIDDB(SamplingPlanID);
+                ViewBag.LabSheetSiteMonitoredCountsList = labSheetSiteMonitoredCountsList;
+
             }
 
             return PartialView();
@@ -387,6 +393,7 @@ namespace CSSPWebTools.Controllers
             ViewBag.MWQMSampleModelList = new List<MWQMSampleModel>();
             ViewBag.SubsectorMWQMSiteModelList = new List<SubsectorMWQMSiteModel>();
             ViewBag.SamplingPlanModel = null;
+            ViewBag.LabSheetSiteMonitoredCountsList = null;
 
             List<LabSheetModelAndA1Sheet> labSheetModelAndA1SheetList = new List<LabSheetModelAndA1Sheet>();
 
@@ -493,6 +500,10 @@ namespace CSSPWebTools.Controllers
 
                     ViewBag.SubsectorMWQMSiteModelList = subsectorMWQMSiteModelList;
                 }
+
+                List<LabSheetSiteMonitoredCounts> labSheetSiteMonitoredCountsList = labSheetService.GetLabSheetIDListAndCountSamplesWithSamplingPlanIDDB(SamplingPlanID);
+                ViewBag.LabSheetSiteMonitoredCountsList = labSheetSiteMonitoredCountsList;
+
             }
 
             return PartialView();

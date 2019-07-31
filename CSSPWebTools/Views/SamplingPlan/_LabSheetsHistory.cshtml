@@ -11,6 +11,7 @@
     bool IsSamplingPlanner = (bool)ViewBag.IsSamplingPlanner;
     int SamplingPlanID = (int)ViewBag.SamplingPlanID;
     List<LabSheetModel> labSheetModelList = (List<LabSheetModel>)ViewBag.LabSheetModelList;
+    List<LabSheetSiteMonitoredCounts> labSheetSiteMonitoredCountsList = (List<LabSheetSiteMonitoredCounts>)ViewBag.LabSheetSiteMonitoredCountsList;
     BaseEnumService _BaseEnumService = new BaseEnumService(ViewBag.Language);
     List<string> SubsectorTVTextList = labSheetModelList.Select(c => c.SubsectorTVText).Distinct().OrderBy(c => c).ToList();
 }
@@ -41,13 +42,30 @@ else
     {
         int countRun = labSheetModelList.Where(c => c.SubsectorTVText == subsectorTVText).Count();
 
+        int TotalSampleCompleted = 0;
+        int SampleByRuns = 0;
+        foreach (LabSheetModel labSheetModel in labSheetModelList.Where(c => c.SubsectorTVText == subsectorTVText).OrderByDescending(c => c.Year).ThenByDescending(c => c.Month).ThenByDescending(c => c.Day))
+        {
+            int count = 0;
+            LabSheetSiteMonitoredCounts labSheetSiteMonitoredCounts = labSheetSiteMonitoredCountsList.Where(c => c.LabSheetID == labSheetModel.LabSheetID).FirstOrDefault();
+
+            if (count == 0)
+            {
+                SampleByRuns = labSheetSiteMonitoredCounts.SamplingPlanSubsectorSiteCount;
+                count += 1;
+            }
+
+            TotalSampleCompleted += labSheetSiteMonitoredCounts.LabSheetSiteRoutineCount;
+        }
         <div class="panel panel-default">
             <div class="panel-heading">
-                <div class="panel-title">@subsectorTVText (@countRun)</div>
+                <div class="panel-title">@subsectorTVText --- @SamplingPlanViewRes.Runs (@countRun) --- @SamplingPlanViewRes.Samples (@TotalSampleCompleted / @((SampleByRuns * 5).ToString()))</div>
             </div>
             <div class="panel-body">
                 @foreach (LabSheetModel labSheetModel in labSheetModelList.Where(c => c.SubsectorTVText == subsectorTVText).OrderByDescending(c => c.Year).ThenByDescending(c => c.Month).ThenByDescending(c => c.Day))
                 {
+                    LabSheetSiteMonitoredCounts labSheetSiteMonitoredCounts = labSheetSiteMonitoredCountsList.Where(c => c.LabSheetID == labSheetModel.LabSheetID).FirstOrDefault();
+
                     string textColor = "text-success";
                     if (labSheetModel.LabSheetStatus == LabSheetStatusEnum.Rejected)
                     {
@@ -57,6 +75,17 @@ else
                     {
                         textColor = "text-primary";
                     }
+
+                    string countTextColor = "text-success";
+                    if (labSheetSiteMonitoredCounts.SamplingPlanSubsectorSiteCount > labSheetSiteMonitoredCounts.LabSheetSiteRoutineCount)
+                    {
+                        countTextColor = "text-danger";
+                    }
+                    else if (labSheetSiteMonitoredCounts.SamplingPlanSubsectorSiteCount > labSheetSiteMonitoredCounts.LabSheetSiteRoutineCount)
+                    {
+                        countTextColor = "text-primary";
+                    }
+
                     DateTime SampleDate = new DateTime(labSheetModel.Year, labSheetModel.Month, labSheetModel.Day);
                     <div class="LabSheetListTop">
                         <span>@SampleDate.ToString("yyyy MMM dd") @(labSheetModel.RunNumber == 1 ? "" : SamplingPlanViewRes.Run + " " + labSheetModel.RunNumber) </span>
@@ -65,6 +94,19 @@ else
                             (@(labSheetModel.LabSheetStatus == LabSheetStatusEnum.Transferred ? SamplingPlanViewRes.PendingApproval : _BaseEnumService.GetEnumText_LabSheetStatusEnum(labSheetModel.LabSheetStatus)))
                             &nbsp;&nbsp;
                         </span>
+                        <span class="@countTextColor">
+                            &nbsp;&nbsp;
+                            (@labSheetSiteMonitoredCounts.LabSheetSiteRoutineCount / @labSheetSiteMonitoredCounts.SamplingPlanSubsectorSiteCount)
+                            &nbsp;&nbsp;
+                        </span>
+                        @if (labSheetSiteMonitoredCounts.LabSheetHasDuplicate)
+                        {
+                            <span>
+                                &nbsp;&nbsp;
+                                (@SamplingPlanViewRes.Duplicate)
+                                &nbsp;&nbsp;
+                            </span>
+                        }
                         @if (labSheetModel.LabSheetStatus == LabSheetStatusEnum.Rejected)
                         {
                             <span class="@textColor">@labSheetModel.RejectReason &nbsp; &nbsp;</span>

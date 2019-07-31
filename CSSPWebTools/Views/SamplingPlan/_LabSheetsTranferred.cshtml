@@ -15,6 +15,7 @@
     LaboratoryEnum lastLaboratory = (LaboratoryEnum)ViewBag.LastLaboratory;
     List<MWQMSampleModel> mwqmSampleModelList = (List<MWQMSampleModel>)ViewBag.MWQMSampleModelList;
     List<SubsectorMWQMSiteModel> subsectorMWQMSiteModelList = (List<SubsectorMWQMSiteModel>)ViewBag.SubsectorMWQMSiteModelList;
+    List<LabSheetSiteMonitoredCounts> labSheetSiteMonitoredCountsList = (List<LabSheetSiteMonitoredCounts>)ViewBag.LabSheetSiteMonitoredCountsList;
     List<string> AllowableTideString = new List<string>() { "HR", "HT", "HF", "MR", "MT", "MF", "LR", "LT", "LF" };
     BaseEnumService _BaseEnumService = new BaseEnumService(ViewBag.Language);
     string textColor = "text-default";
@@ -53,6 +54,8 @@ else
     <div class="panel-group" id="labSheetAccordion" role="tablist" aria-multiselectable="false">
         @foreach (LabSheetModelAndA1Sheet labSheetModelAndA1Sheet in labSheetModelAndA1SheetList)
         {
+            LabSheetSiteMonitoredCounts labSheetSiteMonitoredCounts = labSheetSiteMonitoredCountsList.Where(c => c.LabSheetID == labSheetModelAndA1Sheet.LabSheetModel.LabSheetID).FirstOrDefault();
+
             string SiteNameDup = "";
             LabSheetA1Measurement labSheetA1Measurement2 = labSheetModelAndA1Sheet.LabSheetA1Sheet.LabSheetA1MeasurementList.Where(c => c.SampleType == SampleTypeEnum.DailyDuplicate).FirstOrDefault();
             if (labSheetA1Measurement2 != null)
@@ -79,7 +82,10 @@ else
                 <div class="panel-heading" role="tab" id="@HeadingID">
                     <h4 class="panel-title">
                         <a role="button" data-toggle="collapse" data-parent="#labSheetAccordion" href="#@CollapseID" aria-expanded="false" aria-controls="@CollapseID">
-                            @labSheetModelAndA1Sheet.LabSheetModel.SubsectorTVText --- @SampleDate.ToString("yyyy MMM dd") --- @SamplingPlanViewRes.Run (@labSheetModelAndA1Sheet.LabSheetModel.RunNumber)
+                            @labSheetModelAndA1Sheet.LabSheetModel.SubsectorTVText 
+                            --- @SampleDate.ToString("yyyy MMM dd") 
+                            --- @SamplingPlanViewRes.Run (@labSheetModelAndA1Sheet.LabSheetModel.RunNumber) 
+                            --- @SamplingPlanViewRes.Samples (@labSheetSiteMonitoredCounts.LabSheetSiteRoutineCount / @labSheetSiteMonitoredCounts.SamplingPlanSubsectorSiteCount)
                         </a>
                     </h4>
                 </div>
