@@ -429,6 +429,19 @@ namespace CSSPWebTools.Controllers
             return Json(mwqmSiteSampleStatModelList, JsonRequestBehavior.AllowGet);
         }
 
+        [HttpGet]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public PartialViewResult _mwqmSiteSampleMovingAverageStat(int MWQMSiteTVItemID)
+        {
+            ViewBag.MWQMSiteSampleStatModelList = null;
+
+            List<MWQMSiteSampleFCModel> mwqmSiteSampleStatModelList = _MWQMSiteService.GetMWQMSiteSamplesWithMovingAverageDB(MWQMSiteTVItemID, 30, 5);
+
+            ViewBag.MWQMSiteSampleStatModelList = mwqmSiteSampleStatModelList;
+
+            return PartialView();
+        }
+
         [HttpPost]
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
         public JsonResult PostAddFormMWQMAnalysisReportParameterJSON(FormCollection fc)

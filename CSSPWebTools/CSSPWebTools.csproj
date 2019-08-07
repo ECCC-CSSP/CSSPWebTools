@@ -646,6 +646,7 @@
     <None Include="testing.kml" />
     <Content Include="Scripts\jquery.form.js" />
     <Content Include="Scripts\jquery.form.min.js" />
+    <Content Include="TestImage.html" />
     <Content Include="_Information.html" />
     <Content Include="Images\CSSPWebTools_logo32.png" />
     <Content Include="Images\CSSPWebTools_logo32_name.png" />
@@ -975,6 +976,7 @@
     <Content Include="Views\SubsectorTools\_subsectorMunicipalities.cshtml" />
     <Content Include="Views\HelpDoc\_HelpDocViewAndEdit.cshtml" />
     <Content Include="Views\DrogueRun\_DrogueRunForSubsector.cshtml" />
+    <Content Include="Views\MWQM\_mwqmSiteSampleMovingAverageStat.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

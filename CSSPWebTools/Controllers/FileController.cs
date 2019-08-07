@@ -54,6 +54,21 @@ namespace CSSPWebTools.Controllers
 
         [HttpGet]
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public FileStreamResult ShowImage(int TVFileTVItemID)
+        {
+            TVFileModel tvFileModel = _TVFileService.GetTVFileModelWithTVFileTVItemIDDB(TVFileTVItemID);
+
+            string ServerFileName = _TVFileService.ChoseEDriveOrCDrive(tvFileModel.ServerFilePath + tvFileModel.ServerFileName);
+
+            FileInfo fi = new FileInfo(ServerFileName);
+
+            FileStream fs = fi.Open(FileMode.Open);
+
+            return new FileStreamResult(fs, "image/png");
+        }
+
+        [HttpGet]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
         public FileResult FileDownload(int TVFileTVItemID)
         {
             TVFileModel tvFileModel = _TVFileService.GetTVFileModelWithTVFileTVItemIDDB(TVFileTVItemID);

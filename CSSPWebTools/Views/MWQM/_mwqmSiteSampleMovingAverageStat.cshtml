@@ -1,0 +1,64 @@
+﻿@using CSSPWebTools.Views.Shared.Resources;
+@using CSSPWebTools.Views.MWQM.Resources;
+@using CSSPModelsDLL.Models;
+
+@{
+    List<MWQMSiteSampleFCModel> mwqmSiteSampleStatModelList = (List<MWQMSiteSampleFCModel>)ViewBag.MWQMSiteSampleStatModelList;
+}
+
+    <div>
+        <h3>@MWQMViewRes.StatisticsData</h3>
+        <table style="border: solid black 1px; padding: 5px; text-align: right;">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>FC</th>
+                    <th>Sal</th>
+                    <th>Temp</th>
+                    <th>GM</th>
+                    <th>Med</th>
+                    <th>P90</th>
+                    <th>% over 43</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (MWQMSiteSampleFCModel mwqmSiteSampleFCModel in mwqmSiteSampleStatModelList.OrderByDescending(c => c.SampleDate))
+                {
+                    string textColorFC = "black";
+                    string textColorP90 = "black";
+                    string textColorPercOver43 = "black";
+                    if (mwqmSiteSampleFCModel.FC != null)
+                    {
+                        if (mwqmSiteSampleFCModel.FC > 43)
+                        {
+                            textColorFC = "red";
+                        }
+                    }
+                    if (mwqmSiteSampleFCModel.P90 != null)
+                    {
+                        if (mwqmSiteSampleFCModel.P90 > 43)
+                        {
+                            textColorP90 = "red";
+                        }
+                    }
+                    if (mwqmSiteSampleFCModel.PercOver43 != null)
+                    {
+                        if (mwqmSiteSampleFCModel.PercOver43 > 10)
+                        {
+                            textColorPercOver43 = "red";
+                        }
+                    }
+                <tr>
+                    <td style="padding-right: 5px; border-right: solid black 1px;">@(mwqmSiteSampleFCModel.SampleDate != null ? ((DateTime)mwqmSiteSampleFCModel.SampleDate).ToString("yyyy-MM-dd") : "--")</td>
+                    <td style="padding-right: 5px; border-right: solid black 1px; color: @textColorFC">@(mwqmSiteSampleFCModel.FC != null ? ((int)mwqmSiteSampleFCModel.FC).ToString("F0") : "--")</td>
+                    <td style="padding-right: 5px; border-right: solid black 1px;">@(mwqmSiteSampleFCModel.Sal != null ? ((float)mwqmSiteSampleFCModel.Sal).ToString("F1") : "--")</td>
+                    <td style="padding-right: 5px; border-right: solid black 1px;">@(mwqmSiteSampleFCModel.Temp != null ? ((float)mwqmSiteSampleFCModel.Temp).ToString("F1") : "--")</td>
+                    <td style="padding-right: 5px; border-right: solid black 1px;">@(mwqmSiteSampleFCModel.GeoMean != null ? ((float)mwqmSiteSampleFCModel.GeoMean).ToString("F1") : "--")</td>
+                    <td style="padding-right: 5px; border-right: solid black 1px;">@(mwqmSiteSampleFCModel.Median != null ? ((float)mwqmSiteSampleFCModel.Median).ToString("F1") : "--")</td>
+                    <td style="padding-right: 5px; border-right: solid black 1px; color: @textColorP90">@(mwqmSiteSampleFCModel.P90 != null ? ((float)mwqmSiteSampleFCModel.P90).ToString("F1") : "--")</td>
+                    <td style="padding-right: 5px; border-right: solid black 1px; color: @textColorPercOver43">@(mwqmSiteSampleFCModel.PercOver43 != null ? ((float)mwqmSiteSampleFCModel.PercOver43).ToString("F1") : "--")</td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
