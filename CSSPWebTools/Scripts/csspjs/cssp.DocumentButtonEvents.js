@@ -1341,9 +1341,14 @@ var CSSP;
                                 cssp.ProvinceTools.ProvinceToolsGenerateStats($bjs);
                             }
                             break;
-                        case "jbRainExceedanceAddOrModify":
+                        case "jbRainExceedanceSave":
                             {
                                 cssp.RainExceedance.FormSubmit($bjs);
+                            }
+                            break;
+                        case "jbRainExceedanceShowAddOrModify":
+                            {
+                                cssp.RainExceedance.RainExceedanceShowAddOrModify($bjs);
                             }
                             break;
                         case "jbRegister":

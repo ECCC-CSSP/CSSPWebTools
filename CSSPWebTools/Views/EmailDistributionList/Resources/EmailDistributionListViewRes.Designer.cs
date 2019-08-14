@@ -19,7 +19,7 @@ namespace CSSPWebTools.Views.EmailDistributionList.Resources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class EmailDistributionListViewRes {
@@ -196,6 +196,15 @@ namespace CSSPWebTools.Views.EmailDistributionList.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Email list name.
+        /// </summary>
+        public static string EmailListName {
+            get {
+                return ResourceManager.GetString("EmailListName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Emergency.
         /// </summary>
         public static string Emergency {
@@ -327,15 +336,6 @@ namespace CSSPWebTools.Views.EmailDistributionList.Resources {
         public static string Rainfall {
             get {
                 return ResourceManager.GetString("Rainfall", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Region name.
-        /// </summary>
-        public static string RegionName {
-            get {
-                return ResourceManager.GetString("RegionName", resourceCulture);
             }
         }
         

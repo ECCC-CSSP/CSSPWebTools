@@ -123,11 +123,20 @@
   <data name="AddANewRainExceedance" xml:space="preserve">
     <value>Add a new rain exceedance</value>
   </data>
+  <data name="AfterSavingTheRainExceedanceWithLatLngYouWillBeAbleToSelectClimateSites" xml:space="preserve">
+    <value>After saving the rain exceedance with lat lng, you will be able to select climate sites</value>
+  </data>
   <data name="ApplyToProvince" xml:space="preserve">
     <value>Apply to provinces</value>
   </data>
   <data name="ApplyToSubsector" xml:space="preserve">
     <value>Apply to subsectors</value>
+  </data>
+  <data name="ApproximateLocation" xml:space="preserve">
+    <value>Approximate Location</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
   </data>
   <data name="ClickTheEditButtonToCreateOrModifyRainExceedances" xml:space="preserve">
     <value>Click the edit button to create or modify rain exceedances</value>
@@ -146,6 +155,9 @@
   </data>
   <data name="Copy" xml:space="preserve">
     <value>Copy</value>
+  </data>
+  <data name="CreateNewRainExceedance" xml:space="preserve">
+    <value>Create New Rain Exceedance</value>
   </data>
   <data name="Day" xml:space="preserve">
     <value>Day</value>
@@ -171,6 +183,12 @@
   <data name="LastModified" xml:space="preserve">
     <value>Last modified</value>
   </data>
+  <data name="Lat" xml:space="preserve">
+    <value>Lat</value>
+  </data>
+  <data name="Lng" xml:space="preserve">
+    <value>Lng</value>
+  </data>
   <data name="Modify" xml:space="preserve">
     <value>Modify</value>
   </data>
@@ -186,11 +204,17 @@
   <data name="Note" xml:space="preserve">
     <value>Note</value>
   </data>
+  <data name="OnlyStaffEmailDistributionList" xml:space="preserve">
+    <value>Only Staff Email Distribution List</value>
+  </data>
   <data name="RainExceedance" xml:space="preserve">
     <value>Rain exceedance</value>
   </data>
   <data name="RainExceedanceEmailDistributionList" xml:space="preserve">
     <value>Rain exceedance email distribution list</value>
+  </data>
+  <data name="RainExceedanceName" xml:space="preserve">
+    <value>Rain Exceedance Name</value>
   </data>
   <data name="RainExtreme" xml:space="preserve">
     <value>Rain extreme</value>
@@ -204,13 +228,31 @@
   <data name="Save" xml:space="preserve">
     <value>Save</value>
   </data>
+  <data name="SelectOnlyStaffEmailDistributionList" xml:space="preserve">
+    <value>Select: Only Staff Email Distribution List</value>
+  </data>
+  <data name="SelectStakeholdersEmailDistributionList" xml:space="preserve">
+    <value>Select: Stakeholders Email Distribution List</value>
+  </data>
+  <data name="Show" xml:space="preserve">
+    <value>Show</value>
+  </data>
+  <data name="StakeholdersEmailDistributionList" xml:space="preserve">
+    <value>Stakeholders Email Distribution List</value>
+  </data>
   <data name="StartDate" xml:space="preserve">
     <value>Start date</value>
+  </data>
+  <data name="ToCancelEditJustClickOnGreenEditButton" xml:space="preserve">
+    <value>To cancel edit just click on the green edit button</value>
   </data>
   <data name="Year" xml:space="preserve">
     <value>Year</value>
   </data>
   <data name="YearRound" xml:space="preserve">
     <value>Year round</value>
+  </data>
+  <data name="YouMightHaveToCreateTheEmailDistributionListBeforeContinuing" xml:space="preserve">
+    <value>You might have to create the email distribution list before continuing</value>
   </data>
 </root>

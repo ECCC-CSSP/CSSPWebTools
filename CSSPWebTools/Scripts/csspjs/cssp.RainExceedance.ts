@@ -39,14 +39,44 @@ module CSSP {
                     {
                         rules: {
                             RainMaximum: {
-                                required: true
+                                required: true,
+                                number: true,
+                                range: [0, 500],
                             },
-                            RainExtreme: {
-                                required: true
+                            RainExceedanceName: {
+                                required: true,
+                                maxlength: 200,
                             },
-                            DaysPriorToStart: {
-                                required: false
-                            }
+                            Lat: {
+                                required: true,
+                                number: true,
+                                range: [-90, 90],
+                            },
+                            Lng: {
+                                required: true,
+                                number: true,
+                                range: [-180, 180],
+                            },
+                            StartMonth: {
+                                required: true,
+                                number: true,
+                                range: [1, 12],
+                            },
+                            StartDay: {
+                                required: true,
+                                number: true,
+                                range: [1, 31],
+                            },
+                            EndMonth: {
+                                required: true,
+                                number: true,
+                                range: [1, 12],
+                            },
+                            EndDay: {
+                                required: true,
+                                number: true,
+                                range: [1, 31],
+                            },
                         }
                     });
             });
@@ -91,20 +121,21 @@ module CSSP {
                 $bjs.closest(".RainExceedanceTopDiv").find(".RainExceedanceAdd").removeClass("hidden").addClass("hidden");
             }
         };
-        public RainExceedanceEdit: Function = ($bjs: JQuery): void => {
-            var CountryTVItemID: number = parseInt($bjs.closest("#ViewDiv").data("tvitemid"));
+        public RainExceedanceShowAddOrModify: Function = ($bjs: JQuery): void => {
+            let ParentTVItemID: number = parseInt($bjs.find("#ViewDiv").data("tvitemid"));
+            let RainExceedanceID: number = parseInt($bjs.data("rainexceedanceid"));
             if ($bjs.hasClass("btn-default")) {
                 $bjs.removeClass("btn-default").addClass("btn-success");
-                $bjs.closest(".RainExceedanceItem").find(".RainExceedanceEdit").removeClass("hidden")
+                $bjs.closest(".RainExceedanceItem").find(".RainExceedanceAddOrModifyTop")
                     .html(cssp.GetHTMLVariable("#LayoutVariables", "varInProgress"));
 
                 var command: string = "RainExceedance/_RainExceedanceAddOrModify";
                 $.get(cssp.BaseURL + command, {
-                    CountryTVItemID: CountryTVItemID,
-                    RainExceedanceID: 0,
+                    ParentTVItemID: ParentTVItemID,
+                    RainExceedanceID: RainExceedanceID,
                 }).done((ret) => {
                     if (ret) {
-                        $bjs.closest(".RainExceedanceItem").find(".RainExceedanceEdit").html(ret);
+                        $bjs.closest(".RainExceedanceItem").find(".RainExceedanceAddOrModifyTop").html(ret);
                     }
                     else {
                         cssp.Dialog.ShowDialogErrorWithCouldNotLoad_(command);
@@ -115,10 +146,8 @@ module CSSP {
             }
             else {
                 $bjs.removeClass("btn-success").addClass("btn-default");
-                $bjs.closest(".RainExceedanceItem").find(".RainExceedanceEdit").removeClass("hidden").addClass("hidden");
-                cssp.TVItem.EditCancel($bjs);
+                $bjs.closest(".RainExceedanceItem").find(".RainExceedanceAddOrModifyTop").html("");
             }
         };
-
     }
 }

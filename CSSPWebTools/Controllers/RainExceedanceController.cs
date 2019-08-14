@@ -48,7 +48,7 @@ namespace CSSPWebTools.Controllers
         {
             SetArgs(Q);
             ViewBag.URLModel = urlModel;
-            ViewBag.CountryTVItemID = urlModel.TVItemIDList[0];
+            ViewBag.ParentTVItemID = urlModel.TVItemIDList[0];
             ViewBag.RainExceedanceModelList = null;
 
             TVAuthEnum tvAuth = _TVItemService.GetTVAuthWithTVItemIDAndLoggedInUser(urlModel.TVItemIDList[0], null, null, null);
@@ -57,29 +57,9 @@ namespace CSSPWebTools.Controllers
 
             ViewBag.IsShowMap = (GetURLVarShowEnumStr(URLVarShowEnum.ShowMap) == "0" ? false : true);
 
-
             List<RainExceedanceModel> rainExceedanceModelList = _RainExceedanceService.GetRainExceedanceModelListDB();
 
             ViewBag.RainExceedanceModelList = rainExceedanceModelList;
-
-            return PartialView();
-        }
-
-        [HttpGet]
-        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
-        public PartialViewResult _rainExceedanceEmailDistributionList(string EmailDistributionListIDs)
-        {
-            ViewBag.EmailDistributionListIDs = EmailDistributionListIDs;
-            ViewBag.EmailDistributionListIDList = null;
-            ViewBag.EmailDistributionListModelList = null;
-
-            List<int> emailDistributionListIDList = EmailDistributionListIDs.Split(",".ToCharArray(), StringSplitOptions.RemoveEmptyEntries).ToList().Select(c => int.Parse(c)).ToList();
-
-            ViewBag.EmailDistributionListIDList = emailDistributionListIDList;
-
-            List<EmailDistributionListModel> emailDistributionListModelList = _EmailDistributionListService.GetEmailDistributionListModelListWithEmailDistributionListIDsDB(emailDistributionListIDList);
-
-            ViewBag.EmailDistributionListModelList = emailDistributionListModelList;
 
             return PartialView();
         }
@@ -103,47 +83,22 @@ namespace CSSPWebTools.Controllers
 
         [HttpGet]
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
-        public PartialViewResult _rainExceedanceProvince(string ProvinceTVItemIDs)
-        {
-            ViewBag.ProvinceTVItemIDs = ProvinceTVItemIDs;
-            ViewBag.ProvinceTVItemIDsList = null;
-            ViewBag.TVItemModelList = null;
-
-            List<int> provinceTVItemIDsList = ProvinceTVItemIDs.Split(",".ToCharArray(), StringSplitOptions.RemoveEmptyEntries).ToList().Select(c => int.Parse(c)).ToList();
-
-            List<TVItemModel> tvItemModelList = _TVItemService.GetTVItemModelListWithTVItemIDListDB(provinceTVItemIDsList);
-
-            ViewBag.TVItemModelList = tvItemModelList;
-
-            return PartialView();
-        }
-
-        [HttpGet]
-        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
-        public PartialViewResult _rainExceedanceSubsector(string SubsectorTVItemIDs)
-        {
-            ViewBag.SubsectorTVItemIDs = SubsectorTVItemIDs;
-            ViewBag.SubsectorTVItemIDsList = null;
-            ViewBag.TVItemModelList = null;
-
-            List<int> subsectorTVItemIDsList = SubsectorTVItemIDs.Split(",".ToCharArray(), StringSplitOptions.RemoveEmptyEntries).ToList().Select(c => int.Parse(c)).ToList();
-
-            List<TVItemModel> tvItemModelList = _TVItemService.GetTVItemModelListWithTVItemIDListDB(subsectorTVItemIDsList);
-
-            ViewBag.TVItemModelList = tvItemModelList;
-
-            return PartialView();
-        }
-
-        [HttpGet]
-        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
-        public PartialViewResult _rainExceedanceAddOrModify(int RainExceedanceID)
+        public PartialViewResult _rainExceedanceAddOrModify(int ParentTVItemID, int RainExceedanceID)
         {
             ViewBag.RainExceedanceModel = null;
+            ViewBag.ParentTVItemID = ParentTVItemID;
+            ViewBag.EmailDistributionListModelList = null;
 
-            RainExceedanceModel rainExceedanceModel = _RainExceedanceService.GetRainExceedanceModelWithRainExceedanceIDDB(RainExceedanceID);
+            if (RainExceedanceID != 0)
+            {
+                RainExceedanceModel rainExceedanceModel = _RainExceedanceService.GetRainExceedanceModelWithRainExceedanceIDDB(RainExceedanceID);
 
-            ViewBag.RainExceedanceModel = rainExceedanceModel;
+                ViewBag.RainExceedanceModel = rainExceedanceModel;
+            }
+
+            List<EmailDistributionListModel> emailDistributionListModelList = _EmailDistributionListService.GetEmailDistributionListModelWithParentTVItemIDDB(ParentTVItemID);
+
+            ViewBag.EmailDistributionListModelList = emailDistributionListModelList;
 
             return PartialView();
         }

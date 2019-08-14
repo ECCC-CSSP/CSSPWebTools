@@ -162,6 +162,9 @@
   <data name="EmailDistributionList" xml:space="preserve">
     <value>Liste de distribution de courriel</value>
   </data>
+  <data name="EmailListName" xml:space="preserve">
+    <value>Nom de la liste de courriel</value>
+  </data>
   <data name="Emergency" xml:space="preserve">
     <value>Urgence</value>
   </data>
@@ -206,9 +209,6 @@
   </data>
   <data name="Rainfall" xml:space="preserve">
     <value>Pluie</value>
-  </data>
-  <data name="RegionName" xml:space="preserve">
-    <value>Nom de la région</value>
   </data>
   <data name="Reopening" xml:space="preserve">
     <value>Ré ouvrir</value>

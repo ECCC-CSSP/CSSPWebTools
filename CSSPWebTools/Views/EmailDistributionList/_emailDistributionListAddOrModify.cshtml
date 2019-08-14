@@ -5,7 +5,7 @@
 @using CSSPWebTools.Controllers;
 
 @{
-    int CountryTVItemID = (int)ViewBag.CountryTVItemID;
+    int ParentTVItemID = (int)ViewBag.ParentTVItemID;
     EmailDistributionListModel emailDistributionListModel = (EmailDistributionListModel)ViewBag.EmailDistributionListModel;
 }
 
@@ -18,12 +18,12 @@
             @Html.AntiForgeryToken()
             <fieldset>
                 <input type="hidden" name="EmailDistributionListID" value="@emailDistributionListModel.EmailDistributionListID" />
-                <input type="hidden" name="CountryTVItemID" value="@CountryTVItemID" />
+                <input type="hidden" name="ParentTVItemID" value="@ParentTVItemID" />
                 <div class="form-group">
-                    <label class="control-label" for="RegionName">@EmailDistributionListViewRes.RegionName</label>
+                    <label class="control-label" for="Name">@EmailDistributionListViewRes.EmailListName</label>
                     <div class="form-inline elementSpacing">
                         <span class="form-control-static"></span>
-                        <input autofocus="autofocus" class="form-control" name="RegionName" type="text" id="RegionName" value="@(emailDistributionListModel.RegionName == null ? "" : emailDistributionListModel.RegionName)" />
+                        <input autofocus="autofocus" class="form-control" name="EmailListName" type="text" id="EmailListName" value="@(emailDistributionListModel.EmailListName == null ? "" : emailDistributionListModel.EmailListName)" />
                         <span class="help-block"></span>
                     </div>
                 </div>

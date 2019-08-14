@@ -123,11 +123,20 @@
   <data name="AddANewRainExceedance" xml:space="preserve">
     <value>Ajouter un nouveau dépassement de pluie</value>
   </data>
+  <data name="AfterSavingTheRainExceedanceWithLatLngYouWillBeAbleToSelectClimateSites" xml:space="preserve">
+    <value>Après avoir enregistré le dépassement de pluie avec la latitude, vous pourrez sélectionner des sites climatiques.</value>
+  </data>
   <data name="ApplyToProvince" xml:space="preserve">
     <value>Applicable aux province</value>
   </data>
   <data name="ApplyToSubsector" xml:space="preserve">
     <value>Applicable aux sous-secteurs</value>
+  </data>
+  <data name="ApproximateLocation" xml:space="preserve">
+    <value>Localisation approximative</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Annuler</value>
   </data>
   <data name="ClickTheEditButtonToCreateOrModifyRainExceedances" xml:space="preserve">
     <value>Cliquez sur le bouton d'édition pour créer ou modifier les dépassements de pluie</value>
@@ -146,6 +155,9 @@
   </data>
   <data name="Copy" xml:space="preserve">
     <value>Copier</value>
+  </data>
+  <data name="CreateNewRainExceedance" xml:space="preserve">
+    <value>Créer un nouveau dépassement de pluie</value>
   </data>
   <data name="Day" xml:space="preserve">
     <value>Jour</value>
@@ -171,6 +183,12 @@
   <data name="LastModified" xml:space="preserve">
     <value>Modifié</value>
   </data>
+  <data name="Lat" xml:space="preserve">
+    <value>Lat</value>
+  </data>
+  <data name="Lng" xml:space="preserve">
+    <value>Lng</value>
+  </data>
   <data name="Modify" xml:space="preserve">
     <value>Modifier</value>
   </data>
@@ -186,11 +204,17 @@
   <data name="Note" xml:space="preserve">
     <value>Notez</value>
   </data>
+  <data name="OnlyStaffEmailDistributionList" xml:space="preserve">
+    <value>Liste de distribution par courrier électronique réservée au personnel</value>
+  </data>
   <data name="RainExceedance" xml:space="preserve">
     <value>Excédante de pluie</value>
   </data>
   <data name="RainExceedanceEmailDistributionList" xml:space="preserve">
     <value>Excédante de pluie - liste de distribution courriel</value>
+  </data>
+  <data name="RainExceedanceName" xml:space="preserve">
+    <value>Nom de dépassement de pluie</value>
   </data>
   <data name="RainExtreme" xml:space="preserve">
     <value>Pluie extrême</value>
@@ -204,13 +228,31 @@
   <data name="Save" xml:space="preserve">
     <value>Sauvegarder</value>
   </data>
+  <data name="SelectOnlyStaffEmailDistributionList" xml:space="preserve">
+    <value>Sélectionnez: Liste de distribution du courrier électronique uniquement pour le personnel</value>
+  </data>
+  <data name="SelectStakeholdersEmailDistributionList" xml:space="preserve">
+    <value>Sélectionnez: Liste de distribution du courrier électronique pour les parties prenantes</value>
+  </data>
+  <data name="Show" xml:space="preserve">
+    <value>Montré</value>
+  </data>
+  <data name="StakeholdersEmailDistributionList" xml:space="preserve">
+    <value>Liste de distribution par courrier électronique des parties prenantes</value>
+  </data>
   <data name="StartDate" xml:space="preserve">
     <value>Date de départ</value>
+  </data>
+  <data name="ToCancelEditJustClickOnGreenEditButton" xml:space="preserve">
+    <value>Pour annuler la modification, cliquez simplement sur le bouton de modification vert.</value>
   </data>
   <data name="Year" xml:space="preserve">
     <value>Année</value>
   </data>
   <data name="YearRound" xml:space="preserve">
     <value>A l'année</value>
+  </data>
+  <data name="YouMightHaveToCreateTheEmailDistributionListBeforeContinuing" xml:space="preserve">
+    <value>Vous devrez peut-être créer la liste de distribution par courrier électronique avant de continuer.</value>
   </data>
 </root>

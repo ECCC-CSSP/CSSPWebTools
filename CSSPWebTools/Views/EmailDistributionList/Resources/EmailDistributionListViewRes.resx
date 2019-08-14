@@ -177,11 +177,8 @@
   <data name="Modify" xml:space="preserve">
     <value>Modify</value>
   </data>
-  <data name="Name" xml:space="preserve">
-    <value>Name</value>
-  </data>
-  <data name="RegionName" xml:space="preserve">
-    <value>Region name</value>
+  <data name="EmailListName" xml:space="preserve">
+    <value>Email list name</value>
   </data>
   <data name="ReopeningAllTypes" xml:space="preserve">
     <value>Reopening all types</value>
@@ -239,5 +236,8 @@
   </data>
   <data name="SendEmail" xml:space="preserve">
     <value>Send Email</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Name</value>
   </data>
 </root>

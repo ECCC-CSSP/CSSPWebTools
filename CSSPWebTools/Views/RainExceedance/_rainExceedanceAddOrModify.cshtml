@@ -10,151 +10,220 @@
 @{
     RainExceedanceController rainExceedanceController = (RainExceedanceController)ViewBag.RainExceedanceController;
     RainExceedanceModel rainExceedanceModel = (RainExceedanceModel)ViewBag.RainExceedanceModel;
+    List<EmailDistributionListModel> EmailDistributionListModelList = (List<EmailDistributionListModel>)ViewBag.EmailDistributionListModelList;
+    int ParentTVItemID = (int)ViewBag.ParentTVItemID;
 }
 
-<div class="RainExceedanceEditDiv">
-    <div id="collapseMWQMRunGeneralInformation" class="panel panel-default" aria-labelledby="headingRainExceedance">
-        <div class="panel-heading">
-            <div class="panel-title">
-                @if (rainExceedanceModel.RainExceedanceID == 0)
-                {
-                    <h4>@(DateTime.Now.ToString("yyyy MMMM dd") + " - " + DateTime.Now.AddYears(1).ToString("yyyy MMMM dd"))</h4>
-                }
-                else
-                {
-                    <h4>@((DateTime)rainExceedanceModel.StartDate_Local).ToString("yyyy MMMM dd") - @((DateTime)rainExceedanceModel.StartDate_Local).ToString("yyyy MMMM dd")</h4>
-                }
-            </div>
-        </div>
-        <div class="panel-body">
-            <form class="RainExceedanceAddOrModifyForm" method="post" role="form" action="RainExceedance/RainExceedanceSaveJSON">
-                @Html.AntiForgeryToken()
+<div class="RainExceedanceAddOrModify">
+    <form class="RainExceedanceAddOrModifyForm" method="post" role="form" action="RainExceedance/RainExceedanceSaveJSON">
+        @Html.AntiForgeryToken()
+        <fieldset>
+            <input type="hidden" name="ParentTVItemID" value="@ParentTVItemID" />
+            @if (rainExceedanceModel.RainExceedanceID == 0)
+            {
+                <legend><span>@RainExceedanceViewRes.Add</span></legend>
+                <input type="hidden" name="RainExceedanceID" value="0" />
+            }
+            else
+            {
+                <legend><span>@RainExceedanceViewRes.Modify</span></legend>
                 <input type="hidden" name="RainExceedanceID" value="@rainExceedanceModel.RainExceedanceID" />
-                <fieldset>
-                    @if (rainExceedanceModel.RainExceedanceID == 0)
-                    {
-                        <legend><span>@RainExceedanceViewRes.Add</span></legend>
-                    }
-                    else
-                    {
-                        <legend><span>@RainExceedanceViewRes.Modify</span></legend>
-                    }
-                    <div class="paraBlock">
-                        @* Start Date *@
-                        <label>@RainExceedanceViewRes.StartDate</label>
-                        <div class="blockMargin lineSpaceBottom">
-                            <div class="form-inline">
-                                <div class="form-group  blockRightSpace">
-                                    <label class="control-label"> @RainExceedanceViewRes.Year</label>
-                                    <div>
-                                        <select class="form-control" name="StartDateYear">
-                                            @for (int i = DateTime.Now.Year - 5; i < DateTime.Now.Year + 5; i++)
-                                            {
-                                                <option @((rainExceedanceModel.StartDate_Local != null && ((DateTime)rainExceedanceModel.StartDate_Local).Year == i) ? "selected=selected" : "") value="@i.ToString()">@i.ToString()</option>
-                                            }
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-group  blockRightSpace">
-                                    <label class="control-label">@RainExceedanceViewRes.Month</label>
-                                    <div>
-                                        <select class="form-control" name="StartDateMonth">
-                                            @for (int i = 1; i < 13; i++)
-                                            {
-                                                <option @((rainExceedanceModel.StartDate_Local != null && ((DateTime)rainExceedanceModel.StartDate_Local).Month == i) ? "selected=selected" : "") value="@i.ToString()">@(CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(i))</option>
-                                            }
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-group  blockRightSpace">
-                                    <label class="control-label">@RainExceedanceViewRes.Day</label>
-                                    <div>
-                                        <select class="form-control" name="StartDateDay">
-                                            @{
-                                                int NumberOfDaysInMonth = DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month);
-                                                for (int i = 1; i < NumberOfDaysInMonth + 1; i++)
-                                                {
-                                                    <option @((rainExceedanceModel.StartDate_Local != null && ((DateTime)rainExceedanceModel.StartDate_Local).Day == i ? "selected=selected" : "")) value="@i.ToString()">@i.ToString()</option>
-                                                }
-                                            }
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        @* End Date *@
-                        <label>@RainExceedanceViewRes.EndDate</label>
-                        <div class="blockMargin lineSpaceBottom">
-                            <div class="form-inline">
-                                <div class="form-group  blockRightSpace">
-                                    <label class="control-label"> @RainExceedanceViewRes.Year</label>
-                                    <div>
-                                        <select class="form-control" name="EndDateYear">
-                                            @for (int i = DateTime.Now.Year - 5; i < DateTime.Now.Year + 5; i++)
-                                            {
-                                                <option @((rainExceedanceModel.EndDate_Local != null && ((DateTime)rainExceedanceModel.EndDate_Local).Year == i) ? "selected=selected" : "") value="@i.ToString()">@i.ToString()</option>
-                                            }
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-group  blockRightSpace">
-                                    <label class="control-label">@RainExceedanceViewRes.Month</label>
-                                    <div>
-                                        <select class="form-control" name="EndDateMonth">
-                                            @for (int i = 1; i < 13; i++)
-                                            {
-                                                <option @((rainExceedanceModel.EndDate_Local != null && ((DateTime)rainExceedanceModel.EndDate_Local).Month == i) ? "selected=selected" : "") value="@i.ToString()">@(CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(i))</option>
-                                            }
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-group  blockRightSpace">
-                                    <label class="control-label">@RainExceedanceViewRes.Day</label>
-                                    <div>
-                                        <select class="form-control" name="EndDateDay">
-                                            @{
-                                                int NumberOfDaysInMonth2 = DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month);
-                                                for (int i = 1; i < NumberOfDaysInMonth2 + 1; i++)
-                                                {
-                                                    <option @((rainExceedanceModel.EndDate_Local != null && ((DateTime)rainExceedanceModel.EndDate_Local).Day == i ? "selected=selected" : "")) value="@i.ToString()">@i.ToString()</option>
-                                                }
-                                            }
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        @* Rain Maximum *@
-                        <div class="form-group blockRightSpace">
-                            <label for="RainMaximum" class="control-label">@RainExceedanceViewRes.RainMaximum (@UnitViewRes.Milliliters)</label>
+            }
+            <div class="paraBlock">
+                @* Rain Exceedance Name *@
+                <div class="form-group blockRightSpace">
+                    <label for="RainExceedanceName" class="control-label">@RainExceedanceViewRes.RainExceedanceName</label>
+                    <div>
+                        <input class="form-control" type="text" name="RainExceedanceName" value="@(rainExceedanceModel != null
+                                                        ? rainExceedanceModel.RainExceedanceName : "")" />
+                        <span class="help-block"></span>
+                    </div>
+                </div>
+                <div>
+                    <h4>@RainExceedanceViewRes.YouMightHaveToCreateTheEmailDistributionListBeforeContinuing</h4>
+                </div>
+                @* Stakeholders Email Distribution List*@
+                <div class="form-group  blockRightSpace">
+                    <label class="control-label">@RainExceedanceViewRes.StakeholdersEmailDistributionList</label>
+                    <div>
+                        <select class="form-control" name="StartMonth">
+                            @if (rainExceedanceModel == null)
+                            {
+                                <option @("selected=selected") value="0">@RainExceedanceViewRes.SelectStakeholdersEmailDistributionList</option>
+                            }
+                            else
+                            {
+                                if (rainExceedanceModel.StakeholdersEmailDistributionListID == null)
+                                {
+                                    <option @("selected=selected") value="0">@RainExceedanceViewRes.SelectStakeholdersEmailDistributionList</option>
+                                }
+                                else
+                                {
+                                    foreach (EmailDistributionListModel emailDistributionListModel in EmailDistributionListModelList)
+                                    {
+                                        <option @(rainExceedanceModel.StakeholdersEmailDistributionListID == emailDistributionListModel.EmailDistributionListID ? "selected=selected" : "") value="@emailDistributionListModel.EmailDistributionListID.ToString()">@emailDistributionListModel.EmailListName</option>
+                                    }
+                                }
+                            }
+                        </select>
+                    </div>
+                </div>
+                @* Only Staff Email Distribution List*@
+                <div class="form-group  blockRightSpace">
+                    <label class="control-label">@RainExceedanceViewRes.OnlyStaffEmailDistributionList</label>
+                    <div>
+                        <select class="form-control" name="StartMonth">
+                            @if (rainExceedanceModel == null)
+                            {
+                                <option @("selected=selected") value="0">@RainExceedanceViewRes.SelectOnlyStaffEmailDistributionList</option>
+                            }
+                            else
+                            {
+                                if (rainExceedanceModel.OnlyStaffEmailDistributionListID == null)
+                                {
+                                    <option @("selected=selected") value="0">@RainExceedanceViewRes.SelectOnlyStaffEmailDistributionList</option>
+                                }
+                                else
+                                {
+                                    foreach (EmailDistributionListModel emailDistributionListModel in EmailDistributionListModelList)
+                                    {
+                                        <option @(rainExceedanceModel.OnlyStaffEmailDistributionListID == emailDistributionListModel.EmailDistributionListID ? "selected=selected" : "") value="@emailDistributionListModel.EmailDistributionListID.ToString()">@emailDistributionListModel.EmailListName</option>
+                                    }
+                                }
+                            }
+                        </select>
+                    </div>
+                </div>
+                @* Start Date *@
+                <label>@RainExceedanceViewRes.StartDate</label>
+                <div class="blockMargin lineSpaceBottom">
+                    <div class="form-inline">
+                        <div class="form-group  blockRightSpace">
+                            <label class="control-label">@RainExceedanceViewRes.Month</label>
                             <div>
-                                <input class="isnumber form-control" type="text" name="RainMaximum" value="@(rainExceedanceModel.RainMaximum_mm != null
-                                                        ? ((double)rainExceedanceModel.RainMaximum_mm).ToString("F1") : "")" />
-                                <span class="help-block"></span>
+                                <select class="form-control" name="StartMonth">
+                                    @for (int i = 1; i < 13; i++)
+                                    {
+                                        if (rainExceedanceModel == null && i == 1)
+                                        {
+                                            <option @("selected=selected") value="@i.ToString()">@(CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(i))</option>
+                                        }
+                                        else
+                                        {
+                                            <option @(rainExceedanceModel.StartMonth == i ? "selected=selected" : "") value="@i.ToString()">@(CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(i))</option>
+                                        }
+                                    }
+                                </select>
                             </div>
                         </div>
-                        @* Rain Extreme *@
-                        <div class="form-group blockRightSpace">
-                            <label for="RainExtreme" class="control-label">@RainExceedanceViewRes.RainExtreme (@UnitViewRes.Milliliters)</label>
+                        <div class="form-group  blockRightSpace">
+                            <label class="control-label">@RainExceedanceViewRes.Day</label>
                             <div>
-                                <input class="isnumber form-control" type="text" name="RainExtreme" value="@(rainExceedanceModel.RainExtreme_mm != null
-                                                        ? ((double)rainExceedanceModel.RainExtreme_mm).ToString("F1") : "")" />
-                                <span class="help-block"></span>
-                            </div>
-                        </div>
-                        @* Days prior to start *@
-                        <div class="form-group blockRightSpace">
-                            <label for="DaysPriorToStart" class="control-label">@RainExceedanceViewRes.DaysPriorToStart</label>
-                            <div>
-                                <input class="isnumber form-control" type="text" name="DaysPriorToStart" value="@(rainExceedanceModel.DaysPriorToStart)" />
-                                <span class="help-block"></span>
+                                <select class="form-control" name="StartDay">
+                                    @{
+                                        for (int i = 1; i < 32; i++)
+                                        {
+                                            if (rainExceedanceModel == null && i == 1)
+                                            {
+                                                <option @("selected=selected") value="@i.ToString()">@i.ToString()</option>
+                                            }
+                                            else
+                                            {
+                                                <option @(rainExceedanceModel.StartDay == i ? "selected=selected" : "") value="@i.ToString()">@i.ToString()</option>
+                                            }
+                                        }
+                                    }
+                                </select>
                             </div>
                         </div>
                     </div>
-                </fieldset>
-            </form>
-        </div>
-    </div>
+                </div>
+                @* End Date *@
+                <label>@RainExceedanceViewRes.EndDate</label>
+                <div class="blockMargin lineSpaceBottom">
+                    <div class="form-inline">
+                        <div class="form-group  blockRightSpace">
+                            <label class="control-label">@RainExceedanceViewRes.Month</label>
+                            <div>
+                                <select class="form-control" name="EndMonth">
+                                    @for (int i = 1; i < 13; i++)
+                                    {
+                                        if (rainExceedanceModel == null && i == 1)
+                                        {
+                                            <option @("selected=selected") value="@i.ToString()">@(CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(i))</option>
+                                        }
+                                        else
+                                        {
+                                            <option @(rainExceedanceModel.EndMonth == i ? "selected=selected" : "") value="@i.ToString()">@(CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(i))</option>
+                                        }
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group  blockRightSpace">
+                            <label class="control-label">@RainExceedanceViewRes.Day</label>
+                            <div>
+                                <select class="form-control" name="EndDay">
+                                    @{
+                                        for (int i = 1; i < 32; i++)
+                                        {
+                                            if (rainExceedanceModel == null && i == 1)
+                                            {
+                                                <option @("selected=selected") value="@i.ToString()">@i.ToString()</option>
+                                            }
+                                            else
+                                            {
+                                                <option @(rainExceedanceModel.EndDay == i ? "selected=selected" : "") value="@i.ToString()">@i.ToString()</option>
+                                            }
+                                        }
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @* Rain Maximum *@
+                <div class="form-group blockRightSpace">
+                    <label for="RainMaximum" class="control-label">@RainExceedanceViewRes.RainMaximum (@UnitViewRes.Milliliters)</label>
+                    <div>
+                        <input class="isnumber form-control" type="text" name="RainMaximum_mm" value="@(rainExceedanceModel != null
+                                                        ? ((double)rainExceedanceModel.RainMaximum_mm).ToString("F1") : "")" />
+                        <span class="help-block"></span>
+                    </div>
+                </div>
+                @* Lat *@
+                <div class="form-group blockRightSpace">
+                    <label for="Lat" class="control-label">@RainExceedanceViewRes.Lat</label>
+                    <div>
+                        <input class="isnumber form-control" type="text" name="Lat" value="@(rainExceedanceModel != null
+                                                        ? ((double)rainExceedanceModel.Lat).ToString("F5") : "")" />
+                        <span class="help-block"></span>
+                    </div>
+                </div>
+                @* Lng *@
+                <div class="form-group blockRightSpace">
+                    <label for="Lng" class="control-label">@RainExceedanceViewRes.Lng</label>
+                    <div>
+                        <input class="isnumber form-control" type="text" name="Lng" value="@(rainExceedanceModel != null
+                                                        ? ((double)rainExceedanceModel.Lng).ToString("F5") : "")" />
+                        <span class="help-block"></span>
+                    </div>
+                </div>
+                @* Save and Cancel Buttons  *@
+                <div class="form-group blockRightSpace">
+                    <div>
+                        <button class="jsRainExceedanceSave btn btn-default">@RainExceedanceViewRes.Save</button>
+                        <p>@RainExceedanceViewRes.AfterSavingTheRainExceedanceWithLatLngYouWillBeAbleToSelectClimateSites</p>
+                        <p class="h4">@RainExceedanceViewRes.ToCancelEditJustClickOnGreenEditButton</p>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+    @if (rainExceedanceModel != null)
+    {
+        <p>Should develop the capability to select climate sites and show which climate site is to be use for the rain exceedance</p>
+    }
 </div>
 
 <script type="text/javascript">

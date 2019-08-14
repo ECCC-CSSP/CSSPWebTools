@@ -889,12 +889,9 @@
     <Content Include="Views\EmailDistributionList\_emailDistributionListAddOrModify.cshtml" />
     <Content Include="Views\EmailDistributionList\_emailDistributionList.cshtml" />
     <Content Include="Views\RainExceedance\_rainExceedance.cshtml" />
-    <Content Include="Views\RainExceedance\_rainExceedanceEmailDistributionList.cshtml" />
     <Content Include="Views\RainExceedance\_rainExceedanceClimateSite.cshtml" />
     <Content Include="Views\EmailDistributionList\_emailDistributionListContact.cshtml" />
     <Content Include="Views\EmailDistributionList\_emailDistributionListContactAddOrModify.cshtml" />
-    <Content Include="Views\RainExceedance\_rainExceedanceSubsector.cshtml" />
-    <Content Include="Views\RainExceedance\_rainExceedanceProvince.cshtml" />
     <Content Include="Views\MikeScenario\_mikeScenarioGenerateResultsGetFileDetail.cshtml" />
     <Content Include="Views\MikeScenario\_mikeScenarioGenerateResults_New.cshtml" />
     <Content Include="Views\MWQM\_mwqmSubsector.cshtml" />

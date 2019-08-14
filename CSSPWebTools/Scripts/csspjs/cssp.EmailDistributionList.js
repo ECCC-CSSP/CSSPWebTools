@@ -6,8 +6,8 @@ var CSSP;
         function EmailDistributionList() {
             // Functions
             this.EmailDistributionListAskToDelete = function ($bjs) {
-                var RegionName = $bjs.data("regionname");
-                cssp.Dialog.ShowDialogAreYouSure(RegionName);
+                var Name = $bjs.data("name");
+                cssp.Dialog.ShowDialogAreYouSure(Name);
                 cssp.Dialog.CheckDialogAndButtonsExist(["#DialogBasic", "#DialogBasicYes"], 5, "cssp.EmailDistributionList.SetDialogEvents", $bjs);
             };
             this.EmailDistributionListContactAskToDelete = function ($bjs) {
@@ -63,7 +63,7 @@ var CSSP;
                 $(".EmailDistributionListEditForm").each(function (ind, elem) {
                     $(elem).validate({
                         rules: {
-                            RegionName: {
+                            Name: {
                                 required: true,
                                 maxlength: 100
                             }
@@ -82,14 +82,14 @@ var CSSP;
                 }
             };
             this.EmailDistributionListListShowHideAdd = function ($bjs) {
-                var CountryTVItemID = parseInt($bjs.closest("#ViewDiv").data("tvitemid"));
+                var ParentTVItemID = parseInt($bjs.closest("#ViewDiv").data("tvitemid"));
                 if ($bjs.hasClass("btn-default")) {
                     $bjs.removeClass("btn-default").addClass("btn-success");
                     $bjs.closest(".EmailDistributionListTopDiv").find(".EmailDistributionListAdd").removeClass("hidden");
                     $bjs.closest(".EmailDistributionListTopDiv").find(".EmailDistributionListAdd").html(cssp.GetHTMLVariable("#LayoutVariables", "varInProgress"));
                     var command = "EmailDistributionList/_emailDistributionListAddOrModify";
                     $.get(cssp.BaseURL + command, {
-                        CountryTVItemID: CountryTVItemID,
+                        ParentTVItemID: ParentTVItemID,
                         EmailDistributionListID: 0,
                     }).done(function (ret) {
                         if (ret) {
@@ -109,10 +109,10 @@ var CSSP;
                 }
             };
             this.EmailDistributionListGenerateExcelFile = function ($bjs) {
-                var CountryTVItemID = parseInt($bjs.closest("#ViewDiv").data("tvitemid"));
+                var ParentTVItemID = parseInt($bjs.closest("#ViewDiv").data("tvitemid"));
                 var command = "EmailDistributionList/EmailDistributionListGenerateExcelFileJSON";
                 $.post(cssp.BaseURL + command, {
-                    CountryTVItemID: CountryTVItemID
+                    ParentTVItemID: ParentTVItemID
                 }).done(function (ret) {
                     if (ret == "") {
                         cssp.Helper.PageRefresh();
@@ -125,11 +125,11 @@ var CSSP;
                 });
             };
             this.EmailDistributionListMoveDown = function ($bjs) {
-                var CountryTVItemID = parseInt($bjs.closest("#ViewDiv").data("tvitemid"));
+                var ParentTVItemID = parseInt($bjs.closest("#ViewDiv").data("tvitemid"));
                 var EmailDistributionListID = parseInt($bjs.data("emaildistributionlistid"));
                 var command = "EmailDistributionList/EmailDistributionListMoveDownJSON";
                 $.post(cssp.BaseURL + command, {
-                    CountryTVItemID: CountryTVItemID,
+                    ParentTVItemID: ParentTVItemID,
                     EmailDistributionListID: EmailDistributionListID,
                 }).done(function (ret) {
                     if (ret == "") {
@@ -143,11 +143,11 @@ var CSSP;
                 });
             };
             this.EmailDistributionListMoveUp = function ($bjs) {
-                var CountryTVItemID = parseInt($bjs.closest("#ViewDiv").data("tvitemid"));
+                var ParentTVItemID = parseInt($bjs.closest("#ViewDiv").data("tvitemid"));
                 var EmailDistributionListID = parseInt($bjs.data("emaildistributionlistid"));
                 var command = "EmailDistributionList/EmailDistributionListMoveUpJSON";
                 $.post(cssp.BaseURL + command, {
-                    CountryTVItemID: CountryTVItemID,
+                    ParentTVItemID: ParentTVItemID,
                     EmailDistributionListID: EmailDistributionListID,
                 }).done(function (ret) {
                     if (ret == "") {
@@ -161,7 +161,7 @@ var CSSP;
                 });
             };
             this.LoadEmailDistributionListAddOrModify = function ($bjs) {
-                var CountryTVItemID = parseInt($bjs.closest("#ViewDiv").data("tvitemid"));
+                var ParentTVItemID = parseInt($bjs.closest("#ViewDiv").data("tvitemid"));
                 var EmailDistributionListID = 0;
                 if ($bjs.hasClass("jbEmailDistributionListEdit")) {
                     EmailDistributionListID = parseInt($bjs.closest(".EmailDistributionListItem").data("emaildistributionlistid"));
@@ -173,7 +173,7 @@ var CSSP;
                         .html(cssp.GetHTMLVariable("#LayoutVariables", "varInProgress"));
                     var command = "EmailDistributionList/_emailDistributionListAddOrModify";
                     $.get(cssp.BaseURL + command, {
-                        CountryTVItemID: CountryTVItemID,
+                        ParentTVItemID: ParentTVItemID,
                         EmailDistributionListID: EmailDistributionListID,
                     }).done(function (ret) {
                         if (ret) {

@@ -19,7 +19,7 @@ namespace CSSPWebTools.Views.RainExceedance.Resources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class RainExceedanceViewRes {
@@ -79,6 +79,15 @@ namespace CSSPWebTools.Views.RainExceedance.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to After saving the rain exceedance with lat lng, you will be able to select climate sites.
+        /// </summary>
+        public static string AfterSavingTheRainExceedanceWithLatLngYouWillBeAbleToSelectClimateSites {
+            get {
+                return ResourceManager.GetString("AfterSavingTheRainExceedanceWithLatLngYouWillBeAbleToSelectClimateSites", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Apply to provinces.
         /// </summary>
         public static string ApplyToProvince {
@@ -93,6 +102,24 @@ namespace CSSPWebTools.Views.RainExceedance.Resources {
         public static string ApplyToSubsector {
             get {
                 return ResourceManager.GetString("ApplyToSubsector", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Approximate Location.
+        /// </summary>
+        public static string ApproximateLocation {
+            get {
+                return ResourceManager.GetString("ApproximateLocation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        public static string Cancel {
+            get {
+                return ResourceManager.GetString("Cancel", resourceCulture);
             }
         }
         
@@ -147,6 +174,15 @@ namespace CSSPWebTools.Views.RainExceedance.Resources {
         public static string Copy {
             get {
                 return ResourceManager.GetString("Copy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create New Rain Exceedance.
+        /// </summary>
+        public static string CreateNewRainExceedance {
+            get {
+                return ResourceManager.GetString("CreateNewRainExceedance", resourceCulture);
             }
         }
         
@@ -223,6 +259,24 @@ namespace CSSPWebTools.Views.RainExceedance.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Lat.
+        /// </summary>
+        public static string Lat {
+            get {
+                return ResourceManager.GetString("Lat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lng.
+        /// </summary>
+        public static string Lng {
+            get {
+                return ResourceManager.GetString("Lng", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Modify.
         /// </summary>
         public static string Modify {
@@ -268,6 +322,15 @@ namespace CSSPWebTools.Views.RainExceedance.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Only Staff Email Distribution List.
+        /// </summary>
+        public static string OnlyStaffEmailDistributionList {
+            get {
+                return ResourceManager.GetString("OnlyStaffEmailDistributionList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Rain exceedance.
         /// </summary>
         public static string RainExceedance {
@@ -282,6 +345,15 @@ namespace CSSPWebTools.Views.RainExceedance.Resources {
         public static string RainExceedanceEmailDistributionList {
             get {
                 return ResourceManager.GetString("RainExceedanceEmailDistributionList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rain Exceedance Name.
+        /// </summary>
+        public static string RainExceedanceName {
+            get {
+                return ResourceManager.GetString("RainExceedanceName", resourceCulture);
             }
         }
         
@@ -322,11 +394,56 @@ namespace CSSPWebTools.Views.RainExceedance.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Select: Only Staff Email Distribution List.
+        /// </summary>
+        public static string SelectOnlyStaffEmailDistributionList {
+            get {
+                return ResourceManager.GetString("SelectOnlyStaffEmailDistributionList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select: Stakeholders Email Distribution List.
+        /// </summary>
+        public static string SelectStakeholdersEmailDistributionList {
+            get {
+                return ResourceManager.GetString("SelectStakeholdersEmailDistributionList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show.
+        /// </summary>
+        public static string Show {
+            get {
+                return ResourceManager.GetString("Show", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stakeholders Email Distribution List.
+        /// </summary>
+        public static string StakeholdersEmailDistributionList {
+            get {
+                return ResourceManager.GetString("StakeholdersEmailDistributionList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Start date.
         /// </summary>
         public static string StartDate {
             get {
                 return ResourceManager.GetString("StartDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to To cancel edit just click on the green edit button.
+        /// </summary>
+        public static string ToCancelEditJustClickOnGreenEditButton {
+            get {
+                return ResourceManager.GetString("ToCancelEditJustClickOnGreenEditButton", resourceCulture);
             }
         }
         
@@ -345,6 +462,15 @@ namespace CSSPWebTools.Views.RainExceedance.Resources {
         public static string YearRound {
             get {
                 return ResourceManager.GetString("YearRound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You might have to create the email distribution list before continuing.
+        /// </summary>
+        public static string YouMightHaveToCreateTheEmailDistributionListBeforeContinuing {
+            get {
+                return ResourceManager.GetString("YouMightHaveToCreateTheEmailDistributionListBeforeContinuing", resourceCulture);
             }
         }
     }

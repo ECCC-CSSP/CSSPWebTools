@@ -48,7 +48,7 @@ namespace CSSPWebTools.Controllers
         {
             SetArgs(Q);
             ViewBag.URLModel = urlModel;
-            ViewBag.CountryTVItemID = urlModel.TVItemIDList[0];
+            ViewBag.ParentTVItemID = urlModel.TVItemIDList[0];
             ViewBag.EmailDistributionListController = _EmailDistributionListController;
             ViewBag.EmailDistributionListModelList = null;
 
@@ -59,7 +59,7 @@ namespace CSSPWebTools.Controllers
             ViewBag.IsShowMap = (GetURLVarShowEnumStr(URLVarShowEnum.ShowMap) == "0" ? false : true);
 
 
-            List<EmailDistributionListModel> emailDistributionListModelList = _EmailDistributionListService.GetEmailDistributionListModelWithCountryTVItemIDDB(urlModel.TVItemIDList[0]);
+            List<EmailDistributionListModel> emailDistributionListModelList = _EmailDistributionListService.GetEmailDistributionListModelWithParentTVItemIDDB(urlModel.TVItemIDList[0]);
 
             ViewBag.EmailDistributionListModelList = emailDistributionListModelList;
 
@@ -80,9 +80,9 @@ namespace CSSPWebTools.Controllers
         }
         [HttpGet]
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
-        public PartialViewResult _emailDistributionListAddOrModify(int CountryTVItemID, int EmailDistributionListID)
+        public PartialViewResult _emailDistributionListAddOrModify(int ParentTVItemID, int EmailDistributionListID)
         {
-            ViewBag.CountryTVItemID = CountryTVItemID;
+            ViewBag.ParentTVItemID = ParentTVItemID;
             ViewBag.EmailDistributionListModel = null;
 
             TVAuthEnum tvAuth = _TVItemService.GetTVAuthWithTVItemIDAndLoggedInUser(urlModel.TVItemIDList[0], null, null, null);
@@ -148,25 +148,25 @@ namespace CSSPWebTools.Controllers
         }
         [HttpPost]
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
-        public JsonResult EmailDistributionListGenerateExcelFileJSON(int CountryTVItemID)
+        public JsonResult EmailDistributionListGenerateExcelFileJSON(int ParentTVItemID)
         {
-            AppTaskModel appTaskModel = _EmailDistributionListService.EmailDistributionListGenerateExcelFileDB(CountryTVItemID);
+            AppTaskModel appTaskModel = _EmailDistributionListService.EmailDistributionListGenerateExcelFileDB(ParentTVItemID);
 
             return Json(appTaskModel.Error, JsonRequestBehavior.AllowGet);
         }
         [HttpPost]
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
-        public JsonResult EmailDistributionListMoveDownJSON(int CountryTVItemID, int EmailDistributionListID)
+        public JsonResult EmailDistributionListMoveDownJSON(int ParentTVItemID, int EmailDistributionListID)
         {
-            EmailDistributionListModel emailDistributionListModel = _EmailDistributionListService.PostEmailDistributionListMoveDownDB(CountryTVItemID, EmailDistributionListID);
+            EmailDistributionListModel emailDistributionListModel = _EmailDistributionListService.PostEmailDistributionListMoveDownDB(ParentTVItemID, EmailDistributionListID);
 
             return Json(emailDistributionListModel.Error, JsonRequestBehavior.AllowGet);
         }
         [HttpPost]
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
-        public JsonResult EmailDistributionListMoveUpJSON(int CountryTVItemID, int EmailDistributionListID)
+        public JsonResult EmailDistributionListMoveUpJSON(int ParentTVItemID, int EmailDistributionListID)
         {
-            EmailDistributionListModel emailDistributionListModel = _EmailDistributionListService.PostEmailDistributionListMoveUpDB(CountryTVItemID, EmailDistributionListID);
+            EmailDistributionListModel emailDistributionListModel = _EmailDistributionListService.PostEmailDistributionListMoveUpDB(ParentTVItemID, EmailDistributionListID);
 
             return Json(emailDistributionListModel.Error, JsonRequestBehavior.AllowGet);
         }

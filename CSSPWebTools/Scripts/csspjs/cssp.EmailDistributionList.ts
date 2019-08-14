@@ -10,8 +10,8 @@ module CSSP {
 
         // Functions
         public EmailDistributionListAskToDelete: Function = ($bjs: JQuery): void => {
-            var RegionName: string = $bjs.data("regionname");
-            cssp.Dialog.ShowDialogAreYouSure(RegionName);
+            let Name: string = $bjs.data("name");
+            cssp.Dialog.ShowDialogAreYouSure(Name);
             cssp.Dialog.CheckDialogAndButtonsExist(["#DialogBasic", "#DialogBasicYes"], 5, "cssp.EmailDistributionList.SetDialogEvents", $bjs);
         };
         public EmailDistributionListContactAskToDelete: Function = ($bjs: JQuery): void => {
@@ -72,7 +72,7 @@ module CSSP {
                 $(elem).validate(
                     {
                         rules: {
-                            RegionName: {
+                            Name: {
                                 required: true,
                                 maxlength: 100
                             }
@@ -92,7 +92,7 @@ module CSSP {
             }
         };
         public EmailDistributionListListShowHideAdd: Function = ($bjs: JQuery): void => {
-            var CountryTVItemID: number = parseInt($bjs.closest("#ViewDiv").data("tvitemid"));
+            var ParentTVItemID: number = parseInt($bjs.closest("#ViewDiv").data("tvitemid"));
             if ($bjs.hasClass("btn-default")) {
                 $bjs.removeClass("btn-default").addClass("btn-success");
                 $bjs.closest(".EmailDistributionListTopDiv").find(".EmailDistributionListAdd").removeClass("hidden");
@@ -100,7 +100,7 @@ module CSSP {
                 $bjs.closest(".EmailDistributionListTopDiv").find(".EmailDistributionListAdd").html(cssp.GetHTMLVariable("#LayoutVariables", "varInProgress"));
                 var command: string = "EmailDistributionList/_emailDistributionListAddOrModify";
                 $.get(cssp.BaseURL + command, {
-                    CountryTVItemID: CountryTVItemID,
+                    ParentTVItemID: ParentTVItemID,
                     EmailDistributionListID: 0,
                 }).done((ret) => {
                     if (ret) {
@@ -120,11 +120,11 @@ module CSSP {
             }
         };
         public EmailDistributionListGenerateExcelFile: Function = ($bjs: JQuery): void => {
-            var CountryTVItemID: number = parseInt($bjs.closest("#ViewDiv").data("tvitemid"));
+            var ParentTVItemID: number = parseInt($bjs.closest("#ViewDiv").data("tvitemid"));
 
             var command: string = "EmailDistributionList/EmailDistributionListGenerateExcelFileJSON";
             $.post(cssp.BaseURL + command, {
-                CountryTVItemID: CountryTVItemID
+                ParentTVItemID: ParentTVItemID
             }).done((ret) => {
                 if (ret == "") {
                     cssp.Helper.PageRefresh();
@@ -137,12 +137,12 @@ module CSSP {
             });
         };
         public EmailDistributionListMoveDown: Function = ($bjs: JQuery): void => {
-            var CountryTVItemID: number = parseInt($bjs.closest("#ViewDiv").data("tvitemid"));
+            var ParentTVItemID: number = parseInt($bjs.closest("#ViewDiv").data("tvitemid"));
             var EmailDistributionListID: number = parseInt($bjs.data("emaildistributionlistid"));
 
             var command: string = "EmailDistributionList/EmailDistributionListMoveDownJSON";
             $.post(cssp.BaseURL + command, {
-                CountryTVItemID: CountryTVItemID,
+                ParentTVItemID: ParentTVItemID,
                 EmailDistributionListID: EmailDistributionListID,
             }).done((ret) => {
                 if (ret == "") {
@@ -156,12 +156,12 @@ module CSSP {
             });
         };
         public EmailDistributionListMoveUp: Function = ($bjs: JQuery): void => {
-            var CountryTVItemID: number = parseInt($bjs.closest("#ViewDiv").data("tvitemid"));
+            var ParentTVItemID: number = parseInt($bjs.closest("#ViewDiv").data("tvitemid"));
             var EmailDistributionListID: number = parseInt($bjs.data("emaildistributionlistid"));
 
             var command: string = "EmailDistributionList/EmailDistributionListMoveUpJSON";
             $.post(cssp.BaseURL + command, {
-                CountryTVItemID: CountryTVItemID,
+                ParentTVItemID: ParentTVItemID,
                 EmailDistributionListID: EmailDistributionListID,
             }).done((ret) => {
                 if (ret == "") {
@@ -175,7 +175,7 @@ module CSSP {
             });
         };
         public LoadEmailDistributionListAddOrModify: Function = ($bjs: JQuery): void => {
-            var CountryTVItemID: number = parseInt($bjs.closest("#ViewDiv").data("tvitemid"));
+            var ParentTVItemID: number = parseInt($bjs.closest("#ViewDiv").data("tvitemid"));
             var EmailDistributionListID: number = 0;
             if ($bjs.hasClass("jbEmailDistributionListEdit")) {
                 EmailDistributionListID = parseInt($bjs.closest(".EmailDistributionListItem").data("emaildistributionlistid"));
@@ -188,7 +188,7 @@ module CSSP {
 
                 var command: string = "EmailDistributionList/_emailDistributionListAddOrModify";
                 $.get(cssp.BaseURL + command, {
-                    CountryTVItemID: CountryTVItemID,
+                    ParentTVItemID: ParentTVItemID,
                     EmailDistributionListID: EmailDistributionListID,
                 }).done((ret) => {
                     if (ret) {

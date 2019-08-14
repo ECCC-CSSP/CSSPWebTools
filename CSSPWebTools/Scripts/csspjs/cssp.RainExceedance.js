@@ -32,14 +32,44 @@ var CSSP;
                     $(elem).validate({
                         rules: {
                             RainMaximum: {
-                                required: true
+                                required: true,
+                                number: true,
+                                range: [0, 500],
                             },
-                            RainExtreme: {
-                                required: true
+                            RainExceedanceName: {
+                                required: true,
+                                maxlength: 200,
                             },
-                            DaysPriorToStart: {
-                                required: false
-                            }
+                            Lat: {
+                                required: true,
+                                number: true,
+                                range: [-90, 90],
+                            },
+                            Lng: {
+                                required: true,
+                                number: true,
+                                range: [-180, 180],
+                            },
+                            StartMonth: {
+                                required: true,
+                                number: true,
+                                range: [1, 12],
+                            },
+                            StartDay: {
+                                required: true,
+                                number: true,
+                                range: [1, 31],
+                            },
+                            EndMonth: {
+                                required: true,
+                                number: true,
+                                range: [1, 12],
+                            },
+                            EndDay: {
+                                required: true,
+                                number: true,
+                                range: [1, 31],
+                            },
                         }
                     });
                 });
@@ -82,19 +112,20 @@ var CSSP;
                     $bjs.closest(".RainExceedanceTopDiv").find(".RainExceedanceAdd").removeClass("hidden").addClass("hidden");
                 }
             };
-            this.RainExceedanceEdit = function ($bjs) {
-                var CountryTVItemID = parseInt($bjs.closest("#ViewDiv").data("tvitemid"));
+            this.RainExceedanceShowAddOrModify = function ($bjs) {
+                var ParentTVItemID = parseInt($bjs.find("#ViewDiv").data("tvitemid"));
+                var RainExceedanceID = parseInt($bjs.data("rainexceedanceid"));
                 if ($bjs.hasClass("btn-default")) {
                     $bjs.removeClass("btn-default").addClass("btn-success");
-                    $bjs.closest(".RainExceedanceItem").find(".RainExceedanceEdit").removeClass("hidden")
+                    $bjs.closest(".RainExceedanceItem").find(".RainExceedanceAddOrModifyTop")
                         .html(cssp.GetHTMLVariable("#LayoutVariables", "varInProgress"));
                     var command = "RainExceedance/_RainExceedanceAddOrModify";
                     $.get(cssp.BaseURL + command, {
-                        CountryTVItemID: CountryTVItemID,
-                        RainExceedanceID: 0,
+                        ParentTVItemID: ParentTVItemID,
+                        RainExceedanceID: RainExceedanceID,
                     }).done(function (ret) {
                         if (ret) {
-                            $bjs.closest(".RainExceedanceItem").find(".RainExceedanceEdit").html(ret);
+                            $bjs.closest(".RainExceedanceItem").find(".RainExceedanceAddOrModifyTop").html(ret);
                         }
                         else {
                             cssp.Dialog.ShowDialogErrorWithCouldNotLoad_(command);
@@ -105,8 +136,7 @@ var CSSP;
                 }
                 else {
                     $bjs.removeClass("btn-success").addClass("btn-default");
-                    $bjs.closest(".RainExceedanceItem").find(".RainExceedanceEdit").removeClass("hidden").addClass("hidden");
-                    cssp.TVItem.EditCancel($bjs);
+                    $bjs.closest(".RainExceedanceItem").find(".RainExceedanceAddOrModifyTop").html("");
                 }
             };
         }

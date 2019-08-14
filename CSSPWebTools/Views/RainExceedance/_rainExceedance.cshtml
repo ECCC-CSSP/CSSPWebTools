@@ -9,64 +9,90 @@
     URLModel urlModel = (URLModel)ViewBag.URLModel;
     bool IsShowMap = (bool)ViewBag.IsShowMap;
     TVAuthEnum tvAuth = (TVAuthEnum)ViewBag.TVAuth;
-    int CountryTVItemID = (int)ViewBag.CountryTVItemID;
+    int ParentTVItemID = (int)ViewBag.ParentTVItemID;
     List<RainExceedanceModel> rainExceedanceModelList = (List<RainExceedanceModel>)ViewBag.RainExceedanceModelList;
 }
 
-<div class="temp">
-    <h4>To do... It's coming...</h4>
-</div>
-<div class="RainExceedanceTopDiv hidden">
-    <div class="AppTaskDiv">
-        @Html.Action("_appTask", "Home", new { TVItemID = urlModel.TVItemIDList[0], Seconds = 5 })
-    </div>
-    <div class="h5">
-        @RainExceedanceViewRes.Note : @RainExceedanceViewRes.ClickTheEditButtonToCreateOrModifyRainExceedances
-        <br /><br />
-    </div>
-    <button class="jbRainExceedanceShowHideAdd RainExceedanceEditButons btn btn-default hidden">@RainExceedanceViewRes.AddANewRainExceedance</button>
-  <div class="RainExceedanceAdd hidden">
-    </div>
-    <div class="RainExceedanceExisting">
-        <h4>@RainExceedanceViewRes.RainExceedance</h4>
-        @if (rainExceedanceModelList.Count == 0)
-            {
-            <p>@RainExceedanceViewRes.Empty</p>
-        }
-        else
+<div class="RainExceedanceTopDiv">
+    <div class="panel-group" id="rainExceedanceAccordion" role="tablist" aria-multiselectable="false">
+
+        @foreach (RainExceedanceModel rainExceedanceModel in rainExceedanceModelList)
         {
-            foreach (RainExceedanceModel RainExceedanceModel in rainExceedanceModelList)
-            {
-                <div class="RainExceedanceItem panel panel-info" data-RainExceedanceid="@RainExceedanceModel.RainExceedanceID">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <button class="jbRainExceedanceEdit RainExceedanceEditButons btn btn-default hidden" title="@RainExceedanceViewRes.Edit"><span class="glyphicon glyphicon-pencil"></span></button>
-                            <button class="jbRainExceedanceAskToDelete RainExceedanceEditButons btn btn-default hidden" title="@RainExceedanceViewRes.Delete"><span class="glyphicon glyphicon-trash"></span></button>
-                            <button class="jbRainExceedanceCopy RainExceedanceEditButons btn btn-default hidden" title="@RainExceedanceViewRes.Copy"><span class="glyphicon glyphicon-duplicate"></span></button>
-                            <span class="RainExceedanceName">
-                                @((RainExceedanceModel.StartDate_Local != null ? ((DateTime)RainExceedanceModel.StartDate_Local).ToString("yyyy MMMM dd") : "") + " - " + RainExceedanceViewRes.LastModified + ": " + RainExceedanceModel.LastUpdateDate_UTC.ToString("yyyy MMMM dd"))
-                            </span>
-                        </h4>
-                    </div>
+            string HeadingID = "RainExceedanceHeading" + rainExceedanceModel.RainExceedanceID.ToString();
+            string CollapseID = "RainExceedanceCollapse" + rainExceedanceModel.RainExceedanceID.ToString();
+            string StartMonthText = new DateTime(2000, rainExceedanceModel.StartMonth, 1).ToString("MMMM");
+            string EndMonthText = new DateTime(2000, rainExceedanceModel.EndMonth, 1).ToString("MMMM");
+
+            <div class="RainExceedanceItem panel panel-default" data-rainexceedanceid="@rainExceedanceModel.RainExceedanceID">
+                <div class="panel-heading" role="tab" id="@HeadingID">
+                    <h4 class="panel-title">
+                        <a role="button" data-toggle="collapse" data-parent="#rainExceedanceAccordion" href="#@CollapseID" aria-expanded="false" aria-controls="@CollapseID">
+                            @rainExceedanceModel.RainExceedanceName
+                        </a>
+                    </h4>
+                </div>
+                <div id="@CollapseID" class="panel-collapse collapse" role="tabpanel" aria-labelledby="@HeadingID">
                     <div class="panel-body">
-                        <div class="RainExceedanceEdit"></div>
-                        <div class="RainExceedanceProvinceDiv">
-                            @Html.Action("_rainExceedanceProvince", "RainExceedance", new { ProvinceTVItemIDs = RainExceedanceModel.ProvinceTVItemIDs })
+                        <div class="RainExceedanceShowTop">
+                            <h1 class="text-danger">
+                                @rainExceedanceModel.RainExceedanceName
+                                <button class="jsRainExceedanceShowAddOrModify btn btn-default" data-rainexceedanceid="@rainExceedanceModel.RainExceedanceID">@RainExceedanceViewRes.Edit</button>
+                            </h1>
+                            <br />
+                            <ul class="list-unstyled">
+                                <li>
+                                    @RainExceedanceViewRes.StartDate : @(StartMonthText + " " + rainExceedanceModel.StartDay.ToString())
+                                </li>
+                                <li>
+                                    @RainExceedanceViewRes.EndDate : @(EndMonthText + " " + rainExceedanceModel.EndDay.ToString())
+                                </li>
+                                <li>
+                                    @RainExceedanceViewRes.RainMaximum (mm) : @rainExceedanceModel.RainMaximum_mm
+                                </li>
+                                <li>
+                                    @RainExceedanceViewRes.StakeholdersEmailDistributionList : @rainExceedanceModel.StakeholdersEmailDistributionListName ?? "--"
+                                    <button class="jsRainExceedanceShowStakeholdersEmailDistributionList btn btn-default">@RainExceedanceViewRes.Show @RainExceedanceViewRes.StakeholdersEmailDistributionList</button>
+                                </li>
+                                <li>
+                                    @RainExceedanceViewRes.OnlyStaffEmailDistributionList : @rainExceedanceModel.OnlyStaffEmailDistributionListName ?? "--"
+                                    <button class="jsRainExceedanceShowOnlyStaffEmailDistributionList btn btn-default">@RainExceedanceViewRes.Show @RainExceedanceViewRes.OnlyStaffEmailDistributionList</button>
+                                </li>
+                                <li>
+                                    @RainExceedanceViewRes.ApproximateLocation : @rainExceedanceModel.Lat.ToString("F5") @rainExceedanceModel.Lng.ToString("F5")
+                                </li>
+                            </ul>
+
+
                         </div>
-                        <div class="RainExceedanceSubsectorDiv">
-                            @Html.Action("_rainExceedanceSubsector", "RainExceedance", new { SubsectorTVItemIDs = RainExceedanceModel.SubsectorTVItemIDs })
-                        </div>
-                        <div class="RainExceedanceEmailDistributionListDiv">
-                            @Html.Action("_rainExceedanceEmailDistributionList", "RainExceedance", new { EmailDistributionListIDs = RainExceedanceModel.EmailDistributionListIDs })
-                        </div>
-                        <div class="RainExceedanceClimateSiteDiv">
-                            @Html.Action("_rainExceedanceClimateSite", "RainExceedance", new { ClimateSiteIDs = RainExceedanceModel.ClimateSiteTVItemIDs })
+                        <div class="RainExceedanceAddOrModifyTop">
+
                         </div>
                     </div>
                 </div>
-            }
+            </div>
         }
+
+        <div class="RainExceedanceItem panel panel-default" data-rainexceedanceid="0">
+            <div class="panel-heading" role="tab" id="AddHeadingID">
+                <h4 class="panel-title">
+                    <a role="button" data-toggle="collapse" data-parent="#rainExceedanceAccordion" href="#AddCollapseID" aria-expanded="false" aria-controls="AddCollapseID">
+                        @RainExceedanceViewRes.CreateNewRainExceedance
+                    </a>
+                </h4>
+            </div>
+            <div id="AddCollapseID" class="panel-collapse collapse" role="tabpanel" aria-labelledby="AddHeadingID">
+                <div class="panel-body">
+                    <div class="rainExceedanceShowTop">
+                        <h1 class="text-danger">
+                            <button class="jsRainExceedanceShowEdit btn btn-default" data-rainexceedanceid="0">@RainExceedanceViewRes.CreateNewRainExceedance</button>
+                        </h1>
+                    </div>
+                    <div class="rainExceedanceAddOrModifyTop">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
-
-
 </div>
