@@ -124,6 +124,15 @@ namespace CSSPWebTools.Views.RainExceedance.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Click on globe icon to view on map.
+        /// </summary>
+        public static string ClickOnGlobeIconToViewOnMap {
+            get {
+                return ResourceManager.GetString("ClickOnGlobeIconToViewOnMap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Click the edit button to create or modify rain exceedances.
         /// </summary>
         public static string ClickTheEditButtonToCreateOrModifyRainExceedances {
@@ -165,6 +174,15 @@ namespace CSSPWebTools.Views.RainExceedance.Resources {
         public static string ClimateSitesToUse {
             get {
                 return ResourceManager.GetString("ClimateSitesToUse", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Climate sites used and within distance.
+        /// </summary>
+        public static string ClimateSitesUsedAndWithinDistance {
+            get {
+                return ResourceManager.GetString("ClimateSitesUsedAndWithinDistance", resourceCulture);
             }
         }
         
@@ -223,6 +241,15 @@ namespace CSSPWebTools.Views.RainExceedance.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Email distribution list.
+        /// </summary>
+        public static string EmailDistributionList {
+            get {
+                return ResourceManager.GetString("EmailDistributionList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Email distribution list to use.
         /// </summary>
         public static string EmailDistributionListToUse {
@@ -246,6 +273,51 @@ namespace CSSPWebTools.Views.RainExceedance.Resources {
         public static string EndDate {
             get {
                 return ResourceManager.GetString("EndDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Find.
+        /// </summary>
+        public static string Find {
+            get {
+                return ResourceManager.GetString("Find", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Find climate site within distance of rain exceedance.
+        /// </summary>
+        public static string FindClimateSitesWithinDistanceOfRainExceedance {
+            get {
+                return ResourceManager.GetString("FindClimateSitesWithinDistanceOfRainExceedance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Identify on map.
+        /// </summary>
+        public static string IdentifyOnMap {
+            get {
+                return ResourceManager.GetString("IdentifyOnMap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Inactive.
+        /// </summary>
+        public static string Inactive {
+            get {
+                return ResourceManager.GetString("Inactive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Is active.
+        /// </summary>
+        public static string IsActive {
+            get {
+                return ResourceManager.GetString("IsActive", resourceCulture);
             }
         }
         
@@ -322,11 +394,38 @@ namespace CSSPWebTools.Views.RainExceedance.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Now.
+        /// </summary>
+        public static string Now {
+            get {
+                return ResourceManager.GetString("Now", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Only staff.
+        /// </summary>
+        public static string OnlyStaff {
+            get {
+                return ResourceManager.GetString("OnlyStaff", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Only Staff Email Distribution List.
         /// </summary>
         public static string OnlyStaffEmailDistributionList {
             get {
                 return ResourceManager.GetString("OnlyStaffEmailDistributionList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open To.
+        /// </summary>
+        public static string OpenTo {
+            get {
+                return ResourceManager.GetString("OpenTo", resourceCulture);
             }
         }
         
@@ -417,6 +516,33 @@ namespace CSSPWebTools.Views.RainExceedance.Resources {
         public static string Show {
             get {
                 return ResourceManager.GetString("Show", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show climate sites.
+        /// </summary>
+        public static string ShowClimateSites {
+            get {
+                return ResourceManager.GetString("ShowClimateSites", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show climate sites on map.
+        /// </summary>
+        public static string ShowClimateSitesOnMap {
+            get {
+                return ResourceManager.GetString("ShowClimateSitesOnMap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stakeholders.
+        /// </summary>
+        public static string Stakeholders {
+            get {
+                return ResourceManager.GetString("Stakeholders", resourceCulture);
             }
         }
         

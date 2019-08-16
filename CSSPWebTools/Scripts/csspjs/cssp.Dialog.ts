@@ -77,6 +77,9 @@
                     case "cssp.PolSourceSite.SetDialogEventsDeleteObservationIssue":
                         cssp.PolSourceSite.SetDialogEventsDeleteObservationIssue($ajs);
                         break;
+                    case "cssp.RainExceedance.SetDialogEvents":
+                        cssp.RainExceedance.SetDialogEvents($ajs);
+                        break;
                     case "cssp.ReportType.SetDialogEvents":
                         cssp.ReportType.SetDialogEvents($ajs);
                         break;

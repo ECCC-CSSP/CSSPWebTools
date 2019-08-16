@@ -317,7 +317,7 @@
                 $("#ClimateSiteDiv").find(".jbMapShowItem").removeClass("hidden");
             }
         };
-        public ClimateSitesFindWithinDistance: Function = (): void => {
+        public ClimateSitesFindWithinDistanceSubsector: Function = (): void => {
             let ClimateSiteDiv$: JQuery = $("#ClimateSiteDiv");
             let SubsectorTVItemID: number = parseInt($("#ViewDiv").data("tvitemid"));
             let Radius_km: number = parseInt($("#ClimateSiteDiv").find("input[name='Radius_km']").val());

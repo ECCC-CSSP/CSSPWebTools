@@ -310,7 +310,7 @@ var CSSP;
                     $("#ClimateSiteDiv").find(".jbMapShowItem").removeClass("hidden");
                 }
             };
-            this.ClimateSitesFindWithinDistance = function () {
+            this.ClimateSitesFindWithinDistanceSubsector = function () {
                 var ClimateSiteDiv$ = $("#ClimateSiteDiv");
                 var SubsectorTVItemID = parseInt($("#ViewDiv").data("tvitemid"));
                 var Radius_km = parseInt($("#ClimateSiteDiv").find("input[name='Radius_km']").val());

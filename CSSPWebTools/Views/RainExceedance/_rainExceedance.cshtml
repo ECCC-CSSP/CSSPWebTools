@@ -14,8 +14,10 @@
 }
 
 <div class="RainExceedanceTopDiv">
+    <div>
+        <h2>@RainExceedanceViewRes.RainExceedance</h2>
+    </div>
     <div class="panel-group" id="rainExceedanceAccordion" role="tablist" aria-multiselectable="false">
-
         @foreach (RainExceedanceModel rainExceedanceModel in rainExceedanceModelList)
         {
             string HeadingID = "RainExceedanceHeading" + rainExceedanceModel.RainExceedanceID.ToString();
@@ -23,46 +25,58 @@
             string StartMonthText = new DateTime(2000, rainExceedanceModel.StartMonth, 1).ToString("MMMM");
             string EndMonthText = new DateTime(2000, rainExceedanceModel.EndMonth, 1).ToString("MMMM");
 
-            <div class="RainExceedanceItem panel panel-default" data-rainexceedanceid="@rainExceedanceModel.RainExceedanceID">
+            <div class="RainExceedanceItem panel panel-@(rainExceedanceModel.IsActive ? "info" : "warning")" data-rainexceedanceid="@rainExceedanceModel.RainExceedanceID">
                 <div class="panel-heading" role="tab" id="@HeadingID">
                     <h4 class="panel-title">
                         <a role="button" data-toggle="collapse" data-parent="#rainExceedanceAccordion" href="#@CollapseID" aria-expanded="false" aria-controls="@CollapseID">
-                            @rainExceedanceModel.RainExceedanceName
+                            @rainExceedanceModel.RainExceedanceName (@(rainExceedanceModel.IsActive ? RainExceedanceViewRes.IsActive : RainExceedanceViewRes.Inactive))
                         </a>
                     </h4>
                 </div>
                 <div id="@CollapseID" class="panel-collapse collapse" role="tabpanel" aria-labelledby="@HeadingID">
                     <div class="panel-body">
+                        <h4>
+                            <button class="jbRainExceedanceShowAddOrModify btn btn-default" data-rainexceedancetvitemid="@rainExceedanceModel.RainExceedanceTVItemID">@RainExceedanceViewRes.Edit</button>
+                        </h4>
                         <div class="RainExceedanceShowTop">
-                            <h1 class="text-danger">
-                                @rainExceedanceModel.RainExceedanceName
-                                <button class="jsRainExceedanceShowAddOrModify btn btn-default" data-rainexceedanceid="@rainExceedanceModel.RainExceedanceID">@RainExceedanceViewRes.Edit</button>
-                            </h1>
-                            <br />
-                            <ul class="list-unstyled">
+                            <ul class="list-inline">
                                 <li>
-                                    @RainExceedanceViewRes.StartDate : @(StartMonthText + " " + rainExceedanceModel.StartDay.ToString())
+                                    <strong>@RainExceedanceViewRes.IsActive:</strong> @rainExceedanceModel.IsActive
                                 </li>
                                 <li>
-                                    @RainExceedanceViewRes.EndDate : @(EndMonthText + " " + rainExceedanceModel.EndDay.ToString())
+                                    <strong>@RainExceedanceViewRes.ApproximateLocation:</strong> @rainExceedanceModel.Lat.ToString("F5") @rainExceedanceModel.Lng.ToString("F5")
                                 </li>
                                 <li>
-                                    @RainExceedanceViewRes.RainMaximum (mm) : @rainExceedanceModel.RainMaximum_mm
-                                </li>
-                                <li>
-                                    @RainExceedanceViewRes.StakeholdersEmailDistributionList : @rainExceedanceModel.StakeholdersEmailDistributionListName ?? "--"
-                                    <button class="jsRainExceedanceShowStakeholdersEmailDistributionList btn btn-default">@RainExceedanceViewRes.Show @RainExceedanceViewRes.StakeholdersEmailDistributionList</button>
-                                </li>
-                                <li>
-                                    @RainExceedanceViewRes.OnlyStaffEmailDistributionList : @rainExceedanceModel.OnlyStaffEmailDistributionListName ?? "--"
-                                    <button class="jsRainExceedanceShowOnlyStaffEmailDistributionList btn btn-default">@RainExceedanceViewRes.Show @RainExceedanceViewRes.OnlyStaffEmailDistributionList</button>
-                                </li>
-                                <li>
-                                    @RainExceedanceViewRes.ApproximateLocation : @rainExceedanceModel.Lat.ToString("F5") @rainExceedanceModel.Lng.ToString("F5")
+                                    <strong>@RainExceedanceViewRes.RainMaximum (mm):</strong> @rainExceedanceModel.RainMaximum_mm
                                 </li>
                             </ul>
-
-
+                            <ul class="list-inline">
+                                <li>
+                                    <strong>@RainExceedanceViewRes.StartDate:</strong> @(StartMonthText + " " + rainExceedanceModel.StartDay.ToString())
+                                </li>
+                                <li>
+                                    <strong>@RainExceedanceViewRes.EndDate:</strong> @(EndMonthText + " " + rainExceedanceModel.EndDay.ToString())
+                                </li>
+                            </ul>
+                            <ul class="list-inline">
+                                <li>
+                                    <h4>@RainExceedanceViewRes.EmailDistributionList</h4>
+                                </li>
+                            </ul>
+                            <ul class="list-inline">
+                                <li class="EmailDistributionListTop">
+                                    <button class="jbRainExceedanceShowEmailDistributionListContact btn btn-default" data-emaildistributionlist="@rainExceedanceModel.StakeholdersEmailDistributionListID">@RainExceedanceViewRes.Show</button>
+                                    <strong>@RainExceedanceViewRes.Stakeholders:</strong>  @rainExceedanceModel.StakeholdersEmailDistributionListName
+                                    <div class="EmailDistributionList"></div>
+                                </li>
+                            </ul>
+                            <ul class="list-inline">
+                                <li class="EmailDistributionListTop">
+                                    <button class="jbRainExceedanceShowEmailDistributionListContact btn btn-default" data-emaildistributionlist="@rainExceedanceModel.OnlyStaffEmailDistributionListID">@RainExceedanceViewRes.Show</button>
+                                    <strong>@RainExceedanceViewRes.OnlyStaff:</strong>  @rainExceedanceModel.OnlyStaffEmailDistributionListName
+                                    <div class="EmailDistributionList"></div>
+                                </li>
+                            </ul>
                         </div>
                         <div class="RainExceedanceAddOrModifyTop">
 
@@ -76,18 +90,16 @@
             <div class="panel-heading" role="tab" id="AddHeadingID">
                 <h4 class="panel-title">
                     <a role="button" data-toggle="collapse" data-parent="#rainExceedanceAccordion" href="#AddCollapseID" aria-expanded="false" aria-controls="AddCollapseID">
-                        @RainExceedanceViewRes.CreateNewRainExceedance
+                        @RainExceedanceViewRes.OpenTo @RainExceedanceViewRes.CreateNewRainExceedance
                     </a>
                 </h4>
             </div>
             <div id="AddCollapseID" class="panel-collapse collapse" role="tabpanel" aria-labelledby="AddHeadingID">
                 <div class="panel-body">
                     <div class="rainExceedanceShowTop">
-                        <h1 class="text-danger">
-                            <button class="jsRainExceedanceShowEdit btn btn-default" data-rainexceedanceid="0">@RainExceedanceViewRes.CreateNewRainExceedance</button>
-                        </h1>
+                        <button class="jbRainExceedanceShowAddOrModify btn btn-default" data-rainexceedancetvitemid="0">@RainExceedanceViewRes.CreateNewRainExceedance</button>
                     </div>
-                    <div class="rainExceedanceAddOrModifyTop">
+                    <div class="RainExceedanceAddOrModifyTop">
 
                     </div>
                 </div>

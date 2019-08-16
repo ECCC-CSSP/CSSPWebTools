@@ -22,7 +22,9 @@ namespace CSSPWebTools.Controllers
         #region Properties
         public RainExceedanceController _RainExceedanceController { get; private set; }
         public RainExceedanceService _RainExceedanceService { get; private set; }
+        public RainExceedanceClimateSiteService _RainExceedanceClimateSiteService { get; private set; }
         public EmailDistributionListService _EmailDistributionListService { get; private set; }
+        public EmailDistributionListContactService _EmailDistributionListContactService { get; private set; }
         #endregion Properties
 
         #region Constructors
@@ -37,7 +39,9 @@ namespace CSSPWebTools.Controllers
         {
             base.Initialize(requestContext);
             _RainExceedanceService = new RainExceedanceService(LanguageRequest, User);
+            _RainExceedanceClimateSiteService = new RainExceedanceClimateSiteService(LanguageRequest, User);
             _EmailDistributionListService = new EmailDistributionListService(LanguageRequest, User);
+            _EmailDistributionListContactService = new EmailDistributionListContactService(LanguageRequest, User);
         }
         #endregion Overrides
 
@@ -66,32 +70,29 @@ namespace CSSPWebTools.Controllers
 
         [HttpGet]
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
-        public PartialViewResult _rainExceedanceClimateSite(string ClimateSiteTVItemIDs)
+        public PartialViewResult _rainExceedanceClimateSite(int RainExceedanceTVItemID, int Radius_km)
         {
-            ViewBag.ClimateSiteTVItemIDs = ClimateSiteTVItemIDs;
-            ViewBag.ClimateSiteTVItemIDsList = null;
-            ViewBag.TVItemModelList = null;
+            ViewBag.RainExceedanceTVItemID = RainExceedanceTVItemID;
+            ViewBag.Radius_km = Radius_km;
+            ViewBag.RainExceedanceFullClimateSites = null;
 
-            List<int> climateSiteTVItemIDsList = ClimateSiteTVItemIDs.Split(",".ToCharArray(), StringSplitOptions.RemoveEmptyEntries).ToList().Select(c => int.Parse(c)).ToList();
-
-            List<TVItemModel> tvItemModelList = _TVItemService.GetTVItemModelListWithTVItemIDListDB(climateSiteTVItemIDsList);
-
-            ViewBag.TVItemModelList = tvItemModelList;
+            RainExceedanceFullClimateSites rainExceedanceFullClimateSites = _RainExceedanceService.GetRainExceedanceFullClimateSitesDB(RainExceedanceTVItemID, Radius_km * 1000);
+            ViewBag.RainExceedanceFullClimateSites = rainExceedanceFullClimateSites;
 
             return PartialView();
         }
 
         [HttpGet]
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
-        public PartialViewResult _rainExceedanceAddOrModify(int ParentTVItemID, int RainExceedanceID)
+        public PartialViewResult _rainExceedanceAddOrModify(int ParentTVItemID, int RainExceedanceTVItemID)
         {
             ViewBag.RainExceedanceModel = null;
             ViewBag.ParentTVItemID = ParentTVItemID;
             ViewBag.EmailDistributionListModelList = null;
 
-            if (RainExceedanceID != 0)
+            if (RainExceedanceTVItemID != 0)
             {
-                RainExceedanceModel rainExceedanceModel = _RainExceedanceService.GetRainExceedanceModelWithRainExceedanceIDDB(RainExceedanceID);
+                RainExceedanceModel rainExceedanceModel = _RainExceedanceService.GetRainExceedanceModelWithRainExceedanceTVItemIDDB(RainExceedanceTVItemID);
 
                 ViewBag.RainExceedanceModel = rainExceedanceModel;
             }
@@ -102,7 +103,6 @@ namespace CSSPWebTools.Controllers
 
             return PartialView();
         }
-
         #endregion Functions View/PartialViews 
 
         #region Functions JSON
@@ -112,6 +112,24 @@ namespace CSSPWebTools.Controllers
         public JsonResult RainExceedanceSaveJSON(FormCollection fc)
         {
             RainExceedanceModel rainExceedanceModel = _RainExceedanceService.PostRainExceedanceSaveDB(fc);
+
+            return Json(rainExceedanceModel.Error, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public JsonResult RainExceedanceAddUseClimateSiteJSON(int RainExceedanceTVItemID, int ClimateSiteTVItemID, bool Use)
+        {
+            RainExceedanceClimateSiteModel rainExceedanceClimateSiteModel = _RainExceedanceClimateSiteService.PostRainExceedanceClimateSiteSaveDB(RainExceedanceTVItemID, ClimateSiteTVItemID, Use);
+
+            return Json(rainExceedanceClimateSiteModel.Error, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public JsonResult RainExceedanceDeleteJSON(int RainExceedanceTVItemID)
+        {
+            RainExceedanceModel rainExceedanceModel = _RainExceedanceService.PostDeleteRainExceedanceWithRainExceedanceTVItemIDDB(RainExceedanceTVItemID);
 
             return Json(rainExceedanceModel.Error, JsonRequestBehavior.AllowGet);
         }

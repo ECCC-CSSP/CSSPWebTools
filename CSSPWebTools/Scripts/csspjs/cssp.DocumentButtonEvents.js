@@ -117,9 +117,9 @@ var CSSP;
                                 cssp.ClimateSite.ClimateSitesShowOnMap();
                             }
                             break;
-                        case "jbClimateSitesFindWithinDistance":
+                        case "jbClimateSitesFindWithinDistanceSubsector":
                             {
-                                cssp.ClimateSite.ClimateSitesFindWithinDistance();
+                                cssp.ClimateSite.ClimateSitesFindWithinDistanceSubsector();
                             }
                             break;
                         case "jbClimateSiteOpenDialogToShowExOfYearsToEnter":
@@ -881,16 +881,6 @@ var CSSP;
                                 cssp.MikeScenario.MikeScenarioLoadHydrometricDataRefresh($bjs);
                             }
                             break;
-                        case "jbRainExceedanceShowHideEditButtons":
-                            {
-                                cssp.RainExceedance.RainExceedanceShowHideEditButtons($bjs);
-                            }
-                            break;
-                        case "jbRainExceedanceShowHideAdd":
-                            {
-                                cssp.RainExceedance.RainExceedanceShowHideAdd($bjs);
-                            }
-                            break;
                         case "jbMunicipalitiesAddToUse":
                             {
                                 cssp.SubsectorTools.MunicipalitiesAddToUse($bjs);
@@ -1341,6 +1331,16 @@ var CSSP;
                                 cssp.ProvinceTools.ProvinceToolsGenerateStats($bjs);
                             }
                             break;
+                        case "jbRainExceedanceAddUseOfClimateSite":
+                            {
+                                cssp.RainExceedance.RainExceedanceAddUseOfClimateSite($bjs);
+                            }
+                            break;
+                        case "jbRainExceedanceAskToDelete":
+                            {
+                                cssp.RainExceedance.RainExceedanceAskToDelete($bjs);
+                            }
+                            break;
                         case "jbRainExceedanceSave":
                             {
                                 cssp.RainExceedance.FormSubmit($bjs);
@@ -1349,6 +1349,21 @@ var CSSP;
                         case "jbRainExceedanceShowAddOrModify":
                             {
                                 cssp.RainExceedance.RainExceedanceShowAddOrModify($bjs);
+                            }
+                            break;
+                        case "jbRainExceedanceShowClimateSite":
+                            {
+                                cssp.RainExceedance.RainExceedanceShowClimateSite($bjs);
+                            }
+                            break;
+                        case "jbRainExceedanceShowEmailDistributionListContact":
+                            {
+                                cssp.RainExceedance.RainExceedanceShowEmailDistributionListContact($bjs);
+                            }
+                            break;
+                        case "jbRainExceedanceClimateSitesFindWithinDistance":
+                            {
+                                cssp.RainExceedance.RainExceedanceClimateSitesFindWithinDistance($bjs);
                             }
                             break;
                         case "jbRegister":

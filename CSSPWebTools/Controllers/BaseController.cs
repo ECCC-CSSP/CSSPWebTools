@@ -746,25 +746,25 @@ namespace CSSPWebTools.Controllers
 
             return viewTVItemIconList;
         }
-        [NonAction]
-        public List<IconInfo> FillRainExceedanceEditIcons(TVAuthEnum TVAuth)
-        {
-            List<IconInfo> viewTVItemIconList = new List<IconInfo>();
+        //[NonAction]
+        //public List<IconInfo> FillRainExceedanceEditIcons(TVAuthEnum TVAuth)
+        //{
+        //    List<IconInfo> viewTVItemIconList = new List<IconInfo>();
 
-            if (TVAuth >= TVAuthEnum.Write)
-            {
-                viewTVItemIconList.Add(new IconInfo()
-                {
-                    URL = "",
-                    IsVisible = true,
-                    jbClassName = "jbRainExceedanceShowHideEditButtons btn btn-default",
-                    Icon = "glyphicon glyphicon-edit",
-                    ToolTip = ControllerRes.Edit,
-                });
-            }
+        //    if (TVAuth >= TVAuthEnum.Write)
+        //    {
+        //        viewTVItemIconList.Add(new IconInfo()
+        //        {
+        //            URL = "",
+        //            IsVisible = true,
+        //            jbClassName = "jbRainExceedanceShowHideEditButtons btn btn-default",
+        //            Icon = "glyphicon glyphicon-edit",
+        //            ToolTip = ControllerRes.Edit,
+        //        });
+        //    }
 
-            return viewTVItemIconList;
-        }
+        //    return viewTVItemIconList;
+        //}
         [NonAction]
         public List<List<IconInfo>> FillRainExceedanceIcons(TVAuthEnum TVAuth, TVItemModel tvItemModel)
         {
@@ -774,7 +774,7 @@ namespace CSSPWebTools.Controllers
 
             if (TVAuth >= TVAuthEnum.Write)
             {
-                viewTVItemIconListList.Add(FillRainExceedanceEditIcons(TVAuth));
+                // viewTVItemIconListList.Add(FillRainExceedanceEditIcons(TVAuth));
             }
 
             viewTVItemIconListList.Add(FillTVItemMapIcons(TVAuth, tvItemModel));

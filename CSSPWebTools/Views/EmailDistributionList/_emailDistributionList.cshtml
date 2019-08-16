@@ -36,50 +36,57 @@
         }
         else
         {
-            foreach (EmailDistributionListModel emailDistributionListModel in emailDistributionListModelList)
-            {
-                count += 1;
-                <div class="EmailDistributionListItem panel panel-info"
-                     data-emaildistributionlistid="@emailDistributionListModel.EmailDistributionListID">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <button class="jbEmailDistributionListEdit EmailDistributionListEditButons btn btn-default hidden" title="@EmailDistributionListViewRes.Edit"><span class="glyphicon glyphicon-pencil"></span></button>
-                            <button class="jbEmailDistributionListAskToDelete EmailDistributionListEditButons btn btn-default hidden" title="@EmailDistributionListViewRes.Delete"><span class="glyphicon glyphicon-trash"></span></button>
-                            <span class="EmailDistributionListName">
-                                @(emailDistributionListModel.EmailListName + " - " + EmailDistributionListViewRes.LastModified + ": " + emailDistributionListModel.LastUpdateDate_UTC.ToString("yyyy MMMM dd   HH:mm") + " by (" + emailDistributionListModel.LastModifiedBy + ")")
-                            </span>
-                            <span>&nbsp;&nbsp;&nbsp;</span>
-                            @if (total > 1)
-                            {
-                                if (count != 1)
+            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+
+                @foreach (EmailDistributionListModel emailDistributionListModel in emailDistributionListModelList)
+                {
+                    string heading = "heading" + emailDistributionListModel.EmailDistributionListID;
+                    string collapse = "collapse" + emailDistributionListModel.EmailDistributionListID;
+
+                    count += 1;
+                    <div class="EmailDistributionListItem panel panel-info"
+                         data-emaildistributionlistid="@emailDistributionListModel.EmailDistributionListID">
+                        <div class="panel-heading" role="tab" id="@heading">
+                            <h4 class="panel-title">
+                                <button class="jbEmailDistributionListEdit EmailDistributionListEditButons btn btn-default hidden" title="@EmailDistributionListViewRes.Edit"><span class="glyphicon glyphicon-pencil"></span></button>
+                                <button class="jbEmailDistributionListAskToDelete EmailDistributionListEditButons btn btn-default hidden" title="@EmailDistributionListViewRes.Delete"><span class="glyphicon glyphicon-trash"></span></button>
+                                <span class="EmailDistributionListName">
+                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#@collapse" aria-expanded="true" aria-controls="@collapse">
+                                        @(emailDistributionListModel.EmailListName + " - " + EmailDistributionListViewRes.LastModified + ": " + emailDistributionListModel.LastUpdateDate_UTC.ToString("yyyy MMMM dd   HH:mm") + " by (" + emailDistributionListModel.LastModifiedBy + ")")
+                                    </a>
+                                </span>
+                                <span>&nbsp;&nbsp;&nbsp;</span>
+                                @if (total > 1)
                                 {
-                                    <button class="jbEmailDistributionListMoveUp EmailDistributionListEditButons btn btn-default hidden"
-                                            data-emaildistributionlistid="@emailDistributionListModel.EmailDistributionListID">
-                                        <span class="glyphicon glyphicon-arrow-up"></span>
-                                              @EmailDistributionListViewRes.MoveUp
-                                    </button>
+                                    if (count != 1)
+                                    {
+                                        <button class="jbEmailDistributionListMoveUp EmailDistributionListEditButons btn btn-default hidden"
+                                                data-emaildistributionlistid="@emailDistributionListModel.EmailDistributionListID">
+                                            <span class="glyphicon glyphicon-arrow-up"></span>
+                                            @EmailDistributionListViewRes.MoveUp
+                                        </button>
+                                    }
+                                    if (count != total)
+                                    {
+                                        <button class="jbEmailDistributionListMoveDown EmailDistributionListEditButons btn btn-default hidden"
+                                                data-emaildistributionlistid="@emailDistributionListModel.EmailDistributionListID">
+                                            <span class="glyphicon glyphicon-arrow-down"></span>
+                                            @EmailDistributionListViewRes.MoveDown
+                                        </button>
+                                    }
                                 }
-                                if (count != total)
-                                {
-                                    <button class="jbEmailDistributionListMoveDown EmailDistributionListEditButons btn btn-default hidden"
-                                            data-emaildistributionlistid="@emailDistributionListModel.EmailDistributionListID">
-                                        <span class="glyphicon glyphicon-arrow-down"></span>
-                                        @EmailDistributionListViewRes.MoveDown
-                                    </button>
-                                }
-                            }
-                        </h4>
-                    </div>
-                    <div class="panel-body">
-                        <div class="EmailDistributionListEdit"></div>
-                        <div class="EmailDistributionListContactTopDiv">
-                            @Html.Action("_emailDistributionListContact", "EmailDistributionList", new { EmailDistributionListID = emailDistributionListModel.EmailDistributionListID })
+                            </h4>
+                        </div>
+                        <div id="@collapse" class="panel-collapse collapse" role="tabpanel" aria-labelledby="@heading">
+                            <div class="panel-body">
+                                <div class="EmailDistributionListEdit"></div>
+                                <div class="EmailDistributionListContactTopDiv">
+                                    @Html.Action("_emailDistributionListContact", "EmailDistributionList", new { EmailDistributionListID = emailDistributionListModel.EmailDistributionListID })
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            }
+                }
+            </div>
         }
     </div>
-
-
-</div>

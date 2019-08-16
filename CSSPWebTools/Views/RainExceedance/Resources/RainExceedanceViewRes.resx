@@ -138,6 +138,9 @@
   <data name="Cancel" xml:space="preserve">
     <value>Cancel</value>
   </data>
+  <data name="ClickOnGlobeIconToViewOnMap" xml:space="preserve">
+    <value>Click on globe icon to view on map</value>
+  </data>
   <data name="ClickTheEditButtonToCreateOrModifyRainExceedances" xml:space="preserve">
     <value>Click the edit button to create or modify rain exceedances</value>
   </data>
@@ -152,6 +155,9 @@
   </data>
   <data name="ClimateSitesToUse" xml:space="preserve">
     <value>Climate sites to use</value>
+  </data>
+  <data name="ClimateSitesUsedAndWithinDistance" xml:space="preserve">
+    <value>Climate sites used and within distance</value>
   </data>
   <data name="Copy" xml:space="preserve">
     <value>Copy</value>
@@ -171,6 +177,9 @@
   <data name="Edit" xml:space="preserve">
     <value>Edit</value>
   </data>
+  <data name="EmailDistributionList" xml:space="preserve">
+    <value>Email distribution list</value>
+  </data>
   <data name="EmailDistributionListToUse" xml:space="preserve">
     <value>Email distribution list to use</value>
   </data>
@@ -179,6 +188,21 @@
   </data>
   <data name="EndDate" xml:space="preserve">
     <value>End date</value>
+  </data>
+  <data name="Find" xml:space="preserve">
+    <value>Find</value>
+  </data>
+  <data name="FindClimateSitesWithinDistanceOfRainExceedance" xml:space="preserve">
+    <value>Find climate site within distance of rain exceedance</value>
+  </data>
+  <data name="IdentifyOnMap" xml:space="preserve">
+    <value>Identify on map</value>
+  </data>
+  <data name="Inactive" xml:space="preserve">
+    <value>Inactive</value>
+  </data>
+  <data name="IsActive" xml:space="preserve">
+    <value>Is active</value>
   </data>
   <data name="LastModified" xml:space="preserve">
     <value>Last modified</value>
@@ -204,8 +228,17 @@
   <data name="Note" xml:space="preserve">
     <value>Note</value>
   </data>
+  <data name="Now" xml:space="preserve">
+    <value>Now</value>
+  </data>
+  <data name="OnlyStaff" xml:space="preserve">
+    <value>Only staff</value>
+  </data>
   <data name="OnlyStaffEmailDistributionList" xml:space="preserve">
     <value>Only Staff Email Distribution List</value>
+  </data>
+  <data name="OpenTo" xml:space="preserve">
+    <value>Open To</value>
   </data>
   <data name="RainExceedance" xml:space="preserve">
     <value>Rain exceedance</value>
@@ -236,6 +269,15 @@
   </data>
   <data name="Show" xml:space="preserve">
     <value>Show</value>
+  </data>
+  <data name="ShowClimateSites" xml:space="preserve">
+    <value>Show climate sites</value>
+  </data>
+  <data name="ShowClimateSitesOnMap" xml:space="preserve">
+    <value>Show climate sites on map</value>
+  </data>
+  <data name="Stakeholders" xml:space="preserve">
+    <value>Stakeholders</value>
   </data>
   <data name="StakeholdersEmailDistributionList" xml:space="preserve">
     <value>Stakeholders Email Distribution List</value>

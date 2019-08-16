@@ -138,6 +138,9 @@
   <data name="Cancel" xml:space="preserve">
     <value>Annuler</value>
   </data>
+  <data name="ClickOnGlobeIconToViewOnMap" xml:space="preserve">
+    <value>Cliquez sur l'icône du globe pour voir sur la carte</value>
+  </data>
   <data name="ClickTheEditButtonToCreateOrModifyRainExceedances" xml:space="preserve">
     <value>Cliquez sur le bouton d'édition pour créer ou modifier les dépassements de pluie</value>
   </data>
@@ -152,6 +155,9 @@
   </data>
   <data name="ClimateSitesToUse" xml:space="preserve">
     <value>Sites climatiques à utiliser</value>
+  </data>
+  <data name="ClimateSitesUsedAndWithinDistance" xml:space="preserve">
+    <value>Sites climatiques utilisés et à distance</value>
   </data>
   <data name="Copy" xml:space="preserve">
     <value>Copier</value>
@@ -171,6 +177,9 @@
   <data name="Edit" xml:space="preserve">
     <value>Éditer</value>
   </data>
+  <data name="EmailDistributionList" xml:space="preserve">
+    <value>Liste de distribution par courrier électronique</value>
+  </data>
   <data name="EmailDistributionListToUse" xml:space="preserve">
     <value>List de distribution des courriel à utiliser</value>
   </data>
@@ -179,6 +188,21 @@
   </data>
   <data name="EndDate" xml:space="preserve">
     <value>Date de fin</value>
+  </data>
+  <data name="Find" xml:space="preserve">
+    <value>Trouvez</value>
+  </data>
+  <data name="FindClimateSitesWithinDistanceOfRainExceedance" xml:space="preserve">
+    <value>Trouver le site climatique à proximité du dépassement de pluie</value>
+  </data>
+  <data name="IdentifyOnMap" xml:space="preserve">
+    <value>Identifier sur la carte</value>
+  </data>
+  <data name="Inactive" xml:space="preserve">
+    <value>Inactif</value>
+  </data>
+  <data name="IsActive" xml:space="preserve">
+    <value>Est actif</value>
   </data>
   <data name="LastModified" xml:space="preserve">
     <value>Modifié</value>
@@ -204,8 +228,17 @@
   <data name="Note" xml:space="preserve">
     <value>Notez</value>
   </data>
+  <data name="Now" xml:space="preserve">
+    <value>Maintenant</value>
+  </data>
+  <data name="OnlyStaff" xml:space="preserve">
+    <value>Seulement le personnel</value>
+  </data>
   <data name="OnlyStaffEmailDistributionList" xml:space="preserve">
     <value>Liste de distribution par courrier électronique réservée au personnel</value>
+  </data>
+  <data name="OpenTo" xml:space="preserve">
+    <value>Ouvrir pour</value>
   </data>
   <data name="RainExceedance" xml:space="preserve">
     <value>Excédante de pluie</value>
@@ -236,6 +269,16 @@
   </data>
   <data name="Show" xml:space="preserve">
     <value>Montré</value>
+  </data>
+  <data name="ShowClimateSites" xml:space="preserve">
+    <value>18/5000
+Afficher les sites climatiques</value>
+  </data>
+  <data name="ShowClimateSitesOnMap" xml:space="preserve">
+    <value>Afficher les sites climatiques sur la carte</value>
+  </data>
+  <data name="Stakeholders" xml:space="preserve">
+    <value>Les parties prenantes</value>
   </data>
   <data name="StakeholdersEmailDistributionList" xml:space="preserve">
     <value>Liste de distribution par courrier électronique des parties prenantes</value>

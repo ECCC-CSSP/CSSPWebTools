@@ -6,20 +6,88 @@
 @using CSSPWebTools.Controllers;
 
 @{
-    List<TVItemModel> TVItemModelClimateSiteList = (List<TVItemModel>)ViewBag.TVItemModelClimateSiteList;
+    int RainExceedanceTVItemID = (int)ViewBag.RainExceedanceTVItemID;
+    int Radius_km = (int)ViewBag.Radius_km;
+    RainExceedanceFullClimateSites rainExceedanceFullClimateSites = (RainExceedanceFullClimateSites)ViewBag.RainExceedanceFullClimateSites;
 }
 
 <h4>@RainExceedanceViewRes.ClimateSitesToUse</h4>
-<ul class="list-unstyled">
-    @if (TVItemModelClimateSiteList.Count == 0)
-            {
-        <li>@RainExceedanceViewRes.Empty</li>
-    }
-    else
-    {
-        foreach (TVItemModel TVItemModel in TVItemModelClimateSiteList)
-        {
-            <li>@TVItemModel.TVText</li>
-        }
-    }
+<ul class="RainExceedanceUL list-inline">
+    <li>
+        @RainExceedanceViewRes.FindClimateSitesWithinDistanceOfRainExceedance:
+    </li>
+    <li>
+        <input class="form-control isnumber" type="text" name="Radius_km" value="@Radius_km" />
+    </li>
+    <li>
+        Km
+    </li>
+    <li>
+        <button class="jbRainExceedanceClimateSitesFindWithinDistance btn btn-default" data-rainexceedancetvitemid="@RainExceedanceTVItemID">@RainExceedanceViewRes.Find</button>
+        <button class="jbHelpDocShowDialog btn btn-link" data-dockey="rainexceedanceclimatesitesfind" data-title="@RainExceedanceViewRes.Find"><span class="glyphicon glyphicon-info-sign"></span></button>
+    </li>
 </ul>
+<ul class="ClickGlobeToViewOnMap list-inline hidden">
+    <li>
+        @RainExceedanceViewRes.ClickOnGlobeIconToViewOnMap
+    </li>
+</ul>
+<h3>
+    @RainExceedanceViewRes.ClimateSitesUsedAndWithinDistance <button class="jbClimateSitesShowOnMap btn btn-default hidden">@RainExceedanceViewRes.ShowClimateSitesOnMap</button>
+    <button class="jbHelpDocShowDialog btn btn-link" data-dockey="rainexceedanceclimatesitesshowonmap" data-title="@RainExceedanceViewRes.ShowClimateSitesOnMap"><span class="glyphicon glyphicon-info-sign"></span></button>
+</h3>
+<div class="RainExceedanceClimateSiteUsedAndWithinDistanceDiv">
+    @{
+        int ClimateSiteCount = 99;
+    }
+    @foreach (ClimateSiteWithLatLngAndOrdinalModel climateSiteWithLatLngAndOrdinalModel in rainExceedanceFullClimateSites.ClimateSiteModelUsedAndWithinDistanceModelList)
+    {
+        ClimateSiteCount += 1;
+        bool IsInUse = rainExceedanceFullClimateSites.CurrentlyUsedClimateSiteTVItemIDList.Contains(climateSiteWithLatLngAndOrdinalModel.ClimateSiteTVItemID) ? true : false;
+
+        <div class="ClimateSiteUsedAndWithinDistance"
+             data-climatesitetvitemid="@climateSiteWithLatLngAndOrdinalModel.ClimateSiteTVItemID"
+             data-mapinfoid="@climateSiteWithLatLngAndOrdinalModel.MapInfoID"
+             data-lat="@climateSiteWithLatLngAndOrdinalModel.Lat"
+             data-lng="@climateSiteWithLatLngAndOrdinalModel.Lng"
+             data-climatesitecount="@ClimateSiteCount">
+            <span class="ClimateSiteCount">@(ClimateSiteCount) - </span>
+            <button class="jbMapShowItem btn btn-default hidden"
+                    data-tvitemid="@climateSiteWithLatLngAndOrdinalModel.ClimateSiteTVItemID"
+                    title="@RainExceedanceViewRes.IdentifyOnMap">
+                <span class="glyphicon glyphicon-map-marker"></span>
+            </button>
+            <button class="jbRainExceedanceAddUseOfClimateSite btn btn-@(IsInUse ? "success" : "default")"
+                    data-rainexceedancetvitemid="@RainExceedanceTVItemID"
+                    data-climatesitetvitemid="@climateSiteWithLatLngAndOrdinalModel.ClimateSiteTVItemID"
+                    data-use="@(IsInUse ? "true" : "false")">
+                @climateSiteWithLatLngAndOrdinalModel.ClimateSiteTVText
+            </button>
+            <span class="ClimateSiteMoreInfo">
+                @if (climateSiteWithLatLngAndOrdinalModel.DailyStartDate_Local != null && climateSiteWithLatLngAndOrdinalModel.DailyEndDate_Local != null)
+                {
+                    <span>@(((DateTime)climateSiteWithLatLngAndOrdinalModel.DailyStartDate_Local).ToString("yyyy MMM dd")) - </span>
+                    if (climateSiteWithLatLngAndOrdinalModel.DailyNow != null && climateSiteWithLatLngAndOrdinalModel.DailyNow == true)
+                    {
+                        <span class="h2">@RainExceedanceViewRes.Now</span>
+                    }
+                    else
+                    {
+                        <span>@(((DateTime)climateSiteWithLatLngAndOrdinalModel.DailyEndDate_Local).ToString("yyyy MMM dd"))</span>
+                    }
+                }
+                else
+                {
+                    @RainExceedanceViewRes.Empty
+                }
+                <span>(@climateSiteWithLatLngAndOrdinalModel.Distance_km.ToString("F0") Km)</span>
+            </span>
+        </div>
+    }
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        cssp.RainExceedance.Init();
+    });
+</script>
