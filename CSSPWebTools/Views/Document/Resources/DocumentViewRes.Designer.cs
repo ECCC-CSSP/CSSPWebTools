@@ -79,6 +79,15 @@ namespace CSSPWebTools.Views.Document.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Can contain multiple path points in same mesh element.
+        /// </summary>
+        public static string CanContainMultiplePathPointsInSameMeshElement {
+            get {
+                return ResourceManager.GetString("CanContainMultiplePathPointsInSameMeshElement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Contour values.
         /// </summary>
         public static string ContourValues {
@@ -102,6 +111,24 @@ namespace CSSPWebTools.Views.Document.Resources {
         public static string Delete {
             get {
                 return ResourceManager.GetString("Delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Do first X drogue points.
+        /// </summary>
+        public static string DoFirstXDroguePoints {
+            get {
+                return ResourceManager.GetString("DoFirstXDroguePoints", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Do layers.
+        /// </summary>
+        public static string DoLayers {
+            get {
+                return ResourceManager.GetString("DoLayers", resourceCulture);
             }
         }
         
@@ -367,6 +394,15 @@ namespace CSSPWebTools.Views.Document.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Minimum distance to show path.
+        /// </summary>
+        public static string MinimumDistanceToShowPath {
+            get {
+                return ResourceManager.GetString("MinimumDistanceToShowPath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Municipality Highest And Lowest Monthly Tides.
         /// </summary>
         public static string MunicipalityHighestAndLowestMonthlyTides {
@@ -435,6 +471,15 @@ namespace CSSPWebTools.Views.Document.Resources {
         public static string ReportYear {
             get {
                 return ResourceManager.GetString("ReportYear", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Start another drogue after X hours.
+        /// </summary>
+        public static string StartAnotherDrogueAfterXHours {
+            get {
+                return ResourceManager.GetString("StartAnotherDrogueAfterXHours", resourceCulture);
             }
         }
         

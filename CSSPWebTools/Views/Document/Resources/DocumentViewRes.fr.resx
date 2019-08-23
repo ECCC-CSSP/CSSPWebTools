@@ -270,4 +270,19 @@
   <data name="EstimatedDroguePathsAnimation" xml:space="preserve">
     <value>Animation des chemins de drogue estimés</value>
   </data>
+  <data name="CanContainMultiplePathPointsInSameMeshElement" xml:space="preserve">
+    <value>Peut contenir plusieurs points de chemin dans le même élément de maillage</value>
+  </data>
+  <data name="DoFirstXDroguePoints" xml:space="preserve">
+    <value>Faire les X premiers points de drogue</value>
+  </data>
+  <data name="DoLayers" xml:space="preserve">
+    <value>Faire les couches</value>
+  </data>
+  <data name="MinimumDistanceToShowPath" xml:space="preserve">
+    <value>Distance minimale pour montrer le chemin</value>
+  </data>
+  <data name="StartAnotherDrogueAfterXHours" xml:space="preserve">
+    <value>Commencer une autre drogue après X heures</value>
+  </data>
 </root>

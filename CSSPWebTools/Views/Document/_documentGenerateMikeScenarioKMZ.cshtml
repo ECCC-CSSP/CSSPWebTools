@@ -136,6 +136,54 @@ else
                     <button class="jbHelpDocShowDialog btn btn-link" data-dockey="documentparametersformikescenarioestimateddroguepathsanimationkmz" data-title="@DocumentViewRes.Parameters @DocumentViewRes.For @DocumentViewRes.EstimatedDroguePathsAnimation"><span class="glyphicon glyphicon-info-sign"></span></button>
                 </legend>
                 <div class="form-inline">
+                    <button class="jbHelpDocShowDialog btn btn-link" data-dockey="documentmikescenariokmldofirstxdroguepoints" data-title="@DocumentViewRes.DoFirstXDroguePoints"><span class="glyphicon glyphicon-info-sign"></span></button>
+                    <label>
+                        <span>@DocumentViewRes.DoFirstXDroguePoints</span>&nbsp;&nbsp;&nbsp;
+                    </label>
+                    <input type="radio" name="DoFirstXDroguePoints" checked="checked" value="1" class="form-control">&nbsp;&nbsp;<span>1</span>&nbsp;&nbsp;
+                    <input type="radio" name="DoFirstXDroguePoints" value="2" class="form-control">&nbsp;&nbsp;<span>2</span>&nbsp;&nbsp;
+                    <input type="radio" name="DoFirstXDroguePoints" value="3" class="form-control">&nbsp;&nbsp;<span>3</span>&nbsp;&nbsp;
+                    <input type="radio" name="DoFirstXDroguePoints" value="4" class="form-control">&nbsp;&nbsp;<span>4</span>&nbsp;&nbsp;
+                </div>
+                <div class="form-inline">
+                    <button class="jbHelpDocShowDialog btn btn-link" data-dockey="documentmikescenariokmlstartanotherdrogueafterxhours" data-title="@DocumentViewRes.StartAnotherDrogueAfterXHours"><span class="glyphicon glyphicon-info-sign"></span></button>
+                    <label>
+                        <span>@DocumentViewRes.StartAnotherDrogueAfterXHours</span>&nbsp;&nbsp;&nbsp;
+                    </label>
+                    <input type="checkbox" name="Delays" value="0" checked="checked" class="form-control">&nbsp;&nbsp;<span>0</span>&nbsp;&nbsp;
+                    @*<input type="checkbox" name="Delays" value="1" class="form-control">&nbsp;&nbsp;<span>1</span>&nbsp;&nbsp;*@
+                    <input type="checkbox" name="Delays" value="2" checked="checked"  class="form-control">&nbsp;&nbsp;<span>2</span>&nbsp;&nbsp;
+                    @*<input type="checkbox" name="Delays" value="3" checked="checked" class="form-control">&nbsp;&nbsp;<span>3</span>&nbsp;&nbsp;*@
+                    <input type="checkbox" name="Delays" value="4" class="form-control">&nbsp;&nbsp;<span>4</span>&nbsp;&nbsp;
+                    @*<input type="checkbox" name="Delays" value="5" class="form-control">&nbsp;&nbsp;<span>5</span>&nbsp;&nbsp;*@
+                    <input type="checkbox" name="Delays" value="6" class="form-control">&nbsp;&nbsp;<span>6</span>&nbsp;&nbsp;
+                    @*<input type="checkbox" name="Delays" value="7" class="form-control">&nbsp;&nbsp;<span>7</span>&nbsp;&nbsp;*@
+                    <input type="checkbox" name="Delays" value="8" class="form-control">&nbsp;&nbsp;<span>8</span>&nbsp;&nbsp;
+                    @*<input type="checkbox" name="Delays" value="9" class="form-control">&nbsp;&nbsp;<span>9</span>&nbsp;&nbsp;*@
+                    <input type="checkbox" name="Delays" value="10" class="form-control">&nbsp;&nbsp;<span>10</span>&nbsp;&nbsp;
+                    @*<input type="checkbox" name="Delays" value="11" class="form-control">&nbsp;&nbsp;<span>11</span>&nbsp;&nbsp;
+                    <input type="checkbox" name="Delays" value="12" class="form-control">&nbsp;&nbsp;<span>12</span>&nbsp;&nbsp;*@
+                </div>
+                <div class="form-inline">
+                    <button class="jbHelpDocShowDialog btn btn-link" data-dockey="documentmikescenariokmldolayers" data-title="@DocumentViewRes.DoLayers"><span class="glyphicon glyphicon-info-sign"></span></button>
+                    <label>
+                        <span>@DocumentViewRes.DoLayers</span>&nbsp;&nbsp;&nbsp;
+                    </label>
+                    <input type="checkbox" name="Layers" value="1" checked="checked" class="form-control">&nbsp;&nbsp;<span>1</span>&nbsp;&nbsp;
+                    <input type="checkbox" name="Layers" value="2" class="form-control">&nbsp;&nbsp;<span>2</span>&nbsp;&nbsp;
+                    <input type="checkbox" name="Layers" value="3" class="form-control">&nbsp;&nbsp;<span>3</span>&nbsp;&nbsp;
+                    <input type="checkbox" name="Layers" value="4" class="form-control">&nbsp;&nbsp;<span>4</span>&nbsp;&nbsp;
+                    <input type="checkbox" name="Layers" value="5" class="form-control">&nbsp;&nbsp;<span>5</span>&nbsp;&nbsp;
+                    <input type="checkbox" name="Layers" value="6" class="form-control">&nbsp;&nbsp;<span>6</span>&nbsp;&nbsp;
+                    <input type="checkbox" name="Layers" value="7" class="form-control">&nbsp;&nbsp;<span>7</span>&nbsp;&nbsp;
+                    <input type="checkbox" name="Layers" value="8" class="form-control">&nbsp;&nbsp;<span>8</span>&nbsp;&nbsp;
+                    <input type="checkbox" name="Layers" value="9" class="form-control">&nbsp;&nbsp;<span>9</span>&nbsp;&nbsp;
+                    <input type="checkbox" name="Layers" value="10" class="form-control">&nbsp;&nbsp;<span>10</span>&nbsp;&nbsp;
+                    <br />
+                    <span><strong>Note:</strong> MIKE 21 only has one layer while MIKE 3 can have many. If you see a file ending with .m3fm (MIKE 3) or .m21fm (MIKE 21)</span>
+                    <br />
+                </div>
+                <div class="form-inline">
                     <label>
                         <span>@DocumentViewRes.GoogleEarthPath</span>
                         <button class="jbHelpDocShowDialog btn btn-link" data-dockey="documentmikescenariokmlgoogleearthpath" data-title="@DocumentViewRes.GoogleEarthPath"><span class="glyphicon glyphicon-info-sign"></span></button>
