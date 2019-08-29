@@ -71,6 +71,9 @@ var CSSP;
                         case "cssp.PolSourceSite.SetDialogEventsDeleteObservation":
                             cssp.PolSourceSite.SetDialogEventsDeleteObservation($ajs);
                             break;
+                        case "cssp.PolSourceSiteEffect.SetDialogEventsIsGroup":
+                            cssp.PolSourceSiteEffect.SetDialogEventsIsGroup($ajs);
+                            break;
                         case "cssp.PolSourceSite.SetDialogEventsDeleteObservationIssue":
                             cssp.PolSourceSite.SetDialogEventsDeleteObservationIssue($ajs);
                             break;
@@ -121,6 +124,9 @@ var CSSP;
             };
             this.ShowDialogContinueSaving = function (ContinueSavingObjText) {
                 cssp.Dialog.ShowDialogBasic(new CSSP.DialogModel(CSSP.DialogModelTypeEnum.ContinueSaving, cssp.GetHTMLVariable("#LayoutVariables", "varContinueSaving") + " " + ContinueSavingObjText, cssp.GetHTMLVariable("#LayoutVariables", "varContinueSaving")));
+            };
+            this.ShowDialogAreYouSureChangeGroup = function (EffectTermText) {
+                cssp.Dialog.ShowDialogBasic(new CSSP.DialogModel(CSSP.DialogModelTypeEnum.AreYouSure, cssp.GetHTMLVariable("#LayoutVariables", "varChangingIsGroup") + " " + EffectTermText, cssp.GetHTMLVariable("#LayoutVariables", "varAreYouSure")));
             };
             this.ShowDialogAreYouSure = function (DeleteObjText) {
                 cssp.Dialog.ShowDialogBasic(new CSSP.DialogModel(CSSP.DialogModelTypeEnum.AreYouSure, cssp.GetHTMLVariable("#LayoutVariables", "varDeleting") + " " + DeleteObjText, cssp.GetHTMLVariable("#LayoutVariables", "varAreYouSure")));

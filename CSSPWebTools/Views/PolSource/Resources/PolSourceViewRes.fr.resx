@@ -282,6 +282,9 @@
   <data name="SelectedDescription" xml:space="preserve">
     <value>Nouvelle description</value>
   </data>
+  <data name="ShowAnalysesTool" xml:space="preserve">
+    <value>Afficher l'outil d'analyse</value>
+  </data>
   <data name="Site" xml:space="preserve">
     <value>Site</value>
   </data>

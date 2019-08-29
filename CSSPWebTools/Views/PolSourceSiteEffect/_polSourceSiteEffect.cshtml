@@ -1,0 +1,88 @@
+﻿@using CSSPWebTools.Views.PolSourceSiteEffect.Resources;
+@using CSSPWebTools.Models;
+@using CSSPEnumsDLL.Enums;
+@using CSSPEnumsDLL.Services;
+@using CSSPModelsDLL.Models;
+@using CSSPWebTools.Controllers;
+
+@{
+    bool IsShowMap = (bool)ViewBag.IsShowMap;
+    TVAuthEnum tvAuth = (TVAuthEnum)ViewBag.TVAuth;
+    int PolSourceSiteTVItemID = (int)ViewBag.PolSourceSiteTVItemID;
+    List<PolSourceSiteEffectModel> polSourceSiteEffectModelList = (List<PolSourceSiteEffectModel>)ViewBag.PolSourceSiteEffectModelList;
+    List<PolSourceSiteEffectTermModel> polSourceSiteEffectTermModelAllList = (List<PolSourceSiteEffectTermModel>)ViewBag.PolSourceSiteEffectTermModelAllList;
+}
+
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <div class="panel-title">
+            <span class="h4">@PolSourceSiteEffectViewRes.EffectAnalyses</span>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div class="PolSourceSiteEffectTermsTop">
+            <button class="jbPolSourceSiteEffectTermsTop btn btn-default">@PolSourceSiteEffectViewRes.ManageEffectTerms</button>
+            <div class="PolSourceSiteEffectTerms hidden">
+                <ul>
+                    @foreach (PolSourceSiteEffectTermModel polSourceSiteEffectTermModel in polSourceSiteEffectTermModelAllList.Where(c => c.IsGroup == true).OrderBy(c => c.EffectTermEN))
+                    {
+                        <li class="PolSourceSiteEffectTermIsGroup">
+                            <button class="jbPolSourceSiteEffectTermsIsGroup btn btn-success"
+                                    data-polsourcesiteeffecttermid="@polSourceSiteEffectTermModel.PolSourceSiteEffectTermID"
+                                    data-polsourcesiteeffecttermisgroup="@polSourceSiteEffectTermModel.IsGroup"
+                                    data-effecttermen="@polSourceSiteEffectTermModel.EffectTermEN">
+                                @PolSourceSiteEffectViewRes.IsGroup
+                            </button>
+                            <span class="h5">ID: @polSourceSiteEffectTermModel.PolSourceSiteEffectTermID --- @polSourceSiteEffectTermModel.EffectTermEN</span> --- <span>(fr)</span><span class="h5">(fr)@polSourceSiteEffectTermModel.EffectTermFR</span>
+                            <ul>
+                                @foreach (PolSourceSiteEffectTermModel polSourceSiteEffectTermModel2 in polSourceSiteEffectTermModelAllList.Where(c => c.IsGroup == false && c.UnderGroupID == polSourceSiteEffectTermModel.PolSourceSiteEffectTermID).OrderBy(c => c.EffectTermEN))
+                                {
+                                <li class="PolSourceSiteEffectTerm">
+                                    <button class="jbPolSourceSiteEffectTermsIsGroup btn btn-default"
+                                            data-polsourcesiteeffecttermid="@polSourceSiteEffectTermModel2.PolSourceSiteEffectTermID"
+                                            data-polsourcesiteeffecttermisgroup="@polSourceSiteEffectTermModel2.IsGroup"
+                                            data-effecttermen="@polSourceSiteEffectTermModel2.EffectTermEN">
+                                        @PolSourceSiteEffectViewRes.IsGroup
+                                    </button>&nbsp;&nbsp;&nbsp;
+                                    <input type="text" class="PolSourceSiteEffectTermSendToGroup" />
+                                    <button class="jbPolSourceSiteEffectTermsSendToGroup btn btn-default"
+                                            data-polsourcesiteeffecttermid="@polSourceSiteEffectTermModel2.PolSourceSiteEffectTermID"
+                                            data-polsourcesiteeffecttermisgroup="@polSourceSiteEffectTermModel2.IsGroup"
+                                            data-effecttermen="@polSourceSiteEffectTermModel2.EffectTermEN">
+                                        @PolSourceSiteEffectViewRes.SendToGroup
+                                    </button>
+                                    <span class="h5">ID: @polSourceSiteEffectTermModel2.PolSourceSiteEffectTermID --- @polSourceSiteEffectTermModel2.EffectTermEN</span> --- <span>(fr)</span><span class="h5">(fr)@polSourceSiteEffectTermModel2.EffectTermFR</span>
+                                </li>
+                                }
+                            </ul>
+                        </li>
+                    }
+                </ul>
+                <ul>
+                    @foreach (PolSourceSiteEffectTermModel polSourceSiteEffectTermModel3 in polSourceSiteEffectTermModelAllList.Where(c => c.IsGroup == false && c.UnderGroupID == null).OrderBy(c => c.EffectTermEN))
+                    {
+                        <li class="PolSourceSiteEffectTerm">
+                            <button class="jbPolSourceSiteEffectTermsIsGroup btn btn-default"
+                                    data-polsourcesiteeffecttermid="@polSourceSiteEffectTermModel3.PolSourceSiteEffectTermID"
+                                    data-polsourcesiteeffecttermisgroup="@polSourceSiteEffectTermModel3.IsGroup"
+                                    data-effecttermen="@polSourceSiteEffectTermModel3.EffectTermEN">
+                                @PolSourceSiteEffectViewRes.IsGroup
+                            </button>
+                            <span class="h5">ID: @polSourceSiteEffectTermModel3.PolSourceSiteEffectTermID --- @polSourceSiteEffectTermModel3.EffectTermEN</span> --- <span>(fr)</span><span class="h5">(fr)@polSourceSiteEffectTermModel3.EffectTermFR</span>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+        <div class="PolSourceSiteEffectTop">
+            <ul>
+                @foreach (PolSourceSiteEffectModel polSourceSiteEffectModel in polSourceSiteEffectModelList)
+                {
+                    <li>
+
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>

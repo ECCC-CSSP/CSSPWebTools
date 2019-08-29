@@ -150,6 +150,9 @@
   <data name="Cancel" xml:space="preserve">
     <value>Annuler</value>
   </data>
+  <data name="ChangingIsGroup" xml:space="preserve">
+    <value>Changer de groupe</value>
+  </data>
   <data name="CheckUnderClimateSitePrioritiesTab" xml:space="preserve">
     <value>Vérifiez sous l'onglet Priorités du site climatique</value>
   </data>

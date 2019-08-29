@@ -35,6 +35,7 @@ module CSSP {
         public MWQMSite: CSSP.MWQMSite;
         public OpenData: CSSP.OpenData;
         public PolSourceSite: CSSP.PolSourceSite;
+        public PolSourceSiteEffect: CSSP.PolSourceSiteEffect;
         public ProvinceTools: CSSP.ProvinceTools;
         public Profile: CSSP.Profile;
         public RainExceedance: CSSP.RainExceedance;
@@ -304,6 +305,7 @@ cssp.MWQMSite = new CSSP.MWQMSite();
 cssp.MWQMRun = new CSSP.MWQMRun();
 cssp.OpenData = new CSSP.OpenData();
 cssp.PolSourceSite = new CSSP.PolSourceSite();
+cssp.PolSourceSiteEffect = new CSSP.PolSourceSiteEffect();
 cssp.ProvinceTools = new CSSP.ProvinceTools();
 cssp.Profile = new CSSP.Profile();
 cssp.RainExceedance = new CSSP.RainExceedance();

@@ -201,6 +201,7 @@
     <Compile Include="Controllers\MapController.cs" />
     <Compile Include="Controllers\MikeScenarioController.cs" />
     <Compile Include="Controllers\MWQMController.cs" />
+    <Compile Include="Controllers\PolSourceSiteEffectController.cs" />
     <Compile Include="Controllers\SubsectorToolsController.cs" />
     <Compile Include="Controllers\ProvinceToolsController.cs" />
     <Compile Include="Controllers\PolSourceController.cs" />
@@ -446,6 +447,16 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>OpenDataViewRes.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PolSourceSiteEffect\Resources\PolSourceSiteEffectViewRes.fr.Designer.cs">
+      <DependentUpon>PolSourceSiteEffectViewRes.fr.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Views\PolSourceSiteEffect\Resources\PolSourceSiteEffectViewRes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PolSourceSiteEffectViewRes.resx</DependentUpon>
     </Compile>
     <Compile Include="Views\ProvinceTools\Resources\ProvinceToolsViewRes.fr.Designer.cs">
       <DependentUpon>ProvinceToolsViewRes.fr.resx</DependentUpon>
@@ -974,6 +985,7 @@
     <Content Include="Views\HelpDoc\_HelpDocViewAndEdit.cshtml" />
     <Content Include="Views\DrogueRun\_DrogueRunForSubsector.cshtml" />
     <Content Include="Views\MWQM\_mwqmSiteSampleMovingAverageStat.cshtml" />
+    <Content Include="Views\PolSourceSiteEffect\_polSourceSiteEffect.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -985,6 +997,7 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\csspjs\cssp.HelpDoc.ts" />
+    <TypeScriptCompile Include="Scripts\csspjs\cssp.PolSourceSiteEffect.ts" />
     <TypeScriptCompile Include="Scripts\csspjs\cssp.SubsectorTools.ts" />
     <TypeScriptCompile Include="Scripts\csspjs\cssp.ProvinceTools.ts" />
     <TypeScriptCompile Include="Scripts\csspjs\cssp.OpenData.ts" />
@@ -1293,6 +1306,14 @@
     <EmbeddedResource Include="Views\OpenData\Resources\OpenDataViewRes.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>OpenDataViewRes.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\PolSourceSiteEffect\Resources\PolSourceSiteEffectViewRes.fr.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>PolSourceSiteEffectViewRes.fr.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\PolSourceSiteEffect\Resources\PolSourceSiteEffectViewRes.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>PolSourceSiteEffectViewRes.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\ProvinceTools\Resources\ProvinceToolsViewRes.fr.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

@@ -1261,6 +1261,26 @@ var CSSP;
                                 cssp.PolSourceSite.PolSourceShowHideOnMap();
                             }
                             break;
+                        case "jbPolSourceSiteEffectShowAnalysesTool":
+                            {
+                                cssp.PolSourceSiteEffect.PolSourceSiteEffectShowAnalysesTool($bjs);
+                            }
+                            break;
+                        case "jbPolSourceSiteEffectTermsShowHide":
+                            {
+                                cssp.PolSourceSiteEffect.PolSourceSiteEffectTermsShowHide($bjs);
+                            }
+                            break;
+                        case "jbPolSourceSiteEffectTermsIsGroup":
+                            {
+                                cssp.PolSourceSiteEffect.PolSourceSiteEffectTermsIsGroup($bjs);
+                            }
+                            break;
+                        case "jbPolSourceSiteEffectTermsSendToGroup":
+                            {
+                                cssp.PolSourceSiteEffect.PolSourceSiteEffectTermsSendToGroup($bjs);
+                            }
+                            break;
                         case "jbProfileSave":
                             {
                                 cssp.Profile.FormSubmit();

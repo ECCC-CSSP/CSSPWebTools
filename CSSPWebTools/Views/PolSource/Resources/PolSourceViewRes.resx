@@ -299,4 +299,7 @@
   <data name="AreYouSureYouWantToChangeDateOfCurrentObservation" xml:space="preserve">
     <value>Are you sure you want to change date of current observation?</value>
   </data>
+  <data name="ShowAnalysesTool" xml:space="preserve">
+    <value>Show Analyses Tool</value>
+  </data>
 </root>
