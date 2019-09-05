@@ -11,6 +11,8 @@
     int PolSourceSiteTVItemID = (int)ViewBag.PolSourceSiteTVItemID;
     List<PolSourceSiteEffectModel> polSourceSiteEffectModelList = (List<PolSourceSiteEffectModel>)ViewBag.PolSourceSiteEffectModelList;
     List<PolSourceSiteEffectTermModel> polSourceSiteEffectTermModelAllList = (List<PolSourceSiteEffectTermModel>)ViewBag.PolSourceSiteEffectTermModelAllList;
+    List<PolSourceSiteModel> polSourceSiteModelList = (List<PolSourceSiteModel>)ViewBag.PolSourceSiteModelList;
+    List<MWQMSiteModel> mwqmSiteModelList = (List<MWQMSiteModel>)ViewBag.MWQMSiteModelList;
 }
 
 <div class="panel panel-info">
@@ -37,22 +39,22 @@
                             <ul>
                                 @foreach (PolSourceSiteEffectTermModel polSourceSiteEffectTermModel2 in polSourceSiteEffectTermModelAllList.Where(c => c.IsGroup == false && c.UnderGroupID == polSourceSiteEffectTermModel.PolSourceSiteEffectTermID).OrderBy(c => c.EffectTermEN))
                                 {
-                                <li class="PolSourceSiteEffectTerm">
-                                    <button class="jbPolSourceSiteEffectTermsIsGroup btn btn-default"
-                                            data-polsourcesiteeffecttermid="@polSourceSiteEffectTermModel2.PolSourceSiteEffectTermID"
-                                            data-polsourcesiteeffecttermisgroup="@polSourceSiteEffectTermModel2.IsGroup"
-                                            data-effecttermen="@polSourceSiteEffectTermModel2.EffectTermEN">
-                                        @PolSourceSiteEffectViewRes.IsGroup
-                                    </button>&nbsp;&nbsp;&nbsp;
-                                    <input type="text" class="PolSourceSiteEffectTermSendToGroup" />
-                                    <button class="jbPolSourceSiteEffectTermsSendToGroup btn btn-default"
-                                            data-polsourcesiteeffecttermid="@polSourceSiteEffectTermModel2.PolSourceSiteEffectTermID"
-                                            data-polsourcesiteeffecttermisgroup="@polSourceSiteEffectTermModel2.IsGroup"
-                                            data-effecttermen="@polSourceSiteEffectTermModel2.EffectTermEN">
-                                        @PolSourceSiteEffectViewRes.SendToGroup
-                                    </button>
-                                    <span class="h5">ID: @polSourceSiteEffectTermModel2.PolSourceSiteEffectTermID --- @polSourceSiteEffectTermModel2.EffectTermEN</span> --- <span>(fr)</span><span class="h5">(fr)@polSourceSiteEffectTermModel2.EffectTermFR</span>
-                                </li>
+                                    <li class="PolSourceSiteEffectTerm">
+                                        <button class="jbPolSourceSiteEffectTermsIsGroup btn btn-default"
+                                                data-polsourcesiteeffecttermid="@polSourceSiteEffectTermModel2.PolSourceSiteEffectTermID"
+                                                data-polsourcesiteeffecttermisgroup="@polSourceSiteEffectTermModel2.IsGroup"
+                                                data-effecttermen="@polSourceSiteEffectTermModel2.EffectTermEN">
+                                            @PolSourceSiteEffectViewRes.IsGroup
+                                        </button>&nbsp;&nbsp;&nbsp;
+                                        <input type="text" class="PolSourceSiteEffectTermSendToGroup" />
+                                        <button class="jbPolSourceSiteEffectTermsSendToGroup btn btn-default"
+                                                data-polsourcesiteeffecttermid="@polSourceSiteEffectTermModel2.PolSourceSiteEffectTermID"
+                                                data-polsourcesiteeffecttermisgroup="@polSourceSiteEffectTermModel2.IsGroup"
+                                                data-effecttermen="@polSourceSiteEffectTermModel2.EffectTermEN">
+                                            @PolSourceSiteEffectViewRes.SendToGroup
+                                        </button>
+                                        <span class="h5">ID: @polSourceSiteEffectTermModel2.PolSourceSiteEffectTermID --- @polSourceSiteEffectTermModel2.EffectTermEN</span> --- <span>(fr)</span><span class="h5">(fr)@polSourceSiteEffectTermModel2.EffectTermFR</span>
+                                    </li>
                                 }
                             </ul>
                         </li>
@@ -75,11 +77,65 @@
             </div>
         </div>
         <div class="PolSourceSiteEffectTop">
-            <ul>
+            <h4>@PolSourceSiteEffectViewRes.CanEffectMWQMSites</h4>
+            <ul class="list-unstyled">
                 @foreach (PolSourceSiteEffectModel polSourceSiteEffectModel in polSourceSiteEffectModelList)
                 {
-                    <li>
+                    MWQMSiteModel mwqmSiteModel = mwqmSiteModelList.Where(c => c.MWQMSiteTVItemID == polSourceSiteEffectModel.MWQMSiteTVItemID).FirstOrDefault();
 
+                    List<PolSourceSiteEffectModel> polSourceSiteEffectModelList2 = polSourceSiteEffectModelList.Where(c => c.MWQMSiteTVItemID == mwqmSiteModel.MWQMSiteTVItemID && c.PolSourceSiteTVItemID != polSourceSiteEffectModel.PolSourceSiteTVItemID).ToList();
+
+                    string EffectTermIDs = polSourceSiteEffectModel.PolSourceSiteEffectTermIDs;
+
+                    List<int> EffectTermIDList = new List<int>();
+                    if (!string.IsNullOrWhiteSpace(EffectTermIDs))
+                    {
+                        EffectTermIDList = EffectTermIDs.Split(",".ToCharArray(), StringSplitOptions.RemoveEmptyEntries).Select(c => int.Parse(c)).ToList();
+                    }
+
+                    List<PolSourceSiteEffectTermModel> polSourceSiteEffectTermModelAllList2 = (from c in polSourceSiteEffectTermModelAllList
+                                                                                               from e in EffectTermIDList
+                                                                                               where c.PolSourceSiteEffectTermID == e
+                                                                                               select c).ToList();
+
+                    <li>
+                        <div>
+                            <p>@mwqmSiteModel.MWQMSiteTVText</p>
+                            <div>
+                                <span class="h4">@PolSourceSiteEffectViewRes.EffectTermList</span>
+                                <p>
+                                    @if (ViewBag.Language == LanguageEnum.fr)
+                                    {
+                                        foreach (PolSourceSiteEffectTermModel polSourceSiteEffectTermModel in polSourceSiteEffectTermModelAllList2)
+                                        {
+                                            <span>@polSourceSiteEffectTermModel.EffectTermFR</span>, 
+                                        }
+                                    }
+                                    else
+                                    {
+                                       foreach (PolSourceSiteEffectTermModel polSourceSiteEffectTermModel in polSourceSiteEffectTermModelAllList2)
+                                        {
+                                            <span>@polSourceSiteEffectTermModel.EffectTermEN</span>, 
+                                        }
+                                    }
+                                </p>
+                            </div>
+                            <div>
+                                <span class="h4">@PolSourceSiteEffectViewRes.AlsoEffectedByPolSourceSites</span>
+                                <ul class="list-unstyled">
+                                    @foreach (PolSourceSiteEffectModel polSourceSiteEffectModel2 in polSourceSiteEffectModelList2)
+                                    {
+                                        PolSourceSiteModel polSourceSiteModel = polSourceSiteModelList.Where(c => c.PolSourceSiteTVItemID == polSourceSiteEffectModel2.PolSourceSiteTVItemID).FirstOrDefault();
+                                        <li>
+                                            <div>
+                                                <p>@polSourceSiteModel.PolSourceSiteTVText</p>
+                                            </div>
+                                        </li>
+                                    }
+
+                                </ul>
+                            </div>
+                        </div>
                     </li>
                 }
             </ul>

@@ -61,11 +61,38 @@ namespace CSSPWebTools.Views.PolSourceSiteEffect.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Also effected by pollutions source sites.
+        /// </summary>
+        public static string AlsoEffectedByPolSourceSites {
+            get {
+                return ResourceManager.GetString("AlsoEffectedByPolSourceSites", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Can effect MWQM sites.
+        /// </summary>
+        public static string CanEffectMWQMSites {
+            get {
+                return ResourceManager.GetString("CanEffectMWQMSites", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Effect Analyses.
         /// </summary>
         public static string EffectAnalyses {
             get {
                 return ResourceManager.GetString("EffectAnalyses", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Effect term list.
+        /// </summary>
+        public static string EffectTermList {
+            get {
+                return ResourceManager.GetString("EffectTermList", resourceCulture);
             }
         }
         

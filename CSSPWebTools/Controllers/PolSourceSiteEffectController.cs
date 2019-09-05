@@ -30,6 +30,8 @@ namespace CSSPWebTools.Controllers
         #region Properties
         public PolSourceSiteEffectService _PolSourceSiteEffectService { get; private set; }
         public PolSourceSiteEffectTermService _PolSourceSiteEffectTermService { get; private set; }
+        public PolSourceSiteService _PolSourceSiteService { get; private set; }
+        public MWQMSiteService _MWQMSiteService { get; private set; }
         public PolSourceSiteEffectController _PolSourceSiteEffectController { get; private set; }
         public BaseEnumService _BaseEnumService { get; private set; }
         #endregion Properties
@@ -60,7 +62,7 @@ namespace CSSPWebTools.Controllers
             ViewBag.PolSourceSiteTVItemID = PolSourceSiteTVItemID;
             ViewBag.PolSourceSiteEffectModelList = null;
             ViewBag.PolSourceSiteEffectTermModelAllList = null;
-            ViewBag.PolSourceSiteModel = null;
+            ViewBag.PolSourceSiteModelList = null;
             ViewBag.MWQMSiteModelList = null;
 
             if (PolSourceSiteTVItemID == 0)
@@ -111,6 +113,14 @@ namespace CSSPWebTools.Controllers
                     }
 
                     ViewBag.PolSourceSiteEffectModelList = polSourceSiteEffectModelList;
+
+                    List<PolSourceSiteModel> polSourceSiteModelList = _PolSourceSiteService.GetPolSourceSiteModelListWithSubsectorTVItemIDDB(tvItemModelSubsector.TVItemID);
+
+                    ViewBag.PolSourceSiteModelList = polSourceSiteModelList;
+
+                    List<MWQMSiteModel> mwqmSiteModelList = _MWQMSiteService.GetMWQMSiteModelListWithSubsectorTVItemIDDB(tvItemModelSubsector.TVItemID);
+
+                    ViewBag.MWQMSiteModelList = mwqmSiteModelList;
                 }
             }
 

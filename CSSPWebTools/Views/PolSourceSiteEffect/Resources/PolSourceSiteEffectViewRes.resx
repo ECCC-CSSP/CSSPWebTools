@@ -117,8 +117,17 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AlsoEffectedByPolSourceSites" xml:space="preserve">
+    <value>Also effected by pollutions source sites</value>
+  </data>
+  <data name="CanEffectMWQMSites" xml:space="preserve">
+    <value>Can effect MWQM sites</value>
+  </data>
   <data name="EffectAnalyses" xml:space="preserve">
     <value>Effect Analyses</value>
+  </data>
+  <data name="EffectTermList" xml:space="preserve">
+    <value>Effect term list</value>
   </data>
   <data name="IsGroup" xml:space="preserve">
     <value>Is Group</value>
