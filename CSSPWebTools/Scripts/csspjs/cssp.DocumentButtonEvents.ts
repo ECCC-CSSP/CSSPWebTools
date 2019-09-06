@@ -1264,7 +1264,7 @@ module CSSP {
                             cssp.PolSourceSite.PolSourceShowHideOnMap();
                         }
                         break;
-                    case "jbPolSourceSiteEffectShowAnalysesTool":
+                    case "jbPolSourceEffectShowAnalysesTool":
                         {
                             cssp.PolSourceSiteEffect.PolSourceSiteEffectShowAnalysesTool($bjs);
                         }

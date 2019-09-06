@@ -17,12 +17,12 @@ module CSSP {
             if ($bjs.hasClass("btn-default")) {
                 $bjs.removeClass("btn-default").addClass("btn-success");
 
-                let PolSourceSiteTVItemID: number = parseInt($("#ViewDiv").data("tvitemid"));
-                let command: string = "PolSourceSiteEffect/_polSourceSiteEffect";
+                let PolSourceSiteOrInfrastructureTVItemID: number = parseInt($("#ViewDiv").data("tvitemid"));
+                let command: string = "PolSourceSiteEffect/_polSourceSiteOrInfrastructureEffect";
 
-                $bjs.closest(".PolSourceSiteAnalysesTop").find(".PolSourceSiteAnalyses").html(cssp.GetHTMLVariable("#LayoutVariables", "InProgress"));
+                $bjs.closest(".PolSourceSiteAnalysesTop").find(".PolSourceSiteAnalyses").html(cssp.GetHTMLVariable("#LayoutVariables", "varInProgress"));
                 $.get(cssp.BaseURL + command, {
-                    PolSourceSiteTVItemID: PolSourceSiteTVItemID
+                    PolSourceSiteOrInfrastructureTVItemID: PolSourceSiteOrInfrastructureTVItemID
                 })
                     .done((ret) => {
                         $bjs.closest(".PolSourceSiteAnalysesTop").find(".PolSourceSiteAnalyses").html(ret);

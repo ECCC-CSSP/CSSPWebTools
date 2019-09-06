@@ -6,9 +6,9 @@
 @using CSSPWebTools.Controllers;
 
 @{
-    bool IsShowMap = (bool)ViewBag.IsShowMap;
-    TVAuthEnum tvAuth = (TVAuthEnum)ViewBag.TVAuth;
-    int PolSourceSiteTVItemID = (int)ViewBag.PolSourceSiteTVItemID;
+    //bool IsShowMap = (bool)ViewBag.IsShowMap;
+    //TVAuthEnum tvAuth = (TVAuthEnum)ViewBag.TVAuth;
+    int PolSourceSiteOrInfrastructureTVItemID = (int)ViewBag.PolSourceSiteOrInfrastructureTVItemID;
     List<PolSourceSiteEffectModel> polSourceSiteEffectModelList = (List<PolSourceSiteEffectModel>)ViewBag.PolSourceSiteEffectModelList;
     List<PolSourceSiteEffectTermModel> polSourceSiteEffectTermModelAllList = (List<PolSourceSiteEffectTermModel>)ViewBag.PolSourceSiteEffectTermModelAllList;
     List<PolSourceSiteModel> polSourceSiteModelList = (List<PolSourceSiteModel>)ViewBag.PolSourceSiteModelList;
@@ -83,7 +83,7 @@
                 {
                     MWQMSiteModel mwqmSiteModel = mwqmSiteModelList.Where(c => c.MWQMSiteTVItemID == polSourceSiteEffectModel.MWQMSiteTVItemID).FirstOrDefault();
 
-                    List<PolSourceSiteEffectModel> polSourceSiteEffectModelList2 = polSourceSiteEffectModelList.Where(c => c.MWQMSiteTVItemID == mwqmSiteModel.MWQMSiteTVItemID && c.PolSourceSiteTVItemID != polSourceSiteEffectModel.PolSourceSiteTVItemID).ToList();
+                    List<PolSourceSiteEffectModel> polSourceSiteEffectModelList2 = polSourceSiteEffectModelList.Where(c => c.MWQMSiteTVItemID == mwqmSiteModel.MWQMSiteTVItemID && c.PolSourceSiteOrInfrastructureTVItemID != polSourceSiteEffectModel.PolSourceSiteOrInfrastructureTVItemID).ToList();
 
                     string EffectTermIDs = polSourceSiteEffectModel.PolSourceSiteEffectTermIDs;
 
@@ -108,14 +108,14 @@
                                     {
                                         foreach (PolSourceSiteEffectTermModel polSourceSiteEffectTermModel in polSourceSiteEffectTermModelAllList2)
                                         {
-                                            <span>@polSourceSiteEffectTermModel.EffectTermFR</span>, 
+                                            <span>@polSourceSiteEffectTermModel.EffectTermFR, </span>
                                         }
                                     }
                                     else
                                     {
-                                       foreach (PolSourceSiteEffectTermModel polSourceSiteEffectTermModel in polSourceSiteEffectTermModelAllList2)
+                                        foreach (PolSourceSiteEffectTermModel polSourceSiteEffectTermModel in polSourceSiteEffectTermModelAllList2)
                                         {
-                                            <span>@polSourceSiteEffectTermModel.EffectTermEN</span>, 
+                                            <span>@polSourceSiteEffectTermModel.EffectTermEN, </span>
                                         }
                                     }
                                 </p>
@@ -125,7 +125,7 @@
                                 <ul class="list-unstyled">
                                     @foreach (PolSourceSiteEffectModel polSourceSiteEffectModel2 in polSourceSiteEffectModelList2)
                                     {
-                                        PolSourceSiteModel polSourceSiteModel = polSourceSiteModelList.Where(c => c.PolSourceSiteTVItemID == polSourceSiteEffectModel2.PolSourceSiteTVItemID).FirstOrDefault();
+                                        PolSourceSiteModel polSourceSiteModel = polSourceSiteModelList.Where(c => c.PolSourceSiteTVItemID == polSourceSiteEffectModel2.PolSourceSiteOrInfrastructureTVItemID).FirstOrDefault();
                                         <li>
                                             <div>
                                                 <p>@polSourceSiteModel.PolSourceSiteTVText</p>

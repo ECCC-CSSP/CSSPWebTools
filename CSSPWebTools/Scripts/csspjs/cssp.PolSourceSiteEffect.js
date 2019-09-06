@@ -13,11 +13,11 @@ var CSSP;
             this.PolSourceSiteEffectShowAnalysesTool = function ($bjs) {
                 if ($bjs.hasClass("btn-default")) {
                     $bjs.removeClass("btn-default").addClass("btn-success");
-                    var PolSourceSiteTVItemID = parseInt($("#ViewDiv").data("tvitemid"));
-                    var command_1 = "PolSourceSiteEffect/_polSourceSiteEffect";
-                    $bjs.closest(".PolSourceSiteAnalysesTop").find(".PolSourceSiteAnalyses").html(cssp.GetHTMLVariable("#LayoutVariables", "InProgress"));
+                    var PolSourceSiteOrInfrastructureTVItemID = parseInt($("#ViewDiv").data("tvitemid"));
+                    var command_1 = "PolSourceSiteEffect/_polSourceSiteOrInfrastructureEffect";
+                    $bjs.closest(".PolSourceSiteAnalysesTop").find(".PolSourceSiteAnalyses").html(cssp.GetHTMLVariable("#LayoutVariables", "varInProgress"));
                     $.get(cssp.BaseURL + command_1, {
-                        PolSourceSiteTVItemID: PolSourceSiteTVItemID
+                        PolSourceSiteOrInfrastructureTVItemID: PolSourceSiteOrInfrastructureTVItemID
                     })
                         .done(function (ret) {
                         $bjs.closest(".PolSourceSiteAnalysesTop").find(".PolSourceSiteAnalyses").html(ret);

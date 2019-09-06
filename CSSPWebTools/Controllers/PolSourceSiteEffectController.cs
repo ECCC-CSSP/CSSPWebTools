@@ -32,6 +32,7 @@ namespace CSSPWebTools.Controllers
         public PolSourceSiteEffectTermService _PolSourceSiteEffectTermService { get; private set; }
         public PolSourceSiteService _PolSourceSiteService { get; private set; }
         public MWQMSiteService _MWQMSiteService { get; private set; }
+        public UseOfSiteService _UseOfSiteService { get; private set; }
         public PolSourceSiteEffectController _PolSourceSiteEffectController { get; private set; }
         public BaseEnumService _BaseEnumService { get; private set; }
         #endregion Properties
@@ -49,6 +50,10 @@ namespace CSSPWebTools.Controllers
             base.Initialize(requestContext);
             _PolSourceSiteEffectService = new PolSourceSiteEffectService(LanguageRequest, User);
             _PolSourceSiteEffectTermService = new PolSourceSiteEffectTermService(LanguageRequest, User);
+            _PolSourceSiteService = new PolSourceSiteService(LanguageRequest, User);
+            _MWQMSiteService = new MWQMSiteService(LanguageRequest, User);
+            _UseOfSiteService = new UseOfSiteService(LanguageRequest, User);
+            _PolSourceSiteEffectService = new PolSourceSiteEffectService(LanguageRequest, User);
             _BaseEnumService = new BaseEnumService(LanguageRequest);
         }
         #endregion Overrides
@@ -57,70 +62,135 @@ namespace CSSPWebTools.Controllers
 
         [HttpGet]
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
-        public ActionResult _polSourceSiteEffect(int PolSourceSiteTVItemID)
+        public ActionResult _polSourceSiteOrInfrastructureEffect(int PolSourceSiteOrInfrastructureTVItemID)
         {
-            ViewBag.PolSourceSiteTVItemID = PolSourceSiteTVItemID;
+            ViewBag.PolSourceSiteOrInfrastructureTVItemID = PolSourceSiteOrInfrastructureTVItemID;
             ViewBag.PolSourceSiteEffectModelList = null;
             ViewBag.PolSourceSiteEffectTermModelAllList = null;
             ViewBag.PolSourceSiteModelList = null;
             ViewBag.MWQMSiteModelList = null;
 
-            if (PolSourceSiteTVItemID == 0)
+            if (PolSourceSiteOrInfrastructureTVItemID == 0)
             {
                 return PartialView();
             }
 
-            TVItemModel tvItemModelPolSourceSite = _TVItemService.GetTVItemModelWithTVItemIDDB(PolSourceSiteTVItemID);
+            TVItemModel tvItemModelPolSourceSiteOrInfrastructure = _TVItemService.GetTVItemModelWithTVItemIDDB(PolSourceSiteOrInfrastructureTVItemID);
 
-            if (string.IsNullOrWhiteSpace(tvItemModelPolSourceSite.Error))
-            {
-                TVItemModel tvItemModelSubsector = _TVItemService.GetTVItemModelWithTVItemIDDB(tvItemModelPolSourceSite.ParentID);
-                if (string.IsNullOrWhiteSpace(tvItemModelSubsector.Error))
+            if (string.IsNullOrWhiteSpace(tvItemModelPolSourceSiteOrInfrastructure.Error))
+            {               
+                if (tvItemModelPolSourceSiteOrInfrastructure.TVType == TVTypeEnum.PolSourceSite)
                 {
-
-                    List<PolSourceSiteEffectTermModel> polSourceSiteEffectTermModelList = _PolSourceSiteEffectTermService.GetAllPolSourceSiteEffectTerm();
-
-                    ViewBag.PolSourceSiteEffectTermModelAllList = polSourceSiteEffectTermModelList;
-
-                    List<PolSourceSiteEffectModel> polSourceSiteEffectModelList = _PolSourceSiteEffectService.GetPolSourceSiteEffectModelListWithPolSourceSiteTVItemIDDB(PolSourceSiteTVItemID);
-
-                    if (polSourceSiteEffectModelList.Count > 0)
+                    TVItemModel tvItemModelSubsector = _TVItemService.GetTVItemModelWithTVItemIDDB(tvItemModelPolSourceSiteOrInfrastructure.ParentID);
+                    if (string.IsNullOrWhiteSpace(tvItemModelSubsector.Error))
                     {
-                        foreach (PolSourceSiteEffectModel polSourceSiteEffectModel in polSourceSiteEffectModelList)
-                        {
-                            if (!string.IsNullOrWhiteSpace(polSourceSiteEffectModel.PolSourceSiteEffectTermIDs))
-                            {
-                                List<string> TermList = polSourceSiteEffectModel.PolSourceSiteEffectTermIDs.Split(",".ToCharArray(), StringSplitOptions.RemoveEmptyEntries).ToList();
 
-                                if (TermList.Count > 0)
+                        List<PolSourceSiteEffectTermModel> polSourceSiteEffectTermModelList = _PolSourceSiteEffectTermService.GetAllPolSourceSiteEffectTerm();
+
+                        ViewBag.PolSourceSiteEffectTermModelAllList = polSourceSiteEffectTermModelList;
+
+                        List<PolSourceSiteEffectModel> polSourceSiteEffectModelList = _PolSourceSiteEffectService.GetPolSourceSiteEffectModelListWithPolSourceSiteOrInfrastructureTVItemIDDB(PolSourceSiteOrInfrastructureTVItemID);
+
+                        if (polSourceSiteEffectModelList.Count > 0)
+                        {
+                            foreach (PolSourceSiteEffectModel polSourceSiteEffectModel in polSourceSiteEffectModelList)
+                            {
+                                if (!string.IsNullOrWhiteSpace(polSourceSiteEffectModel.PolSourceSiteEffectTermIDs))
                                 {
-                                    foreach (string s in TermList)
+                                    List<string> TermList = polSourceSiteEffectModel.PolSourceSiteEffectTermIDs.Split(",".ToCharArray(), StringSplitOptions.RemoveEmptyEntries).ToList();
+
+                                    if (TermList.Count > 0)
                                     {
-                                        int PolSourceSiteEffectTermID = int.Parse(s);
-                                        PolSourceSiteEffectTermModel polSourceSiteEffectTermModel = polSourceSiteEffectTermModelList.Where(c => c.PolSourceSiteEffectTermID == PolSourceSiteEffectTermID).FirstOrDefault();
-                                        if (polSourceSiteEffectTermModel != null)
+                                        foreach (string s in TermList)
                                         {
-                                            polSourceSiteEffectModel.PolSourceSiteEffectTermModelList.Add(polSourceSiteEffectTermModel);
+                                            int PolSourceSiteEffectTermID = int.Parse(s);
+                                            PolSourceSiteEffectTermModel polSourceSiteEffectTermModel = polSourceSiteEffectTermModelList.Where(c => c.PolSourceSiteEffectTermID == PolSourceSiteEffectTermID).FirstOrDefault();
+                                            if (polSourceSiteEffectTermModel != null)
+                                            {
+                                                polSourceSiteEffectModel.PolSourceSiteEffectTermModelList.Add(polSourceSiteEffectTermModel);
+                                            }
                                         }
                                     }
-                                }
-                                else
-                                {
-                                    polSourceSiteEffectModel.PolSourceSiteEffectTermModelList = new List<PolSourceSiteEffectTermModel>();
+                                    else
+                                    {
+                                        polSourceSiteEffectModel.PolSourceSiteEffectTermModelList = new List<PolSourceSiteEffectTermModel>();
+                                    }
                                 }
                             }
                         }
+
+                        ViewBag.PolSourceSiteEffectModelList = polSourceSiteEffectModelList;
+
+                        List<PolSourceSiteModel> polSourceSiteModelList = _PolSourceSiteService.GetPolSourceSiteModelListWithSubsectorTVItemIDDB(tvItemModelSubsector.TVItemID);
+
+                        ViewBag.PolSourceSiteModelList = polSourceSiteModelList;
+
+                        List<MWQMSiteModel> mwqmSiteModelList = _MWQMSiteService.GetMWQMSiteModelListWithSubsectorTVItemIDDB(tvItemModelSubsector.TVItemID);
+
+                        ViewBag.MWQMSiteModelList = mwqmSiteModelList;
                     }
+                }
+                else if (tvItemModelPolSourceSiteOrInfrastructure.TVType == TVTypeEnum.Infrastructure)
+                {
+                    TVItemModel tvItemModelMunicipality = _TVItemService.GetTVItemModelWithTVItemIDDB(tvItemModelPolSourceSiteOrInfrastructure.ParentID);
+                    if (string.IsNullOrWhiteSpace(tvItemModelMunicipality.Error))
+                    {
+                        List<UseOfSiteModel> useOfSiteModelList = _UseOfSiteService.GetUseOfSiteModelListWithSiteTVItemIDDB(tvItemModelMunicipality.TVItemID);
+                        if (useOfSiteModelList.Count > 0)
+                        {                           
+                            TVItemModel tvItemModelSubsector = _TVItemService.GetTVItemModelWithTVItemIDDB(useOfSiteModelList[0].SubsectorTVItemID);
+                            if (string.IsNullOrWhiteSpace(tvItemModelSubsector.Error))
+                            {
 
-                    ViewBag.PolSourceSiteEffectModelList = polSourceSiteEffectModelList;
+                                List<PolSourceSiteEffectTermModel> polSourceSiteEffectTermModelList = _PolSourceSiteEffectTermService.GetAllPolSourceSiteEffectTerm();
 
-                    List<PolSourceSiteModel> polSourceSiteModelList = _PolSourceSiteService.GetPolSourceSiteModelListWithSubsectorTVItemIDDB(tvItemModelSubsector.TVItemID);
+                                ViewBag.PolSourceSiteEffectTermModelAllList = polSourceSiteEffectTermModelList;
 
-                    ViewBag.PolSourceSiteModelList = polSourceSiteModelList;
+                                List<PolSourceSiteEffectModel> polSourceSiteEffectModelList = _PolSourceSiteEffectService.GetPolSourceSiteEffectModelListWithPolSourceSiteOrInfrastructureTVItemIDDB(PolSourceSiteOrInfrastructureTVItemID);
 
-                    List<MWQMSiteModel> mwqmSiteModelList = _MWQMSiteService.GetMWQMSiteModelListWithSubsectorTVItemIDDB(tvItemModelSubsector.TVItemID);
+                                if (polSourceSiteEffectModelList.Count > 0)
+                                {
+                                    foreach (PolSourceSiteEffectModel polSourceSiteEffectModel in polSourceSiteEffectModelList)
+                                    {
+                                        if (!string.IsNullOrWhiteSpace(polSourceSiteEffectModel.PolSourceSiteEffectTermIDs))
+                                        {
+                                            List<string> TermList = polSourceSiteEffectModel.PolSourceSiteEffectTermIDs.Split(",".ToCharArray(), StringSplitOptions.RemoveEmptyEntries).ToList();
 
-                    ViewBag.MWQMSiteModelList = mwqmSiteModelList;
+                                            if (TermList.Count > 0)
+                                            {
+                                                foreach (string s in TermList)
+                                                {
+                                                    int PolSourceSiteEffectTermID = int.Parse(s);
+                                                    PolSourceSiteEffectTermModel polSourceSiteEffectTermModel = polSourceSiteEffectTermModelList.Where(c => c.PolSourceSiteEffectTermID == PolSourceSiteEffectTermID).FirstOrDefault();
+                                                    if (polSourceSiteEffectTermModel != null)
+                                                    {
+                                                        polSourceSiteEffectModel.PolSourceSiteEffectTermModelList.Add(polSourceSiteEffectTermModel);
+                                                    }
+                                                }
+                                            }
+                                            else
+                                            {
+                                                polSourceSiteEffectModel.PolSourceSiteEffectTermModelList = new List<PolSourceSiteEffectTermModel>();
+                                            }
+                                        }
+                                    }
+                                }
+
+                                ViewBag.PolSourceSiteEffectModelList = polSourceSiteEffectModelList;
+
+                                List<PolSourceSiteModel> polSourceSiteModelList = _PolSourceSiteService.GetPolSourceSiteModelListWithSubsectorTVItemIDDB(tvItemModelSubsector.TVItemID);
+
+                                ViewBag.PolSourceSiteModelList = polSourceSiteModelList;
+
+                                List<MWQMSiteModel> mwqmSiteModelList = _MWQMSiteService.GetMWQMSiteModelListWithSubsectorTVItemIDDB(tvItemModelSubsector.TVItemID);
+
+                                ViewBag.MWQMSiteModelList = mwqmSiteModelList;
+                            }
+                        }
+                    }
+                }
+                else
+                {
                 }
             }
 
