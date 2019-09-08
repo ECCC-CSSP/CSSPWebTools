@@ -61,6 +61,15 @@ namespace CSSPWebTools.Views.PolSourceSiteEffect.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add.
+        /// </summary>
+        public static string Add {
+            get {
+                return ResourceManager.GetString("Add", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Also effected by pollutions source sites.
         /// </summary>
         public static string AlsoEffectedByPolSourceSites {
@@ -79,6 +88,15 @@ namespace CSSPWebTools.Views.PolSourceSiteEffect.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Delete.
+        /// </summary>
+        public static string Delete {
+            get {
+                return ResourceManager.GetString("Delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Effect Analyses.
         /// </summary>
         public static string EffectAnalyses {
@@ -88,11 +106,38 @@ namespace CSSPWebTools.Views.PolSourceSiteEffect.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to effect term.
+        /// </summary>
+        public static string EffectTerm {
+            get {
+                return ResourceManager.GetString("EffectTerm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Effect term list.
         /// </summary>
         public static string EffectTermList {
             get {
                 return ResourceManager.GetString("EffectTermList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Existing Effect Terms.
+        /// </summary>
+        public static string ExistingEffectTerms {
+            get {
+                return ResourceManager.GetString("ExistingEffectTerms", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Group ID.
+        /// </summary>
+        public static string GroupID {
+            get {
+                return ResourceManager.GetString("GroupID", resourceCulture);
             }
         }
         
@@ -115,6 +160,33 @@ namespace CSSPWebTools.Views.PolSourceSiteEffect.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Modify.
+        /// </summary>
+        public static string Modify {
+            get {
+                return ResourceManager.GetString("Modify", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Place.
+        /// </summary>
+        public static string Place {
+            get {
+                return ResourceManager.GetString("Place", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save effect terms.
+        /// </summary>
+        public static string SaveEffectTerms {
+            get {
+                return ResourceManager.GetString("SaveEffectTerms", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Selected.
         /// </summary>
         public static string Selected {
@@ -129,6 +201,15 @@ namespace CSSPWebTools.Views.PolSourceSiteEffect.Resources {
         public static string SendToGroup {
             get {
                 return ResourceManager.GetString("SendToGroup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to under group.
+        /// </summary>
+        public static string UnderGroup {
+            get {
+                return ResourceManager.GetString("UnderGroup", resourceCulture);
             }
         }
     }

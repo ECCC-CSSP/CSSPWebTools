@@ -99,14 +99,14 @@ else
                             (@labSheetSiteMonitoredCounts.LabSheetSiteRoutineCount / @labSheetSiteMonitoredCounts.SamplingPlanSubsectorSiteCount)
                             &nbsp;&nbsp;
                         </span>
-                        @if (labSheetSiteMonitoredCounts.LabSheetHasDuplicate)
+                        @*@if (labSheetSiteMonitoredCounts.LabSheetHasDuplicate)
                         {
                             <span>
                                 &nbsp;&nbsp;
                                 (@SamplingPlanViewRes.Duplicate)
                                 &nbsp;&nbsp;
                             </span>
-                        }
+                        }*@
                         @if (labSheetModel.LabSheetStatus == LabSheetStatusEnum.Rejected)
                         {
                             <span class="@textColor">@labSheetModel.RejectReason &nbsp; &nbsp;</span>

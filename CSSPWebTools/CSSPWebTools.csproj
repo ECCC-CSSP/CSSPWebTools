@@ -986,6 +986,7 @@
     <Content Include="Views\DrogueRun\_DrogueRunForSubsector.cshtml" />
     <Content Include="Views\MWQM\_mwqmSiteSampleMovingAverageStat.cshtml" />
     <Content Include="Views\PolSourceSiteEffect\_polSourceSiteOrInfrastructureEffect.cshtml" />
+    <Content Include="Views\PolSourceSiteEffect\_polSourceSiteOrInfrastructureEffectTermsManager.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

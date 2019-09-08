@@ -1,6 +1,6 @@
 var CSSP;
 (function (CSSP) {
-    var SubsectorTools = (function () {
+    var SubsectorTools = /** @class */ (function () {
         // Variables
         // Constructors
         function SubsectorTools() {

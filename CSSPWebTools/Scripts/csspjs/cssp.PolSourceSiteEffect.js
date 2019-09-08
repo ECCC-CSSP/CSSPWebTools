@@ -1,83 +1,199 @@
 var CSSP;
 (function (CSSP) {
-    var PolSourceSiteEffect = (function () {
+    var PolSourceSiteEffect = /** @class */ (function () {
         // Variables
         // Constructors
         function PolSourceSiteEffect() {
             // Functions
-            this.PolSourceSiteEffectTermsIsGroup = function ($bjs) {
+            this.PolSourceSiteEffectTermsDelete = function ($bjs) {
                 var EffectTermEN = $bjs.data("effecttermen");
-                cssp.Dialog.ShowDialogAreYouSureChangeGroup(EffectTermEN);
-                cssp.Dialog.CheckDialogAndButtonsExist(["#DialogBasic", "#DialogBasicYes"], 5, "cssp.PolSourceSiteEffect.SetDialogEventsIsGroup", $bjs);
+                cssp.Dialog.ShowDialogAreYouSure(EffectTermEN);
+                cssp.Dialog.CheckDialogAndButtonsExist(["#DialogBasic", "#DialogBasicYes"], 5, "cssp.PolSourceSiteEffect.SetDialogEventsDeleteEffectTerm", $bjs);
             };
-            this.PolSourceSiteEffectShowAnalysesTool = function ($bjs) {
+            this.PolSourceSiteEffectLoadAnalysesTool = function () {
+                var PolSourceSiteOrInfrastructureTVItemID = parseInt($("#ViewDiv").data("tvitemid"));
+                var command = "PolSourceSiteEffect/_polSourceSiteOrInfrastructureEffect";
+                $(".PolSourceSiteAnalysesTop").find(".PolSourceSiteAnalyses").html(cssp.GetHTMLVariable("#LayoutVariables", "varInProgress"));
+                $.get(cssp.BaseURL + command, {
+                    PolSourceSiteOrInfrastructureTVItemID: PolSourceSiteOrInfrastructureTVItemID
+                })
+                    .done(function (ret) {
+                    $(".PolSourceSiteAnalysesTop").find(".PolSourceSiteAnalyses").html(ret);
+                })
+                    .fail(function () {
+                    cssp.Dialog.ShowDialogErrorWithFail(command);
+                });
+            };
+            this.PolSourceSiteEffectLoadEffectTermsManager = function () {
+                var PolSourceSiteOrInfrastructureTVItemID = parseInt($("#ViewDiv").data("tvitemid"));
+                var command = "PolSourceSiteEffect/_polSourceSiteOrInfrastructureEffectTermsManager";
+                $(".PolSourceSiteEffectTermsTop").find(".PolSourceSiteEffectTerms").html(cssp.GetHTMLVariable("#LayoutVariables", "varInProgress"));
+                $.get(cssp.BaseURL + command, {
+                    PolSourceSiteOrInfrastructureTVItemID: PolSourceSiteOrInfrastructureTVItemID
+                })
+                    .done(function (ret) {
+                    $(".PolSourceSiteEffectTermsTop").find(".PolSourceSiteEffectTerms").html(ret);
+                })
+                    .fail(function () {
+                    cssp.Dialog.ShowDialogErrorWithFail(command);
+                });
+            };
+            this.PolSourceSiteEffectShowHideAnalysesTool = function ($bjs) {
                 if ($bjs.hasClass("btn-default")) {
                     $bjs.removeClass("btn-default").addClass("btn-success");
-                    var PolSourceSiteOrInfrastructureTVItemID = parseInt($("#ViewDiv").data("tvitemid"));
-                    var command_1 = "PolSourceSiteEffect/_polSourceSiteOrInfrastructureEffect";
-                    $bjs.closest(".PolSourceSiteAnalysesTop").find(".PolSourceSiteAnalyses").html(cssp.GetHTMLVariable("#LayoutVariables", "varInProgress"));
-                    $.get(cssp.BaseURL + command_1, {
-                        PolSourceSiteOrInfrastructureTVItemID: PolSourceSiteOrInfrastructureTVItemID
-                    })
-                        .done(function (ret) {
-                        $bjs.closest(".PolSourceSiteAnalysesTop").find(".PolSourceSiteAnalyses").html(ret);
-                    })
-                        .fail(function () {
-                        cssp.Dialog.ShowDialogErrorWithFail(command_1);
-                    });
+                    cssp.PolSourceSiteEffect.PolSourceSiteEffectLoadAnalysesTool();
                 }
                 else {
                     $bjs.removeClass("btn-success").addClass("btn-default");
                     $bjs.closest(".PolSourceSiteAnalysesTop").find(".PolSourceSiteAnalyses").html("");
                 }
             };
-            this.PolSourceSiteEffectTermsShowHide = function ($bjs) {
+            this.PolSourceSiteEffectTermsShowHideManage = function ($bjs) {
                 if ($bjs.hasClass("btn-default")) {
                     $bjs.removeClass("btn-default").addClass("btn-success");
-                    $bjs.closest(".PolSourceSiteEffectTermsTop").find(".PolSourceSiteEffectTerms").removeClass("hidden");
+                    cssp.PolSourceSiteEffect.PolSourceSiteEffectLoadEffectTermsManager();
                 }
                 else {
                     $bjs.removeClass("btn-success").addClass("btn-default");
-                    $bjs.closest(".PolSourceSiteEffectTermsTop").find(".PolSourceSiteEffectTerms").removeClass("hidden").addClass("hidden");
+                    $bjs.closest(".PolSourceSiteEffectTermsTop").find(".PolSourceSiteEffectTerms").html("");
                 }
             };
             this.PolSourceSiteEffectTermsSendToGroup = function ($bjs) {
-                var PolSourceSiteEffectTermIDGroup = parseInt($bjs.closest(".PolSourceSiteEffectTerm").find(".PolSourceSiteEffectTermSendToGroup").val());
+                var UnderGroupIDText = $bjs.closest(".PolSourceSiteEffectTerm").find("input[name='UnderGroupID']").val();
+                if (!UnderGroupIDText) {
+                    cssp.Dialog.ShowDialogMessage(cssp.GetHTMLVariable("#LayoutVariables", "varGroupIDIsRequired"));
+                    return;
+                }
+                var UnderGroupID = parseInt(UnderGroupIDText);
+                if (isNaN(UnderGroupID)) {
+                    cssp.Dialog.ShowDialogMessage(cssp.GetHTMLVariable("#LayoutVariables", "varGroupIDIsRequired"));
+                    return;
+                }
                 var PolSourceSiteEffectTermID = parseInt($bjs.data("polsourcesiteeffecttermid"));
                 var command = "PolSourceSiteEffect/PolSourceSiteEffectTermSendToGroupJSON";
                 $.post(cssp.BaseURL + command, {
                     PolSourceSiteEffectTermID: PolSourceSiteEffectTermID,
-                    PolSourceSiteEffectTermIDGroup: PolSourceSiteEffectTermIDGroup,
+                    UnderGroupID: UnderGroupID,
                 })
                     .done(function (ret) {
                     if (ret) {
                         cssp.Dialog.ShowDialogErrorWithError(ret);
                     }
                     else {
-                        $bjs.closest(".PolSourceSiteAnalysesTop").find(".jbPolSourceEffectShowAnalysesTool").trigger("click");
+                        cssp.PolSourceSiteEffect.PolSourceSiteEffectLoadEffectTermsManager();
                     }
                 })
                     .fail(function () {
                     cssp.Dialog.ShowDialogErrorWithFail(command);
                 });
             };
-            this.SetDialogEventsIsGroup = function ($bjs) {
+            this.PolSourceSiteEffectTermsModify = function ($bjs) {
+                var PolSourceSiteEffectTermID = parseInt($bjs.data("polsourcesiteeffecttermid"));
+                var EffectTermEN = $bjs.closest(".PolSourceSiteEffectTerm").find("input[name='EffectTermEN']").val();
+                var EffectTermFR = $bjs.closest(".PolSourceSiteEffectTerm").find("input[name='EffectTermFR']").val();
+                var IsGroup = $bjs.data("isgroup");
+                var UnderGroupID = parseInt($bjs.data("undergroupid"));
+                var command = "PolSourceSiteEffect/PolSourceSiteEffectTermAddOrModifyJSON";
+                $.post(cssp.BaseURL + command, {
+                    PolSourceSiteEffectTermID: PolSourceSiteEffectTermID,
+                    EffectTermEN: EffectTermEN,
+                    EffectTermFR: EffectTermFR,
+                    IsGroup: IsGroup,
+                    UnderGroupID: UnderGroupID,
+                })
+                    .done(function (ret) {
+                    if (ret) {
+                        cssp.Dialog.ShowDialogErrorWithError(ret);
+                    }
+                    else {
+                        cssp.PolSourceSiteEffect.PolSourceSiteEffectLoadEffectTermsManager();
+                    }
+                })
+                    .fail(function () {
+                    cssp.Dialog.ShowDialogErrorWithFail(command);
+                });
+            };
+            this.PolSourceSiteEffectTermsAdd = function ($bjs) {
+                var PolSourceSiteEffectTermID = 0;
+                var EffectTermEN = $bjs.closest(".PolSourceSiteEffectTerm").find("input[name='EffectTermEN']").val();
+                var EffectTermFR = $bjs.closest(".PolSourceSiteEffectTerm").find("input[name='EffectTermFR']").val();
+                var IsGroup = $bjs.closest(".PolSourceSiteEffectTerm").find("input[name='IsGroup']").is(":checked");
+                var UnderGroupID = parseInt($bjs.closest(".PolSourceSiteEffectTerm").find("input[name='UnderGroupID']").val());
+                var command = "PolSourceSiteEffect/PolSourceSiteEffectTermAddOrModifyJSON";
+                $.post(cssp.BaseURL + command, {
+                    PolSourceSiteEffectTermID: PolSourceSiteEffectTermID,
+                    EffectTermEN: EffectTermEN,
+                    EffectTermFR: EffectTermFR,
+                    IsGroup: IsGroup,
+                    UnderGroupID: UnderGroupID,
+                })
+                    .done(function (ret) {
+                    if (ret) {
+                        cssp.Dialog.ShowDialogErrorWithError(ret);
+                    }
+                    else {
+                        cssp.PolSourceSiteEffect.PolSourceSiteEffectLoadEffectTermsManager();
+                    }
+                })
+                    .fail(function () {
+                    cssp.Dialog.ShowDialogErrorWithFail(command);
+                });
+            };
+            this.PolSourceSiteEffectTermsSave = function ($bjs) {
+                var PolSourceSiteEffectID = $bjs.data("polsourcesiteeffectid");
+                var PolSourceSiteEffectTermsArr = $bjs.closest(".PolSourceSiteEffect").find("input[name='EffectTerm']").val();
+                var PolSourceSiteEffectTerms = PolSourceSiteEffectTermsArr.join(",");
+                var command = "PolSourceSiteEffect/PolSourceSiteEffectTermsSaveAllJSON";
+                $.post(cssp.BaseURL + command, {
+                    PolSourceSiteEffectID: PolSourceSiteEffectID,
+                    PolSourceSiteEffectTerms: PolSourceSiteEffectTerms,
+                })
+                    .done(function (ret) {
+                    if (ret) {
+                        cssp.Dialog.ShowDialogErrorWithError(ret);
+                    }
+                    else {
+                        cssp.PolSourceSiteEffect.PolSourceSiteEffectLoadEffectTermsManager();
+                    }
+                })
+                    .fail(function () {
+                    cssp.Dialog.ShowDialogErrorWithFail(command);
+                });
+            };
+            this.PolSourceSiteEffectTermsSetIsGroup = function ($bjs) {
+                var IsGroup = ($bjs.data("isgroup") == "True");
+                var PolSourceSiteEffectTermID = $bjs.data("polsourcesiteeffecttermid");
+                var command = "PolSourceSiteEffect/PolSourceSiteEffectTermSetIsGroupJSON";
+                $.post(cssp.BaseURL + command, {
+                    PolSourceSiteEffectTermID: PolSourceSiteEffectTermID,
+                    IsGroup: !IsGroup,
+                })
+                    .done(function (ret) {
+                    if (ret) {
+                        cssp.Dialog.ShowDialogErrorWithError(ret);
+                    }
+                    else {
+                        cssp.PolSourceSiteEffect.PolSourceSiteEffectLoadEffectTermsManager();
+                    }
+                })
+                    .fail(function () {
+                    cssp.Dialog.ShowDialogErrorWithFail(command);
+                });
+            };
+            this.SetDialogEventsDeleteEffectTerm = function ($bjs) {
                 $("#DialogBasicYes").one("click", function (evt) {
                     $("#DialogBasic").one('hidden.bs.modal', function () {
-                        var IsGroup = ($bjs.data("polsourcesiteeffecttermisgroup") == "true");
-                        var PolSourceSiteEffectTermID = $bjs.data("polsourcesiteeffecttermid");
-                        var EffectTermEN = $bjs.data("effecttermen");
-                        var command = "PolSourceSiteEffect/PolSourceSiteEffectTermSetIsGroupJSON";
+                        var PolSourceSiteEffectTermID = parseInt($bjs.data("polsourcesiteeffecttermid"));
+                        var command = "PolSourceSiteEffect/PolSourceSiteEffectTermsDeleteJSON";
                         $.post(cssp.BaseURL + command, {
                             PolSourceSiteEffectTermID: PolSourceSiteEffectTermID,
-                            IsGroup: !IsGroup,
                         })
                             .done(function (ret) {
                             if (ret) {
                                 cssp.Dialog.ShowDialogErrorWithError(ret);
                             }
                             else {
-                                $bjs.closest(".PolSourceSiteAnalysesTop").find(".jbPolSourceEffectShowAnalysesTool").trigger("click");
+                                cssp.PolSourceSiteEffect.PolSourceSiteEffectLoadEffectTermsManager();
                             }
                         })
                             .fail(function () {

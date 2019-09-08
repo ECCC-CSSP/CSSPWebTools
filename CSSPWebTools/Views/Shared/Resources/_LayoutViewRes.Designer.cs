@@ -448,6 +448,15 @@ namespace CSSPWebTools.Views.Shared.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Group ID Is Required.
+        /// </summary>
+        public static string GroupIDIsRequired {
+            get {
+                return ResourceManager.GetString("GroupIDIsRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Help.
         /// </summary>
         public static string Help {

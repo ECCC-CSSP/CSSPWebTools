@@ -522,4 +522,7 @@
   <data name="ChangingIsGroup" xml:space="preserve">
     <value>Changing Is Group</value>
   </data>
+  <data name="GroupIDIsRequired" xml:space="preserve">
+    <value>Group ID Is Required</value>
+  </data>
 </root>

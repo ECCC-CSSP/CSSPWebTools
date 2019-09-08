@@ -246,6 +246,9 @@
   <data name="FormFail" xml:space="preserve">
     <value>Formulaire introuvable</value>
   </data>
+  <data name="GroupIDIsRequired" xml:space="preserve">
+    <value>Identifiant de goupe requis</value>
+  </data>
   <data name="Help" xml:space="preserve">
     <value>Aide</value>
   </data>

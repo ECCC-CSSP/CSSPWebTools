@@ -482,7 +482,7 @@ module CSSP {
                     case "jbInfrastructureCreateShowHide":
                         {
                             cssp.Infrastructure.ShowHideAddOrModify($bjs, true, true);
-                       }
+                        }
                         break;
                     case "jbInfrastructureDelete":
                         {
@@ -1264,19 +1264,39 @@ module CSSP {
                             cssp.PolSourceSite.PolSourceShowHideOnMap();
                         }
                         break;
-                    case "jbPolSourceEffectShowAnalysesTool":
+                    case "jbPolSourceEffectShowHideAnalysesTool":
                         {
-                            cssp.PolSourceSiteEffect.PolSourceSiteEffectShowAnalysesTool($bjs);
+                            cssp.PolSourceSiteEffect.PolSourceSiteEffectShowHideAnalysesTool($bjs);
                         }
                         break;
-                    case "jbPolSourceSiteEffectTermsShowHide":
+                    case "jbPolSourceSiteEffectTermsAdd":
                         {
-                            cssp.PolSourceSiteEffect.PolSourceSiteEffectTermsShowHide($bjs);
+                            cssp.PolSourceSiteEffect.PolSourceSiteEffectTermsAdd($bjs);
+                        }
+                        break;
+                    case "jbPolSourceSiteEffectTermsModify":
+                        {
+                            cssp.PolSourceSiteEffect.PolSourceSiteEffectTermsModify($bjs);
+                        }
+                        break;
+                    case "jbPolSourceSiteEffectTermsDelete":
+                        {
+                            cssp.PolSourceSiteEffect.PolSourceSiteEffectTermsDelete($bjs);
+                        }
+                        break;
+                    case "jbPolSourceSiteEffectTermsShowHideManage":
+                        {
+                            cssp.PolSourceSiteEffect.PolSourceSiteEffectTermsShowHideManage($bjs);
                         }
                         break;
                     case "jbPolSourceSiteEffectTermsIsGroup":
                         {
-                            cssp.PolSourceSiteEffect.PolSourceSiteEffectTermsIsGroup($bjs);
+                            cssp.PolSourceSiteEffect.PolSourceSiteEffectTermsSetIsGroup($bjs);
+                        }
+                        break;
+                    case "jsPolSourceSiteEffectTermsSave":
+                        {
+                            cssp.PolSourceSiteEffect.PolSourceSiteEffectTermsSave($bjs);
                         }
                         break;
                     case "jbPolSourceSiteEffectTermsSendToGroup":
@@ -1644,7 +1664,7 @@ module CSSP {
                             cssp.TideSite.TideSitesToUseForSubsectorVerifyAndSave();
                         }
                         break;
-                  case "jbTVTypeAuthRemove":
+                    case "jbTVTypeAuthRemove":
                         {
                             cssp.Admin.RemoveUserTVTypeAuth($bjs);
                         }

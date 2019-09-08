@@ -117,17 +117,32 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Add" xml:space="preserve">
+    <value>Ajouter</value>
+  </data>
   <data name="AlsoEffectedByPolSourceSites" xml:space="preserve">
     <value>Aussi affectée par les sites de source de pollution</value>
   </data>
   <data name="CanEffectMWQMSites" xml:space="preserve">
     <value>Peut influencer les sites de  SQEM</value>
   </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Effacer</value>
+  </data>
   <data name="EffectAnalyses" xml:space="preserve">
     <value>Analyse d'effet</value>
   </data>
+  <data name="EffectTerm" xml:space="preserve">
+    <value>terme d'effect</value>
+  </data>
   <data name="EffectTermList" xml:space="preserve">
     <value>Liste de terme des effets</value>
+  </data>
+  <data name="ExistingEffectTerms" xml:space="preserve">
+    <value>Termes d'effect existants</value>
+  </data>
+  <data name="GroupID" xml:space="preserve">
+    <value>Identifiant du group</value>
   </data>
   <data name="IsGroup" xml:space="preserve">
     <value>Est groupe</value>
@@ -135,10 +150,22 @@
   <data name="ManageEffectTerms" xml:space="preserve">
     <value>Gérer les termes d'effet</value>
   </data>
+  <data name="Modify" xml:space="preserve">
+    <value>Modifier</value>
+  </data>
+  <data name="Place" xml:space="preserve">
+    <value>Placer</value>
+  </data>
+  <data name="SaveEffectTerms" xml:space="preserve">
+    <value>Sauvegarder les termes d'effet</value>
+  </data>
   <data name="Selected" xml:space="preserve">
     <value>Choisi</value>
   </data>
   <data name="SendToGroup" xml:space="preserve">
     <value>Envoyer au groupe</value>
+  </data>
+  <data name="UnderGroup" xml:space="preserve">
+    <value>sous groupe</value>
   </data>
 </root>

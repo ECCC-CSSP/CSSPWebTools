@@ -1,6 +1,6 @@
 var CSSP;
 (function (CSSP) {
-    var Infrastructure = (function () {
+    var Infrastructure = /** @class */ (function () {
         // constructor
         function Infrastructure() {
             // variables
@@ -255,12 +255,12 @@ var CSSP;
                 });
                 $(document).off("change", "select[name='FacilityType']");
                 $(document).on("change", "select[name='FacilityType']", function (evt) {
-                    if ($(evt.target).val() == "0") {
+                    if ($(evt.target).val() == "0") { // 0 == not lagoon or plant, 1 == Lagoon, 2 == Plant
                         $(".lagoon").removeClass("hidden").addClass("hidden");
                         $(".plant").removeClass("hidden").addClass("hidden");
                         $(".notlagoonorplant").removeClass("hidden");
                     }
-                    else if ($(evt.target).val() == "1") {
+                    else if ($(evt.target).val() == "1") { // 1 == Lagoon, 2 == Plant
                         $(".lagoon").removeClass("hidden");
                         $(".plant").removeClass("hidden").addClass("hidden");
                         $(".notlagoonorplant").removeClass("hidden").addClass("hidden");

@@ -78,7 +78,7 @@ namespace CSSPWebTools.Controllers
             TVItemModel tvItemModelPolSourceSiteOrInfrastructure = _TVItemService.GetTVItemModelWithTVItemIDDB(PolSourceSiteOrInfrastructureTVItemID);
 
             if (string.IsNullOrWhiteSpace(tvItemModelPolSourceSiteOrInfrastructure.Error))
-            {               
+            {
                 if (tvItemModelPolSourceSiteOrInfrastructure.TVType == TVTypeEnum.PolSourceSite)
                 {
                     TVItemModel tvItemModelSubsector = _TVItemService.GetTVItemModelWithTVItemIDDB(tvItemModelPolSourceSiteOrInfrastructure.ParentID);
@@ -137,7 +137,7 @@ namespace CSSPWebTools.Controllers
                     {
                         List<UseOfSiteModel> useOfSiteModelList = _UseOfSiteService.GetUseOfSiteModelListWithSiteTVItemIDDB(tvItemModelMunicipality.TVItemID);
                         if (useOfSiteModelList.Count > 0)
-                        {                           
+                        {
                             TVItemModel tvItemModelSubsector = _TVItemService.GetTVItemModelWithTVItemIDDB(useOfSiteModelList[0].SubsectorTVItemID);
                             if (string.IsNullOrWhiteSpace(tvItemModelSubsector.Error))
                             {
@@ -197,13 +197,44 @@ namespace CSSPWebTools.Controllers
             return PartialView();
         }
 
+        [HttpGet]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public ActionResult _polSourceSiteOrInfrastructureEffectTermsManager()
+        {
+            ViewBag.PolSourceSiteEffectTermModelAllList = null;
+
+            List<PolSourceSiteEffectTermModel> polSourceSiteEffectTermModelList = _PolSourceSiteEffectTermService.GetAllPolSourceSiteEffectTerm();
+
+            ViewBag.PolSourceSiteEffectTermModelAllList = polSourceSiteEffectTermModelList;
+
+            return PartialView();
+        }
+
         [HttpPost]
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
-        public JsonResult PolSourceSiteAddOrModifyJSON(FormCollection fc)
+        public JsonResult PolSourceSiteEffectTermsSaveAllJSON(int PolSourceSiteEffectID, string PolSourceSiteEffectTermIDs)
         {
-            PolSourceSiteEffectModel polSourceSiteEffectModel = _PolSourceSiteEffectService.PolSourceSiteEffectAddOrModifyDB(fc);
+            PolSourceSiteEffectModel polSourceSiteEffectModel = _PolSourceSiteEffectService.PolSourceSiteEffectTermsSaveAllDB(PolSourceSiteEffectID, PolSourceSiteEffectTermIDs);
 
             return Json(polSourceSiteEffectModel.Error, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public JsonResult PolSourceSiteEffectTermAddOrModifyJSON(FormCollection fc)
+        {
+            PolSourceSiteEffectTermModel polSourceSiteEffectTermModel = _PolSourceSiteEffectTermService.PolSourceSiteEffectTermAddOrModifyDB(fc);
+
+            return Json(polSourceSiteEffectTermModel.Error, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public JsonResult PolSourceSiteEffectTermsDeleteJSON(int PolSourceSiteEffectTermID)
+        {
+            PolSourceSiteEffectTermModel polSourceSiteEffectTermModel = _PolSourceSiteEffectTermService.PostDeletePolSourceSiteEffectTermDB(PolSourceSiteEffectTermID);
+
+            return Json(polSourceSiteEffectTermModel.Error, JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost]
@@ -217,9 +248,9 @@ namespace CSSPWebTools.Controllers
 
         [HttpPost]
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
-        public JsonResult PolSourceSiteEffectTermSendToGroupJSON(int PolSourceSiteEffectTermID, int PolSourceSiteEffectTermIDGroup)
+        public JsonResult PolSourceSiteEffectTermSendToGroupJSON(int PolSourceSiteEffectTermID, int UnderGroupID)
         {
-            PolSourceSiteEffectTermModel polSourceSiteEffectTermModel = _PolSourceSiteEffectTermService.PolSourceSiteEffectTermSendToGroupDB(PolSourceSiteEffectTermID, PolSourceSiteEffectTermIDGroup);
+            PolSourceSiteEffectTermModel polSourceSiteEffectTermModel = _PolSourceSiteEffectTermService.PolSourceSiteEffectTermSendToGroupDB(PolSourceSiteEffectTermID, UnderGroupID);
 
             return Json(polSourceSiteEffectTermModel.Error, JsonRequestBehavior.AllowGet);
         }

@@ -74,8 +74,8 @@
                     case "cssp.PolSourceSite.SetDialogEventsDeleteObservation":
                         cssp.PolSourceSite.SetDialogEventsDeleteObservation($ajs);
                         break;
-                    case "cssp.PolSourceSiteEffect.SetDialogEventsIsGroup":
-                        cssp.PolSourceSiteEffect.SetDialogEventsIsGroup($ajs);
+                    case "cssp.PolSourceSiteEffect.SetDialogEventsDeleteEffectTerm":
+                        cssp.PolSourceSiteEffect.SetDialogEventsDeleteEffectTerm($ajs);
                         break;
                     case "cssp.PolSourceSite.SetDialogEventsDeleteObservationIssue":
                         cssp.PolSourceSite.SetDialogEventsDeleteObservationIssue($ajs);
