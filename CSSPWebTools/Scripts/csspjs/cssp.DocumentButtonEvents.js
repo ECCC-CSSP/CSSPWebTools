@@ -1,6 +1,6 @@
 var CSSP;
 (function (CSSP) {
-    var DocumentButtonEvents = /** @class */ (function () {
+    var DocumentButtonEvents = (function () {
         // Constructor
         function DocumentButtonEvents() {
             // Functions
@@ -1291,7 +1291,7 @@ var CSSP;
                                 cssp.PolSourceSiteEffect.PolSourceSiteEffectTermsSetIsGroup($bjs);
                             }
                             break;
-                        case "jsPolSourceSiteEffectTermsSave":
+                        case "jbPolSourceSiteEffectTermsSave":
                             {
                                 cssp.PolSourceSiteEffect.PolSourceSiteEffectTermsSave($bjs);
                             }

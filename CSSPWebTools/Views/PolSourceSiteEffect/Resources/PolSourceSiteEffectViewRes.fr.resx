@@ -123,8 +123,14 @@
   <data name="AlsoEffectedByPolSourceSites" xml:space="preserve">
     <value>Aussi affectée par les sites de source de pollution</value>
   </data>
+  <data name="AnalysesDocument" xml:space="preserve">
+    <value>Document d'analyse</value>
+  </data>
   <data name="CanEffectMWQMSites" xml:space="preserve">
     <value>Peut influencer les sites de  SQEM</value>
+  </data>
+  <data name="Comments" xml:space="preserve">
+    <value>Commentaires</value>
   </data>
   <data name="Delete" xml:space="preserve">
     <value>Effacer</value>
@@ -144,8 +150,14 @@
   <data name="GroupID" xml:space="preserve">
     <value>Identifiant du group</value>
   </data>
+  <data name="HoldsMWQMSitesAndPollutionSourceSitesAsWellAsInfrastructureInformation" xml:space="preserve">
+    <value>contient des sites SQEM et des sites sources de pollution ainsi que des informations sur les infrastructures</value>
+  </data>
   <data name="IsGroup" xml:space="preserve">
     <value>Est groupe</value>
+  </data>
+  <data name="IsYourWorkingFile" xml:space="preserve">
+    <value>est ton fichier de travail</value>
   </data>
   <data name="ManageEffectTerms" xml:space="preserve">
     <value>Gérer les termes d'effet</value>
@@ -156,6 +168,9 @@
   <data name="Place" xml:space="preserve">
     <value>Placer</value>
   </data>
+  <data name="PollutionSourceSiteOrInfrastructureToMWQMSites" xml:space="preserve">
+    <value>site ou infrastructure source de pollution vers les sites SQEM</value>
+  </data>
   <data name="SaveEffectTerms" xml:space="preserve">
     <value>Sauvegarder les termes d'effet</value>
   </data>
@@ -165,7 +180,40 @@
   <data name="SendToGroup" xml:space="preserve">
     <value>Envoyer au groupe</value>
   </data>
+  <data name="ThanMWQMSiteAndPollutionSourceSiteGroupingRelatedTools" xml:space="preserve">
+    <value>Outils associés au site SQEM et au site source de pollution</value>
+  </data>
+  <data name="TheFirstFile" xml:space="preserve">
+    <value>Le premier fichier</value>
+  </data>
+  <data name="TheSecondFile" xml:space="preserve">
+    <value>Le deuxième fichier</value>
+  </data>
+  <data name="ThisPollutionSourceSiteHasNotBeenLinkedToMWQMSites" xml:space="preserve">
+    <value>Ce site source de pollution n'a pas été lié à des sites SQEM</value>
+  </data>
+  <data name="ToLinkPollutionSourceSiteOrInfrastructureAndMWQMSites" xml:space="preserve">
+    <value>Relier des sites ou infrastructures sources de pollution et des sites SQEM</value>
+  </data>
+  <data name="TwoFilesAreRequiredWhichCanBeFound" xml:space="preserve">
+    <value>Deux fichiers sont nécessaires qui peuvent être trouvés</value>
+  </data>
   <data name="UnderGroup" xml:space="preserve">
     <value>sous groupe</value>
+  </data>
+  <data name="UnderTheFileTabAtTheProvinceLevel" xml:space="preserve">
+    <value>sous l'onglet Fichier au niveau de la province</value>
+  </data>
+  <data name="Ungrouped" xml:space="preserve">
+    <value>Non groupé</value>
+  </data>
+  <data name="WhereXXIsReplaceByTheProvinceInitials" xml:space="preserve">
+    <value>où XX est remplacé par les initiales de la province</value>
+  </data>
+  <data name="WhereYouWillDrawManyPolygonsForEachSubsectorToLink" xml:space="preserve">
+    <value>où vous allez dessiner de nombreux polygones pour chaque sous-secteur à lier</value>
+  </data>
+  <data name="YouNeedToGoToAProvinceAndUseTheProvinceTools" xml:space="preserve">
+    <value>Vous devez vous rendre dans une province et utiliser ses outils</value>
   </data>
 </root>

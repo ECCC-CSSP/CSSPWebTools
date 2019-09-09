@@ -10,9 +10,22 @@
     //TVAuthEnum tvAuth = (TVAuthEnum)ViewBag.TVAuth;
     int PolSourceSiteOrInfrastructureTVItemID = (int)ViewBag.PolSourceSiteOrInfrastructureTVItemID;
     List<PolSourceSiteEffectModel> polSourceSiteEffectModelList = (List<PolSourceSiteEffectModel>)ViewBag.PolSourceSiteEffectModelList;
-    List<PolSourceSiteEffectTermModel> polSourceSiteEffectTermModelAllList = (List<PolSourceSiteEffectTermModel>)ViewBag.PolSourceSiteEffectTermModelAllList;
+    List<PolSourceSiteEffectTermModel> polSourceSiteEffectTermModelAllListTemp = (List<PolSourceSiteEffectTermModel>)ViewBag.PolSourceSiteEffectTermModelAllList;
     List<PolSourceSiteModel> polSourceSiteModelList = (List<PolSourceSiteModel>)ViewBag.PolSourceSiteModelList;
     List<MWQMSiteModel> mwqmSiteModelList = (List<MWQMSiteModel>)ViewBag.MWQMSiteModelList;
+
+
+    List<PolSourceSiteEffectTermModel> polSourceSiteEffectTermModelAllList = new List<PolSourceSiteEffectTermModel>();
+
+    if (ViewBag.Language == LanguageEnum.fr)
+    {
+        polSourceSiteEffectTermModelAllList = polSourceSiteEffectTermModelAllListTemp.OrderBy(c => c.EffectTermFR).ToList();
+    }
+    else
+    {
+        polSourceSiteEffectTermModelAllList = polSourceSiteEffectTermModelAllListTemp.OrderBy(c => c.EffectTermEN).ToList();
+    }
+
 }
 
 <div class="panel panel-info">
@@ -24,77 +37,170 @@
     <div class="panel-body">
         <div class="PolSourceSiteEffectTermsTop">
             <button class="jbPolSourceSiteEffectTermsShowHideManage btn btn-default">@PolSourceSiteEffectViewRes.ManageEffectTerms</button>
+            <button class="jbHelpDocShowDialog btn btn-link" data-dockey="pollutionsourceeffecttermsmanage" data-title="@PolSourceSiteEffectViewRes.ManageEffectTerms"><span class="glyphicon glyphicon-info-sign"></span></button>
             <div class="PolSourceSiteEffectTerms">
             </div>
         </div>
         <div class="PolSourceSiteEffectTop">
-            <h4>@PolSourceSiteEffectViewRes.CanEffectMWQMSites</h4>
-            <ul>
-                @foreach (PolSourceSiteEffectModel polSourceSiteEffectModel in polSourceSiteEffectModelList)
-                {
-                    MWQMSiteModel mwqmSiteModel = mwqmSiteModelList.Where(c => c.MWQMSiteTVItemID == polSourceSiteEffectModel.MWQMSiteTVItemID).FirstOrDefault();
-
-                    List<PolSourceSiteEffectModel> polSourceSiteEffectModelList2 = polSourceSiteEffectModelList.Where(c => c.MWQMSiteTVItemID == mwqmSiteModel.MWQMSiteTVItemID && c.PolSourceSiteOrInfrastructureTVItemID != polSourceSiteEffectModel.PolSourceSiteOrInfrastructureTVItemID).ToList();
-
-                    string EffectTermIDs = polSourceSiteEffectModel.PolSourceSiteEffectTermIDs;
-
-                    List<int> EffectTermIDList = new List<int>();
-                    if (!string.IsNullOrWhiteSpace(EffectTermIDs))
+            <h3>@PolSourceSiteEffectViewRes.CanEffectMWQMSites</h3>
+            @if (polSourceSiteEffectModelList.Count > 0)
+            {
+                <ul class="list-unstyled">
+                    @foreach (PolSourceSiteEffectModel polSourceSiteEffectModel in polSourceSiteEffectModelList)
                     {
-                        EffectTermIDList = EffectTermIDs.Split(",".ToCharArray(), StringSplitOptions.RemoveEmptyEntries).Select(c => int.Parse(c)).ToList();
-                    }
+                        MWQMSiteModel mwqmSiteModel = mwqmSiteModelList.Where(c => c.MWQMSiteTVItemID == polSourceSiteEffectModel.MWQMSiteTVItemID).FirstOrDefault();
 
-                    List<PolSourceSiteEffectTermModel> polSourceSiteEffectTermModelAllList2 = (from c in polSourceSiteEffectTermModelAllList
-                                                                                               from e in EffectTermIDList
-                                                                                               where c.PolSourceSiteEffectTermID == e
-                                                                                               select c).ToList();
+                        List<PolSourceSiteEffectModel> polSourceSiteEffectModelList2 = polSourceSiteEffectModelList.Where(c => c.MWQMSiteTVItemID == mwqmSiteModel.MWQMSiteTVItemID && c.PolSourceSiteOrInfrastructureTVItemID != polSourceSiteEffectModel.PolSourceSiteOrInfrastructureTVItemID).ToList();
 
-                    <li>
-                        <div>
-                            <h3>@mwqmSiteModel.MWQMSiteTVText</h3>
-                            <div class="PolSourceSiteEffect">
-                                <h4>@PolSourceSiteEffectViewRes.EffectTermList</h4>
-                                <p>
-                                    @foreach (PolSourceSiteEffectTermModel polSourceSiteEffectTermModel in polSourceSiteEffectTermModelAllList)
-                                    {
-                                        bool IsChecked = EffectTermIDList.Contains(polSourceSiteEffectTermModel.PolSourceSiteEffectTermID);
-                                        <label>
-                                            <input name="EffectTerm" type="checkbox" @(IsChecked ? "checked=checked" : "") value="@polSourceSiteEffectTermModel.PolSourceSiteEffectTermID" />
-                                            @if (ViewBag.Language == LanguageEnum.fr)
+                        string EffectTermIDs = polSourceSiteEffectModel.PolSourceSiteEffectTermIDs;
+
+                        List<int> EffectTermIDList = new List<int>();
+                        if (!string.IsNullOrWhiteSpace(EffectTermIDs))
+                        {
+                            EffectTermIDList = EffectTermIDs.Split(",".ToCharArray(), StringSplitOptions.RemoveEmptyEntries).Select(c => int.Parse(c)).ToList();
+                        }
+
+                        List<PolSourceSiteEffectTermModel> polSourceSiteEffectTermModelAllList2 = (from c in polSourceSiteEffectTermModelAllList
+                                                                                                   from e in EffectTermIDList
+                                                                                                   where c.PolSourceSiteEffectTermID == e
+                                                                                                   select c).ToList();
+                        <li>
+                            <div class="spaceLeft10">
+                                <h4>@mwqmSiteModel.MWQMSiteTVText</h4>
+                                <div class="panel panel-default">
+                                    <ul class="PolSourceSiteEffect list-unstyled spaceLeft10">
+                                        @foreach (PolSourceSiteEffectTermModel polSourceSiteEffectTermModel in polSourceSiteEffectTermModelAllList.Where(c => c.IsGroup == true))
+                                        {
+                                            bool HasChild = polSourceSiteEffectTermModelAllList.Where(c => c.IsGroup == false && c.UnderGroupID == polSourceSiteEffectTermModel.PolSourceSiteEffectTermID).Any();
+
+                                            if (ViewBag.Language == LanguageEnum.fr)
                                             {
-                                                <span>@polSourceSiteEffectTermModel.EffectTermFR &nbsp;&nbsp;</span>
+                                                <li class="spaceLeft10"><h4 class="spaceLeft10">@polSourceSiteEffectTermModel.EffectTermFR</h4></li>
                                             }
                                             else
                                             {
-                                                <span>@polSourceSiteEffectTermModel.EffectTermEN &nbsp;&nbsp;</span>
+                                                <li class="spaceLeft10"><h4 class="spaceLeft10">@polSourceSiteEffectTermModel.EffectTermEN</h4></li>
                                             }
-                                        </label>
-                                    }
-                                </p>
-                                <button class="jsPolSourceSiteEffectTermsSave btn btn-default" data-polsourcesiteeffectid="@polSourceSiteEffectModel.PolSourceSiteEffectID">@PolSourceSiteEffectViewRes.SaveEffectTerms</button>
-                            </div>
-                            @if (polSourceSiteEffectModelList2.Count > 0)
-                            {
-                            <div>
-                                <span class="h4">@PolSourceSiteEffectViewRes.AlsoEffectedByPolSourceSites</span>
-                                <ul class="list-unstyled">
-                                    @foreach (PolSourceSiteEffectModel polSourceSiteEffectModel2 in polSourceSiteEffectModelList2)
-                                    {
-                                        PolSourceSiteModel polSourceSiteModel = polSourceSiteModelList.Where(c => c.PolSourceSiteTVItemID == polSourceSiteEffectModel2.PolSourceSiteOrInfrastructureTVItemID).FirstOrDefault();
-                                        <li>
-                                            <div>
-                                                <p>@polSourceSiteModel.PolSourceSiteTVText</p>
-                                            </div>
-                                        </li>
-                                    }
 
-                                </ul>
+                                            if (HasChild)
+                                            {
+                                                <li class="text-nowrap spaceLeft10">
+                                                    <ul class="list-unstyled spaceLeft10">
+                                                        <li class="spaceLeft10">
+                                                            @foreach (PolSourceSiteEffectTermModel polSourceSiteEffectTermModel2 in polSourceSiteEffectTermModelAllList.Where(c => c.IsGroup == false && c.UnderGroupID == polSourceSiteEffectTermModel.PolSourceSiteEffectTermID))
+                                                            {
+                                                                bool IsChecked = EffectTermIDList.Contains(polSourceSiteEffectTermModel2.PolSourceSiteEffectTermID);
+                                                                <label>
+                                                                    <input name="EffectTerm" type="checkbox" @(IsChecked == true ? "checked" : "") value="@polSourceSiteEffectTermModel2.PolSourceSiteEffectTermID" />
+                                                                    @if (ViewBag.Language == LanguageEnum.fr)
+                                                                    {
+                                                                        <span>@polSourceSiteEffectTermModel2.EffectTermFR &nbsp;&nbsp;</span>
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        <span>@polSourceSiteEffectTermModel2.EffectTermEN &nbsp;&nbsp;</span>
+                                                                    }
+                                                                </label>
+                                                            }
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            }
+                                        }
+                                        <li class="spaceLeft10"><h4 class="spaceLeft10">@PolSourceSiteEffectViewRes.Ungrouped</h4></li>
+                                        <li class="text-nowrap spaceLeft10">
+                                            <ul class="list-unstyled">
+                                                <li class="spaceLeft10">
+                                                    @foreach (PolSourceSiteEffectTermModel polSourceSiteEffectTermModel3 in polSourceSiteEffectTermModelAllList.Where(c => c.IsGroup == false && c.UnderGroupID == null))
+                                                    {
+                                                        bool IsChecked = EffectTermIDList.Contains(polSourceSiteEffectTermModel3.PolSourceSiteEffectTermID);
+                                                        <label>
+                                                            <input name="EffectTerm" type="checkbox" @(IsChecked == true ? "checked" : "") value="@polSourceSiteEffectTermModel3.PolSourceSiteEffectTermID" />
+                                                            @if (ViewBag.Language == LanguageEnum.fr)
+                                                            {
+                                                                <span>@polSourceSiteEffectTermModel3.EffectTermFR &nbsp;&nbsp;</span>
+                                                            }
+                                                            else
+                                                            {
+                                                                <span>@polSourceSiteEffectTermModel3.EffectTermEN &nbsp;&nbsp;</span>
+                                                            }
+                                                        </label>
+                                                    }
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <button class="jbPolSourceSiteEffectTermsSave btn btn-default"
+                                                    data-polsourcesiteeffectid="@polSourceSiteEffectModel.PolSourceSiteEffectID">
+                                                @PolSourceSiteEffectViewRes.SaveEffectTerms
+                                            </button>
+                                        </li>
+
+                                        @if (polSourceSiteEffectModelList2.Count > 0)
+                                        {
+                                            <li class="spaceLeft10">
+                                                <span class="h4">@PolSourceSiteEffectViewRes.AlsoEffectedByPolSourceSites</span>
+                                                <ul class="list-unstyled">
+                                                    @foreach (PolSourceSiteEffectModel polSourceSiteEffectModel2 in polSourceSiteEffectModelList2)
+                                                    {
+                                                        PolSourceSiteModel polSourceSiteModel = polSourceSiteModelList.Where(c => c.PolSourceSiteTVItemID == polSourceSiteEffectModel2.PolSourceSiteOrInfrastructureTVItemID).FirstOrDefault();
+                                                        <li>
+                                                            <div>
+                                                                <p>@polSourceSiteModel.PolSourceSiteTVText</p>
+                                                            </div>
+                                                        </li>
+                                                    }
+
+                                                </ul>
+                                            </li>
+                                        }
+                                    </ul>
+                                </div>
                             </div>
-                            }
-                        </div>
-                    </li>
-                }
-            </ul>
+                        </li>
+                        if (false)
+                        {
+                            <li class="PolSourceSiteEffectComment" data-polsourcesiteeffectid="@polSourceSiteEffectModel.PolSourceSiteEffectID">
+                                <h4>@PolSourceSiteEffectViewRes.Comments</h4>
+                                <textarea class="PolSourceSiteEffectCommenta form-control" rows="6">To do @polSourceSiteEffectModel.Comments</textarea>
+                            </li>
+                            <li>
+                                <h4>@PolSourceSiteEffectViewRes.AnalysesDocument</h4>
+                                <p>To do...</p>
+                            </li>
+                        }
+
+                    }
+                </ul>
+            }
+            else
+            {
+                <div class="panel panel-warning">
+                    <p>@PolSourceSiteEffectViewRes.ThisPollutionSourceSiteHasNotBeenLinkedToMWQMSites</p>
+                    <p>
+                        @PolSourceSiteEffectViewRes.ToLinkPollutionSourceSiteOrInfrastructureAndMWQMSites,
+                        @PolSourceSiteEffectViewRes.YouNeedToGoToAProvinceAndUseTheProvinceTools.
+                        @PolSourceSiteEffectViewRes.ThanMWQMSiteAndPollutionSourceSiteGroupingRelatedTools.
+                        @PolSourceSiteEffectViewRes.TwoFilesAreRequiredWhichCanBeFound
+                        @PolSourceSiteEffectViewRes.UnderTheFileTabAtTheProvinceLevel
+                        @PolSourceSiteEffectViewRes.WhereXXIsReplaceByTheProvinceInitials.
+                        @PolSourceSiteEffectViewRes.TheFirstFile MWQMSitesAndPolSourceSites_XX.kml
+                        @PolSourceSiteEffectViewRes.HoldsMWQMSitesAndPollutionSourceSitesAsWellAsInfrastructureInformation.
+                        @PolSourceSiteEffectViewRes.TheSecondFile GroupingInputs_XX.kml
+                        @PolSourceSiteEffectViewRes.IsYourWorkingFile
+                        @PolSourceSiteEffectViewRes.WhereYouWillDrawManyPolygonsForEachSubsectorToLink
+                        @PolSourceSiteEffectViewRes.PollutionSourceSiteOrInfrastructureToMWQMSites.
+                    </p>
+                </div>
+            }
         </div>
     </div>
 </div>
+@if (false)
+{
+    <script>
+        $(function () {
+            cssp.PolSourceSiteEffect.PolSourceSiteEffectCommentTinymceInit();
+        });
+    </script>
+}

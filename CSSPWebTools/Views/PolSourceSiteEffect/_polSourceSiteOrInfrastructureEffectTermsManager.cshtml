@@ -6,8 +6,20 @@
 @using CSSPWebTools.Controllers;
 
 @{
-    List<PolSourceSiteEffectTermModel> polSourceSiteEffectTermModelAllList = (List<PolSourceSiteEffectTermModel>)ViewBag.PolSourceSiteEffectTermModelAllList;
+    List<PolSourceSiteEffectTermModel> polSourceSiteEffectTermModelAllListTemp = (List<PolSourceSiteEffectTermModel>)ViewBag.PolSourceSiteEffectTermModelAllList;
+
+    List<PolSourceSiteEffectTermModel> polSourceSiteEffectTermModelAllList = new List<PolSourceSiteEffectTermModel>();
+
+    if (ViewBag.Language == LanguageEnum.fr)
+    {
+        polSourceSiteEffectTermModelAllList = polSourceSiteEffectTermModelAllListTemp.OrderBy(c => c.EffectTermFR).ToList();
+    }
+    else
+    {
+        polSourceSiteEffectTermModelAllList = polSourceSiteEffectTermModelAllListTemp.OrderBy(c => c.EffectTermEN).ToList();
+    }
 }
+
 
 <div class="panel panel-default">
     <div class="panel-heading">
@@ -17,21 +29,33 @@
     </div>
     <div class="panel-body">
         <ul class="list-unstyled">
-            @foreach (PolSourceSiteEffectTermModel polSourceSiteEffectTermModel in polSourceSiteEffectTermModelAllList.Where(c => c.IsGroup == true).OrderBy(c => c.EffectTermEN))
+            @foreach (PolSourceSiteEffectTermModel polSourceSiteEffectTermModel in polSourceSiteEffectTermModelAllList.Where(c => c.IsGroup == true))
             {
                 bool HasChild = polSourceSiteEffectTermModelAllList.Where(c => c.IsGroup == false && c.UnderGroupID == polSourceSiteEffectTermModel.PolSourceSiteEffectTermID).Any();
 
                 <li class="PolSourceSiteEffectTerm form-inline">
                     <div class="text-nowrap">
                         <span class="h3">@PolSourceSiteEffectViewRes.GroupID: @polSourceSiteEffectTermModel.PolSourceSiteEffectTermID</span>
-                        &nbsp;(en)&nbsp;<input class="form-control" type="text" name="EffectTermEN" size="4" placeholder="@polSourceSiteEffectTermModel.EffectTermEN" value="@polSourceSiteEffectTermModel.EffectTermEN" />
-                        &nbsp;(fr)&nbsp;<input class="form-control" type="text" name="EffectTermFR" size="4" placeholder="@polSourceSiteEffectTermModel.EffectTermFR" value="@polSourceSiteEffectTermModel.EffectTermFR" />
+                        @if (ViewBag.Language == LanguageEnum.fr)
+                        {
+                            <span>&nbsp;(fr)&nbsp;</span><input class="form-control" type="text" name="EffectTermFR" size="5" placeholder="@polSourceSiteEffectTermModel.EffectTermFR" value="@polSourceSiteEffectTermModel.EffectTermFR" />
+                            <span>&nbsp;(en)&nbsp;</span><input class="form-control" type="text" name="EffectTermEN" size="5" placeholder="@polSourceSiteEffectTermModel.EffectTermEN" value="@polSourceSiteEffectTermModel.EffectTermEN" />
+                        }
+                        else
+                        {
+                            <span>&nbsp;(en)&nbsp;</span><input class="form-control" type="text" name="EffectTermEN" size="5" placeholder="@polSourceSiteEffectTermModel.EffectTermEN" value="@polSourceSiteEffectTermModel.EffectTermEN" />
+                            <span>&nbsp;(fr)&nbsp;</span><input class="form-control" type="text" name="EffectTermFR" size="5" placeholder="@polSourceSiteEffectTermModel.EffectTermFR" value="@polSourceSiteEffectTermModel.EffectTermFR" />
+                        }
                         <button class="jbPolSourceSiteEffectTermsModify btn btn-default"
                                 data-polsourcesiteeffecttermid="@polSourceSiteEffectTermModel.PolSourceSiteEffectTermID"
                                 data-isgroup="@polSourceSiteEffectTermModel.IsGroup"
                                 data-undergroupid="@polSourceSiteEffectTermModel.UnderGroupID">
                             @PolSourceSiteEffectViewRes.Modify
                         </button>
+                        @if (HasChild)
+                        {
+                            <button class="jbHelpDocShowDialog btn btn-link" data-dockey="pollutionsourceeffecttermsmanagemodifydeletesendtogroupisgroup" data-title="@PolSourceSiteEffectViewRes.ManageEffectTerms (@PolSourceSiteEffectViewRes.Modify,@PolSourceSiteEffectViewRes.Delete,@PolSourceSiteEffectViewRes.SendToGroup,@PolSourceSiteEffectViewRes.IsGroup)"><span class="glyphicon glyphicon-info-sign"></span></button>
+                        }
                         @if (!HasChild)
                         {
                             <button class="jbPolSourceSiteEffectTermsDelete btn btn-default"
@@ -44,34 +68,43 @@
                                     data-isgroup="@polSourceSiteEffectTermModel.IsGroup">
                                 @PolSourceSiteEffectViewRes.IsGroup
                             </button>
+                            <button class="jbHelpDocShowDialog btn btn-link" data-dockey="pollutionsourceeffecttermsmanagemodifydeletesendtogroupisgroup" data-title="@PolSourceSiteEffectViewRes.ManageEffectTerms (@PolSourceSiteEffectViewRes.Modify,@PolSourceSiteEffectViewRes.Delete,@PolSourceSiteEffectViewRes.SendToGroup,@PolSourceSiteEffectViewRes.IsGroup)"><span class="glyphicon glyphicon-info-sign"></span></button>
                         }
                         @if (HasChild)
                         {
                             <ul class="list-unstyled">
-                                @foreach (PolSourceSiteEffectTermModel polSourceSiteEffectTermModel2 in polSourceSiteEffectTermModelAllList.Where(c => c.IsGroup == false && c.UnderGroupID == polSourceSiteEffectTermModel.PolSourceSiteEffectTermID).OrderBy(c => c.EffectTermEN))
+                                @foreach (PolSourceSiteEffectTermModel polSourceSiteEffectTermModel2 in polSourceSiteEffectTermModelAllList.Where(c => c.IsGroup == false && c.UnderGroupID == polSourceSiteEffectTermModel.PolSourceSiteEffectTermID))
                                 {
-                                    <li class="PolSourceSiteEffectTerm form-inline">
-                                        &nbsp;&nbsp;&nbsp;&nbsp;
-                                        &nbsp;(en)&nbsp;<input class="form-control" type="text" name="EffectTermEN" size="4" placeholder="@polSourceSiteEffectTermModel2.EffectTermEN" value="@polSourceSiteEffectTermModel2.EffectTermEN" />
-                                        &nbsp;(fr)&nbsp;<input class="form-control" type="text" name="EffectTermFR" size="4" placeholder="@polSourceSiteEffectTermModel2.EffectTermFR" value="@polSourceSiteEffectTermModel2.EffectTermFR" />
-                                        <button class="jbPolSourceSiteEffectTermsModify btn btn-default"
-                                                data-polsourcesiteeffecttermid="@polSourceSiteEffectTermModel2.PolSourceSiteEffectTermID"
-                                                data-isgroup="@polSourceSiteEffectTermModel2.IsGroup"
-                                                data-undergroupid="@polSourceSiteEffectTermModel2.UnderGroupID">
-                                            @PolSourceSiteEffectViewRes.Modify
-                                        </button>
-                                        <button class="jbPolSourceSiteEffectTermsDelete btn btn-default"
-                                                data-polsourcesiteeffecttermid="@polSourceSiteEffectTermModel2.PolSourceSiteEffectTermID"
-                                                data-effecttermen="@polSourceSiteEffectTermModel2.EffectTermEN">
-                                            @PolSourceSiteEffectViewRes.Delete
-                                        </button>
-                                        <button class="jbPolSourceSiteEffectTermsSendToGroup btn btn-default"
-                                                data-polsourcesiteeffecttermid="@polSourceSiteEffectTermModel2.PolSourceSiteEffectTermID">
-                                            @PolSourceSiteEffectViewRes.SendToGroup
-                                        </button>
-                                        <span>@PolSourceSiteEffectViewRes.GroupID:&nbsp;</span>
-                                        <input type="text" size="2" name="UnderGroupID" class="isnumber form-control" />
-                                    </li>
+                                <li class="PolSourceSiteEffectTerm form-inline">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;
+                                    @if (ViewBag.Language == LanguageEnum.fr)
+                                    {
+                                        <span>&nbsp;(fr)&nbsp;</span><input class="form-control" type="text" name="EffectTermFR" size="5" placeholder="@polSourceSiteEffectTermModel2.EffectTermFR" value="@polSourceSiteEffectTermModel2.EffectTermFR" />
+                                        <span>&nbsp;(en)&nbsp;</span><input class="form-control" type="text" name="EffectTermEN" size="5" placeholder="@polSourceSiteEffectTermModel2.EffectTermEN" value="@polSourceSiteEffectTermModel2.EffectTermEN" />
+                                    }
+                                    else
+                                    {
+                                        <span>&nbsp;(en)&nbsp;</span><input class="form-control" type="text" name="EffectTermEN" size="5" placeholder="@polSourceSiteEffectTermModel2.EffectTermEN" value="@polSourceSiteEffectTermModel2.EffectTermEN" />
+                                        <span>&nbsp;(fr)&nbsp;</span><input class="form-control" type="text" name="EffectTermFR" size="5" placeholder="@polSourceSiteEffectTermModel2.EffectTermFR" value="@polSourceSiteEffectTermModel2.EffectTermFR" />
+                                    }
+                                    <button class="jbPolSourceSiteEffectTermsModify btn btn-default"
+                                            data-polsourcesiteeffecttermid="@polSourceSiteEffectTermModel2.PolSourceSiteEffectTermID"
+                                            data-isgroup="@polSourceSiteEffectTermModel2.IsGroup"
+                                            data-undergroupid="@polSourceSiteEffectTermModel2.UnderGroupID">
+                                        @PolSourceSiteEffectViewRes.Modify
+                                    </button>
+                                    <button class="jbPolSourceSiteEffectTermsDelete btn btn-default"
+                                            data-polsourcesiteeffecttermid="@polSourceSiteEffectTermModel2.PolSourceSiteEffectTermID"
+                                            data-effecttermen="@polSourceSiteEffectTermModel2.EffectTermEN">
+                                        @PolSourceSiteEffectViewRes.Delete
+                                    </button>
+                                    <button class="jbPolSourceSiteEffectTermsSendToGroup btn btn-default"
+                                            data-polsourcesiteeffecttermid="@polSourceSiteEffectTermModel2.PolSourceSiteEffectTermID">
+                                        @PolSourceSiteEffectViewRes.SendToGroup
+                                    </button>
+                                    <input type="text" size="1" name="UnderGroupID" class="isnumber form-control" />
+                                    <button class="jbHelpDocShowDialog btn btn-link" data-dockey="pollutionsourceeffecttermsmanagemodifydeletesendtogroupisgroup" data-title="@PolSourceSiteEffectViewRes.ManageEffectTerms (@PolSourceSiteEffectViewRes.Modify,@PolSourceSiteEffectViewRes.Delete,@PolSourceSiteEffectViewRes.SendToGroup,@PolSourceSiteEffectViewRes.IsGroup)"><span class="glyphicon glyphicon-info-sign"></span></button>
+                                </li>
                                 }
                             </ul>
                         }
@@ -82,12 +115,20 @@
         <ul class="list-unstyled">
             <li>&nbsp;</li>
             <li>&nbsp;</li>
-            @foreach (PolSourceSiteEffectTermModel polSourceSiteEffectTermModel3 in polSourceSiteEffectTermModelAllList.Where(c => c.IsGroup == false && c.UnderGroupID == null).OrderBy(c => c.EffectTermEN))
+            @foreach (PolSourceSiteEffectTermModel polSourceSiteEffectTermModel3 in polSourceSiteEffectTermModelAllList.Where(c => c.IsGroup == false && c.UnderGroupID == null))
             {
                 <li class="PolSourceSiteEffectTerm form-inline">
                     <div class="text-nowrap">
-                        &nbsp;(en)&nbsp;<input class="form-control" type="text" name="EffectTermEN" size="4" placeholder="@polSourceSiteEffectTermModel3.EffectTermEN" value="@polSourceSiteEffectTermModel3.EffectTermEN" />
-                        &nbsp;(fr)&nbsp;<input class="form-control" type="text" name="EffectTermFR" size="4" placeholder="@polSourceSiteEffectTermModel3.EffectTermFR" value="@polSourceSiteEffectTermModel3.EffectTermFR" />
+                        @if (ViewBag.Language == LanguageEnum.fr)
+                        {
+                            <span>&nbsp;(fr)&nbsp;</span><input class="form-control" type="text" name="EffectTermFR" size="5" placeholder="@polSourceSiteEffectTermModel3.EffectTermFR" value="@polSourceSiteEffectTermModel3.EffectTermFR" />
+                            <span>&nbsp;(en)&nbsp;</span><input class="form-control" type="text" name="EffectTermEN" size="5" placeholder="@polSourceSiteEffectTermModel3.EffectTermEN" value="@polSourceSiteEffectTermModel3.EffectTermEN" />
+                        }
+                        else
+                        {
+                            <span>&nbsp;(en)&nbsp;</span><input class="form-control" type="text" name="EffectTermEN" size="5" placeholder="@polSourceSiteEffectTermModel3.EffectTermEN" value="@polSourceSiteEffectTermModel3.EffectTermEN" />
+                            <span>&nbsp;(fr)&nbsp;</span><input class="form-control" type="text" name="EffectTermFR" size="5" placeholder="@polSourceSiteEffectTermModel3.EffectTermFR" value="@polSourceSiteEffectTermModel3.EffectTermFR" />
+                        }
                         <button class="jbPolSourceSiteEffectTermsModify btn btn-default"
                                 data-polsourcesiteeffecttermid="@polSourceSiteEffectTermModel3.PolSourceSiteEffectTermID"
                                 data-isgroup="@polSourceSiteEffectTermModel3.IsGroup"
@@ -108,8 +149,8 @@
                                 data-polsourcesiteeffecttermid="@polSourceSiteEffectTermModel3.PolSourceSiteEffectTermID">
                             @PolSourceSiteEffectViewRes.SendToGroup
                         </button>
-                        <span>@PolSourceSiteEffectViewRes.GroupID:&nbsp;</span>
-                        <input type="text" size="2" name="UnderGroupID" class="isnumber form-control" />
+                        <input type="text" size="1" name="UnderGroupID" class="isnumber form-control" />
+                        <button class="jbHelpDocShowDialog btn btn-link" data-dockey="pollutionsourceeffecttermsmanagemodifydeletesendtogroupisgroup" data-title="@PolSourceSiteEffectViewRes.ManageEffectTerms (@PolSourceSiteEffectViewRes.Modify,@PolSourceSiteEffectViewRes.Delete,@PolSourceSiteEffectViewRes.SendToGroup,@PolSourceSiteEffectViewRes.IsGroup)"><span class="glyphicon glyphicon-info-sign"></span></button>
                     </div>
                 </li>
             }
@@ -117,24 +158,31 @@
         <ul class="list-unstyled PolSourceSiteEffectTerm">
             <li><p>&nbsp;</p></li>
             <li>
-                <h3>@PolSourceSiteEffectViewRes.Add @PolSourceSiteEffectViewRes.EffectTerm</h3>
+                <h3>
+                    @PolSourceSiteEffectViewRes.Add @PolSourceSiteEffectViewRes.EffectTerm
+                    <button class="jbHelpDocShowDialog btn btn-link" data-dockey="pollutionsourceeffecttermsadd" data-title="@PolSourceSiteEffectViewRes.Add @PolSourceSiteEffectViewRes.EffectTerm"><span class="glyphicon glyphicon-info-sign"></span></button>
+                </h3>
             </li>
             <li>
                 <label for="EffectTermEN">
+                    <button class="jbHelpDocShowDialog btn btn-link" data-dockey="pollutionsourceeffecttermseffecttermen" data-title="@PolSourceSiteEffectViewRes.EffectTerm (en)"><span class="glyphicon glyphicon-info-sign"></span></button>
                     <span>(en)</span>
                     <input class="form-control" placeholder="@PolSourceSiteEffectViewRes.EffectTerm (en)" type="text" name="EffectTermEN" />
                 </label>
                 <label for="EffectTermFR">
+                    <button class="jbHelpDocShowDialog btn btn-link" data-dockey="pollutionsourceeffecttermseffecttermfr" data-title="@PolSourceSiteEffectViewRes.EffectTerm (fr)"><span class="glyphicon glyphicon-info-sign"></span></button>
                     <span>(fr)</span>
                     <input class="form-control" placeholder="@PolSourceSiteEffectViewRes.EffectTerm (fr)" type="text" name="EffectTermFR" />
                 </label>
             </li>
             <li>
                 <label for="UnderGroupID">
+                    <button class="jbHelpDocShowDialog btn btn-link" data-dockey="pollutionsourceeffecttermseffecttermplaceundergroup" data-title="@PolSourceSiteEffectViewRes.EffectTerm @PolSourceSiteEffectViewRes.Place @PolSourceSiteEffectViewRes.UnderGroup"><span class="glyphicon glyphicon-info-sign"></span></button>
                     <span>@PolSourceSiteEffectViewRes.Place @PolSourceSiteEffectViewRes.UnderGroup</span>
                     <input class="isnumber form-control" type="text" name="UnderGroupID" />
                 </label>
                 <label for="IsGroup">
+                    <button class="jbHelpDocShowDialog btn btn-link" data-dockey="pollutionsourceeffecttermseffecttermisgroup" data-title="@PolSourceSiteEffectViewRes.EffectTerm @PolSourceSiteEffectViewRes.IsGroup"><span class="glyphicon glyphicon-info-sign"></span></button>
                     <span>@PolSourceSiteEffectViewRes.IsGroup</span>
                     <input class="checkbox-inline" type="checkbox" name="IsGroup" />
                 </label>

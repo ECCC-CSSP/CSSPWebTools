@@ -79,11 +79,29 @@ namespace CSSPWebTools.Views.PolSourceSiteEffect.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Analyses document.
+        /// </summary>
+        public static string AnalysesDocument {
+            get {
+                return ResourceManager.GetString("AnalysesDocument", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Can effect MWQM sites.
         /// </summary>
         public static string CanEffectMWQMSites {
             get {
                 return ResourceManager.GetString("CanEffectMWQMSites", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Comments.
+        /// </summary>
+        public static string Comments {
+            get {
+                return ResourceManager.GetString("Comments", resourceCulture);
             }
         }
         
@@ -142,11 +160,29 @@ namespace CSSPWebTools.Views.PolSourceSiteEffect.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to holds MWQM sites and pollution source sites as well as infrastructure information.
+        /// </summary>
+        public static string HoldsMWQMSitesAndPollutionSourceSitesAsWellAsInfrastructureInformation {
+            get {
+                return ResourceManager.GetString("HoldsMWQMSitesAndPollutionSourceSitesAsWellAsInfrastructureInformation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Is Group.
         /// </summary>
         public static string IsGroup {
             get {
                 return ResourceManager.GetString("IsGroup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to is your working file.
+        /// </summary>
+        public static string IsYourWorkingFile {
+            get {
+                return ResourceManager.GetString("IsYourWorkingFile", resourceCulture);
             }
         }
         
@@ -178,6 +214,15 @@ namespace CSSPWebTools.Views.PolSourceSiteEffect.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to pollution source site or infrastructure to MWQM sites.
+        /// </summary>
+        public static string PollutionSourceSiteOrInfrastructureToMWQMSites {
+            get {
+                return ResourceManager.GetString("PollutionSourceSiteOrInfrastructureToMWQMSites", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Save effect terms.
         /// </summary>
         public static string SaveEffectTerms {
@@ -205,11 +250,110 @@ namespace CSSPWebTools.Views.PolSourceSiteEffect.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Than MWQM site and pollution source site grouping related tools.
+        /// </summary>
+        public static string ThanMWQMSiteAndPollutionSourceSiteGroupingRelatedTools {
+            get {
+                return ResourceManager.GetString("ThanMWQMSiteAndPollutionSourceSiteGroupingRelatedTools", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The first file.
+        /// </summary>
+        public static string TheFirstFile {
+            get {
+                return ResourceManager.GetString("TheFirstFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The second file.
+        /// </summary>
+        public static string TheSecondFile {
+            get {
+                return ResourceManager.GetString("TheSecondFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This pollution source site has not been linked to MWQM sites.
+        /// </summary>
+        public static string ThisPollutionSourceSiteHasNotBeenLinkedToMWQMSites {
+            get {
+                return ResourceManager.GetString("ThisPollutionSourceSiteHasNotBeenLinkedToMWQMSites", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to To link pollution source sites or infrastructure and MWQM sites.
+        /// </summary>
+        public static string ToLinkPollutionSourceSiteOrInfrastructureAndMWQMSites {
+            get {
+                return ResourceManager.GetString("ToLinkPollutionSourceSiteOrInfrastructureAndMWQMSites", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Two files are required which can be found.
+        /// </summary>
+        public static string TwoFilesAreRequiredWhichCanBeFound {
+            get {
+                return ResourceManager.GetString("TwoFilesAreRequiredWhichCanBeFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to under group.
         /// </summary>
         public static string UnderGroup {
             get {
                 return ResourceManager.GetString("UnderGroup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to under the file tab at the province level.
+        /// </summary>
+        public static string UnderTheFileTabAtTheProvinceLevel {
+            get {
+                return ResourceManager.GetString("UnderTheFileTabAtTheProvinceLevel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ungrouped.
+        /// </summary>
+        public static string Ungrouped {
+            get {
+                return ResourceManager.GetString("Ungrouped", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to where XX is replace by the province initials.
+        /// </summary>
+        public static string WhereXXIsReplaceByTheProvinceInitials {
+            get {
+                return ResourceManager.GetString("WhereXXIsReplaceByTheProvinceInitials", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to where you will draw many polygons for each subsector to link.
+        /// </summary>
+        public static string WhereYouWillDrawManyPolygonsForEachSubsectorToLink {
+            get {
+                return ResourceManager.GetString("WhereYouWillDrawManyPolygonsForEachSubsectorToLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You need to go to a province and use the province tools.
+        /// </summary>
+        public static string YouNeedToGoToAProvinceAndUseTheProvinceTools {
+            get {
+                return ResourceManager.GetString("YouNeedToGoToAProvinceAndUseTheProvinceTools", resourceCulture);
             }
         }
     }

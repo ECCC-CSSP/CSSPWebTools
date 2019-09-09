@@ -123,8 +123,14 @@
   <data name="AlsoEffectedByPolSourceSites" xml:space="preserve">
     <value>Also effected by pollutions source sites</value>
   </data>
+  <data name="AnalysesDocument" xml:space="preserve">
+    <value>Analyses document</value>
+  </data>
   <data name="CanEffectMWQMSites" xml:space="preserve">
     <value>Can effect MWQM sites</value>
+  </data>
+  <data name="Comments" xml:space="preserve">
+    <value>Comments</value>
   </data>
   <data name="Delete" xml:space="preserve">
     <value>Delete</value>
@@ -144,8 +150,14 @@
   <data name="GroupID" xml:space="preserve">
     <value>Group ID</value>
   </data>
+  <data name="HoldsMWQMSitesAndPollutionSourceSitesAsWellAsInfrastructureInformation" xml:space="preserve">
+    <value>holds MWQM sites and pollution source sites as well as infrastructure information</value>
+  </data>
   <data name="IsGroup" xml:space="preserve">
     <value>Is Group</value>
+  </data>
+  <data name="IsYourWorkingFile" xml:space="preserve">
+    <value>is your working file</value>
   </data>
   <data name="ManageEffectTerms" xml:space="preserve">
     <value>Manage Effect Terms</value>
@@ -156,6 +168,9 @@
   <data name="Place" xml:space="preserve">
     <value>Place</value>
   </data>
+  <data name="PollutionSourceSiteOrInfrastructureToMWQMSites" xml:space="preserve">
+    <value>pollution source site or infrastructure to MWQM sites</value>
+  </data>
   <data name="SaveEffectTerms" xml:space="preserve">
     <value>Save effect terms</value>
   </data>
@@ -165,7 +180,40 @@
   <data name="SendToGroup" xml:space="preserve">
     <value>Send To Group</value>
   </data>
+  <data name="ThanMWQMSiteAndPollutionSourceSiteGroupingRelatedTools" xml:space="preserve">
+    <value>Than MWQM site and pollution source site grouping related tools</value>
+  </data>
+  <data name="TheFirstFile" xml:space="preserve">
+    <value>The first file</value>
+  </data>
+  <data name="TheSecondFile" xml:space="preserve">
+    <value>The second file</value>
+  </data>
+  <data name="ThisPollutionSourceSiteHasNotBeenLinkedToMWQMSites" xml:space="preserve">
+    <value>This pollution source site has not been linked to MWQM sites</value>
+  </data>
+  <data name="ToLinkPollutionSourceSiteOrInfrastructureAndMWQMSites" xml:space="preserve">
+    <value>To link pollution source sites or infrastructure and MWQM sites</value>
+  </data>
+  <data name="TwoFilesAreRequiredWhichCanBeFound" xml:space="preserve">
+    <value>Two files are required which can be found</value>
+  </data>
   <data name="UnderGroup" xml:space="preserve">
     <value>under group</value>
+  </data>
+  <data name="UnderTheFileTabAtTheProvinceLevel" xml:space="preserve">
+    <value>under the file tab at the province level</value>
+  </data>
+  <data name="Ungrouped" xml:space="preserve">
+    <value>Ungrouped</value>
+  </data>
+  <data name="WhereXXIsReplaceByTheProvinceInitials" xml:space="preserve">
+    <value>where XX is replace by the province initials</value>
+  </data>
+  <data name="WhereYouWillDrawManyPolygonsForEachSubsectorToLink" xml:space="preserve">
+    <value>where you will draw many polygons for each subsector to link</value>
+  </data>
+  <data name="YouNeedToGoToAProvinceAndUseTheProvinceTools" xml:space="preserve">
+    <value>You need to go to a province and use the province tools</value>
   </data>
 </root>

@@ -1,6 +1,6 @@
 var CSSP;
 (function (CSSP) {
-    var PolSourceSiteEffect = /** @class */ (function () {
+    var PolSourceSiteEffect = (function () {
         // Variables
         // Constructors
         function PolSourceSiteEffect() {
@@ -141,19 +141,23 @@ var CSSP;
             };
             this.PolSourceSiteEffectTermsSave = function ($bjs) {
                 var PolSourceSiteEffectID = $bjs.data("polsourcesiteeffectid");
-                var PolSourceSiteEffectTermsArr = $bjs.closest(".PolSourceSiteEffect").find("input[name='EffectTerm']").val();
-                var PolSourceSiteEffectTerms = PolSourceSiteEffectTermsArr.join(",");
+                var PolSourceSiteEffectTermIDs = "";
+                $bjs.closest(".PolSourceSiteEffect").find("input[name='EffectTerm']").each(function (index, elem) {
+                    if ($(elem).is(":checked")) {
+                        PolSourceSiteEffectTermIDs = PolSourceSiteEffectTermIDs + "" + $(elem).val() + "|";
+                    }
+                });
                 var command = "PolSourceSiteEffect/PolSourceSiteEffectTermsSaveAllJSON";
                 $.post(cssp.BaseURL + command, {
                     PolSourceSiteEffectID: PolSourceSiteEffectID,
-                    PolSourceSiteEffectTerms: PolSourceSiteEffectTerms,
+                    PolSourceSiteEffectTermIDs: PolSourceSiteEffectTermIDs,
                 })
                     .done(function (ret) {
                     if (ret) {
                         cssp.Dialog.ShowDialogErrorWithError(ret);
                     }
                     else {
-                        cssp.PolSourceSiteEffect.PolSourceSiteEffectLoadEffectTermsManager();
+                        cssp.PolSourceSiteEffect.PolSourceSiteEffectLoadAnalysesTool();
                     }
                 })
                     .fail(function () {
@@ -200,6 +204,38 @@ var CSSP;
                             cssp.Dialog.ShowDialogErrorWithFail(command);
                         });
                     });
+                });
+            };
+            this.PolSourceSiteEffectCommentTinymceInit = function () {
+                tinymce.init({
+                    selector: ".PolSourceSiteEffectComment",
+                    height: 300,
+                    menubar: true,
+                    plugins: "fullpage searchreplace autolink visualblocks visualchars fullscreen table charmap hr insertdatetime advlist lists textcolor contextmenu colorpicker textpattern help save",
+                    toolbar: "save undo redo | formatselect | bold italic strikethrough forecolor backcolor alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent  | removeformat",
+                    spellchecker_language: 'en',
+                    spellchecker_dialog: true,
+                    save_onsavecallback: function () {
+                        cssp.PolSourceSiteEffect.PolSourceSiteEffectCommentSave(tinymce);
+                    }
+                });
+            };
+            this.PolSourceSiteEffectCommentSave = function (tinymce) {
+                var content = tinymce.activeEditor.getContent();
+                var PolSourceSiteEffectTermID = parseInt(tinymce.activeEditor.closest(".PolSourceSiteEffectComment").data("polsourcesiteeffectid"));
+                var DocHTMLText = content;
+                var command = "PolSourceSiteEffect/PolSourceSiteEffectCommentSaveJSON";
+                $.post(cssp.BaseURL + command, {
+                    PolSourceSiteEffectTermID: PolSourceSiteEffectTermID,
+                    DocHTMLText: DocHTMLText
+                })
+                    .done(function (ret) {
+                    if (ret) {
+                        cssp.Dialog.ShowDialogErrorWithError(ret);
+                    }
+                })
+                    .fail(function () {
+                    cssp.Dialog.ShowDialogErrorWithFail(command);
                 });
             };
         }

@@ -1294,7 +1294,7 @@ module CSSP {
                             cssp.PolSourceSiteEffect.PolSourceSiteEffectTermsSetIsGroup($bjs);
                         }
                         break;
-                    case "jsPolSourceSiteEffectTermsSave":
+                    case "jbPolSourceSiteEffectTermsSave":
                         {
                             cssp.PolSourceSiteEffect.PolSourceSiteEffectTermsSave($bjs);
                         }

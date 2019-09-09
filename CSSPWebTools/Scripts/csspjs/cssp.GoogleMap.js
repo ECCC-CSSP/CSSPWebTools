@@ -1,6 +1,6 @@
 var CSSP;
 (function (CSSP) {
-    var GoogleMap = /** @class */ (function () {
+    var GoogleMap = (function () {
         // Function
         function GoogleMap() {
             // Variables

@@ -154,22 +154,27 @@ module CSSP {
                 });
         };
         public PolSourceSiteEffectTermsSave: Function = ($bjs: JQuery): void => {
-            let PolSourceSiteEffectID: number = $bjs.data("polsourcesiteeffectid");
-            let PolSourceSiteEffectTermsArr: string[] = $bjs.closest(".PolSourceSiteEffect").find("input[name='EffectTerm']").val();
-            let PolSourceSiteEffectTerms: string = PolSourceSiteEffectTermsArr.join(",");
+            let PolSourceSiteEffectID: number = $bjs.data("polsourcesiteeffectid");            
+            let PolSourceSiteEffectTermIDs: string = "";
+
+            $bjs.closest(".PolSourceSiteEffect").find("input[name='EffectTerm']").each((index: number, elem: Element) => {
+                if ($(elem).is(":checked")) {
+                    PolSourceSiteEffectTermIDs = PolSourceSiteEffectTermIDs + "" + $(elem).val() + "|";
+                }
+            });
 
             let command: string = "PolSourceSiteEffect/PolSourceSiteEffectTermsSaveAllJSON";
             $.post(cssp.BaseURL + command,
                 {
                     PolSourceSiteEffectID: PolSourceSiteEffectID,
-                    PolSourceSiteEffectTerms: PolSourceSiteEffectTerms,
+                    PolSourceSiteEffectTermIDs: PolSourceSiteEffectTermIDs,
                 })
                 .done((ret) => {
                     if (ret) {
                         cssp.Dialog.ShowDialogErrorWithError(ret);
                     }
                     else {
-                        cssp.PolSourceSiteEffect.PolSourceSiteEffectLoadEffectTermsManager();
+                        cssp.PolSourceSiteEffect.PolSourceSiteEffectLoadAnalysesTool();
                     }
                 })
                 .fail(() => {
@@ -221,6 +226,41 @@ module CSSP {
                         });
                 });
             });
+        };
+        public PolSourceSiteEffectCommentTinymceInit: Function = (): void => {
+            tinymce.init({
+                selector: ".PolSourceSiteEffectComment",
+                height: 300,
+                menubar: true,
+                plugins: "fullpage searchreplace autolink visualblocks visualchars fullscreen table charmap hr insertdatetime advlist lists textcolor contextmenu colorpicker textpattern help save",
+                toolbar: "save undo redo | formatselect | bold italic strikethrough forecolor backcolor alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent  | removeformat",
+                spellchecker_language: 'en',
+                spellchecker_dialog: true,
+
+                save_onsavecallback: function () {
+                    cssp.PolSourceSiteEffect.PolSourceSiteEffectCommentSave(tinymce);
+                }
+            });
+        };
+        public PolSourceSiteEffectCommentSave: Function = (tinymce: any): void => {
+            let content = tinymce.activeEditor.getContent();
+
+            let PolSourceSiteEffectTermID: number = parseInt(tinymce.activeEditor.closest(".PolSourceSiteEffectComment").data("polsourcesiteeffectid"));
+            let DocHTMLText: string = content;
+            let command: string = "PolSourceSiteEffect/PolSourceSiteEffectCommentSaveJSON";
+            $.post(cssp.BaseURL + command,
+                {
+                    PolSourceSiteEffectTermID: PolSourceSiteEffectTermID,
+                    DocHTMLText: DocHTMLText
+                })
+                .done((ret) => {
+                    if (ret) {
+                        cssp.Dialog.ShowDialogErrorWithError(ret);
+                    }
+                })
+                .fail(() => {
+                    cssp.Dialog.ShowDialogErrorWithFail(command);
+                });
         };
     }
 } 
