@@ -1,6 +1,6 @@
 var CSSP;
 (function (CSSP) {
-    var RainExceedance = (function () {
+    var RainExceedance = /** @class */ (function () {
         // Variables
         // Constructors
         function RainExceedance() {

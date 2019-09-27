@@ -1,6 +1,6 @@
 var CSSP;
 (function (CSSP) {
-    var PolSourceSiteEffect = (function () {
+    var PolSourceSiteEffect = /** @class */ (function () {
         // Variables
         // Constructors
         function PolSourceSiteEffect() {

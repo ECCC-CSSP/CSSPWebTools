@@ -1,6 +1,6 @@
 var CSSP;
 (function (CSSP) {
-    var ReportType = (function () {
+    var ReportType = /** @class */ (function () {
         // Variables
         // Constructor
         function ReportType() {

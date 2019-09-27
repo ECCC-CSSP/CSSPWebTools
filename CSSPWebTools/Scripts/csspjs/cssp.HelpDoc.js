@@ -1,6 +1,6 @@
 var CSSP;
 (function (CSSP) {
-    var HelpDoc = (function () {
+    var HelpDoc = /** @class */ (function () {
         // Variables
         // Constructor
         function HelpDoc() {
