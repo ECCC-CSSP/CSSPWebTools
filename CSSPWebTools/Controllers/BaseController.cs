@@ -729,7 +729,7 @@ namespace CSSPWebTools.Controllers
                 });
             }
 
-            if (tvItemModel.TVType == TVTypeEnum.Subsector)
+            if (tvItemModel.TVType == TVTypeEnum.Province)
             {
                 if (TVAuth >= TVAuthEnum.Create)
                 {
