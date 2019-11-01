@@ -198,11 +198,17 @@
   <data name="HydrometricSiteDischargeRelatedTools" xml:space="preserve">
     <value>Outils relié aux sites hydrométriques de décharges</value>
   </data>
+  <data name="LoadCoCoRaHSData" xml:space="preserve">
+    <value>Télécharger les données de CoCoRaHS</value>
+  </data>
   <data name="MakeSureYouSaveYourClassificationPolygonsKMLFileUnderProvinceFileTab" xml:space="preserve">
     <value>Faites sur que vous sauvez votre fichier de polygones de classification KML sous l'onglet de la province</value>
   </data>
   <data name="MWQMSitePolSourceSiteGroupingRelatedTools" xml:space="preserve">
     <value>Outils relié au groupement des sites de SQEM et des sites de sources de pollution</value>
+  </data>
+  <data name="OnlyNeedToBeDoneOnceIfNewDataExistOnCocoRaHSWebSite" xml:space="preserve">
+    <value>Ne doit être fait qu'une fois s'il existe de nouvelles données sur le site Web de CoCoRaHS</value>
   </data>
   <data name="PForProhibited" xml:space="preserve">
     <value>P = Interdit</value>

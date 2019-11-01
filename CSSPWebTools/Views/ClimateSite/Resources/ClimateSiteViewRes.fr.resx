@@ -198,6 +198,9 @@
   <data name="IdentifyOnMap" xml:space="preserve">
     <value>Identifier sur la carte</value>
   </data>
+  <data name="LoadCoCoRaHSData" xml:space="preserve">
+    <value>Télécharger les données de CoCoRaHS</value>
+  </data>
   <data name="MaxTemp_C" xml:space="preserve">
     <value>Température maximale (˚C)</value>
   </data>
@@ -218,6 +221,9 @@
   </data>
   <data name="Now" xml:space="preserve">
     <value>À présent</value>
+  </data>
+  <data name="OnlyNeedToBeDoneOnceIfNewDataExistOnCocoRaHSWebSite" xml:space="preserve">
+    <value>Ne doit être fait qu'une fois s'il existe de nouvelles données sur le site Web de CoCoRaHS</value>
   </data>
   <data name="PeriodWithDailyData" xml:space="preserve">
     <value>Période avec données quotidiennes</value>

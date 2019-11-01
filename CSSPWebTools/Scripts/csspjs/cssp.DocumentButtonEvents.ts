@@ -145,6 +145,11 @@ module CSSP {
                             cssp.ClimateSite.LoadClimateSiteSelectRun($bjs);
                         }
                         break;
+                    case "jbClimateSiteLoadCoCoRaHSData":
+                        {
+                            cssp.ClimateSite.ClimateSiteLoadCoCoRaHSData($bjs);
+                        }
+                        break;
                     case "jbClimateSiteGetDataForRunsOfYear":
                         {
                             cssp.ClimateSite.ClimateSiteGetDataForRunsOfYear($bjs);

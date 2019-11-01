@@ -243,4 +243,10 @@
   <data name="YearToRunPrecipiationFunction" xml:space="preserve">
     <value>Year to run precipitation function</value>
   </data>
+  <data name="LoadCoCoRaHSData" xml:space="preserve">
+    <value>Load CoCoRaHS data</value>
+  </data>
+  <data name="OnlyNeedToBeDoneOnceIfNewDataExistOnCocoRaHSWebSite" xml:space="preserve">
+    <value>Only need to be done once if new data exist on CoCoRaHS web site</value>
+  </data>
 </root>

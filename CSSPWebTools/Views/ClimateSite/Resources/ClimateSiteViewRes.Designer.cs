@@ -19,7 +19,7 @@ namespace CSSPWebTools.Views.ClimateSite.Resources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class ClimateSiteViewRes {
@@ -304,6 +304,15 @@ namespace CSSPWebTools.Views.ClimateSite.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Load CoCoRaHS data.
+        /// </summary>
+        public static string LoadCoCoRaHSData {
+            get {
+                return ResourceManager.GetString("LoadCoCoRaHSData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Maximum Temperature (˚C).
         /// </summary>
         public static string MaxTemp_C {
@@ -363,6 +372,15 @@ namespace CSSPWebTools.Views.ClimateSite.Resources {
         public static string Now {
             get {
                 return ResourceManager.GetString("Now", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Only need to be done once if new data exist on CoCoRaHS web site.
+        /// </summary>
+        public static string OnlyNeedToBeDoneOnceIfNewDataExistOnCocoRaHSWebSite {
+            get {
+                return ResourceManager.GetString("OnlyNeedToBeDoneOnceIfNewDataExistOnCocoRaHSWebSite", resourceCulture);
             }
         }
         

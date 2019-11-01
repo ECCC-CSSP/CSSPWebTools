@@ -387,6 +387,27 @@ var CSSP;
                     });
                 }, 3000);
             };
+            this.ClimateSiteWaitingTaskCoCoRaHSToComplete = function ($bjs, OldButtonText, AppTaskID) {
+                var interv = setInterval(function () {
+                    var command = "ClimateSite/CheckPercentCompletedJSON";
+                    $.post(cssp.BaseURL + command, {
+                        AppTaskID: AppTaskID
+                    })
+                        .done(function (PercentCompleted) {
+                        if (PercentCompleted == 100) {
+                            $bjs.text(OldButtonText);
+                            $bjs.closest(".LoadCocoRaHSDiv").find(".LoadCoCoRaHSDataTaskStatus").text("done...");
+                            clearInterval(interv);
+                        }
+                        else {
+                            $bjs.closest(".LoadCocoRaHSDiv").find(".LoadCoCoRaHSDataTaskStatus").text(PercentCompleted.toString() + " %");
+                        }
+                    })
+                        .fail(function () {
+                        cssp.Dialog.ShowDialogErrorWithFail(command);
+                    });
+                }, 3000);
+            };
             this.ClimateSiteGetDataForRunsOfYear = function ($bjs) {
                 if ($bjs.hasClass("btn-default")) {
                     $bjs.closest(".SelectedRunPrecipitationInfo").find(".TaskStatus").text("1 %");
@@ -413,16 +434,37 @@ var CSSP;
                     });
                 }
             };
+            this.ClimateSiteLoadCoCoRaHSData = function ($bjs) {
+                if ($bjs.hasClass("btn-default")) {
+                    $(".LoadCoCoRaHSDataTaskStatus").text("1 %");
+                    $bjs.removeClass("btn-default").addClass("btn-success");
+                    var OldButtonText_2 = $bjs.text();
+                    $bjs.text(cssp.GetHTMLVariable("#LayoutVariables", "varInProgress"));
+                    var command_3 = "ClimateSite/ClimateSiteLoadCoCoRaHSDataJSON";
+                    $.post(cssp.BaseURL + command_3, {})
+                        .done(function (AppTaskModel) {
+                        if (AppTaskModel.Error != "") {
+                            cssp.Dialog.ShowDialogErrorWithError(AppTaskModel.Error);
+                        }
+                        else {
+                            cssp.ClimateSite.ClimateSiteWaitingTaskCoCoRaHSToComplete($bjs, OldButtonText_2, AppTaskModel.AppTaskID);
+                        }
+                    })
+                        .fail(function () {
+                        cssp.Dialog.ShowDialogErrorWithFail(command_3);
+                    });
+                }
+            };
             this.ClimateSiteSetDataToUseByAverageOrPriority = function ($bjs) {
                 if ($bjs.hasClass("btn-default")) {
                     $bjs.removeClass("btn-default").addClass("btn-success");
-                    var OldButtonText_2 = $bjs.text();
+                    var OldButtonText_3 = $bjs.text();
                     $bjs.text(cssp.GetHTMLVariable("#LayoutVariables", "varInProgress"));
                     var SubsectorTVItemID = parseInt($("#ViewDiv").data("tvitemid"));
                     var Year = parseInt($bjs.data("year"));
                     var AverageOrPriority = $bjs.data("averageorpriority");
-                    var command_3 = "ClimateSite/ClimateSiteSetDataToUseByAverageOrPriorityJSON";
-                    $.post(cssp.BaseURL + command_3, {
+                    var command_4 = "ClimateSite/ClimateSiteSetDataToUseByAverageOrPriorityJSON";
+                    $.post(cssp.BaseURL + command_4, {
                         SubsectorTVItemID: SubsectorTVItemID,
                         Year: Year,
                         AverageOrPriority: AverageOrPriority
@@ -430,18 +472,18 @@ var CSSP;
                         .done(function (ret) {
                         if (ret != "") {
                             cssp.Dialog.ShowDialogErrorWithError(ret);
-                            $bjs.text(OldButtonText_2);
+                            $bjs.text(OldButtonText_3);
                             var $bjsNew = $bjs.closest("li.MWQMRunModel").find(".jbLoadClimateSiteSelectRun").removeClass("btn-success").addClass("btn-default");
                             cssp.ClimateSite.LoadClimateSiteSelectRun($bjsNew);
                         }
                         else {
-                            $bjs.text(OldButtonText_2);
+                            $bjs.text(OldButtonText_3);
                             var $bjsNew = $bjs.closest("li.MWQMRunModel").find(".jbLoadClimateSiteSelectRun").removeClass("btn-success").addClass("btn-default");
                             cssp.ClimateSite.LoadClimateSiteSelectRun($bjsNew);
                         }
                     })
                         .fail(function () {
-                        cssp.Dialog.ShowDialogErrorWithFail(command_3);
+                        cssp.Dialog.ShowDialogErrorWithFail(command_4);
                     });
                 }
             };

@@ -50,6 +50,14 @@
             <div id="ClimateDataCollapse" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingClimateData">
                 <div class="ProvinceToolsClimateSiteDiv panel-body">
                     <div class="h4">@ProvinceToolsViewRes.SomeOfTheseTasksCanTakeALongTime</div>
+                    <div class="LoadCocoRaHSDiv">
+                        <button class="jbClimateSiteLoadCoCoRaHSData btn btn-default">@ProvinceToolsViewRes.LoadCoCoRaHSData</button>
+                        <span class="LoadCoCoRaHSDataTaskStatus"></span>
+                        <br />
+                        <span>@ProvinceToolsViewRes.OnlyNeedToBeDoneOnceIfNewDataExistOnCocoRaHSWebSite</span>
+                        <br />
+                        <br />
+                    </div>
                     <select class="form-control" name="Year">
                         @for (int year = DateTime.Now.Year; year > 1979; year--)
                         {

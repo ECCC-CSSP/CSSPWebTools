@@ -397,6 +397,28 @@
                     });
             }, 3000);
         };
+        public ClimateSiteWaitingTaskCoCoRaHSToComplete: Function = ($bjs: JQuery, OldButtonText: string, AppTaskID: number): void => {
+            let interv = setInterval(() => {
+                let command: string = "ClimateSite/CheckPercentCompletedJSON";
+                $.post(cssp.BaseURL + command,
+                    {
+                        AppTaskID: AppTaskID
+                    })
+                    .done((PercentCompleted: number) => {
+                        if (PercentCompleted == 100) {
+                            $bjs.text(OldButtonText);
+                            $bjs.closest(".LoadCocoRaHSDiv").find(".LoadCoCoRaHSDataTaskStatus").text("done...");
+                            clearInterval(interv);
+                        }
+                        else {
+                            $bjs.closest(".LoadCocoRaHSDiv").find(".LoadCoCoRaHSDataTaskStatus").text(PercentCompleted.toString() + " %");
+                        }
+                    })
+                    .fail(() => {
+                        cssp.Dialog.ShowDialogErrorWithFail(command);
+                    });
+            }, 3000);
+        };
         public ClimateSiteGetDataForRunsOfYear: Function = ($bjs: JQuery): void => {
             if ($bjs.hasClass("btn-default")) {
                 $bjs.closest(".SelectedRunPrecipitationInfo").find(".TaskStatus").text("1 %");
@@ -423,7 +445,29 @@
                         cssp.Dialog.ShowDialogErrorWithFail(command);
                     });
             }
-
+        };
+        public ClimateSiteLoadCoCoRaHSData: Function = ($bjs: JQuery): void => {
+            if ($bjs.hasClass("btn-default")) {
+                $(".LoadCoCoRaHSDataTaskStatus").text("1 %");
+                $bjs.removeClass("btn-default").addClass("btn-success");
+                let OldButtonText: string = $bjs.text();
+                $bjs.text(cssp.GetHTMLVariable("#LayoutVariables", "varInProgress"));
+                let command: string = "ClimateSite/ClimateSiteLoadCoCoRaHSDataJSON";
+                $.post(cssp.BaseURL + command,
+                    {
+                    })
+                    .done((AppTaskModel) => {
+                        if (AppTaskModel.Error != "") {
+                            cssp.Dialog.ShowDialogErrorWithError(AppTaskModel.Error);
+                        }
+                        else {
+                            cssp.ClimateSite.ClimateSiteWaitingTaskCoCoRaHSToComplete($bjs, OldButtonText, AppTaskModel.AppTaskID);
+                        }
+                    })
+                    .fail(() => {
+                        cssp.Dialog.ShowDialogErrorWithFail(command);
+                    });
+            }
         };
         public ClimateSiteSetDataToUseByAverageOrPriority: Function = ($bjs: JQuery): void => {
             if ($bjs.hasClass("btn-default")) {

@@ -213,6 +213,14 @@ namespace CSSPWebTools.Controllers
         }
         [HttpPost]
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public JsonResult ClimateSiteLoadCoCoRaHSDataJSON()
+        {
+            AppTaskModel appTaskModel = _MWQMSubsectorService.ClimateSiteLoadCoCoRaHSDataDB();
+
+            return Json(appTaskModel, JsonRequestBehavior.AllowGet);
+        }
+        [HttpPost]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
         public JsonResult ClimateSiteSetDataToUseByAverageOrPriorityJSON(int SubsectorTVItemID, int Year, string AverageOrPriority)
         {
             MWQMSubsectorModel mwqmSubsectorModel = _MWQMSubsectorService.ClimateSiteSetDataToUseByAverageOrPriorityDB(SubsectorTVItemID, Year, AverageOrPriority);
