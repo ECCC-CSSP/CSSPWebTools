@@ -94,25 +94,31 @@
                                     data-endyear="@(climateSiteWithLatLngAndOrdinalModel.DailyEndDate_Local.HasValue ? ((climateSiteWithLatLngAndOrdinalModel.DailyNow != null && (bool)climateSiteWithLatLngAndOrdinalModel.DailyNow) ? "" : climateSiteWithLatLngAndOrdinalModel.DailyEndDate_Local.Value.Year.ToString()) : "")">
                                 @climateSiteWithLatLngAndOrdinalModel.ClimateSiteTVText
                                 </button>
-                                <span class="ClimateSiteMoreInfo">
-                                    @if (climateSiteWithLatLngAndOrdinalModel.DailyStartDate_Local != null && climateSiteWithLatLngAndOrdinalModel.DailyEndDate_Local != null)
+                            <span class="ClimateSiteMoreInfo">
+                                @if (climateSiteWithLatLngAndOrdinalModel.DailyStartDate_Local != null && climateSiteWithLatLngAndOrdinalModel.DailyEndDate_Local != null)
+                                {
+                                    <span>@(((DateTime)climateSiteWithLatLngAndOrdinalModel.DailyStartDate_Local).ToString("yyyy MMM dd")) - </span>
+                                    if (climateSiteWithLatLngAndOrdinalModel.DailyNow != null && climateSiteWithLatLngAndOrdinalModel.DailyNow == true)
                                     {
-                                        <span>@(((DateTime)climateSiteWithLatLngAndOrdinalModel.DailyStartDate_Local).ToString("yyyy MMM dd")) - </span>
-                                        if (climateSiteWithLatLngAndOrdinalModel.DailyNow != null && climateSiteWithLatLngAndOrdinalModel.DailyNow == true)
-                                        {
-                                            <span class="h2">@ClimateSiteViewRes.Now</span>
-                                        }
-                                        else
-                                        {
-                                            <span>@(((DateTime)climateSiteWithLatLngAndOrdinalModel.DailyEndDate_Local).ToString("yyyy MMM dd"))</span>
-                                        }
+                                        <span class="h2">@ClimateSiteViewRes.Now</span>
                                     }
                                     else
                                     {
-                                        @ClimateSiteViewRes.Empty
+                                        <span>@(((DateTime)climateSiteWithLatLngAndOrdinalModel.DailyEndDate_Local).ToString("yyyy MMM dd"))</span>
                                     }
-                                    <span>(@climateSiteWithLatLngAndOrdinalModel.Distance_km.ToString("F0") Km)</span>
-                                </span>
+                                }
+                                else
+                                {
+                                    @ClimateSiteViewRes.Empty
+                                }
+                                <span>(@climateSiteWithLatLngAndOrdinalModel.Distance_km.ToString("F0") Km)</span>
+                                @if (climateSiteWithLatLngAndOrdinalModel.IsCoCoRaHS != null && climateSiteWithLatLngAndOrdinalModel.IsCoCoRaHS == true)
+                                {
+                                    <span>(@climateSiteWithLatLngAndOrdinalModel.CoCoRaHSSamplesPerWeek.ToString("F1") <span>@ClimateSiteViewRes.PerWeek</span>)</span>
+                                    <span>(@climateSiteWithLatLngAndOrdinalModel.CoCoRaHSSampleTimeAverage.ToString("F1") <span>@ClimateSiteViewRes.AvgHour</span>)</span>
+                                }
+
+                            </span>
                                 <div class="ShowYearsOfUse form-inline @(IsInUse ? "" : "hidden")">
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@ClimateSiteViewRes.YearsOfUse :
                                     <input type="text" class="form-control" size="50" name="UseForYears" value="@climateSiteWithLatLngAndOrdinalModel.YearsOfUseText" />

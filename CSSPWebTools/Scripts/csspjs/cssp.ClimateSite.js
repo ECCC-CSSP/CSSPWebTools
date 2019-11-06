@@ -306,8 +306,19 @@ var CSSP;
                     if (cssp.GoogleMap.MarkerTextLength < 3) {
                         cssp.GoogleMap.MarkerTextLength = 3;
                     }
-                    cssp.GoogleMap.FillTVItemObjects(mapItems_1, true);
-                    $("#ClimateSiteDiv").find(".jbMapShowItem").removeClass("hidden");
+                    var command_1 = "Map/GetMapInfoJSON";
+                    $.get(cssp.BaseURL + command_1, {
+                        Q: cssp.Variables.URL,
+                    }).done(function (ret) {
+                        $.map(ret, function (item) {
+                            var tvLoc = new CSSP.tvLocation(item.TVItemID, item.TVText, item.TVType, item.SubTVType, item.MapObjList);
+                            mapItems_1.push(tvLoc);
+                            cssp.GoogleMap.FillTVItemObjects(mapItems_1, true);
+                            $("#ClimateSiteDiv").find(".jbMapShowItem").removeClass("hidden");
+                        });
+                    }).fail(function () {
+                        cssp.Dialog.ShowDialogErrorWithFail(command_1);
+                    });
                 }
             };
             this.ClimateSitesFindWithinDistanceSubsector = function () {
@@ -348,8 +359,8 @@ var CSSP;
                     $bjs.closest("li.MWQMRunModel").find(".SelectedRunPrecipitationDiv").html(cssp.GetHTMLVariable("#LayoutVariables", "varLoading"));
                     var SubsectorTVItemID = parseInt($("#ViewDiv").data("tvitemid"));
                     var MWQMRunTVItemID = parseInt($bjs.closest("li.MWQMRunModel").data("mwqmruntvitemid"));
-                    var command_1 = "ClimateSite/_selectedRunPrecipitation";
-                    $.get(cssp.BaseURL + command_1, {
+                    var command_2 = "ClimateSite/_selectedRunPrecipitation";
+                    $.get(cssp.BaseURL + command_2, {
                         SubsectorTVItemID: SubsectorTVItemID,
                         MWQMRunTVItemID: MWQMRunTVItemID
                     })
@@ -357,7 +368,7 @@ var CSSP;
                         $bjs.closest("li.MWQMRunModel").find(".SelectedRunPrecipitationDiv").html(ret);
                     })
                         .fail(function () {
-                        cssp.Dialog.ShowDialogErrorWithFail(command_1);
+                        cssp.Dialog.ShowDialogErrorWithFail(command_2);
                     });
                 }
                 else {
@@ -416,8 +427,8 @@ var CSSP;
                     $bjs.text(cssp.GetHTMLVariable("#LayoutVariables", "varInProgress"));
                     var SubsectorTVItemID = parseInt($("#ViewDiv").data("tvitemid"));
                     var Year = parseInt($bjs.data("year"));
-                    var command_2 = "ClimateSite/ClimateSiteGetDataForRunsOfYearJSON";
-                    $.post(cssp.BaseURL + command_2, {
+                    var command_3 = "ClimateSite/ClimateSiteGetDataForRunsOfYearJSON";
+                    $.post(cssp.BaseURL + command_3, {
                         SubsectorTVItemID: SubsectorTVItemID,
                         Year: Year
                     })
@@ -430,7 +441,7 @@ var CSSP;
                         }
                     })
                         .fail(function () {
-                        cssp.Dialog.ShowDialogErrorWithFail(command_2);
+                        cssp.Dialog.ShowDialogErrorWithFail(command_3);
                     });
                 }
             };
@@ -440,8 +451,8 @@ var CSSP;
                     $bjs.removeClass("btn-default").addClass("btn-success");
                     var OldButtonText_2 = $bjs.text();
                     $bjs.text(cssp.GetHTMLVariable("#LayoutVariables", "varInProgress"));
-                    var command_3 = "ClimateSite/ClimateSiteLoadCoCoRaHSDataJSON";
-                    $.post(cssp.BaseURL + command_3, {})
+                    var command_4 = "ClimateSite/ClimateSiteLoadCoCoRaHSDataJSON";
+                    $.post(cssp.BaseURL + command_4, {})
                         .done(function (AppTaskModel) {
                         if (AppTaskModel.Error != "") {
                             cssp.Dialog.ShowDialogErrorWithError(AppTaskModel.Error);
@@ -451,7 +462,7 @@ var CSSP;
                         }
                     })
                         .fail(function () {
-                        cssp.Dialog.ShowDialogErrorWithFail(command_3);
+                        cssp.Dialog.ShowDialogErrorWithFail(command_4);
                     });
                 }
             };
@@ -463,8 +474,8 @@ var CSSP;
                     var SubsectorTVItemID = parseInt($("#ViewDiv").data("tvitemid"));
                     var Year = parseInt($bjs.data("year"));
                     var AverageOrPriority = $bjs.data("averageorpriority");
-                    var command_4 = "ClimateSite/ClimateSiteSetDataToUseByAverageOrPriorityJSON";
-                    $.post(cssp.BaseURL + command_4, {
+                    var command_5 = "ClimateSite/ClimateSiteSetDataToUseByAverageOrPriorityJSON";
+                    $.post(cssp.BaseURL + command_5, {
                         SubsectorTVItemID: SubsectorTVItemID,
                         Year: Year,
                         AverageOrPriority: AverageOrPriority
@@ -483,7 +494,7 @@ var CSSP;
                         }
                     })
                         .fail(function () {
-                        cssp.Dialog.ShowDialogErrorWithFail(command_4);
+                        cssp.Dialog.ShowDialogErrorWithFail(command_5);
                     });
                 }
             };

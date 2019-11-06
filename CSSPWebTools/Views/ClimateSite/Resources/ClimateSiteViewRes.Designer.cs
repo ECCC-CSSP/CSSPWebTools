@@ -97,6 +97,15 @@ namespace CSSPWebTools.Views.ClimateSite.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to avg hour.
+        /// </summary>
+        public static string AvgHour {
+            get {
+                return ResourceManager.GetString("AvgHour", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to A year between two commas represent that year.
         /// </summary>
         public static string AYearBetweenTwoCommasRepresentThatYear {
@@ -390,6 +399,15 @@ namespace CSSPWebTools.Views.ClimateSite.Resources {
         public static string PeriodWithDailyData {
             get {
                 return ResourceManager.GetString("PeriodWithDailyData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to per week.
+        /// </summary>
+        public static string PerWeek {
+            get {
+                return ResourceManager.GetString("PerWeek", resourceCulture);
             }
         }
         

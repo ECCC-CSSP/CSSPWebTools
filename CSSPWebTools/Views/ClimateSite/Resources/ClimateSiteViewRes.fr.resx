@@ -129,6 +129,9 @@
   <data name="Average" xml:space="preserve">
     <value>Moyenne</value>
   </data>
+  <data name="AvgHour" xml:space="preserve">
+    <value>moy. heure</value>
+  </data>
   <data name="AYearBetweenTwoCommasRepresentThatYear" xml:space="preserve">
     <value>Une année entre deux virgules représente cette année</value>
   </data>
@@ -227,6 +230,9 @@
   </data>
   <data name="PeriodWithDailyData" xml:space="preserve">
     <value>Période avec données quotidiennes</value>
+  </data>
+  <data name="PerWeek" xml:space="preserve">
+    <value>par semaine</value>
   </data>
   <data name="Priority" xml:space="preserve">
     <value>Priorité</value>

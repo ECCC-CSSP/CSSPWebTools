@@ -313,8 +313,21 @@
                 if (cssp.GoogleMap.MarkerTextLength < 3) {
                     cssp.GoogleMap.MarkerTextLength = 3;
                 }
-                cssp.GoogleMap.FillTVItemObjects(mapItems, true);
-                $("#ClimateSiteDiv").find(".jbMapShowItem").removeClass("hidden");
+
+                let command: string = "Map/GetMapInfoJSON";
+                $.get(cssp.BaseURL + command, {
+                    Q: cssp.Variables.URL,
+                }).done((ret: Array<CSSP.tvLocation>) => {
+                    $.map(ret, (item) => {
+                        let tvLoc: CSSP.tvLocation = new CSSP.tvLocation(item.TVItemID, item.TVText, item.TVType, item.SubTVType, item.MapObjList);
+                        mapItems.push(tvLoc);
+                        cssp.GoogleMap.FillTVItemObjects(mapItems, true);
+                        $("#ClimateSiteDiv").find(".jbMapShowItem").removeClass("hidden");
+                    });
+                }).fail(() => {
+                    cssp.Dialog.ShowDialogErrorWithFail(command);
+                });
+
             }
         };
         public ClimateSitesFindWithinDistanceSubsector: Function = (): void => {
