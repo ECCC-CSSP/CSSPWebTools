@@ -200,6 +200,16 @@ var CSSP;
                     $bjs.removeClass("btn-success").addClass("btn-default");
                 }
             };
+            this.FileShowOrHideTagList = function ($bjs) {
+                if ($bjs.hasClass("btn-default")) {
+                    $bjs.removeClass("btn-default").addClass("btn-success");
+                    $(".TagListDiv").removeClass("hidden");
+                }
+                else {
+                    $(".TagListDiv").removeClass("hidden").addClass("hidden");
+                    $bjs.removeClass("btn-success").addClass("btn-default");
+                }
+            };
             this.FileUpload = function () {
                 var $form = $(cssp.File.FormUploadName);
                 if ($form.length == 0) {

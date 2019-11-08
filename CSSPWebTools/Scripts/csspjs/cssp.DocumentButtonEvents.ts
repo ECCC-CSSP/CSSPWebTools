@@ -420,6 +420,11 @@ module CSSP {
                             cssp.File.CreateDocumentShowHide($bjs);
                         }
                         break;
+                    case "jbFileShowOrHideTagList":
+                        {
+                            cssp.File.FileShowOrHideTagList($bjs);
+                        }
+                        break;
                     case "jbFileUpload":
                         {
                             cssp.File.FileUpload($bjs);

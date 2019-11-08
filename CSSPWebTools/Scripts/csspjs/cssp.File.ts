@@ -211,6 +211,16 @@
                 $bjs.removeClass("btn-success").addClass("btn-default");
             }
         };
+        public FileShowOrHideTagList: Function = ($bjs: JQuery): any => {
+            if ($bjs.hasClass("btn-default")) {
+                $bjs.removeClass("btn-default").addClass("btn-success");
+                $(".TagListDiv").removeClass("hidden");
+            }
+            else {
+                $(".TagListDiv").removeClass("hidden").addClass("hidden");
+                $bjs.removeClass("btn-success").addClass("btn-default");
+            }
+        };
         public FileUpload: Function = (): any => {
             var $form: JQuery = $(cssp.File.FormUploadName);
             if ($form.length == 0) {

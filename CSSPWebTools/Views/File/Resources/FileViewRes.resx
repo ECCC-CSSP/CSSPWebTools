@@ -315,4 +315,16 @@
   <data name="ExportingFilesToArcGIS" xml:space="preserve">
     <value>Exporting files to Arc GIS</value>
   </data>
+  <data name="Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="Implemented" xml:space="preserve">
+    <value>Implemented</value>
+  </data>
+  <data name="ShowOrHideTagList" xml:space="preserve">
+    <value>Show or hide tag list</value>
+  </data>
+  <data name="Tag" xml:space="preserve">
+    <value>Tag</value>
+  </data>
 </root>

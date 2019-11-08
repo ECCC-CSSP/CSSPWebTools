@@ -16,6 +16,281 @@
         <h4 class="panel-title">@FileViewRes.CreateDocumentUsingParameters</h4>
     </div>
     <div class="panel-body">
+        <div>
+            <button class="jbFileShowOrHideTagList btn btn-default">@FileViewRes.ShowOrHideTagList</button>
+            <div class="TagListDiv hidden">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>
+                                @FileViewRes.Tag
+                            </th>
+                            <th>
+                                @FileViewRes.Implemented
+                            </th>
+                            <th>
+                                @FileViewRes.Description
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                Content General
+                            </td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>|||TABLE_OF_CONTENT|||</td>
+                            <td>Yes</td>
+                            <td>Yes	Will create a table of content in Word (All H1 to H6 will be inserted in the ToC)</td>
+                        </tr>
+                        <tr>
+                            <td>|||LIST_OF_FIGURES|||</td>
+                            <td>Yes</td>
+                            <td>Yes	Will create a list of figures from the figures caption found in the document</td>
+                        </tr>
+                        <tr>
+                            <td>|||LIST_OF_TABLES|||</td>
+                            <td>Yes</td>
+                            <td>Yes	Will create a list of tables from the tables caption found in the document</td>
+                        </tr>
+                        <tr>
+                            <td>|||LIST_OF_APPENDICES|||</td>
+                            <td>No</td>
+                            <td>Will create a list of appendices from the appendices in the document (should this be removed?)</td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>Content Subsector</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>|||SUBSECTOR_RE_EVALUATION_COVER_PAGE|||</td>
+                            <td>Yes</td>
+                            <td>Yes	Will create the cover page of the full report/re-evaluation report</td>
+                        </tr>
+                        <tr>
+                            <td>|||SUBSECTOR_FC_SUMMARY_STAT_ALL|||</td>
+                            <td>Yes</td>
+                            <td>Will create the FC Summary statistics with all runs (wet or dry) with the exception of anything you would have identified to be removed for stat calculation (red run date in analysis)</td>
+                        </tr>
+                        <tr>
+                            <td>|||SUBSECTOR_FC_SUMMARY_STAT_WET|||</td>
+                            <td>Yes</td>
+                            <td>Will create the FC Summary statistics with all wet runs</td>
+                        </tr>
+                        <tr>
+                            <td>|||SUBSECTOR_FC_SUMMARY_STAT_DRY|||</td>
+                            <td>Yes</td>
+                            <td>Will create the FC Summary statistics with all dry runs</td>
+                        </tr>
+                        <tr>
+                            <td>|||SUBSECTOR_MWQM_SITES_DATA_AVAILABILITY|||</td>
+                            <td>Yes</td>
+                            <td>Will create a table showing the availability of data by year</td>
+                        </tr>
+                        <tr>
+                            <td>|||SUBSECTOR_MWQM_SITES_NUMBER_OF_SITES_BY_YEAR|||</td>
+                            <td>Yes</td>
+                            <td>Will create a graphic showing the number of sites monitored by year</td>
+                        </tr>
+                        <tr>
+                            <td>|||SUBSECTOR_MWQM_SITES_NUMBER_OF_RUNS_BY_YEAR|||</td>
+                            <td>Yes</td>
+                            <td>Will create a graphic showing the number of runs by year</td>
+                        </tr>
+                        <tr>
+                            <td>|||SUBSECTOR_MWQM_SITES_NUMBER_OF_SAMPLES_BY_YEAR|||</td>
+                            <td>Yes</td>
+                            <td>Will create a graphic showinig the number of samples analyzed by year</td>
+                        </tr>
+                        <tr>
+                            <td>|||SUBSECTOR_MWQM_SITES_FC_TABLE|||</td>
+                            <td>Yes</td>
+                            <td>Will create a table showing all the FC data (this tag needs to be below all the |||SUBSECTOR_FC_SUMMARY_STAT_(ALL,WET,DRY)||| to work properly)</td>
+                        </tr>
+                        <tr>
+                            <td>|||SUBSECTOR_MWQM_SITES_SALINITY_TABLE|||</td>
+                            <td>Yes</td>
+                            <td>Will create a table showing all the salinity data (this tag needs to be below all the |||SUBSECTOR_FC_SUMMARY_STAT_(ALL,WET,DRY)||| to work properly)</td>
+                        </tr>
+                        <tr>
+                            <td>|||SUBSECTOR_MWQM_SITES_TEMPERATURE_TABLE|||</td>
+                            <td>Yes</td>
+                            <td>Will create a table showing all the temperature data (this tag needs to be below all the |||SUBSECTOR_FC_SUMMARY_STAT_(ALL,WET,DRY)||| to work properly)</td>
+                        </tr>
+                        <tr>
+                            <td>|||SUBSECTOR_POLLUTION_SOURCE_SITES|||</td>
+                            <td>Yes need to subdivide</td>
+                            <td>Will create some documentation for MWQM Pollution source sites (need to be subdivided more)</td>
+                        </tr>
+                        <tr>
+                            <td>|||SUBSECTOR_POLLUTION_SOURCE_SITES_COMPACT|||</td>
+                            <td>Yes</td>
+                            <td>Will create some documentation for MWQM Pollution source sites compact</td>
+                        </tr>
+                        <tr>
+                            <td>|||SUBSECTOR_MUNICIPALITIES|||</td>
+                            <td>No</td>
+                            <td>Will create some documentation for each municipality within the subsector using the document type unique code "SubsectorMunicipalityDocx" under subsector</td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>Content Subsector Municipality</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>|||SUBSECTOR_MUNICIPALITY_INFRASTRUCTURE_MAP|||</td>
+                            <td>No</td>
+                            <td>Will insert a graph placeholder or get an existing graph from CSSPWebTools Named: [{MunicipalityName}_Infrastructure_Map_{year}.png] and saved under Files of the Subsector</td>
+                        </tr>
+                        <tr>
+                            <td>|||SUBSECTOR_MUNICIPALITY_CONTACTS|||</td>
+                            <td>No</td>
+                            <td>Will create a list of contacts and their roles with the management of the municipality infrastructure</td>
+                        </tr>
+                        <tr>
+                            <td>|||SUBSECTOR_MUNICIPALITY_INFRASTRUCTURE_DETAIL|||</td>
+                            <td>No</td>
+                            <td>Will create a list of infrastructure showing the detail of each (i.e. which one is pumping to the other, description, flows, etc... )</td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>Formating</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>|||PAGE_BREAK|||</td>
+                            <td>Yes</td>
+                            <td>Will insert a page break in the word document ex: it's like pressing ctrl+ENTER in Word</td>
+                        </tr>
+                        <tr>
+                            <td>|||LANDSCAPE|||</td>
+                            <td>Yes</td>
+                            <td>Will change the page layout to landscape</td>
+                        </tr>
+                        <tr>
+                            <td>|||PORTRAIT|||</td>
+                            <td>Yes</td>
+                            <td>Will change the page layout to portrait</td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>Variables</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>|||SUBSECTOR_NAME_SHORT|||</td>
+                            <td>Yes</td>
+                            <td>Will insert the short name of the subsector ex: NS-01-010-001</td>
+                        </tr>
+                        <tr>
+                            <td>|||SUBSECTOR_NAME_LONG|||</td>
+                            <td>Yes</td>
+                            <td>Will insert the short name of the subsector ex: NS-01-010-001</td>
+                        </tr>
+                        <tr>
+                            <td>|||SUBSECTOR_NAME_TEXT|||</td>
+                            <td>Yes</td>
+                            <td>Will insert the long name of the subsector ex: Baie Verte</td>
+                        </tr>
+                        <tr>
+                            <td>|||PROVINCE_NAME|||</td>
+                            <td>Yes</td>
+                            <td>Will insert the full province name ex: Nova Scotia</td>
+                        </tr>
+                        <tr>
+                            <td>|||PROVINCE_INITIAL|||</td>
+                            <td>Yes</td>
+                            <td>Will insert the initial of the province name ex: NS</td>
+                        </tr>
+                        <tr>
+                            <td>|||MUNICIPALITY_NAME|||</td>
+                            <td>Yes</td>
+                            <td>Will insert the municipality name ex: Bouctouche</td>
+                        </tr>
+                        <tr>
+                            <td>|||REPORT_YEAR|||</td>
+                            <td>Yes</td>
+                            <td>Will insert the year of the report</td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>Other</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>|||SUBSECTOR_ECCC_AND_SWCP_LOGO|||</td>
+                            <td>Yes</td>
+                            <td>Will insert ECCC and SWCP logo</td>
+                        </tr>
+                        <tr>
+                            <td>|||SUBSECTOR_CSSP_LOGO|||</td>
+                            <td>Yes</td>
+                            <td>Will insert CSSP logo</td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>Maps</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>|||SUBSECTOR_LOCATION_OF_SURVEY_AREA_MAP|||</td>
+                            <td>Yes</td>
+                            <td>Will insert a draft map or get an existing map from CSSPWebTools Named: [Location_of_Survey_Area_Map_{year}.png] and saved under Files of the Subsector</td>
+                        </tr>
+                        <tr>
+                            <td>|||SUBSECTOR_CURRENT_CLASSIFICATION_AND_SAMPLING_LOCATION_MAP|||</td>
+                            <td>Yes</td>
+                            <td>Will insert a draft map or get an existing map from CSSPWebTools Named: [Current_Classification_And_Sampling_Location_Map_{year}.png] and saved under Files of the Subsector</td>
+                        </tr>
+                        <tr>
+                            <td>|||SUBSECTOR_RECOMMENDED_CLASSIFICATION_MAP|||</td>
+                            <td>Yes</td>
+                            <td>Will insert a graph placeholder or get an existing graph from CSSPWebTools Named: [Recommended_Classification_Map_{year}.png] and saved under Files of the Subsector</td>
+                        </tr>
+                        <tr>
+                            <td>|||SUBSECTOR_POLLUTION_SOURCE_LOCATIONS_MAP|||</td>
+                            <td>Yes</td>
+                            <td>Will insert a graph placeholder or get an existing graph from CSSPWebTools Named: [Pollution_Source_Locations_Map_{year}.png] and saved under Files of the Subsector</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <br />
         <div class="ReportTypeListTopDiv">
             @switch (tvItemModel.TVType)
             {

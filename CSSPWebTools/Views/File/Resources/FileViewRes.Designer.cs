@@ -19,7 +19,7 @@ namespace CSSPWebTools.Views.File.Resources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class FileViewRes {
@@ -147,6 +147,15 @@ namespace CSSPWebTools.Views.File.Resources {
         public static string Delete {
             get {
                 return ResourceManager.GetString("Delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Description.
+        /// </summary>
+        public static string Description {
+            get {
+                return ResourceManager.GetString("Description", resourceCulture);
             }
         }
         
@@ -300,6 +309,15 @@ namespace CSSPWebTools.Views.File.Resources {
         public static string GenerateReport {
             get {
                 return ResourceManager.GetString("GenerateReport", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Implemented.
+        /// </summary>
+        public static string Implemented {
+            get {
+                return ResourceManager.GetString("Implemented", resourceCulture);
             }
         }
         
@@ -493,11 +511,29 @@ namespace CSSPWebTools.Views.File.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Show or hide tag list.
+        /// </summary>
+        public static string ShowOrHideTagList {
+            get {
+                return ResourceManager.GetString("ShowOrHideTagList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Subsector Pollution Source Field Sheet.
         /// </summary>
         public static string SubsectorPollutionSourceFieldSheet {
             get {
                 return ResourceManager.GetString("SubsectorPollutionSourceFieldSheet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tag.
+        /// </summary>
+        public static string Tag {
+            get {
+                return ResourceManager.GetString("Tag", resourceCulture);
             }
         }
         

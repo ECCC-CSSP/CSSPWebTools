@@ -144,6 +144,9 @@
   <data name="Delete" xml:space="preserve">
     <value>Supprimer</value>
   </data>
+  <data name="Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
   <data name="Download" xml:space="preserve">
     <value>Télécharger</value>
   </data>
@@ -194,6 +197,9 @@
   </data>
   <data name="GenerateReport" xml:space="preserve">
     <value>Générer rapport</value>
+  </data>
+  <data name="Implemented" xml:space="preserve">
+    <value>Implanté</value>
   </data>
   <data name="InActive" xml:space="preserve">
     <value>Inactif</value>
@@ -258,8 +264,14 @@
   <data name="SelectAllCtrlAPasteCtrlV" xml:space="preserve">
     <value>Sélectionnez tout [Ctrl + A] Coller [Ctrl-V]</value>
   </data>
+  <data name="ShowOrHideTagList" xml:space="preserve">
+    <value>Montrer ou cacher la liste de tag</value>
+  </data>
   <data name="SubsectorPollutionSourceFieldSheet" xml:space="preserve">
     <value>Feuille de terrain de source de pollution d'un sous-secteur</value>
+  </data>
+  <data name="Tag" xml:space="preserve">
+    <value>Tag</value>
   </data>
   <data name="TaskRunning" xml:space="preserve">
     <value>Tâche en fonction</value>
