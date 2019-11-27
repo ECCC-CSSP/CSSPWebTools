@@ -115,236 +115,238 @@
                     @ClimateSiteViewRes.Save
                 </button>
             </td>
-                <td>
-                    @(mwqmRunModel.RainDay0_mm == null ? "--" : ((float)mwqmRunModel.RainDay0_mm).ToString("F1"))
-                </td>
-                <td>
-                    @(mwqmRunModel.RainDay1_mm == null ? "--" : ((float)mwqmRunModel.RainDay1_mm).ToString("F1"))
-                </td>
-                <td>
-                    @(mwqmRunModel.RainDay2_mm == null ? "--" : ((float)mwqmRunModel.RainDay2_mm).ToString("F1"))
-                </td>
-                <td>
-                    @(mwqmRunModel.RainDay3_mm == null ? "--" : ((float)mwqmRunModel.RainDay3_mm).ToString("F1"))
-                </td>
-                <td>
-                    @(mwqmRunModel.RainDay4_mm == null ? "--" : ((float)mwqmRunModel.RainDay4_mm).ToString("F1"))
-                </td>
-                <td>
-                    @(mwqmRunModel.RainDay5_mm == null ? "--" : ((float)mwqmRunModel.RainDay5_mm).ToString("F1"))
-                </td>
-                <td>
-                    @(mwqmRunModel.RainDay6_mm == null ? "--" : ((float)mwqmRunModel.RainDay6_mm).ToString("F1"))
-                </td>
-                <td>
-                    @(mwqmRunModel.RainDay7_mm == null ? "--" : ((float)mwqmRunModel.RainDay7_mm).ToString("F1"))
-                </td>
-                <td>
-                    @(mwqmRunModel.RainDay8_mm == null ? "--" : ((float)mwqmRunModel.RainDay8_mm).ToString("F1"))
-                </td>
-                <td>
-                    @(mwqmRunModel.RainDay9_mm == null ? "--" : ((float)mwqmRunModel.RainDay9_mm).ToString("F1"))
-                </td>
-                <td>
-                    @(mwqmRunModel.RainDay10_mm == null ? "--" : ((float)mwqmRunModel.RainDay10_mm).ToString("F1"))
-                </td>
-            </tr>
-            <tr>
-                <td class="verticalRight">
-                    <div class="ClimateSiteRainEdit hidden">
-                        @{
-                            int MinOrdinal = 999;
+            <td>
+                @(mwqmRunModel.RainDay0_mm == null ? "--" : ((float)mwqmRunModel.RainDay0_mm).ToString("F1"))
+            </td>
+            <td>
+                @(mwqmRunModel.RainDay1_mm == null ? "--" : ((float)mwqmRunModel.RainDay1_mm).ToString("F1"))
+            </td>
+            <td>
+                @(mwqmRunModel.RainDay2_mm == null ? "--" : ((float)mwqmRunModel.RainDay2_mm).ToString("F1"))
+            </td>
+            <td>
+                @(mwqmRunModel.RainDay3_mm == null ? "--" : ((float)mwqmRunModel.RainDay3_mm).ToString("F1"))
+            </td>
+            <td>
+                @(mwqmRunModel.RainDay4_mm == null ? "--" : ((float)mwqmRunModel.RainDay4_mm).ToString("F1"))
+            </td>
+            <td>
+                @(mwqmRunModel.RainDay5_mm == null ? "--" : ((float)mwqmRunModel.RainDay5_mm).ToString("F1"))
+            </td>
+            <td>
+                @(mwqmRunModel.RainDay6_mm == null ? "--" : ((float)mwqmRunModel.RainDay6_mm).ToString("F1"))
+            </td>
+            <td>
+                @(mwqmRunModel.RainDay7_mm == null ? "--" : ((float)mwqmRunModel.RainDay7_mm).ToString("F1"))
+            </td>
+            <td>
+                @(mwqmRunModel.RainDay8_mm == null ? "--" : ((float)mwqmRunModel.RainDay8_mm).ToString("F1"))
+            </td>
+            <td>
+                @(mwqmRunModel.RainDay9_mm == null ? "--" : ((float)mwqmRunModel.RainDay9_mm).ToString("F1"))
+            </td>
+            <td>
+                @(mwqmRunModel.RainDay10_mm == null ? "--" : ((float)mwqmRunModel.RainDay10_mm).ToString("F1"))
+            </td>
+        </tr>
+        <tr>
+            <td class="verticalRight">
+                <div class="ClimateSiteRainEdit hidden">
+                    @{
+                        int MinOrdinal = 999;
+                    }
+                    <ul class="list-unstyled">
+                        <li>
+                            @ClimateSiteViewRes.FillUsing
+                        </li>
+                        <li>
+                            <div class="pull-left">
+                                <button class="jbClimateSiteRainEnteredFillUsingSelected btn btn-default">@ClimateSiteViewRes.Selected</button>
+                                &nbsp;&nbsp;<button class="jbClimateSiteRainEnteredFillUsingAverage btn btn-default">@ClimateSiteViewRes.Average</button>
+                                &nbsp;&nbsp;<button class="jbClimateSiteRainEnteredFillUsingPriority btn btn-default">@ClimateSiteViewRes.Priority</button>
+                                &nbsp;&nbsp;<button class="jbClimateSiteRainEnteredFillUsingWeighted btn btn-default">@ClimateSiteViewRes.Weighted</button>
+                            </div>
+                        </li>
+                    </ul>
+                    <table class="table table-condensed">
+                        <tr>
+                            <th>
+                                @ClimateSiteViewRes.ClimateSiteName
+                            </th>
+                            <th>
+                                @ClimateSiteViewRes.Priority
+                            </th>
+                            <th>
+                                @ClimateSiteViewRes.Weight
+                            </th>
+                        </tr>
+                        @foreach (ClimateSitesAndRains climateSitesAndRains in climateSitesAndRainsList)
+                        {
+                            ClimateSiteWithLatLngAndOrdinalModel climateSiteWithLatLngAndOrdinalModel = mwqmSubsectorClimateSites.ClimateSiteModelUsedAndWithinDistanceModelList.Where(c => c.ClimateSiteTVItemID == climateSitesAndRains.ClimateSiteModel.ClimateSiteTVItemID).FirstOrDefault();
+
+                            bool HasData = (climateSitesAndRains.ClimateSiteModel.DailyStartDate_Local <= mwqmRunModel.DateTime_Local && climateSitesAndRains.ClimateSiteModel.DailyEndDate_Local >= mwqmRunModel.DateTime_Local);
+                            int Ordinal = (from c in useOfSiteModelList
+                                           where c.SiteTVItemID == climateSitesAndRains.ClimateSiteModel.ClimateSiteTVItemID
+                                           && c.TVType == TVTypeEnum.ClimateSite
+                                           select c.Ordinal).FirstOrDefault();
+
+                            if (HasData)
+                            {
+                                <tr class="FillClimateSiteLI"
+                                    data-climatesitetvitemid="@climateSitesAndRains.ClimateSiteModel.ClimateSiteTVItemID"
+                                    data-priority="@Ordinal">
+                                    <td>
+                                        <label class="text-nowrap">
+                                            <input type="radio" name="ClimateSiteFillPrec"
+                                                   data-climatesitetvitemid="@climateSitesAndRains.ClimateSiteModel.ClimateSiteTVItemID"
+                                                   data-ordinal="@(Ordinal + 1)" @(MinOrdinal > Ordinal ? "checked=checked" : "") />
+                                            <span for="ClimateSiteFillPrec">&nbsp;&nbsp;@climateSitesAndRains.ClimateSiteModel.ClimateSiteTVText <span>(@(climateSiteWithLatLngAndOrdinalModel == null ? "" : climateSiteWithLatLngAndOrdinalModel.Distance_km.ToString("F0") + " Km"))</span></span>
+                                        </label>
+                                    </td>
+                                    <td class="text-center">
+                                        <span>@(Ordinal + 1)</span>
+                                    </td>
+                                    <td>
+                                        <span><input type="text" size="2" name="Weight" value="" /></span>
+                                    </td>
+                                </tr>
+                            }
+                            if (MinOrdinal > Ordinal)
+                            {
+                                MinOrdinal = Ordinal;
+                            }
                         }
-                        <ul class="list-unstyled">
-                            <li>
-                                @ClimateSiteViewRes.FillUsing
-                            </li>
-                            <li>
-                                <div class="pull-left">
-                                    <button class="jbClimateSiteRainEnteredFillUsingSelected btn btn-default">@ClimateSiteViewRes.Selected</button>
-                                    &nbsp;&nbsp;<button class="jbClimateSiteRainEnteredFillUsingAverage btn btn-default">@ClimateSiteViewRes.Average</button>
-                                    &nbsp;&nbsp;<button class="jbClimateSiteRainEnteredFillUsingPriority btn btn-default">@ClimateSiteViewRes.Priority</button>
-                                    &nbsp;&nbsp;<button class="jbClimateSiteRainEnteredFillUsingWeighted btn btn-default">@ClimateSiteViewRes.Weighted</button>
-                                </div>
-                            </li>
-                        </ul>
-                        <table class="table table-condensed">
-                            <tr>
-                                <th>
-                                    @ClimateSiteViewRes.ClimateSiteName
-                                </th>
-                                <th>
-                                    @ClimateSiteViewRes.Priority
-                                </th>
-                                <th>
-                                    @ClimateSiteViewRes.Weight
-                                </th>
-                            </tr>
-                            @foreach (ClimateSitesAndRains climateSitesAndRains in climateSitesAndRainsList)
+                    </table>
+                </div>
+            </td>
+            <td>
+                <div class="ClimateSiteRainEdit hidden">
+                    <input size="2" type="text" name="RainDay0_mm" value="@(mwqmRunModel.RainDay0_mm == null ? "" : ((float)mwqmRunModel.RainDay0_mm).ToString("F1"))" />
+                </div>
+            </td>
+            <td>
+                <div class="ClimateSiteRainEdit hidden">
+                    <input size="2" type="text" name="RainDay1_mm" value="@(mwqmRunModel.RainDay1_mm == null ? "" : ((float)mwqmRunModel.RainDay1_mm).ToString("F1"))" />
+                </div>
+            </td>
+            <td>
+                <div class="ClimateSiteRainEdit hidden">
+                    <input size="2" type="text" name="RainDay2_mm" value="@(mwqmRunModel.RainDay2_mm == null ? "" : ((float)mwqmRunModel.RainDay2_mm).ToString("F1"))" />
+                </div>
+            </td>
+            <td>
+                <div class="ClimateSiteRainEdit hidden">
+                    <input size="2" type="text" name="RainDay3_mm" value="@(mwqmRunModel.RainDay3_mm == null ? "" : ((float)mwqmRunModel.RainDay3_mm).ToString("F1"))" />
+                </div>
+            </td>
+            <td>
+                <div class="ClimateSiteRainEdit hidden">
+                    <input size="2" type="text" name="RainDay4_mm" value="@(mwqmRunModel.RainDay4_mm == null ? "" : ((float)mwqmRunModel.RainDay4_mm).ToString("F1"))" />
+                </div>
+            </td>
+            <td>
+                <div class="ClimateSiteRainEdit hidden">
+                    <input size="2" type="text" name="RainDay5_mm" value="@(mwqmRunModel.RainDay5_mm == null ? "" : ((float)mwqmRunModel.RainDay5_mm).ToString("F1"))" />
+                </div>
+            </td>
+            <td>
+                <div class="ClimateSiteRainEdit hidden">
+                    <input size="2" type="text" name="RainDay6_mm" value="@(mwqmRunModel.RainDay6_mm == null ? "" : ((float)mwqmRunModel.RainDay6_mm).ToString("F1"))" />
+                </div>
+            </td>
+            <td>
+                <div class="ClimateSiteRainEdit hidden">
+                    <input size="2" type="text" name="RainDay7_mm" value="@(mwqmRunModel.RainDay7_mm == null ? "" : ((float)mwqmRunModel.RainDay7_mm).ToString("F1"))" />
+                </div>
+            </td>
+            <td>
+                <div class="ClimateSiteRainEdit hidden">
+                    <input size="2" type="text" name="RainDay8_mm" value="@(mwqmRunModel.RainDay8_mm == null ? "" : ((float)mwqmRunModel.RainDay8_mm).ToString("F1"))" />
+                </div>
+            </td>
+            <td>
+                <div class="ClimateSiteRainEdit hidden">
+                    <input size="2" type="text" name="RainDay9_mm" value="@(mwqmRunModel.RainDay9_mm == null ? "" : ((float)mwqmRunModel.RainDay9_mm).ToString("F1"))" />
+                </div>
+            </td>
+            <td>
+                <div class="ClimateSiteRainEdit hidden">
+                    <input size="2" type="text" name="RainDay10_mm" value="@(mwqmRunModel.RainDay10_mm == null ? "" : ((float)mwqmRunModel.RainDay10_mm).ToString("F1"))" />
+                </div>
+            </td>
+        </tr>
+        @{
+            int PrecCount = 0;
+        }
+        @foreach (ClimateSitesAndRains climateSitesAndRains in climateSitesAndRainsList)
+        {
+            ClimateSiteWithLatLngAndOrdinalModel climateSiteWithLatLngAndOrdinalModel = mwqmSubsectorClimateSites.ClimateSiteModelUsedAndWithinDistanceModelList.Where(c => c.ClimateSiteTVItemID == climateSitesAndRains.ClimateSiteModel.ClimateSiteTVItemID).FirstOrDefault();
+
+            string url = "http://climate.weather.gc.ca/climate_data/daily_data_e.html?StationID="
+                + @climateSitesAndRains.ClimateSiteModel.ECDBID
+                + "&Year=" + mwqmRunModel.DateTime_Local.Year.ToString()
+                + "&Month=" + mwqmRunModel.DateTime_Local.Month.ToString() + "&Day=1";
+
+            bool HasData = (climateSitesAndRains.ClimateSiteModel.DailyStartDate_Local <= mwqmRunModel.DateTime_Local && climateSitesAndRains.ClimateSiteModel.DailyEndDate_Local >= mwqmRunModel.DateTime_Local);
+
+            url = climateSitesAndRains.ClimateSiteModel.IsCoCoRaHS != null && climateSitesAndRains.ClimateSiteModel.IsCoCoRaHS == true ? "http://data.cocorahs.org/cocorahs/maps/?country=can" : url;
+
+            <tr class="ClimateSiteRains" data-climatesitetvitemid="@climateSitesAndRains.ClimateSiteModel.ClimateSiteTVItemID">
+                <td class="verticalRight">
+                    <span class="text-nowrap  @(HasData ? "" : "text-strikeThrough")">
+                        @climateSitesAndRains.ClimateSiteModel.ClimateSiteTVText <span>(@(climateSiteWithLatLngAndOrdinalModel == null ? "" : climateSiteWithLatLngAndOrdinalModel.Distance_km.ToString("F0") + " Km"))</span>
+                        @if (HasData)
+                        {
+                            <a href="@url" target="_blank">&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-export"></span></a>
+                        }
+                    </span>
+                </td>
+                @foreach (ClimateDataValueModel climateDataValueModel in climateSitesAndRains.ClimateDataValueModelList)
+                {
+                    <td class="RainData"
+                        data-hasbeenread="@climateDataValueModel.HasBeenRead"
+                        data-preccount="@PrecCount"
+                        data-totalprecip="@(climateDataValueModel.TotalPrecip_mm_cm == null ? "-1" : ((float)climateDataValueModel.TotalPrecip_mm_cm).ToString("F1"))"
+                        data-rainfall="@(climateDataValueModel.Rainfall_mm == null ? "-1" : ((float)climateDataValueModel.Rainfall_mm).ToString("F1"))"
+                        data-rainfallentered="@(climateDataValueModel.RainfallEntered_mm == null ? "-1" : ((float)climateDataValueModel.RainfallEntered_mm).ToString("F1"))"
+                        data-snow="@(climateDataValueModel.Snow_cm == null ? "-1" : ((float)climateDataValueModel.Snow_cm).ToString("F1"))"
+                        data-snowonground="@(climateDataValueModel.SnowOnGround_cm == null ? "-1" : ((float)climateDataValueModel.SnowOnGround_cm).ToString("F1"))"
+                        data-mintemp="@(climateDataValueModel.MinTemp_C == null ? "-1" : ((float)climateDataValueModel.MinTemp_C).ToString("F1"))"
+                        data-maxtemp="@(climateDataValueModel.MaxTemp_C == null ? "-1" : ((float)climateDataValueModel.MaxTemp_C).ToString("F1"))">
+                        @if (!climateDataValueModel.HasBeenRead)
+                        {
+                            <span>--</span>
+                        }
+                        else
+                        {
+                            DateTime TheDate = climateDataValueModel.DateTime_Local;
+                            DateTime? HourlyStart = climateSitesAndRains.ClimateSiteModel.HourlyStartDate_Local;
+                            DateTime? HourlyEnd = climateSitesAndRains.ClimateSiteModel.HourlyEndDate_Local;
+                            if (HourlyEnd == null)
                             {
-                                ClimateSiteWithLatLngAndOrdinalModel climateSiteWithLatLngAndOrdinalModel = mwqmSubsectorClimateSites.ClimateSiteModelUsedAndWithinDistanceModelList.Where(c => c.ClimateSiteTVItemID == climateSitesAndRains.ClimateSiteModel.ClimateSiteTVItemID).FirstOrDefault();
-
-                                bool HasData = (climateSitesAndRains.ClimateSiteModel.DailyStartDate_Local <= mwqmRunModel.DateTime_Local && climateSitesAndRains.ClimateSiteModel.DailyEndDate_Local >= mwqmRunModel.DateTime_Local);
-                                int Ordinal = (from c in useOfSiteModelList
-                                               where c.SiteTVItemID == climateSitesAndRains.ClimateSiteModel.ClimateSiteTVItemID
-                                               && c.TVType == TVTypeEnum.ClimateSite
-                                               select c.Ordinal).FirstOrDefault();
-
-                                if (HasData)
-                                {
-                                    <tr class="FillClimateSiteLI"
-                                        data-climatesitetvitemid="@climateSitesAndRains.ClimateSiteModel.ClimateSiteTVItemID"
-                                        data-priority="@Ordinal">
-                                        <td>
-                                            <label class="text-nowrap">
-                                                <input type="radio" name="ClimateSiteFillPrec"
-                                                       data-climatesitetvitemid="@climateSitesAndRains.ClimateSiteModel.ClimateSiteTVItemID"
-                                                       data-ordinal="@(Ordinal + 1)" @(MinOrdinal > Ordinal ? "checked=checked" : "") />
-                                                <span for="ClimateSiteFillPrec">&nbsp;&nbsp;@climateSitesAndRains.ClimateSiteModel.ClimateSiteTVText <span>(@(climateSiteWithLatLngAndOrdinalModel == null ? "" : climateSiteWithLatLngAndOrdinalModel.Distance_km.ToString("F0") + " Km"))</span></span>
-                                            </label>
-                                        </td>
-                                        <td class="text-center">
-                                            <span>@(Ordinal + 1)</span>
-                                        </td>
-                                        <td>
-                                            <span><input type="text" size="2" name="Weight" value="" /></span>
-                                        </td>
-                                    </tr>
-                                }
-                                if (MinOrdinal > Ordinal)
-                                {
-                                    MinOrdinal = Ordinal;
-                                }
+                                HourlyEnd = DateTime.Now;
                             }
-                        </table>
-                    </div>
-                </td>
-                <td>
-                    <div class="ClimateSiteRainEdit hidden">
-                        <input size="2" type="text" name="RainDay0_mm" value="@(mwqmRunModel.RainDay0_mm == null ? "" : ((float)mwqmRunModel.RainDay0_mm).ToString("F1"))" />
-                    </div>
-                </td>
-                <td>
-                    <div class="ClimateSiteRainEdit hidden">
-                        <input size="2" type="text" name="RainDay1_mm" value="@(mwqmRunModel.RainDay1_mm == null ? "" : ((float)mwqmRunModel.RainDay1_mm).ToString("F1"))" />
-                    </div>
-                </td>
-                <td>
-                    <div class="ClimateSiteRainEdit hidden">
-                        <input size="2" type="text" name="RainDay2_mm" value="@(mwqmRunModel.RainDay2_mm == null ? "" : ((float)mwqmRunModel.RainDay2_mm).ToString("F1"))" />
-                    </div>
-                </td>
-                <td>
-                    <div class="ClimateSiteRainEdit hidden">
-                        <input size="2" type="text" name="RainDay3_mm" value="@(mwqmRunModel.RainDay3_mm == null ? "" : ((float)mwqmRunModel.RainDay3_mm).ToString("F1"))" />
-                    </div>
-                </td>
-                <td>
-                    <div class="ClimateSiteRainEdit hidden">
-                        <input size="2" type="text" name="RainDay4_mm" value="@(mwqmRunModel.RainDay4_mm == null ? "" : ((float)mwqmRunModel.RainDay4_mm).ToString("F1"))" />
-                    </div>
-                </td>
-                <td>
-                    <div class="ClimateSiteRainEdit hidden">
-                        <input size="2" type="text" name="RainDay5_mm" value="@(mwqmRunModel.RainDay5_mm == null ? "" : ((float)mwqmRunModel.RainDay5_mm).ToString("F1"))" />
-                    </div>
-                </td>
-                <td>
-                    <div class="ClimateSiteRainEdit hidden">
-                        <input size="2" type="text" name="RainDay6_mm" value="@(mwqmRunModel.RainDay6_mm == null ? "" : ((float)mwqmRunModel.RainDay6_mm).ToString("F1"))" />
-                    </div>
-                </td>
-                <td>
-                    <div class="ClimateSiteRainEdit hidden">
-                        <input size="2" type="text" name="RainDay7_mm" value="@(mwqmRunModel.RainDay7_mm == null ? "" : ((float)mwqmRunModel.RainDay7_mm).ToString("F1"))" />
-                    </div>
-                </td>
-                <td>
-                    <div class="ClimateSiteRainEdit hidden">
-                        <input size="2" type="text" name="RainDay8_mm" value="@(mwqmRunModel.RainDay8_mm == null ? "" : ((float)mwqmRunModel.RainDay8_mm).ToString("F1"))" />
-                    </div>
-                </td>
-                <td>
-                    <div class="ClimateSiteRainEdit hidden">
-                        <input size="2" type="text" name="RainDay9_mm" value="@(mwqmRunModel.RainDay9_mm == null ? "" : ((float)mwqmRunModel.RainDay9_mm).ToString("F1"))" />
-                    </div>
-                </td>
-                <td>
-                    <div class="ClimateSiteRainEdit hidden">
-                        <input size="2" type="text" name="RainDay10_mm" value="@(mwqmRunModel.RainDay10_mm == null ? "" : ((float)mwqmRunModel.RainDay10_mm).ToString("F1"))" />
-                    </div>
-                </td>
-            </tr>
-            @{
-                int PrecCount = 0;
-            }
-            @foreach (ClimateSitesAndRains climateSitesAndRains in climateSitesAndRainsList)
-            {
-                ClimateSiteWithLatLngAndOrdinalModel climateSiteWithLatLngAndOrdinalModel = mwqmSubsectorClimateSites.ClimateSiteModelUsedAndWithinDistanceModelList.Where(c => c.ClimateSiteTVItemID == climateSitesAndRains.ClimateSiteModel.ClimateSiteTVItemID).FirstOrDefault();
-
-                string url = "http://climate.weather.gc.ca/climate_data/daily_data_e.html?StationID="
-                    + @climateSitesAndRains.ClimateSiteModel.ECDBID
-                    + "&Year=" + mwqmRunModel.DateTime_Local.Year.ToString()
-                    + "&Month=" + mwqmRunModel.DateTime_Local.Month.ToString() + "&Day=1";
-
-                bool HasData = (climateSitesAndRains.ClimateSiteModel.DailyStartDate_Local <= mwqmRunModel.DateTime_Local && climateSitesAndRains.ClimateSiteModel.DailyEndDate_Local >= mwqmRunModel.DateTime_Local);
-
-                <tr class="ClimateSiteRains" data-climatesitetvitemid="@climateSitesAndRains.ClimateSiteModel.ClimateSiteTVItemID">
-                    <td class="verticalRight">
-                        <span class="text-nowrap  @(HasData ? "" : "text-strikeThrough")">
-                            @climateSitesAndRains.ClimateSiteModel.ClimateSiteTVText <span>(@(climateSiteWithLatLngAndOrdinalModel == null ? "" : climateSiteWithLatLngAndOrdinalModel.Distance_km.ToString("F0") + " Km"))</span>
-                            @if (HasData)
+                            if (TheDate >= HourlyStart && TheDate <= HourlyEnd)
                             {
-                                <a href="@url" target="_blank">&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-export"></span></a>
-                            }
-                        </span>
-                    </td>
-                    @foreach (ClimateDataValueModel climateDataValueModel in climateSitesAndRains.ClimateDataValueModelList)
-                    {
-                        <td class="RainData"
-                            data-hasbeenread="@climateDataValueModel.HasBeenRead"
-                            data-preccount="@PrecCount"
-                            data-totalprecip="@(climateDataValueModel.TotalPrecip_mm_cm == null ? "-1" : ((float)climateDataValueModel.TotalPrecip_mm_cm).ToString("F1"))"
-                            data-rainfall="@(climateDataValueModel.Rainfall_mm == null ? "-1" : ((float)climateDataValueModel.Rainfall_mm).ToString("F1"))"
-                            data-rainfallentered="@(climateDataValueModel.RainfallEntered_mm == null ? "-1" : ((float)climateDataValueModel.RainfallEntered_mm).ToString("F1"))"
-                            data-snow="@(climateDataValueModel.Snow_cm == null ? "-1" : ((float)climateDataValueModel.Snow_cm).ToString("F1"))"
-                            data-snowonground="@(climateDataValueModel.SnowOnGround_cm == null ? "-1" : ((float)climateDataValueModel.SnowOnGround_cm).ToString("F1"))"
-                            data-mintemp="@(climateDataValueModel.MinTemp_C == null ? "-1" : ((float)climateDataValueModel.MinTemp_C).ToString("F1"))"
-                            data-maxtemp="@(climateDataValueModel.MaxTemp_C == null ? "-1" : ((float)climateDataValueModel.MaxTemp_C).ToString("F1"))">
-                            @if (!climateDataValueModel.HasBeenRead)
-                            {
-                                <span>--</span>
+                                string URL = "http://climate.weather.gc.ca/climate_data/hourly_data_e.html?StationID=" + climateSitesAndRains.ClimateSiteModel.ECDBID +
+                                        "&Year=" + climateDataValueModel.DateTime_Local.Year +
+                                        "&Month=" + climateDataValueModel.DateTime_Local.Month +
+                                        "&Day=" + climateDataValueModel.DateTime_Local.Day + "&timeframe=1";
+                                <a target="_blank" href="@URL">
+                                    @(climateDataValueModel.TotalPrecip_mm_cm == null ? "E" : ((float)climateDataValueModel.TotalPrecip_mm_cm).ToString("F1"))
+                                </a>
                             }
                             else
                             {
-                                DateTime TheDate = climateDataValueModel.DateTime_Local;
-                                DateTime? HourlyStart = climateSitesAndRains.ClimateSiteModel.HourlyStartDate_Local;
-                                DateTime? HourlyEnd = climateSitesAndRains.ClimateSiteModel.HourlyEndDate_Local;
-                                if (HourlyEnd == null)
-                                {
-                                    HourlyEnd = DateTime.Now;
-                                }
-                                if (TheDate >= HourlyStart && TheDate <= HourlyEnd)
-                                {
-                                    string URL = "http://climate.weather.gc.ca/climate_data/hourly_data_e.html?StationID=" + climateSitesAndRains.ClimateSiteModel.ECDBID +
-                                            "&Year=" + climateDataValueModel.DateTime_Local.Year +
-                                            "&Month=" + climateDataValueModel.DateTime_Local.Month +
-                                            "&Day=" + climateDataValueModel.DateTime_Local.Day + "&timeframe=1";
-                                    <a target="_blank" href="@URL">
-                                        @(climateDataValueModel.TotalPrecip_mm_cm == null ? "E" : ((float)climateDataValueModel.TotalPrecip_mm_cm).ToString("F1"))
-                                    </a>
-                                }
-                                else
-                                {
-                                    @(climateDataValueModel.TotalPrecip_mm_cm == null ? "E" : ((float)climateDataValueModel.TotalPrecip_mm_cm).ToString("F1"))
-                                }
+                                @(climateDataValueModel.TotalPrecip_mm_cm == null ? "E" : ((float)climateDataValueModel.TotalPrecip_mm_cm).ToString("F1"))
                             }
-                        </td>
-                        PrecCount += 1;
-                    }
-                </tr>
-            }
-        </table>
-        <span>@ClimateSiteViewRes.Note: (E) - @ClimateSiteViewRes.NoDataOnMSCHistoricalSite</span>
+                        }
+                    </td>
+                    PrecCount += 1;
+                }
+            </tr>
+        }
+    </table>
+    <span>@ClimateSiteViewRes.Note: (E) - @ClimateSiteViewRes.NoDataOnMSCHistoricalSite</span>
 
-    </div>
+</div>

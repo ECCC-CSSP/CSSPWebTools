@@ -161,8 +161,6 @@ var CSSP;
                         cssp.Dialog.ShowDialogErrorWithError(ret);
                     }
                     else {
-                        cssp.Dialog.ShowDialogMessage(cssp.GetHTMLVariable("#LayoutVariables", "varHydrometricSitePrioritiesMightNeedResetting") + " ... " +
-                            cssp.GetHTMLVariable("#LayoutVariables", "varCheckUnderHydrometricSitePrioritiesTab"));
                         cssp.Helper.PageRefresh();
                     }
                 })
