@@ -70,6 +70,15 @@ namespace CSSPWebTools.Views.ClimateSite.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to and has data after year 1979.
+        /// </summary>
+        public static string AndHasDataAfterYear1979 {
+            get {
+                return ResourceManager.GetString("AndHasDataAfterYear1979", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Any space will be omitted.
         /// </summary>
         public static string AnySpaceWillBeOmitted {

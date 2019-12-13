@@ -120,6 +120,9 @@
   <data name="ADashBetweenTwoYearsRepresentFromYearToYearInclusively" xml:space="preserve">
     <value>Un tiret [-] entre deux ans représente: d'une année à l'autre inclusivement</value>
   </data>
+  <data name="AndHasDataAfterYear1979" xml:space="preserve">
+    <value>et ayant des données après l'année 1979</value>
+  </data>
   <data name="AnySpaceWillBeOmitted" xml:space="preserve">
     <value>Tout espace sera omis</value>
   </data>

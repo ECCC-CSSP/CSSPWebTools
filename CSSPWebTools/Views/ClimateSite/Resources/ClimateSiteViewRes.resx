@@ -327,4 +327,7 @@
   <data name="PerWeek" xml:space="preserve">
     <value>per week</value>
   </data>
+  <data name="AndHasDataAfterYear1979" xml:space="preserve">
+    <value>and has data after year 1979</value>
+  </data>
 </root>
