@@ -198,6 +198,9 @@
   <data name="FlowsOrPumpsInto" xml:space="preserve">
     <value>Flotte ou pompe dans</value>
   </data>
+  <data name="HasBackupPower" xml:space="preserve">
+    <value>A une alimentation de secours</value>
+  </data>
   <data name="HorizontalAngle" xml:space="preserve">
     <value>Angle horizontal</value>
   </data>
@@ -371,6 +374,12 @@
   </data>
   <data name="unitPerDay" xml:space="preserve">
     <value>/jour</value>
+  </data>
+  <data name="Unknown" xml:space="preserve">
+    <value>Inconnue</value>
+  </data>
+  <data name="ValveType" xml:space="preserve">
+    <value>Type de vanne</value>
   </data>
   <data name="VerticalAngle" xml:space="preserve">
     <value>Angle vertical</value>

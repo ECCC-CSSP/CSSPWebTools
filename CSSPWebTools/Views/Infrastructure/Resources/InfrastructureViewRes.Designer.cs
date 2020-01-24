@@ -19,7 +19,7 @@ namespace CSSPWebTools.Views.Infrastructure.Resources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class InfrastructureViewRes {
@@ -300,6 +300,15 @@ namespace CSSPWebTools.Views.Infrastructure.Resources {
         public static string FlowsOrPumpsInto {
             get {
                 return ResourceManager.GetString("FlowsOrPumpsInto", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Has backup power.
+        /// </summary>
+        public static string HasBackupPower {
+            get {
+                return ResourceManager.GetString("HasBackupPower", resourceCulture);
             }
         }
         
@@ -813,6 +822,24 @@ namespace CSSPWebTools.Views.Infrastructure.Resources {
         public static string Under {
             get {
                 return ResourceManager.GetString("Under", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unknown.
+        /// </summary>
+        public static string Unknown {
+            get {
+                return ResourceManager.GetString("Unknown", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Valve type.
+        /// </summary>
+        public static string ValveType {
+            get {
+                return ResourceManager.GetString("ValveType", resourceCulture);
             }
         }
         

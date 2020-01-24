@@ -409,6 +409,18 @@ var CSSP;
                         $("#PeakFlow_m3_day").val("");
                     }
                 });
+                $(document).off("change", "select[name='CanOverflow']");
+                $(document).on("change", "select[name='CanOverflow']", function (evt) {
+                    if ($(evt.target).val() == "") {
+                        $(".ValveType").removeClass("hidden").addClass("hidden");
+                    }
+                    else if ($(evt.target).val() == "true") {
+                        $(".ValveType").removeClass("hidden");
+                    }
+                    else {
+                        $(".ValveType").removeClass("hidden").addClass("hidden");
+                    }
+                });
             };
             this.MoveCancel = function ($bjs) {
                 var $AllItems = $bjs.closest("#InfrastructureTopDiv");

@@ -298,9 +298,40 @@ else
                     <dd>
                         @if (infrastructureModel.CanOverflow == null)
                         {
-                            <text>@InfrastructureViewRes.NoData</text>
+                            <text>@InfrastructureViewRes.Unknown</text>
                         }
                         else if (infrastructureModel.CanOverflow == true)
+                        {
+                            <text>@InfrastructureViewRes.True</text>
+                        }
+                        else
+                        {
+                            <text>@InfrastructureViewRes.False</text>
+                        }
+                    </dd>
+
+                    @if (infrastructureModel.CanOverflow == true)
+                    {
+                        <dt>
+                            <label>@InfrastructureViewRes.ValveType</label>
+                        </dt>
+                        <dd>
+                            @((infrastructureModel.ValveType == null || (int)infrastructureModel.ValveType < 1)
+                        ? InfrastructureViewRes.Unknown
+                        : _BaseEnumService.GetEnumText_ValveTypeEnum(infrastructureModel.ValveType))
+                        </dd>
+                    }
+
+                    @*HasBackupPower*@
+                    <dt>
+                        <label>@InfrastructureViewRes.HasBackupPower</label>
+                    </dt>
+                    <dd>
+                        @if (infrastructureModel.HasBackupPower == null)
+                        {
+                            <text>@InfrastructureViewRes.Unknown</text>
+                        }
+                        else if (infrastructureModel.HasBackupPower == true)
                         {
                             <text>@InfrastructureViewRes.True</text>
                         }
@@ -376,9 +407,9 @@ else
                         <h3>@InfrastructureViewRes.InformationBelowWillBeRemovedInTheFuture</h3>
                     </dt>
                     <dd>
-                       <hr />
+                        <hr />
                     </dd>
-                    
+
                     @*TimeZone*@
                     <dt>
                         <label>@InfrastructureViewRes.TimeZone (@InfrastructureViewRes.WillBeRemoved)</label>
@@ -487,7 +518,7 @@ else
                             : _BaseEnumService.GetEnumText_InfrastructureTypeEnum(infrastructureModel.InfrastructureType))
                     </dd>
 
-                   @*PercentFlowTotal*@
+                    @*PercentFlowTotal*@
                     <dt>
                         <label>@InfrastructureViewRes.PercentFlowTotal (%)</label>
                     </dt>
@@ -566,9 +597,40 @@ else
                     <dd>
                         @if (infrastructureModel.CanOverflow == null)
                         {
-                            <text>@InfrastructureViewRes.NoData</text>
+                            <text>@InfrastructureViewRes.Unknown</text>
                         }
                         else if (infrastructureModel.CanOverflow == true)
+                        {
+                            <text>@InfrastructureViewRes.True</text>
+                        }
+                        else
+                        {
+                            <text>@InfrastructureViewRes.False</text>
+                        }
+                    </dd>
+
+                    @if (infrastructureModel.CanOverflow == true)
+                    {
+                        <dt>
+                            <label>@InfrastructureViewRes.ValveType</label>
+                        </dt>
+                        <dd>
+                            @((infrastructureModel.ValveType == null || (int)infrastructureModel.ValveType < 1)
+                        ? InfrastructureViewRes.Unknown
+                        : _BaseEnumService.GetEnumText_ValveTypeEnum(infrastructureModel.ValveType))
+                        </dd>
+                    }
+
+                    @*HasBackupPower*@
+                    <dt>
+                        <label>@InfrastructureViewRes.HasBackupPower</label>
+                    </dt>
+                    <dd>
+                        @if (infrastructureModel.HasBackupPower == null)
+                        {
+                            <text>@InfrastructureViewRes.Unknown</text>
+                        }
+                        else if (infrastructureModel.HasBackupPower == true)
                         {
                             <text>@InfrastructureViewRes.True</text>
                         }

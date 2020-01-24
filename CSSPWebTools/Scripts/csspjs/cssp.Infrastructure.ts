@@ -434,6 +434,19 @@ module CSSP {
                 }
             });
 
+            $(document).off("change", "select[name='CanOverflow']");
+            $(document).on("change", "select[name='CanOverflow']", (evt: Event) => {
+                if ($(evt.target).val() == "") {
+                    $(".ValveType").removeClass("hidden").addClass("hidden");
+                }
+                else if ($(evt.target).val() == "true") {
+                    $(".ValveType").removeClass("hidden");
+                }
+                else {
+                    $(".ValveType").removeClass("hidden").addClass("hidden");
+                }
+            });
+
         };
         public MoveCancel: Function = ($bjs: JQuery): void => {
             var $AllItems = $bjs.closest("#InfrastructureTopDiv");

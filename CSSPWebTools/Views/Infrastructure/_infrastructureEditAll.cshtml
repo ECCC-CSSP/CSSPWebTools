@@ -508,13 +508,74 @@ else
                         @*CanOverflow*@
                         <li>
                             <div class="form-group">
-                                <label for="Overflow" class="control-label">
+                                <label for="CanOverflow" class="control-label">
                                     @InfrastructureViewRes.CanOverflow
                                     <button class="jbHelpDocShowDialog btn btn-link" data-dockey="canoverflow" data-title="@InfrastructureViewRes.CanOverflow"><span class="glyphicon glyphicon-info-sign"></span></button>
                                 </label>
-                                <div class="checkbox-inline">
-                                    <input type="radio" name="Overflow" @(infrastructureModel.CanOverflow == true ? "checked=checked" : "") value="1" /><span>&nbsp;@InfrastructureViewRes.Yes</span>
-                                    <input type="radio" name="Overflow" @(infrastructureModel.CanOverflow == false ? "checked=checked" : "") value="0" /><span>&nbsp;@InfrastructureViewRes.No</span>
+                                <div>
+                                    <span>
+                                        <select name="CanOverflow" class="form-control">
+                                            <option value="" @(infrastructureModel.CanOverflow == null ? "selected=selected" : "")>@InfrastructureViewRes.Select @InfrastructureViewRes.CanOverflow</option>
+                                            <option value="true" @(infrastructureModel.CanOverflow == true ? "selected=selected" : "")>
+                                                @(InfrastructureViewRes.Yes)
+                                            </option>
+                                            <option value="false" @(infrastructureModel.CanOverflow == false ? "selected=selected" : "")>
+                                                @(InfrastructureViewRes.No)
+                                            </option>
+                                        </select>
+                                        <span class="help-block"></span>
+                                    </span>
+                                </div>
+                            </div>
+                            <ul>
+                                @*ValveType*@
+                                <li class="ValveType @(infrastructureModel.CanOverflow == true ? "" : "hidden")">
+                                    <div class="form-group">
+                                        <label for="ValveType" class="control-label">
+                                            @InfrastructureViewRes.ValveType
+                                            <button class="jbHelpDocShowDialog btn btn-link" data-dockey="valvetype" data-title="@InfrastructureViewRes.ValveType"><span class="glyphicon glyphicon-info-sign"></span></button>
+                                        </label>
+                                        <div>
+                                            <span>
+                                                <select name="ValveType" class="form-control">
+                                                    <option value="0" @(infrastructureModel.ValveType == null ? "selected=selected" : "")>@InfrastructureViewRes.Select @InfrastructureViewRes.ValveType</option>
+                                                    @foreach (ValveTypeEnumTextOrdered valveTypeEnumTextOrdered in _BaseEnumService.GetValveTypeEnumTextOrderedList())
+                                                    {
+                                                        if (valveTypeEnumTextOrdered.ValveType != ValveTypeEnum.Error)
+                                                        {
+                                                            <option value="@((int)valveTypeEnumTextOrdered.ValveType)" @(infrastructureModel.ValveType == valveTypeEnumTextOrdered.ValveType ? "selected=selected" : "")>
+                                                                @valveTypeEnumTextOrdered.ValveTypeText
+                                                            </option>
+                                                        }
+                                                    }
+                                                </select>
+                                                <span class="help-block"></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        @*HasBackupPower*@
+                        <li>
+                            <div class="form-group">
+                                <label for="HasBackupPower" class="control-label">
+                                    @InfrastructureViewRes.HasBackupPower
+                                    <button class="jbHelpDocShowDialog btn btn-link" data-dockey="hasbackuppower" data-title="@InfrastructureViewRes.HasBackupPower"><span class="glyphicon glyphicon-info-sign"></span></button>
+                                </label>
+                                <div>
+                                    <span>
+                                        <select name="HasBackupPower" class="form-control">
+                                            <option value="" @(infrastructureModel.HasBackupPower == null ? "selected=selected" : "")>@InfrastructureViewRes.Select @InfrastructureViewRes.HasBackupPower</option>
+                                            <option value="true" @(infrastructureModel.HasBackupPower == true ? "selected=selected" : "")>
+                                                @(InfrastructureViewRes.Yes)
+                                            </option>
+                                            <option value="false" @(infrastructureModel.HasBackupPower == false ? "selected=selected" : "")>
+                                                @(InfrastructureViewRes.No)
+                                            </option>
+                                        </select>
+                                        <span class="help-block"></span>
+                                    </span>
                                 </div>
                             </div>
                         </li>
@@ -717,16 +778,77 @@ else
                                 </div>
                             </div>
                         </li>
-                        @*CanOverFlow*@
+                        @*CanOverflow*@
                         <li>
                             <div class="form-group">
-                                <label for="Overflow" class="control-label">
+                                <label for="CanOverflow" class="control-label">
                                     @InfrastructureViewRes.CanOverflow
                                     <button class="jbHelpDocShowDialog btn btn-link" data-dockey="canoverflow" data-title="@InfrastructureViewRes.CanOverflow"><span class="glyphicon glyphicon-info-sign"></span></button>
                                 </label>
-                                <div class="checkbox-inline">
-                                    <input type="radio" name="Overflow" @(infrastructureModel.CanOverflow == true ? "checked=checked" : "") value="1" /><span>&nbsp;@InfrastructureViewRes.Yes</span>
-                                    <input type="radio" name="Overflow" @(infrastructureModel.CanOverflow == false ? "checked=checked" : "") value="0" /><span>&nbsp;@InfrastructureViewRes.No</span>
+                                <div>
+                                    <span>
+                                        <select name="CanOverflow" class="form-control">
+                                            <option value="" @(infrastructureModel.CanOverflow == null ? "selected=selected" : "")>@InfrastructureViewRes.Select @InfrastructureViewRes.CanOverflow</option>
+                                            <option value="true" @(infrastructureModel.CanOverflow == true ? "selected=selected" : "")>
+                                                @(InfrastructureViewRes.Yes)
+                                            </option>
+                                            <option value="false" @(infrastructureModel.CanOverflow == false ? "selected=selected" : "")>
+                                                @(InfrastructureViewRes.No)
+                                            </option>
+                                        </select>
+                                        <span class="help-block"></span>
+                                    </span>
+                                </div>
+                            </div>
+                            <ul>
+                                @*ValveType*@
+                                <li class="ValveType @(infrastructureModel.CanOverflow == true ? "" : "hidden")">
+                                    <div class="form-group">
+                                        <label for="ValveType" class="control-label">
+                                            @InfrastructureViewRes.ValveType
+                                            <button class="jbHelpDocShowDialog btn btn-link" data-dockey="valvetype" data-title="@InfrastructureViewRes.ValveType"><span class="glyphicon glyphicon-info-sign"></span></button>
+                                        </label>
+                                        <div>
+                                            <span>
+                                                <select name="ValveType" class="form-control">
+                                                    <option value="0" @(infrastructureModel.ValveType == null ? "selected=selected" : "")>@InfrastructureViewRes.Select @InfrastructureViewRes.ValveType</option>
+                                                    @foreach (ValveTypeEnumTextOrdered valveTypeEnumTextOrdered in _BaseEnumService.GetValveTypeEnumTextOrderedList())
+                                                    {
+                                                        if (valveTypeEnumTextOrdered.ValveType != ValveTypeEnum.Error)
+                                                        {
+                                                            <option value="@((int)valveTypeEnumTextOrdered.ValveType)" @(infrastructureModel.ValveType == valveTypeEnumTextOrdered.ValveType ? "selected=selected" : "")>
+                                                                @valveTypeEnumTextOrdered.ValveTypeText
+                                                            </option>
+                                                        }
+                                                    }
+                                                </select>
+                                                <span class="help-block"></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        @*HasBackupPower*@
+                        <li>
+                            <div class="form-group">
+                                <label for="HasBackupPower" class="control-label">
+                                    @InfrastructureViewRes.HasBackupPower
+                                    <button class="jbHelpDocShowDialog btn btn-link" data-dockey="hasbackuppower" data-title="@InfrastructureViewRes.HasBackupPower"><span class="glyphicon glyphicon-info-sign"></span></button>
+                                </label>
+                                <div>
+                                    <span>
+                                        <select name="HasBackupPower" class="form-control">
+                                            <option value="" @(infrastructureModel.HasBackupPower == null ? "selected=selected" : "")>@InfrastructureViewRes.Select @InfrastructureViewRes.HasBackupPower</option>
+                                            <option value="true" @(infrastructureModel.HasBackupPower == true ? "selected=selected" : "")>
+                                                @(InfrastructureViewRes.Yes)
+                                            </option>
+                                            <option value="false" @(infrastructureModel.HasBackupPower == false ? "selected=selected" : "")>
+                                                @(InfrastructureViewRes.No)
+                                            </option>
+                                        </select>
+                                        <span class="help-block"></span>
+                                    </span>
                                 </div>
                             </div>
                         </li>

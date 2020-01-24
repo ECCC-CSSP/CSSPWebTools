@@ -435,4 +435,13 @@
   <data name="NeedToSelectLagoonOrPlant" xml:space="preserve">
     <value>Need to select lagoon or plant</value>
   </data>
+  <data name="HasBackupPower" xml:space="preserve">
+    <value>Has backup power</value>
+  </data>
+  <data name="Unknown" xml:space="preserve">
+    <value>Unknown</value>
+  </data>
+  <data name="ValveType" xml:space="preserve">
+    <value>Valve type</value>
+  </data>
 </root>
