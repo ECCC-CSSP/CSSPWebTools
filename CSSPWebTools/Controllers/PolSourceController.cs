@@ -548,9 +548,9 @@ namespace CSSPWebTools.Controllers
         }
         [HttpPost]
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
-        public JsonResult SavePSSOrInfrastructureAddressJSON(int ProvinceTVItemID, int TVItemID, string StreetNumber, string StreetName, int StreetType, string Municipality, string PostalCode, bool CreateMunicipality, bool IsPSS, bool IsInfrastructure, string AdminEmail)
+        public JsonResult SaveAddressJSON(int ProvinceTVItemID, int TVItemID, string StreetNumber, string StreetName, int StreetType, string Municipality, string PostalCode, bool CreateMunicipality, bool IsPSS, bool IsInfrastructure, string AdminEmail)
         {
-            TVItemModel tvItemModel = _PolSourceSiteInputToolService.SavePSSOrInfrastructureAddressDB(ProvinceTVItemID, TVItemID, StreetNumber, StreetName, StreetType, Municipality, PostalCode, CreateMunicipality, IsPSS, IsInfrastructure, AdminEmail);
+            TVItemModel tvItemModel = _PolSourceSiteInputToolService.SaveAddressDB(ProvinceTVItemID, TVItemID, StreetNumber, StreetName, StreetType, Municipality, PostalCode, CreateMunicipality, IsPSS, IsInfrastructure, AdminEmail);
 
             return Json(tvItemModel.Error, JsonRequestBehavior.AllowGet);
         }
