@@ -508,6 +508,46 @@ namespace CSSPWebTools.Controllers
         }
         [HttpPost]
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public JsonResult SaveAddressContactJSON(int ContactTVItemID, int ProvinceTVItemID, int TVItemID, string StreetNumber,
+            string StreetName, int StreetType, string Municipality, string PostalCode, bool CreateMunicipality, string AdminEmail)
+        {
+            TVItemModel tvItemModel = _PolSourceSiteInputToolService.SaveAddressContactDB(ContactTVItemID, ProvinceTVItemID, TVItemID, StreetNumber,
+            StreetName, StreetType, Municipality, PostalCode, CreateMunicipality, AdminEmail);
+
+            return Json(tvItemModel.Error, JsonRequestBehavior.AllowGet);
+        }
+        [HttpPost]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public JsonResult CreateOrModifyEmaiJSON(int ContactTVItemID, int EmailTVItemID, int EmailType, string EmailAddress,
+            bool Delete, bool Create, bool Modify, string AdminEmail)
+        {
+            TVItemModel tvItemModel = _PolSourceSiteInputToolService.CreateOrModifyTelephoneDB(ContactTVItemID, EmailTVItemID, EmailType, EmailAddress,
+                Delete, Create, Modify, AdminEmail);
+
+            return Json(tvItemModel.Error, JsonRequestBehavior.AllowGet);
+        }
+        [HttpPost]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public JsonResult CreateOrModifyTelephoneJSON(int ContactTVItemID, int TelTVItemID, int TelType, string TelNumber,
+            bool Delete, bool Create, bool Modify, string AdminEmail)
+        {
+            TVItemModel tvItemModel = _PolSourceSiteInputToolService.CreateOrModifyTelephoneDB(ContactTVItemID, TelTVItemID, TelType, TelNumber,
+                Delete, Create, Modify, AdminEmail);
+
+            return Json(tvItemModel.Error, JsonRequestBehavior.AllowGet);
+        }
+        [HttpPost]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public JsonResult CreateOrModifyContactJSON(int MunicipalityTVItemID, int ContactTVItemID, string FirstName,
+            string Initial, string LastName, int? Title, string LoginEmail, bool IsActive, string AdminEmail)
+        {
+            TVItemModel tvItemModel = _PolSourceSiteInputToolService.CreateOrModifyContactDB(MunicipalityTVItemID, ContactTVItemID, FirstName, 
+                Initial, LastName, Title, LoginEmail, IsActive, AdminEmail);
+
+            return Json(tvItemModel.Error, JsonRequestBehavior.AllowGet);
+        }
+        [HttpPost]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
         public JsonResult CreateOrModifyInfrastructureJSON(int MunicipalityTVItemID, int TVItemID, string TVText, bool IsActive,
             float? Lat, float? Lng, float? LatOutfall, float? LngOutfall, string CommentEN, string CommentFR, InfrastructureTypeEnum? InfrastructureType,
             FacilityTypeEnum? FacilityType, bool? IsMechanicallyAerated, int? NumberOfCells, int? NumberOfAeratedCells, AerationTypeEnum? AerationType,
@@ -548,9 +588,9 @@ namespace CSSPWebTools.Controllers
         }
         [HttpPost]
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
-        public JsonResult SaveAddressJSON(int ProvinceTVItemID, int TVItemID, string StreetNumber, string StreetName, int StreetType, string Municipality, string PostalCode, bool CreateMunicipality, bool IsPSS, bool IsInfrastructure, string AdminEmail)
+        public JsonResult SavePSSorInfrastructureAddressJSON(int ProvinceTVItemID, int TVItemID, string StreetNumber, string StreetName, int StreetType, string Municipality, string PostalCode, bool CreateMunicipality, bool IsPSS, bool IsInfrastructure, string AdminEmail)
         {
-            TVItemModel tvItemModel = _PolSourceSiteInputToolService.SaveAddressDB(ProvinceTVItemID, TVItemID, StreetNumber, StreetName, StreetType, Municipality, PostalCode, CreateMunicipality, IsPSS, IsInfrastructure, AdminEmail);
+            TVItemModel tvItemModel = _PolSourceSiteInputToolService.SavePSSorInfrastructureAddressDB(ProvinceTVItemID, TVItemID, StreetNumber, StreetName, StreetType, Municipality, PostalCode, CreateMunicipality, IsPSS, IsInfrastructure, AdminEmail);
 
             return Json(tvItemModel.Error, JsonRequestBehavior.AllowGet);
         }
