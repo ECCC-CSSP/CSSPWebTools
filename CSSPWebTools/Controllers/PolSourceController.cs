@@ -518,31 +518,27 @@ namespace CSSPWebTools.Controllers
         }
         [HttpPost]
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
-        public JsonResult CreateOrModifyEmaiJSON(int ContactTVItemID, int EmailTVItemID, int EmailType, string EmailAddress,
-            bool Delete, bool Create, bool Modify, string AdminEmail)
+        public JsonResult CreateOrModifyEmailJSON(int ContactTVItemID, int EmailTVItemID, int? EmailType, string EmailAddress, bool ShouldDelete, string AdminEmail)
         {
-            TVItemModel tvItemModel = _PolSourceSiteInputToolService.CreateOrModifyTelephoneDB(ContactTVItemID, EmailTVItemID, EmailType, EmailAddress,
-                Delete, Create, Modify, AdminEmail);
+            TVItemModel tvItemModel = _PolSourceSiteInputToolService.CreateOrModifyTelephoneDB(ContactTVItemID, EmailTVItemID, EmailType, EmailAddress, ShouldDelete, AdminEmail);
 
             return Json(tvItemModel.Error, JsonRequestBehavior.AllowGet);
         }
         [HttpPost]
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
-        public JsonResult CreateOrModifyTelephoneJSON(int ContactTVItemID, int TelTVItemID, int TelType, string TelNumber,
-            bool Delete, bool Create, bool Modify, string AdminEmail)
+        public JsonResult CreateOrModifyTelephoneJSON(int ContactTVItemID, int TelTVItemID, int? TelType, string TelNumber, bool ShouldDelete, string AdminEmail)
         {
-            TVItemModel tvItemModel = _PolSourceSiteInputToolService.CreateOrModifyTelephoneDB(ContactTVItemID, TelTVItemID, TelType, TelNumber,
-                Delete, Create, Modify, AdminEmail);
+            TVItemModel tvItemModel = _PolSourceSiteInputToolService.CreateOrModifyTelephoneDB(ContactTVItemID, TelTVItemID, TelType, TelNumber, ShouldDelete, AdminEmail);
 
             return Json(tvItemModel.Error, JsonRequestBehavior.AllowGet);
         }
         [HttpPost]
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
         public JsonResult CreateOrModifyContactJSON(int MunicipalityTVItemID, int ContactTVItemID, string FirstName,
-            string Initial, string LastName, int? Title, string LoginEmail, bool IsActive, string AdminEmail)
+            string Initial, string LastName, string Email, int? Title, bool IsActive, string AdminEmail)
         {
             TVItemModel tvItemModel = _PolSourceSiteInputToolService.CreateOrModifyContactDB(MunicipalityTVItemID, ContactTVItemID, FirstName, 
-                Initial, LastName, Title, LoginEmail, IsActive, AdminEmail);
+                Initial, LastName, Email, Title, IsActive, AdminEmail);
 
             return Json(tvItemModel.Error, JsonRequestBehavior.AllowGet);
         }
@@ -615,6 +611,30 @@ namespace CSSPWebTools.Controllers
         public JsonResult MunicipalityExistJSON(int ProvinceTVItemID, string Municipality, string AdminEmail)
         {
             TVItemModel tvItemModel = _PolSourceSiteInputToolService.MunicipalityExistDB(ProvinceTVItemID, Municipality, AdminEmail);
+
+            return Json(tvItemModel.Error, JsonRequestBehavior.AllowGet);
+        }
+        [HttpPost]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public JsonResult EmailExistJSON(int TVItemID, string AdminEmail)
+        {
+            TVItemModel tvItemModel = _PolSourceSiteInputToolService.EmailExistDB(TVItemID, AdminEmail);
+
+            return Json(tvItemModel.Error, JsonRequestBehavior.AllowGet);
+        }
+        [HttpPost]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public JsonResult TelExistJSON(int TVItemID, string AdminEmail)
+        {
+            TVItemModel tvItemModel = _PolSourceSiteInputToolService.TelExistDB(TVItemID, AdminEmail);
+
+            return Json(tvItemModel.Error, JsonRequestBehavior.AllowGet);
+        }
+        [HttpPost]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public JsonResult ContactExistJSON(int TVItemID, string AdminEmail)
+        {
+            TVItemModel tvItemModel = _PolSourceSiteInputToolService.ContactExistDB(TVItemID, AdminEmail);
 
             return Json(tvItemModel.Error, JsonRequestBehavior.AllowGet);
         }
