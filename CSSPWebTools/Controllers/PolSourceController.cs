@@ -520,7 +520,7 @@ namespace CSSPWebTools.Controllers
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
         public JsonResult CreateOrModifyEmailJSON(int ContactTVItemID, int EmailTVItemID, int? EmailType, string EmailAddress, bool ShouldDelete, string AdminEmail)
         {
-            TVItemModel tvItemModel = _PolSourceSiteInputToolService.CreateOrModifyTelephoneDB(ContactTVItemID, EmailTVItemID, EmailType, EmailAddress, ShouldDelete, AdminEmail);
+            TVItemModel tvItemModel = _PolSourceSiteInputToolService.CreateOrModifyEmailDB(ContactTVItemID, EmailTVItemID, EmailType, EmailAddress, ShouldDelete, AdminEmail);
 
             return Json(tvItemModel.Error, JsonRequestBehavior.AllowGet);
         }
