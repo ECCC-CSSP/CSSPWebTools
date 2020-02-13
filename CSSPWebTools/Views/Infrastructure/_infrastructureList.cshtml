@@ -170,11 +170,14 @@
                                 </button>
                             </li>
                         }
+                        @{
+                            string strikeThrough = tvItemModelInfrastructureTypeTVItemLinkModel.TVItemModel.IsActive == false ? "text-strikeThrough" : "";
+                        }
                         @if (tvItemModelInfrastructureTypeTVItemLinkModel.SeeOtherMunicipalityTVItemID != null)
                         {
                             <li>
                                 <a class="btn btn-default" role="button" href="@infrastructureController.CreateHashURL((int)tvItemModelInfrastructureTypeTVItemLinkModel.SeeOtherMunicipalityTVItemID)">
-                                    @tvItemModelInfrastructureTypeTVItemLinkModel.TVItemModel.TVText
+                                    <span class="@strikeThrough"></span> @tvItemModelInfrastructureTypeTVItemLinkModel.TVItemModel.TVText
                                 </a>
                             </li>
                         }
@@ -183,7 +186,7 @@
                             <li>
                                 <div class="LastUpdateAndTVText" data-table="TVItemLanguage" data-id="@tvItemModelInfrastructureTypeTVItemLinkModel.TVItemModel.TVItemID"></div>
                                 <a href="@infrastructureController.CreateHashURL(tvItemModelInfrastructureTypeTVItemLinkModel.TVItemModel.TVItemID)">
-                                    <span class="TVTextA">@tvItemModelInfrastructureTypeTVItemLinkModel.TVItemModel.TVText</span>
+                                    <span class="TVTextA @(strikeThrough)">@tvItemModelInfrastructureTypeTVItemLinkModel.TVItemModel.TVText</span>
                                 </a>
 
                             </li>
