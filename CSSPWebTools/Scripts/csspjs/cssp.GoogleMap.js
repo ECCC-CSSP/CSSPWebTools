@@ -768,10 +768,17 @@ var CSSP;
                                         // Get direction of the segment
                                         var heading = spherical.computeHeading(F, T);
                                         var dist = 50; // distance in meters
+                                        var length_1 = spherical.computeDistanceBetween(F, T);
+                                        if (length_1 < 50) {
+                                            dist = 10;
+                                        }
+                                        else if (length_1 < 200) {
+                                            dist = 20;
+                                        }
                                         // Place point A that is oriented at 90� in a distance of dist from M
                                         var A = spherical.computeOffset(M, dist, heading + 90);
                                         var perpendicularCoordinates = [F, T, A, F];
-                                        var polyg = new google.maps.Polygon({
+                                        var polyg_1 = new google.maps.Polygon({
                                             paths: perpendicularCoordinates,
                                             strokeColor: strokeColor,
                                             strokeOpacity: 1.0,
@@ -781,8 +788,8 @@ var CSSP;
                                             map: cssp.GoogleMap.Map,
                                             zIndex: zIndex,
                                         });
-                                        polyg.setMap(cssp.GoogleMap.Map);
-                                        cssp.GoogleMap.MVCObjPolygons.push(polyg);
+                                        polyg_1.setMap(cssp.GoogleMap.Map);
+                                        cssp.GoogleMap.MVCObjPolygons.push(polyg_1);
                                     }
                                 }
                             }

@@ -842,20 +842,27 @@ module CSSP {
                                 }
 
                                 for (let i = 0, count = CoordList.length - 1; i < count; i++) {
-                                    var spherical = google.maps.geometry.spherical;
-                                    var F = new google.maps.LatLng(CoordList[i].lat(), CoordList[i].lng());
-                                    var T = new google.maps.LatLng(CoordList[i + 1].lat(), CoordList[i + 1].lng());
+                                    let spherical = google.maps.geometry.spherical;
+                                    let F = new google.maps.LatLng(CoordList[i].lat(), CoordList[i].lng());
+                                    let T = new google.maps.LatLng(CoordList[i + 1].lat(), CoordList[i + 1].lng());
                                     // M is the middle of [FT]
-                                    var latM = (CoordList[i].lat() + CoordList[i + 1].lat()) / 2;
-                                    var longM = (CoordList[i].lng() + CoordList[i + 1].lng()) / 2;
-                                    var M = new google.maps.LatLng(latM, longM);
+                                    let latM = (CoordList[i].lat() + CoordList[i + 1].lat()) / 2;
+                                    let longM = (CoordList[i].lng() + CoordList[i + 1].lng()) / 2;
+                                    let M = new google.maps.LatLng(latM, longM);
                                     // Get direction of the segment
-                                    var heading = spherical.computeHeading(F, T);
-                                    var dist = 50; // distance in meters
+                                    let heading = spherical.computeHeading(F, T);
+                                    let dist = 50; // distance in meters
+                                    let length = spherical.computeDistanceBetween(F, T);
+                                    if (length < 50) {
+                                        dist = 10;
+                                    }
+                                    else if (length < 200) {
+                                        dist = 20;
+                                    }
                                     // Place point A that is oriented at 90° in a distance of dist from M
-                                    var A = spherical.computeOffset(M, dist, heading + 90);
-                                    var perpendicularCoordinates = [F, T, A, F];
-                                    var polyg: google.maps.Polygon = new google.maps.Polygon({
+                                    let A = spherical.computeOffset(M, dist, heading + 90);
+                                    let perpendicularCoordinates = [F, T, A, F];
+                                    let polyg: google.maps.Polygon = new google.maps.Polygon({
                                         paths: perpendicularCoordinates,
                                         strokeColor: strokeColor,
                                         strokeOpacity: 1.0,
