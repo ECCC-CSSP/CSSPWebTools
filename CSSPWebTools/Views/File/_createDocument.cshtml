@@ -137,9 +137,14 @@
                             <td>Will create some documentation for MWQM Pollution source sites compact</td>
                         </tr>
                         <tr>
-                            <td>|||SUBSECTOR_MUNICIPALITIES|||</td>
+                            <td>|||SUBSECTOR_MUNICIPALITIES_COMPACT|||</td>
                             <td>No</td>
-                            <td>Will create some documentation for each municipality within the subsector using the document type unique code "SubsectorMunicipalityDocx" under subsector</td>
+                            <td>Will create some documentation showing each municipality and infrastructure hierarchy (only basic info)</td>
+                        </tr>
+                        <tr>
+                            <td>|||SUBSECTOR_MUNICIPALITIES_FULL|||</td>
+                            <td>No</td>
+                            <td>Will create some documentation showing each municipality and infrastructure hierarchy (full info) which include Contacts, each infrastructure detail info, outfall info, comments</td>
                         </tr>
                         <tr>
                             <td>&nbsp;</td>
@@ -155,16 +160,6 @@
                             <td>|||SUBSECTOR_MUNICIPALITY_INFRASTRUCTURE_MAP|||</td>
                             <td>No</td>
                             <td>Will insert a graph placeholder or get an existing graph from CSSPWebTools Named: [{MunicipalityName}_Infrastructure_Map_{year}.png] and saved under Files of the Subsector</td>
-                        </tr>
-                        <tr>
-                            <td>|||SUBSECTOR_MUNICIPALITY_CONTACTS|||</td>
-                            <td>No</td>
-                            <td>Will create a list of contacts and their roles with the management of the municipality infrastructure</td>
-                        </tr>
-                        <tr>
-                            <td>|||SUBSECTOR_MUNICIPALITY_INFRASTRUCTURE_DETAIL|||</td>
-                            <td>No</td>
-                            <td>Will create a list of infrastructure showing the detail of each (i.e. which one is pumping to the other, description, flows, etc... )</td>
                         </tr>
                         <tr>
                             <td>&nbsp;</td>
@@ -232,9 +227,34 @@
                             <td>Will insert the municipality name ex: Bouctouche</td>
                         </tr>
                         <tr>
-                            <td>|||REPORT_YEAR|||</td>
+                            <td>|||STATISTICS_LAST_YEAR|||</td>
                             <td>Yes</td>
                             <td>Will insert the year of the report</td>
+                        </tr>
+                        <tr>
+                            <td>|||NL_AUTHORS|||</td>
+                            <td>Yes</td>
+                            <td>D. Curtis, G. Perchard, M. Glavine</td>
+                        </tr>
+                        <tr>
+                            <td>|||NB_AUTHORS|||</td>
+                            <td>Yes</td>
+                            <td>B. Richard, P. Godin, K. Martell, J. Pomeroy, C. LeBlanc, J.A. Richard</td>
+                        </tr>
+                        <tr>
+                            <td>|||NS_AUTHORS|||</td>
+                            <td>Yes</td>
+                            <td>D. MacArthur, L. Pothier, R. Alexanders, P. Densmore</td>
+                        </tr>
+                        <tr>
+                            <td>|||PE_AUTHORS|||</td>
+                            <td>Yes</td>
+                            <td>D. MacArthur, L. Pothier, R. Alexanders</td>
+                        </tr>
+                        <tr>
+                            <td>|||STATISTICS_PERIOD|||</td>
+                            <td>Yes</td>
+                            <td>Will show the report period start and end year EX: 2019 - 2002</td>
                         </tr>
                         <tr>
                             <td>&nbsp;</td>
@@ -269,22 +289,22 @@
                         <tr>
                             <td>|||SUBSECTOR_LOCATION_OF_SURVEY_AREA_MAP|||</td>
                             <td>Yes</td>
-                            <td>Will insert a draft map or get an existing map from CSSPWebTools Named: [Location_of_Survey_Area_Map_{year}.png] and saved under Files of the Subsector</td>
+                            <td>Will insert a draft map or get an existing map from CSSPWebTools Named: [{subsector}_Location_of_Survey_Area_Map_{year}.png] and saved under Files of the Subsector</td>
                         </tr>
                         <tr>
                             <td>|||SUBSECTOR_CURRENT_CLASSIFICATION_AND_SAMPLING_LOCATION_MAP|||</td>
                             <td>Yes</td>
-                            <td>Will insert a draft map or get an existing map from CSSPWebTools Named: [Current_Classification_And_Sampling_Location_Map_{year}.png] and saved under Files of the Subsector</td>
+                            <td>Will insert a draft map or get an existing map from CSSPWebTools Named: [{subsector}_Current_Classification_And_Sampling_Location_Map_{year}.png] and saved under Files of the Subsector</td>
                         </tr>
                         <tr>
                             <td>|||SUBSECTOR_RECOMMENDED_CLASSIFICATION_MAP|||</td>
                             <td>Yes</td>
-                            <td>Will insert a graph placeholder or get an existing graph from CSSPWebTools Named: [Recommended_Classification_Map_{year}.png] and saved under Files of the Subsector</td>
+                            <td>Will insert a graph placeholder or get an existing graph from CSSPWebTools Named: [{subsector}_Recommended_Classification_Map_{year}.png] and saved under Files of the Subsector</td>
                         </tr>
                         <tr>
                             <td>|||SUBSECTOR_POLLUTION_SOURCE_LOCATIONS_MAP|||</td>
                             <td>Yes</td>
-                            <td>Will insert a graph placeholder or get an existing graph from CSSPWebTools Named: [Pollution_Source_Locations_Map_{year}.png] and saved under Files of the Subsector</td>
+                            <td>Will insert a graph placeholder or get an existing graph from CSSPWebTools Named: [{subsector}_Pollution_Source_Locations_Map_{year}.png] and saved under Files of the Subsector</td>
                         </tr>
                     </tbody>
                 </table>
