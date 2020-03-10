@@ -210,7 +210,6 @@
     <Compile Include="Controllers\PolSourceController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\RainExceedanceController.cs" />
-    <Compile Include="Controllers\ReportController.cs" />
     <Compile Include="Controllers\ReportTypeController.cs" />
     <Compile Include="Controllers\Resources\ControllerRes.Designer.cs">
       <DependentUpon>ControllerRes.resx</DependentUpon>

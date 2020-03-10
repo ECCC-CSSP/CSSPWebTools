@@ -165,11 +165,17 @@
   <data name="Edit" xml:space="preserve">
     <value>Modifier</value>
   </data>
+  <data name="English" xml:space="preserve">
+    <value>English</value>
+  </data>
   <data name="FileNameWillStartWith" xml:space="preserve">
     <value>Le nom des filières vont commencer par</value>
   </data>
   <data name="FileType" xml:space="preserve">
     <value>Type de filière</value>
+  </data>
+  <data name="French" xml:space="preserve">
+    <value>Français</value>
   </data>
   <data name="Infrastructure" xml:space="preserve">
     <value>Infrastructure</value>

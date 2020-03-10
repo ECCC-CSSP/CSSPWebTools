@@ -273,4 +273,10 @@
   <data name="ReportSectionForYear" xml:space="preserve">
     <value>Report section for year</value>
   </data>
+  <data name="English" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="French" xml:space="preserve">
+    <value>Français</value>
+  </data>
 </root>

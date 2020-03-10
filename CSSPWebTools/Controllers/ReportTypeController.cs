@@ -22,7 +22,6 @@ namespace CSSPWebTools.Controllers
         #region Properties
         public ReportSectionService _ReportSectionService { get; private set; }
         public ReportTypeService _ReportTypeService { get; private set; }
-        public ReportTypeLanguageService _ReportTypeLanguageService { get; private set; }
         public ReportTypeController _ReportTypeController { get; private set; }
         public TVFileService _TVFileService { get; private set; }
         public BaseEnumService _BaseEnumService { get; set; }
@@ -41,7 +40,6 @@ namespace CSSPWebTools.Controllers
             base.Initialize(requestContext);
             _ReportSectionService = new ReportSectionService(LanguageRequest, User);
             _ReportTypeService = new ReportTypeService(LanguageRequest, User);
-            _ReportTypeLanguageService = new ReportTypeLanguageService(LanguageRequest, User);
             _TVFileService = new TVFileService(LanguageRequest, User);
             _BaseEnumService = new BaseEnumService(LanguageRequest);
         }
@@ -58,7 +56,7 @@ namespace CSSPWebTools.Controllers
             ViewBag.TVTypeEnumTextOrderedList = null;
             ViewBag.FileTypeEnumTextOrderedList = null;
 
-            List<ReportTypeModel> reportTypeModelList = _ReportTypeService.GetReportTypeModelListAllDB();
+            List<ReportTypeModel> reportTypeModelList = _ReportTypeService.GetReportTypeModelListWithLanguageDB(LanguageRequest);
 
             ViewBag.ReportTypeModelList = reportTypeModelList;
 
@@ -76,11 +74,15 @@ namespace CSSPWebTools.Controllers
         public PartialViewResult _reportTypeList(int TVType)
         {
             ViewBag.ReportTypeController = _ReportTypeController;
-            ViewBag.ReportTypeModelList = null;
+            ViewBag.ReportTypeModelENList = null;
+            ViewBag.ReportTypeModelFRList = null;
             ViewBag.TVType = (TVTypeEnum)TVType;
 
-            List<ReportTypeModel> reportTypeModelList = _ReportTypeService.GetReportTypeModelListWithTVTypeDB((TVTypeEnum)TVType);
-            ViewBag.ReportTypeModelList = reportTypeModelList;
+            List<ReportTypeModel> reportTypeModelENList = _ReportTypeService.GetReportTypeModelListWithTVTypeAndLanguageDB((TVTypeEnum)TVType, LanguageEnum.en);
+            ViewBag.ReportTypeModelENList = reportTypeModelENList;
+
+            List<ReportTypeModel> reportTypeModelFRList = _ReportTypeService.GetReportTypeModelListWithTVTypeAndLanguageDB((TVTypeEnum)TVType, LanguageEnum.fr);
+            ViewBag.ReportTypeModelFRList = reportTypeModelFRList;
 
             return PartialView();
         }
@@ -97,10 +99,10 @@ namespace CSSPWebTools.Controllers
             ReportTypeModel reportTypeModel = _ReportTypeService.GetReportTypeModelWithReportTypeIDDB(ReportTypeID);
             ViewBag.ReportTypeModel = reportTypeModel;
 
-            List<int?> reportSectionYearList = _ReportSectionService.GetReportSectionYearListWithReportTypeIDDB(ReportTypeID);
+            List<int?> reportSectionYearList = _ReportSectionService.GetReportSectionYearListWithReportTypeIDAndLanguageDB(ReportTypeID, reportTypeModel.Language);
             ViewBag.ReportSectionYearList = reportSectionYearList;
 
-            List<ReportSectionModel> reportSectionModelList = _ReportSectionService.GetReportSectionModelListWithReportTypeIDAndTVItemIDNoReportSectionTextDB(ReportTypeID, null);
+            List<ReportSectionModel> reportSectionModelList = _ReportSectionService.GetReportSectionModelListWithReportTypeIDAndTVItemIDNoReportSectionTextDB(ReportTypeID, reportTypeModel.Language, null);
             ViewBag.ReportSectionModelList = reportSectionModelList;
 
             return PartialView();
@@ -117,7 +119,7 @@ namespace CSSPWebTools.Controllers
 
             reportSectionModelList.Add(reportSectionModel);
 
-            List<ReportSectionModel> reportSectionModelLinkList = _ReportSectionService.GetReportSectionModelListWithReportSectionIDTemplateLinkAndTVItemIDForAllYearsDB(ReportSectionID, TVItemID);
+            List<ReportSectionModel> reportSectionModelLinkList = _ReportSectionService.GetReportSectionModelListWithReportSectionIDTemplateLinkAndTVItemIDForAllYearsDB(ReportSectionID, TVItemID, LanguageRequest);
 
             foreach (ReportSectionModel reportSectionModelLink in reportSectionModelLinkList)
             {
@@ -128,7 +130,6 @@ namespace CSSPWebTools.Controllers
 
             return PartialView();
         }
-
 
         [HttpPost]
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
@@ -161,7 +162,7 @@ namespace CSSPWebTools.Controllers
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
         public JsonResult ReportSectionAddTopJSON(int ReportTypeID)
         {
-            ReportSectionModel reportSectionModel = _ReportSectionService.PostReportSectionAddTopDB(ReportTypeID);
+            ReportSectionModel reportSectionModel = _ReportSectionService.PostReportSectionAddTopDB(ReportTypeID, LanguageRequest);
 
             return Json(reportSectionModel.Error, JsonRequestBehavior.AllowGet);
         }
@@ -179,7 +180,7 @@ namespace CSSPWebTools.Controllers
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
         public JsonResult ReportSectionChangeLockedJSON(int ReportTypeID, bool Locked)
         {
-            ReportSectionModel reportSectionModel = _ReportSectionService.PostReportSectionChangeLockedDB(ReportTypeID, Locked);
+            ReportSectionModel reportSectionModel = _ReportSectionService.PostReportSectionChangeLockedDB(ReportTypeID, LanguageRequest, Locked);
 
             return Json(reportSectionModel.Error, JsonRequestBehavior.AllowGet);
         }
