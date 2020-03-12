@@ -99,10 +99,10 @@ namespace CSSPWebTools.Controllers
             ReportTypeModel reportTypeModel = _ReportTypeService.GetReportTypeModelWithReportTypeIDDB(ReportTypeID);
             ViewBag.ReportTypeModel = reportTypeModel;
 
-            List<int?> reportSectionYearList = _ReportSectionService.GetReportSectionYearListWithReportTypeIDAndLanguageDB(ReportTypeID, reportTypeModel.Language);
+            List<int?> reportSectionYearList = _ReportSectionService.GetReportSectionYearListWithReportTypeIDDB(ReportTypeID);
             ViewBag.ReportSectionYearList = reportSectionYearList;
 
-            List<ReportSectionModel> reportSectionModelList = _ReportSectionService.GetReportSectionModelListWithReportTypeIDAndTVItemIDNoReportSectionTextDB(ReportTypeID, reportTypeModel.Language, null);
+            List<ReportSectionModel> reportSectionModelList = _ReportSectionService.GetReportSectionModelListWithReportTypeIDAndTVItemIDNoReportSectionTextDB(ReportTypeID, null);
             ViewBag.ReportSectionModelList = reportSectionModelList;
 
             return PartialView();
@@ -119,7 +119,7 @@ namespace CSSPWebTools.Controllers
 
             reportSectionModelList.Add(reportSectionModel);
 
-            List<ReportSectionModel> reportSectionModelLinkList = _ReportSectionService.GetReportSectionModelListWithReportSectionIDTemplateLinkAndTVItemIDForAllYearsDB(ReportSectionID, TVItemID, LanguageRequest);
+            List<ReportSectionModel> reportSectionModelLinkList = _ReportSectionService.GetReportSectionModelListWithReportSectionIDTemplateLinkAndTVItemIDForAllYearsDB(ReportSectionID, TVItemID);
 
             foreach (ReportSectionModel reportSectionModelLink in reportSectionModelLinkList)
             {
@@ -162,7 +162,7 @@ namespace CSSPWebTools.Controllers
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
         public JsonResult ReportSectionAddTopJSON(int ReportTypeID)
         {
-            ReportSectionModel reportSectionModel = _ReportSectionService.PostReportSectionAddTopDB(ReportTypeID, LanguageRequest);
+            ReportSectionModel reportSectionModel = _ReportSectionService.PostReportSectionAddTopDB(ReportTypeID);
 
             return Json(reportSectionModel.Error, JsonRequestBehavior.AllowGet);
         }

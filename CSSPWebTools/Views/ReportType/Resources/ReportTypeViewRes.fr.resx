@@ -181,10 +181,10 @@
     <value>Infrastructure</value>
   </data>
   <data name="IsNotStatic" xml:space="preserve">
-    <value>Est statique</value>
+    <value>Non-statique</value>
   </data>
   <data name="IsStatic" xml:space="preserve">
-    <value>Est statique</value>
+    <value>Statique</value>
   </data>
   <data name="MikeScenario" xml:space="preserve">
     <value>Scenario Mike</value>
