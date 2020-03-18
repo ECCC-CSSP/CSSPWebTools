@@ -556,7 +556,7 @@ namespace CSSPWebTools.Controllers
             float? PortDiameter_m, float? PortSpacing_m, float? PortElevation_m, float? VerticalAngle_deg, float? HorizontalAngle_deg,
             float? DecayRate_per_day, float? NearFieldVelocity_m_s, float? FarFieldVelocity_m_s, float? ReceivingWaterSalinity_PSU,
             float? ReceivingWaterTemperature_C, int? ReceivingWater_MPN_per_100ml, float? DistanceFromShore_m,
-            int? SeeOtherMunicipalityTVItemID, string SeeOtherMunicipalityText, int? PumpsToTVItemID, string AdminEmail)
+            int? SeeOtherMunicipalityTVItemID, string SeeOtherMunicipalityText, int? PumpsToTVItemID, string LinePathInf, string LinePathInfOutfall, string AdminEmail)
         {
             TVItemModel tvItemModel = _PolSourceSiteInputToolService.CreateOrModifyInfrastructureDB(MunicipalityTVItemID, TVItemID, TVText, IsActive,
                     Lat, Lng, LatOutfall, LngOutfall, CommentEN, CommentFR, InfrastructureType, FacilityType,
@@ -570,7 +570,7 @@ namespace CSSPWebTools.Controllers
                     PortDiameter_m, PortSpacing_m, PortElevation_m, VerticalAngle_deg, HorizontalAngle_deg,
                     DecayRate_per_day, NearFieldVelocity_m_s, FarFieldVelocity_m_s, ReceivingWaterSalinity_PSU,
                     ReceivingWaterTemperature_C, ReceivingWater_MPN_per_100ml, DistanceFromShore_m,
-                    SeeOtherMunicipalityTVItemID, SeeOtherMunicipalityText, PumpsToTVItemID, AdminEmail);
+                    SeeOtherMunicipalityTVItemID, SeeOtherMunicipalityText, PumpsToTVItemID, LinePathInf, LinePathInfOutfall, AdminEmail);
 
             return Json(tvItemModel.Error, JsonRequestBehavior.AllowGet);
         }
