@@ -82,9 +82,9 @@ else
                 <div class="panel-heading" role="tab" id="@HeadingID">
                     <h4 class="panel-title">
                         <a role="button" data-toggle="collapse" data-parent="#labSheetAccordion" href="#@CollapseID" aria-expanded="false" aria-controls="@CollapseID">
-                            @labSheetModelAndA1Sheet.LabSheetModel.SubsectorTVText 
-                            --- @SampleDate.ToString("yyyy MMM dd") 
-                            --- @SamplingPlanViewRes.Run (@labSheetModelAndA1Sheet.LabSheetModel.RunNumber) 
+                            @labSheetModelAndA1Sheet.LabSheetModel.SubsectorTVText
+                            --- @SampleDate.ToString("yyyy MMM dd")
+                            --- @SamplingPlanViewRes.Run (@labSheetModelAndA1Sheet.LabSheetModel.RunNumber)
                             --- @SamplingPlanViewRes.Samples (@labSheetSiteMonitoredCounts.LabSheetSiteRoutineCount / @labSheetSiteMonitoredCounts.SamplingPlanSubsectorSiteCount)
                         </a>
                     </h4>
@@ -1292,9 +1292,21 @@ else
                                     <select name="ChangeRunSamplingType" size="5" multiple="multiple">
                                         @foreach (SampleTypeEnumTextOrdered sampleTypeEnumTextOrdered in _BaseEnumService.GetSampleTypeEnumTextOrderedList())
                                         {
-                                            <option value="@((int)sampleTypeEnumTextOrdered.SampleType)" @(sampleTypeEnumTextOrdered.SampleType == labSheetModelAndA1Sheet.LabSheetA1Sheet.SampleType ? "selected=selected" : "")>
-                                                @(sampleTypeEnumTextOrdered.SampleTypeText)
-                                            </option>
+                                            if (sampleTypeEnumTextOrdered.SampleType == labSheetModelAndA1Sheet.LabSheetA1Sheet.SampleType)
+                                            {
+                                                <option value="@((int)sampleTypeEnumTextOrdered.SampleType)" @(sampleTypeEnumTextOrdered.SampleType == labSheetModelAndA1Sheet.LabSheetA1Sheet.SampleType ? "selected=selected" : "")>
+                                                    @(sampleTypeEnumTextOrdered.SampleTypeText)
+                                                </option>
+                                            }
+                                        }
+                                        @foreach (SampleTypeEnumTextOrdered sampleTypeEnumTextOrdered in _BaseEnumService.GetSampleTypeEnumTextOrderedList())
+                                        {
+                                            if (sampleTypeEnumTextOrdered.SampleType != labSheetModelAndA1Sheet.LabSheetA1Sheet.SampleType)
+                                            {
+                                                <option value="@((int)sampleTypeEnumTextOrdered.SampleType)" @(sampleTypeEnumTextOrdered.SampleType == labSheetModelAndA1Sheet.LabSheetA1Sheet.SampleType ? "selected=selected" : "")>
+                                                    @(sampleTypeEnumTextOrdered.SampleTypeText)
+                                                </option>
+                                            }
                                         }
                                     </select>
                                     <span>@SamplingPlanViewRes.CtrlClickToSelectMultiple</span>
