@@ -127,9 +127,9 @@
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
     </Reference>
@@ -631,6 +631,9 @@
     <Content Include="Scripts\esm\popper.js.map" />
     <Content Include="Scripts\esm\popper-utils.min.js.map" />
     <Content Include="Scripts\esm\popper-utils.js.map" />
+    <None Include="Properties\PublishProfiles\CSSPWebTools - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\CSSPWebTools - ReadOnly - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\CSSPWebTools - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -750,7 +753,6 @@
     <Content Include="Scripts\globalize\globalize.js" />
     <Content Include="Scripts\html5shiv.js" />
     <Content Include="Scripts\infobox.js" />
-    <None Include="Properties\PublishProfiles\CSSPWebTools publish.pubxml" />
     <Content Include="Scripts\jquery.placeholder.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.globalize.js" />
