@@ -145,6 +145,12 @@ namespace CSSPWebTools.Controllers
                 loginModel.ReturnURL = "";
             }
 
+            ContactModel contactModelRet = _ContactService.RehashPasswordDB(loginModel);
+            if (!string.IsNullOrEmpty(contactModelRet.Error))
+            {
+                loginModel.Error = contactModelRet.Error;
+            }
+
             loginModel.Password = "";
 
             return Json(loginModel, JsonRequestBehavior.AllowGet);
