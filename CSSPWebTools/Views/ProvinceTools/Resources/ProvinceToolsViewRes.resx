@@ -249,4 +249,7 @@
   <data name="OnlyNeedToBeDoneOnceIfNewDataExistOnCocoRaHSWebSite" xml:space="preserve">
     <value>Only need to be done once if new data exist on CoCoRaHS web site</value>
   </data>
+  <data name="GenerateClassificationInputs_XX_FromDB_kmlFromDataInCSSPDB" xml:space="preserve">
+    <value>Generate ClassificationInputs_XX_FromDB.kml From Data In CSSP database</value>
+  </data>
 </root>

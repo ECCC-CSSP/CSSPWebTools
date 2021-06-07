@@ -233,6 +233,15 @@ namespace CSSPWebTools.Views.ProvinceTools.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Generate ClassificationInputs_XX_FromDB.kml From Data In CSSP database.
+        /// </summary>
+        public static string GenerateClassificationInputs_XX_FromDB_kmlFromDataInCSSPDB {
+            get {
+                return ResourceManager.GetString("GenerateClassificationInputs_XX_FromDB_kmlFromDataInCSSPDB", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Generate classificaton for CSSPWebTools visualization.
         /// </summary>
         public static string GenerateClassificatonForCSSPWebToolsVisualization {

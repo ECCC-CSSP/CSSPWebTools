@@ -174,6 +174,9 @@
   <data name="FindMissingPrecipForProvince" xml:space="preserve">
     <value>Trouvez les précipitations manquantes pour la province</value>
   </data>
+  <data name="GenerateClassificationInputs_XX_FromDB_kmlFromDataInCSSPDB" xml:space="preserve">
+    <value>Générer le fichier ClassificationInputs_XX_FromDB.kml à partir de données de la base de données CSSP</value>
+  </data>
   <data name="GenerateClassificatonForCSSPWebToolsVisualization" xml:space="preserve">
     <value>Générer la classification pour la visualisation du WebTool PCCSM</value>
   </data>

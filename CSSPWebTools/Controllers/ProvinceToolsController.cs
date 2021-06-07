@@ -142,6 +142,14 @@ namespace CSSPWebTools.Controllers
         }
         [HttpPost]
         [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public JsonResult GenerateClassificationInputs_XX_FromDB_kmlFromDataInCSSPDBJSON(int ProvinceTVItemID)
+        {
+            AppTaskModel appTaskModel = _ProvinceToolsService.GenerateClassificationInputs_XX_FromDB_kmlFromDataInCSSPDBDB(ProvinceTVItemID);
+
+            return Json(appTaskModel.Error, JsonRequestBehavior.AllowGet);
+        }
+        [HttpPost]
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
         public JsonResult GenerateLinksBetweenMWQMSitesAndPolSourceSitesForCSSPWebToolsVisualizationJSON(int ProvinceTVItemID)
         {
             AppTaskModel appTaskModel = _ProvinceToolsService.GenerateLinksBetweenMWQMSitesAndPolSourceSitesForCSSPWebToolsVisualizationDB(ProvinceTVItemID);

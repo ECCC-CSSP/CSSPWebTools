@@ -1359,6 +1359,11 @@ module CSSP {
                             cssp.ProvinceTools.GenerateKMLFileClassificationForCSSPWebToolsVisualization($bjs);
                         }
                         break;
+                    case "jbProvinceToolsGenerateClassificationInputs_XX_FromDB_kmlFromDataInCSSPDB":
+                        {
+                            cssp.ProvinceTools.GenerateClassificationInputs_XX_FromDB_kmlFromDataInCSSPDB($bjs);
+                        }
+                        break;
                     case "jbGenerateLinksBetweenMWQMSitesAndPolSourceSitesForCSSPWebToolsVisualization":
                         {
                             cssp.ProvinceTools.GenerateLinksBetweenMWQMSitesAndPolSourceSitesForCSSPWebToolsVisualization($bjs);
