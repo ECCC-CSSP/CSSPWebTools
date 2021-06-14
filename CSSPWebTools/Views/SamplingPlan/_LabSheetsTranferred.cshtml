@@ -953,12 +953,12 @@ else
                                                     <b>@SamplingPlanViewRes.SiteNumber</b> &nbsp;&nbsp;&nbsp;
                                                     @labSheetA1Measurement.Site
                                                 </p>
-                                                <p>
+                                                @*<p>
                                                     <b>@SamplingPlanViewRes.Analyst</b> &nbsp; &nbsp; &nbsp;
                                                     @labSheetModelAndA1Sheet.LabSheetA1Sheet.ResultsReadBy
                                                     &nbsp;
                                                     @RecordedDate.ToString("yyyy MMM dd")
-                                                </p>
+                                                </p>*@
                                                 <p>
                                                     <b>@SamplingPlanViewRes.RLogs</b> &nbsp; &nbsp; &nbsp;
                                                     @(labSheetModelAndA1Sheet.LabSheetA1Sheet.DailyDuplicatePrecisionCriteria == "0" ? "N/A" : labSheetModelAndA1Sheet.LabSheetA1Sheet.DailyDuplicateRLog)
