@@ -285,4 +285,25 @@
   <data name="StartAnotherDrogueAfterXHours" xml:space="preserve">
     <value>Commencer une autre drogue après X heures</value>
   </data>
+  <data name="ProvincialSubsectorsReview" xml:space="preserve">
+    <value>Examen des sous-secteurs provinciaux</value>
+  </data>
+  <data name="AfterYear" xml:space="preserve">
+    <value>Après l'année</value>
+  </data>
+  <data name="FullYear" xml:space="preserve">
+    <value>Pleine année</value>
+  </data>
+  <data name="NumberOfRuns" xml:space="preserve">
+    <value>Nombre de tournées</value>
+  </data>
+  <data name="OnlyActiveMWQMSites" xml:space="preserve">
+    <value>Seulement les sites PCCSM actifs</value>
+  </data>
+  <data name="OnlyActiveSubsectors" xml:space="preserve">
+    <value>Seulement les sous-secteurs actifs</value>
+  </data>
+  <data name="ProvincialSubsectorsReviewXlsx" xml:space="preserve">
+    <value>Examen des sous-secteurs provinciaux (xlsx)</value>
+  </data>
 </root>

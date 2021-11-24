@@ -285,4 +285,25 @@
   <data name="StartAnotherDrogueAfterXHours" xml:space="preserve">
     <value>Start another drogue after X hours</value>
   </data>
+  <data name="ProvincialSubsectorsReview" xml:space="preserve">
+    <value>Provincial Subsectors Review</value>
+  </data>
+  <data name="AfterYear" xml:space="preserve">
+    <value>After year</value>
+  </data>
+  <data name="FullYear" xml:space="preserve">
+    <value>Full year</value>
+  </data>
+  <data name="NumberOfRuns" xml:space="preserve">
+    <value>Number of runs</value>
+  </data>
+  <data name="OnlyActiveMWQMSites" xml:space="preserve">
+    <value>Only active MWQM sites</value>
+  </data>
+  <data name="OnlyActiveSubsectors" xml:space="preserve">
+    <value>Only active subsectors</value>
+  </data>
+  <data name="ProvincialSubsectorsReviewXlsx" xml:space="preserve">
+    <value>Provincial subsectors review (xlsx)</value>
+  </data>
 </root>

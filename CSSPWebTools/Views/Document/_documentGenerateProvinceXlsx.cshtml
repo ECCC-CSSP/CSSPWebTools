@@ -21,7 +21,7 @@
                 <fieldset>
                     <input type="hidden" name="TVItemID" value="@TVItemID" />
                     <input type="hidden" name="ReportTypeID" value="@ReportTypeID" />
-                    @Parameters(reportTypeModel.UniqueCode)
+                    @Parameters(reportTypeModel.UniqueCode, ReportTypeID, TVItemID)
                     <div class="form-group">
                         <button class="jbDocumentGenerate btn btn-primary" type="submit">
                             <span class="glyphicon glyphicon-check"></span>
@@ -37,35 +37,105 @@ else
 {
     <ul class="list-unstyled">
         <li>
-            @Parameters(reportTypeModel.UniqueCode)
+            @Parameters(reportTypeModel.UniqueCode, ReportTypeID, TVItemID)
         </li>
     </ul>
 }
 
-@helper Parameters(string UniqueCode)
+@helper Parameters(string UniqueCode, int ReportTypeID, int TVItemID)
 {
     switch (UniqueCode)
     {
-        case "StatProvinceFRXLSX":
-        case "StatProvinceENXLSX":
+        case "ProvincialSubsectorsReviewFRXLSX":
+        case "ProvincialSubsectorsReviewENXLSX":
             {
                 <legend>
                     <span>@DocumentViewRes.Parameters</span>
-                    <button class="jbHelpDocShowDialog btn btn-link" data-dockey="documentparametersforstatprovincexlsx"
-                            data-title="@DocumentViewRes.Parameters @DocumentViewRes.For aaaaaaaa">
+                    <button class="jbHelpDocShowDialog btn btn-link" data-dockey="documentparametersforprovincialsubsectorsreviewxlsx"
+                            data-title="@DocumentViewRes.Parameters @DocumentViewRes.For @DocumentViewRes.ProvincialSubsectorsReview">
                         <span class="glyphicon glyphicon-info-sign"></span>
                     </button>
                 </legend>
                 <div class="form-inline">
-                    <label>
-                        <span>TheYear</span>
-                        <button class="jbHelpDocShowDialog btn btn-link" data-dockey="documentstatprovincexlsxyear" data-title="Year"><span class="glyphicon glyphicon-info-sign"></span></button>
+                    <label class="text-nowrap">
+                        <span>@DocumentViewRes.ReportYear</span>
+                        <button class="jbHelpDocShowDialog btn btn-link" data-dockey="documentfcsummarystatdocxyear"
+                                data-title="@DocumentViewRes.FCSummaryStatDocx @DocumentViewRes.ReportYear">
+                            <span class="glyphicon glyphicon-info-sign"></span>
+                        </button>
                         <select name="Year" class="form-control">
-                            @for (int i = 1980; i < DateTime.Now.Year + 1; i++)
+                            @for (int i = DateTime.Now.Year; i > 1989; i--)
                             {
-                                <option value="@i">@i</option>
+                                <option value="@i" @(i == DateTime.Now.Year ? "selected=selected" : "")>@i.ToString()</option>
                             }
                         </select>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                    </label>
+                </div>
+                <p>&nbsp;</p>
+                <div class="form-inline">
+                    <label class="text-nowrap">
+                        <span>@DocumentViewRes.AfterYear</span>
+                        <button class="jbHelpDocShowDialog btn btn-link" data-dockey="documentprovincialsubsectorsreviewxlsxafteryear"
+                                data-title="@DocumentViewRes.ProvincialSubsectorsReviewXlsx @DocumentViewRes.AfterYear">
+                            <span class="glyphicon glyphicon-info-sign"></span>
+                        </button>
+                        <label class="text-nowrap">
+                            <input class="form-control" type="number" name="AfterYear" value="2009" />
+                        </label>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                    </label>
+                </div>
+                <div class="form-inline">
+                    <label class="text-nowrap">
+                        <span>@DocumentViewRes.NumberOfRuns</span>
+                        <button class="jbHelpDocShowDialog btn btn-link" data-dockey="documentprovincialsubsectorsreviewxlsxnumberofruns"
+                                data-title="@DocumentViewRes.ProvincialSubsectorsReviewXlsx @DocumentViewRes.NumberOfRuns">
+                            <span class="glyphicon glyphicon-info-sign"></span>
+                        </button>
+                        <label class="text-nowrap">
+                            <input class="form-control" type="number" name="NumberOfRuns" value="30" />
+                        </label>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                    </label>
+                </div>
+                <div class="form-inline">
+                    <label class="text-nowrap">
+                        <button class="jbHelpDocShowDialog btn btn-link" data-dockey="documentprovincialsubsectorsreviewxlsxonlyactivesubsectors"
+                                data-title="@DocumentViewRes.ProvincialSubsectorsReviewXlsx @DocumentViewRes.OnlyActiveSubsectors">
+                            <span class="glyphicon glyphicon-info-sign"></span>
+                        </button>
+                        <label class="text-nowrap">
+                            <input type="checkbox" checked="checked" name="OnlyActiveSubsectors" />
+                            <span>&nbsp;&nbsp;@DocumentViewRes.OnlyActiveSubsectors &nbsp;&nbsp;</span>
+                        </label>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                    </label>
+                </div>
+                <div class="form-inline">
+                    <label class="text-nowrap">
+                        <button class="jbHelpDocShowDialog btn btn-link" data-dockey="documentprovincialsubsectorsreviewxlsxonlyactivemwqmsites"
+                                data-title="@DocumentViewRes.ProvincialSubsectorsReviewXlsx @DocumentViewRes.OnlyActiveMWQMSites">
+                            <span class="glyphicon glyphicon-info-sign"></span>
+                        </button>
+                        <label class="text-nowrap">
+                            <input type="checkbox" checked="checked" name="OnlyActiveMWQMSites" />
+                            <span>&nbsp;&nbsp;@DocumentViewRes.OnlyActiveMWQMSites &nbsp;&nbsp;</span>
+                        </label>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                    </label>
+                </div>
+                <div class="form-inline">
+                    <label class="text-nowrap">
+                        <button class="jbHelpDocShowDialog btn btn-link" data-dockey="documentprovincialsubsectorsreviewxlsxfullyear"
+                                data-title="@DocumentViewRes.ProvincialSubsectorsReviewXlsx @DocumentViewRes.FullYear">
+                            <span class="glyphicon glyphicon-info-sign"></span>
+                        </button>
+                        <label class="text-nowrap">
+                            <input type="checkbox" checked="checked" name="FullYear" />
+                            <span>&nbsp;&nbsp;@DocumentViewRes.FullYear &nbsp;&nbsp;</span>
+                        </label>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
                     </label>
                 </div>
             }
@@ -73,3 +143,4 @@ else
         default:
             break;
     }
+}

@@ -19,7 +19,7 @@ namespace CSSPWebTools.Views.Document.Resources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class DocumentViewRes {
@@ -57,6 +57,15 @@ namespace CSSPWebTools.Views.Document.Resources {
             }
             set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to After year.
+        /// </summary>
+        public static string AfterYear {
+            get {
+                return ResourceManager.GetString("AfterYear", resourceCulture);
             }
         }
         
@@ -165,6 +174,15 @@ namespace CSSPWebTools.Views.Document.Resources {
         public static string For {
             get {
                 return ResourceManager.GetString("For", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Full year.
+        /// </summary>
+        public static string FullYear {
+            get {
+                return ResourceManager.GetString("FullYear", resourceCulture);
             }
         }
         
@@ -421,6 +439,33 @@ namespace CSSPWebTools.Views.Document.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Number of runs.
+        /// </summary>
+        public static string NumberOfRuns {
+            get {
+                return ResourceManager.GetString("NumberOfRuns", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Only active MWQM sites.
+        /// </summary>
+        public static string OnlyActiveMWQMSites {
+            get {
+                return ResourceManager.GetString("OnlyActiveMWQMSites", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Only active subsectors.
+        /// </summary>
+        public static string OnlyActiveSubsectors {
+            get {
+                return ResourceManager.GetString("OnlyActiveSubsectors", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Parameters.
         /// </summary>
         public static string Parameters {
@@ -453,6 +498,24 @@ namespace CSSPWebTools.Views.Document.Resources {
         public static string PollutionLimit {
             get {
                 return ResourceManager.GetString("PollutionLimit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Provincial Subsectors Review.
+        /// </summary>
+        public static string ProvincialSubsectorsReview {
+            get {
+                return ResourceManager.GetString("ProvincialSubsectorsReview", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Provincial subsectors review (xlsx).
+        /// </summary>
+        public static string ProvincialSubsectorsReviewXlsx {
+            get {
+                return ResourceManager.GetString("ProvincialSubsectorsReviewXlsx", resourceCulture);
             }
         }
         
