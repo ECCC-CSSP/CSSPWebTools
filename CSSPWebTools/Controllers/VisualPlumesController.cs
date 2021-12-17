@@ -96,7 +96,7 @@ namespace CSSPWebTools.Controllers
             // anybody can get this information   
             // No login required
 
-            IPrincipal user = new GenericPrincipal(new GenericIdentity("charles.leblanc2@canada.ca", "Forms"), null);
+            IPrincipal user = new GenericPrincipal(new GenericIdentity("charles.leblanc@ec.gc.ca", "Forms"), null);
 
             VPScenarioService vpScenarioService = new VPScenarioService(LanguageEnum.en, user);
 
