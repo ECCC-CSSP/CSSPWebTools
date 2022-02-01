@@ -46,6 +46,30 @@ else
 {
     switch (UniqueCode)
     {
+        case "AllWQDataFRXLSX":
+        case "AllWQDataENXLSX":
+            {
+                <legend>
+                    <span>@DocumentViewRes.Parameters</span>
+                    <button class="jbHelpDocShowDialog btn btn-link" data-dockey="documentparametersforallwqdataxlsx"
+                            data-title="@DocumentViewRes.Parameters @DocumentViewRes.For aaaaaaaa">
+                        <span class="glyphicon glyphicon-info-sign"></span>
+                    </button>
+                </legend>
+                <div class="form-inline">
+                    <label>
+                        <span>TheYear</span>
+                        <button class="jbHelpDocShowDialog btn btn-link" data-dockey="documentallwqdataxlsxyear" data-title="Year"><span class="glyphicon glyphicon-info-sign"></span></button>
+                        <select name="Year" class="form-control">
+                            @for (int i = 1980; i < DateTime.Now.Year + 1; i++)
+                            {
+                                <option value="@i">@i</option>
+                            }
+                        </select>
+                    </label>
+                </div>
+            }
+            break;
         case "StatSubsectorFRXLSX":
         case "StatSubsectorENXLSX":
             {
@@ -73,3 +97,4 @@ else
         default:
             break;
     }
+}

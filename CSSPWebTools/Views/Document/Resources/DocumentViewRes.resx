@@ -306,4 +306,7 @@
   <data name="ProvincialSubsectorsReviewXlsx" xml:space="preserve">
     <value>Provincial subsectors review (xlsx)</value>
   </data>
+  <data name="AllWQDataXlsx" xml:space="preserve">
+    <value>All WQ data (xlsx)</value>
+  </data>
 </root>

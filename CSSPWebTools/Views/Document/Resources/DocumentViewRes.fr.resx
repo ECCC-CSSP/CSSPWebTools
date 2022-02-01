@@ -306,4 +306,7 @@
   <data name="ProvincialSubsectorsReviewXlsx" xml:space="preserve">
     <value>Examen des sous-secteurs provinciaux (xlsx)</value>
   </data>
+  <data name="AllWQDataXlsx" xml:space="preserve">
+    <value>Tous les données de qualité d'eau (xlsx)</value>
+  </data>
 </root>

@@ -70,6 +70,15 @@ namespace CSSPWebTools.Views.Document.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to All WQ data (xlsx).
+        /// </summary>
+        public static string AllWQDataXlsx {
+            get {
+                return ResourceManager.GetString("AllWQDataXlsx", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Annual Review (docx).
         /// </summary>
         public static string AnnualReviewDocx {
