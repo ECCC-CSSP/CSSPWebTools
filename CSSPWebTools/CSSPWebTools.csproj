@@ -1269,10 +1269,12 @@
     <EmbeddedResource Include="Views\Document\Resources\DocumentViewRes.fr.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>DocumentViewRes.fr.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Document\Resources\DocumentViewRes.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>DocumentViewRes.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\DrogueRun\Resources\DrogueRunViewRes.fr.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

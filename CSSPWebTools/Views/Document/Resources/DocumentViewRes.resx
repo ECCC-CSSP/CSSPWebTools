@@ -309,4 +309,7 @@
   <data name="AllWQDataXlsx" xml:space="preserve">
     <value>All WQ data (xlsx)</value>
   </data>
+  <data name="WQMSitesPhotoAlbumDocx" xml:space="preserve">
+    <value>Water Quality Monitoring Sites photo album (docx)</value>
+  </data>
 </root>

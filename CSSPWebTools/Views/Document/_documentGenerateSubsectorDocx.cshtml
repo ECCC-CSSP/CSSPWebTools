@@ -398,6 +398,34 @@ else
                 </div>
             }
             break;
+        case "WQMSitesPhotoAlbumENDOCX":
+        case "WQMSitesPhotoAlbumFRDOCX":
+            {
+                <legend>
+                    <span>@DocumentViewRes.Parameters</span>
+                    <button class="jbHelpDocShowDialog btn btn-link" data-dockey="documentparametersforwqmsitesphotoalbumdocx"
+                            data-title="@DocumentViewRes.Parameters @DocumentViewRes.For @DocumentViewRes.WQMSitesPhotoAlbumDocx">
+                        <span class="glyphicon glyphicon-info-sign"></span>
+                    </button>
+                </legend>
+                <div class="form-inline">
+                    <label class="text-nowrap">
+                        <span>@DocumentViewRes.ReportYear</span>
+                        <button class="jbHelpDocShowDialog btn btn-link" data-dockey="documentwqmsitesphotoalbumdocxReportyear"
+                                data-title="@DocumentViewRes.WQMSitesPhotoAlbumDocx @DocumentViewRes.ReportYear">
+                            <span class="glyphicon glyphicon-info-sign"></span>
+                        </button>
+                        <select name="Year" class="form-control">
+                            @for (int i = DateTime.Now.Year; i > 1989; i--)
+                            {
+                                <option value="@i">@i.ToString()</option>
+                            }
+                        </select>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                    </label>
+                </div>            
+            }
+            break;
         default:
             break;
     }
