@@ -628,6 +628,15 @@ namespace CSSPWebTools.Views.Document.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Water Quality Monitoring Sites photo album (docx).
+        /// </summary>
+        public static string WQMSitesPhotoAlbumDocx {
+            get {
+                return ResourceManager.GetString("WQMSitesPhotoAlbumDocx", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Year.
         /// </summary>
         public static string Year {

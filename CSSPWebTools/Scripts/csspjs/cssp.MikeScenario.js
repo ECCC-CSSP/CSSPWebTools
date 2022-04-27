@@ -567,12 +567,12 @@ var CSSP;
                 var AllMWQMSourceList = [];
                 for (var i = 0, count = cssp.MikeScenario.MIKEResult.MIKEMWQMSiteResultList.length; i < count; i++) {
                     var mikeMWQMSiteResult = cssp.MikeScenario.MIKEResult.MIKEMWQMSiteResultList[i];
-                    var optionText = "<option value=\"" + mikeMWQMSiteResult.MWQMSiteTVItemID + "\">" + mikeMWQMSiteResult.MWQMSiteTVText + "</option>";
+                    var optionText = "<option value=\"".concat(mikeMWQMSiteResult.MWQMSiteTVItemID, "\">").concat(mikeMWQMSiteResult.MWQMSiteTVText, "</option>");
                     AllMWQMSiteList.push(optionText);
                 }
                 for (var i = 0, count = cssp.MikeScenario.MIKEResult.MIKESourceResultList.length; i < count; i++) {
                     var mikeSourceResult = cssp.MikeScenario.MIKEResult.MIKESourceResultList[i];
-                    var optionText = "<option value=\"" + mikeSourceResult.MWQMSourceTVItemID + "\">" + mikeSourceResult.MWQMSourceTVText + "</option>";
+                    var optionText = "<option value=\"".concat(mikeSourceResult.MWQMSourceTVItemID, "\">").concat(mikeSourceResult.MWQMSourceTVText, "</option>");
                     AllMWQMSourceList.push(optionText);
                 }
                 $("#MIKEScenarioSelectMWQMSiteID").html(AllMWQMSiteList.join(" "));
