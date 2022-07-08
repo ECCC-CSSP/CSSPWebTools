@@ -21,7 +21,6 @@
             <form class="GenerateReport" method="post" role="form" action="Document/DocumentGenerateJSON">
                 @Html.AntiForgeryToken()
                 <fieldset>
-                    <legend><span>@DocumentViewRes.Parameters</span></legend>
                     <input type="hidden" name="TVItemID" value="@TVItemID" />
                     <input type="hidden" name="ReportTypeID" value="@ReportTypeID" />
                     @Parameters(reportTypeModel.UniqueCode)
@@ -52,7 +51,29 @@ else
         case "SubsectorInformationFRKMZ":
         case "SubsectorInformationENKMZ":
             {
-                <span>@DocumentViewRes.NoParameters</span>
+                <legend>
+                    <span>@DocumentViewRes.Parameters</span>
+                    <button class="jbHelpDocShowDialog btn btn-link" data-dockey="documentparametersforsubsectorinformationkmz"
+                            data-title="@DocumentViewRes.Parameters @DocumentViewRes.For @DocumentViewRes.SubsectorInformationKMZ">
+                        <span class="glyphicon glyphicon-info-sign"></span>
+                    </button>
+                </legend>
+                <div class="form-inline">
+                    <label class="text-nowrap">
+                        <span>@DocumentViewRes.ReportYear</span>
+                        <button class="jbHelpDocShowDialog btn btn-link" data-dockey="documentsubsectorinformationkmzyear"
+                                data-title="@DocumentViewRes.SubsectorInformationKMZ @DocumentViewRes.ReportYear">
+                            <span class="glyphicon glyphicon-info-sign"></span>
+                        </button>
+                        <select name="Year" class="form-control">
+                            @for (int i = DateTime.Now.Year; i > 1989; i--)
+                            {
+                                <option value="@i" @(i == DateTime.Now.Year ? "selected=selected" : "")>@i.ToString()</option>
+                            }
+                        </select>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                    </label>
+                </div>
             }
             break;
         default:

@@ -312,4 +312,7 @@
   <data name="WQMSitesPhotoAlbumDocx" xml:space="preserve">
     <value>Water Quality Monitoring Sites photo album (docx)</value>
   </data>
+  <data name="SubsectorInformationKMZ" xml:space="preserve">
+    <value>Subsector information (kmz)</value>
+  </data>
 </root>
