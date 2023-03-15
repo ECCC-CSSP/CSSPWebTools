@@ -358,6 +358,15 @@ namespace CSSPWebTools.Views.Document.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Include rain CMP data.
+        /// </summary>
+        public static string IncludeRainCMPData {
+            get {
+                return ResourceManager.GetString("IncludeRainCMPData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to is not implemented.
         /// </summary>
         public static string IsNotImplemented {

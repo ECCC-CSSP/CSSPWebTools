@@ -378,7 +378,7 @@ namespace CSSPWebTools.Controllers
             ViewBag.SubsectorTVItemID = urlModel.TVItemIDList[0];
             ViewBag.MWQMSubsectorAnalysisModel = null;
 
-            MWQMSubsectorAnalysisModel mwqmSubsectorAnalysisModel = _MWQMSubsectorService.GetMWQMSubsectorAnalysisModel(urlModel.TVItemIDList[0]);
+            MWQMSubsectorAnalysisModel mwqmSubsectorAnalysisModel = _MWQMSubsectorService.GetMWQMSubsectorAnalysisModel(urlModel.TVItemIDList[0], false);
 
             ViewBag.MWQMSubsectorAnalysisModel = mwqmSubsectorAnalysisModel;
 

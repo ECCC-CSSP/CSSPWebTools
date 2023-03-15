@@ -315,4 +315,7 @@
   <data name="SubsectorInformationKMZ" xml:space="preserve">
     <value>Subsector information (kmz)</value>
   </data>
+  <data name="IncludeRainCMPData" xml:space="preserve">
+    <value>Include rain CMP data</value>
+  </data>
 </root>
