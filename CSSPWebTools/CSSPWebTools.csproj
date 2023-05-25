@@ -50,19 +50,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
-    <Reference Include="CSSPDBDLL">
-      <HintPath>..\..\CSSPDBDLL\CSSPDBDLL\bin\Debug\CSSPDBDLL.dll</HintPath>
-    </Reference>
-    <Reference Include="CSSPEnumsDLL">
-      <HintPath>..\..\CSSPEnumsDLL\CSSPEnumsDLL\bin\Debug\CSSPEnumsDLL.dll</HintPath>
-    </Reference>
-    <Reference Include="CSSPLabSheetParserDLL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\CSSPLabSheetParserDLL\CSSPLabSheetParserDLL\bin\Debug\CSSPLabSheetParserDLL.dll</HintPath>
-    </Reference>
-    <Reference Include="CSSPModelsDLL">
-      <HintPath>..\..\CSSPModelsDLL\CSSPModelsDLL\bin\Debug\CSSPModelsDLL.dll</HintPath>
-    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -1506,6 +1493,20 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>VisualPlumeViewRes.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\CSSPDBDLL\CSSPDBDLL\CSSPDBDLL.csproj">
+      <Project>{f452f806-e07d-42fe-a6ae-294cebf1d950}</Project>
+      <Name>CSSPDBDLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\CSSPEnumsDLL\CSSPEnumsDLL\CSSPEnumsDLL.csproj">
+      <Project>{78d59e0e-c66f-4f57-9703-2f69ebe4caa6}</Project>
+      <Name>CSSPEnumsDLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\CSSPModelsDLL\CSSPModelsDLL\CSSPModelsDLL.csproj">
+      <Project>{eb211f77-4987-405d-ad8f-53882f261c33}</Project>
+      <Name>CSSPModelsDLL</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
